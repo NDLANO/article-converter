@@ -1,0 +1,15 @@
+{
+  "name": "content-frontend",
+  "version": "1.0.0",
+  "description": "Content and stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@kode.knowit.no:7999/ndla/content-frontend.git"
+  },
+  "author": "ndla@knowit.no",
+  "license": "GPL-3.0"
+}
