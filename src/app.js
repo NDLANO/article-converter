@@ -20,16 +20,12 @@ app.get('/:id/content', (req, res) => {
       return response.json();
     })
     .then((data) => {
-      console.log('HALLA');
       res.send('<!doctype html>\n'.concat(renderToString(<Html component={<Content data={data} />} />))); // eslint-disable-lint
       res.end();
     });
-  console.log('http://api.test.ndla.no/content/'.concat(req.params.id));
 });
 
 app.get('*', (req, res) => {
-  // fetch
-  console.log('YO');
   res.send('<!doctype html>\n' + renderToString(<Html component={<NotFound />}/>)); // eslint-disable-line
 });
 
