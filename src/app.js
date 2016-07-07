@@ -5,24 +5,27 @@ import express from 'express';
 import Html from './Html';
 import Content from './Content';
 import NotFound from './NotFound';
+import { fetchResource } from './sources';
+import { parseHtmlString } from './parser';
 const app = express();
 
-app.use(express.static('htdocs'));
+app.use(express.static('htdocs/'));
 
 app.get('/:id/content', (req, res) => {
-  fetch('http://api.test.ndla.no/content/'.concat(req.params.id))
-    .then((response) => {
-      if (response.status >= 400) {
-        res.send('<!doctype html>\n'.concat(renderToString(<Html component={<NotFound />} />))); // eslint-disable-lint
-        res.end();
-        throw new Error('Bad response from server');
-      }
-      return response.json();
+  fetchResource('http://api.test.ndla.no/content/'.concat(req.params.id))
+    .then((content) => {
+      parseHtmlString(content.content[0].content, (parsedContent) => {
+        parsedContent.then((con) => {
+          res.send('<!doctype html>\n'.concat(renderToString(<Html component={<Content parsedContent={con} data={content} />} />))); // eslint-disable-lint
+          res.end();
+        });
+      });
     })
-    .then((data) => {
-      res.send('<!doctype html>\n'.concat(renderToString(<Html component={<Content data={data} />} />))); // eslint-disable-lint
+    .catch((err) => {
+      res.send('<!doctype html>\n'.concat(renderToString(<Html component={<NotFound errorMessage={err} />} />))); // eslint-disable-lint
       res.end();
-    });
+    }
+  );
 });
 
 app.get('*', (req, res) => {

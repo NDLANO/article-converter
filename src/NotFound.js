@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const NotFound = () => (
+const NotFound = ({errorMessage}) => (
   <div>
-    <p>404 - Not found</p>
+    <p>{errorMessage ? `${errorMessage.status} - ${errorMessage.message}` : ''}
+    </p>
   </div>
 );
-
+NotFound.propTypes = {
+  errorMessage: PropTypes.object
+};
 export default NotFound;
