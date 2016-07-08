@@ -19,6 +19,9 @@ function resolveJsonOrRejectWithError(res) {
 
 const fetchResource = (url) => fetch(url).then(resolveJsonOrRejectWithError);
 
+const fetchFigureResources = (url, id) => fetch(url).then(resolveJsonOrRejectWithError).then((figure) => Object.assign({id, metaUrl: url, figure}, {}));
+
 export {
   fetchResource,
+  fetchFigureResources
 };

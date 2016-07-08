@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "eslint src",
     "test": "test",
-    "start": "nodemon --watch src/ --watch htdocs/ src/server.js",
+    "start": "nodemon --watch src/ --watch server/ --watch htdocs/ server/server.js",
     "lint": "eslint src"
   },
   "repository": {
