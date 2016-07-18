@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-
 const Html = ({component}) => (
   <html lang="en-us">
     <head>
@@ -15,7 +14,7 @@ const Html = ({component}) => (
 );
 
 Html.propTypes = {
-  component: PropTypes.object.isRequired
+  component: PropTypes.object.isRequired,
 };
 
 export default Html;
