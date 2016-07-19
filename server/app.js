@@ -15,7 +15,7 @@ const app = express();
 
 app.use(express.static('htdocs/'));
 
-app.get('*/:id/content', (req, res) => {
+app.get('*/:id', (req, res) => {
   const paths = req.url.split('/');
   const lang = getHtmlLang(defined(paths[1], ''));
   let tempContent = '';
