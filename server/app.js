@@ -13,9 +13,9 @@ import { getHtmlLang } from '../src/locale/configureLocale';
 import { contentI18N } from '../src/util/i18nFieldFinder';
 const app = express();
 
-app.use(express.static('htdocs/'));
+app.use('/content-frontend', express.static('htdocs/'));
 
-app.get('*/:id', (req, res) => {
+app.get('/content-frontend*/:id', (req, res) => {
   const paths = req.url.split('/');
   const lang = getHtmlLang(defined(paths[1], ''));
   let tempContent = '';
@@ -36,7 +36,7 @@ app.get('*/:id', (req, res) => {
     })))
     .then((figures) => parseHtmlString(figures, contentI18N(tempContent, lang, true), lang))
     .then((html) => {
-      res.send('<!doctype html>\n'.concat(renderToString(<Html lang={lang} component={<Content lang={lang} parsedContent={html} data={tempContent} />} />)));
+      res.send('<!doctype html>\n'.concat(renderToString(<Html param={req.params[0]} lang={lang} component={<Content lang={lang} parsedContent={html} data={tempContent} />} />)));
       res.end();
     })
     .catch((err) => {
