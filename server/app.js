@@ -36,7 +36,7 @@ app.get('/content-frontend*/:id', (req, res) => {
     })))
     .then((figures) => parseHtmlString(figures, contentI18N(tempContent, lang, true), lang))
     .then((html) => {
-      res.send('<!doctype html>\n'.concat(renderToString(<Html param={req.params[0]} lang={lang} component={<Content lang={lang} parsedContent={html} data={tempContent} />} />)));
+      res.send('<!doctype html>\n'.concat(renderToString(<Html lang={lang} component={<Content lang={lang} parsedContent={html} data={tempContent} />} />)));
       res.end();
     })
     .catch((err) => {
