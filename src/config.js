@@ -10,16 +10,10 @@ const environment = {
 module.exports = Object.assign({
   host: process.env.CONTENT_FRONTEND_HOST || 'localhost',
   port: process.env.CONTENT_FRONTEND_PORT || '3000',
-  ndlaContentApiUrl: process.env.NDLA_CONTENT_API_URL || 'http://api.test.ndla.no/content/',
+  ndlaContentApiUrl: process.env.NDLA_API_URL || 'http://api.test.ndla.no',
 
   app: {
-    title: 'NDLA Læringsstier',
-    head: {
-      meta: [
-        { name: 'description', content: 'NDLA Læringsstier meta description' },
-        { property: 'og:site_name', content: 'NDLA Læringsstier' },
-      ],
-    },
+    title: 'NDLA Content frontend',
   },
 
 }, environment);
