@@ -1,6 +1,5 @@
 import 'isomorphic-fetch';
 import { apiResourceUrl, resolveJsonOrRejectWithError } from './helpers';
-import { formatPattern } from 'react-router/lib/PatternUtils';
 
 function resolveJsonOrRejectWithImageObject(res) {
   return new Promise((resolve) => {
@@ -13,7 +12,7 @@ function resolveJsonOrRejectWithImageObject(res) {
 }
 
 function fetchContent(contentId, method = 'GET') {
-  const url = apiResourceUrl(formatPattern('/content/:contentId', { contentId }));
+  const url = apiResourceUrl(`/content/${contentId}`);
   return fetch(url, { method }).then(resolveJsonOrRejectWithError);
 }
 
