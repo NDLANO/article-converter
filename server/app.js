@@ -6,20 +6,21 @@ import express from 'express';
 import Html from './Html';
 import Content from '../src/components/Content';
 import NotFound from '../src/components/NotFound';
-import { fetchResource, fetchFigureResources } from '../src/sources/content';
+import { fetchContent, fetchFigureResources } from '../src/sources/content';
 import { parseHtmlString } from '../src/parser';
 import { getFigures } from '../src/generator';
 import { getHtmlLang } from '../src/locale/configureLocale';
 import { contentI18N } from '../src/util/i18nFieldFinder';
 const app = express();
 
-app.use(express.static('htdocs/'));
+app.use('/content-frontend', express.static('htdocs/'));
 
-app.get('*/:id/content', (req, res) => {
+app.get('/content-frontend*/:id', (req, res) => {
   const paths = req.url.split('/');
   const lang = getHtmlLang(defined(paths[1], ''));
   let tempContent = '';
-  fetchResource('http://api.test.ndla.no/content/'.concat(req.params.id))
+  const contentId = req.params.id;
+  fetchContent(contentId)
     .then((content) => {
       tempContent = content;
       return getFigures(contentI18N(content, lang, true));

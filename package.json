@@ -7,7 +7,8 @@
     "pretest": "eslint src",
     "test": "test",
     "start": "nodemon --watch src/ --watch server/ --watch htdocs/ server/server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "start-prod": "NODE_ENV=production node server/server.js"
   },
   "repository": {
     "type": "git",
