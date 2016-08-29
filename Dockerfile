@@ -20,7 +20,6 @@ RUN mkdir -p $APP_PATH/htdocs/assets/ && \
 USER root
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
-COPY htdocs/assets/style.css $APP_PATH/htdocs/assets/
 
 COPY server $APP_PATH/server
 RUN chown -R app:app $HOME/*
