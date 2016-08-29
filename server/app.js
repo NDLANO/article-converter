@@ -13,9 +13,9 @@ import { getHtmlLang } from '../src/locale/configureLocale';
 import { contentI18N } from '../src/util/i18nFieldFinder';
 const app = express();
 
-app.use('/content-frontend', express.static('htdocs/'));
+app.use('/article-oembed', express.static('htdocs/'));
 
-app.get('/content-frontend*/:id', (req, res) => {
+app.get('/article-oembed*/:id', (req, res) => {
   const paths = req.url.split('/');
   const lang = getHtmlLang(defined(paths[1], ''));
   let tempContent = '';

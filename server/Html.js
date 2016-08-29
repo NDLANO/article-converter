@@ -4,7 +4,7 @@ const Html = ({component}) => {
     <html lang="en-us">
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300italic,300|Signika:400,600,300,700" />
-        <link rel="shortcut icon" href="/content-frontend/assets/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/article-oembed/assets/favicon.ico" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>

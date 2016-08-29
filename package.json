@@ -1,7 +1,7 @@
 {
-  "name": "content-frontend",
+  "name": "article-oembed",
   "version": "0.0.1",
-  "description": "NDLA Content Front-End",
+  "description": "NDLA Article oembed",
   "main": "index.js",
   "scripts": {
     "pretest": "eslint src",

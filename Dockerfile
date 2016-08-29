@@ -4,7 +4,7 @@ FROM node:6.2.2
 RUN useradd --user-group --create-home --shell /bin/false app
 
 ENV HOME=/home/app
-ENV APP_PATH=$HOME/content-frontend
+ENV APP_PATH=$HOME/article-oembed
 
 # Copy necessary files for installing dependencies
 COPY package.json $APP_PATH/
