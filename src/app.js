@@ -11,6 +11,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import 'isomorphic-fetch';
 import defined from 'defined';
 import express from 'express';
+import cors from 'cors';
 import Content from './components/Content';
 import config from './config';
 import { fetchContent, fetchFigureResources } from './sources/content';
@@ -20,6 +21,8 @@ import { getHtmlLang } from './locale/configureLocale';
 import { contentI18N } from './util/i18nFieldFinder';
 
 const app = express();
+
+app.use(cors());
 
 app.use('/article-oembed', express.static('htdocs/'));
 

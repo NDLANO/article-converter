@@ -17,7 +17,7 @@ const environment = {
 
 module.exports = Object.assign({
   host: process.env.ARTICLE_OEMBED_HOST || 'localhost',
-  port: process.env.ARTICLE_OEMBED_PORT || '3000',
+  port: process.env.ARTICLE_OEMBED_PORT || '3001',
   ndlaContentApiUrl: process.env.NDLA_API_URL || 'http://api.test.ndla.no',
 
   app: {
