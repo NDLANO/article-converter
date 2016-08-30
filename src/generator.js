@@ -11,11 +11,11 @@ import jsdom from 'jsdom';
 function generateFigureObject(figure) {
   switch (figure.data('resource')) {
     case 'image':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), size: figure.data('size'), url: figure.data('url')});
+      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), size: figure.data('size'), url: figure.data('url') });
     case 'brightcove':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: {account: figure.data('account'), player: figure.data('player'), videoid: figure.data('videoid')} });
+      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: { account: figure.data('account'), player: figure.data('player'), videoid: figure.data('videoid') } });
     case 'h5p':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: {url: figure.data('url')}});
+      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: { url: figure.data('url') } });
     default:
       return undefined;
   }

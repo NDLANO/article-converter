@@ -51,7 +51,7 @@ export function parseHtmlString(figures, content, lang) {
           });
         });
         resolve(window.document.documentElement.innerHTML);
-      }
+      },
     });
   });
 }

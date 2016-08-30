@@ -8,14 +8,14 @@
 
 import React, { PropTypes } from 'react';
 
-const Brightcove = ({video}) => {
+const Brightcove = ({ video }) => {
   const outerDivStyle = {
     display: 'block',
     position: 'relative',
-    maxWidth: '100%'
+    maxWidth: '100%',
   };
   const innerDivStyle = {
-    paddingTop: '56.25%'
+    paddingTop: '56.25%',
   };
   const videoStyle = {
     width: '100%',
@@ -24,7 +24,7 @@ const Brightcove = ({video}) => {
     top: '0',
     bottom: '0',
     right: '0',
-    left: '0'
+    left: '0',
   };
   return (
     <figure>

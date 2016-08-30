@@ -51,14 +51,14 @@ app.get('/article-oembed*/:id', (req, res) => {
         version: '1.0', // oEmbed version
         height: 800,
         width: 600,
-        html: renderToStaticMarkup(<Content lang={lang} parsedContent={html} data={tempContent} />)
+        html: renderToStaticMarkup(<Content lang={lang} parsedContent={html} data={tempContent} />),
       });
     })
     .catch((err) => {
       if (config.isProduction) {
-        res.status(500).json({status: 500, text: 'Internal server error'});
+        res.status(500).json({ status: 500, text: 'Internal server error' });
       } else {
-        res.status(500).json({status: 500, text: 'Internal server error', err});
+        res.status(500).json({ status: 500, text: 'Internal server error', err });
       }
     }
 
@@ -66,7 +66,7 @@ app.get('/article-oembed*/:id', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.status(404).json({status: 404, text: 'Not found'});
+  res.status(404).json({ status: 404, text: 'Not found' });
 });
 
 module.exports = app;

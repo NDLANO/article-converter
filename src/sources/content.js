@@ -15,7 +15,7 @@ function resolveJsonOrRejectWithImageObject(res) {
       return res.status === 204 ? resolve() : resolve(res.json());
     }
     return res.json()
-      .then(() => resolve(Object.assign({ images: { full: { url: `https://placeholdit.imgix.net/~text?txtsize=28&txt=${res.statusText}&w=1000&h=500` }}})));
+      .then(() => resolve(Object.assign({ images: { full: { url: `https://placeholdit.imgix.net/~text?txtsize=28&txt=${res.statusText}&w=1000&h=500` } } })));
   });
 }
 
@@ -24,9 +24,9 @@ function fetchContent(contentId, method = 'GET') {
   return fetch(url, { method }).then(resolveJsonOrRejectWithError);
 }
 
-const fetchFigureResources = (url, id) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((figure) => Object.assign({id, metaUrl: url, figure}, {}));
+const fetchFigureResources = (url, id) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((figure) => Object.assign({ id, metaUrl: url, figure }, {}));
 
 export {
   fetchContent,
-  fetchFigureResources
+  fetchFigureResources,
 };
