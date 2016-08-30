@@ -13,15 +13,13 @@ RUN chown -R app:app $HOME/*
 # Run npm install before src copy to enable better layer caching
 USER app
 WORKDIR $APP_PATH
-RUN mkdir -p $APP_PATH/htdocs/assets/ && \
-    npm install
+RUN npm install
 
 # Copy necessary source files for server and client build
 USER root
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
 
-COPY server $APP_PATH/server
 RUN chown -R app:app $HOME/*
 
 # Build client code
