@@ -7,13 +7,12 @@
  */
 
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import 'isomorphic-fetch';
 import defined from 'defined';
 import express from 'express';
-import Html from './Html';
 import Content from '../src/components/Content';
-import NotFound from '../src/components/NotFound';
+import config from '../src/config';
 import { fetchContent, fetchFigureResources } from '../src/sources/content';
 import { parseHtmlString } from '../src/parser';
 import { getFigures } from '../src/generator';
@@ -24,6 +23,7 @@ const app = express();
 app.use('/article-oembed', express.static('htdocs/'));
 
 app.get('/article-oembed*/:id', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   const paths = req.url.split('/');
   const lang = getHtmlLang(defined(paths[1], ''));
   let tempContent = '';
@@ -45,19 +45,27 @@ app.get('/article-oembed*/:id', (req, res) => {
     })))
     .then((figures) => parseHtmlString(figures, contentI18N(tempContent, lang, true), lang))
     .then((html) => {
-      res.send('<!doctype html>\n'.concat(renderToString(<Html lang={lang} component={<Content lang={lang} parsedContent={html} data={tempContent} />} />)));
-      res.end();
+      res.json({
+        type: 'rich',
+        version: '1.0', // oEmbed version
+        height: 800,
+        width: 600,
+        html: renderToStaticMarkup(<Content lang={lang} parsedContent={html} data={tempContent} />)
+      });
     })
     .catch((err) => {
-      res.send('<!doctype html>\n'.concat(renderToString(<Html lang={lang} component={<NotFound errorMessage={err} />} />)));
-      res.end();
+      if (config.isProduction) {
+        res.status(500).json({status: 500, text: 'Internal server error'});
+      } else {
+        res.status(500).json({status: 500, text: 'Internal server error', err});
+      }
     }
+
   );
 });
 
 app.get('*', (req, res) => {
-  res.send('<!doctype html>\n'.concat(renderToString(<Html component={<NotFound />} />)));
-  res.end();
+  res.status(404).json({status: 404, text: 'Not found'});
 });
 
 module.exports = app;
