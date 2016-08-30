@@ -6,7 +6,7 @@
  *
  */
 
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import { apiResourceUrl, resolveJsonOrRejectWithError } from './helpers';
 
 function resolveJsonOrRejectWithImageObject(res) {

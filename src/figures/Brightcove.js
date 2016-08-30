@@ -7,6 +7,7 @@
  */
 
 import React, { PropTypes } from 'react';
+
 const Brightcove = ({video}) => {
   const outerDivStyle = {
     display: 'block',
@@ -36,8 +37,7 @@ const Brightcove = ({video}) => {
             data-player={video.player}
             data-embed="default"
             className="video-js" controls
-          >
-          </video>
+          />
           <script src={`//players.brightcove.net/${video.account}/${video.player}_default/index.min.js`} />
         </div>
       </div>

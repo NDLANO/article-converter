@@ -7,6 +7,7 @@
  */
 
 import React, { PropTypes } from 'react';
+
 const Script = ({requiredLibraries}) => (
   <div>
     {requiredLibraries.map((library) =>

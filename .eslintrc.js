@@ -10,9 +10,10 @@ module.exports = {
       ignoreUrls: true,
       ignoreComments: false
     }],
+    'react/jsx-filename-extension': [0, { extensions: [".js", ".jsx"] }],
     'react/prop-types': [ 2, {'ignore': ['children','className'] }],
     "comma-dangle": 0,
-    "object-curly-spacing": 0,
-    "react/prefer-stateless-function": 1
+    'import/prefer-default-export': 0,
+    "object-curly-spacing": 0
   }
 };

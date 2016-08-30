@@ -8,11 +8,12 @@
 
 import jsdom from 'jsdom';
 import React from 'react';
+import { renderToString } from 'react-dom/server';
+
 import Brightcove from './figures/Brightcove';
 import Image from './figures/Image';
 import H5P from './figures/H5P';
 
-import { renderToString } from 'react-dom/server';
 
 function parser(element, figure, lang) {
   switch (element.data('resource')) {

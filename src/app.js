@@ -18,6 +18,7 @@ import { parseHtmlString } from './parser';
 import { getFigures } from './generator';
 import { getHtmlLang } from './locale/configureLocale';
 import { contentI18N } from './util/i18nFieldFinder';
+
 const app = express();
 
 app.use('/article-oembed', express.static('htdocs/'));
