@@ -18,7 +18,7 @@ import { fetchContent, fetchFigureResources } from './sources/content';
 import { parseHtmlString } from './parser';
 import { getFigures } from './generator';
 import { getHtmlLang } from './locale/configureLocale';
-import { contentI18N } from './util/i18nFieldFinder';
+import { contentI18N, titlesI18N } from './util/i18nFieldFinder';
 
 const app = express();
 
@@ -29,10 +29,9 @@ app.use(cors({
 
 app.use('/article-oembed', express.static('htdocs/'));
 
-app.get('/article-oembed*/:id', (req, res) => {
+app.get('/article-oembed/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  const paths = req.url.split('/');
-  const lang = getHtmlLang(defined(paths[1], ''));
+  const lang = getHtmlLang(defined(req.params.lang, ''));
   let tempContent = '';
   const contentId = req.params.id;
   fetchContent(contentId)
@@ -55,6 +54,7 @@ app.get('/article-oembed*/:id', (req, res) => {
       res.json({
         type: 'rich',
         version: '1.0', // oEmbed version
+        title: titlesI18N(tempContent, lang, true),
         height: 800,
         width: 600,
         html: renderToStaticMarkup(<Content lang={lang} parsedContent={html} data={tempContent} />),
