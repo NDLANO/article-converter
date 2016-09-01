@@ -22,7 +22,10 @@ import { contentI18N } from './util/i18nFieldFinder';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 
 app.use('/article-oembed', express.static('htdocs/'));
 
