@@ -10,19 +10,19 @@ import React, { PropTypes } from 'react';
 import { titlesI18N } from '../util/i18nFieldFinder';
 import Script from './Script';
 
-const Content = ({ data, parsedContent, lang }) => (
-  <div className="content">
+const Article = ({ data, parsedArticle, lang }) => (
+  <div>
     <h1>{titlesI18N(data, lang, true)}</h1>
-    <div dangerouslySetInnerHTML={{ __html: parsedContent }} />
+    <div dangerouslySetInnerHTML={{ __html: parsedArticle }} />
     {data.requiredLibraries ? <Script requiredLibraries={data.requiredLibraries} /> : ''}
   </div>
 );
 
 
-Content.propTypes = {
+Article.propTypes = {
   data: PropTypes.object.isRequired,
-  parsedContent: PropTypes.string.isRequired,
+  parsedArticle: PropTypes.string.isRequired,
   lang: PropTypes.string.isRequired,
 };
 
-export default Content;
+export default Article;

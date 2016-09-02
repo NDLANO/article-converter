@@ -19,14 +19,14 @@ function resolveJsonOrRejectWithImageObject(res) {
   });
 }
 
-function fetchContent(contentId, method = 'GET') {
-  const url = apiResourceUrl(`/content/${contentId}`);
+function fetchArticle(articleId, method = 'GET') {
+  const url = apiResourceUrl(`/articles/${articleId}`);
   return fetch(url, { method }).then(resolveJsonOrRejectWithError);
 }
 
 const fetchFigureResources = (url, id) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((figure) => Object.assign({ id, metaUrl: url, figure }, {}));
 
 export {
-  fetchContent,
+  fetchArticle,
   fetchFigureResources,
 };

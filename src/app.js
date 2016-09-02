@@ -12,13 +12,13 @@ import 'isomorphic-fetch';
 import defined from 'defined';
 import express from 'express';
 import cors from 'cors';
-import Content from './components/Content';
+import Article from './components/Article';
 import config from './config';
-import { fetchContent, fetchFigureResources } from './sources/content';
+import { fetchArticle, fetchFigureResources } from './sources/articles';
 import { parseHtmlString } from './parser';
 import { getFigures } from './generator';
 import { getHtmlLang } from './locale/configureLocale';
-import { contentI18N, titlesI18N } from './util/i18nFieldFinder';
+import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
 
 const app = express();
 
@@ -32,12 +32,12 @@ app.use('/article-oembed', express.static('htdocs/'));
 app.get('/article-oembed/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
-  let tempContent = '';
-  const contentId = req.params.id;
-  fetchContent(contentId)
-    .then((content) => {
-      tempContent = content;
-      return getFigures(contentI18N(content, lang, true));
+  let tempArticle = '';
+  const articleId = req.params.id;
+  fetchArticle(articleId)
+    .then((article) => {
+      tempArticle = article;
+      return getFigures(articleI18N(article, lang, true));
     })
     .then((figures) => Promise.all(figures.map((figure) => {
       if (figure.resource === 'image') {
@@ -49,15 +49,15 @@ app.get('/article-oembed/:lang/:id', (req, res) => {
       }
       return undefined;
     })))
-    .then((figures) => parseHtmlString(figures, contentI18N(tempContent, lang, true), lang))
+    .then((figures) => parseHtmlString(figures, articleI18N(tempArticle, lang, true), lang))
     .then((html) => {
       res.json({
         type: 'rich',
         version: '1.0', // oEmbed version
-        title: titlesI18N(tempContent, lang, true),
+        title: titlesI18N(tempArticle, lang, true),
         height: 800,
         width: 600,
-        html: renderToStaticMarkup(<Content lang={lang} parsedContent={html} data={tempContent} />),
+        html: renderToStaticMarkup(<Article lang={lang} parsedArticle={html} data={tempArticle} />),
       });
     })
     .catch((err) => {
