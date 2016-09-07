@@ -12,6 +12,7 @@
 var http = require('http');
 
 require('babel-register');
+require('babel-polyfill');
 var app = require('./app');
 var config = require('../src/config')
 
