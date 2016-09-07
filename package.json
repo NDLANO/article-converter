@@ -30,6 +30,7 @@
     "nodemon": "1.10.2"
   },
   "dependencies": {
+    "compression": "1.6.2",
     "cors": "2.8.0",
     "defined": "1.0.0",
     "express": "4.14.0",

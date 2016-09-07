@@ -11,6 +11,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import 'isomorphic-fetch';
 import defined from 'defined';
 import express from 'express';
+import compression from 'compression';
 import cors from 'cors';
 import Article from './components/Article';
 import config from './config';
@@ -22,6 +23,7 @@ import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
 
 const app = express();
 
+app.use(compression());
 app.use(cors({
   origin: true,
   credentials: true,
