@@ -17,7 +17,7 @@ const Brightcove = ({ video }) => {
   const innerDivStyle = {
     paddingTop: '56.25%',
   };
-  const videoStyle = {
+  const iframeStyle = {
     width: '100%',
     height: '100%',
     position: 'absolute',
@@ -30,15 +30,13 @@ const Brightcove = ({ video }) => {
     <figure>
       <div style={outerDivStyle}>
         <div style={innerDivStyle}>
-          <video
-            style={videoStyle}
-            data-video-id={video.videoid}
-            data-account={video.account}
-            data-player={video.player}
-            data-embed="default"
-            className="video-js" controls
+          <iframe
+            style={iframeStyle}
+            src={`//players.brightcove.net/${video.account}/${video.player}_default/index.html?videoId=${video.videoid}`}
+            allowFullScreen
+            webkitallowfullscreen
+            mozallowfullscreen
           />
-          <script src={`//players.brightcove.net/${video.account}/${video.player}_default/index.min.js`} />
         </div>
       </div>
     </figure>
