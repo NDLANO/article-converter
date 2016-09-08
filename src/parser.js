@@ -8,7 +8,7 @@
 
 import jsdom from 'jsdom';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import Brightcove from './figures/Brightcove';
 import Image from './figures/Image';
@@ -18,11 +18,11 @@ import H5P from './figures/H5P';
 function parser(element, figure, lang) {
   switch (element.data('resource')) {
     case 'image':
-      return renderToString(<Image image={figure} lang={lang} />);
+      return renderToStaticMarkup(<Image image={figure} lang={lang} />);
     case 'brightcove':
-      return renderToString(<Brightcove video={figure} />);
+      return renderToStaticMarkup(<Brightcove video={figure} />);
     case 'h5p':
-      return renderToString(<H5P h5p={figure} />);
+      return renderToStaticMarkup(<H5P h5p={figure} />);
     case 'external':
       return undefined;
     default:
