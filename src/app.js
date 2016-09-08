@@ -31,46 +31,50 @@ app.use(cors({
 
 app.use('/article-oembed', express.static('htdocs/'));
 
+
+async function fetchAndTransformArticleToOembed(articleId, lang) {
+  const article = await fetchArticle(articleId);
+
+  const figures = await getFigures(articleI18N(article, lang, true));
+
+  const figuresWithResources = await Promise.all(figures.map((figure) => {
+    if (figure.resource === 'image') {
+      return fetchFigureResources(figure.url, figure.id);
+    } else if (figure.resource === 'brightcove') {
+      return figure;
+    } else if (figure.resource === 'h5p') {
+      return figure;
+    }
+    return undefined;
+  }));
+
+  const parsedHtml = await parseHtmlString(figuresWithResources, articleI18N(article, lang, true), lang);
+
+  return {
+    type: 'rich',
+    version: '1.0', // oEmbed version
+    title: titlesI18N(article, lang, true),
+    height: 800,
+    width: 600,
+    html: renderToStaticMarkup(<Article lang={lang} parsedArticle={parsedHtml} data={article} />),
+  };
+}
+
+
 app.get('/article-oembed/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
-  let tempArticle = '';
   const articleId = req.params.id;
-  fetchArticle(articleId)
-    .then((article) => {
-      tempArticle = article;
-      return getFigures(articleI18N(article, lang, true));
-    })
-    .then((figures) => Promise.all(figures.map((figure) => {
-      if (figure.resource === 'image') {
-        return fetchFigureResources(figure.url, figure.id);
-      } else if (figure.resource === 'brightcove') {
-        return figure;
-      } else if (figure.resource === 'h5p') {
-        return figure;
-      }
-      return undefined;
-    })))
-    .then((figures) => parseHtmlString(figures, articleI18N(tempArticle, lang, true), lang))
-    .then((html) => {
-      res.json({
-        type: 'rich',
-        version: '1.0', // oEmbed version
-        title: titlesI18N(tempArticle, lang, true),
-        height: 800,
-        width: 600,
-        html: renderToStaticMarkup(<Article lang={lang} parsedArticle={html} data={tempArticle} />),
-      });
-    })
-    .catch((err) => {
+  fetchAndTransformArticleToOembed(articleId, lang)
+    .then((json) => {
+      res.json(json);
+    }).catch((err) => {
       if (config.isProduction) {
         res.status(500).json({ status: 500, text: 'Internal server error' });
       } else {
         res.status(500).json({ status: 500, text: 'Internal server error', err });
       }
-    }
-
-  );
+    });
 });
 
 app.get('*', (req, res) => {
