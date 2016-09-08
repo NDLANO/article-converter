@@ -13,6 +13,7 @@ import defined from 'defined';
 import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
+import bunyan from 'bunyan';
 import Article from './components/Article';
 import config from './config';
 import { fetchArticle, fetchFigureResources } from './sources/articles';
@@ -22,6 +23,7 @@ import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
 
 const app = express();
+const log = bunyan.createLogger({ name: 'article-oembed' });
 
 app.use(compression());
 app.use(cors({
@@ -45,6 +47,7 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
     } else if (figure.resource === 'h5p') {
       return figure;
     }
+    log.warn(figure, 'Unhandled figure');
     return undefined;
   }));
 
