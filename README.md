@@ -98,10 +98,6 @@ https://github.com/expressjs/compression#readme
 Middleware for dynamically or statically enabling CORS in express/connect applications
 https://github.com/expressjs/cors/
 
-**jsdom:**
-A JavaScript implementation of the DOM and HTML standards.
-https://github.com/tmpvar/jsdom#readme
-
 **react:**
 React is a JavaScript library for building user interfaces.
 https://facebook.github.io/react/
@@ -123,6 +119,10 @@ https://lodash.com/
 **cross-env**
 Run commands that set environment variables across platforms
 https://github.com/kentcdodds/cross-env
+
+**parse5**
+WHATWG HTML5 specification-compliant, fast and ready for production HTML parsing/serialization toolset for Node.js
+https://github.com/inikulin/parse5
 
 ### ES2015/6
 

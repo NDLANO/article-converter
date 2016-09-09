@@ -24,7 +24,7 @@ function fetchArticle(articleId, method = 'GET') {
   return fetch(url, { method }).then(resolveJsonOrRejectWithError);
 }
 
-const fetchFigureResources = (url, id) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((figure) => Object.assign({ id, metaUrl: url, figure }, {}));
+const fetchFigureResources = (url, id, resource) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((figure) => ({ id, url, resource, figure }));
 
 export {
   fetchArticle,

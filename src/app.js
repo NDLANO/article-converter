@@ -40,7 +40,7 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
 
   const figuresWithResources = await Promise.all(figures.map((figure) => {
     if (figure.resource === 'image') {
-      return fetchFigureResources(figure.url, figure.id);
+      return fetchFigureResources(figure.url, figure.id, figure.resource);
     } else if (figure.resource === 'brightcove') {
       return figure;
     } else if (figure.resource === 'h5p') {
