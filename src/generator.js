@@ -6,33 +6,49 @@
  *
  */
 
-import jsdom from 'jsdom';
+import parse5 from 'parse5';
+import log from './logger';
 
-function generateFigureObject(figure) {
-  switch (figure.data('resource')) {
+function createFigureObject(attrs) {
+  // Reduce attributes array to object with attribute name (striped of date-) as keys.
+  const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
+
+  switch (obj.resource) {
     case 'image':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), size: figure.data('size'), url: figure.data('url') });
+      return { id: parseInt(obj.id, 10), resource: obj.resource, size: obj.size, url: obj.url };
     case 'brightcove':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: { account: figure.data('account'), player: figure.data('player'), videoid: figure.data('videoid') } });
+      return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid } };
     case 'h5p':
-      return Object.assign({ id: figure.data('id'), resource: figure.data('resource'), figure: { url: figure.data('url') } });
+      return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { url: obj.url } };
     default:
+      log.warn(obj, 'Unknown figure');
       return undefined;
   }
 }
 
+
+function findFigureNodes(node, figures = []) {
+  if (node.childNodes) {
+    if (node.tagName === 'figure') {
+      figures.push(node);
+    }
+
+    node.childNodes.forEach(n => findFigureNodes(n, figures));
+  }
+  return figures;
+}
+
 export function getFigures(content) {
   return new Promise((resolve, reject) => {
-    jsdom.env({
-      html: content,
-      scripts: ['http://code.jquery.com/jquery.js'],
-      done: (err, window) => {
-        if (err) {
-          reject(err);
-        }
-        const $ = window.$;
-        resolve($('figure').map((i, figure) => generateFigureObject($(figure))).toArray());
-      },
-    });
+    try {
+      const root = parse5.parseFragment(content);
+      const figureNodes = findFigureNodes(root);
+      const figures = figureNodes.map(node => createFigureObject(node.attrs)).filter(f => f);
+      resolve(figures);
+    } catch (e) {
+      log.error(content, 'Error occoured while parsing html content and creating figure ojects from it');
+      log.error(e);
+      reject(e);
+    }
   });
 }
