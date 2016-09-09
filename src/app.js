@@ -17,7 +17,7 @@ import log from './logger';
 import Article from './components/Article';
 import config from './config';
 import { fetchArticle, fetchFigureResources } from './sources/articles';
-import { parseHtmlString } from './parser';
+import { replaceFiguresInHtml } from './replacer';
 import { getFigures } from './generator';
 import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
@@ -50,7 +50,7 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
     return undefined;
   }));
 
-  const parsedHtml = await parseHtmlString(figuresWithResources, articleI18N(article, lang, true), lang);
+  const parsedHtml = await replaceFiguresInHtml(figuresWithResources, articleI18N(article, lang, true), lang);
 
   return {
     type: 'rich',

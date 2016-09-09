@@ -30,7 +30,7 @@ function parser(element, figure, lang) {
   }
 }
 
-export function parseHtmlString(figures, content, lang) {
+export function replaceFiguresInHtml(figures, content, lang) {
   if (!content) {
     return undefined;
   }
