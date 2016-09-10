@@ -35,6 +35,6 @@ test('replacer replaceFiguresInHtml', async t => {
   const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb');
 
   t.truthy(replaced.indexOf('<figure><img alt="presentation" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/><span class="figure_caption">alt</span></figure>') !== -1);
-  t.truthy(replaced.indexOf('<figure><iframe style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1);
+  t.truthy(replaced.indexOf('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1);
   t.truthy(replaced.indexOf('<iframe style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" src="//players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012" allowfullscreen=""></iframe>') !== -1); // eslint-disable-line max-len
 });
