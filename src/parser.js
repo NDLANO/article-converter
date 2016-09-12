@@ -38,15 +38,15 @@ function findFigureNodes(node, figures = []) {
   return figures;
 }
 
-export function getFigures(content) {
+export function getFiguresFromHtml(html) {
   return new Promise((resolve, reject) => {
     try {
-      const root = parse5.parseFragment(content);
+      const root = parse5.parseFragment(html);
       const figureNodes = findFigureNodes(root);
       const figures = figureNodes.map(node => createFigureObject(node.attrs)).filter(f => f);
       resolve(figures);
     } catch (e) {
-      log.error(content, 'Error occoured while parsing html content and creating figure ojects from it');
+      log.error(html, 'Error occoured while parsing html content and creating figure ojects from it');
       log.error(e);
       reject(e);
     }

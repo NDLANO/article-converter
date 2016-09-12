@@ -7,11 +7,11 @@
  */
 
 import test from 'ava';
-import articleContent from './_articleContentTestData';
-import { getFigures } from '../generator';
+import articleHtml from './_articleHtmlTestData';
+import { getFiguresFromHtml } from '../parser';
 
-test('generator getFigures', async t => {
-  const figures = await getFigures(articleContent);
+test('parser getFigures', async t => {
+  const figures = await getFiguresFromHtml(articleHtml);
   t.is(figures.length, 5);
   t.deepEqual(figures, [{ id: 8,
     resource: 'h5p',

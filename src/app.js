@@ -6,19 +6,16 @@
  *
  */
 
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import 'isomorphic-fetch';
 import defined from 'defined';
 import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
 import log from './logger';
-import Article from './components/Article';
 import config from './config';
 import { fetchArticle, fetchFigureResources } from './sources/articles';
 import { replaceFiguresInHtml } from './replacer';
-import { getFigures } from './generator';
+import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
 
@@ -36,7 +33,9 @@ app.use('/article-oembed', express.static('htdocs/'));
 async function fetchAndTransformArticleToOembed(articleId, lang) {
   const article = await fetchArticle(articleId);
 
-  const figures = await getFigures(articleI18N(article, lang, true));
+  const articleHtml = articleI18N(article, lang, true);
+
+  const figures = await getFiguresFromHtml(articleHtml);
 
   const figuresWithResources = await Promise.all(figures.map((figure) => {
     if (figure.resource === 'image') {
@@ -50,15 +49,16 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
     return undefined;
   }));
 
-  const parsedHtml = await replaceFiguresInHtml(figuresWithResources, articleI18N(article, lang, true), lang);
+  const html = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
+  const title = titlesI18N(article, lang, true);
 
   return {
     type: 'rich',
     version: '1.0', // oEmbed version
-    title: titlesI18N(article, lang, true),
+    title,
     height: 800,
     width: 600,
-    html: renderToStaticMarkup(<Article lang={lang} parsedArticle={parsedHtml} data={article} />),
+    html,
   };
 }
 
