@@ -20,6 +20,8 @@ function createFigureObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid } };
     case 'h5p':
       return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { url: obj.url } };
+    case 'content-link':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     default:
       log.warn(obj, 'Unknown figure');
       return undefined;

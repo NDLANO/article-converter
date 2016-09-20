@@ -11,7 +11,6 @@ import defined from 'defined';
 import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
-import log from './logger';
 import config from './config';
 import { fetchArticle, fetchFigureResources } from './sources/articles';
 import { replaceFiguresInHtml } from './replacer';
@@ -40,13 +39,8 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
   const figuresWithResources = await Promise.all(figures.map((figure) => {
     if (figure.resource === 'image') {
       return fetchFigureResources(figure.url, figure.id, figure.resource);
-    } else if (figure.resource === 'brightcove') {
-      return figure;
-    } else if (figure.resource === 'h5p') {
-      return figure;
     }
-    log.warn(figure, 'Unhandled figure');
-    return undefined;
+    return figure;
   }));
 
   const html = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
