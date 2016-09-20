@@ -10,7 +10,7 @@ import 'isomorphic-fetch';
 import defined from 'defined';
 import config from '../config';
 
-const NDLA_API_URL = config.ndlaContentApiUrl;
+const NDLA_API_URL = config.ndlaApiUrl;
 
 
 const apiBaseUrl = (() => {
