@@ -7,11 +7,30 @@
  */
 
 import test from 'ava';
-import articleHtml from './_articleHtmlTestData';
+import { articleWithMultipleResources, articleWithContentLink } from './_articleHtmlTestData';
 import { getFiguresFromHtml } from '../parser';
 
-test('parser getFigures', async t => {
-  const figures = await getFiguresFromHtml(articleHtml);
+
+test('parser getFiguresFromHtml (with content-link figures)', async t => {
+  const figures = await getFiguresFromHtml(articleWithContentLink);
+  t.is(figures.length, 2);
+  t.deepEqual(figures, [
+    {
+      id: 1,
+      resource: 'content-link',
+      contentId: '425',
+      linkText: 'Valg av informanter',
+    },
+    {
+      id: 2,
+      resource: 'content-link',
+      contentId: '424',
+      linkText: 'Bearbeiding av datamaterialet',
+    }]);
+});
+
+test('parser getFiguresFromHtml (qith multiple resources)', async t => {
+  const figures = await getFiguresFromHtml(articleWithMultipleResources);
   t.is(figures.length, 5);
   t.deepEqual(figures, [{ id: 8,
     resource: 'h5p',
@@ -34,5 +53,4 @@ test('parser getFigures', async t => {
      { account: 4806596774001,
        player: 'BkLm8fT',
        videoid: 'ref:46012' } }]);
-  t.pass();
 });
