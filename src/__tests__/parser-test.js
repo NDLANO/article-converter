@@ -32,25 +32,35 @@ test('parser getFiguresFromHtml (with content-link figures)', async t => {
 test('parser getFiguresFromHtml (qith multiple resources)', async t => {
   const figures = await getFiguresFromHtml(articleWithMultipleResources);
   t.is(figures.length, 5);
-  t.deepEqual(figures, [{ id: 8,
-    resource: 'h5p',
-    figure: { url: 'http://ndla.no/h5p/embed/163489' } },
-  { id: 7,
-    resource: 'image',
-    size: 'hovedspalte',
-    url: 'http://api.test.ndla.no/images/1327' },
-  { id: 6,
-    resource: 'image',
-    size: 'hovedspalte',
-    url: 'http://api.test.ndla.no/images/1326' },
-  { id: 4,
-    resource: 'image',
-    size: 'hovedspalte',
-    url: 'http://api.test.ndla.no/images/1325' },
-  { id: 2,
-    resource: 'brightcove',
-    figure:
-     { account: 4806596774001,
-       player: 'BkLm8fT',
-       videoid: 'ref:46012' } }]);
+  t.deepEqual(figures, [
+    {
+      id: 8,
+      resource: 'h5p',
+      url: 'http://ndla.no/h5p/embed/163489',
+    },
+    {
+      id: 7,
+      resource: 'image',
+      size: 'hovedspalte',
+      url: 'http://api.test.ndla.no/images/1327',
+    },
+    {
+      id: 6,
+      resource: 'image',
+      size: 'hovedspalte',
+      url: 'http://api.test.ndla.no/images/1326',
+    },
+    {
+      id: 4,
+      resource: 'image',
+      size: 'hovedspalte',
+      url: 'http://api.test.ndla.no/images/1325',
+    },
+    {
+      id: 2,
+      resource: 'brightcove',
+      account: 4806596774001,
+      player: 'BkLm8fT',
+      videoid: 'ref:46012',
+    }]);
 });

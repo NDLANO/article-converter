@@ -21,18 +21,18 @@ test('replacer replaceFiguresInHtml', async t => {
   `;
 
   const figures = [
-    { id: 8, resource: 'h5p', figure: { url: 'http://ndla.no/h5p/embed/163489' } },
+    { id: 8, resource: 'h5p', url: 'http://ndla.no/h5p/embed/163489' },
     { id: 6,
       resource: 'image',
       metaUrl: 'http://api.test.ndla.no/images/1326',
-      figure: {
+      image: {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
         images: { full: { url: 'http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg' } } },
     },
     { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
-    { id: 2, resource: 'brightcove', figure: { account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' } }];
+    { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
   const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb');
 

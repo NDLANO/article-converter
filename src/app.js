@@ -28,8 +28,7 @@ app.use(cors({
 
 app.use('/article-oembed', express.static('htdocs/'));
 
-
-async function fetchAndTransformArticleToOembed(articleId, lang) {
+async function fetchAndTransformArticle(articleId, lang) {
   const article = await fetchArticle(articleId);
 
   const articleHtml = articleI18N(article, lang, true);
@@ -44,6 +43,13 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
   }));
 
   const html = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
+
+  delete article.article;
+
+  return { ...article, html };
+}
+
+function articleToOembed(article, lang) {
   const title = titlesI18N(article, lang, true);
 
   return {
@@ -52,18 +58,33 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
     title,
     height: 800,
     width: 600,
-    html,
+    html: article.html,
   };
 }
 
+app.get('/article-oembed/with-meta-data/:lang/:id', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  const lang = getHtmlLang(defined(req.params.lang, ''));
+  const articleId = req.params.id;
+  fetchAndTransformArticle(articleId, lang)
+    .then((article) => {
+      res.json(article);
+    }).catch((err) => {
+      if (config.isProduction) {
+        res.status(500).json({ status: 500, text: 'Internal server error' });
+      } else {
+        res.status(500).json({ status: 500, text: 'Internal server error', err });
+      }
+    });
+});
 
 app.get('/article-oembed/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticleToOembed(articleId, lang)
-    .then((json) => {
-      res.json(json);
+  fetchAndTransformArticle(articleId, lang)
+    .then((article) => {
+      res.json(articleToOembed(article));
     }).catch((err) => {
       if (config.isProduction) {
         res.status(500).json({ status: 500, text: 'Internal server error' });
