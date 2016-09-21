@@ -1,3 +1,4 @@
+
 /**
  * Copyright (c) 2016-present, NDLA.
  *
@@ -7,7 +8,6 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { apiResourceUrl, resolveJsonOrRejectWithError } from './helpers';
 
 function resolveJsonOrRejectWithImageObject(res) {
   return new Promise((resolve) => {
@@ -19,14 +19,4 @@ function resolveJsonOrRejectWithImageObject(res) {
   });
 }
 
-function fetchArticle(articleId, method = 'GET') {
-  const url = apiResourceUrl(`/articles/${articleId}`);
-  return fetch(url, { method }).then(resolveJsonOrRejectWithError);
-}
-
-const fetchFigureResources = (url, id, resource) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((image) => ({ id, url, resource, image }));
-
-export {
-  fetchArticle,
-  fetchFigureResources,
-};
+export const fetchFigureResources = (url, id, resource) => fetch(url).then(resolveJsonOrRejectWithImageObject).then((image) => ({ id, url, resource, image }));
