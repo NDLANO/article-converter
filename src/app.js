@@ -43,11 +43,11 @@ async function fetchAndTransformArticle(articleId, lang) {
     return figure;
   }));
 
-  const html = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
+  const transformedContent = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
 
   delete article.article;
 
-  return { ...article, html };
+  return { ...article, content: transformedContent };
 }
 
 function articleToOembed(article, lang) {
@@ -59,11 +59,11 @@ function articleToOembed(article, lang) {
     title,
     height: 800,
     width: 600,
-    html: article.html,
+    html: article.content,
   };
 }
 
-app.get('/article-oembed/with-meta-data/:lang/:id', (req, res) => {
+app.get('/article-oembed/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
