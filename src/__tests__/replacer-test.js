@@ -34,10 +34,10 @@ test('replacer replaceFiguresInHtml', async t => {
     { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
-  const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb');
+  const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb', []);
 
-  t.truthy(replaced.indexOf('<figure><img alt="presentation" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/><span class="figure_caption">alt</span></figure>') !== -1);
+  t.truthy(replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/></figure>') !== -1);
   t.truthy(replaced.indexOf('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1);
   t.truthy(replaced.indexOf('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>') !== -1);
-  t.truthy(replaced.indexOf('<iframe style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" src="//players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012" allowfullscreen=""></iframe>') !== -1); // eslint-disable-line max-len
+  t.truthy(replaced.indexOf('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>') !== -1); // eslint-disable-line max-len
 });

@@ -15,6 +15,7 @@ export const titlesI18N = createFieldByLanguageFinder('titles', 'title');
 export const articleI18N = createFieldByLanguageFinder('article');
 export const tagsI18N = createFieldByLanguageFinder('tags');
 export const alttextsI18N = createFieldByLanguageFinder('alttexts', 'alttext');
+export const captionI18N = createFieldByLanguageFinder('captions', 'caption');
 
 export function oembedContentI18N(learningPathStep, lang, withFallback = false) {
   const translations = defined(learningPathStep.embedContent, []);
