@@ -15,15 +15,14 @@ import Image from './figures/Image';
 import H5P from './figures/H5P';
 import { ndlaFrontendUrl } from './config';
 
-
-function createMarkup(figure, lang) {
+function createFigureMarkup(figure, lang) {
   switch (figure.resource) {
     case 'image':
-      return renderToStaticMarkup(<Image image={figure.figure} lang={lang} />);
+      return renderToStaticMarkup(<Image image={figure.image} lang={lang} />);
     case 'brightcove':
-      return renderToStaticMarkup(<Brightcove video={figure.figure} />);
+      return renderToStaticMarkup(<Brightcove video={figure} />);
     case 'h5p':
-      return renderToStaticMarkup(<H5P h5p={figure.figure} />);
+      return renderToStaticMarkup(<H5P h5p={figure} />);
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${figure.contentId}">${figure.linkText}</a>`;
     default:
@@ -32,10 +31,16 @@ function createMarkup(figure, lang) {
   }
 }
 
-export function replaceFiguresInHtml(figures, html, lang) {
-  return figures.reduce((output, figure) => {
+export function replaceFiguresInHtml(figures, html, lang, requiredLibraries) {
+  const markup = figures.reduce((output, figure) => {
     const re = new RegExp(`<figure.*data-id="${figure.id}".*>.*<\/figure>`);
-    const markup = createMarkup(figure, lang);
-    return markup ? output.replace(re, markup) : output;
+    const figureMarkup = createFigureMarkup(figure, lang);
+    return figureMarkup ? output.replace(re, figureMarkup) : output;
   }, html);
+
+  const scripts = requiredLibraries.map((library) =>
+        `<script type="${library.mediaType}" src="${library.url}"></script>`
+      ).join();
+
+  return markup + scripts;
 }

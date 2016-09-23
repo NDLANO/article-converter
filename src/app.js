@@ -12,11 +12,12 @@ import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
 import config from './config';
-import { fetchArticle, fetchFigureResources } from './sources/articles';
+import { fetchArticle } from './api/articleApi';
+import { fetchFigureResources } from './api/imageApi';
 import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
-import { articleI18N, titlesI18N } from './util/i18nFieldFinder';
+import { articleI18N } from './util/i18nFieldFinder';
 
 const app = express();
 
@@ -28,8 +29,7 @@ app.use(cors({
 
 app.use('/article-oembed', express.static('htdocs/'));
 
-
-async function fetchAndTransformArticleToOembed(articleId, lang) {
+async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
 
   const articleHtml = articleI18N(article, lang, true);
@@ -43,27 +43,21 @@ async function fetchAndTransformArticleToOembed(articleId, lang) {
     return figure;
   }));
 
-  const html = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang);
-  const title = titlesI18N(article, lang, true);
+  const requiredLibraries = includeScripts ? article.requiredLibraries : [];
+  const transformedContent = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang, requiredLibraries);
 
-  return {
-    type: 'rich',
-    version: '1.0', // oEmbed version
-    title,
-    height: 800,
-    width: 600,
-    html,
-  };
+  delete article.article;
+
+  return { ...article, content: transformedContent };
 }
 
-
-app.get('/article-oembed/:lang/:id', (req, res) => {
+app.get('/article-oembed/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticleToOembed(articleId, lang)
-    .then((json) => {
-      res.json(json);
+  fetchAndTransformArticle(articleId, lang)
+    .then((article) => {
+      res.json(article);
     }).catch((err) => {
       if (config.isProduction) {
         res.status(500).json({ status: 500, text: 'Internal server error' });
@@ -71,6 +65,43 @@ app.get('/article-oembed/:lang/:id', (req, res) => {
         res.status(500).json({ status: 500, text: 'Internal server error', err });
       }
     });
+});
+
+app.get('/article-oembed/html/:lang/:id', (req, res) => {
+  // res.setHeader('Content-Type', 'application/json');
+  const lang = getHtmlLang(defined(req.params.lang, ''));
+  const articleId = req.params.id;
+  fetchAndTransformArticle(articleId, lang, true)
+    .then((article) => {
+      res.send(`<!doctype html>\n<html lang=${lang} >
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          </head>
+          <body>${article.content}</body>
+        </html>`);
+      res.end();
+    }).catch((error) => {
+      if (config.isProduction) {
+        res.render(500, { text: 'Internal server error' });
+      } else {
+        res.render(500, { text: 'Internal server error', error });
+      }
+    });
+});
+
+app.get('/article-oembed/:lang/:id', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  const lang = getHtmlLang(defined(req.params.lang, ''));
+  const articleId = req.params.id;
+
+  res.json({
+    type: 'rich',
+    version: '1.0', // oEmbed version
+    height: 800,
+    width: 600,
+    html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}"`,
+  });
 });
 
 app.get('*', (req, res) => {

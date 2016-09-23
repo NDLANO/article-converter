@@ -8,14 +8,15 @@
 
 import React, { PropTypes } from 'react';
 
-import { alttextsI18N } from '../util/i18nFieldFinder';
+import { alttextsI18N, captionI18N } from '../util/i18nFieldFinder';
 
 const Image = ({ image, lang }) => {
-  const caption = alttextsI18N(image, lang, true);
+  const altText = alttextsI18N(image, lang, true);
+  const caption = captionI18N(image, lang, true);
   return (
-    <figure>
-      <img alt="presentation" src={image.images.full.url} />
-      {caption ? <span className="figure_caption">{caption}</span> : ''}
+    <figure className="article_figure">
+      <img className="article_image" alt={altText} src={image.images.full.url} />
+      {caption ? <span className="article_caption">{caption}</span> : ''}
     </figure>
   );
 };

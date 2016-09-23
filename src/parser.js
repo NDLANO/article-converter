@@ -17,9 +17,9 @@ function createFigureObject(attrs) {
     case 'image':
       return { id: parseInt(obj.id, 10), resource: obj.resource, size: obj.size, url: obj.url };
     case 'brightcove':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid } };
+      return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid };
     case 'h5p':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, figure: { url: obj.url } };
+      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
     case 'content-link':
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     default:
