@@ -18,6 +18,7 @@ import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N } from './util/i18nFieldFinder';
+import { htmlResponse } from './html';
 
 const app = express();
 
@@ -73,13 +74,7 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
     .then((article) => {
-      res.send(`<!doctype html>\n<html lang=${lang} >
-          <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          </head>
-          <body>${article.content}</body>
-        </html>`);
+      res.send(htmlResponse(lang, article.content));
       res.end();
     }).catch((error) => {
       if (config.isProduction) {
