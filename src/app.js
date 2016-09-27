@@ -18,7 +18,8 @@ import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N } from './util/i18nFieldFinder';
-import { htmlResponse } from './html';
+import { htmlResponse, htmlErrorResponse } from './html';
+import { getAppropriateErrorResponse } from './util/errorHelpers';
 
 const app = express();
 
@@ -52,6 +53,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   return { ...article, content: transformedContent };
 }
 
+
 app.get('/article-oembed/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
@@ -59,17 +61,13 @@ app.get('/article-oembed/raw/:lang/:id', (req, res) => {
   fetchAndTransformArticle(articleId, lang)
     .then((article) => {
       res.json(article);
-    }).catch((err) => {
-      if (config.isProduction) {
-        res.status(500).json({ status: 500, text: 'Internal server error' });
-      } else {
-        res.status(500).json({ status: 500, text: 'Internal server error', err });
-      }
+    }).catch((error) => {
+      const response = getAppropriateErrorResponse(error, config.isProduction);
+      res.status(response.status).json(response);
     });
 });
 
 app.get('/article-oembed/html/:lang/:id', (req, res) => {
-  // res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
@@ -77,11 +75,8 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
       res.send(htmlResponse(lang, article.content));
       res.end();
     }).catch((error) => {
-      if (config.isProduction) {
-        res.render(500, { text: 'Internal server error' });
-      } else {
-        res.render(500, { text: 'Internal server error', error });
-      }
+      const response = getAppropriateErrorResponse(error, config.isProduction);
+      res.status(response.status).send(htmlErrorResponse(lang, response));
     });
 });
 
