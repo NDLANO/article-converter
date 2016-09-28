@@ -1,5 +1,4 @@
 module.exports = {
-  parser: "babel-eslint",
   extends: "airbnb",
   parserOptions: {
     ecmaFeatures: {
@@ -17,13 +16,6 @@ module.exports = {
       ignoreUrls: true,
       ignoreComments: false
     }],
-
-    // generator-star-spacing breaks linting in codebases that use async/await syntax
-    // See https://github.com/eslint/eslint/issues/6528
-    // enable babel/generator-star-spacing instead.
-    'generator-star-spacing': 0,
-    'babel/generator-star-spacing': [2, { 'before': false, 'after': true }],
-
 
     "react/forbid-prop-types": 0,
     'react/jsx-filename-extension': [0, { extensions: [".js", ".jsx"] }],
