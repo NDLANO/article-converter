@@ -7,7 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { apiResourceUrl, resolveJsonOrRejectWithError } from './apiHelpers';
+import { apiResourceUrl, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 
 export function fetchArticle(articleId, method = 'GET') {
   const url = apiResourceUrl(`/articles/${articleId}`);
