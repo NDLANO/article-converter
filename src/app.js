@@ -18,7 +18,7 @@ import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
 import { articleI18N } from './utils/i18nFieldFinder';
-import { htmlResponse, htmlErrorResponse } from './html';
+import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
@@ -29,7 +29,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use('/article-oembed', express.static('htdocs/'));
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -72,11 +71,11 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
     .then((article) => {
-      res.send(htmlResponse(lang, article.content));
+      res.send(htmlTemplate(lang, article.content));
       res.end();
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
-      res.status(response.status).send(htmlErrorResponse(lang, response));
+      res.status(response.status).send(htmlErrorTemplate(lang, response));
     });
 });
 

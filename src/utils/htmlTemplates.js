@@ -8,7 +8,7 @@
 
  import httpStaus from 'http-status';
 
- export const htmlResponse = (lang, body) =>
+ export const htmlTemplate = (lang, body) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
@@ -17,9 +17,9 @@
     <body>${body}</body>
   </html>`;
 
- export const htmlErrorResponse = (lang, { status, message, description, stacktrace }) => {
+ export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {
    const statusMsg = httpStaus[status];
-   return htmlResponse(lang, `
+   return htmlTemplate(lang, `
     <h1>${status} ${statusMsg}</h1>
     <div><b>Message: </b>${message}</div>
     <div><b>Description: </b>${description}</div>
