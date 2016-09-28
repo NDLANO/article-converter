@@ -8,7 +8,7 @@
 
 import React, { PropTypes } from 'react';
 
-import { alttextsI18N, captionI18N } from '../util/i18nFieldFinder';
+import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 
 const Image = ({ image, lang }) => {
   const altText = alttextsI18N(image, lang, true);

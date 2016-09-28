@@ -17,9 +17,9 @@ import { fetchFigureResources } from './api/imageApi';
 import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
-import { articleI18N } from './util/i18nFieldFinder';
+import { articleI18N } from './utils/i18nFieldFinder';
 import { htmlResponse, htmlErrorResponse } from './html';
-import { getAppropriateErrorResponse } from './util/errorHelpers';
+import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
 
