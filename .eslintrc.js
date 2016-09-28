@@ -25,6 +25,7 @@ module.exports = {
     'babel/generator-star-spacing': [2, { 'before': false, 'after': true }],
 
 
+    "react/forbid-prop-types": 0,
     'react/jsx-filename-extension': [0, { extensions: [".js", ".jsx"] }],
     'import/no-extraneous-dependencies':
       ['error', {'devDependencies': true}],

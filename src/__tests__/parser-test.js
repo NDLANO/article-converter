@@ -11,7 +11,7 @@ import { articleWithMultipleResources, articleWithContentLink } from './_article
 import { getFiguresFromHtml } from '../parser';
 
 
-test('parser getFiguresFromHtml (with content-link figures)', async t => {
+test('parser getFiguresFromHtml (with content-link figures)', async (t) => {
   const figures = await getFiguresFromHtml(articleWithContentLink);
   t.is(figures.length, 2);
   t.deepEqual(figures, [
@@ -29,7 +29,7 @@ test('parser getFiguresFromHtml (with content-link figures)', async t => {
     }]);
 });
 
-test('parser getFiguresFromHtml (qith multiple resources)', async t => {
+test('parser getFiguresFromHtml (qith multiple resources)', async (t) => {
   const figures = await getFiguresFromHtml(articleWithMultipleResources);
   t.is(figures.length, 5);
   t.deepEqual(figures, [

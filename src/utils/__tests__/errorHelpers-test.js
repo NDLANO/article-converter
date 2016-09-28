@@ -10,7 +10,7 @@ import test from 'ava';
 import { getAppropriateErrorResponse, createErrorPayload } from '../errorHelpers';
 
 
-test('errorHelpers getAppropriateErrorResponse for simple error', t => {
+test('errorHelpers getAppropriateErrorResponse for simple error', (t) => {
   const response = getAppropriateErrorResponse(new Error('hello error'));
 
   t.deepEqual(response, {
@@ -21,13 +21,13 @@ test('errorHelpers getAppropriateErrorResponse for simple error', t => {
   });
 });
 
-test('errorHelpers getAppropriateErrorResponse with stacktrace', t => {
+test('errorHelpers getAppropriateErrorResponse with stacktrace', (t) => {
   const response = getAppropriateErrorResponse(new Error('hello error'), false);
 
   t.not(response.stacktrace, '');
 });
 
-test('errorHelpers getAppropriateErrorResponse for error with staus and json payload', t => {
+test('errorHelpers getAppropriateErrorResponse for error with staus and json payload', (t) => {
   const error = createErrorPayload(404, 'Message', { description: 'Longer description' });
 
   const response = getAppropriateErrorResponse(error);

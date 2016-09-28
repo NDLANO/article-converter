@@ -8,6 +8,6 @@
 
 import test from 'ava';
 
-test('pass sanity test', t => {
+test('pass sanity test', (t) => {
   t.pass();
 });

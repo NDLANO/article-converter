@@ -38,7 +38,7 @@ export function replaceFiguresInHtml(figures, html, lang, requiredLibraries) {
     return figureMarkup ? output.replace(re, figureMarkup) : output;
   }, html);
 
-  const scripts = requiredLibraries.map((library) =>
+  const scripts = requiredLibraries.map(library =>
         `<script type="${library.mediaType}" src="${library.url}"></script>`
       ).join();
 

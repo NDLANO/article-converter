@@ -9,7 +9,7 @@
 import test from 'ava';
 import { replaceFiguresInHtml } from '../replacer';
 
-test('replacer replaceFiguresInHtml', async t => {
+test('replacer replaceFiguresInHtml', async (t) => {
   const articleContent = `
     <article>
       <figure data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
