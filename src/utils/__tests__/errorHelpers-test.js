@@ -7,8 +7,7 @@
  */
 
 import test from 'ava';
-import { getAppropriateErrorResponse } from '../errorHelpers';
-import { createErrorPayload } from '../../api/apiHelpers';
+import { getAppropriateErrorResponse, createErrorPayload } from '../errorHelpers';
 
 
 test('errorHelpers getAppropriateErrorResponse for simple error', t => {

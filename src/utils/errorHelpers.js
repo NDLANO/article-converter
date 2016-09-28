@@ -26,3 +26,15 @@ export const getAppropriateErrorResponse = (error, isProduction = true) => {
   }
   return { status, message, description, stacktrace: error.stack };
 };
+
+/**
+* Create a new Error with additional info
+*
+* @param {number} status Http status to include in error. May be used to determin appropriate response to client
+* @param {string} message Message used when initializing the new Error object
+* @param {object} json JSON response from failed api calls
+* @returns {object} Error object with additional info
+*/
+export function createErrorPayload(status, message, json) {
+  return Object.assign(new Error(message), { status, json });
+}

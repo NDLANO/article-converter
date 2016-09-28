@@ -8,6 +8,7 @@
 
 import defined from 'defined';
 import config from '../config';
+import { createErrorPayload } from '../utils/errorHelpers';
 
 const NDLA_API_URL = config.ndlaApiUrl;
 
@@ -23,10 +24,6 @@ const apiBaseUrl = (() => {
 export { apiBaseUrl };
 
 export function apiResourceUrl(path) { return apiBaseUrl + path; }
-
-export function createErrorPayload(status, message, json) {
-  return Object.assign(new Error(message), { status, json });
-}
 
 export function resolveJsonOrRejectWithError(res) {
   return new Promise((resolve, reject) => {
