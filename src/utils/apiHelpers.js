@@ -9,6 +9,7 @@
 import defined from 'defined';
 import config from '../config';
 import { createErrorPayload } from '../utils/errorHelpers';
+import log from './logger';
 
 const NDLA_API_URL = config.ndlaApiUrl;
 
@@ -30,7 +31,9 @@ export function resolveJsonOrRejectWithError(res) {
     if (res.ok) {
       return res.status === 204 ? resolve() : resolve(res.json());
     }
+    log.warn(`Api call to ${res.url} failed with status ${res.status} ${res.statusText}`);
     return res.json()
+      .then(json => log.logAndReturnValue('warn', 'JSON response from failed api call: ', json))
       .then(json => createErrorPayload(res.status, defined(json.message, res.statusText), json))
       .then(reject);
   });
