@@ -7,7 +7,7 @@
  */
 
 import parse5 from 'parse5';
-import log from './logger';
+import log from './utils/logger';
 
 function createFigureObject(attrs) {
   // Reduce attributes array to object with attribute name (striped of date-) as keys.

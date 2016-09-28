@@ -9,7 +9,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import log from './logger';
+import log from './utils/logger';
 import Brightcove from './figures/Brightcove';
 import Image from './figures/Image';
 import H5P from './figures/H5P';
