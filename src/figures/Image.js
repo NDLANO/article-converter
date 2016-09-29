@@ -7,16 +7,18 @@
  */
 
 import React, { PropTypes } from 'react';
+import defined from 'defined';
 
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 
-const Image = ({ image, lang }) => {
+const Image = ({ image, lang, ...rest }) => {
   const altText = alttextsI18N(image, lang, true);
-  const caption = captionI18N(image, lang, true);
+  const caption = defined(captionI18N(image, lang, true), rest.caption);
+
   return (
     <figure className="article_figure">
       <img className="article_image" alt={altText} src={image.images.full.url} />
-      {caption ? <span className="article_caption">{caption}</span> : ''}
+      {caption ? <figcaption className="article_caption">{caption}</figcaption> : ''}
     </figure>
   );
 };
@@ -24,6 +26,7 @@ const Image = ({ image, lang }) => {
 Image.propTypes = {
   image: PropTypes.object.isRequired,
   lang: PropTypes.string.isRequired,
+  caption: PropTypes.string,
 };
 
 export default Image;

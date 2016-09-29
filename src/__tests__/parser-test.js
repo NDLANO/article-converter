@@ -41,18 +41,21 @@ test('parser getFiguresFromHtml (qith multiple resources)', async (t) => {
     {
       id: 7,
       resource: 'image',
+      caption: 'Stillbilde fra filmen Viljens Triumf',
       size: 'hovedspalte',
       url: 'http://api.test.ndla.no/images/1327',
     },
     {
       id: 6,
       resource: 'image',
+      caption: undefined,
       size: 'hovedspalte',
       url: 'http://api.test.ndla.no/images/1326',
     },
     {
       id: 4,
       resource: 'image',
+      caption: undefined,
       size: 'hovedspalte',
       url: 'http://api.test.ndla.no/images/1325',
     },

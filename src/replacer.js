@@ -18,7 +18,7 @@ import { ndlaFrontendUrl } from './config';
 function createFigureMarkup(figure, lang) {
   switch (figure.resource) {
     case 'image':
-      return renderToStaticMarkup(<Image image={figure.image} lang={lang} />);
+      return renderToStaticMarkup(<Image caption={figure.caption} image={figure.image} lang={lang} />);
     case 'brightcove':
       return renderToStaticMarkup(<Brightcove video={figure} />);
     case 'h5p':

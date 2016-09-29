@@ -39,7 +39,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 
   const figuresWithResources = await Promise.all(figures.map((figure) => {
     if (figure.resource === 'image') {
-      return fetchFigureResources(figure.url, figure.id, figure.resource);
+      return fetchFigureResources(figure);
     }
     return figure;
   }));
