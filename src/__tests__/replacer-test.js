@@ -11,13 +11,17 @@ import { replaceFiguresInHtml } from '../replacer';
 
 test('replacer replaceFiguresInHtml', async (t) => {
   const articleContent = `
-    <article>
+    <section>
       <figure data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
       <figure data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"></figure>
+    </section>
+    <section>
       <p>SomeText</p>
+    </section>
+    <section>
       <figure data-resource="brightcove" data-id="2" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"></figure>
       <figure data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"></figure>
-    </article>
+    </section>
   `;
 
   const figures = [

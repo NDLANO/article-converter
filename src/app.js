@@ -17,7 +17,7 @@ import { fetchFigureResources } from './api/imageApi';
 import { replaceFiguresInHtml } from './replacer';
 import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
-import { articleI18N } from './utils/i18nFieldFinder';
+import { contentI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
@@ -33,9 +33,9 @@ app.use(cors({
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
 
-  const articleHtml = articleI18N(article, lang, true);
+  const content = contentI18N(article, lang, true);
 
-  const figures = await getFiguresFromHtml(articleHtml);
+  const figures = await getFiguresFromHtml(content);
 
   const figuresWithResources = await Promise.all(figures.map((figure) => {
     if (figure.resource === 'image') {
@@ -45,9 +45,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   }));
 
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const transformedContent = await replaceFiguresInHtml(figuresWithResources, articleHtml, lang, requiredLibraries);
-
-  delete article.article;
+  const transformedContent = await replaceFiguresInHtml(figuresWithResources, content, lang, requiredLibraries);
 
   return { ...article, content: transformedContent };
 }
