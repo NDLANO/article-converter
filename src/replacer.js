@@ -30,13 +30,15 @@ function createFigureMarkup(figure, lang) {
       return undefined;
   }
 }
-
 export function replaceFiguresInHtml(figures, html, lang, requiredLibraries) {
-  const markup = figures.reduce((output, figure) => {
-    const re = new RegExp(`<figure.*data-id="${figure.id}".*>.*<\/figure>`);
-    const figureMarkup = createFigureMarkup(figure, lang);
-    return figureMarkup ? output.replace(re, figureMarkup) : output;
-  }, html);
+  const reFigures = new RegExp(/<figure.*?>.*?<\/figure>/g);
+  const reDataId = new RegExp(/data-id="(.*?)"/);
+
+  const markup = html.replace(reFigures, (figureHtml) => {
+    const id = figureHtml.match(reDataId)[1];
+    const figure = figures.find(f => f.id.toString() === id);
+    return createFigureMarkup(figure, lang);
+  });
 
   const scripts = requiredLibraries.map(library =>
         `<script type="${library.mediaType}" src="${library.url}"></script>`
