@@ -6,15 +6,14 @@
  *
  */
 
-import test from 'ava';
 import { articleWithMultipleResources, articleWithContentLink } from './_articleHtmlTestData';
 import { getFiguresFromHtml } from '../parser';
 
 
-test('parser getFiguresFromHtml (with content-link figures)', async (t) => {
+it('parser getFiguresFromHtml (with content-link figures)', async () => {
   const figures = await getFiguresFromHtml(articleWithContentLink);
-  t.is(figures.length, 2);
-  t.deepEqual(figures, [
+  expect(figures.length).toBe(2);
+  expect(figures).toEqual([
     {
       id: 1,
       resource: 'content-link',
@@ -29,10 +28,10 @@ test('parser getFiguresFromHtml (with content-link figures)', async (t) => {
     }]);
 });
 
-test('parser getFiguresFromHtml (qith multiple resources)', async (t) => {
+it('parser getFiguresFromHtml (qith multiple resources)', async () => {
   const figures = await getFiguresFromHtml(articleWithMultipleResources);
-  t.is(figures.length, 5);
-  t.deepEqual(figures, [
+  expect(figures.length).toBe(5);
+  expect(figures).toEqual([
     {
       id: 8,
       resource: 'h5p',

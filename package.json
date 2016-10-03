@@ -4,7 +4,7 @@
   "description": "NDLA Article oembed",
   "main": "index.js",
   "scripts": {
-    "test": "ava -r babel-register",
+    "test": "jest",
     "tdd": "npm test -- --watch",
     "start": "cross-env ARTICLE_OEMBED_PORT=3001 nodemon --watch src/ src/server.js | bunyan",
     "lint": "eslint src",
@@ -15,9 +15,10 @@
     "url": "https://github.com/NDLANO/article-oembed.git"
   },
   "devDependencies": {
-    "ava": "0.16.0",
+    "babel-jest": "15.0.0",
     "cross-env": "3.0.0",
     "eslint-config-ndla": "0.0.3",
+    "jest": "15.1.1",
     "nodemon": "1.10.2"
   },
   "dependencies": {
@@ -38,6 +39,9 @@
     "parse5": "2.2.1",
     "react": "15.3.2",
     "react-dom": "15.3.2"
+  },
+  "jest": {
+    "testRegex": "/__tests__/.*-test.(js|jsx)$"
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-oembed/issues"

@@ -1,12 +1,9 @@
 module.exports = {
   extends: "ndla",
   env: {
-    node: true
+    node: true,
+    jest: true
   },
   rules: {
-    "max-len": [2, 200, 2, {
-      ignoreUrls: true,
-      ignoreComments: false
-    }],
   }
 };
