@@ -6,10 +6,9 @@
  *
  */
 
-import test from 'ava';
 import { replaceFiguresInHtml } from '../replacer';
 
-test('replacer replaceFiguresInHtml', async (t) => {
+it('replacer replaceFiguresInHtml', async () => {
   const articleContent = `
     <section>
       <figure data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
@@ -42,27 +41,19 @@ test('replacer replaceFiguresInHtml', async (t) => {
 
   const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb', []);
 
-  t.truthy(
-    replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/></figure>') !== -1,
-    'Should replace image figure'
-  );
+  expect(
+    replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/></figure>') !== -1
+  ).toBeTruthy();
 
-  t.truthy(
-    replaced.indexOf('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1,
-    'Should replace h5p figure'
-  );
+  expect(
+    replaced.indexOf('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1
+  ).toBeTruthy();
 
-  t.truthy(
-    replaced.indexOf('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>') !== -1,
-    'Should replace content link figure'
-  );
-  t.truthy(
-    replaced.indexOf('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>') !== -1, // eslint-disable-line max-len
-    'Should replace brightcove figure'
-  );
+  expect(
+    replaced.indexOf('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>') !== -1
+  ).toBeTruthy();
+  expect(
+  replaced.indexOf('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>') !== -1).toBeTruthy(); // eslint-disable-line max-len
 
-  t.truthy(
-    replaced.indexOf('<p>SomeText1</p>') !== -1,
-    'Should not replace SomeText1'
-  );
+  expect(replaced.indexOf('<p>SomeText1</p>') !== -1).toBeTruthy();
 });

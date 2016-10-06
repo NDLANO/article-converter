@@ -6,14 +6,13 @@
  *
  */
 
-import test from 'ava';
 import { getAppropriateErrorResponse, createErrorPayload } from '../errorHelpers';
 
 
-test('errorHelpers getAppropriateErrorResponse for simple error', (t) => {
+it('errorHelpers getAppropriateErrorResponse for simple error', () => {
   const response = getAppropriateErrorResponse(new Error('hello error'));
 
-  t.deepEqual(response, {
+  expect(response).toEqual({
     status: 500,
     message: 'hello error',
     description: '',
@@ -21,18 +20,18 @@ test('errorHelpers getAppropriateErrorResponse for simple error', (t) => {
   });
 });
 
-test('errorHelpers getAppropriateErrorResponse with stacktrace', (t) => {
+it('errorHelpers getAppropriateErrorResponse with stacktrace', () => {
   const response = getAppropriateErrorResponse(new Error('hello error'), false);
 
-  t.not(response.stacktrace, '');
+  expect(response.stacktrace).not.toBe('');
 });
 
-test('errorHelpers getAppropriateErrorResponse for error with staus and json payload', (t) => {
+it('errorHelpers getAppropriateErrorResponse for error with staus and json payload', () => {
   const error = createErrorPayload(404, 'Message', { description: 'Longer description' });
 
   const response = getAppropriateErrorResponse(error);
 
-  t.deepEqual(response, {
+  expect(response).toEqual({
     status: 404,
     message: 'Message',
     description: 'Longer description',
