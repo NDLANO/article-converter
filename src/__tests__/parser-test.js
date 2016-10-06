@@ -30,7 +30,8 @@ it('parser getFiguresFromHtml (with content-link figures)', async () => {
 
 it('parser getFiguresFromHtml (qith multiple resources)', async () => {
   const figures = await getFiguresFromHtml(articleWithMultipleResources);
-  expect(figures.length).toBe(5);
+
+  expect(figures.length).toBe(6);
   expect(figures).toEqual([
     {
       id: 8,
@@ -64,5 +65,11 @@ it('parser getFiguresFromHtml (qith multiple resources)', async () => {
       account: 4806596774001,
       player: 'BkLm8fT',
       videoid: 'ref:46012',
-    }]);
+    },
+    {
+      id: 1,
+      resource: 'external',
+      url: 'https://youtu.be/BAb8NZ3e4e4',
+    },
+  ]);
 });

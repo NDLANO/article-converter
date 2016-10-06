@@ -26,7 +26,7 @@ function createFigureMarkup(figure, lang) {
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${figure.contentId}">${figure.linkText}</a>`;
     default:
-      log.warn(figure, 'Could not create markup for unknown resource');
+      log.warn(figure, 'Do not create markup for unknown/external resource');
       return undefined;
   }
 }
@@ -37,7 +37,7 @@ export function replaceFiguresInHtml(figures, html, lang, requiredLibraries) {
   const markup = html.replace(reFigures, (figureHtml) => {
     const id = figureHtml.match(reDataId)[1];
     const figure = figures.find(f => f.id.toString() === id);
-    return createFigureMarkup(figure, lang);
+    return createFigureMarkup(figure, lang) || '';
   });
 
   const scripts = requiredLibraries.map(library =>

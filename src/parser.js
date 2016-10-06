@@ -24,7 +24,7 @@ function createFigureObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     default:
       log.warn(obj, 'Unknown figure');
-      return undefined;
+      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
   }
 }
 
