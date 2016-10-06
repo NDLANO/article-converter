@@ -15,10 +15,10 @@
     "url": "https://github.com/NDLANO/article-oembed.git"
   },
   "devDependencies": {
-    "babel-jest": "15.0.0",
+    "babel-jest": "16.0.0",
     "cross-env": "3.0.0",
     "eslint-config-ndla": "0.0.3",
-    "jest": "15.1.1",
+    "jest": "16.0.1",
     "nodemon": "1.10.2"
   },
   "dependencies": {
