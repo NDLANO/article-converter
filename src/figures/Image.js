@@ -8,15 +8,20 @@
 
 import React, { PropTypes } from 'react';
 import defined from 'defined';
+import classnames from 'classnames';
 
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 
-const Image = ({ image, lang, ...rest }) => {
+const Image = ({ image, align, lang, ...rest }) => {
   const altText = alttextsI18N(image, lang, true);
   const caption = defined(captionI18N(image, lang, true), rest.caption);
+  const figureClassNames = classnames('article_figure', {
+    'article_figure--float-right': align === 'right',
+    'article_figure--float-left': align === 'left',
+  });
 
   return (
-    <figure className="article_figure">
+    <figure className={figureClassNames}>
       <img className="article_image" alt={altText} src={image.images.full.url} />
       {caption ? <figcaption className="article_caption">{caption}</figcaption> : ''}
     </figure>
@@ -24,6 +29,7 @@ const Image = ({ image, lang, ...rest }) => {
 };
 
 Image.propTypes = {
+  align: PropTypes.string,
   image: PropTypes.object.isRequired,
   lang: PropTypes.string.isRequired,
   caption: PropTypes.string,

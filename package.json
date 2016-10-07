@@ -29,6 +29,7 @@
     "babel-preset-react": "6.16.0",
     "babel-register": "6.16.0",
     "bunyan": "1.8.1",
+    "classnames": "2.2.5",
     "compression": "1.6.2",
     "cors": "2.8.1",
     "defined": "1.0.0",
