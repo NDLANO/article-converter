@@ -57,3 +57,40 @@ it('replacer replaceFiguresInHtml', async () => {
 
   expect(replaced.indexOf('<p>SomeText1</p>') !== -1).toBeTruthy();
 });
+
+
+it('replacer image figures', async () => {
+  const articleContent = `
+    <section>
+      <figure data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
+      <figure data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
+    </section>
+  `.replace(/\n|\r/g, ''); // Strip new lines
+
+  const figures = [
+    { id: 1,
+      resource: 'image',
+      align: '',
+      image: {
+        alttexts: [{ alttext: 'alt', lang: 'nb' }],
+        images: { full: { url: 'http://ndla.no/images/1.jpg' } } },
+    },
+    { id: 2,
+      resource: 'image',
+      align: 'left',
+      image: {
+        alttexts: [{ alttext: 'alt', lang: 'nb' }],
+        images: { full: { url: 'http://ndla.no/images/2.jpg' } } },
+    },
+  ];
+
+  const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb', []);
+
+  expect(
+    replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>') !== -1
+  ).toBeTruthy();
+
+  expect(
+    replaced.indexOf('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>') !== -1
+  ).toBeTruthy();
+});

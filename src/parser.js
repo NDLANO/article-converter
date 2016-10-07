@@ -15,7 +15,7 @@ function createFigureObject(attrs) {
 
   switch (obj.resource) {
     case 'image':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, caption: obj.caption, size: obj.size, url: obj.url };
+      return { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url };
     case 'brightcove':
       return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid };
     case 'h5p':

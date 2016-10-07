@@ -55,6 +55,7 @@ it('parser getFiguresFromHtml (qith multiple resources)', async () => {
     {
       id: 4,
       resource: 'image',
+      align: 'right',
       caption: undefined,
       size: 'hovedspalte',
       url: 'http://api.test.ndla.no/images/1325',
