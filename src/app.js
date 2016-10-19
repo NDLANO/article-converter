@@ -17,7 +17,7 @@ import { fetchImageResources } from './api/imageApi';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
-import { contentI18N } from './utils/i18nFieldFinder';
+import { contentI18N, introductionI18N, alttextsI18N, captionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
@@ -29,12 +29,7 @@ app.use(cors({
   credentials: true,
 }));
 
-
-async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
-  const article = await fetchArticle(articleId);
-
-  const content = contentI18N(article, lang, true);
-
+async function transformContent(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content);
 
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
@@ -44,10 +39,36 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
     return embed;
   }));
 
-  const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const transformedContent = await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries);
+  return await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries);
+}
 
-  return { ...article, content: transformedContent };
+async function transformIntroduction(introduction, lang) {
+  const { image: imageInfo } = await fetchImageResources({ url: introduction.image });
+  const altText = alttextsI18N(imageInfo, lang, true);
+  const caption = defined(captionI18N(imageInfo, lang, true), '');
+  return {
+    image: {
+      altText,
+      caption,
+      src: imageInfo.images.full.url,
+    },
+    text: introduction.introduction,
+  };
+}
+
+async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
+  const article = await fetchArticle(articleId);
+
+  const content = contentI18N(article, lang, true);
+  const introduction = introductionI18N(article, lang, true);
+
+  const requiredLibraries = includeScripts ? article.requiredLibraries : [];
+  const transformed = await Promise.all([
+    transformContent(content, lang, requiredLibraries),
+    transformIntroduction(introduction, lang),
+  ]);
+
+  return { ...article, content: transformed[0], introduction: transformed[1] };
 }
 
 
