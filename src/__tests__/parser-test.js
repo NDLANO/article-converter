@@ -7,13 +7,13 @@
  */
 
 import { articleWithMultipleResources, articleWithContentLink } from './_articleHtmlTestData';
-import { getFiguresFromHtml } from '../parser';
+import { getEmbedsFromHtml } from '../parser';
 
 
-it('parser getFiguresFromHtml (with content-link figures)', async () => {
-  const figures = await getFiguresFromHtml(articleWithContentLink);
-  expect(figures.length).toBe(2);
-  expect(figures).toEqual([
+it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articleWithContentLink);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
     {
       id: 1,
       resource: 'content-link',
@@ -28,11 +28,11 @@ it('parser getFiguresFromHtml (with content-link figures)', async () => {
     }]);
 });
 
-it('parser getFiguresFromHtml (qith multiple resources)', async () => {
-  const figures = await getFiguresFromHtml(articleWithMultipleResources);
+it('parser getEmbedsFromHtml (qith multiple resources)', async () => {
+  const embeds = await getEmbedsFromHtml(articleWithMultipleResources);
 
-  expect(figures.length).toBe(6);
-  expect(figures).toEqual([
+  expect(embeds.length).toBe(6);
+  expect(embeds).toEqual([
     {
       id: 8,
       resource: 'h5p',
