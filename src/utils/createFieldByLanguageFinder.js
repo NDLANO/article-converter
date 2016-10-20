@@ -21,7 +21,7 @@ export const findFallbackTranslation = (translations) => {
 };
 
 
-const createFieldByLanguageFinder = (fieldName, propName) =>
+export const createFieldByLanguageFinder = (fieldName, propName) =>
   (obj, lang, withFallback = false) => {
     const translations = defined(defined(obj, {})[fieldName], []);
     const translation = defined(translations.find(d => d.language === lang), withFallback ? findFallbackTranslation(translations) : {}, {});
@@ -29,4 +29,9 @@ const createFieldByLanguageFinder = (fieldName, propName) =>
   }
 ;
 
-export default createFieldByLanguageFinder;
+export const createObjectByLanguageFinder = fieldName =>
+  (obj, lang, withFallback = false) => {
+    const translations = defined(obj[fieldName], []);
+    return defined(translations.find(d => d.language === lang), withFallback ? findFallbackTranslation(translations) : undefined);
+  }
+;

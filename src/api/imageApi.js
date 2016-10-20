@@ -22,4 +22,4 @@ function resolveJsonOrRejectWithImageObject(res) {
   });
 }
 
-export const fetchFigureResources = figure => fetch(figure.url).then(resolveJsonOrRejectWithImageObject).then(image => ({ ...figure, image }));
+export const fetchImageResources = embed => fetch(embed.url).then(resolveJsonOrRejectWithImageObject).then(image => ({ ...embed, image }));

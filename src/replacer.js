@@ -10,34 +10,34 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import log from './utils/logger';
-import Brightcove from './figures/Brightcove';
-import Image from './figures/Image';
-import H5P from './figures/H5P';
+import Brightcove from './markup/Brightcove';
+import Image from './markup/Image';
+import H5P from './markup/H5P';
 import { ndlaFrontendUrl } from './config';
 
-function createFigureMarkup(figure, lang) {
-  switch (figure.resource) {
+function createEmbedMarkup(embed, lang) {
+  switch (embed.resource) {
     case 'image':
-      return renderToStaticMarkup(<Image align={figure.align} caption={figure.caption} image={figure.image} lang={lang} />);
+      return renderToStaticMarkup(<Image align={embed.align} caption={embed.caption} image={embed.image} lang={lang} />);
     case 'brightcove':
-      return renderToStaticMarkup(<Brightcove video={figure} />);
+      return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
-      return renderToStaticMarkup(<H5P h5p={figure} />);
+      return renderToStaticMarkup(<H5P h5p={embed} />);
     case 'content-link':
-      return `<a href="${ndlaFrontendUrl}/${lang}/article/${figure.contentId}">${figure.linkText}</a>`;
+      return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     default:
-      log.warn(figure, 'Do not create markup for unknown/external resource');
+      log.warn(embed, 'Do not create markup for unknown/external resource');
       return undefined;
   }
 }
-export function replaceFiguresInHtml(figures, html, lang, requiredLibraries) {
-  const reFigures = new RegExp(/<figure.*?>.*?<\/figure>/g);
+export function replaceEmbedsInHtml(embeds, html, lang, requiredLibraries) {
+  const reEmbeds = new RegExp(/<embed.*?\/>/g);
   const reDataId = new RegExp(/data-id="(.*?)"/);
 
-  const markup = html.replace(reFigures, (figureHtml) => {
-    const id = figureHtml.match(reDataId)[1];
-    const figure = figures.find(f => f.id.toString() === id);
-    return createFigureMarkup(figure, lang) || '';
+  const markup = html.replace(reEmbeds, (embedHtml) => {
+    const id = embedHtml.match(reDataId)[1];
+    const embed = embeds.find(f => f.id.toString() === id);
+    return createEmbedMarkup(embed, lang) || '';
   });
 
   const scripts = requiredLibraries.map(library =>

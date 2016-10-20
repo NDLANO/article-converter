@@ -13,12 +13,10 @@ import compression from 'compression';
 import cors from 'cors';
 import config from './config';
 import { fetchArticle } from './api/articleApi';
-import { fetchFigureResources } from './api/imageApi';
-import { replaceFiguresInHtml } from './replacer';
-import { getFiguresFromHtml } from './parser';
 import { getHtmlLang } from './locale/configureLocale';
-import { contentI18N } from './utils/i18nFieldFinder';
+import { contentI18N, introductionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
+import { transformContent, transformIntroduction } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
@@ -33,21 +31,16 @@ app.use(cors({
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
 
-  const content = contentI18N(article, lang, true);
-
-  const figures = await getFiguresFromHtml(content);
-
-  const figuresWithResources = await Promise.all(figures.map((figure) => {
-    if (figure.resource === 'image') {
-      return fetchFigureResources(figure);
-    }
-    return figure;
-  }));
+  const rawContent = contentI18N(article, lang, true);
+  const rawIntroduction = introductionI18N(article, lang, true);
 
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const transformedContent = await replaceFiguresInHtml(figuresWithResources, content, lang, requiredLibraries);
+  const [content, introduction] = await Promise.all([
+    transformContent(rawContent, lang, requiredLibraries),
+    transformIntroduction(rawIntroduction, lang),
+  ]);
 
-  return { ...article, content: transformedContent };
+  return { ...article, content, introduction };
 }
 
 

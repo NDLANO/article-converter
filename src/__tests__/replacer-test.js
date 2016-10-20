@@ -6,26 +6,26 @@
  *
  */
 
-import { replaceFiguresInHtml } from '../replacer';
+import { replaceEmbedsInHtml } from '../replacer';
 
-it('replacer replaceFiguresInHtml', async () => {
+it('replacer replaceEmbedsInHtml', async () => {
   const articleContent = `
     <section>
-      <figure data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
+      <embed data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
       <p>SomeText1</p>
-      <figure data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"></figure>
+      <embed data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"/>
     </section>
     <section>
       <p>SomeText2</p>
     </section>
     <section>
-      <figure data-resource="brightcove" data-id="2" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"></figure>
+      <embed data-resource="brightcove" data-id="2" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"/>
       <p>SomeText3</p>
-      <figure data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"></figure>
+      <embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"/>
     </section>
   `.replace(/\n|\r/g, ''); // Strip new lines
 
-  const figures = [
+  const embeds = [
     { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
     { id: 8, resource: 'h5p', url: 'http://ndla.no/h5p/embed/163489' },
     { id: 6,
@@ -39,7 +39,7 @@ it('replacer replaceFiguresInHtml', async () => {
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
-  const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb', []);
+  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
   expect(
     replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/></figure>') !== -1
@@ -59,15 +59,15 @@ it('replacer replaceFiguresInHtml', async () => {
 });
 
 
-it('replacer image figures', async () => {
+it('replacer image embeds', async () => {
   const articleContent = `
     <section>
-      <figure data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
-      <figure data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></figure>
+      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
+      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
     </section>
   `.replace(/\n|\r/g, ''); // Strip new lines
 
-  const figures = [
+  const embeds = [
     { id: 1,
       resource: 'image',
       align: '',
@@ -84,7 +84,7 @@ it('replacer image figures', async () => {
     },
   ];
 
-  const replaced = await replaceFiguresInHtml(figures, articleContent, 'nb', []);
+  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
   expect(
     replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>') !== -1
