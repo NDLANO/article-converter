@@ -8,7 +8,7 @@
 
 import { replaceEmbedsInHtml } from '../replacer';
 
-it('replacer replaceEmbedsInHtml', async () => {
+it('replace various emdeds in html', async () => {
   const articleContent = `
     <section>
       <embed data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
@@ -59,7 +59,7 @@ it('replacer replaceEmbedsInHtml', async () => {
 });
 
 
-it('replacer image embeds', async () => {
+it('replace image embeds', async () => {
   const articleContent = `
     <section>
       <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
@@ -93,4 +93,23 @@ it('replacer image embeds', async () => {
   expect(
     replaced.indexOf('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>') !== -1
   ).toBeTruthy();
+});
+
+it('replace nrk embeds', async () => {
+  const articleContent = `
+    <section>
+      <embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" />
+      <embed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746" />
+    </section>
+  `.replace(/\n|\r/g, ''); // Strip new lines
+
+  const embeds = [
+    { id: 1, resource: 'nrk', nrkVideoId: '123' },
+    { id: 2, resource: 'nrk', nrkVideoId: '124' },
+  ];
+
+  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+
+  expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="123"></div>') !== -1).toBeTruthy();
+  expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="124"></div>') !== -1).toBeTruthy();
 });

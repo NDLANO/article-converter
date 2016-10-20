@@ -18,3 +18,15 @@ export const articleWithContentLink = `
     </section>
   </article> `
   ;
+
+export const articleWithNRKEmbed = `
+  <article>
+    <section>
+      <ul>
+
+        <li><embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" /></li>
+        <li><embed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746" /></li>
+      </ul>
+    </section>
+  </article> `
+  ;

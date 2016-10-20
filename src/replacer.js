@@ -23,6 +23,8 @@ function createEmbedMarkup(embed, lang) {
       return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
       return renderToStaticMarkup(<H5P h5p={embed} />);
+    case 'nrk':
+      return `<div class="nrk-video" data-nrk-id="${embed.nrkVideoId}"></div>`;
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     default:

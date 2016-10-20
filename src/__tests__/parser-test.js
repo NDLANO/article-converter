@@ -6,9 +6,24 @@
  *
  */
 
-import { articleWithMultipleResources, articleWithContentLink } from './_articleHtmlTestData';
+import { articleWithMultipleResources, articleWithContentLink, articleWithNRKEmbed } from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
 
+it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articleWithNRKEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'nrk',
+      nrkVideoId: '94605',
+    },
+    {
+      id: 2,
+      resource: 'nrk',
+      nrkVideoId: '94606',
+    }]);
+});
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
   const embeds = await getEmbedsFromHtml(articleWithContentLink);

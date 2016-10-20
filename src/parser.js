@@ -20,6 +20,8 @@ function createEmbedObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid };
     case 'h5p':
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
+    case 'nrk':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] };
     case 'content-link':
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     default:
