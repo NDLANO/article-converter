@@ -12,5 +12,7 @@ export const titleI18N = createFieldByLanguageFinder('title');
 export const contentI18N = createFieldByLanguageFinder('content');
 export const tagsI18N = createFieldByLanguageFinder('tags');
 export const introductionI18N = createObjectByLanguageFinder('introduction');
+export const audioFilesI18N = createObjectByLanguageFinder('audioFiles');
 export const alttextsI18N = createFieldByLanguageFinder('alttexts', 'alttext');
 export const captionI18N = createFieldByLanguageFinder('captions', 'caption');
+export const titlesI18N = createFieldByLanguageFinder('titles', 'title');

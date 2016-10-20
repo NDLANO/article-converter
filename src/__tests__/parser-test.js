@@ -6,11 +6,27 @@
  *
  */
 
-import { articleWithMultipleResources, articleWithContentLink, articleWithNRKEmbed } from './_articleHtmlTestData';
+import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
 
+it('parser getEmbedsFromHtml (with audio embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithAudioEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'audio',
+      url: 'http://api.test.ndla.no/audio/1',
+    },
+    {
+      id: 2,
+      resource: 'audio',
+      url: 'http://api.test.ndla.no/audio/2',
+    }]);
+});
+
 it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articleWithNRKEmbed);
+  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -26,7 +42,7 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articleWithContentLink);
+  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -44,7 +60,7 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (qith multiple resources)', async () => {
-  const embeds = await getEmbedsFromHtml(articleWithMultipleResources);
+  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources);
 
   expect(embeds.length).toBe(6);
   expect(embeds).toEqual([

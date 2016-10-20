@@ -113,3 +113,32 @@ it('replace nrk embeds', async () => {
   expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="123"></div>') !== -1).toBeTruthy();
   expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="124"></div>') !== -1).toBeTruthy();
 });
+
+it('replace audio embeds', async () => {
+  const articleContent = '<section><embed data-id="1"/></section>'.replace(/\n|\r/g, ''); // Strip new lines
+
+  const embeds = [
+    { id: 1,
+      resource: 'audio',
+      audio: {
+        titles: [
+          { title: 'Tittel', language: 'nb' },
+          { title: 'Title', language: 'en' },
+        ],
+        audioFiles: [
+          {
+            url: 'http://audio.no/file/voof.mp3',
+            mimeType: 'audio/mpeg',
+            language: '',
+          },
+        ],
+      },
+    },
+  ];
+
+  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+
+  expect(replaced.indexOf(
+    '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
+  ) !== -1).toBeTruthy();
+});

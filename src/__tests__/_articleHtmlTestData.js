@@ -30,3 +30,14 @@ export const articleWithNRKEmbed = `
     </section>
   </article> `
   ;
+
+export const articleWithAudioEmbed = `
+  <article>
+    <section>
+      <ul>
+        <li><embed data-id="1" data-resource="audio" data-url="http://api.test.ndla.no/audio/1" /></li>
+        <li><embed data-id="2" data-resource="audio" data-url="http://api.test.ndla.no/audio/2" /></li>
+      </ul>
+    </section>
+  </article> `
+  ;
