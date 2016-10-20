@@ -26,15 +26,25 @@ export async function transformContent(content, lang, requiredLibraries) {
 }
 
 export async function transformIntroduction(introduction, lang) {
-  const { image: imageInfo } = await fetchImageResources({ url: introduction.image });
-  const altText = alttextsI18N(imageInfo, lang, true);
-  const caption = defined(captionI18N(imageInfo, lang, true), '');
+  if (!introduction) {
+    return {};
+  }
+
+  if (introduction.image) {
+    const { image: imageInfo } = await fetchImageResources({ url: introduction.image });
+    const altText = alttextsI18N(imageInfo, lang, true);
+    const caption = defined(captionI18N(imageInfo, lang, true), '');
+    return {
+      image: {
+        altText,
+        caption,
+        src: imageInfo.images.full.url,
+      },
+      text: introduction.introduction,
+    };
+  }
+
   return {
-    image: {
-      altText,
-      caption,
-      src: imageInfo.images.full.url,
-    },
     text: introduction.introduction,
   };
 }
