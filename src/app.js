@@ -91,8 +91,8 @@ app.get('/article-oembed/:lang/:id', (req, res) => {
   });
 });
 
-app.get('health', (req, res) => {
-  res.status(200);
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 200, text: 'Health check ok' });
 });
 
 app.get('*', (req, res) => {
