@@ -16,21 +16,21 @@ const environment = {
 }[process.env.NODE_ENV || 'development'];
 
 
-var domain = function() {
-  switch(process.env.NDLA_ENVIRONMENT) {
+const domain = () => {
+  switch (process.env.NDLA_ENVIRONMENT) {
     case 'local':
       return 'http://localhost';
     case 'prod':
       return 'http://api.ndla.no';
     default:
-      return 'http://api.' + process.env.NDLA_ENVIRONMENT + '.ndla.no'
+      return `http://api.${process.env.NDLA_ENVIRONMENT}.ndla.no`;
   }
 };
 
 module.exports = Object.assign({
   host: process.env.ARTICLE_OEMBED_HOST || 'localhost',
   port: process.env.ARTICLE_OEMBED_PORT || '80',
-  ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || domain + ':8082',
+  ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || `${domain}:8082`,
   ndlaApiUrl: process.env.NDLA_API_URL || domain,
 
   app: {
