@@ -91,6 +91,10 @@ app.get('/article-oembed/:lang/:id', (req, res) => {
   });
 });
 
+app.get('health', (req, res) => {
+  res.status(200);
+});
+
 app.get('*', (req, res) => {
   res.status(404).json({ status: 404, text: 'Not found' });
 });
