@@ -20,6 +20,11 @@ USER root
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
 
+# Run tests and lint-checks
+COPY .eslintrc.js $APP_PATH/
+RUN npm run lint
+RUN npm test
+
 RUN chown -R app:app $HOME/*
 
 # Build client code
