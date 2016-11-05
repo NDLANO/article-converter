@@ -6,7 +6,7 @@
  *
  */
 
-import groupBy from 'lodash/fp/groupBy';
+import { groupBy, map, filter, compose } from 'lodash/fp';
 import { audioFilesI18N } from './utils/i18nFieldFinder';
 
 function createCopyrightObject(embed, src) {
@@ -29,8 +29,9 @@ function toCopyrightObject(embed, lang) {
 }
 
 export function extractCopyrightInfoFromEmbeds(embeds, lang) {
-  const copyrights = embeds
-    .map(embed => toCopyrightObject(embed, lang))
-    .filter(embed => embed !== undefined);
-  return groupBy('type', copyrights);
+  return compose(
+    groupBy('type'),
+    filter(embed => embed !== undefined),
+    map(embed => toCopyrightObject(embed, lang)),
+  )(embeds);
 }
