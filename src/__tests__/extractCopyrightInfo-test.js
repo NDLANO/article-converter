@@ -15,10 +15,15 @@ it('extractCopyrightInfo from embeds', async () => {
     {
       resource: 'image',
       image: {
-        copyright: {
-          license: 'by-sa',
-        },
-        images: { full: { url: 'http://example.no/1234.jpg' } } },
+        copyright: { license: 'by-sa' },
+        images: { full: { url: 'http://example.no/1234.jpg' } },
+      },
+    },
+    {
+      resource: 'image',
+      image: {
+        copyright: { license: 'by-sa' },
+        images: { full: { url: 'http://example.no/4123.jpg' } } },
     },
     {
       resource: 'audio',
@@ -29,20 +34,21 @@ it('extractCopyrightInfo from embeds', async () => {
             language: '',
           },
         ],
-        copyright: {
-          license: 'by-sa',
-        },
+        copyright: { license: 'by-sa' },
       },
     },
     { resource: 'brightcove' }];
 
   const copyrights = extractCopyrightInfoFromEmbeds(embeds, 'nb');
 
-  expect(copyrights.length).toBe(2);
-  expect(copyrights[0]).toEqual(
+  expect(copyrights.image.length).toBe(2);
+  expect(copyrights.image).toEqual([
     { type: 'image', copyright: { license: 'by-sa' }, src: 'http://example.no/1234.jpg' },
-  );
-  expect(copyrights[1]).toEqual(
+    { type: 'image', copyright: { license: 'by-sa' }, src: 'http://example.no/4123.jpg' },
+  ]);
+
+  expect(copyrights.audio.length).toBe(1);
+  expect(copyrights.audio).toEqual([
     { type: 'audio', copyright: { license: 'by-sa' }, src: 'http://audio.no/file/voof.mp3' },
-  );
+  ]);
 });
