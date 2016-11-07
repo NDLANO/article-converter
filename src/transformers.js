@@ -41,7 +41,7 @@ export async function transformIntroduction(introduction, lang) {
       image: {
         altText,
         caption,
-        src: imageInfo.url,
+        src: imageInfo.imageUrl,
       },
       text: introduction.introduction,
     };
