@@ -7,7 +7,7 @@
  */
 
 import { groupBy, map, filter, compose } from 'lodash/fp';
-import { audioFilesI18N, alttextsI18N, titlesI18N } from './utils/i18nFieldFinder';
+import { audioFilesI18N, titlesI18N } from './utils/i18nFieldFinder';
 
 function createCopyrightObject(embed, src) {
   return {
