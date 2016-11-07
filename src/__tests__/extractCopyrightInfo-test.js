@@ -28,6 +28,10 @@ it('extractCopyrightInfo from embeds', async () => {
     {
       resource: 'audio',
       audio: {
+        titles: [
+          { title: 'Tittel', language: 'nb' },
+          { title: 'Title', language: 'en' },
+        ],
         audioFiles: [
           {
             url: 'http://audio.no/file/voof.mp3',
@@ -49,6 +53,6 @@ it('extractCopyrightInfo from embeds', async () => {
 
   expect(copyrights.audio.length).toBe(1);
   expect(copyrights.audio).toEqual([
-    { type: 'audio', copyright: { license: 'by-sa' }, src: 'http://audio.no/file/voof.mp3' },
+    { type: 'audio', title: 'Tittel', copyright: { license: 'by-sa' }, src: 'http://audio.no/file/voof.mp3' },
   ]);
 });

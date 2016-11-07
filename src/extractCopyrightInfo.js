@@ -7,7 +7,7 @@
  */
 
 import { groupBy, map, filter, compose } from 'lodash/fp';
-import { audioFilesI18N } from './utils/i18nFieldFinder';
+import { audioFilesI18N, alttextsI18N, titlesI18N } from './utils/i18nFieldFinder';
 
 function createCopyrightObject(embed, src) {
   return {
@@ -22,7 +22,10 @@ function toCopyrightObject(embed, lang) {
     case 'image':
       return createCopyrightObject(embed, embed.image.images.full.url);
     case 'audio':
-      return createCopyrightObject(embed, audioFilesI18N(embed.audio, lang, true).url);
+      return {
+        title: titlesI18N(embed.audio, lang, true),
+        ...createCopyrightObject(embed, audioFilesI18N(embed.audio, lang, true).url),
+      };
     default:
       return undefined;
   }
