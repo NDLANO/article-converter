@@ -20,7 +20,7 @@ function createCopyrightObject(embed, src) {
 function toCopyrightObject(embed, lang) {
   switch (embed.resource) {
     case 'image':
-      return createCopyrightObject(embed, embed.image.images.full.url);
+      return createCopyrightObject(embed, embed.image.imageUrl);
     case 'audio':
       return {
         title: titlesI18N(embed.audio, lang, true),
