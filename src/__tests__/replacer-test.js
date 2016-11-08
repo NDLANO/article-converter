@@ -35,7 +35,8 @@ it('replace various emdeds in html', async () => {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
-        images: { full: { url: 'http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg' } } },
+        imageUrl: 'http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg',
+      },
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
@@ -73,14 +74,16 @@ it('replace image embeds', async () => {
       align: '',
       image: {
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
-        images: { full: { url: 'http://ndla.no/images/1.jpg' } } },
+        imageUrl: 'http://ndla.no/images/1.jpg',
+      },
     },
     { id: 2,
       resource: 'image',
       align: 'left',
       image: {
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
-        images: { full: { url: 'http://ndla.no/images/2.jpg' } } },
+        imageUrl: 'http://ndla.no/images/2.jpg',
+      },
     },
   ];
 
