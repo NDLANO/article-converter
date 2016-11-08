@@ -19,7 +19,7 @@ const Image = ({ image, align, lang, ...rest }) => {
     'article_figure--float-right': align === 'right',
     'article_figure--float-left': align === 'left',
   });
-  console.log(image);
+
   return (
     <figure className={figureClassNames}>
       <img className="article_image" alt={altText} src={image.imageUrl} />
