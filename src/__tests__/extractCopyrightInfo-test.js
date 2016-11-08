@@ -16,14 +16,15 @@ it('extractCopyrightInfo from embeds', async () => {
       resource: 'image',
       image: {
         copyright: { license: 'by-sa' },
-        images: { full: { url: 'http://example.no/1234.jpg' } },
+        imageUrl: 'http://example.no/1234.jpg',
       },
     },
     {
       resource: 'image',
       image: {
         copyright: { license: 'by-sa' },
-        images: { full: { url: 'http://example.no/4123.jpg' } } },
+        imageUrl: 'http://example.no/4123.jpg',
+      },
     },
     {
       resource: 'audio',
