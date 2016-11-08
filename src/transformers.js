@@ -11,9 +11,10 @@ import { fetchImageResources } from './api/imageApi';
 import { fetchAudio } from './api/audioApi';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
+import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
 import { alttextsI18N, captionI18N } from './utils/i18nFieldFinder';
 
-export async function transformContent(content, lang, requiredLibraries) {
+export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content);
 
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
@@ -25,7 +26,10 @@ export async function transformContent(content, lang, requiredLibraries) {
     return embed;
   }));
 
-  return await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries);
+  return {
+    html: await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries),
+    copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
+  };
 }
 
 export async function transformIntroduction(introduction, lang) {
