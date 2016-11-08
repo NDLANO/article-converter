@@ -22,7 +22,7 @@ const Image = ({ image, align, lang, ...rest }) => {
 
   return (
     <figure className={figureClassNames}>
-      <img className="article_image" alt={altText} src={image.images.full.url} />
+      <img className="article_image" alt={altText} src={image.imageUrl} />
       {caption ? <figcaption className="article_caption">{caption}</figcaption> : ''}
     </figure>
   );
