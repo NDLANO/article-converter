@@ -27,27 +27,3 @@ export async function transformContent(content, lang, requiredLibraries) {
 
   return await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries);
 }
-
-export async function transformIntroduction(introduction, lang) {
-  if (!introduction) {
-    return {};
-  }
-
-  if (introduction.image) {
-    const { image: imageInfo } = await fetchImageResources({ url: introduction.image });
-    const altText = alttextsI18N(imageInfo, lang, true);
-    const caption = defined(captionI18N(imageInfo, lang, true), '');
-    return {
-      image: {
-        altText,
-        caption,
-        src: imageInfo.imageUrl,
-      },
-      text: introduction.introduction,
-    };
-  }
-
-  return {
-    text: introduction.introduction,
-  };
-}

@@ -16,7 +16,7 @@ import { fetchArticle } from './api/articleApi';
 import { getHtmlLang } from './locale/configureLocale';
 import { contentI18N, introductionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
-import { transformContent, transformIntroduction } from './transformers';
+import { transformContent } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
@@ -34,11 +34,9 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   const rawContent = contentI18N(article, lang, true);
   const rawIntroduction = introductionI18N(article, lang, true);
 
+  const introduction = rawIntroduction ? rawIntroduction.introduction : '';
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const [content, introduction] = await Promise.all([
-    transformContent(rawContent, lang, requiredLibraries),
-    transformIntroduction(rawIntroduction, lang),
-  ]);
+  const content = await transformContent(rawContent, lang, requiredLibraries);
 
   return { ...article, content, introduction };
 }
