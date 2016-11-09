@@ -6,12 +6,10 @@
  *
  */
 
-import defined from 'defined';
 import { fetchImageResources } from './api/imageApi';
 import { fetchAudio } from './api/audioApi';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
-import { alttextsI18N, captionI18N } from './utils/i18nFieldFinder';
 
 export async function transformContent(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content);
