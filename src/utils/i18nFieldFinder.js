@@ -10,6 +10,7 @@ import { createFieldByLanguageFinder, createObjectByLanguageFinder } from './cre
 
 export const titleI18N = createFieldByLanguageFinder('title');
 export const contentI18N = createFieldByLanguageFinder('content');
+export const footNotesI18N = createFieldByLanguageFinder('content', 'footNotes');
 export const tagsI18N = createFieldByLanguageFinder('tags');
 export const introductionI18N = createObjectByLanguageFinder('introduction');
 export const audioFilesI18N = createObjectByLanguageFinder('audioFiles');
