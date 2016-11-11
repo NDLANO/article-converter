@@ -14,13 +14,12 @@ import cors from 'cors';
 import config from './config';
 import { fetchArticle } from './api/articleApi';
 import { getHtmlLang } from './locale/configureLocale';
-import { contentI18N, introductionI18N } from './utils/i18nFieldFinder';
+import { contentI18N, footNotesI18N, introductionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { transformContentAndExtractCopyrightInfo, transformIntroduction } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
-
 app.use(compression());
 app.use(cors({
   origin: true,
@@ -32,6 +31,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   const article = await fetchArticle(articleId);
 
   const rawContent = contentI18N(article, lang, true);
+  const footNotes = footNotesI18N(article, lang, true);
   const rawIntroduction = introductionI18N(article, lang, true);
 
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
@@ -40,7 +40,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
     transformIntroduction(rawIntroduction, lang),
   ]);
 
-  return { ...article, content: content.html, contentCopyrights: content.copyrights, introduction };
+  return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
 
 
