@@ -98,6 +98,27 @@ it('replace image embeds', async () => {
   ).toBeTruthy();
 });
 
+it('replace brightcove embeds', async () => {
+  const articleContent = `
+    <section>
+      <embed data-id="1" />
+      <embed data-id="2" />
+    </section>
+  `.replace(/\n|\r/g, ''); // Strip new lines
+
+  const embeds = [
+    { id: 1, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: 'Brightcove caption', videoid: 'ref:1' },
+    { id: 2, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: '', videoid: 'ref:2' },
+  ];
+
+  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+
+  expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
+  expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
+  expect(replaced).toMatch(/<figurecaption.*?>Brightcove caption<\/figurecaption>/);
+  expect(replaced).not.toMatch(/<figurecaption.*?><\/figurecaption>/);
+});
+
 it('replace nrk embeds', async () => {
   const articleContent = `
     <section>
