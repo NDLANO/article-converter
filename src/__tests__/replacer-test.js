@@ -35,28 +35,22 @@ it('replace various emdeds in html', async () => {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
-        imageUrl: 'http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg',
+        imageUrl: 'http://api.test.ndla.no/images/1.jpg',
       },
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
   const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
-  expect(
-    replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/full/421694461_818fee672d_o.jpg"/></figure>') !== -1
-  ).toBeTruthy();
+  expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
 
-  expect(
-    replaced.indexOf('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>') !== -1
-  ).toBeTruthy();
+  expect(replaced).toMatch('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>');
 
-  expect(
-    replaced.indexOf('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>') !== -1
-  ).toBeTruthy();
-  expect(
-  replaced.indexOf('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>') !== -1).toBeTruthy(); // eslint-disable-line max-len
+  expect(replaced).toMatch('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>');
+  expect(replaced)
+  .toMatch('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>'); // eslint-disable-line max-len
 
-  expect(replaced.indexOf('<p>SomeText1</p>') !== -1).toBeTruthy();
+  expect(replaced).toMatch('<p>SomeText1</p>');
 });
 
 
@@ -89,13 +83,9 @@ it('replace image embeds', async () => {
 
   const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
-  expect(
-    replaced.indexOf('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>') !== -1
-  ).toBeTruthy();
+  expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>');
 
-  expect(
-    replaced.indexOf('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>') !== -1
-  ).toBeTruthy();
+  expect(replaced).toMatch('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>');
 });
 
 it('replace brightcove embeds', async () => {
@@ -134,8 +124,8 @@ it('replace nrk embeds', async () => {
 
   const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
-  expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="123"></div>') !== -1).toBeTruthy();
-  expect(replaced.indexOf('<div class="nrk-video" data-nrk-id="124"></div>') !== -1).toBeTruthy();
+  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="123"></div>');
+  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');
 });
 
 it('replace audio embeds', async () => {
@@ -162,7 +152,6 @@ it('replace audio embeds', async () => {
 
   const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
 
-  expect(replaced.indexOf(
-    '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
-  ) !== -1).toBeTruthy();
+  expect(replaced)
+    .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');
 });
