@@ -41,6 +41,7 @@ const Brightcove = ({ video }) => {
           />
         </div>
       </div>
+      { video.caption ? <figurecaption className="article_caption">{video.caption}</figurecaption> : null }
     </figure>
   );
 };
