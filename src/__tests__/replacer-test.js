@@ -27,8 +27,7 @@ it('replace various emdeds in html', async () => {
 
   const embeds = [
     { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
-    { id: 8, resource: 'h5p', url: 'https://ndlah5p.joubel.com/h5p/embed/4',
-      oembed: { html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>' }},
+    { id: 8, resource: 'h5p', url: 'https://ndlah5p.joubel.com/h5p/embed/4', oembed: { html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>' } },
     { id: 6,
       resource: 'image',
       metaUrl: 'http://api.test.ndla.no/images/1326',
