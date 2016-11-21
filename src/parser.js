@@ -26,6 +26,8 @@ function createEmbedObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] };
     case 'content-link':
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
+    case 'error':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
     default:
       log.warn(obj, 'Unknown embed');
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };

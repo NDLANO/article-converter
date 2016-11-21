@@ -30,6 +30,8 @@ function createEmbedMarkup(embed, lang) {
       return getAudioMarkup(embed.audio, lang);
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
+    case 'error':
+      return `<div><strong>${embed.message}</strong></div>`;
     default:
       log.warn(embed, 'Do not create markup for unknown/external resource');
       return undefined;
@@ -38,7 +40,6 @@ function createEmbedMarkup(embed, lang) {
 export function replaceEmbedsInHtml(embeds, html, lang, requiredLibraries) {
   const reEmbeds = new RegExp(/<embed.*?\/>/g);
   const reDataId = new RegExp(/data-id="(.*?)"/);
-
   const markup = html.replace(reEmbeds, (embedHtml) => {
     const id = embedHtml.match(reDataId)[1];
     const embed = embeds.find(f => f.id.toString() === id);
