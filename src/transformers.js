@@ -12,7 +12,6 @@ import { fetchOembed } from './api/oembedProxyApi';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
-import { enableJoubelH5POembed } from './config';
 
 export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content);
