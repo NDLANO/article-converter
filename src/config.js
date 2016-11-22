@@ -21,7 +21,6 @@ module.exports = Object.assign({
   ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || 'http://api.test.ndla.no:8082',
   ndlaApiUrl: process.env.NDLA_API_URL || 'http://api.test.ndla.no',
   ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
-  enableJoubelH5POembed: (process.env.ENABLE_JOUBEL_H5P_OEMBED || 'false') === 'true',
 
   app: {
     title: 'NDLA Content frontend',

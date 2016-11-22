@@ -21,7 +21,7 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
       return fetchImageResources(embed);
     } else if (embed.resource === 'audio') {
       return fetchAudio(embed);
-    } else if (enableJoubelH5POembed && embed.resource === 'h5p') {
+    } else if (embed.resource === 'h5p' && embed.url.startsWith('https://ndlah5p.joubel.com')) {
       return fetchOembed(embed);
     }
     return embed;
