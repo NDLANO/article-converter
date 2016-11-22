@@ -13,8 +13,9 @@ import log from './utils/logger';
 import Brightcove from './markup/Brightcove';
 import Image from './markup/Image';
 import H5P from './markup/H5P';
+import JoubelH5P from './markup/JoubelH5P';
 import getAudioMarkup from './markup/audio';
-import { ndlaFrontendUrl } from './config';
+import { ndlaFrontendUrl, enableJoubelH5POembed } from './config';
 
 function createEmbedMarkup(embed, lang) {
   switch (embed.resource) {
@@ -23,6 +24,9 @@ function createEmbedMarkup(embed, lang) {
     case 'brightcove':
       return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
+      if (enableJoubelH5POembed) {
+        return renderToStaticMarkup(<JoubelH5P h5p={embed} />);
+      }
       return renderToStaticMarkup(<H5P h5p={embed} />);
     case 'nrk':
       return `<div class="nrk-video" data-nrk-id="${embed.nrkVideoId}"></div>`;

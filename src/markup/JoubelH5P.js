@@ -8,11 +8,7 @@
 
 import React, { PropTypes } from 'react';
 
-const H5P = ({ h5p }) => (
-  <figure>
-    <iframe src={h5p.url} />
-  </figure>
-);
+const H5P = ({ h5p }) => <figure dangerouslySetInnerHTML={{ __html: h5p.oembed.html }} />;
 
 H5P.propTypes = {
   h5p: PropTypes.object.isRequired,
