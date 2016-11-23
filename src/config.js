@@ -20,6 +20,7 @@ module.exports = Object.assign({
   port: process.env.ARTICLE_OEMBED_PORT || '3000',
   ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || 'http://api.test.ndla.no:8082',
   ndlaApiUrl: process.env.NDLA_API_URL || 'http://api.test.ndla.no',
+  ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
 
   app: {
     title: 'NDLA Content frontend',

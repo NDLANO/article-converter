@@ -13,7 +13,7 @@ it('replace various emdeds in html', async () => {
     <section>
       <embed data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
       <p>SomeText1</p>
-      <embed data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"/>
+      <embed data-resource="h5p" data-id="8" data-url="https://ndlah5p.joubel.com/node/4"/>
     </section>
     <section>
       <p>SomeText2</p>
@@ -27,7 +27,7 @@ it('replace various emdeds in html', async () => {
 
   const embeds = [
     { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
-    { id: 8, resource: 'h5p', url: 'http://ndla.no/h5p/embed/163489' },
+    { id: 8, resource: 'h5p', url: 'https://ndlah5p.joubel.com/h5p/embed/4', oembed: { html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>' } },
     { id: 6,
       resource: 'image',
       metaUrl: 'http://api.test.ndla.no/images/1326',
@@ -44,7 +44,7 @@ it('replace various emdeds in html', async () => {
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
 
-  expect(replaced).toMatch('<figure><iframe src="http://ndla.no/h5p/embed/163489"></iframe></figure>');
+  expect(replaced).toMatch('<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>');
 
   expect(replaced).toMatch('<a href="http://api.test.ndla.no:8082/nb/article/425">Valg av informanter</a>');
   expect(replaced)
