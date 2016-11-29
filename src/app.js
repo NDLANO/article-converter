@@ -84,7 +84,7 @@ app.get('/article-oembed', (req, res) => {
     version: '1.0', // oEmbed version
     height: 800,
     width: 600,
-    html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}"/>`,
+    html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" />`,
   });
 });
 

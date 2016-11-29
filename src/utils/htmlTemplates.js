@@ -8,13 +8,24 @@
 
  import httpStaus from 'http-status';
 
+ const script = `
+   <script type="text/javascript">
+    window.onload = function(e){
+      var data = { height: document.getElementsByTagName("body")[0].offsetHeight };
+      parent.postMessage(data, e.target.referrer);
+    }
+   </script>
+   `;
  export const htmlTemplate = (lang, body) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
-    <body>${body}</body>
+    <body>
+      ${script}
+      ${body}
+    </body>
   </html>`;
 
  export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {
