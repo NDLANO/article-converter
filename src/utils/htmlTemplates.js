@@ -8,10 +8,10 @@
 
  import httpStaus from 'http-status';
 
- const script = `
+ const findHeightScript = `
    <script type="text/javascript">
     window.onload = function(e){
-      var data = { height: document.getElementsByTagName("body")[0].offsetHeight };
+      var data = { context: 'ndla-oembed', height: document.getElementsByTagName("body")[0].offsetHeight};
       parent.postMessage(data, e.target.referrer);
     }
    </script>
@@ -23,8 +23,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
     <body>
-      ${script}
       ${body}
+      ${findHeightScript}
     </body>
   </html>`;
 

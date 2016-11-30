@@ -14,7 +14,7 @@ import cors from 'cors';
 import config from './config';
 import { fetchArticle } from './api/articleApi';
 import { getHtmlLang, isValidLocale } from './locale/configureLocale';
-import { contentI18N, footNotesI18N, introductionI18N } from './utils/i18nFieldFinder';
+import { titleI18N, contentI18N, footNotesI18N, introductionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { transformContentAndExtractCopyrightInfo } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
@@ -26,6 +26,10 @@ app.use(cors({
   credentials: true,
 }));
 
+async function fetchArticleTitle(articleId, lang) {
+  const article = await fetchArticle(articleId);
+  return titleI18N(article, lang, true);
+}
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -41,7 +45,6 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
-
 
 app.get('/article-oembed/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
@@ -76,16 +79,25 @@ app.get('/article-oembed', (req, res) => {
   if (!url) {
     res.status(404).json({ status: 404, text: 'Url not found' });
   }
+
   const paths = url.split('/');
   const articleId = paths.length > 5 ? paths[5] : paths[4];
   const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
-  res.json({
-    type: 'rich',
-    version: '1.0', // oEmbed version
-    height: 800,
-    width: 600,
-    html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" />`,
-  });
+  const html = `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" frameborder="0" />`;
+  fetchArticleTitle(articleId, lang)
+    .then((title) => {
+      res.json({
+        type: 'rich',
+        version: '1.0', // oEmbed version
+        height: req.query.height ? req.query.height : 800,
+        width: req.query.width ? req.query.width : 800,
+        title,
+        html,
+      });
+    }).catch((error) => {
+      const response = getAppropriateErrorResponse(error, config.isProduction);
+      res.status(response.status).json(response);
+    });
 });
 
 app.get('*', (req, res) => {
