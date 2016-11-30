@@ -9,7 +9,7 @@
 import parse5 from 'parse5';
 import log from './utils/logger';
 
-function createFigureObject(attrs) {
+function createEmbedObject(attrs) {
   // Reduce attributes array to object with attribute name (striped of date-) as keys.
   const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
 
@@ -17,38 +17,44 @@ function createFigureObject(attrs) {
     case 'image':
       return { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url };
     case 'brightcove':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), player: obj.player, videoid: obj.videoid };
+      return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), caption: obj.caption, player: obj.player, videoid: obj.videoid };
     case 'h5p':
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
+    case 'audio':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
+    case 'nrk':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] };
     case 'content-link':
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
+    case 'error':
+      return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
     default:
-      log.warn(obj, 'Unknown figure');
+      log.warn(obj, 'Unknown embed');
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
   }
 }
 
 
-function findFigureNodes(node, figures = []) {
+function findEmbedNodes(node, embeds = []) {
   if (node.childNodes) {
-    if (node.tagName === 'figure') {
-      figures.push(node);
+    if (node.tagName === 'embed') {
+      embeds.push(node);
     }
 
-    node.childNodes.forEach(n => findFigureNodes(n, figures));
+    node.childNodes.forEach(n => findEmbedNodes(n, embeds));
   }
-  return figures;
+  return embeds;
 }
 
-export function getFiguresFromHtml(html) {
+export function getEmbedsFromHtml(html) {
   return new Promise((resolve, reject) => {
     try {
       const root = parse5.parseFragment(html);
-      const figureNodes = findFigureNodes(root);
-      const figures = figureNodes.map(node => createFigureObject(node.attrs)).filter(f => f);
-      resolve(figures);
+      const embedNodes = findEmbedNodes(root);
+      const embeds = embedNodes.map(node => createEmbedObject(node.attrs)).filter(f => f);
+      resolve(embeds);
     } catch (e) {
-      log.error(html, 'Error occoured while parsing html content and creating figure ojects from it');
+      log.error(html, 'Error occoured while parsing html content and creating embed ojects from it');
       log.error(e);
       reject(e);
     }

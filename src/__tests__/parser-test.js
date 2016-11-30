@@ -6,14 +6,45 @@
  *
  */
 
-import { articleWithMultipleResources, articleWithContentLink } from './_articleHtmlTestData';
-import { getFiguresFromHtml } from '../parser';
+import * as articles from './_articleHtmlTestData';
+import { getEmbedsFromHtml } from '../parser';
 
+it('parser getEmbedsFromHtml (with audio embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithAudioEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'audio',
+      url: 'http://api.test.ndla.no/audio/1',
+    },
+    {
+      id: 2,
+      resource: 'audio',
+      url: 'http://api.test.ndla.no/audio/2',
+    }]);
+});
 
-it('parser getFiguresFromHtml (with content-link figures)', async () => {
-  const figures = await getFiguresFromHtml(articleWithContentLink);
-  expect(figures.length).toBe(2);
-  expect(figures).toEqual([
+it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'nrk',
+      nrkVideoId: '94605',
+    },
+    {
+      id: 2,
+      resource: 'nrk',
+      nrkVideoId: '94606',
+    }]);
+});
+
+it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
     {
       id: 1,
       resource: 'content-link',
@@ -28,11 +59,34 @@ it('parser getFiguresFromHtml (with content-link figures)', async () => {
     }]);
 });
 
-it('parser getFiguresFromHtml (qith multiple resources)', async () => {
-  const figures = await getFiguresFromHtml(articleWithMultipleResources);
+it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithBrightcoveEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'brightcove',
+      account: 1337,
+      player: 'BkLm8fT',
+      caption: 'Brightcove caption',
+      videoid: 'ref:1',
+    },
+    {
+      id: 2,
+      resource: 'brightcove',
+      account: 1337,
+      player: 'BkLm8fT',
+      caption: '',
+      videoid: 'ref:2',
+    },
+  ]);
+});
 
-  expect(figures.length).toBe(6);
-  expect(figures).toEqual([
+it('parser getEmbedsFromHtml (with multiple resources)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources);
+
+  expect(embeds.length).toBe(6);
+  expect(embeds).toEqual([
     {
       id: 8,
       resource: 'h5p',
@@ -65,6 +119,7 @@ it('parser getFiguresFromHtml (qith multiple resources)', async () => {
       resource: 'brightcove',
       account: 4806596774001,
       player: 'BkLm8fT',
+      caption: 'Brightcove caption',
       videoid: 'ref:46012',
     },
     {
