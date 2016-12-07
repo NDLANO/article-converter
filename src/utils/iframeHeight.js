@@ -58,7 +58,6 @@ export const computeHeightWithCountingAlgorithm = (article, width) => {
   }
   const words = article.content.split(' ');
   let height = (Math.ceil((article.introduction.length * 10) / width) * 28) + 80;
-  console.log(height);
   height += calulateTableHeight(article.content) + calculateListHeight(article.content, iframeWidth) + calculateFigureHeight(article.content, iframeWidth);
   let currentWidth = 0;
   words.forEach((word) => {

@@ -8,14 +8,6 @@
 
  import httpStaus from 'http-status';
 
- const findHeightScript = `
-   <script type="text/javascript">
-    window.onload = function(e){
-      var data = { context: 'ndla-oembed', height: document.getElementsByTagName("body")[0].offsetHeight};
-      parent.postMessage(data, "*");
-    }
-   </script>
-   `;
  export const htmlTemplate = (lang, body, introduction, title) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>

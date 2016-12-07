@@ -27,14 +27,7 @@ app.use(cors({
   origin: true,
   credentials: true,
 }));
-
-// app.use(__dirname, express.static('assets/css/'));
 app.use('/article-oembed', express.static('public'));
-/* async function fetchArticleTitle(articleId, lang) {
-  const article = await fetchArticle(articleId);
-  return titleI18N(article, lang, true);
-}*/
-
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -53,13 +46,17 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 }
 
 async function computeHeightWithPhantomJs(url, width, articleId, lang) {
-  const instance = await phantom.create();
-  const page = await instance.createPage(['--load-images=no']);
+  const instance = await phantom.create(['--load-images=no']);
+  const page = await instance.createPage();
+
   await page.open(url);
+  await page.property('resourceTimeout', 50);
   await page.property('viewportSize', { width, height: 400 });
+
   const dimensions = await page.evaluate(() => ({
     scrollHeight: document.documentElement.scrollHeight,
   }));
+
   await instance.exit();
   const article = await fetchAndTransformArticle(articleId, lang);
   return { dimensions, article };
@@ -91,9 +88,8 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
     });
 });
 
-app.get('/article-oembed', (req, res) => {
+app.get('/article-oembed/height', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-
   const url = req.query.url;
   if (!url) {
     res.status(404).json({ status: 404, text: 'Url not found' });
@@ -122,9 +118,8 @@ app.get('/article-oembed', (req, res) => {
       res.status(response.status).json(response);
     });
 });
-app.get('/article-oembed/phantom', (req, res) => {
+app.get('/article-oembed', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-
   const url = req.query.url;
   if (!url) {
     res.status(404).json({ status: 404, text: 'Url not found' });
@@ -133,15 +128,14 @@ app.get('/article-oembed/phantom', (req, res) => {
   const paths = url.split('/');
   const articleId = paths.length > 5 ? paths[5] : paths[4];
   const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
-  const iframeUrl = `http://localhost:3001/article-oembed/html/${lang}/${articleId}`;
-  const apiiframeUrl = `http://api.test.ndla.no/article-oembed/html/${lang}/${articleId}`;
-  const width = req.query.width ? req.query.width : 900;
-  computeHeightWithPhantomJs(apiiframeUrl, width, articleId, lang)
+  const iframeUrl = `${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}`;
+  const width = req.query.maxwidth ? req.query.maxwidth : 900;
+  console.log(req.query);
+  computeHeightWithPhantomJs(iframeUrl, width, articleId, lang)
     .then((data) => {
       const height = data.dimensions.scrollHeight;
       const article = data.article;
-      console.log(height);
-      const html = `<iframe src="${iframeUrl}" frameborder="0" style="height:${height}px;"/>`;
+      const html = `<iframe src="${iframeUrl}" frameborder="0" style="width:${width}px; height:${height}px;"/>`;
       res.json({
         type: 'rich',
         version: '1.0', // oEmbed version
