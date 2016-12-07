@@ -45,7 +45,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 }
 
 async function computeHeightWithPhantomJs(url, width, articleId) {
-  const instance = await phantom.create(['--load-images=no']);
+  const instance = await phantom.create();
   const page = await instance.createPage();
 
   await page.open(url);
@@ -79,7 +79,7 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
     .then((article) => {
-      res.send(htmlTemplate(lang, article.content, article.introduction, article.title));
+      res.send(htmlTemplate(lang, article.content, article.introduction, titleI18N(article, lang, true)));
       res.end();
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
