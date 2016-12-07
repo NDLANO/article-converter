@@ -8,13 +8,20 @@
 
  import httpStaus from 'http-status';
 
- export const htmlTemplate = (lang, body) =>
+ export const htmlTemplate = (lang, body, introduction, title) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link href="/article-oembed/article.css" rel="stylesheet" type="text/css" >
     </head>
-    <body>${body}</body>
+    <body>
+      <h1>${title}</h1>
+      <section>
+        ${introduction}
+      </section>
+      ${body}
+    </body>
   </html>`;
 
  export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {
