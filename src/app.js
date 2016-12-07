@@ -35,17 +35,16 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   const rawContent = contentI18N(article, lang, true);
   const footNotes = footNotesI18N(article, lang, true);
   const rawIntroduction = introductionI18N(article, lang, true);
-  const title = titleI18N(article, lang, true);
 
   const introduction = rawIntroduction ? rawIntroduction.introduction : '';
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
   const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries);
 
 
-  return { ...article, title, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
+  return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
 
-async function computeHeightWithPhantomJs(url, width, articleId, lang) {
+async function computeHeightWithPhantomJs(url, width, articleId) {
   const instance = await phantom.create(['--load-images=no']);
   const page = await instance.createPage();
 
@@ -58,7 +57,7 @@ async function computeHeightWithPhantomJs(url, width, articleId, lang) {
   }));
 
   await instance.exit();
-  const article = await fetchAndTransformArticle(articleId, lang);
+  const article = await fetchArticle(articleId);
   return { dimensions, article };
 }
 
@@ -98,7 +97,7 @@ app.get('/article-oembed/height', (req, res) => {
   const paths = url.split('/');
   const articleId = paths.length > 5 ? paths[5] : paths[4];
   const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
-  const iframeUrl = `http://localhost:3001/article-oembed/html/${lang}/${articleId}`;
+  const iframeUrl = `${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}`;
 
   fetchAndTransformArticle(articleId, lang)
     .then((article) => {
@@ -130,7 +129,6 @@ app.get('/article-oembed', (req, res) => {
   const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
   const iframeUrl = `${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}`;
   const width = req.query.maxwidth ? req.query.maxwidth : 900;
-  console.log(req.query);
   computeHeightWithPhantomJs(iframeUrl, width, articleId, lang)
     .then((data) => {
       const height = data.dimensions.scrollHeight;
@@ -141,7 +139,7 @@ app.get('/article-oembed', (req, res) => {
         version: '1.0', // oEmbed version
         height,
         width,
-        title: article.title,
+        title: titleI18N(article, lang, true),
         html,
       });
     }).catch((error) => {
