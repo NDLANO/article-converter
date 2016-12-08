@@ -1,0 +1,146 @@
+/**
+ * Copyright (c) 2016-present, NDLA.
+ *
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+body {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  /*max-width: 70%;*/
+}
+
+.article_meta {
+  margin-bottom: 20px;
+  color: #6e6e6e;
+  font-size: 0.875em;
+}
+
+.figure_caption {
+  display: block;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+  font-size: 0.75em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.article_figure--float-left, .article_figure--float-right {
+  display: inline-block;
+  max-width: 45%;
+}
+
+.article_figure--float-left {
+  float: left;
+  margin-right: 5%;
+}
+.article_figure--float-right {
+  margin-left: 5%;
+  float: right;
+}
+
+.article_introduction {
+  color: #4d4d4d;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/** Content hacks (should be fixed in article-api or article-oembed)**/
+
+section {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  line-height: 1.8em;
+  font-size: var(--font-size--medium);
+}
+section::after {
+    content:"";
+    display:table;
+    clear:both;
+}
+em {
+  font-weight: 600;
+}
+/* Inngress? */
+section > p > strong:first-of-type, section > strong:first-of-type {
+  color: #4d4d4d;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+strong em {
+  font-style: normal;
+}
+/*
+.article table {
+  width: 100%;
+  table-layout:fixed;
+}
+.article th, .article tr:first-child td {
+  vertical-align: bottom;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+.article td {
+padding: 8px;
+vertical-align: top;
+}
+.article td p {
+margin: 0;
+}
+*/
+aside {
+  float: right;
+  width: 25%;
+  background: white;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+}
+
+table {
+  text-align: left;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+table tr:first-of-type {
+  border-bottom: 3px solid #ddd;
+  padding: .35em;
+}
+table th,
+table td {
+  padding: .625em;
+}
+@media screen and (max-width: 600px) {
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: left;
+  }
+}
