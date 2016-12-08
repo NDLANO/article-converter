@@ -14,15 +14,19 @@
       var data = { context: 'ndla-oembed', height: document.getElementsByTagName("body")[0].offsetHeight};
       parent.postMessage(data, e.target.referrer);
     }
-   </script>
-   `;
- export const htmlTemplate = (lang, body) =>
+   </script>`;
+
+ export const htmlTemplate = (lang, body, introduction, title) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
     <body>
+      <h1>${title}</h1>
+      <section>
+        ${introduction}
+      </section>
       ${body}
       ${findHeightScript}
     </body>

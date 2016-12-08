@@ -25,11 +25,7 @@ app.use(cors({
   origin: true,
   credentials: true,
 }));
-
-async function fetchArticleTitle(articleId, lang) {
-  const article = await fetchArticle(articleId);
-  return titleI18N(article, lang, true);
-}
+app.use('/article-oembed', express.static('public'));
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -64,7 +60,7 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
     .then((article) => {
-      res.send(htmlTemplate(lang, article.content));
+      res.send(htmlTemplate(lang, article.content, article.introduction, titleI18N(article, lang, true)));
       res.end();
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
@@ -83,16 +79,15 @@ app.get('/article-oembed', (req, res) => {
   const paths = url.split('/');
   const articleId = paths.length > 5 ? paths[5] : paths[4];
   const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
-  const html = `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" frameborder="0" />`;
-  fetchArticleTitle(articleId, lang)
-    .then((title) => {
+  fetchArticle(articleId)
+    .then((article) => {
       res.json({
         type: 'rich',
         version: '1.0', // oEmbed version
         height: req.query.height ? req.query.height : 800,
         width: req.query.width ? req.query.width : 800,
-        title,
-        html,
+        title: titleI18N(article, lang, true),
+        html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" frameborder="0" />`,
       });
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
