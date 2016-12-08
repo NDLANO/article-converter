@@ -13,6 +13,7 @@ RUN npm install
 # Copy necessary source files for server and client build
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
+COPY public $APP_PATH/public
 
 # Build client code
 WORKDIR $APP_PATH
