@@ -8,13 +8,29 @@
 
  import httpStaus from 'http-status';
 
- export const htmlTemplate = (lang, body) =>
+ const findHeightScript = `
+   <script type="text/javascript">
+    window.onload = function(e){
+      var data = { context: 'ndla-oembed', height: document.getElementsByTagName("body")[0].offsetHeight};
+      parent.postMessage(data, e.target.referrer);
+    }
+   </script>`;
+
+ export const htmlTemplate = (lang, body, introduction, title) =>
   `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link href="/article-oembed/styles.css" rel="stylesheet" type="text/css" >
     </head>
-    <body>${body}</body>
+    <body>
+      <h1>${title}</h1>
+      <section>
+        ${introduction}
+      </section>
+      ${body}
+      ${findHeightScript}
+    </body>
   </html>`;
 
  export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {

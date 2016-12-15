@@ -13,6 +13,7 @@ RUN npm install
 # Copy necessary source files for server and client build
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
+COPY public $APP_PATH/public
 
 # Run tests and lint-checks
 COPY .eslintrc.js $APP_PATH/
