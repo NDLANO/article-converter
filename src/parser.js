@@ -10,7 +10,7 @@ import parse5 from 'parse5';
 import log from './utils/logger';
 
 function createEmbedObject(attrs) {
-  // Reduce attributes array to object with attribute name (striped of date-) as keys.
+  // Reduce attributes array to object with attribute name (striped of data-) as keys.
   const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
 
   switch (obj.resource) {
@@ -28,6 +28,12 @@ function createEmbedObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     case 'error':
       return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
+    case 'external':
+      if (obj.url.startsWith('https://youtu') || obj.url.startsWith('http://youtu')) {
+        return { id: parseInt(obj.id, 10), resource: 'youtube', url: obj.url };
+      }
+      log.warn(obj, 'Unknown embed');
+      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
     default:
       log.warn(obj, 'Unknown embed');
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
