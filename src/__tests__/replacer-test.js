@@ -40,7 +40,7 @@ it('replace various emdeds in html', async () => {
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
-  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
 
@@ -81,7 +81,7 @@ it('replace image embeds', async () => {
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>');
 
@@ -101,7 +101,7 @@ it('replace brightcove embeds', async () => {
     { id: 2, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: '', videoid: 'ref:2' },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
   expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
@@ -122,7 +122,7 @@ it('replace nrk embeds', async () => {
     { id: 2, resource: 'nrk', nrkVideoId: '124' },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="123"></div>');
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');
@@ -150,7 +150,7 @@ it('replace audio embeds', async () => {
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, articleContent, 'nb', []);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced)
     .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');

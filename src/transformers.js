@@ -9,7 +9,7 @@
 import { fetchImageResources } from './api/imageApi';
 import { fetchAudio } from './api/audioApi';
 import { fetchOembed } from './api/oembedProxyApi';
-import { replaceEmbedsInHtml } from './replacer';
+import { replaceEmbedsInHtml, appendHtmlToTag } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
 
@@ -26,8 +26,14 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
     return embed;
   }));
 
+  const replacers = [
+    appendHtmlToTag('aside', '<button>Les mer</button>'),
+    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries),
+  ];
+
+
   return {
-    html: await replaceEmbedsInHtml(embedsWithResources, content, lang, requiredLibraries),
+    html: replacers.reduce((html, f) => f(html), content),
     copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
   };
 }
