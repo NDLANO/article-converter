@@ -29,10 +29,6 @@ function createEmbedObject(attrs) {
     case 'error':
       return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
     case 'external':
-      if (obj.url.startsWith('https://youtu') || obj.url.startsWith('http://youtu')) {
-        return { id: parseInt(obj.id, 10), resource: 'youtube', url: obj.url };
-      }
-      log.warn(obj, 'Unknown embed');
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
     default:
       log.warn(obj, 'Unknown embed');

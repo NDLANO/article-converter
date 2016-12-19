@@ -53,12 +53,12 @@ export const articleWithBrightcoveEmbed = `
   </article> `
   ;
 
-export const articleWithYoutubeEmbed = `
+export const articleWithExternalEmbed = `
   <article>
     <section>
       <ul>
         <li><embed data-resource="external" data-id="1" data-url="https://youtu.be/BAb8NZ3e4e4"></embed></li>
-        <li><embed data-resource="external" data-id="2" data-url="https://youtube.com/BAb8NZ3e4e4"></embed></li>
+        <li><embed data-resource="external" data-id="2" data-url="https://vimeo.com/BAb8NZ3e4e4"></embed></li>
       </ul>
     </section>
   </article> `

@@ -30,7 +30,7 @@ function createEmbedMarkup(embed, lang) {
       return getAudioMarkup(embed.audio, lang);
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
-    case 'youtube':
+    case 'external':
       return `<figure>${embed.oembed.html}</figure>`;
     case 'error':
       return `<div><strong>${embed.message}</strong></div>`;

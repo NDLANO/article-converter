@@ -82,19 +82,19 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
   ]);
 });
 
-it('parser getEmbedsFromHtml (with youtube embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithYoutubeEmbed);
+it('parser getEmbedsFromHtml (with external embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
       id: 1,
-      resource: 'youtube',
+      resource: 'external',
       url: 'https://youtu.be/BAb8NZ3e4e4',
     },
     {
       id: 2,
-      resource: 'youtube',
-      url: 'https://youtube.com/BAb8NZ3e4e4',
+      resource: 'external',
+      url: 'https://vimeo.com/BAb8NZ3e4e4',
     },
   ]);
 });
