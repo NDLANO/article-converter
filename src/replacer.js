@@ -31,7 +31,7 @@ function createEmbedMarkup(embed, lang) {
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     case 'external':
-      return `<figure>${embed.oembed.html}</figure>`;
+      return `<figure class="article__oembed">${embed.oembed.html}</figure>`;
     case 'error':
       return `<div><strong>${embed.message}</strong></div>`;
     default:
