@@ -11,6 +11,6 @@ import { apiResourceUrl, resolveJsonOrRejectWithError } from '../utils/apiHelper
 import { ndlaApiKey } from '../config';
 
 export const fetchOembed = embed =>
-  fetch(apiResourceUrl(`/oembed?url=${embed.url}`), { headers: { 'APP-KEY': ndlaApiKey } })
+  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), { headers: { 'APP-KEY': ndlaApiKey } })
     .then(resolveJsonOrRejectWithError)
     .then(oembed => ({ ...embed, oembed }));
