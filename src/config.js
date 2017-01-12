@@ -23,7 +23,7 @@ const domain = () => {
     case 'prod':
       return 'http://api.ndla.no';
     default:
-      return `http://api.${process.env.NDLA_ENVIRONMENT}.ndla.no`;
+      return `http://${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
   }
 };
 
