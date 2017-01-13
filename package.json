@@ -4,7 +4,7 @@
   "description": "NDLA Article oembed",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "cross-env NDLA_ENVIRONMENT=test jest",
     "tdd": "npm test -- --watch",
     "start": "cross-env ARTICLE_OEMBED_PORT=3001 nodemon --watch src/ src/server.js | bunyan",
     "lint": "eslint src",

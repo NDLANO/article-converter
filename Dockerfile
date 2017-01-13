@@ -15,6 +15,11 @@ COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
 COPY public $APP_PATH/public
 
+# Run tests and lint-checks
+COPY .eslintrc.js $APP_PATH/
+RUN npm run lint
+RUN npm test
+
 # Build client code
 WORKDIR $APP_PATH
 
