@@ -10,6 +10,6 @@ import fetch from 'isomorphic-fetch';
 import { apiResourceUrl, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 
 export function fetchArticle(articleId, method = 'GET') {
-  const url = apiResourceUrl(`/articel-api/v1/articles/${articleId}`);
+  const url = apiResourceUrl(`/article-api/v1/articles/${articleId}`);
   return fetch(url, { method }).then(resolveJsonOrRejectWithError);
 }
