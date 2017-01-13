@@ -13,4 +13,10 @@ import { ndlaApiKey } from '../config';
 export const fetchOembed = embed =>
   fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), { headers: { 'APP-KEY': ndlaApiKey } })
     .then(resolveJsonOrRejectWithError)
-    .then(oembed => ({ ...embed, oembed }));
+    .then(oembed => ({ ...embed, oembed }))
+    .catch((e) => {
+      if (e.status === 501 && e.json.code === 'PROVIDER_NOT_SUPPORTED') {
+        return { ...embed, message: `Uhåndtert embed med følgende url: ${embed.url}`, resource: 'error' };
+      }
+      return { ...embed, message: `En uventet feil oppsto med følgende embed url: ${embed.url}`, resource: 'unhandled-oembed-error' };
+    });

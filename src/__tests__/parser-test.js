@@ -82,6 +82,23 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
   ]);
 });
 
+it('parser getEmbedsFromHtml (with external embeds)', async () => {
+  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed);
+  expect(embeds.length).toBe(2);
+  expect(embeds).toEqual([
+    {
+      id: 1,
+      resource: 'external',
+      url: 'https://youtu.be/BAb8NZ3e4e4',
+    },
+    {
+      id: 2,
+      resource: 'external',
+      url: 'https://vimeo.com/BAb8NZ3e4e4',
+    },
+  ]);
+});
+
 it('parser getEmbedsFromHtml (with multiple resources)', async () => {
   const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources);
 
@@ -125,7 +142,7 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
     {
       id: 1,
       resource: 'external',
-      url: 'https://youtu.be/BAb8NZ3e4e4',
+      url: 'https://example.com/BAb8NZ3e4e4',
     },
   ]);
 });
