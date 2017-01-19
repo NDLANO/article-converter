@@ -72,7 +72,6 @@ $ npm run start-prod
 ```
 # Docker stuff
 $ ./build.sh
-$ ./release.sh
 ```
 
 ## Dependencies
