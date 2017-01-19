@@ -1,7 +1,7 @@
 FROM node:6.2.2
 
 ENV HOME=/home/app
-ENV APP_PATH=$HOME/article-oembed
+ENV APP_PATH=$HOME/article-converter
 
 # Copy necessary files for installing dependencies
 COPY package.json $APP_PATH/

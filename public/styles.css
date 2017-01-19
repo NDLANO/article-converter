@@ -51,8 +51,6 @@ img {
   font-weight: 600;
 }
 
-/** Content hacks (should be fixed in article-api or article-oembed)**/
-
 section {
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   line-height: 1.8em;

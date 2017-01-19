@@ -25,7 +25,7 @@ app.use(cors({
   origin: true,
   credentials: true,
 }));
-app.use('/article-oembed', express.static('public'));
+app.use('/article-converter', express.static('public'));
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -42,7 +42,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
 
-app.get('/article-oembed/raw/:lang/:id', (req, res) => {
+app.get('/article-converter/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
@@ -55,7 +55,7 @@ app.get('/article-oembed/raw/:lang/:id', (req, res) => {
     });
 });
 
-app.get('/article-oembed/html/:lang/:id', (req, res) => {
+app.get('/article-converter/html/:lang/:id', (req, res) => {
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
   fetchAndTransformArticle(articleId, lang, true)
@@ -68,7 +68,7 @@ app.get('/article-oembed/html/:lang/:id', (req, res) => {
     });
 });
 
-app.get('/article-oembed', (req, res) => {
+app.get('/article-converter', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   const url = req.query.url;
@@ -87,7 +87,7 @@ app.get('/article-oembed', (req, res) => {
         height: req.query.height ? req.query.height : 800,
         width: req.query.width ? req.query.width : 800,
         title: titleI18N(article, lang, true),
-        html: `<iframe src="${config.ndlaApiUrl}/article-oembed/html/${lang}/${articleId}" frameborder="0" />`,
+        html: `<iframe src="${config.ndlaApiUrl}/article-converter/html/${lang}/${articleId}" frameborder="0" />`,
       });
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
