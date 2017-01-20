@@ -28,7 +28,7 @@ const domain = () => {
 };
 
 module.exports = Object.assign({
-  host: process.env.ARTICLE_OEMBED_HOST || 'localhost',
+  host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
   port: process.env.ARTICLE_CONVERTER_PORT || '3001',
   ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || 'http://ndla-frontend.test.api.ndla.no',
   ndlaApiUrl: process.env.NDLA_API_URL || domain(),
