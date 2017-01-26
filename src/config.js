@@ -19,7 +19,7 @@ const environment = {
 const domain = () => {
   switch (process.env.NDLA_ENVIRONMENT) {
     case 'local':
-      return 'http://localhost';
+      return 'http://proxy.ndla-local';
     case 'prod':
       return 'http://api.ndla.no';
     default:
@@ -27,10 +27,21 @@ const domain = () => {
   }
 };
 
+const ndlaFrontendDomain = () => {
+  switch (process.env.NDLA_ENVIRONMENT) {
+    case 'local':
+      return 'http://localhost';
+    case 'prod':
+      return 'http://api.ndla.no';
+    default:
+      return `http://ndla-frontend.${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
+  }
+};
+
 module.exports = Object.assign({
   host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
   port: process.env.ARTICLE_CONVERTER_PORT || '3001',
-  ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || 'http://ndla-frontend.test.api.ndla.no',
+  ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
   ndlaApiUrl: process.env.NDLA_API_URL || domain(),
   ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
 
