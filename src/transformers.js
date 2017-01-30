@@ -9,9 +9,15 @@
 import { fetchImageResources } from './api/imageApi';
 import { fetchAudio } from './api/audioApi';
 import { fetchOembed } from './api/oembedProxyApi';
-import { replaceEmbedsInHtml, appendHtmlToTag } from './replacer';
+import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
+
+// Changes aside tags to accommodate frontend styling
+export const asideReplacers = [
+  replaceStartAndEndTag('aside', '<aside><div className="c-aside__content">', '</div><button className="c-aside__button"></button></aside>'),
+  addClassToTag('aside', 'c-aside u-1/3@desktop'),
+];
 
 export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content);
@@ -27,7 +33,7 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
   }));
 
   const replacers = [
-    appendHtmlToTag('aside', '<button>Les mer</button>'),
+    ...asideReplacers,
     replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries),
   ];
 

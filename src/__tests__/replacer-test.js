@@ -6,9 +6,9 @@
  *
  */
 
-import { replaceEmbedsInHtml } from '../replacer';
+import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
 
-it('replace various emdeds in html', async () => {
+test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
   const articleContent = `
     <section>
       <embed data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
@@ -54,7 +54,7 @@ it('replace various emdeds in html', async () => {
 });
 
 
-it('replace image embeds', async () => {
+test('replacer/replaceEmbedsInHtml replace image embeds', () => {
   const articleContent = `
     <section>
       <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
@@ -88,7 +88,7 @@ it('replace image embeds', async () => {
   expect(replaced).toMatch('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>');
 });
 
-it('replace brightcove embeds', async () => {
+test('replacer/replaceEmbedsInHtml replace brightcove embeds', () => {
   const articleContent = `
     <section>
       <embed data-id="1" />
@@ -109,7 +109,7 @@ it('replace brightcove embeds', async () => {
   expect(replaced).not.toMatch(/<figurecaption.*?><\/figurecaption>/);
 });
 
-it('replace nrk embeds', async () => {
+test('replacer/replaceEmbedsInHtml replace nrk embeds', () => {
   const articleContent = `
     <section>
       <embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" />
@@ -128,7 +128,7 @@ it('replace nrk embeds', async () => {
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');
 });
 
-it('replace audio embeds', async () => {
+test('replacer/replaceEmbedsInHtml replace audio embeds', () => {
   const articleContent = '<section><embed data-id="1"/></section>'.replace(/\n|\r/g, ''); // Strip new lines
 
   const embeds = [
@@ -154,4 +154,40 @@ it('replace audio embeds', async () => {
 
   expect(replaced)
     .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');
+});
+
+test('replacer/addClassToTag can add class to tag', () => {
+  const content = `
+  <section>
+    <aside><h2>Test1</h2><div>Stuff</div></aside>
+    <aside><h3>Test2</h3><div>Other stuff</div></aside>
+  </section>`;
+
+  const fn1 = addClassToTag('aside', 'u-1/3@desktop');
+  const fn2 = addClassToTag('h3', 'headline-level-3');
+  const result = [fn1, fn2].reduce((html, f) => f(html), content);
+
+
+  expect(result)
+    .toMatch('<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>');
+  expect(result)
+    .toMatch('<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>');
+});
+
+test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/html', () => {
+  const content = `
+  <section>
+    <aside><h2>Test1</h2><div>Stuff</div></aside>
+    <p>Lorem ipsum</p>
+  </section>`;
+
+  const fn1 = replaceStartAndEndTag('aside', '<section>', '</section>');
+  const fn2 = replaceStartAndEndTag('p', '<aside><div>', '</div></aside>');
+  const result = [fn1, fn2].reduce((html, f) => f(html), content);
+
+
+  expect(result)
+    .toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
+  expect(result)
+    .toMatch('<aside><div>Lorem ipsum</div></aside>');
 });
