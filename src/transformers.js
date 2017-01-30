@@ -15,7 +15,7 @@ import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
 
 // Changes aside tags to accommodate frontend styling
 export const asideReplacers = [
-  replaceStartAndEndTag('aside', '<aside><div className="c-aside__content">', '</div><button className="c-aside__button"></button></aside>'),
+  replaceStartAndEndTag('aside', '<aside><div class="c-aside__content">', '</div><button class="c-button c-aside__button"></button></aside>'),
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];
 
