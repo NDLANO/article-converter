@@ -6,7 +6,7 @@ if (!log) {
   log = bunyan.createLogger({ name: 'article-oembed' });
 }
 
-log.logAndReturnValue = (level, value, msg) => {
+log.logAndReturnValue = (level, msg, value) => {
   log[level](msg, value);
   return value;
 };

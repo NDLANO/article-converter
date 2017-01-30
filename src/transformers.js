@@ -20,7 +20,7 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
       return fetchImageResources(embed);
     } else if (embed.resource === 'audio') {
       return fetchAudio(embed);
-    } else if (embed.resource === 'h5p' && embed.url.startsWith('https://ndlah5p.joubel.com')) {
+    } else if ((embed.resource === 'h5p' && embed.url.startsWith('https://ndlah5p.joubel.com')) || embed.resource === 'external') {
       return fetchOembed(embed);
     }
     return embed;
