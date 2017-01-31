@@ -3,7 +3,7 @@ import bunyan from 'bunyan';
 let log;
 
 if (!log) {
-  log = bunyan.createLogger({ name: 'article-oembed' });
+  log = bunyan.createLogger({ name: 'article-converter' });
 }
 
 log.logAndReturnValue = (level, msg, value) => {

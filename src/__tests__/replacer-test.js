@@ -11,7 +11,7 @@ import { replaceEmbedsInHtml } from '../replacer';
 it('replace various emdeds in html', async () => {
   const articleContent = `
     <section>
-      <embed data-resource="image" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
+      <embed data-resource="image" data-id="6" data-url="https://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
       <p>SomeText1</p>
       <embed data-resource="h5p" data-id="8" data-url="https://ndlah5p.joubel.com/node/4"/>
     </section>
@@ -46,7 +46,7 @@ it('replace various emdeds in html', async () => {
 
   expect(replaced).toMatch('<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>');
 
-  expect(replaced).toMatch('<a href="http://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>');
+  expect(replaced).toMatch('<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>');
   expect(replaced)
   .toMatch('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>'); // eslint-disable-line max-len
 

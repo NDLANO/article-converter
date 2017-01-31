@@ -1,5 +1,5 @@
-# NDLA article-oembed
-[![Build Status](https://travis-ci.org/NDLANO/article-oembed.svg?branch=master)](https://travis-ci.org/NDLANO/article-oembed)
+# NDLA article-converter
+[![Build Status](https://travis-ci.org/NDLANO/article-converter.svg?branch=master)](https://travis-ci.org/NDLANO/article-converter)
 
 ## Requirements
 

@@ -1,18 +1,18 @@
 {
-  "name": "article-oembed",
+  "name": "article-converter",
   "version": "0.0.1",
-  "description": "NDLA Article oembed",
+  "description": "NDLA Article converter",
   "main": "index.js",
   "scripts": {
     "test": "cross-env NDLA_ENVIRONMENT=test jest",
     "tdd": "npm test -- --watch",
-    "start": "cross-env ARTICLE_OEMBED_PORT=3001 nodemon --watch src/ src/server.js | bunyan",
+    "start": "cross-env ARTICLE_CONVERTER_PORT=3001 nodemon --watch src/ src/server.js | bunyan",
     "lint": "eslint src",
     "start-prod": "cross-env NODE_ENV=production node src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NDLANO/article-oembed.git"
+    "url": "https://github.com/NDLANO/article-converter.git"
   },
   "devDependencies": {
     "babel-jest": "16.0.0",
@@ -45,9 +45,9 @@
     "testRegex": "/__tests__/.*-test.(js|jsx)$"
   },
   "bugs": {
-    "url": "https://github.com/NDLANO/article-oembed/issues"
+    "url": "https://github.com/NDLANO/article-converter/issues"
   },
-  "homepage": "https://github.com/NDLANO/article-oembed",
+  "homepage": "https://github.com/NDLANO/article-converter",
   "author": "ndla@knowit.no",
   "license": "GPL-3.0"
 }
