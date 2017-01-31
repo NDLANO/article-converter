@@ -18,7 +18,7 @@ const environment = {
 
 const domain = () => {
   if (!process.env.NDLA_ENVIRONMENT) {
-    return 'http://test.api.ndla.no'; // Defaults to test if undefined
+    return 'https://test.api.ndla.no'; // Defaults to test if undefined
   }
 
   switch (process.env.NDLA_ENVIRONMENT) {
