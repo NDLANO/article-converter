@@ -39,18 +39,37 @@ function createEmbedMarkup(embed, lang) {
       return undefined;
   }
 }
-export function replaceEmbedsInHtml(embeds, html, lang, requiredLibraries) {
-  const reEmbeds = new RegExp(/<embed.*?\/>/g);
-  const reDataId = new RegExp(/data-id="(.*?)"/);
-  const markup = html.replace(reEmbeds, (embedHtml) => {
-    const id = embedHtml.match(reDataId)[1];
-    const embed = embeds.find(f => f.id.toString() === id);
-    return createEmbedMarkup(embed, lang) || '';
-  });
+export function replaceEmbedsInHtml(embeds, lang, requiredLibraries) {
+  return (html) => {
+    const reEmbeds = new RegExp(/<embed.*?\/>/g);
+    const reDataId = new RegExp(/data-id="(.*?)"/);
+    const markup = html.replace(reEmbeds, (embedHtml) => {
+      const id = embedHtml.match(reDataId)[1];
+      const embed = embeds.find(f => f.id.toString() === id);
+      return createEmbedMarkup(embed, lang) || '';
+    });
 
-  const scripts = requiredLibraries.map(library =>
-        `<script type="${library.mediaType}" src="${library.url}"></script>`
-      ).join();
+    const scripts = requiredLibraries.map(library =>
+          `<script type="${library.mediaType}" src="${library.url}"></script>`
+        ).join();
 
-  return markup + scripts;
+    return markup + scripts;
+  };
+}
+
+export function addClassToTag(tag, className) {
+  return (html) => {
+    const reTag = new RegExp(`<${tag}>`, 'g');
+    return html.replace(reTag, `<${tag} class="${className}">`);
+  };
+}
+
+export function replaceStartAndEndTag(tag, newStartTag, newEndTag) {
+  return (html) => {
+    const reStart = new RegExp(`<${tag}>`, 'g');
+    const reEnd = new RegExp(`<\/${tag}>`, 'g');
+    return html
+            .replace(reStart, newStartTag)
+            .replace(reEnd, newEndTag);
+  };
 }
