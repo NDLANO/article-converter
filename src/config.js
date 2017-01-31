@@ -21,9 +21,9 @@ const domain = () => {
     case 'local':
       return 'http://proxy.ndla-local';
     case 'prod':
-      return 'http://api.ndla.no';
+      return 'https://api.ndla.no';
     default:
-      return `http://${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
+      return `https://${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
   }
 };
 
@@ -32,9 +32,9 @@ const ndlaFrontendDomain = () => {
     case 'local':
       return 'http://localhost';
     case 'prod':
-      return 'http://api.ndla.no';
+      return 'https://api.ndla.no';
     default:
-      return `http://ndla-frontend.${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
+      return `https://ndla-frontend.${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
   }
 };
 
