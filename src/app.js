@@ -13,7 +13,7 @@ import compression from 'compression';
 import cors from 'cors';
 import config from './config';
 import { fetchArticle } from './api/articleApi';
-import { getHtmlLang, isValidLocale } from './locale/configureLocale';
+import { getHtmlLang } from './locale/configureLocale';
 import { titleI18N, contentI18N, footNotesI18N, introductionI18N } from './utils/i18nFieldFinder';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { transformContentAndExtractCopyrightInfo } from './transformers';
@@ -25,7 +25,6 @@ app.use(cors({
   origin: true,
   credentials: true,
 }));
-app.use('/article-converter', express.static('public'));
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -65,33 +64,6 @@ app.get('/article-converter/html/:lang/:id', (req, res) => {
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);
       res.status(response.status).send(htmlErrorTemplate(lang, response));
-    });
-});
-
-app.get('/article-converter', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-
-  const url = req.query.url;
-  if (!url) {
-    res.status(404).json({ status: 404, text: 'Url not found' });
-  }
-
-  const paths = url.split('/');
-  const articleId = paths.length > 5 ? paths[5] : paths[4];
-  const lang = paths.length > 2 && isValidLocale(paths[3]) ? paths[3] : 'nb';
-  fetchArticle(articleId)
-    .then((article) => {
-      res.json({
-        type: 'rich',
-        version: '1.0', // oEmbed version
-        height: req.query.height ? req.query.height : 800,
-        width: req.query.width ? req.query.width : 800,
-        title: titleI18N(article, lang, true),
-        html: `<iframe src="${config.ndlaApiUrl}/article-converter/html/${lang}/${articleId}" frameborder="0" />`,
-      });
-    }).catch((error) => {
-      const response = getAppropriateErrorResponse(error, config.isProduction);
-      res.status(response.status).json(response);
     });
 });
 
