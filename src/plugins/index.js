@@ -8,10 +8,16 @@
 
 import createNRKPlugin from './nrkPlugin';
 import createAudioPlugin from './audioPlugin';
+import createImagePlugin from './imagePlugin';
 
 export {
   createNRKPlugin,
   createAudioPlugin,
+  createImagePlugin,
 };
 
-export default [createNRKPlugin(), createAudioPlugin()];
+export default [
+  createNRKPlugin(),
+  createAudioPlugin(),
+  createImagePlugin(),
+];

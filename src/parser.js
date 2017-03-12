@@ -20,8 +20,6 @@ function createEmbedObject(attrs, plugins) {
   }
 
   switch (obj.resource) {
-    case 'image':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url };
     case 'brightcove':
       return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), caption: obj.caption, player: obj.player, videoid: obj.videoid };
     case 'h5p':

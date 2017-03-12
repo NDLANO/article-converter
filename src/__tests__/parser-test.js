@@ -8,7 +8,7 @@
 
 import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
-import {
+import plugins, {
   createNRKPlugin,
   createAudioPlugin,
 } from '../plugins';
@@ -104,7 +104,7 @@ it('parser getEmbedsFromHtml (with external embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with multiple resources)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources);
+  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources, plugins);
 
   expect(embeds.length).toBe(6);
   expect(embeds).toEqual([

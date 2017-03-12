@@ -7,9 +7,10 @@
  */
 
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
-import {
+import plugins, {
   createNRKPlugin,
   createAudioPlugin,
+  createImagePlugin,
 } from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
@@ -44,7 +45,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], plugins)(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
 
@@ -85,7 +86,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', () => {
     },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createImagePlugin()])(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>');
 

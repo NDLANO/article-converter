@@ -11,7 +11,6 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import log from './utils/logger';
 import Brightcove from './markup/Brightcove';
-import Image from './markup/Image';
 import H5P from './markup/H5P';
 import { ndlaFrontendUrl } from './config';
 
@@ -23,8 +22,6 @@ function createEmbedMarkup(embed, lang, plugins) {
   }
 
   switch (embed.resource) {
-    case 'image':
-      return renderToStaticMarkup(<Image align={embed.align} caption={embed.caption} image={embed.image} lang={lang} />);
     case 'brightcove':
       return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
