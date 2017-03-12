@@ -18,7 +18,6 @@ import { titleI18N, contentI18N, footNotesI18N, introductionI18N } from './utils
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { transformContentAndExtractCopyrightInfo } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
-import createNRKPlugin from './plugins/nrkPlugin';
 
 const app = express();
 app.use(compression());
@@ -27,7 +26,6 @@ app.use(cors({
   credentials: true,
 }));
 
-const plugins = [createNRKPlugin()];
 
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
@@ -38,7 +36,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 
   const introduction = rawIntroduction ? rawIntroduction.introduction : '';
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries, plugins);
+  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries);
 
 
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };

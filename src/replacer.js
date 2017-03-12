@@ -13,7 +13,6 @@ import log from './utils/logger';
 import Brightcove from './markup/Brightcove';
 import Image from './markup/Image';
 import H5P from './markup/H5P';
-import getAudioMarkup from './markup/audio';
 import { ndlaFrontendUrl } from './config';
 
 function createEmbedMarkup(embed, lang, plugins) {
@@ -30,8 +29,6 @@ function createEmbedMarkup(embed, lang, plugins) {
       return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
       return renderToStaticMarkup(<H5P h5p={embed} />);
-    case 'audio':
-      return getAudioMarkup(embed.audio, lang);
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     case 'external':

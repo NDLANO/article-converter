@@ -12,6 +12,7 @@ import { fetchOembed } from './api/oembedProxyApi';
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
+import plugins from './plugins';
 
 // Changes aside tags to accommodate frontend styling
 export const asideReplacers = [
@@ -19,9 +20,15 @@ export const asideReplacers = [
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];
 
-export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries, plugins) {
+export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
   const embeds = await getEmbedsFromHtml(content, plugins);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
+    const plugin = plugins.find(p => p.resource === embed.resource);
+
+    if (plugin && plugin.fetchResource) {
+      return plugin.fetchResource(embed);
+    }
+
     if (embed.resource === 'image') {
       return fetchImageResources(embed);
     } else if (embed.resource === 'audio') {

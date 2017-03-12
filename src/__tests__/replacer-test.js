@@ -7,7 +7,10 @@
  */
 
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
-import createNRKPlugin from '../plugins/nrkPlugin';
+import {
+  createNRKPlugin,
+  createAudioPlugin,
+} from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
   const articleContent = `
@@ -151,7 +154,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', () => {
     },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createAudioPlugin()])(articleContent);
 
   expect(replaced)
     .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');
