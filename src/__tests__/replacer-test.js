@@ -7,6 +7,7 @@
  */
 
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
+import createNRKPlugin from '../plugins/nrkPlugin';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
   const articleContent = `
@@ -122,7 +123,7 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', () => {
     { id: 2, resource: 'nrk', nrkVideoId: '124' },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createNRKPlugin()])(articleContent);
 
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="123"></div>');
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');

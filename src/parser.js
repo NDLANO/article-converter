@@ -9,9 +9,15 @@
 import parse5 from 'parse5';
 import log from './utils/logger';
 
-function createEmbedObject(attrs) {
+function createEmbedObject(attrs, plugins) {
   // Reduce attributes array to object with attribute name (striped of data-) as keys.
   const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
+
+  const plugin = plugins.find(p => p.resource === obj.resource);
+
+  if (plugin) {
+    return plugin.createEmbedObject(obj);
+  }
 
   switch (obj.resource) {
     case 'image':
@@ -22,8 +28,6 @@ function createEmbedObject(attrs) {
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
     case 'audio':
       return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
-    case 'nrk':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] };
     case 'content-link':
       return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
     case 'error':
@@ -48,12 +52,12 @@ function findEmbedNodes(node, embeds = []) {
   return embeds;
 }
 
-export function getEmbedsFromHtml(html) {
+export function getEmbedsFromHtml(html, plugins = []) {
   return new Promise((resolve, reject) => {
     try {
       const root = parse5.parseFragment(html);
       const embedNodes = findEmbedNodes(root);
-      const embeds = embedNodes.map(node => createEmbedObject(node.attrs)).filter(f => f);
+      const embeds = embedNodes.map(node => createEmbedObject(node.attrs, plugins)).filter(f => f);
       resolve(embeds);
     } catch (e) {
       log.error(html, 'Error occoured while parsing html content and creating embed ojects from it');

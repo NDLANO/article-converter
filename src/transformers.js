@@ -19,8 +19,8 @@ export const asideReplacers = [
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];
 
-export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
-  const embeds = await getEmbedsFromHtml(content);
+export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries, plugins) {
+  const embeds = await getEmbedsFromHtml(content, plugins);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
     if (embed.resource === 'image') {
       return fetchImageResources(embed);
@@ -34,7 +34,7 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
 
   const replacers = [
     ...asideReplacers,
-    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries),
+    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries, plugins),
   ];
 
 

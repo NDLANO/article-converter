@@ -8,6 +8,11 @@
 
 import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
+import createNRKPlugin from '../plugins/nrkPlugin';
+
+const plugins = [
+  createNRKPlugin(),
+];
 
 it('parser getEmbedsFromHtml (with audio embeds)', async () => {
   const embeds = await getEmbedsFromHtml(articles.articleWithAudioEmbed);
@@ -26,7 +31,7 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed);
+  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed, [createNRKPlugin()]);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {

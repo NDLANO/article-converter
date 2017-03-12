@@ -16,7 +16,13 @@ import H5P from './markup/H5P';
 import getAudioMarkup from './markup/audio';
 import { ndlaFrontendUrl } from './config';
 
-function createEmbedMarkup(embed, lang) {
+function createEmbedMarkup(embed, lang, plugins) {
+  const plugin = plugins.find(p => p.resource === embed.resource);
+
+  if (plugin) {
+    return plugin.embedToHTML(embed);
+  }
+
   switch (embed.resource) {
     case 'image':
       return renderToStaticMarkup(<Image align={embed.align} caption={embed.caption} image={embed.image} lang={lang} />);
@@ -24,8 +30,6 @@ function createEmbedMarkup(embed, lang) {
       return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
       return renderToStaticMarkup(<H5P h5p={embed} />);
-    case 'nrk':
-      return `<div class="nrk-video" data-nrk-id="${embed.nrkVideoId}"></div>`;
     case 'audio':
       return getAudioMarkup(embed.audio, lang);
     case 'content-link':
@@ -39,14 +43,14 @@ function createEmbedMarkup(embed, lang) {
       return undefined;
   }
 }
-export function replaceEmbedsInHtml(embeds, lang, requiredLibraries) {
+export function replaceEmbedsInHtml(embeds, lang, requiredLibraries, plugins = []) {
   return (html) => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
     const markup = html.replace(reEmbeds, (embedHtml) => {
       const id = embedHtml.match(reDataId)[1];
       const embed = embeds.find(f => f.id.toString() === id);
-      return createEmbedMarkup(embed, lang) || '';
+      return createEmbedMarkup(embed, lang, plugins) || '';
     });
 
     const scripts = requiredLibraries.map(library =>
