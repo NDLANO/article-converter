@@ -6,7 +6,6 @@
  *
  */
 
-import { fetchOembed } from './api/oembedProxyApi';
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
@@ -22,13 +21,8 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
   const embeds = await getEmbedsFromHtml(content, plugins);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
     const plugin = plugins.find(p => p.resource === embed.resource);
-
     if (plugin && plugin.fetchResource) {
       return plugin.fetchResource(embed);
-    }
-
-    if (embed.resource === 'external') {
-      return fetchOembed(embed);
     }
     return embed;
   }));

@@ -11,6 +11,7 @@ import createAudioPlugin from './audioPlugin';
 import createImagePlugin from './imagePlugin';
 import createBrightcovePlugin from './brightcovePlugin';
 import createH5pPlugin from './h5pPlugin';
+import createExternalPlugin from './externalPlugin';
 
 export {
   createNRKPlugin,
@@ -18,6 +19,7 @@ export {
   createImagePlugin,
   createBrightcovePlugin,
   createH5pPlugin,
+  createExternalPlugin,
 };
 
 export default [
@@ -26,4 +28,5 @@ export default [
   createImagePlugin(),
   createBrightcovePlugin(),
   createH5pPlugin(),
+  createExternalPlugin(),
 ];

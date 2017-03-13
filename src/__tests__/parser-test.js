@@ -88,7 +88,7 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with external embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed);
+  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed, plugins);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {

@@ -18,8 +18,6 @@ function createEmbedMarkup(embed, lang, plugins) {
   switch (embed.resource) {
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
-    case 'external':
-      return `<figure class="article__oembed">${embed.oembed.html}</figure>`;
     case 'error':
       return `<div><strong>${embed.message}</strong></div>`;
     default:
@@ -27,6 +25,7 @@ function createEmbedMarkup(embed, lang, plugins) {
       return undefined;
   }
 }
+
 export function replaceEmbedsInHtml(embeds, lang, requiredLibraries, plugins = []) {
   return (html) => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
