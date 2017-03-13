@@ -14,13 +14,8 @@ function createEmbedMarkup(embed, lang, plugins) {
     return plugin.embedToHTML(embed, lang);
   }
 
-  switch (embed.resource) {
-    case 'error':
-      return `<div><strong>${embed.message}</strong></div>`;
-    default:
-      log.warn(embed, 'Do not create markup for unknown embed');
-      return undefined;
-  }
+  log.warn(embed, 'Do not create markup for unknown embed');
+  return undefined;
 }
 
 export function replaceEmbedsInHtml(embeds, lang, requiredLibraries, plugins = []) {

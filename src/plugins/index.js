@@ -13,6 +13,7 @@ import createBrightcovePlugin from './brightcovePlugin';
 import createH5pPlugin from './h5pPlugin';
 import createExternalPlugin from './externalPlugin';
 import createContentLinkPlugin from './contentLinkPlugin';
+import createErrorPlugin from './errorPlugin';
 
 export {
   createNRKPlugin,
@@ -22,6 +23,7 @@ export {
   createH5pPlugin,
   createExternalPlugin,
   createContentLinkPlugin,
+  createErrorPlugin,
 };
 
 export default [
@@ -32,4 +34,5 @@ export default [
   createH5pPlugin(),
   createExternalPlugin(),
   createContentLinkPlugin(),
+  createErrorPlugin(),
 ];

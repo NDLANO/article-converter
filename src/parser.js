@@ -19,13 +19,8 @@ function createEmbedObject(attrs, plugins) {
     return plugin.createEmbedObject(obj);
   }
 
-  switch (obj.resource) {
-    case 'error':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
-    default:
-      log.warn(obj, 'Unknown embed');
-      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
-  }
+  log.warn(obj, 'Unknown embed');
+  return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
 }
 
 
