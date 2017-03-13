@@ -8,14 +8,9 @@
 
 import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
-import plugins, {
-  createNRKPlugin,
-  createAudioPlugin,
-  createBrightcovePlugin,
-} from '../plugins';
 
 it('parser getEmbedsFromHtml (with audio embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithAudioEmbed, [createAudioPlugin()]);
+  const embeds = await getEmbedsFromHtml(articles.articleWithAudioEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -31,7 +26,7 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed, [createNRKPlugin()]);
+  const embeds = await getEmbedsFromHtml(articles.articleWithNRKEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -47,7 +42,7 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink, plugins);
+  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -65,7 +60,7 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithBrightcoveEmbed, [createBrightcovePlugin()]);
+  const embeds = await getEmbedsFromHtml(articles.articleWithBrightcoveEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -88,7 +83,7 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with external embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed, plugins);
+  const embeds = await getEmbedsFromHtml(articles.articleWithExternalEmbed);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
@@ -105,7 +100,7 @@ it('parser getEmbedsFromHtml (with external embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with multiple resources)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources, plugins);
+  const embeds = await getEmbedsFromHtml(articles.articleWithMultipleResources);
 
   expect(embeds.length).toBe(6);
   expect(embeds).toEqual([

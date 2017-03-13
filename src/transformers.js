@@ -18,7 +18,7 @@ export const asideReplacers = [
 ];
 
 export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries) {
-  const embeds = await getEmbedsFromHtml(content, plugins);
+  const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
     const plugin = plugins.find(p => p.resource === embed.resource);
     if (plugin && plugin.fetchResource) {
@@ -29,7 +29,7 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
 
   const replacers = [
     ...asideReplacers,
-    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries, plugins),
+    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries),
   ];
 
 

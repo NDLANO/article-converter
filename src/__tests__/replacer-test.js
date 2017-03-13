@@ -7,12 +7,6 @@
  */
 
 import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
-import plugins, {
-  createNRKPlugin,
-  createAudioPlugin,
-  createImagePlugin,
-  createBrightcovePlugin,
-} from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
   const articleContent = `
@@ -46,7 +40,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], plugins)(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
 
@@ -87,7 +81,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', () => {
     },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createImagePlugin()])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>');
 
@@ -107,7 +101,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', () => {
     { id: 2, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: '', videoid: 'ref:2' },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createBrightcovePlugin()])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch(/data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
   expect(replaced).toMatch(/data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
@@ -128,7 +122,7 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', () => {
     { id: 2, resource: 'nrk', nrkVideoId: '124' },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createNRKPlugin()])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="123"></div>');
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');
@@ -156,7 +150,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', () => {
     },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createAudioPlugin()])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
 
   expect(replaced)
     .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');

@@ -8,8 +8,9 @@
 
 import parse5 from 'parse5';
 import log from './utils/logger';
+import plugins from './plugins';
 
-function createEmbedObject(attrs, plugins) {
+function createEmbedObject(attrs) {
   // Reduce attributes array to object with attribute name (striped of data-) as keys.
   const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
 
@@ -35,12 +36,12 @@ function findEmbedNodes(node, embeds = []) {
   return embeds;
 }
 
-export function getEmbedsFromHtml(html, plugins = []) {
+export function getEmbedsFromHtml(html) {
   return new Promise((resolve, reject) => {
     try {
       const root = parse5.parseFragment(html);
       const embedNodes = findEmbedNodes(root);
-      const embeds = embedNodes.map(node => createEmbedObject(node.attrs, plugins)).filter(f => f);
+      const embeds = embedNodes.map(node => createEmbedObject(node.attrs)).filter(f => f);
       resolve(embeds);
     } catch (e) {
       log.error(html, 'Error occoured while parsing html content and creating embed ojects from it');

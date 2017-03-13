@@ -6,8 +6,9 @@
  *
  */
 import log from './utils/logger';
+import plugins from './plugins';
 
-function createEmbedMarkup(embed, lang, plugins) {
+function createEmbedMarkup(embed, lang) {
   const plugin = plugins.find(p => p.resource === embed.resource);
 
   if (plugin) {
@@ -18,7 +19,7 @@ function createEmbedMarkup(embed, lang, plugins) {
   return undefined;
 }
 
-export function replaceEmbedsInHtml(embeds, lang, requiredLibraries, plugins = []) {
+export function replaceEmbedsInHtml(embeds, lang, requiredLibraries) {
   return (html) => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
