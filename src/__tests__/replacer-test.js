@@ -11,6 +11,7 @@ import plugins, {
   createNRKPlugin,
   createAudioPlugin,
   createImagePlugin,
+  createBrightcovePlugin,
 } from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
@@ -52,9 +53,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', () => {
   expect(replaced).toMatch('<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>');
 
   expect(replaced).toMatch('<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>');
-  expect(replaced)
-  .toMatch('<figure><div style="display:block;position:relative;max-width:100%;"><div style="padding-top:56.25%;"><video style="width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px;" data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""></video></div></div></figure>'); // eslint-disable-line max-len
-
+  expect(replaced).toMatch('<video');
+  expect(replaced).toMatch('data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">');
+  expect(replaced).toMatch('</video>');
   expect(replaced).toMatch('<p>SomeText1</p>');
 });
 
@@ -106,10 +107,10 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', () => {
     { id: 2, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: '', videoid: 'ref:2' },
   ];
 
-  const replaced = replaceEmbedsInHtml(embeds, 'nb', [])(articleContent);
+  const replaced = replaceEmbedsInHtml(embeds, 'nb', [], [createBrightcovePlugin()])(articleContent);
 
-  expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
-  expect(replaced).toMatch(/<video style=".*?" data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls=""><\/video>/);
+  expect(replaced).toMatch(/data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
+  expect(replaced).toMatch(/data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
   expect(replaced).toMatch(/<figurecaption.*?>Brightcove caption<\/figurecaption>/);
   expect(replaced).not.toMatch(/<figurecaption.*?><\/figurecaption>/);
 });

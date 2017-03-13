@@ -10,7 +10,6 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import log from './utils/logger';
-import Brightcove from './markup/Brightcove';
 import H5P from './markup/H5P';
 import { ndlaFrontendUrl } from './config';
 
@@ -22,8 +21,6 @@ function createEmbedMarkup(embed, lang, plugins) {
   }
 
   switch (embed.resource) {
-    case 'brightcove':
-      return renderToStaticMarkup(<Brightcove video={embed} />);
     case 'h5p':
       return renderToStaticMarkup(<H5P h5p={embed} />);
     case 'content-link':

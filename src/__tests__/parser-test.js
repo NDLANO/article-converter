@@ -11,6 +11,7 @@ import { getEmbedsFromHtml } from '../parser';
 import plugins, {
   createNRKPlugin,
   createAudioPlugin,
+  createBrightcovePlugin,
 } from '../plugins';
 
 it('parser getEmbedsFromHtml (with audio embeds)', async () => {
@@ -64,7 +65,7 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithBrightcoveEmbed);
+  const embeds = await getEmbedsFromHtml(articles.articleWithBrightcoveEmbed, [createBrightcovePlugin()]);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {

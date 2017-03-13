@@ -9,15 +9,18 @@
 import createNRKPlugin from './nrkPlugin';
 import createAudioPlugin from './audioPlugin';
 import createImagePlugin from './imagePlugin';
+import createBrightcovePlugin from './brightcovePlugin';
 
 export {
   createNRKPlugin,
   createAudioPlugin,
   createImagePlugin,
+  createBrightcovePlugin,
 };
 
 export default [
   createNRKPlugin(),
   createAudioPlugin(),
   createImagePlugin(),
+  createBrightcovePlugin(),
 ];
