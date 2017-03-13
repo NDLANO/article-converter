@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2016-present, NDLA.
  *
@@ -17,7 +16,6 @@ export default function createExternalPlugin() {
   const fetchResource = embed => fetchOembed(embed);
 
   const embedToHTML = embed => `<figure class="article__oembed">${embed.oembed.html}</figure>`;
-
 
   return {
     resource: 'external',

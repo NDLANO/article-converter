@@ -6,22 +6,19 @@
  *
  */
 import log from './utils/logger';
-import { ndlaFrontendUrl } from './config';
 
 function createEmbedMarkup(embed, lang, plugins) {
   const plugin = plugins.find(p => p.resource === embed.resource);
 
   if (plugin) {
-    return plugin.embedToHTML(embed);
+    return plugin.embedToHTML(embed, lang);
   }
 
   switch (embed.resource) {
-    case 'content-link':
-      return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     case 'error':
       return `<div><strong>${embed.message}</strong></div>`;
     default:
-      log.warn(embed, 'Do not create markup for unknown/external resource');
+      log.warn(embed, 'Do not create markup for unknown embed');
       return undefined;
   }
 }

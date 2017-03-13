@@ -47,7 +47,7 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink);
+  const embeds = await getEmbedsFromHtml(articles.articleWithContentLink, plugins);
   expect(embeds.length).toBe(2);
   expect(embeds).toEqual([
     {
