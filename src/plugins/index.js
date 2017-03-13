@@ -10,12 +10,14 @@ import createNRKPlugin from './nrkPlugin';
 import createAudioPlugin from './audioPlugin';
 import createImagePlugin from './imagePlugin';
 import createBrightcovePlugin from './brightcovePlugin';
+import createH5pPlugin from './h5pPlugin';
 
 export {
   createNRKPlugin,
   createAudioPlugin,
   createImagePlugin,
   createBrightcovePlugin,
+  createH5pPlugin,
 };
 
 export default [
@@ -23,4 +25,5 @@ export default [
   createAudioPlugin(),
   createImagePlugin(),
   createBrightcovePlugin(),
+  createH5pPlugin(),
 ];

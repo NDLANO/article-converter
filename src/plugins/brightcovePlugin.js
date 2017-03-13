@@ -29,7 +29,6 @@ export default function createBrightcovePlugin() {
     </figure>`;
   };
 
-
   return {
     resource: 'brightcove',
     createEmbedObject,

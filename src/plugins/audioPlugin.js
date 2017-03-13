@@ -23,7 +23,6 @@ export default function createAudioPlugin() {
     return `<figure class="article_audio"><audio controls type="${audioFiles.mimeType}" src="${audioFiles.url}"></audio><figcaption>${title}</figcaption></figure>`;
   };
 
-
   return {
     resource: 'audio',
     fetchResource,

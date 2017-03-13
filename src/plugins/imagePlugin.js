@@ -33,7 +33,6 @@ export default function createImagePlugin() {
     return `<figure class="${figureClassNames}"><img class="article_image" alt="${altText}" src="${image.imageUrl}"/>${figcaption}</figure>`;
   };
 
-
   return {
     resource: 'image',
     fetchResource,

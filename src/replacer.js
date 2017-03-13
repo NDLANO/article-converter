@@ -5,12 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-
 import log from './utils/logger';
-import H5P from './markup/H5P';
 import { ndlaFrontendUrl } from './config';
 
 function createEmbedMarkup(embed, lang, plugins) {
@@ -21,8 +16,6 @@ function createEmbedMarkup(embed, lang, plugins) {
   }
 
   switch (embed.resource) {
-    case 'h5p':
-      return renderToStaticMarkup(<H5P h5p={embed} />);
     case 'content-link':
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
     case 'external':
