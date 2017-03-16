@@ -8,32 +8,20 @@
 
 import parse5 from 'parse5';
 import log from './utils/logger';
+import plugins from './plugins';
 
 function createEmbedObject(attrs) {
   // Reduce attributes array to object with attribute name (striped of data-) as keys.
   const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
 
-  switch (obj.resource) {
-    case 'image':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url };
-    case 'brightcove':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), caption: obj.caption, player: obj.player, videoid: obj.videoid };
-    case 'h5p':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
-    case 'audio':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
-    case 'nrk':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] };
-    case 'content-link':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] };
-    case 'error':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message };
-    case 'external':
-      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
-    default:
-      log.warn(obj, 'Unknown embed');
-      return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
+  const plugin = plugins.find(p => p.resource === obj.resource);
+
+  if (plugin) {
+    return plugin.createEmbedObject(obj);
   }
+
+  log.warn(obj, 'Unknown embed');
+  return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
 }
 
 

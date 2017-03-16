@@ -26,6 +26,7 @@ app.use(cors({
   credentials: true,
 }));
 
+
 async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
   const article = await fetchArticle(articleId);
 
