@@ -19,7 +19,7 @@ function createEmbedMarkup(embed, lang) {
   return undefined;
 }
 
-export function replaceEmbedsInHtml(embeds, lang, requiredLibraries) {
+export function replaceEmbedsInHtml(embeds, lang) {
   return (html) => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
@@ -29,11 +29,7 @@ export function replaceEmbedsInHtml(embeds, lang, requiredLibraries) {
       return createEmbedMarkup(embed, lang, plugins) || '';
     });
 
-    const scripts = requiredLibraries.map(library =>
-          `<script type="${library.mediaType}" src="${library.url}"></script>`
-        ).join();
-
-    return markup + scripts;
+    return markup;
   };
 }
 

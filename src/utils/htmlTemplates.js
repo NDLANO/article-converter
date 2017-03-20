@@ -8,16 +8,12 @@
 
  import httpStaus from 'http-status';
 
- const findHeightScript = `
-   <script type="text/javascript">
-    window.onload = function(e){
-      var data = { context: 'ndla-oembed', height: document.getElementsByTagName("body")[0].offsetHeight};
-      parent.postMessage(data, e.target.referrer);
-    }
-   </script>`;
+ export const htmlTemplate = (lang, title, article) => {
+   const scripts = article.requiredLibraries.map(library =>
+       `<script type="${library.mediaType}" src="${library.url}"></script>`
+     ).join();
 
- export const htmlTemplate = (lang, body, introduction, title) =>
-  `<!doctype html>\n<html lang=${lang} >
+   return `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,12 +21,13 @@
     <body>
       <h1>${title}</h1>
       <section>
-        ${introduction}
+        ${article.introduction}
       </section>
-      ${body}
-      ${findHeightScript}
+      ${article.content}
+      ${scripts}
     </body>
   </html>`;
+ };
 
  export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {
    const statusMsg = httpStaus[status];
