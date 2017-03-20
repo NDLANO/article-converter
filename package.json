@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NDLA_ENVIRONMENT=test jest",
     "tdd": "npm test -- --watch",
-    "start": "cross-env ARTICLE_CONVERTER_PORT=3001 nodemon --watch src/ src/server.js | bunyan",
+    "start": "nodemon --watch src/ src/server.js | bunyan",
     "lint": "eslint src",
     "start-prod": "cross-env NODE_ENV=production node src/server.js"
   },
