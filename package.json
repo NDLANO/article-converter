@@ -39,7 +39,8 @@
     "lodash": "4.16.2",
     "parse5": "2.2.1",
     "react": "15.3.2",
-    "react-dom": "15.3.2"
+    "react-dom": "15.3.2",
+    "string-replace-async": "^1.2.0"
   },
   "jest": {
     "testRegex": "/__tests__/.*-test.(js|jsx)$"

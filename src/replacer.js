@@ -8,6 +8,8 @@
 import log from './utils/logger';
 import plugins from './plugins';
 
+const stringReplaceAsync = require('string-replace-async');
+
 function createEmbedMarkup(embed, lang) {
   const plugin = plugins.find(p => p.resource === embed.resource);
 
@@ -20,15 +22,14 @@ function createEmbedMarkup(embed, lang) {
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
-  return (html) => {
+  return async (html) => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
-    const markup = html.replace(reEmbeds, (embedHtml) => {
+    const markup = await stringReplaceAsync(html, reEmbeds, (embedHtml) => {
       const id = embedHtml.match(reDataId)[1];
       const embed = embeds.find(f => f.id.toString() === id);
-      return createEmbedMarkup(embed, lang, plugins) || '';
+      return Promise.resolve(createEmbedMarkup(embed, lang, plugins) || '');
     });
-
     return markup;
   };
 }
