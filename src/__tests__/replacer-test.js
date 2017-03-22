@@ -36,13 +36,20 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
         imageUrl: 'http://api.test.ndla.no/images/1.jpg',
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-nc',
+          },
+        },
       },
     },
     { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
 
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
-  expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://api.test.ndla.no/images/1.jpg"/></figure>');
+  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
+  expect(replaced).toMatch(/<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg".*?\/>/);
 
   expect(replaced).toMatch('<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>');
 
@@ -69,6 +76,12 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       image: {
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
         imageUrl: 'http://ndla.no/images/1.jpg',
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-nc',
+          },
+        },
       },
     },
     { id: 2,
@@ -77,13 +90,20 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       image: {
         alttexts: [{ alttext: 'alt', lang: 'nb' }],
         imageUrl: 'http://ndla.no/images/2.jpg',
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-nc',
+          },
+        },
       },
     },
   ];
 
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
-  expect(replaced).toMatch('<figure class="article_figure"><img class="article_image" alt="alt" src="http://ndla.no/images/1.jpg"/></figure>');
+  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
+  expect(replaced).toMatch(/<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg".*?\/>/);
 
   expect(replaced).toMatch('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>');
 });
