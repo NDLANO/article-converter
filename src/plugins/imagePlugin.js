@@ -6,60 +6,16 @@
  *
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import defined from 'defined';
 import classnames from 'classnames';
-import LicenseByline from 'ndla-ui/lib/license/LicenseByline';
+import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/article/Figure';
 import Icon from 'ndla-ui/lib/icons/Icon';
-import { getLicenseByAbbreviation } from 'ndla-licenses';
-import { uuid } from 'ndla-util';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
 
 const { render } = require('rapscallion');
 
-export const Image = ({ image, caption, altText }) => {
-  const authors = image.copyright.authors;
-  return (
-    <figure className="c-figure">
-      <button className="c-figure__close">X</button>
-      <div className="c-figure__img">
-        <img alt={altText} src={image.imageUrl} />
-      </div>
-      <figcaption>
-        {caption ? <div className="c-figcaption__info">${caption}</div> : null}
-        <div className="c-figure__byline">
-          <button className="c-button c-button--outline c-figure__captionbtn"><Icon.OpenWindow /> Gjenbruk</button>
-          <div className="c-figure__byline-licenselist">
-            <LicenseByline license={getLicenseByAbbreviation(image.copyright.license.license)}>
-              <span className="article_meta">{ authors.map(author => author.name).join(', ') }</span>
-            </LicenseByline>
-          </div>
-        </div>
-      </figcaption>
-      <div className="c-figure__license" id="figmeta">
-        <div className="u-expanded">
-          <div className="c-licenseToggle__details">
-            <LicenseByline license={getLicenseByAbbreviation(image.copyright.license.license)} />
-            <ul className="c-figure__list">
-              { authors.map(author => <li key={uuid()} className="o-list__item">{ `${author.type}: ${author.name}`}</li>) }
-            </ul>
-          </div>
-          <div className="c-licenseToggle__ctablock">
-            <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Copy /> Kopier referanse</button>
-            <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Link /> Gå til kilde</button>
-            <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
-          </div>
-        </div>
-      </div>
-    </figure>
-); };
-
-Image.propTypes = {
-  image: PropTypes.object.isRequired,
-  altText: PropTypes.string.isRequired,
-  caption: PropTypes.string,
-};
 
 export default function createImagePlugin() {
   const createEmbedObject = obj => (
@@ -70,6 +26,7 @@ export default function createImagePlugin() {
 
   const embedToHTML = (embed, lang) => {
     const { image, align, ...rest } = embed;
+    const { authors, license: { license } } = image.copyright;
     const altText = alttextsI18N(image, lang, true);
     const caption = defined(captionI18N(image, lang, true), rest.caption);
     const figureClassNames = classnames('article_figure', {
@@ -84,7 +41,17 @@ export default function createImagePlugin() {
     }
 
     return render(
-      <Image image={image} altText={altText} caption={caption} />
+      <Figure>
+        <div className="c-figure__img">
+          <img alt={altText} src={image.imageUrl} />
+        </div>
+        <FigureCaption caption={caption} reuseLabel="Gjenbruk" licenseAbbreviation={license} authors={authors} />
+        <FigureDetails licenseAbbreviation={license} authors={authors}>
+          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Copy /> Kopier referanse</button>
+          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Link /> Gå til kilde</button>
+          <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
+        </FigureDetails>
+      </Figure>
     ).toPromise();
   };
 
