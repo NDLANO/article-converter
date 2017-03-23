@@ -52,7 +52,9 @@ export default function createImagePlugin() {
           <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
         </FigureDetails>
       </Figure>
-    ).toPromise();
+    )
+    .includeDataReactAttrs(false)
+    .toPromise();
   };
 
   return {
