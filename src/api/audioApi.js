@@ -8,9 +8,9 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
+import { resolveJsonOrRejectWithError, headerWithAccessToken } from '../utils/apiHelpers';
 
-export const fetchAudio = embed =>
-  fetch(embed.url)
+export const fetchAudio = (embed, accessToken) =>
+  fetch(embed.url, { headers: headerWithAccessToken(accessToken) })
   .then(resolveJsonOrRejectWithError)
   .then(audio => ({ ...embed, audio }));

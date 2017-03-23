@@ -9,6 +9,7 @@
 
  import fetch from 'isomorphic-fetch';
  import log from '../utils/logger';
+ import { headerWithAccessToken } from '../utils/apiHelpers';
 
  function resolveJsonOrRejectWithImageObject(res) {
    return new Promise((resolve) => {
@@ -22,4 +23,5 @@
    });
  }
 
- export const fetchImageResources = embed => fetch(embed.url).then(resolveJsonOrRejectWithImageObject).then(image => ({ ...embed, image }));
+ export const fetchImageResources = (embed, accessToken) =>
+  fetch(embed.url, { headers: headerWithAccessToken(accessToken) }).then(resolveJsonOrRejectWithImageObject).then(image => ({ ...embed, image }));
