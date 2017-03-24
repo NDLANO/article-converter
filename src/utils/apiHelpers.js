@@ -38,3 +38,7 @@ export function resolveJsonOrRejectWithError(res) {
       .then(reject);
   });
 }
+
+export function headerWithAccessToken(accessToken) {
+  return { Authorization: accessToken };
+}

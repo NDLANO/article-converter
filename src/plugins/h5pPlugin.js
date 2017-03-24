@@ -14,7 +14,7 @@ export default function createH5pPlugin() {
       { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url }
   );
 
-  const fetchResource = embed => (embed.url.startsWith('https://ndlah5p.joubel.com') ? fetchOembed(embed) : embed);
+  const fetchResource = (embed, headers) => (embed.url.startsWith('https://ndlah5p.joubel.com') ? fetchOembed(embed, headers) : embed);
 
   const embedToHTML = (h5p) => {
     if (h5p.oembed) {

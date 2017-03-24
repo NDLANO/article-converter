@@ -27,8 +27,8 @@ app.use(cors({
 }));
 
 
-async function fetchAndTransformArticle(articleId, lang, includeScripts = false) {
-  const article = await fetchArticle(articleId);
+async function fetchAndTransformArticle(articleId, lang, accessToken, includeScripts = false) {
+  const article = await fetchArticle(articleId, accessToken);
 
   const rawContent = contentI18N(article, lang, true);
   const footNotes = footNotesI18N(article, lang, true);
@@ -36,7 +36,7 @@ async function fetchAndTransformArticle(articleId, lang, includeScripts = false)
 
   const introduction = rawIntroduction ? rawIntroduction.introduction : '';
   const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries);
+  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries, accessToken);
 
 
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
@@ -46,7 +46,8 @@ app.get('/article-converter/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticle(articleId, lang)
+  const accessToken = req.headers.authorization;
+  fetchAndTransformArticle(articleId, lang, accessToken)
     .then((article) => {
       res.json(article);
     }).catch((error) => {
@@ -58,7 +59,8 @@ app.get('/article-converter/raw/:lang/:id', (req, res) => {
 app.get('/article-converter/html/:lang/:id', (req, res) => {
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticle(articleId, lang, true)
+  const accessToken = req.headers.authorization;
+  fetchAndTransformArticle(articleId, lang, accessToken, true)
     .then((article) => {
       res.send(htmlTemplate(lang, article.content, article.introduction, titleI18N(article, lang, true)));
       res.end();

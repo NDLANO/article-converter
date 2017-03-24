@@ -7,11 +7,10 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { apiResourceUrl, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
-import { ndlaApiKey } from '../config';
+import { apiResourceUrl, resolveJsonOrRejectWithError, headerWithAccessToken } from '../utils/apiHelpers';
 
-export const fetchOembed = embed =>
-  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), { headers: { 'APP-KEY': ndlaApiKey } })
+export const fetchOembed = (embed, accessToken) =>
+  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), { headers: headerWithAccessToken(accessToken) })
     .then(resolveJsonOrRejectWithError)
     .then(oembed => ({ ...embed, oembed }))
     .catch((e) => {
