@@ -14,7 +14,7 @@ export default function createAudioPlugin() {
     { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url }
   );
 
-  const fetchResource = embed => fetchAudio(embed);
+  const fetchResource = (embed, headers) => fetchAudio(embed, headers);
 
   const embedToHTML = (embed, lang) => {
     const { audio } = embed;
