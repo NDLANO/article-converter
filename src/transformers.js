@@ -18,12 +18,12 @@ export const asideReplacers = [
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];
 
-export async function transformContentAndExtractCopyrightInfo(content, lang) {
+export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries, accessToken) {
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
     const plugin = plugins.find(p => p.resource === embed.resource);
     if (plugin && plugin.fetchResource) {
-      return plugin.fetchResource(embed);
+      return plugin.fetchResource(embed, accessToken);
     }
     return embed;
   }));

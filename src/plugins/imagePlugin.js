@@ -22,7 +22,7 @@ export default function createImagePlugin() {
     { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url }
   );
 
-  const fetchResource = embed => fetchImageResources(embed);
+  const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
   const embedToHTML = (embed, lang) => {
     const { image, align, ...rest } = embed;

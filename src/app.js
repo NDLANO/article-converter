@@ -27,16 +27,16 @@ app.use(cors({
 }));
 
 
-async function fetchAndTransformArticle(articleId, lang) {
-  const article = await fetchArticle(articleId);
+async function fetchAndTransformArticle(articleId, lang, accessToken) {
+  const article = await fetchArticle(articleId, accessToken);
 
   const rawContent = contentI18N(article, lang, true);
   const footNotes = footNotesI18N(article, lang, true);
   const rawIntroduction = introductionI18N(article, lang, true);
 
   const introduction = rawIntroduction ? rawIntroduction.introduction : '';
-  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang);
 
+  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, accessToken);
 
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
@@ -45,7 +45,8 @@ app.get('/article-converter/raw/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticle(articleId, lang)
+  const accessToken = req.headers.authorization;
+  fetchAndTransformArticle(articleId, lang, accessToken)
     .then((article) => {
       res.json(article);
     }).catch((error) => {
@@ -57,7 +58,8 @@ app.get('/article-converter/raw/:lang/:id', (req, res) => {
 app.get('/article-converter/html/:lang/:id', (req, res) => {
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
-  fetchAndTransformArticle(articleId, lang)
+  const accessToken = req.headers.authorization;
+  fetchAndTransformArticle(articleId, lang, accessToken, true)
     .then((article) => {
       res.send(htmlTemplate(lang, titleI18N(article, lang, true), article));
       res.end();
