@@ -11,6 +11,7 @@ import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
 import plugins from './plugins';
 
+
 // Changes aside tags to accommodate frontend styling
 export const asideReplacers = [
   replaceStartAndEndTag('aside', '<aside><div class="c-aside__content">', '</div><button class="c-button c-aside__button"></button></aside>'),
@@ -27,14 +28,10 @@ export async function transformContentAndExtractCopyrightInfo(content, lang, req
     return embed;
   }));
 
-  const replacers = [
-    ...asideReplacers,
-    replaceEmbedsInHtml(embedsWithResources, lang, requiredLibraries),
-  ];
-
+  const contentWithReplacedEmbeds = await replaceEmbedsInHtml(embedsWithResources, lang)(content);
 
   return {
-    html: replacers.reduce((html, f) => f(html), content),
+    html: asideReplacers.reduce((html, f) => f(html), contentWithReplacedEmbeds),
     copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
   };
 }

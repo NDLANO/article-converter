@@ -6,10 +6,15 @@
  *
  */
 
+import React from 'react';
 import defined from 'defined';
 import classnames from 'classnames';
+import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/article/Figure';
+import Icon from 'ndla-ui/lib/icons/Icon';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
+
+const { render } = require('rapscallion');
 
 
 export default function createImagePlugin() {
@@ -21,6 +26,7 @@ export default function createImagePlugin() {
 
   const embedToHTML = (embed, lang) => {
     const { image, align, ...rest } = embed;
+    const { authors, license: { license } } = image.copyright;
     const altText = alttextsI18N(image, lang, true);
     const caption = defined(captionI18N(image, lang, true), rest.caption);
     const figureClassNames = classnames('article_figure', {
@@ -28,9 +34,27 @@ export default function createImagePlugin() {
       'article_figure--float-left': align === 'left',
     });
 
-    const figcaption = caption ? `<figcaption class="article_caption">${caption}</figcaption>` : '';
+    const figcaption = caption ? `<figcaption>${caption}</figcaption>` : '';
 
-    return `<figure class="${figureClassNames}"><img class="article_image" alt="${altText}" src="${image.imageUrl}"/>${figcaption}</figure>`;
+    if (align === 'right' || align === 'left') {
+      return `<figure class="${figureClassNames}"><img class="article_image" alt="${altText}" src="${image.imageUrl}"/>${figcaption}</figure>`;
+    }
+
+    return render(
+      <Figure>
+        <div className="c-figure__img">
+          <img alt={altText} src={image.imageUrl} />
+        </div>
+        <FigureCaption caption={caption} reuseLabel="Gjenbruk" licenseAbbreviation={license} authors={authors} />
+        <FigureDetails licenseAbbreviation={license} authors={authors}>
+          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Copy /> Kopier referanse</button>
+          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Link /> Gå til kilde</button>
+          <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
+        </FigureDetails>
+      </Figure>
+    )
+    .includeDataReactAttrs(false)
+    .toPromise();
   };
 
   return {

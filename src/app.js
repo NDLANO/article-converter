@@ -27,7 +27,7 @@ app.use(cors({
 }));
 
 
-async function fetchAndTransformArticle(articleId, lang, accessToken, includeScripts = false) {
+async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken);
 
   const rawContent = contentI18N(article, lang, true);
@@ -35,9 +35,8 @@ async function fetchAndTransformArticle(articleId, lang, accessToken, includeScr
   const rawIntroduction = introductionI18N(article, lang, true);
 
   const introduction = rawIntroduction ? rawIntroduction.introduction : '';
-  const requiredLibraries = includeScripts ? article.requiredLibraries : [];
-  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, requiredLibraries, accessToken);
 
+  const content = await transformContentAndExtractCopyrightInfo(rawContent, lang, accessToken);
 
   return { ...article, content: content.html, footNotes, contentCopyrights: content.copyrights, introduction };
 }
@@ -62,7 +61,7 @@ app.get('/article-converter/html/:lang/:id', (req, res) => {
   const accessToken = req.headers.authorization;
   fetchAndTransformArticle(articleId, lang, accessToken, true)
     .then((article) => {
-      res.send(htmlTemplate(lang, article.content, article.introduction, titleI18N(article, lang, true)));
+      res.send(htmlTemplate(lang, titleI18N(article, lang, true), article));
       res.end();
     }).catch((error) => {
       const response = getAppropriateErrorResponse(error, config.isProduction);

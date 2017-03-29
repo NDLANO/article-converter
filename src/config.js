@@ -44,7 +44,7 @@ const ndlaFrontendDomain = () => {
 
 module.exports = Object.assign({
   host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
-  port: process.env.ARTICLE_CONVERTER_PORT || '3001',
+  port: process.env.ARTICLE_CONVERTER_PORT || '3100',
   ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
   ndlaApiUrl: process.env.NDLA_API_URL || domain(),
   ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
