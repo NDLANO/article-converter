@@ -18,7 +18,7 @@ export const asideReplacers = [
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];
 
-export async function transformContentAndExtractCopyrightInfo(content, lang, requiredLibraries, accessToken) {
+export async function transformContentAndExtractCopyrightInfo(content, lang, accessToken) {
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(embeds.map((embed) => {
     const plugin = plugins.find(p => p.resource === embed.resource);
