@@ -38,7 +38,7 @@
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.16.2",
     "ndla-licenses": "0.0.6",
-    "ndla-ui": "^0.3.0-beta.1",
+    "ndla-ui": "^0.3.0",
     "ndla-util": "^0.1.0",
     "parse5": "2.2.1",
     "rapscallion": "^2.1.5",
