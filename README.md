@@ -17,12 +17,12 @@ What's in the box?
 
 ### Dependencies
 
-All dependencies are defined in `package.json` and are managed with npm.  To
+All dependencies are defined in `package.json` and are managed with yarn/npm.  To
 initially install all dependencies and when the list dependency has changed,
-run `npm install`.
+run `yarn`.
 
 ```
-$ npm install
+$ yarn
 ```
 
 ### Start development server
@@ -30,23 +30,23 @@ $ npm install
 Start node server with hot reloading middleware listening on port 3000.
 
 ```
-$ npm start
+$ yarn start
 ```
 
 To use a different api set the `NDLA_API_URL` environment variable.
 
 ### Unit tests
 
-Test framework: ava with enzyme.
+Test framework: jest.
 
 ```
-$ npm test
+$ yarn test
 ```
 
 Do you tdd?
 
 ```
-$ npm run tdd
+$ yarn run tdd
 ```
 ### Code style
 
@@ -56,7 +56,7 @@ Lint code with [eslint](http://eslint.org/), including [eslint react plugin](htt
 Beside linting with globally installed eslint, eslint can be invoked with `npm`:
 
 ```
-$ npm run lint
+$ yarn run lint
 ```
 
 Rules are configured in `./.eslintrc.js` and extends [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). If feeling brave, try `eslint --fix`.
@@ -66,7 +66,7 @@ Rules are configured in `./.eslintrc.js` and extends [eslint-config-airbnb](http
 
 ```
 # Run with NODE_ENV=production:
-$ npm run start-prod
+$ npm yarn start-prod
 ```
 
 ```
@@ -101,9 +101,9 @@ https://github.com/expressjs/cors/
 React is a JavaScript library for building user interfaces.
 https://facebook.github.io/react/
 
-**react-dom:**
-React package for working with the DOM.
-https://facebook.github.io/react/
+**rapscallion**
+Asynchronous React VirtualDOM renderer for SSR.
+https://github.com/FormidableLabs/rapscallion#readme
 
 ### Util
 
@@ -155,9 +155,9 @@ https://github.com/matthew-andrews/isomorphic-fetch/issues
 
 ### Testing
 
-**ava**
-Futuristic test runner 🚀
-git+https://github.com/avajs/ava.git
+**jest**
+Painless JavaScript Testing.
+https://github.com/facebook/jest#readme
 
 ### Code style
 
