@@ -188,4 +188,3 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y#readme
 **eslint-plugin-react:**
 React specific linting rules for ESLint.
 https://github.com/yannickcr/eslint-plugin-react
-
