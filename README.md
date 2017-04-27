@@ -8,22 +8,6 @@
 - Yarn ~0.23.2
 - Docker (optional)
 
-## Documentation
-
-Article converter is an api for getting a extended html version of the content attribute provided by [Article API](https://github.com/NDLANO/article-api). The service has two endpoints:
-
-**/article-converter/json/:lang/:articleId**
-
-_Returns an extended and transformed json structure based on the one provided by [Article API](https://github.com/NDLANO/article-api)_
-
-**/article-converter/html/:lang/:articleId**
-
-_Returns the content attribute from [Article API](https://github.com/NDLANO/article-api) transformed to plain html and wrapped in a HTML document (useful for testing)_
-
-The service mainly converts `<embed>` tags in the content attribute to appropriate html tags. For some embed tags fetching additional data from other api's is required.
-
-*N.B.* To properly display the converted html some script from [ndla-article-scripts](https://github.com/NDLANO/frontend-packages/tree/master/packages/ndla-article-scripts) is required. See [ndla-frontend](https://github.com/NDLANO/ndla-frontend) for examples.
-
 ## Getting started
 
 ### Dependencies
@@ -84,3 +68,20 @@ $ npm yarn start-prod
 # Docker stuff
 $ ./build.sh
 ```
+
+## API documentation
+
+Article converter is an api for getting a extended html version of the content attribute provided by [Article API](https://github.com/NDLANO/article-api). The service has two endpoints:
+
+**/article-converter/json/:lang/:articleId**
+
+_Returns an extended and transformed json structure based on the one provided by [Article API](https://github.com/NDLANO/article-api)_
+
+**/article-converter/html/:lang/:articleId**
+
+_Returns the content attribute from [Article API](https://github.com/NDLANO/article-api) transformed to plain html and wrapped in a HTML document (useful for testing)_
+
+The service mainly converts `<embed>` tags in the content attribute to appropriate html tags. For some embed tags fetching additional data from other api's is required.
+
+### Developer notes
+To properly display the converted html some script from [ndla-article-scripts](https://github.com/NDLANO/frontend-packages/tree/master/packages/ndla-article-scripts) is required. See [ndla-frontend](https://github.com/NDLANO/ndla-frontend) for examples.
