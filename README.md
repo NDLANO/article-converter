@@ -57,7 +57,7 @@ $ yarn run lint
 Rules are configured in `./.eslintrc.js` and extends [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). If feeling brave, try `eslint --fix`.
 
 
-## Other scripts
+### Other scripts
 
 ```
 # Run with NODE_ENV=production:
