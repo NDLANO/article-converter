@@ -42,6 +42,11 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
 }
 
 app.get('/article-converter/raw/:lang/:id', (req, res) => {
+  const url = req.url.replace('raw', 'json');
+  res.redirect(url);
+});
+
+app.get('/article-converter/json/:lang/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const lang = getHtmlLang(defined(req.params.lang, ''));
   const articleId = req.params.id;
