@@ -51,7 +51,7 @@ export default function createImagePlugin() {
           <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Link /> Gå til kilde</button>
           <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
         </FigureDetails>
-      </Figure>
+      </Figure>,
     )
     .includeDataReactAttrs(false)
     .toPromise();

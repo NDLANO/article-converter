@@ -10,7 +10,7 @@
 
  export const htmlTemplate = (lang, title, article) => {
    const scripts = article.requiredLibraries.map(library =>
-       `<script type="${library.mediaType}" src="${library.url}"></script>`
+       `<script type="${library.mediaType}" src="${library.url}"></script>`,
      ).join();
 
    return `<!doctype html>\n<html lang=${lang} >

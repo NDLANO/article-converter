@@ -4,6 +4,7 @@
   "description": "NDLA Article converter",
   "main": "index.js",
   "scripts": {
+    "pretest": "yarn lint",
     "test": "cross-env NDLA_ENVIRONMENT=test jest",
     "tdd": "npm test -- --watch",
     "start": "nodemon --watch src/ src/server.js | bunyan",
