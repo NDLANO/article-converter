@@ -19,7 +19,4 @@ RUN yarn
 COPY .babelrc .eslintrc.js $APP_PATH/
 COPY src $APP_PATH/src
 
-# Run tests with lint-checks
-RUN yarn test
-
 CMD ["yarn", "start-prod"]
