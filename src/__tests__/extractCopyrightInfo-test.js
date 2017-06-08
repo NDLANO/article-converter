@@ -42,18 +42,32 @@ it('extractCopyrightInfo from embeds', async () => {
         copyright: { license: 'by-sa' },
       },
     },
-    { resource: 'brightcove' }];
+    { resource: 'brightcove' },
+  ];
 
   const copyrights = extractCopyrightInfoFromEmbeds(embeds, 'nb');
 
   expect(copyrights.image.length).toBe(2);
   expect(copyrights.image).toEqual([
-    { type: 'image', copyright: { license: 'by-sa' }, src: 'http://example.no/1234.jpg' },
-    { type: 'image', copyright: { license: 'by-sa' }, src: 'http://example.no/4123.jpg' },
+    {
+      type: 'image',
+      copyright: { license: 'by-sa' },
+      src: 'http://example.no/1234.jpg',
+    },
+    {
+      type: 'image',
+      copyright: { license: 'by-sa' },
+      src: 'http://example.no/4123.jpg',
+    },
   ]);
 
   expect(copyrights.audio.length).toBe(1);
   expect(copyrights.audio).toEqual([
-    { type: 'audio', title: 'Tittel', copyright: { license: 'by-sa' }, src: 'http://audio.no/file/voof.mp3' },
+    {
+      type: 'audio',
+      title: 'Tittel',
+      copyright: { license: 'by-sa' },
+      src: 'http://audio.no/file/voof.mp3',
+    },
   ]);
 });

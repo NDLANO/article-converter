@@ -6,8 +6,10 @@
  *
  */
 
-import { getAppropriateErrorResponse, createErrorPayload } from '../errorHelpers';
-
+import {
+  getAppropriateErrorResponse,
+  createErrorPayload,
+} from '../errorHelpers';
 
 it('errorHelpers getAppropriateErrorResponse for simple error', () => {
   const response = getAppropriateErrorResponse(new Error('hello error'));
@@ -27,7 +29,9 @@ it('errorHelpers getAppropriateErrorResponse with stacktrace', () => {
 });
 
 it('errorHelpers getAppropriateErrorResponse for error with staus and json payload', () => {
-  const error = createErrorPayload(404, 'Message', { description: 'Longer description' });
+  const error = createErrorPayload(404, 'Message', {
+    description: 'Longer description',
+  });
 
   const response = getAppropriateErrorResponse(error);
 

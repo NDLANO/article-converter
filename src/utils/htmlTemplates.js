@@ -6,14 +6,17 @@
  *
  */
 
- import httpStaus from 'http-status';
+import httpStaus from 'http-status';
 
- export const htmlTemplate = (lang, title, article) => {
-   const scripts = article.requiredLibraries.map(library =>
-       `<script type="${library.mediaType}" src="${library.url}"></script>`
-     ).join();
+export const htmlTemplate = (lang, title, article) => {
+  const scripts = article.requiredLibraries
+    .map(
+      library =>
+        `<script type="${library.mediaType}" src="${library.url}"></script>`
+    )
+    .join();
 
-   return `<!doctype html>\n<html lang=${lang} >
+  return `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,14 +30,20 @@
       ${scripts}
     </body>
   </html>`;
- };
+};
 
- export const htmlErrorTemplate = (lang, { status, message, description, stacktrace }) => {
-   const statusMsg = httpStaus[status];
-   return htmlTemplate(lang, `
+export const htmlErrorTemplate = (
+  lang,
+  { status, message, description, stacktrace }
+) => {
+  const statusMsg = httpStaus[status];
+  return htmlTemplate(
+    lang,
+    `
     <h1>${status} ${statusMsg}</h1>
     <div><b>Message: </b>${message}</div>
     <div><b>Description: </b>${description}</div>
     <div>${stacktrace}</div>
-  `);
- };
+  `
+  );
+};

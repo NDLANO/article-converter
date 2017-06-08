@@ -6,15 +6,21 @@
  *
  */
 
-
 export default function createBrightcovePlugin() {
-  const createEmbedObject = obj => (
-      { id: parseInt(obj.id, 10), resource: obj.resource, account: parseInt(obj.account, 10), caption: obj.caption, player: obj.player, videoid: obj.videoid }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    account: parseInt(obj.account, 10),
+    caption: obj.caption,
+    player: obj.player,
+    videoid: obj.videoid,
+  });
 
-  const embedToHTML = (embed) => {
+  const embedToHTML = embed => {
     const { account, player, videoid, caption } = embed;
-    const figcaption = caption ? `<figurecaption class="article_caption">${caption}</figurecaption>` : '';
+    const figcaption = caption
+      ? `<figurecaption class="article_caption">${caption}</figurecaption>`
+      : '';
     return `
     <figure>
       <div style="display:block;position:relative;max-width:100%;">

@@ -22,10 +22,10 @@ function createEmbedMarkup(embed, lang) {
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
-  return async (html) => {
+  return async html => {
     const reEmbeds = new RegExp(/<embed.*?\/>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
-    const markup = await stringReplaceAsync(html, reEmbeds, (embedHtml) => {
+    const markup = await stringReplaceAsync(html, reEmbeds, embedHtml => {
       const id = embedHtml.match(reDataId)[1];
       const embed = embeds.find(f => f.id.toString() === id);
       return Promise.resolve(createEmbedMarkup(embed, lang, plugins) || '');
@@ -35,18 +35,16 @@ export function replaceEmbedsInHtml(embeds, lang) {
 }
 
 export function addClassToTag(tag, className) {
-  return (html) => {
+  return html => {
     const reTag = new RegExp(`<${tag}>`, 'g');
     return html.replace(reTag, `<${tag} class="${className}">`);
   };
 }
 
 export function replaceStartAndEndTag(tag, newStartTag, newEndTag) {
-  return (html) => {
+  return html => {
     const reStart = new RegExp(`<${tag}>`, 'g');
     const reEnd = new RegExp(`</${tag}>`, 'g');
-    return html
-            .replace(reStart, newStartTag)
-            .replace(reEnd, newEndTag);
+    return html.replace(reStart, newStartTag).replace(reEnd, newEndTag);
   };
 }

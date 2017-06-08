@@ -6,7 +6,11 @@
  *
  */
 
-import { replaceEmbedsInHtml, addClassToTag, replaceStartAndEndTag } from '../replacer';
+import {
+  replaceEmbedsInHtml,
+  addClassToTag,
+  replaceStartAndEndTag,
+} from '../replacer';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
   const articleContent = `
@@ -26,9 +30,22 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
   `.replace(/\n|\r/g, ''); // Strip new lines
 
   const embeds = [
-    { id: 1, resource: 'content-link', contentId: '425', linkText: 'Valg av informanter' },
-    { id: 8, resource: 'h5p', url: 'https://ndlah5p.joubel.com/h5p/embed/4', oembed: { html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>' } },
-    { id: 6,
+    {
+      id: 1,
+      resource: 'content-link',
+      contentId: '425',
+      linkText: 'Valg av informanter',
+    },
+    {
+      id: 8,
+      resource: 'h5p',
+      url: 'https://ndlah5p.joubel.com/h5p/embed/4',
+      oembed: {
+        html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>',
+      },
+    },
+    {
+      id: 6,
       resource: 'image',
       metaUrl: 'http://api.test.ndla.no/images/1326',
       image: {
@@ -44,22 +61,36 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
         },
       },
     },
-    { id: 2, resource: 'brightcove', account: 4806596774001, player: 'BkLm8fT', videoid: 'ref:46012' }];
+    {
+      id: 2,
+      resource: 'brightcove',
+      account: 4806596774001,
+      player: 'BkLm8fT',
+      videoid: 'ref:46012',
+    },
+  ];
 
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(/<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg".*?\/>/);
+  expect(replaced).toMatch(
+    /<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg".*?\/>/
+  );
 
-  expect(replaced).toMatch('<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>');
+  expect(replaced).toMatch(
+    '<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>'
+  );
 
-  expect(replaced).toMatch('<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>');
+  expect(replaced).toMatch(
+    '<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>'
+  );
   expect(replaced).toMatch('<video');
-  expect(replaced).toMatch('data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">');
+  expect(replaced).toMatch(
+    'data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">'
+  );
   expect(replaced).toMatch('</video>');
   expect(replaced).toMatch('<p>SomeText1</p>');
 });
-
 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const articleContent = `
@@ -70,7 +101,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   `.replace(/\n|\r/g, ''); // Strip new lines
 
   const embeds = [
-    { id: 1,
+    {
+      id: 1,
       resource: 'image',
       align: '',
       image: {
@@ -84,7 +116,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         },
       },
     },
-    { id: 2,
+    {
+      id: 2,
       resource: 'image',
       align: 'left',
       image: {
@@ -103,9 +136,13 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(/<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg".*?\/>/);
+  expect(replaced).toMatch(
+    /<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg".*?\/>/
+  );
 
-  expect(replaced).toMatch('<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>');
+  expect(replaced).toMatch(
+    '<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>'
+  );
 });
 
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
@@ -117,15 +154,35 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   `.replace(/\n|\r/g, ''); // Strip new lines
 
   const embeds = [
-    { id: 1, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: 'Brightcove caption', videoid: 'ref:1' },
-    { id: 2, resource: 'brightcove', account: 1337, player: 'BkLm8fT', caption: '', videoid: 'ref:2' },
+    {
+      id: 1,
+      resource: 'brightcove',
+      account: 1337,
+      player: 'BkLm8fT',
+      caption: 'Brightcove caption',
+      videoid: 'ref:1',
+    },
+    {
+      id: 2,
+      resource: 'brightcove',
+      account: 1337,
+      player: 'BkLm8fT',
+      caption: '',
+      videoid: 'ref:2',
+    },
   ];
 
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
-  expect(replaced).toMatch(/data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
-  expect(replaced).toMatch(/data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/);
-  expect(replaced).toMatch(/<figurecaption.*?>Brightcove caption<\/figurecaption>/);
+  expect(replaced).toMatch(
+    /data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/
+  );
+  expect(replaced).toMatch(
+    /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/
+  );
+  expect(replaced).toMatch(
+    /<figurecaption.*?>Brightcove caption<\/figurecaption>/
+  );
   expect(replaced).not.toMatch(/<figurecaption.*?><\/figurecaption>/);
 });
 
@@ -149,10 +206,14 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
 });
 
 test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
-  const articleContent = '<section><embed data-id="1"/></section>'.replace(/\n|\r/g, ''); // Strip new lines
+  const articleContent = '<section><embed data-id="1"/></section>'.replace(
+    /\n|\r/g,
+    ''
+  ); // Strip new lines
 
   const embeds = [
-    { id: 1,
+    {
+      id: 1,
       resource: 'audio',
       audio: {
         titles: [
@@ -172,8 +233,9 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
 
   const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
 
-  expect(replaced)
-    .toMatch('<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>');
+  expect(replaced).toMatch(
+    '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
+  );
 });
 
 test('replacer/addClassToTag can add class to tag', () => {
@@ -187,11 +249,12 @@ test('replacer/addClassToTag can add class to tag', () => {
   const fn2 = addClassToTag('h3', 'headline-level-3');
   const result = [fn1, fn2].reduce((html, f) => f(html), content);
 
-
-  expect(result)
-    .toMatch('<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>');
-  expect(result)
-    .toMatch('<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>');
+  expect(result).toMatch(
+    '<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>'
+  );
+  expect(result).toMatch(
+    '<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>'
+  );
 });
 
 test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/html', () => {
@@ -205,9 +268,6 @@ test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/h
   const fn2 = replaceStartAndEndTag('p', '<aside><div>', '</div></aside>');
   const result = [fn1, fn2].reduce((html, f) => f(html), content);
 
-
-  expect(result)
-    .toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
-  expect(result)
-    .toMatch('<aside><div>Lorem ipsum</div></aside>');
+  expect(result).toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
+  expect(result).toMatch('<aside><div>Lorem ipsum</div></aside>');
 });

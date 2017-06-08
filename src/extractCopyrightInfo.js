@@ -24,7 +24,10 @@ function toCopyrightObject(embed, lang) {
     case 'audio':
       return {
         title: titlesI18N(embed.audio, lang, true),
-        ...createCopyrightObject(embed, audioFilesI18N(embed.audio, lang, true).url),
+        ...createCopyrightObject(
+          embed,
+          audioFilesI18N(embed.audio, lang, true).url
+        ),
       };
     default:
       return undefined;
@@ -35,6 +38,6 @@ export function extractCopyrightInfoFromEmbeds(embeds, lang) {
   return compose(
     groupBy('type'),
     filter(embed => embed !== undefined),
-    map(embed => toCopyrightObject(embed, lang)),
+    map(embed => toCopyrightObject(embed, lang))
   )(embeds);
 }

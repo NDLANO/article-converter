@@ -7,15 +7,29 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { apiResourceUrl, resolveJsonOrRejectWithError, headerWithAccessToken } from '../utils/apiHelpers';
+import {
+  apiResourceUrl,
+  resolveJsonOrRejectWithError,
+  headerWithAccessToken,
+} from '../utils/apiHelpers';
 
 export const fetchOembed = (embed, accessToken) =>
-  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), { headers: headerWithAccessToken(accessToken) })
+  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), {
+    headers: headerWithAccessToken(accessToken),
+  })
     .then(resolveJsonOrRejectWithError)
     .then(oembed => ({ ...embed, oembed }))
-    .catch((e) => {
+    .catch(e => {
       if (e.status === 501 && e.json.code === 'PROVIDER_NOT_SUPPORTED') {
-        return { ...embed, message: `Uhåndtert embed med følgende url: ${embed.url}`, resource: 'error' };
+        return {
+          ...embed,
+          message: `Uhåndtert embed med følgende url: ${embed.url}`,
+          resource: 'error',
+        };
       }
-      return { ...embed, message: `En uventet feil oppsto med følgende embed url: ${embed.url}`, resource: 'unhandled-oembed-error' };
+      return {
+        ...embed,
+        message: `En uventet feil oppsto med følgende embed url: ${embed.url}`,
+        resource: 'unhandled-oembed-error',
+      };
     });
