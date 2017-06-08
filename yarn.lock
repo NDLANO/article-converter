@@ -933,7 +933,7 @@ circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
-classnames@2.2.5, classnames@^2.2.5:
+classnames@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -1645,9 +1645,9 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.4:
-  version "0.8.11"
-  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.11.tgz#340b590b8a2278a01ef7467c07a16da9b753db24"
+fbjs@^0.8.9:
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
   dependencies:
     core-js "^1.0.0"
     isomorphic-fetch "^2.1.1"
@@ -2723,7 +2723,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -2860,13 +2860,14 @@ ndla-licenses@0.0.6:
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.3.0.tgz#d7a9c84cc225b1de7c8b8b0cfba23683d49bb42d"
+ndla-ui@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.5.3.tgz#14b256292ef799225bd3d19a59e0c408411dc876"
   dependencies:
-    classnames "^2.2.5"
-    react-bem-helper "^1.2.0"
-    react-prop-types "^0.4.0"
+    classnames "2.2.5"
+    react-bem-helper "1.4.1"
+    react-prop-types "0.4.0"
+    shortid "^2.2.8"
 
 ndla-util@^0.1.0:
   version "0.1.0"
@@ -2982,7 +2983,7 @@ object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -3216,6 +3217,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.5.10, prop-types@^15.5.7:
+  version "15.5.10"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 proxy-addr@~1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.4.tgz#27e545f6960a44a627d9b44467e35c1b6b4ce2f3"
@@ -3260,9 +3268,9 @@ range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-rapscallion@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/rapscallion/-/rapscallion-2.1.5.tgz#8ddad8c9acdb1912c817935eb5d5e0b8d1c87b14"
+rapscallion@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/rapscallion/-/rapscallion-2.1.7.tgz#d06e39037a55e5a8517500c560f0e25b58e8830f"
   dependencies:
     adler-32 "^1.0.0"
     bluebird "^3.4.7"
@@ -3277,23 +3285,26 @@ rc@^1.0.1, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bem-helper@^1.2.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/react-bem-helper/-/react-bem-helper-1.3.1.tgz#b8a0ad83dd97507fa64dac69a7188be65edf6ac4"
+react-bem-helper@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-bem-helper/-/react-bem-helper-1.4.1.tgz#cb27aeadda020e9fe9d169bfaae1095c559f4cf5"
+  dependencies:
+    object-assign "^4.1.1"
 
-react-prop-types@^0.4.0:
+react-prop-types@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
   dependencies:
     warning "^3.0.0"
 
-react@15.3.2:
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
+react@^15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
-    fbjs "^0.8.4"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.7"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
@@ -3620,6 +3631,10 @@ shelljs@^0.7.5:
 shellwords@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.0.tgz#66afd47b6a12932d9071cbfd98a52e785cd0ba14"
+
+shortid@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/shortid/-/shortid-2.2.8.tgz#033b117d6a2e975804f6f0969dbe7d3d0b355131"
 
 signal-exit@^3.0.0:
   version "3.0.2"
