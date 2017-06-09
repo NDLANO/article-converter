@@ -10,11 +10,11 @@ COPY yarn.lock package.json $APP_PATH/
 WORKDIR $APP_PATH
 RUN yarn
 
-COPY .babelrc .eslintrc.js $APP_PATH/
+COPY .babelrc .eslintrc.js prettier.js $APP_PATH/
 COPY src $APP_PATH/src
 
 # Run tests and lint-checks
-RUN yarn run lint
+RUN yarn lint
 RUN yarn test
 
-CMD ["yarn", "run", "start-prod"]
+CMD ["yarn", "start-prod"]
