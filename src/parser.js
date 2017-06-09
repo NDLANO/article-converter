@@ -12,7 +12,11 @@ import plugins from './plugins';
 
 function createEmbedObject(attrs) {
   // Reduce attributes array to object with attribute name (striped of data-) as keys.
-  const obj = attrs.reduce((all, attr) => Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }), {});
+  const obj = attrs.reduce(
+    (all, attr) =>
+      Object.assign({}, all, { [attr.name.replace('data-', '')]: attr.value }),
+    {}
+  );
 
   const plugin = plugins.find(p => p.resource === obj.resource);
 
@@ -23,7 +27,6 @@ function createEmbedObject(attrs) {
   log.warn(obj, 'Unknown embed');
   return { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url };
 }
-
 
 function findEmbedNodes(node, embeds = []) {
   if (node.childNodes) {
@@ -41,10 +44,15 @@ export function getEmbedsFromHtml(html) {
     try {
       const root = parse5.parseFragment(html);
       const embedNodes = findEmbedNodes(root);
-      const embeds = embedNodes.map(node => createEmbedObject(node.attrs)).filter(f => f);
+      const embeds = embedNodes
+        .map(node => createEmbedObject(node.attrs))
+        .filter(f => f);
       resolve(embeds);
     } catch (e) {
-      log.error(html, 'Error occoured while parsing html content and creating embed ojects from it');
+      log.error(
+        html,
+        'Error occoured while parsing html content and creating embed ojects from it'
+      );
       log.error(e);
       reject(e);
     }

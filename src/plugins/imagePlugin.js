@@ -9,18 +9,26 @@
 import React from 'react';
 import defined from 'defined';
 import classnames from 'classnames';
-import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/article/Figure';
+import {
+  Figure,
+  FigureDetails,
+  FigureCaption,
+} from 'ndla-ui/lib/article/Figure';
 import Icon from 'ndla-ui/lib/icons/Icon';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
 
 const { render } = require('rapscallion');
 
-
 export default function createImagePlugin() {
-  const createEmbedObject = obj => (
-    { id: parseInt(obj.id, 10), resource: obj.resource, align: obj.align, caption: obj.caption, size: obj.size, url: obj.url }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    align: obj.align,
+    caption: obj.caption,
+    size: obj.size,
+    url: obj.url,
+  });
 
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
@@ -45,16 +53,31 @@ export default function createImagePlugin() {
         <div className="c-figure__img">
           <img alt={altText} src={image.imageUrl} />
         </div>
-        <FigureCaption caption={caption} reuseLabel="Gjenbruk" licenseAbbreviation={license} authors={authors} />
+        <FigureCaption
+          caption={caption}
+          reuseLabel="Gjenbruk"
+          licenseAbbreviation={license}
+          authors={authors}
+        />
         <FigureDetails licenseAbbreviation={license} authors={authors}>
-          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Copy /> Kopier referanse</button>
-          <button className="c-button c-button--small c-button--transparent c-licenseToggle__button" type="button"><Icon.Link /> Gå til kilde</button>
-          <button className="c-button c-licenseToggle__button" type="button"><Icon.OpenWindow /> Vis bilde</button>
+          <button
+            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
+            type="button">
+            <Icon.Copy /> Kopier referanse
+          </button>
+          <button
+            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
+            type="button">
+            <Icon.Link /> Gå til kilde
+          </button>
+          <button className="c-button c-licenseToggle__button" type="button">
+            <Icon.OpenWindow /> Vis bilde
+          </button>
         </FigureDetails>
       </Figure>
     )
-    .includeDataReactAttrs(false)
-    .toPromise();
+      .includeDataReactAttrs(false)
+      .toPromise();
   };
 
   return {

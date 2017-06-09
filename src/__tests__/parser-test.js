@@ -22,7 +22,8 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
       id: 2,
       resource: 'audio',
       url: 'http://api.test.ndla.no/audio/2',
-    }]);
+    },
+  ]);
 });
 
 it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
@@ -38,7 +39,8 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
       id: 2,
       resource: 'nrk',
       nrkVideoId: '94606',
-    }]);
+    },
+  ]);
 });
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
@@ -56,7 +58,8 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
       resource: 'content-link',
       contentId: '424',
       linkText: 'Bearbeiding av datamaterialet',
-    }]);
+    },
+  ]);
 });
 
 it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {

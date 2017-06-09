@@ -15,7 +15,6 @@ const environment = {
   },
 }[process.env.NODE_ENV || 'development'];
 
-
 const domain = () => {
   if (!process.env.NDLA_ENVIRONMENT) {
     return 'https://test.api.ndla.no'; // Defaults to test if undefined
@@ -38,19 +37,22 @@ const ndlaFrontendDomain = () => {
     case 'prod':
       return 'https://api.ndla.no';
     default:
-      return `https://ndla-frontend.${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
+      return `https://ndla-frontend.${process.env
+        .NDLA_ENVIRONMENT}.api.ndla.no`;
   }
 };
 
-module.exports = Object.assign({
-  host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
-  port: process.env.ARTICLE_CONVERTER_PORT || '3100',
-  ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
-  ndlaApiUrl: process.env.NDLA_API_URL || domain(),
-  ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
+module.exports = Object.assign(
+  {
+    host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
+    port: process.env.ARTICLE_CONVERTER_PORT || '3100',
+    ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
+    ndlaApiUrl: process.env.NDLA_API_URL || domain(),
+    ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
 
-  app: {
-    title: 'NDLA Content frontend',
+    app: {
+      title: 'NDLA Content frontend',
+    },
   },
-
-}, environment);
+  environment
+);

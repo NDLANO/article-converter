@@ -6,13 +6,15 @@
  *
  */
 
-
 export default function createNRKPlugin() {
-  const createEmbedObject = obj => (
-    { id: parseInt(obj.id, 10), resource: obj.resource, nrkVideoId: obj['nrk-video-id'] }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    nrkVideoId: obj['nrk-video-id'],
+  });
 
-  const embedToHTML = embed => `<div class="nrk-video" data-nrk-id="${embed.nrkVideoId}"></div>`;
+  const embedToHTML = embed =>
+    `<div class="nrk-video" data-nrk-id="${embed.nrkVideoId}"></div>`;
 
   return {
     resource: 'nrk',

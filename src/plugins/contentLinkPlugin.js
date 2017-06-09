@@ -9,11 +9,15 @@
 import { ndlaFrontendUrl } from '../config';
 
 export default function createContentLinkPlugin() {
-  const createEmbedObject = obj => (
-      { id: parseInt(obj.id, 10), resource: obj.resource, contentId: obj['content-id'], linkText: obj['link-text'] }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    contentId: obj['content-id'],
+    linkText: obj['link-text'],
+  });
 
-  const embedToHTML = (embed, lang) => `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
+  const embedToHTML = (embed, lang) =>
+    `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
 
   return {
     resource: 'content-link',

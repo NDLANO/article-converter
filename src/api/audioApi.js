@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2016-present, NDLA.
  *
@@ -8,9 +7,12 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { resolveJsonOrRejectWithError, headerWithAccessToken } from '../utils/apiHelpers';
+import {
+  resolveJsonOrRejectWithError,
+  headerWithAccessToken,
+} from '../utils/apiHelpers';
 
 export const fetchAudio = (embed, accessToken) =>
   fetch(embed.url, { headers: headerWithAccessToken(accessToken) })
-  .then(resolveJsonOrRejectWithError)
-  .then(audio => ({ ...embed, audio }));
+    .then(resolveJsonOrRejectWithError)
+    .then(audio => ({ ...embed, audio }));

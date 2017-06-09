@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2016-present, NDLA.
  *
@@ -10,13 +9,18 @@
 import { fetchOembed } from '../api/oembedProxyApi';
 
 export default function createH5pPlugin() {
-  const createEmbedObject = obj => (
-      { id: parseInt(obj.id, 10), resource: obj.resource, url: obj.url }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    url: obj.url,
+  });
 
-  const fetchResource = (embed, headers) => (embed.url.startsWith('https://ndlah5p.joubel.com') ? fetchOembed(embed, headers) : embed);
+  const fetchResource = (embed, headers) =>
+    embed.url.startsWith('https://ndlah5p.joubel.com')
+      ? fetchOembed(embed, headers)
+      : embed;
 
-  const embedToHTML = (h5p) => {
+  const embedToHTML = h5p => {
     if (h5p.oembed) {
       return `<figure>${h5p.oembed.html}</figure>`;
     }

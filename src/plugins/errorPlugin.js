@@ -7,9 +7,11 @@
  */
 
 export default function createContentLinkPlugin() {
-  const createEmbedObject = obj => (
-      { id: parseInt(obj.id, 10), resource: obj.resource, message: obj.message }
-  );
+  const createEmbedObject = obj => ({
+    id: parseInt(obj.id, 10),
+    resource: obj.resource,
+    message: obj.message,
+  });
 
   const embedToHTML = embed => `<div><strong>${embed.message}</strong></div>`;
 

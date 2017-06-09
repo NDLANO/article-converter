@@ -7,9 +7,16 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { apiResourceUrl, resolveJsonOrRejectWithError, headerWithAccessToken } from '../utils/apiHelpers';
+import {
+  apiResourceUrl,
+  resolveJsonOrRejectWithError,
+  headerWithAccessToken,
+} from '../utils/apiHelpers';
 
 export function fetchArticle(articleId, accessToken, method = 'GET') {
   const url = apiResourceUrl(`/article-api/v1/articles/${articleId}`);
-  return fetch(url, { method, headers: headerWithAccessToken(accessToken) }).then(resolveJsonOrRejectWithError);
+  return fetch(url, {
+    method,
+    headers: headerWithAccessToken(accessToken),
+  }).then(resolveJsonOrRejectWithError);
 }
