@@ -74,7 +74,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
   expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg".*?\/>/
+    /<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg\?width=1024".*?\/>/
   );
 
   expect(replaced).toMatch(
@@ -137,11 +137,11 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
   expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg".*?\/>/
+    /<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg\?width=1024".*?\/>/
   );
 
   expect(replaced).toMatch(
-    '<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http://ndla.no/images/2.jpg"/></figure>'
+    /<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/><\/figure>/
   );
 });
 

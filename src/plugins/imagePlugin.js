@@ -42,16 +42,50 @@ export default function createImagePlugin() {
       'article_figure--float-left': align === 'left',
     });
 
-    const figcaption = caption ? `<figcaption>${caption}</figcaption>` : '';
+    const srcSets = [
+      `${image.imageUrl}?width=2720 2720w`,
+      `${image.imageUrl}?width=2080 2080w`,
+      `${image.imageUrl}?width=1760 1760w`,
+      `${image.imageUrl}?width=1440 1440w`,
+      `${image.imageUrl}?width=1120 1120w`,
+      `${image.imageUrl}?width=1000 1000w`,
+      `${image.imageUrl}?width=960 960w`,
+      `${image.imageUrl}?width=800 800w`,
+      `${image.imageUrl}?width=640 640w`,
+      `${image.imageUrl}?width=480 480w`,
+      `${image.imageUrl}?width=320 320w`,
+    ].join(', ');
 
     if (align === 'right' || align === 'left') {
-      return `<figure class="${figureClassNames}"><img class="article_image" alt="${altText}" src="${image.imageUrl}"/>${figcaption}</figure>`;
+      return render(
+        <figure className={figureClassNames}>
+          <img
+            className="article_image"
+            alt={altText}
+            src={`${image.imageUrl}?width=1024`}
+            srcSet={srcSets}
+          />
+          {caption ? <figcaption>{caption}</figcaption> : null}
+        </figure>
+      )
+        .includeDataReactAttrs(false)
+        .toPromise();
     }
 
     return render(
       <Figure>
         <div className="c-figure__img">
-          <img alt={altText} src={image.imageUrl} />
+          <picture>
+            <source
+              srcSet={srcSets}
+              sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
+            />
+            <img
+              alt={altText}
+              src={`${image.imageUrl}?width=1024`}
+              srcSet={`${image.imageUrl}?width=2048 2x`}
+            />
+          </picture>
         </div>
         <FigureCaption
           caption={caption}
