@@ -141,7 +141,10 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   );
 
   expect(replaced).toMatch(
-    /<figure class="article_figure article_figure--float-left"><img class="article_image" alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/><\/figure>/
+    /<figure class="c-figure article_figure--float-left">.*?<\/figure>/
+  );
+  expect(replaced).toMatch(
+    /<img alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/>/
   );
 });
 
