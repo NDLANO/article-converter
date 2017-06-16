@@ -37,7 +37,7 @@ export default function createImagePlugin() {
     const { authors, license: { license } } = image.copyright;
     const altText = alttextsI18N(image, lang, true);
     const caption = defined(captionI18N(image, lang, true), rest.caption);
-    const figureClassNames = classnames('article_figure', {
+    const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
       'article_figure--float-left': align === 'left',
     });
@@ -56,24 +56,8 @@ export default function createImagePlugin() {
       `${image.imageUrl}?width=320 320w`,
     ].join(', ');
 
-    if (align === 'right' || align === 'left') {
-      return render(
-        <figure className={figureClassNames}>
-          <img
-            className="article_image"
-            alt={altText}
-            src={`${image.imageUrl}?width=1024`}
-            srcSet={srcSets}
-          />
-          {caption ? <figcaption>{caption}</figcaption> : null}
-        </figure>
-      )
-        .includeDataReactAttrs(false)
-        .toPromise();
-    }
-
     return render(
-      <Figure>
+      <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <picture>
             <source
