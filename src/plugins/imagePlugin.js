@@ -14,7 +14,7 @@ import {
   FigureDetails,
   FigureCaption,
 } from 'ndla-ui/lib/article/Figure';
-import Icon from 'ndla-ui/lib/icons/Icon';
+import Button from 'ndla-ui/lib/button/Button';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
 
@@ -78,19 +78,12 @@ export default function createImagePlugin() {
           authors={authors}
         />
         <FigureDetails licenseAbbreviation={license} authors={authors}>
-          <button
-            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
-            type="button">
-            <Icon.Copy /> Kopier referanse
-          </button>
-          <button
-            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
-            type="button">
-            <Icon.Link /> Gå til kilde
-          </button>
-          <button className="c-button c-licenseToggle__button" type="button">
-            <Icon.OpenWindow /> Vis bilde
-          </button>
+          <Button outline className="c-licenseToggle__button">
+            Kopier referanse
+          </Button>
+          <Button outline className="c-licenseToggle__button">
+            Last ned bilde
+          </Button>
         </FigureDetails>
       </Figure>
     )
