@@ -34,6 +34,7 @@ export default function createImagePlugin() {
 
   const embedToHTML = (embed, lang) => {
     const { image, align, ...rest } = embed;
+    const src = encodeURI(image.imageUrl);
     const { authors, license: { license } } = image.copyright;
     const altText = alttextsI18N(image, lang, true);
     const caption = defined(captionI18N(image, lang, true), rest.caption);
@@ -43,17 +44,17 @@ export default function createImagePlugin() {
     });
 
     const srcSets = [
-      `${image.imageUrl}?width=2720 2720w`,
-      `${image.imageUrl}?width=2080 2080w`,
-      `${image.imageUrl}?width=1760 1760w`,
-      `${image.imageUrl}?width=1440 1440w`,
-      `${image.imageUrl}?width=1120 1120w`,
-      `${image.imageUrl}?width=1000 1000w`,
-      `${image.imageUrl}?width=960 960w`,
-      `${image.imageUrl}?width=800 800w`,
-      `${image.imageUrl}?width=640 640w`,
-      `${image.imageUrl}?width=480 480w`,
-      `${image.imageUrl}?width=320 320w`,
+      `${src}?width=2720 2720w`,
+      `${src}?width=2080 2080w`,
+      `${src}?width=1760 1760w`,
+      `${src}?width=1440 1440w`,
+      `${src}?width=1120 1120w`,
+      `${src}?width=1000 1000w`,
+      `${src}?width=960 960w`,
+      `${src}?width=800 800w`,
+      `${src}?width=640 640w`,
+      `${src}?width=480 480w`,
+      `${src}?width=320 320w`,
     ].join(', ');
 
     return render(
@@ -66,8 +67,8 @@ export default function createImagePlugin() {
             />
             <img
               alt={altText}
-              src={`${image.imageUrl}?width=1024`}
-              srcSet={`${image.imageUrl}?width=2048 2x`}
+              src={`${src}?width=1024`}
+              srcSet={`${src}?width=2048 2x`}
             />
           </picture>
         </div>
