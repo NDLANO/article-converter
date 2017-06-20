@@ -9,6 +9,7 @@
 import React from 'react';
 import defined from 'defined';
 import classnames from 'classnames';
+import ReactDOMServerStream from 'react-dom/server';
 import {
   Figure,
   FigureDetails,
@@ -17,8 +18,6 @@ import {
 import Button from 'ndla-ui/lib/button/Button';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
-
-const { render } = require('rapscallion');
 
 export default function createImagePlugin() {
   const createEmbedObject = obj => ({
@@ -57,7 +56,7 @@ export default function createImagePlugin() {
       `${src}?width=320 320w`,
     ].join(', ');
 
-    return render(
+    return ReactDOMServerStream.renderToStaticMarkup(
       <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <picture>
@@ -82,14 +81,15 @@ export default function createImagePlugin() {
           <Button outline className="c-licenseToggle__button">
             Kopier referanse
           </Button>
-          <Button outline className="c-licenseToggle__button">
+          <a
+            href={src}
+            className="c-button c-button--outline c-licenseToggle__button"
+            download>
             Last ned bilde
-          </Button>
+          </a>
         </FigureDetails>
       </Figure>
-    )
-      .includeDataReactAttrs(false)
-      .toPromise();
+    );
   };
 
   return {
