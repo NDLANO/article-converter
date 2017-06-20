@@ -17,8 +17,7 @@ import 'ndla-licenses/lib/licenses';
 import Icon from 'ndla-ui/lib/icons/Icon';
 import React from 'react';
 import { fetchVideoMeta } from '../api/brightcove';
-
-const { render } = require('rapscallion');
+import ReactDOMServerStream from 'react-dom/server';
 
 export default function createBrightcovePlugin() {
   const getLicenseByNBTitle = (title, locale) => {
@@ -52,15 +51,15 @@ export default function createBrightcovePlugin() {
 
     const licenseAbbr = getLicenseByNBTitle(video.custom_fields.license.replace(/\s/g, ''));
 
-    return render(
+    return ReactDOMServerStream.renderToStaticMarkup(
       <Figure>
         <div
           style={{
             display: 'block',
             position: 'relative',
-            'max-width': '100%',
+            maxWidth: '100%',
           }}>
-          <div style={{ 'padding-top': '56.25%' }}>
+          <div style={{ paddingTop: '56.25%' }}>
             <video
               style={{
                 width: '100%',
@@ -76,7 +75,7 @@ export default function createBrightcovePlugin() {
               data-player={player}
               data-embed="default"
               className="video-js"
-              controls=""
+              controls
             />
           </div>
         </div>
@@ -102,9 +101,7 @@ export default function createBrightcovePlugin() {
           </button>
         </FigureDetails>
       </Figure>
-    )
-      .includeDataReactAttrs(false)
-      .toPromise();
+    );
   };
 
   return {
