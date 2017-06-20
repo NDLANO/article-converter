@@ -22,7 +22,7 @@ function fetchVideo(videoId, accountId, accessToken) {
   });
 }
 
-function getAccessToken() {
+function fetchAccessToken() {
   const base64Encode = str => new Buffer(str).toString('base64');
   const url =
     'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
@@ -34,8 +34,27 @@ function getAccessToken() {
       'content-type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${base64Encode(clientIdSecret)}`,
     },
-  }).then(resolveJsonOrRejectWithError);
+  }).then(resolveJsonOrRejectWithError)
+    .then(accessToken => {
+      storeAccessToken(accessToken);
+      return accessToken;
+    });
 }
+
+const expiresIn = accessToken => accessToken.expires_in - 10;
+
+const storeAccessToken = accessToken => {
+  const expiresAt = expiresIn(accessToken) * 1000 + new Date().getTime();
+  global.access_token = accessToken;
+  global.access_token_expires_at = expiresAt;
+};
+
+const getAccessToken = () => {
+  if (global.access_token && new Date().getTime() < global.access_token_expires_at)
+    return Promise.resolve(global.access_token);
+  else
+    return fetchAccessToken();
+};
 
 export const fetchVideoMeta = embed =>
   getAccessToken()
