@@ -13,22 +13,28 @@ import {
   FigureDetails,
   FigureCaption,
 } from 'ndla-ui/lib/article/Figure';
-import 'ndla-licenses/lib/licenses';
 import Icon from 'ndla-ui/lib/icons/Icon';
 import React from 'react';
-import { fetchVideoMeta } from '../api/brightcove';
 import ReactDOMServerStream from 'react-dom/server';
+import { fetchVideoMeta } from '../api/brightcove';
 
 export default function createBrightcovePlugin() {
-  const getLicenseByNBTitle = (title, locale) => {
+  const getLicenseByNBTitle = title => {
     switch (title) {
-      case 'Navngivelse-IkkeKommersiell-IngenBearbeidelser': 'by-nc-nd';
-      case 'Navngivelse-IkkeKommersiell-DelPåSammeVilkår': 'by-nc-sa';
-      case 'Navngivelse-IkkeKommersiell': 'by-nc';
-      case 'Navngivelse-IngenBearbeidelse': 'by-nd';
-      case 'Navngivelse-DelPåSammeVilkår': 'by-sa';
-      case 'Navngivelse': 'by';
-      default: return title;
+      case 'Navngivelse-IkkeKommersiell-IngenBearbeidelser':
+        return 'by-nc-nd';
+      case 'Navngivelse-IkkeKommersiell-DelPåSammeVilkår':
+        return 'by-nc-sa';
+      case 'Navngivelse-IkkeKommersiell':
+        return 'by-nc';
+      case 'Navngivelse-IngenBearbeidelse':
+        return 'by-nd';
+      case 'Navngivelse-DelPåSammeVilkår':
+        return 'by-sa';
+      case 'Navngivelse':
+        return 'by';
+      default:
+        return title;
     }
   };
 
@@ -43,13 +49,26 @@ export default function createBrightcovePlugin() {
 
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const embedToHTML = (embed, lang) => {
+  const embedToHTML = embed => {
     const { account, player, videoid, caption, video } = embed;
-    console.log(video);
-    console.log(account);
-    const authors = [{ type: 'opphavsmann', name: 'Høgskolen i Bergen' }];
 
-    const licenseAbbr = getLicenseByNBTitle(video.custom_fields.license.replace(/\s/g, ''));
+    const parseAuthorString = authorString => {
+      const fields = authorString.split(/: */);
+      if (fields.length !== 2) return { type: '', name: fields[0] };
+
+      const [type, name] = fields;
+      return { type, name };
+    };
+    const licenseInfoKeys = Object.keys(video.custom_fields).filter(key =>
+      key.startsWith('licenseinfo')
+    );
+
+    const authors = licenseInfoKeys.map(key =>
+      parseAuthorString(video.custom_fields[key])
+    );
+    const license = getLicenseByNBTitle(
+      video.custom_fields.license.replace(/\s/g, '')
+    );
 
     return ReactDOMServerStream.renderToStaticMarkup(
       <Figure>
@@ -82,22 +101,17 @@ export default function createBrightcovePlugin() {
         <FigureCaption
           caption={caption}
           reuseLabel="Gjenbruk"
-          licenseAbbreviation={licenseAbbr}
+          licenseAbbreviation={license}
           authors={authors}
         />
-        <FigureDetails licenseAbbreviation={licenseAbbr} authors={authors}>
+        <FigureDetails licenseAbbreviation={license} authors={authors}>
           <button
             className="c-button c-button--small c-button--transparent c-licenseToggle__button"
             type="button">
             <Icon.Copy /> Kopier referanse
           </button>
-          <button
-            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
-            type="button">
-            <Icon.Link /> Gå til kilde
-          </button>
           <button className="c-button c-licenseToggle__button" type="button">
-            <Icon.OpenWindow /> Vis bilde
+            <Icon.OpenWindow /> Last ned video
           </button>
         </FigureDetails>
       </Figure>
