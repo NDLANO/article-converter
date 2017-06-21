@@ -67,6 +67,14 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       account: 4806596774001,
       player: 'BkLm8fT',
       videoid: 'ref:46012',
+      brightcove: {
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-nc',
+          },
+        },
+      },
     },
   ];
 
@@ -164,14 +172,30 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
       player: 'BkLm8fT',
       caption: 'Brightcove caption',
       videoid: 'ref:1',
+      brightcove: {
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-sa',
+          },
+        },
+      },
     },
     {
       id: 2,
       resource: 'brightcove',
       account: 1337,
       player: 'BkLm8fT',
-      caption: '',
+      caption: 'Another caption',
       videoid: 'ref:2',
+      brightcove: {
+        copyright: {
+          authors: [],
+          license: {
+            license: 'by-sa',
+          },
+        },
+      },
     },
   ];
 
@@ -184,9 +208,13 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/
   );
   expect(replaced).toMatch(
-    /<figurecaption.*?>Brightcove caption<\/figurecaption>/
+    /<figure.*>.*<figcaption.*?>.*Brightcove caption.*<\/figcaption>.*<\/figure>/
   );
-  expect(replaced).not.toMatch(/<figurecaption.*?><\/figurecaption>/);
+  expect(replaced).toMatch(
+    /<figure.*>.*<figcaption.*?>.*Another caption.*<\/figcaption>.*<\/figure>/
+  );
+  expect(replaced).toMatch(/<button.*> Kopier referanse<\/button>/);
+  expect(replaced).toMatch(/<button.*> Last ned video<\/button>/);
 });
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
