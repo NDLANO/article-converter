@@ -42,7 +42,12 @@ it('extractCopyrightInfo from embeds', async () => {
         copyright: { license: 'by-sa' },
       },
     },
-    { resource: 'brightcove' },
+    {
+      resource: 'brightcove',
+      brightcove: {
+        copyright: { license: 'by-sa' },
+      },
+    },
   ];
 
   const copyrights = extractCopyrightInfoFromEmbeds(embeds, 'nb');
