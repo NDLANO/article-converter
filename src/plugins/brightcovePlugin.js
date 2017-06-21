@@ -19,25 +19,6 @@ import ReactDOMServerStream from 'react-dom/server';
 import { fetchVideoMeta } from '../api/brightcove';
 
 export default function createBrightcovePlugin() {
-  const getLicenseByNBTitle = title => {
-    switch (title) {
-      case 'Navngivelse-IkkeKommersiell-IngenBearbeidelser':
-        return 'by-nc-nd';
-      case 'Navngivelse-IkkeKommersiell-DelPåSammeVilkår':
-        return 'by-nc-sa';
-      case 'Navngivelse-IkkeKommersiell':
-        return 'by-nc';
-      case 'Navngivelse-IngenBearbeidelse':
-        return 'by-nd';
-      case 'Navngivelse-DelPåSammeVilkår':
-        return 'by-sa';
-      case 'Navngivelse':
-        return 'by';
-      default:
-        return title;
-    }
-  };
-
   const createEmbedObject = obj => ({
     id: parseInt(obj.id, 10),
     resource: obj.resource,
@@ -50,25 +31,10 @@ export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const embedToHTML = embed => {
-    const { account, player, videoid, caption, video } = embed;
+    const { account, player, videoid, caption, brightcove } = embed;
 
-    const parseAuthorString = authorString => {
-      const fields = authorString.split(/: */);
-      if (fields.length !== 2) return { type: '', name: fields[0] };
-
-      const [type, name] = fields;
-      return { type, name };
-    };
-    const licenseInfoKeys = Object.keys(video.custom_fields).filter(key =>
-      key.startsWith('licenseinfo')
-    );
-
-    const authors = licenseInfoKeys.map(key =>
-      parseAuthorString(video.custom_fields[key])
-    );
-    const license = getLicenseByNBTitle(
-      video.custom_fields.license.replace(/\s/g, '')
-    );
+    const authors = brightcove.copyright.authors;
+    const license = brightcove.copyright.license.license;
 
     return ReactDOMServerStream.renderToStaticMarkup(
       <Figure>

@@ -59,8 +59,49 @@ const getAccessToken = () => {
   return fetchAccessToken();
 };
 
+const getLicenseByNBTitle = title => {
+  switch (title.replace(/\s/g, '').toLowerCase()) {
+    case 'navngivelse-ikkekommersiell-ingenbearbeidelser':
+      return 'by-nc-nd';
+    case 'navngivelse-ikkekommersiell-delpåsammevilkår':
+      return 'by-nc-sa';
+    case 'navngivelse-ikkekommersiell':
+      return 'by-nc';
+    case 'navngivelse-ingenbearbeidelse':
+      return 'by-nd';
+    case 'navngivelse-delpåsammevilkår':
+      return 'by-sa';
+    case 'navngivelse':
+      return 'by';
+    default:
+      return title;
+  }
+};
+
 export const fetchVideoMeta = embed =>
   getAccessToken()
     .then(accessToken => fetchVideo(embed.videoid, embed.account, accessToken))
     .then(resolveJsonOrRejectWithError)
-    .then(video => ({ ...embed, video }));
+    .then(video => {
+      const parseAuthorString = authorString => {
+        const fields = authorString.split(/: */);
+        if (fields.length !== 2) return { type: '', name: fields[0] };
+
+        const [type, name] = fields;
+        return { type, name };
+      };
+      const licenseInfoKeys = Object.keys(video.custom_fields).filter(key =>
+        key.startsWith('licenseinfo')
+      );
+
+      const copyright = {
+        license: {
+          license: getLicenseByNBTitle(video.custom_fields.license),
+        },
+        authors: licenseInfoKeys.map(key =>
+          parseAuthorString(video.custom_fields[key])
+        ),
+      };
+
+      return { ...embed, brightcove: { ...video, copyright } };
+    });
