@@ -13,7 +13,7 @@ import {
   FigureDetails,
   FigureCaption,
 } from 'ndla-ui/lib/article/Figure';
-import Icon from 'ndla-ui/lib/icons/Icon';
+import Button from 'ndla-ui/lib/button/Button';
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
 import { fetchVideoMeta } from '../api/brightcove';
@@ -35,6 +35,9 @@ export default function createBrightcovePlugin() {
 
     const authors = brightcove.copyright.authors;
     const license = brightcove.copyright.license.license;
+    const authorsCopyString = authors
+      .map(author => `${author.type}: ${author.name}`)
+      .join('\n');
 
     return ReactDOMServerStream.renderToStaticMarkup(
       <Figure>
@@ -71,14 +74,13 @@ export default function createBrightcovePlugin() {
           authors={authors}
         />
         <FigureDetails licenseAbbreviation={license} authors={authors}>
-          <button
-            className="c-button c-button--small c-button--transparent c-licenseToggle__button"
-            type="button">
-            <Icon.Copy /> Kopier referanse
-          </button>
-          <button className="c-button c-licenseToggle__button" type="button">
-            <Icon.OpenWindow /> Last ned video
-          </button>
+          <Button
+            outline
+            className="c-licenseToggle__button"
+            data-copied-title="Kopiert!"
+            data-copy-string={authorsCopyString}>
+            Kopier referanse
+          </Button>
         </FigureDetails>
       </Figure>
     );
