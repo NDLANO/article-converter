@@ -69,7 +69,7 @@ export default function createBrightcovePlugin() {
         </div>
         <FigureCaption
           caption={caption}
-          reuseLabel="Gjenbruk"
+          reuseLabel="Bruk video"
           licenseAbbreviation={license}
           authors={authors}
         />
