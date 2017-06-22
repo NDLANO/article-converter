@@ -56,6 +56,10 @@ export default function createImagePlugin() {
       `${src}?width=320 320w`,
     ].join(', ');
 
+    const authorsCopyString = authors
+      .map(author => `${author.type}: ${author.name}`)
+      .join('\n');
+
     return ReactDOMServerStream.renderToStaticMarkup(
       <Figure className={figureClassNames}>
         <div className="c-figure__img">
@@ -78,7 +82,11 @@ export default function createImagePlugin() {
           authors={authors}
         />
         <FigureDetails licenseAbbreviation={license} authors={authors}>
-          <Button outline className="c-licenseToggle__button">
+          <Button
+            outline
+            className="c-licenseToggle__button"
+            data-copied-title="Kopiert!"
+            data-copy-string={authorsCopyString}>
             Kopier referanse
           </Button>
           <a
