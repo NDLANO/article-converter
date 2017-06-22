@@ -49,6 +49,8 @@ module.exports = Object.assign(
     ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
     ndlaApiUrl: process.env.NDLA_API_URL || domain(),
     ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
+    brightcoveClientId: process.env.BRIGHTCOVE_API_CLIENT_ID || '',
+    brightcoveClientSecret: process.env.BRIGHTCOVE_API_CLIENT_SECRET || '',
 
     app: {
       title: 'NDLA Content frontend',

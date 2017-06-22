@@ -29,6 +29,8 @@ function toCopyrightObject(embed, lang) {
           audioFilesI18N(embed.audio, lang, true).url
         ),
       };
+    case 'brightcove':
+      return createCopyrightObject(embed);
     default:
       return undefined;
   }
