@@ -213,8 +213,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   expect(replaced).toMatch(
     /<figure.*>.*<figcaption.*?>.*Another caption.*<\/figcaption>.*<\/figure>/
   );
-  expect(replaced).toMatch(/<button.*> Kopier referanse<\/button>/);
-  expect(replaced).toMatch(/<button.*> Last ned video<\/button>/);
+  expect(replaced).toMatch(/<button.*>Kopier referanse<\/button>/);
 });
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {

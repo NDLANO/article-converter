@@ -78,29 +78,30 @@ const getLicenseByNBTitle = title => {
   }
 };
 
+export const getAuthors = fields => {
+  const parseAuthorString = authorString => {
+    const authorFields = authorString.split(/: */);
+    if (authorFields.length !== 2) return { type: '', name: authorFields[0] };
+
+    const [type, name] = authorFields;
+    return { type, name };
+  };
+  const licenseInfoKeys = Object.keys(fields).filter(key =>
+    key.startsWith('licenseinfo')
+  );
+  return licenseInfoKeys.map(key => parseAuthorString(fields[key]));
+};
+
 export const fetchVideoMeta = embed =>
   getAccessToken()
     .then(accessToken => fetchVideo(embed.videoid, embed.account, accessToken))
     .then(resolveJsonOrRejectWithError)
     .then(video => {
-      const parseAuthorString = authorString => {
-        const fields = authorString.split(/: */);
-        if (fields.length !== 2) return { type: '', name: fields[0] };
-
-        const [type, name] = fields;
-        return { type, name };
-      };
-      const licenseInfoKeys = Object.keys(video.custom_fields).filter(key =>
-        key.startsWith('licenseinfo')
-      );
-
       const copyright = {
         license: {
           license: getLicenseByNBTitle(video.custom_fields.license),
         },
-        authors: licenseInfoKeys.map(key =>
-          parseAuthorString(video.custom_fields[key])
-        ),
+        authors: getAuthors(video.custom_fields),
       };
 
       return { ...embed, brightcove: { ...video, copyright } };
