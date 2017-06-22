@@ -2963,9 +2963,9 @@ ndla-licenses@^0.0.8:
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.5.8.tgz#07aa983519b4a9cb3b08e6f6586dff3e57f1bba4"
+ndla-ui@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.6.0.tgz#7c188738c70244cb5a6dd1ada14b0f8e79e3ffdc"
   dependencies:
     classnames "2.2.5"
     react-bem-helper "1.4.1"
