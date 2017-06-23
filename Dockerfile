@@ -1,4 +1,4 @@
-FROM node:8.0.0-alpine
+FROM node:8.1.2-alpine
 
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter

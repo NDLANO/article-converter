@@ -24,8 +24,8 @@ To properly display the converted html some script from [ndla-article-scripts](h
 
 ### Requirements
 
-- Node.JS ~6.10
-- npm ~3.10
+- Node.JS ~8.1
+- npm ~5.04
 - Yarn ~0.23.2
 - Docker (optional)
 
