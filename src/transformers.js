@@ -19,8 +19,8 @@ import plugins from './plugins';
 export const asideReplacers = [
   replaceStartAndEndTag(
     'aside',
-    '<aside><div class="c-aside__content">',
-    '</div><button class="c-button c-aside__button"></button></aside>'
+    '<aside class="c-aside c-aside--float expanded"><div class="c-aside__content">',
+    '</div></aside>'
   ),
   addClassToTag('aside', 'c-aside u-1/3@desktop'),
 ];

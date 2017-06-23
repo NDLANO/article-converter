@@ -77,7 +77,7 @@ export default function createImagePlugin() {
         </div>
         <FigureCaption
           caption={caption}
-          reuseLabel="Gjenbruk"
+          reuseLabel="Bruk bildet"
           licenseAbbreviation={license}
           authors={authors}
         />
