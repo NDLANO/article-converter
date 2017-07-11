@@ -7,19 +7,14 @@
  *
  */
 
-/* eslint-disable */
-
-var http = require('http');
-
-require('babel-register');
 require('babel-polyfill');
-var app = require('./app');
-var config = require('./config');
+const http = require('http');
+const app = require('./app');
+const config = require('./config');
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 server.listen(config.port);
 server.on('listening', () => {
-  console.log('Listening on ' + config.port);
+  console.log(`Listening on ${config.port}`); // eslint-disable-line
 });
-/* eslint-enable */

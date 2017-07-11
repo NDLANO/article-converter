@@ -4,14 +4,18 @@
   "description": "NDLA Article converter",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d build --ignore __tests__/",
+    "clean": "rimraf build",
+    "test": "cross-env NDLA_ENVIRONMENT=test jest",
+    "tdd": "jest --watch",
     "lint": "yarn lint-prettier --silent && yarn lint-es --silent",
     "lint-es": "eslint src",
     "lint-prettier": "node prettier.js lint",
-    "prettier": "node prettier.js write",
-    "start": "nodemon --watch src/ src/server.js | bunyan",
-    "start-prod": "cross-env NODE_ENV=production node src/server.js",
-    "test": "cross-env NDLA_ENVIRONMENT=test jest",
-    "tdd": "npm test -- --watch"
+    "start": "nodemon --exec babel-node --watch src/ src/server.js | bunyan",
+    "start-prod": "cross-env NODE_ENV=production node build/server.js",
+    "prebuild": "yarn run clean --silent",
+    "pretest": "yarn lint --silent",
+    "prettier": "node prettier.js write"
   },
   "engines": {
     "node": "~8.1.2"
@@ -25,7 +29,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.24.1",
     "cross-env": "^5.0.1",
     "eslint": "^3.19.0",
     "eslint-config-ndla": "^0.2.1",
@@ -35,6 +38,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
+    "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "bunyan": "^1.8.10",
     "classnames": "2.2.5",
