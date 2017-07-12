@@ -19,12 +19,18 @@ if (!getMessageFormat) {
 
 const messages = {
   nb: {
+    'reference.copy': 'Kopier referanse',
+    'reference.copied': 'Kopiert!',
     'image.download': 'Last ned bilde',
-    'copy.reference': 'Kopier referanse',
+    'image.reuse': 'Bruk bildet',
+    'video.reuse': 'Bruk video',
   },
   en: {
+    'reference.copy': 'Copy reference',
+    'reference.copied': 'Copied!',
     'image.download': 'Download image',
-    'copy.reference': 'Copy reference',
+    'image.reuse': 'Use image',
+    'video.reuse': 'Use video',
   },
 };
 

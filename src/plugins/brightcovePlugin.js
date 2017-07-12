@@ -17,6 +17,7 @@ import Button from 'ndla-ui/lib/button/Button';
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
 import { fetchVideoMeta } from '../api/brightcove';
+import t from '../locale/i18n';
 
 export default function createBrightcovePlugin() {
   const createEmbedObject = obj => ({
@@ -30,7 +31,7 @@ export default function createBrightcovePlugin() {
 
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const embedToHTML = embed => {
+  const embedToHTML = (embed, locale) => {
     const { account, player, videoid, caption, brightcove } = embed;
 
     const authors = brightcove.copyright.authors;
@@ -69,7 +70,7 @@ export default function createBrightcovePlugin() {
         </div>
         <FigureCaption
           caption={caption}
-          reuseLabel="Bruk video"
+          reuseLabel={t(locale, 'video.reuse')}
           licenseAbbreviation={license}
           authors={authors}
         />
@@ -77,9 +78,9 @@ export default function createBrightcovePlugin() {
           <Button
             outline
             className="c-licenseToggle__button"
-            data-copied-title="Kopiert!"
+            data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={authorsCopyString}>
-            Kopier referanse
+            {t(locale, 'reference.copy')}
           </Button>
         </FigureDetails>
       </Figure>
