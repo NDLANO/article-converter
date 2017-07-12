@@ -1,4 +1,4 @@
-FROM node:8.1.2-alpine
+FROM node:8.1.4-alpine
 
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter
@@ -10,11 +10,9 @@ COPY yarn.lock package.json $APP_PATH/
 WORKDIR $APP_PATH
 RUN yarn
 
-COPY .babelrc .eslintrc.js prettier.js $APP_PATH/
+COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
 
-# Run tests and lint-checks
-RUN yarn lint
-RUN yarn test
+RUN yarn build
 
 CMD ["yarn", "start-prod"]

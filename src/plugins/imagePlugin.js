@@ -18,6 +18,7 @@ import {
 import Button from 'ndla-ui/lib/button/Button';
 import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
+import t from '../locale/i18n';
 
 export default function createImagePlugin() {
   const createEmbedObject = obj => ({
@@ -31,16 +32,22 @@ export default function createImagePlugin() {
 
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
-  const embedToHTML = (embed, lang) => {
+  const embedToHTML = (embed, locale) => {
     const { image, align, ...rest } = embed;
     const src = encodeURI(image.imageUrl);
     const { authors, license: { license } } = image.copyright;
-    const altText = alttextsI18N(image, lang, true);
-    const caption = defined(captionI18N(image, lang, true), rest.caption);
+    const altText = alttextsI18N(image, locale, true);
+    const caption = defined(captionI18N(image, locale, true), rest.caption);
     const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
       'article_figure--float-left': align === 'left',
     });
+
+    const messages = {
+      close: t(locale, 'close'),
+      rulesForUse: t(locale, 'image.rulesForUse'),
+      howToReference: t(locale, 'image.howToReference'),
+    };
 
     const srcSets = [
       `${src}?width=2720 2720w`,
@@ -77,23 +84,26 @@ export default function createImagePlugin() {
         </div>
         <FigureCaption
           caption={caption}
-          reuseLabel="Bruk bildet"
+          reuseLabel={t(locale, 'image.reuse')}
           licenseAbbreviation={license}
           authors={authors}
         />
-        <FigureDetails licenseAbbreviation={license} authors={authors}>
+        <FigureDetails
+          licenseAbbreviation={license}
+          authors={authors}
+          messages={messages}>
           <Button
             outline
             className="c-licenseToggle__button"
-            data-copied-title="Kopiert!"
+            data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={authorsCopyString}>
-            Kopier referanse
+            {t(locale, 'reference.copy')}
           </Button>
           <a
             href={src}
             className="c-button c-button--outline c-licenseToggle__button"
             download>
-            Last ned bilde
+            {t(locale, 'image.download')}
           </a>
         </FigureDetails>
       </Figure>
