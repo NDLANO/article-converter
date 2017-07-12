@@ -40,6 +40,12 @@ export default function createBrightcovePlugin() {
       .map(author => `${author.type}: ${author.name}`)
       .join('\n');
 
+    const messages = {
+      close: t(locale, 'close'),
+      rulesForUse: t(locale, 'video.rulesForUse'),
+      howToReference: t(locale, 'video.howToReference'),
+    };
+
     return ReactDOMServerStream.renderToStaticMarkup(
       <Figure>
         <div
@@ -74,7 +80,10 @@ export default function createBrightcovePlugin() {
           licenseAbbreviation={license}
           authors={authors}
         />
-        <FigureDetails licenseAbbreviation={license} authors={authors}>
+        <FigureDetails
+          licenseAbbreviation={license}
+          authors={authors}
+          messages={messages}>
           <Button
             outline
             className="c-licenseToggle__button"

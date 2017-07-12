@@ -43,6 +43,12 @@ export default function createImagePlugin() {
       'article_figure--float-left': align === 'left',
     });
 
+    const messages = {
+      close: t(locale, 'close'),
+      rulesForUse: t(locale, 'image.rulesForUse'),
+      howToReference: t(locale, 'image.howToReference'),
+    };
+
     const srcSets = [
       `${src}?width=2720 2720w`,
       `${src}?width=2080 2080w`,
@@ -82,7 +88,10 @@ export default function createImagePlugin() {
           licenseAbbreviation={license}
           authors={authors}
         />
-        <FigureDetails licenseAbbreviation={license} authors={authors}>
+        <FigureDetails
+          licenseAbbreviation={license}
+          authors={authors}
+          messages={messages}>
           <Button
             outline
             className="c-licenseToggle__button"
