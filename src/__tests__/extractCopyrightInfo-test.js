@@ -29,16 +29,11 @@ it('extractCopyrightInfo from embeds', async () => {
     {
       resource: 'audio',
       audio: {
-        titles: [
-          { title: 'Tittel', language: 'nb' },
-          { title: 'Title', language: 'en' },
-        ],
-        audioFiles: [
-          {
-            url: 'http://audio.no/file/voof.mp3',
-            language: '',
-          },
-        ],
+        title: 'Tittel',
+        language: 'nb',
+        audioFile: {
+          url: 'http://audio.no/file/voof.mp3',
+        },
         copyright: { license: 'by-sa' },
       },
     },
@@ -50,7 +45,7 @@ it('extractCopyrightInfo from embeds', async () => {
     },
   ];
 
-  const copyrights = extractCopyrightInfoFromEmbeds(embeds, 'nb');
+  const copyrights = extractCopyrightInfoFromEmbeds(embeds);
 
   expect(copyrights.image.length).toBe(2);
   expect(copyrights.image).toEqual([
