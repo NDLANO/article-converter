@@ -35,7 +35,7 @@ export default function createImagePlugin() {
     const { image, align, ...rest } = embed;
     const src = encodeURI(image.imageUrl);
     const { authors, license: { license } } = image.copyright;
-    const altText = image.alttext;
+    const altText = defined(image.alttext, '');
     const caption = defined(image.caption, rest.caption);
     const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
