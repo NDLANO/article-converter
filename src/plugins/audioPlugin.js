@@ -18,10 +18,8 @@ export default function createAudioPlugin() {
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
 
   const embedToHTML = embed => {
-    const { audio } = embed;
-    const title = audio.title;
-    const audioFile = audio.audioFile;
-    return `<figure class="article_audio"><audio controls type="${audioFile.mimeType}" src="${audioFile.url}"></audio><figcaption>${title}</figcaption></figure>`;
+    const { audio: { title, audioFile: { mimeType, url } } } = embed;
+    return `<figure class="article_audio"><audio controls type="${mimeType}" src="${url}"></audio><figcaption>${title}</figcaption></figure>`;
   };
 
   return {
