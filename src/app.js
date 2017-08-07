@@ -29,13 +29,8 @@ app.use(
 
 async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken);
-
-  const rawContent = article.content;
-  const footNotes = defined(article.footNotes, {});
-  const introduction = defined(article.introduction, '');
-
   const content = await transformContentAndExtractCopyrightInfo(
-    rawContent,
+    article.content,
     lang,
     accessToken
   );
@@ -43,9 +38,9 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
   return {
     ...article,
     content: content.html,
-    footNotes,
+    footNotes: article.footNotes,
     contentCopyrights: content.copyrights,
-    introduction,
+    introduction: article.introduction,
   };
 }
 
