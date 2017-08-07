@@ -38,9 +38,7 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
   return {
     ...article,
     content: content.html,
-    footNotes: article.footNotes,
     contentCopyrights: content.copyrights,
-    introduction: article.introduction,
   };
 }
 
