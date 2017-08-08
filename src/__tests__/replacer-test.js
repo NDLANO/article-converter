@@ -51,7 +51,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       image: {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
-        alttexts: [{ alttext: 'alt', lang: 'nb' }],
+        alttext: 'alt',
         imageUrl: 'http://api.test.ndla.no/images/1.jpg',
         copyright: {
           authors: [],
@@ -114,7 +114,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: '',
       image: {
-        alttexts: [{ alttext: 'alt', lang: 'nb' }],
+        alttext: 'alt',
         imageUrl: 'http://ndla.no/images/1.jpg',
         copyright: {
           authors: [],
@@ -129,7 +129,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: 'left',
       image: {
-        alttexts: [{ alttext: 'alt', lang: 'nb' }],
+        alttext: 'alt',
         imageUrl: 'http://ndla.no/images/2.jpg',
         copyright: {
           authors: [],
@@ -246,17 +246,11 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
       id: 1,
       resource: 'audio',
       audio: {
-        titles: [
-          { title: 'Tittel', language: 'nb' },
-          { title: 'Title', language: 'en' },
-        ],
-        audioFiles: [
-          {
-            url: 'http://audio.no/file/voof.mp3',
-            mimeType: 'audio/mpeg',
-            language: '',
-          },
-        ],
+        title: 'Tittel',
+        audioFile: {
+          url: 'http://audio.no/file/voof.mp3',
+          mimeType: 'audio/mpeg',
+        },
       },
     },
   ];

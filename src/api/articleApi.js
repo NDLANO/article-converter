@@ -14,7 +14,7 @@ import {
 } from '../utils/apiHelpers';
 
 export function fetchArticle(articleId, accessToken, method = 'GET') {
-  const url = apiResourceUrl(`/article-api/v1/articles/${articleId}`);
+  const url = apiResourceUrl(`/article-api/v2/articles/${articleId}`);
   return fetch(url, {
     method,
     headers: headerWithAccessToken(accessToken),

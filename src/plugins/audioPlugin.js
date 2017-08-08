@@ -6,7 +6,6 @@
  *
  */
 
-import { titlesI18N, audioFilesI18N } from '../utils/i18nFieldFinder';
 import { fetchAudio } from '../api/audioApi';
 
 export default function createAudioPlugin() {
@@ -18,11 +17,9 @@ export default function createAudioPlugin() {
 
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
 
-  const embedToHTML = (embed, lang) => {
-    const { audio } = embed;
-    const title = titlesI18N(audio, lang, true);
-    const audioFiles = audioFilesI18N(audio, lang, true);
-    return `<figure class="article_audio"><audio controls type="${audioFiles.mimeType}" src="${audioFiles.url}"></audio><figcaption>${title}</figcaption></figure>`;
+  const embedToHTML = embed => {
+    const { audio: { title, audioFile: { mimeType, url } } } = embed;
+    return `<figure class="article_audio"><audio controls type="${mimeType}" src="${url}"></audio><figcaption>${title}</figcaption></figure>`;
   };
 
   return {

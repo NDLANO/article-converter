@@ -16,7 +16,6 @@ import {
   FigureCaption,
 } from 'ndla-ui/lib/article/Figure';
 import Button from 'ndla-ui/lib/button/Button';
-import { alttextsI18N, captionI18N } from '../utils/i18nFieldFinder';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 
@@ -36,8 +35,8 @@ export default function createImagePlugin() {
     const { image, align, ...rest } = embed;
     const src = encodeURI(image.imageUrl);
     const { authors, license: { license } } = image.copyright;
-    const altText = alttextsI18N(image, locale, true);
-    const caption = defined(captionI18N(image, locale, true), rest.caption);
+    const altText = defined(image.alttext, '');
+    const caption = defined(image.caption, rest.caption);
     const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
       'article_figure--float-left': align === 'left',
