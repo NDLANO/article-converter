@@ -51,7 +51,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       image: {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
-        alttext: 'alt',
+        alttext: { alttext: 'alt' },
+        caption: { caption: '' },
         imageUrl: 'http://api.test.ndla.no/images/1.jpg',
         copyright: {
           authors: [],
@@ -114,7 +115,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: '',
       image: {
-        alttext: 'alt',
+        alttext: { alttext: 'alt' },
+        caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/1.jpg',
         copyright: {
           authors: [],
@@ -129,7 +131,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: 'left',
       image: {
-        alttext: 'alt',
+        alttext: { alttext: 'alt' },
+        caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/2.jpg',
         copyright: {
           authors: [],
