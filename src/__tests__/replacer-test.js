@@ -15,9 +15,9 @@ import {
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
   const articleContent = `
     <section>
-      <embed data-resource="image" data-id="6" data-url="https://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
+      <embed data-resource="image" data-id="6" data-url="https://api.test.ndla.no/images/1326" data-size="hovedspalte">
       <p>SomeText1</p>
-      <embed data-resource="h5p" data-id="8" data-url="https://ndlah5p.joubel.com/node/4"/>
+      <embed data-resource="h5p" data-id="8" data-url="https://ndlah5p.joubel.com/node/4">
     </section>
     <section>
       <p>SomeText2</p>
@@ -103,8 +103,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const articleContent = `
     <section>
-      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
-      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"/>
+      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
+      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
     </section>
   `.replace(/\n|\r/g, ''); // Strip new lines
 
@@ -159,8 +159,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   const articleContent = `
     <section>
-      <embed data-id="1" />
-      <embed data-id="2" />
+      <embed data-id="1" >
+      <embed data-id="2" >
     </section>
   `.replace(/\n|\r/g, ''); // Strip new lines
 

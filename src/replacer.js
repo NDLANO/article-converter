@@ -23,7 +23,7 @@ function createEmbedMarkup(embed, lang) {
 
 export function replaceEmbedsInHtml(embeds, lang) {
   return async html => {
-    const reEmbeds = new RegExp(/<embed.*?\/>/g);
+    const reEmbeds = new RegExp(/<embed.*?\/?>/g);
     const reDataId = new RegExp(/data-id="(.*?)"/);
     const markup = await stringReplaceAsync(html, reEmbeds, embedHtml => {
       const id = embedHtml.match(reDataId)[1];
