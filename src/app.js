@@ -40,7 +40,9 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
     content: content.html,
     title: article.title.title,
     tags: article.tags.tags,
-    introduction: article.introduction.introduction,
+    introduction: article.introduction
+      ? article.introduction.introduction
+      : undefined,
     metaDescription: article.metaDescription.metaDescription,
     contentCopyrights: content.copyrights,
   };
