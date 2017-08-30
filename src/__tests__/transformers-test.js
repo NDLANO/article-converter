@@ -6,19 +6,21 @@
  *
  */
 
-import { asideReplacers } from '../transformers';
+import cheerio from 'cheerio';
+import { tagReplacers } from '../transformers';
 
-test('transformers/asideReplacers changes aside to accommodate frontend styling', () => {
-  const content = `
+test('transformers/tagReplacers changes aside to accommodate frontend styling', () => {
+  const content = cheerio.load(`
   <section>
     <p>Lorem ipsum dolor sit amet...</p>
     <aside><h2>Test1</h2><div>Stuff</div></aside>
   </section>
     <aside><h2>Test2</h2><div>Other stuff</div></aside>
     <p>Lorem ipsum dolor sit amet...</p>
-  </section>`;
+  </section>`);
 
-  const result = asideReplacers.reduce((html, f) => f(html), content);
+  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
 
   expect(result).toMatch(
     '<aside class="c-aside c-aside--float expanded"><div class="c-aside__content"><h2>Test1</h2><div>Stuff</div></div></aside>'
