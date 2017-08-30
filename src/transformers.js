@@ -20,6 +20,10 @@ export const tagReplacers = [
       content(aside).html(innerAside);
     });
   },
+  content =>
+    content('ol[data-type="letters"]')
+      .removeAttr('data-type')
+      .addClass('ol-list--roman'),
 ];
 
 export async function transformContentAndExtractCopyrightInfo(
