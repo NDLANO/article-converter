@@ -30,7 +30,7 @@ app.use(
 async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken);
   const content = await transformContentAndExtractCopyrightInfo(
-    article.content,
+    article.content.content,
     lang,
     accessToken
   );
@@ -38,6 +38,12 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
   return {
     ...article,
     content: content.html,
+    title: article.title.title,
+    tags: article.tags.tags,
+    introduction: article.introduction
+      ? article.introduction.introduction
+      : undefined,
+    metaDescription: article.metaDescription.metaDescription,
     contentCopyrights: content.copyrights,
   };
 }
