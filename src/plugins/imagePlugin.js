@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import defined from 'defined';
 import classnames from 'classnames';
 import ReactDOMServerStream from 'react-dom/server';
 import {
@@ -32,11 +31,11 @@ export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
   const embedToHTML = (embed, locale) => {
-    const { image, align, ...rest } = embed;
+    const { image, data: { align, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
     const { authors, license: { license } } = image.copyright;
     const altText = image.alttext.alttext;
-    const caption = defined(rest.caption, image.caption.caption);
+    const caption = embedCaption === '' ? image.caption.caption : embedCaption;
     const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
       'article_figure--float-left': align === 'left',
@@ -66,46 +65,48 @@ export default function createImagePlugin() {
       .map(author => `${author.type}: ${author.name}`)
       .join('\n');
 
-    return ReactDOMServerStream.renderToStaticMarkup(
-      <Figure className={figureClassNames}>
-        <div className="c-figure__img">
-          <picture>
-            <source
-              srcSet={srcSets}
-              sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
-            />
-            <img
-              alt={altText}
-              src={`${src}?width=1024`}
-              srcSet={`${src}?width=2048 2x`}
-            />
-          </picture>
-        </div>
-        <FigureCaption
-          caption={caption}
-          reuseLabel={t(locale, 'image.reuse')}
-          licenseAbbreviation={license}
-          authors={authors}
-        />
-        <FigureDetails
-          licenseAbbreviation={license}
-          authors={authors}
-          messages={messages}>
-          <Button
-            outline
-            className="c-licenseToggle__button"
-            data-copied-title={t(locale, 'reference.copied')}
-            data-copy-string={authorsCopyString}>
-            {t(locale, 'reference.copy')}
-          </Button>
-          <a
-            href={src}
-            className="c-button c-button--outline c-licenseToggle__button"
-            download>
-            {t(locale, 'image.download')}
-          </a>
-        </FigureDetails>
-      </Figure>
+    embed.embed.replaceWith(
+      ReactDOMServerStream.renderToStaticMarkup(
+        <Figure className={figureClassNames}>
+          <div className="c-figure__img">
+            <picture>
+              <source
+                srcSet={srcSets}
+                sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
+              />
+              <img
+                alt={altText}
+                src={`${src}?width=1024`}
+                srcSet={`${src}?width=2048 2x`}
+              />
+            </picture>
+          </div>
+          <FigureCaption
+            caption={caption}
+            reuseLabel={t(locale, 'image.reuse')}
+            licenseAbbreviation={license}
+            authors={authors}
+          />
+          <FigureDetails
+            licenseAbbreviation={license}
+            authors={authors}
+            messages={messages}>
+            <Button
+              outline
+              className="c-licenseToggle__button"
+              data-copied-title={t(locale, 'reference.copied')}
+              data-copy-string={authorsCopyString}>
+              {t(locale, 'reference.copy')}
+            </Button>
+            <a
+              href={src}
+              className="c-button c-button--outline c-licenseToggle__button"
+              download>
+              {t(locale, 'image.download')}
+            </a>
+          </FigureDetails>
+        </Figure>
+      )
     );
   };
 

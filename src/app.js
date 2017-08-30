@@ -7,6 +7,7 @@
  */
 
 import 'isomorphic-fetch';
+import cheerio from 'cheerio';
 import defined from 'defined';
 import express from 'express';
 import compression from 'compression';
@@ -29,8 +30,9 @@ app.use(
 
 async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken);
+  const articleContent = cheerio.load(article.content.content);
   const content = await transformContentAndExtractCopyrightInfo(
-    article.content.content,
+    articleContent,
     lang,
     accessToken
   );

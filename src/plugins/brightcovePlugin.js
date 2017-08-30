@@ -32,8 +32,7 @@ export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const embedToHTML = (embed, locale) => {
-    const { account, player, videoid, caption, brightcove } = embed;
-
+    const { brightcove, data: { account, player, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
     const license = brightcove.copyright.license.license;
     const authorsCopyString = authors
@@ -46,53 +45,55 @@ export default function createBrightcovePlugin() {
       howToReference: t(locale, 'video.howToReference'),
     };
 
-    return ReactDOMServerStream.renderToStaticMarkup(
-      <Figure>
-        <div
-          style={{
-            display: 'block',
-            position: 'relative',
-            maxWidth: '100%',
-          }}>
-          <div style={{ paddingTop: '56.25%' }}>
-            <video
-              style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                top: '0px',
-                bottom: '0px',
-                right: '0px',
-                left: '0px',
-              }}
-              data-video-id={videoid}
-              data-account={account}
-              data-player={player}
-              data-embed="default"
-              className="video-js"
-              controls
-            />
+    embed.embed.replaceWith(
+      ReactDOMServerStream.renderToStaticMarkup(
+        <Figure>
+          <div
+            style={{
+              display: 'block',
+              position: 'relative',
+              maxWidth: '100%',
+            }}>
+            <div style={{ paddingTop: '56.25%' }}>
+              <video
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  top: '0px',
+                  bottom: '0px',
+                  right: '0px',
+                  left: '0px',
+                }}
+                data-video-id={videoid}
+                data-account={account}
+                data-player={player}
+                data-embed="default"
+                className="video-js"
+                controls
+              />
+            </div>
           </div>
-        </div>
-        <FigureCaption
-          caption={caption}
-          reuseLabel={t(locale, 'video.reuse')}
-          licenseAbbreviation={license}
-          authors={authors}
-        />
-        <FigureDetails
-          licenseAbbreviation={license}
-          authors={authors}
-          messages={messages}>
-          <Button
-            outline
-            className="c-licenseToggle__button"
-            data-copied-title={t(locale, 'reference.copied')}
-            data-copy-string={authorsCopyString}>
-            {t(locale, 'reference.copy')}
-          </Button>
-        </FigureDetails>
-      </Figure>
+          <FigureCaption
+            caption={caption}
+            reuseLabel={t(locale, 'video.reuse')}
+            licenseAbbreviation={license}
+            authors={authors}
+          />
+          <FigureDetails
+            licenseAbbreviation={license}
+            authors={authors}
+            messages={messages}>
+            <Button
+              outline
+              className="c-licenseToggle__button"
+              data-copied-title={t(locale, 'reference.copied')}
+              data-copy-string={authorsCopyString}>
+              {t(locale, 'reference.copy')}
+            </Button>
+          </FigureDetails>
+        </Figure>
+      )
     );
   };
 

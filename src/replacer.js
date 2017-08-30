@@ -6,32 +6,19 @@
  *
  */
 import log from './utils/logger';
-import plugins from './plugins';
-
-const stringReplaceAsync = require('string-replace-async');
 
 function createEmbedMarkup(embed, lang) {
-  const plugin = plugins.find(p => p.resource === embed.resource);
+  const plugin = embed.plugin;
 
   if (plugin) {
-    return plugin.embedToHTML(embed, lang);
+    plugin.embedToHTML(embed, lang);
+  } else {
+    log.warn(embed, 'Do not create markup for unknown embed');
   }
-
-  log.warn(embed, 'Do not create markup for unknown embed');
-  return undefined;
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
-  return async html => {
-    const reEmbeds = new RegExp(/<embed.*?\/?>/g);
-    const reDataId = new RegExp(/data-id="(.*?)"/);
-    const markup = await stringReplaceAsync(html, reEmbeds, embedHtml => {
-      const id = embedHtml.match(reDataId)[1];
-      const embed = embeds.find(f => f.id.toString() === id);
-      return Promise.resolve(createEmbedMarkup(embed, lang, plugins) || '');
-    });
-    return markup;
-  };
+  embeds.forEach(embed => createEmbedMarkup(embed, lang));
 }
 
 export function addClassToTag(tag, className) {

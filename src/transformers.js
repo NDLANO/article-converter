@@ -6,23 +6,20 @@
  *
  */
 
-import {
-  replaceEmbedsInHtml,
-  addClassToTag,
-  replaceStartAndEndTag,
-} from './replacer';
+import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
-import plugins from './plugins';
 
-// Changes aside tags to accommodate frontend styling
-export const asideReplacers = [
-  replaceStartAndEndTag(
-    'aside',
-    '<aside class="c-aside c-aside--float expanded"><div class="c-aside__content">',
-    '</div></aside>'
-  ),
-  addClassToTag('aside', 'c-aside u-1/3@desktop'),
+export const tagReplacers = [
+  content => {
+    content('aside').each((_, aside) => {
+      const innerAside = `<div class="c-aside__content">${content(
+        aside
+      ).children()}</div>`;
+      content(aside).addClass('c-aside c-aside--float expanded');
+      content(aside).html(innerAside);
+    });
+  },
 ];
 
 export async function transformContentAndExtractCopyrightInfo(
@@ -33,7 +30,7 @@ export async function transformContentAndExtractCopyrightInfo(
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(
     embeds.map(embed => {
-      const plugin = plugins.find(p => p.resource === embed.resource);
+      const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
         return plugin.fetchResource(embed, accessToken);
       }
@@ -41,16 +38,11 @@ export async function transformContentAndExtractCopyrightInfo(
     })
   );
 
-  const contentWithReplacedEmbeds = await replaceEmbedsInHtml(
-    embedsWithResources,
-    lang
-  )(content);
+  replaceEmbedsInHtml(embedsWithResources, lang);
+  tagReplacers.forEach(replacer => replacer(content));
 
   return {
-    html: asideReplacers.reduce(
-      (html, f) => f(html),
-      contentWithReplacedEmbeds
-    ),
+    html: content.html(),
     copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
   };
 }

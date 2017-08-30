@@ -17,7 +17,10 @@ export default function createContentLinkPlugin() {
   });
 
   const embedToHTML = (embed, lang) =>
-    `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.contentId}">${embed.linkText}</a>`;
+    embed.embed.replaceWith(
+      `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.data
+        .contentId}">${embed.data.linkText}</a>`
+    );
 
   return {
     resource: 'content-link',
