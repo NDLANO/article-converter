@@ -16,15 +16,18 @@ export default function createH5pPlugin() {
   });
 
   const fetchResource = (embed, headers) =>
-    embed.url.startsWith('https://ndlah5p.joubel.com')
+    embed.data.url.startsWith('https://ndlah5p.joubel.com')
       ? fetchOembed(embed, headers)
       : embed;
 
   const embedToHTML = h5p => {
     if (h5p.oembed) {
-      return `<figure>${h5p.oembed.html}</figure>`;
+      h5p.embed.replaceWith(`<figure>${h5p.oembed.html}</figure>`);
+    } else {
+      h5p.embed.replaceWith(
+        `<figure><iframe src="${h5p.data.url}"></iframe></figure>`
+      );
     }
-    return `<figure><iframe src="${h5p.url}"></iframe></figure>`;
   };
 
   return {

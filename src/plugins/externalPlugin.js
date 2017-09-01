@@ -18,7 +18,9 @@ export default function createExternalPlugin() {
   const fetchResource = (embed, headers) => fetchOembed(embed, headers);
 
   const embedToHTML = embed =>
-    `<figure class="article__oembed">${embed.oembed.html}</figure>`;
+    embed.embed.replaceWith(
+      `<figure class="article__oembed">${embed.oembed.html}</figure>`
+    );
 
   return {
     resource: 'external',

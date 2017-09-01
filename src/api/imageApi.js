@@ -38,6 +38,6 @@ function resolveJsonOrRejectWithImageObject(res) {
 }
 
 export const fetchImageResources = (embed, accessToken) =>
-  fetch(embed.url, { headers: headerWithAccessToken(accessToken) })
+  fetch(embed.data.url, { headers: headerWithAccessToken(accessToken) })
     .then(resolveJsonOrRejectWithImageObject)
     .then(image => ({ ...embed, image }));

@@ -92,9 +92,10 @@ export const getAuthors = fields => {
   return licenseInfoKeys.map(key => parseAuthorString(fields[key]));
 };
 
-export const fetchVideoMeta = embed =>
-  getAccessToken()
-    .then(accessToken => fetchVideo(embed.videoid, embed.account, accessToken))
+export const fetchVideoMeta = embed => {
+  const { videoid, account } = embed.data;
+  return getAccessToken()
+    .then(accessToken => fetchVideo(videoid, account, accessToken))
     .then(resolveJsonOrRejectWithError)
     .then(video => {
       const copyright = {
@@ -106,3 +107,4 @@ export const fetchVideoMeta = embed =>
 
       return { ...embed, brightcove: { ...video, copyright } };
     });
+};

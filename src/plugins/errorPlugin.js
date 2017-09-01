@@ -13,7 +13,10 @@ export default function createContentLinkPlugin() {
     message: obj.message,
   });
 
-  const embedToHTML = embed => `<div><strong>${embed.message}</strong></div>`;
+  const embedToHTML = embed =>
+    embed.embed.replaceWIth(
+      `<div><strong>${embed.data.message}</strong></div>`
+    );
 
   return {
     resource: 'error',

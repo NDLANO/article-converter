@@ -10,14 +10,14 @@ import { groupBy, map, filter, compose } from 'lodash/fp';
 
 function createCopyrightObject(embed, src) {
   return {
-    type: embed.resource,
-    copyright: embed[`${embed.resource}`].copyright,
+    type: embed.data.resource,
+    copyright: embed[`${embed.data.resource}`].copyright,
     src,
   };
 }
 
 function toCopyrightObject(embed) {
-  switch (embed.resource) {
+  switch (embed.data.resource) {
     case 'image':
       return createCopyrightObject(embed, embed.image.imageUrl);
     case 'audio':

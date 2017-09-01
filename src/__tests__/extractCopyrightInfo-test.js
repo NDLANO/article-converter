@@ -10,24 +10,24 @@ import { extractCopyrightInfoFromEmbeds } from '../extractCopyrightInfo';
 
 it('extractCopyrightInfo from embeds', async () => {
   const embeds = [
-    { resource: 'content-link' },
-    { resource: 'h5p' },
+    { data: { resource: 'content-link' } },
+    { data: { resource: 'h5p' } },
     {
-      resource: 'image',
+      data: { resource: 'image' },
       image: {
         copyright: { license: 'by-sa' },
         imageUrl: 'http://example.no/1234.jpg',
       },
     },
     {
-      resource: 'image',
+      data: { resource: 'image' },
       image: {
         copyright: { license: 'by-sa' },
         imageUrl: 'http://example.no/4123.jpg',
       },
     },
     {
-      resource: 'audio',
+      data: { resource: 'audio' },
       audio: {
         title: 'Tittel',
         language: 'nb',
@@ -38,7 +38,7 @@ it('extractCopyrightInfo from embeds', async () => {
       },
     },
     {
-      resource: 'brightcove',
+      data: { resource: 'brightcove' },
       brightcove: {
         copyright: { license: 'by-sa' },
       },

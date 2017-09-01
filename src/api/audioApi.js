@@ -13,6 +13,6 @@ import {
 } from '../utils/apiHelpers';
 
 export const fetchAudio = (embed, accessToken) =>
-  fetch(embed.url, { headers: headerWithAccessToken(accessToken) })
+  fetch(embed.data.url, { headers: headerWithAccessToken(accessToken) })
     .then(resolveJsonOrRejectWithError)
     .then(audio => ({ ...embed, audio }));

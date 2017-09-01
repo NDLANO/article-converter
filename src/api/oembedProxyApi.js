@@ -14,7 +14,7 @@ import {
 } from '../utils/apiHelpers';
 
 export const fetchOembed = (embed, accessToken) =>
-  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.url}`), {
+  fetch(apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.data.url}`), {
     headers: headerWithAccessToken(accessToken),
   })
     .then(resolveJsonOrRejectWithError)
@@ -23,13 +23,14 @@ export const fetchOembed = (embed, accessToken) =>
       if (e.status === 501 && e.json.code === 'PROVIDER_NOT_SUPPORTED') {
         return {
           ...embed,
-          message: `Uhåndtert embed med følgende url: ${embed.url}`,
+          message: `Uhåndtert embed med følgende url: ${embed.data.url}`,
           resource: 'error',
         };
       }
       return {
         ...embed,
-        message: `En uventet feil oppsto med følgende embed url: ${embed.url}`,
+        message: `En uventet feil oppsto med følgende embed url: ${embed.data
+          .url}`,
         resource: 'unhandled-oembed-error',
       };
     });

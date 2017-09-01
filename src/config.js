@@ -6,6 +6,8 @@
  *
  */
 
+import defined from 'defined';
+
 const environment = {
   development: {
     isProduction: false,
@@ -31,14 +33,14 @@ const domain = () => {
 };
 
 const ndlaFrontendDomain = () => {
-  switch (process.env.NDLA_ENVIRONMENT) {
+  const env = defined(process.env.NDLA_ENVIRONMENT, 'test');
+  switch (env) {
     case 'local':
       return 'http://localhost';
     case 'prod':
       return 'https://api.ndla.no';
     default:
-      return `https://ndla-frontend.${process.env
-        .NDLA_ENVIRONMENT}.api.ndla.no`;
+      return `https://ndla-frontend.${env}.api.ndla.no`;
   }
 };
 

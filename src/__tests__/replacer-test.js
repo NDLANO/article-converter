@@ -6,14 +6,24 @@
  *
  */
 
+import cheerio from 'cheerio';
 import {
   replaceEmbedsInHtml,
   addClassToTag,
   replaceStartAndEndTag,
 } from '../replacer';
+import {
+  createContentLinkPlugin,
+  createH5pPlugin,
+  createImagePlugin,
+  createBrightcovePlugin,
+  createNRKPlugin,
+  createAudioPlugin,
+} from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
-  const articleContent = `
+  const articleContent = cheerio.load(
+    `
     <section>
       <embed data-resource="image" data-id="6" data-url="https://api.test.ndla.no/images/1326" data-size="hovedspalte">
       <p>SomeText1</p>
@@ -27,27 +37,27 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       <p>SomeText3</p>
       <embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"/>
     </section>
-  `.replace(/\n|\r/g, ''); // Strip new lines
+  `.replace(/\n|\r/g, '')
+  ); // Strip new lines
 
   const embeds = [
     {
-      id: 1,
-      resource: 'content-link',
-      contentId: '425',
-      linkText: 'Valg av informanter',
+      embed: articleContent('embed[data-resource="content-link"]'),
+      data: articleContent('embed[data-resource="content-link"]').data(),
+      plugin: createContentLinkPlugin(),
     },
     {
-      id: 8,
-      resource: 'h5p',
-      url: 'https://ndlah5p.joubel.com/h5p/embed/4',
+      embed: articleContent('embed[data-resource="h5p"]'),
+      data: articleContent('embed[data-resource="h5p"]').data(),
+      plugin: createH5pPlugin(),
       oembed: {
         html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>',
       },
     },
     {
-      id: 6,
-      resource: 'image',
-      metaUrl: 'http://api.test.ndla.no/images/1326',
+      embed: articleContent('embed[data-resource="image"]'),
+      data: articleContent('embed[data-resource="image"]').data(),
+      plugin: createImagePlugin(),
       image: {
         id: '1326',
         metaUrl: 'http://api.test.ndla.no/images/1326',
@@ -63,11 +73,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       },
     },
     {
-      id: 2,
-      resource: 'brightcove',
-      account: 4806596774001,
-      player: 'BkLm8fT',
-      videoid: 'ref:46012',
+      embed: articleContent('embed[data-resource="brightcove"]'),
+      data: articleContent('embed[data-resource="brightcove"]').data(),
+      plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
           authors: [],
@@ -79,7 +87,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
   expect(replaced).toMatch(
@@ -95,22 +104,27 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
   );
   expect(replaced).toMatch('<video');
   expect(replaced).toMatch(
-    'data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">'
+    'data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls>'
   );
   expect(replaced).toMatch('</video>');
   expect(replaced).toMatch('<p>SomeText1</p>');
 });
 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
-  const articleContent = `
+  const articleContent = cheerio.load(
+    `
     <section>
       <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
       <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
     </section>
-  `.replace(/\n|\r/g, ''); // Strip new lines
+  `.replace(/\n|\r/g, '')
+  ); // Strip new lines
 
   const embeds = [
     {
+      embed: articleContent('embed[data-resource="image"]').first(),
+      data: articleContent('embed[data-resource="image"]').first().data(),
+      plugin: createImagePlugin(),
       id: 1,
       resource: 'image',
       align: '',
@@ -127,6 +141,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       },
     },
     {
+      embed: articleContent('embed[data-resource="image"]').last(),
+      data: articleContent('embed[data-resource="image"]').last().data(),
+      plugin: createImagePlugin(),
       id: 2,
       resource: 'image',
       align: 'left',
@@ -144,7 +161,8 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
 
   expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
   expect(replaced).toMatch(
@@ -160,21 +178,20 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
 });
 
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
-  const articleContent = `
+  const articleContent = cheerio.load(
+    `
     <section>
-      <embed data-id="1" >
-      <embed data-id="2" >
+      <embed data-resource="brightcove" data-account=1337 data-player="BkLm8fT" data-videoid="ref:1" data-caption="Brightcove caption" data-id="1" >
+      <embed data-resource="brightcove" data-account=1337 data-player="BkLm8fT" data-videoid="ref:2" data-caption="Another caption" data-id="2" >
     </section>
-  `.replace(/\n|\r/g, ''); // Strip new lines
+  `.replace(/\n|\r/g, '')
+  ); // Strip new lines
 
   const embeds = [
     {
-      id: 1,
-      resource: 'brightcove',
-      account: 1337,
-      player: 'BkLm8fT',
-      caption: 'Brightcove caption',
-      videoid: 'ref:1',
+      embed: articleContent('embed[data-resource="brightcove"]').first(),
+      data: articleContent('embed[data-resource="brightcove"]').first().data(),
+      plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
           authors: [],
@@ -185,12 +202,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
       },
     },
     {
-      id: 2,
-      resource: 'brightcove',
-      account: 1337,
-      player: 'BkLm8fT',
-      caption: 'Another caption',
-      videoid: 'ref:2',
+      embed: articleContent('embed[data-resource="brightcove"]').last(),
+      data: articleContent('embed[data-resource="brightcove"]').last().data(),
+      plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
           authors: [],
@@ -202,13 +216,14 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
 
   expect(replaced).toMatch(
-    /data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/
+    /data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
   );
   expect(replaced).toMatch(
-    /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls="">/
+    /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
   );
   expect(replaced).toMatch(
     /<figure.*>.*<figcaption.*?>.*Brightcove caption.*<\/figcaption>.*<\/figure>/
@@ -220,34 +235,48 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
 });
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
-  const articleContent = `
+  const articleContent = cheerio.load(
+    `
     <section>
       <embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" />
       <embed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746" />
     </section>
-  `.replace(/\n|\r/g, ''); // Strip new lines
-
-  const embeds = [
-    { id: 1, resource: 'nrk', nrkVideoId: '123' },
-    { id: 2, resource: 'nrk', nrkVideoId: '124' },
-  ];
-
-  const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
-
-  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="123"></div>');
-  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="124"></div>');
-});
-
-test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
-  const articleContent = '<section><embed data-id="1"/></section>'.replace(
-    /\n|\r/g,
-    ''
+  `.replace(/\n|\r/g, '')
   ); // Strip new lines
 
   const embeds = [
     {
-      id: 1,
-      resource: 'audio',
+      embed: articleContent('embed[data-resource="nrk"]').first(),
+      data: articleContent('embed[data-resource="nrk"]').first().data(),
+      plugin: createNRKPlugin(),
+    },
+    {
+      embed: articleContent('embed[data-resource="nrk"]').last(),
+      data: articleContent('embed[data-resource="nrk"]').last().data(),
+      plugin: createNRKPlugin(),
+    },
+  ];
+
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="94605"></div>');
+  expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="94606"></div>');
+});
+
+test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="audio" data-id="1"/></section>'.replace(
+      /\n|\r/g,
+      ''
+    )
+  ); // Strip new lines
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="audio"]'),
+      data: articleContent('embed[data-resource="audio"]').data(),
+      plugin: createAudioPlugin(),
       audio: {
         title: 'Tittel',
         audioFile: {
@@ -258,7 +287,8 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
     },
   ];
 
-  const replaced = await replaceEmbedsInHtml(embeds, 'nb')(articleContent);
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
 
   expect(replaced).toMatch(
     '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
