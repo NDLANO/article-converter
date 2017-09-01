@@ -40,6 +40,7 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
   return {
     ...article,
     content: content.html,
+    footNotes: article.content.footNotes,
     title: article.title.title,
     tags: article.tags.tags,
     introduction: article.introduction
