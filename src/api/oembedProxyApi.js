@@ -7,6 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import plugins from '../plugins';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
@@ -23,14 +24,20 @@ export const fetchOembed = (embed, accessToken) =>
       if (e.status === 501 && e.json.code === 'PROVIDER_NOT_SUPPORTED') {
         return {
           ...embed,
-          message: `Uhåndtert embed med følgende url: ${embed.data.url}`,
+          plugin: plugins.find(p => p.resource === 'error'),
+          data: {
+            message: `Uhåndtert embed med følgende url: ${embed.data.url}`,
+          },
           resource: 'error',
         };
       }
       return {
         ...embed,
-        message: `En uventet feil oppsto med følgende embed url: ${embed.data
-          .url}`,
-        resource: 'unhandled-oembed-error',
+        plugin: plugins.find(p => p.resource === 'error'),
+        data: {
+          message: `En uventet feil oppsto med følgende embed url: ${embed.data
+            .url}`,
+        },
+        resource: 'error',
       };
     });
