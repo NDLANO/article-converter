@@ -14,7 +14,7 @@ export default function createContentLinkPlugin() {
   });
 
   const embedToHTML = embed =>
-    embed.embed.replaceWIth(
+    embed.embed.replaceWith(
       `<div><strong>${embed.data.message}</strong></div>`
     );
 
