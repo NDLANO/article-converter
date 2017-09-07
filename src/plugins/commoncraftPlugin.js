@@ -7,9 +7,9 @@
 
 export default function createCommoncraftPlugin() {
   const embedToHTML = embed => {
-    const { data: {url, width, height}} = embed.data;
+    const { url, width, height } = embed.data;
     embed.embed.replaceWith(
-       `<iframe id="cc-embed" src="${url}" width="${width}" height="${height}" frameborder="0" scrolling="false" ></iframe>`
+      `<iframe id="cc-embed" src="${url}" width="${width}" height="${height}" frameborder="0" scrolling="false" ></iframe>`
     );
   };
 

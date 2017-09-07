@@ -9,13 +9,6 @@
 import { ndlaFrontendUrl } from '../config';
 
 export default function createContentLinkPlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    contentId: obj['content-id'],
-    linkText: obj['link-text'],
-  });
-
   const embedToHTML = (embed, lang) =>
     embed.embed.replaceWith(
       `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.data
@@ -24,7 +17,6 @@ export default function createContentLinkPlugin() {
 
   return {
     resource: 'content-link',
-    createEmbedObject,
     embedToHTML,
   };
 }

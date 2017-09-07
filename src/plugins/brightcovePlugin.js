@@ -20,15 +20,6 @@ import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 
 export default function createBrightcovePlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    account: parseInt(obj.account, 10),
-    caption: obj.caption,
-    player: obj.player,
-    videoid: obj.videoid,
-  });
-
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const embedToHTML = (embed, locale) => {
@@ -100,7 +91,6 @@ export default function createBrightcovePlugin() {
   return {
     resource: 'brightcove',
     fetchResource,
-    createEmbedObject,
     embedToHTML,
   };
 }

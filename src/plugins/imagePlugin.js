@@ -19,15 +19,6 @@ import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 
 export default function createImagePlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    align: obj.align,
-    caption: obj.caption,
-    size: obj.size,
-    url: obj.url,
-  });
-
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
   const embedToHTML = (embed, locale) => {
@@ -113,7 +104,6 @@ export default function createImagePlugin() {
   return {
     resource: 'image',
     fetchResource,
-    createEmbedObject,
     embedToHTML,
   };
 }
