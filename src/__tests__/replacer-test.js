@@ -19,6 +19,9 @@ import {
   createBrightcovePlugin,
   createNRKPlugin,
   createAudioPlugin,
+  createPreziPlugin,
+  createCommoncraftPlugin,
+  createNdlaFilmIUndervisning,
 } from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
@@ -292,6 +295,80 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
 
   expect(replaced).toMatch(
     '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
+  );
+});
+
+test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="prezi" data-url="http://prezi.com" data-width="1" data-height="2"/></section>'.replace(
+      /\n|\r/g,
+      ''
+    )
+  ); // Strip new lines
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="prezi"]'),
+      data: articleContent('embed[data-resource="prezi"]').data(),
+      plugin: createPreziPlugin(),
+    },
+  ];
+
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch(
+    '<iframe id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen width="1" height="2" src="http://prezi.com"></iframe>'
+  );
+});
+
+test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="commoncraft" data-url="http://common.craft" data-width="1" data-height="2"/></section>'.replace(
+      /\n|\r/g,
+      ''
+    )
+  ); // Strip new lines
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="commoncraft"]'),
+      data: articleContent('embed[data-resource="commoncraft"]').data(),
+      plugin: createCommoncraftPlugin(),
+    },
+  ];
+
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch(
+    '<iframe id="cc-embed" src="http://common.craft" width="1" height="2" frameborder="0" scrolling="false"></iframe>'
+  );
+});
+
+test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="ndla-filmiundervisning" data-url="http://ndla.filmiundervisning.no/" data-width="1" data-height="2"/></section>'.replace(
+      /\n|\r/g,
+      ''
+    )
+  ); // Strip new lines
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="ndla-filmiundervisning"]'),
+      data: articleContent(
+        'embed[data-resource="ndla-filmiundervisning"]'
+      ).data(),
+      plugin: createNdlaFilmIUndervisning(),
+    },
+  ];
+
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch(
+    '<iframe src="http://ndla.filmiundervisning.no/" style="border: none;" frameborder="0" width="1" height="2" allowfullscreen></iframe>'
   );
 });
 
