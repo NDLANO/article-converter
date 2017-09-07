@@ -14,6 +14,9 @@ import createH5pPlugin from './h5pPlugin';
 import createExternalPlugin from './externalPlugin';
 import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
+import createPreziPlugin from './preziPlugin';
+import createCommoncraftPlugin from './commoncraftPlugin';
+import createNdlaFilmIUndervisning from './ndlaFilmIUndervisningPlugin'
 
 export {
   createNRKPlugin,
@@ -24,6 +27,9 @@ export {
   createExternalPlugin,
   createContentLinkPlugin,
   createErrorPlugin,
+  createPreziPlugin,
+  createCommoncraftPlugin,
+  createNdlaFilmIUndervisning,
 };
 
 export default [
@@ -35,4 +41,7 @@ export default [
   createExternalPlugin(),
   createContentLinkPlugin(),
   createErrorPlugin(),
+  createPreziPlugin(),
+  createCommoncraftPlugin(),
+  createNdlaFilmIUndervisning(),
 ];
