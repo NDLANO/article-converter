@@ -26,8 +26,7 @@ import {
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
   const articleContent = cheerio.load(
-    `
-    <section>
+    `<section>
       <embed data-resource="image" data-id="6" data-url="https://api.test.ndla.no/images/1326" data-size="hovedspalte">
       <p>SomeText1</p>
       <embed data-resource="h5p" data-id="8" data-url="https://ndlah5p.joubel.com/node/4">
@@ -39,9 +38,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       <embed data-resource="brightcove" data-id="2" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"/>
       <p>SomeText3</p>
       <embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"/>
-    </section>
-  `.replace(/\n|\r/g, '')
-  ); // Strip new lines
+    </section>`
+  );
 
   const embeds = [
     {
@@ -115,13 +113,11 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const articleContent = cheerio.load(
-    `
-    <section>
+    `<section>
       <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
       <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
-    </section>
-  `.replace(/\n|\r/g, '')
-  ); // Strip new lines
+    </section>`
+  );
 
   const embeds = [
     {
@@ -182,13 +178,11 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   const articleContent = cheerio.load(
-    `
-    <section>
+    `<section>
       <embed data-resource="brightcove" data-account=1337 data-player="BkLm8fT" data-videoid="ref:1" data-caption="Brightcove caption" data-id="1" >
       <embed data-resource="brightcove" data-account=1337 data-player="BkLm8fT" data-videoid="ref:2" data-caption="Another caption" data-id="2" >
-    </section>
-  `.replace(/\n|\r/g, '')
-  ); // Strip new lines
+    </section>`
+  );
 
   const embeds = [
     {
@@ -239,13 +233,11 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
   const articleContent = cheerio.load(
-    `
-    <section>
+    `<section>
       <embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" />
       <embed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746" />
-    </section>
-  `.replace(/\n|\r/g, '')
-  ); // Strip new lines
+    </section>`
+  );
 
   const embeds = [
     {
@@ -269,12 +261,8 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="audio" data-id="1"/></section>'.replace(
-      /\n|\r/g,
-      ''
-    )
+    '<section><embed data-resource="audio" data-id="1"/></section>'
   ); // Strip new lines
-
   const embeds = [
     {
       embed: articleContent('embed[data-resource="audio"]'),
@@ -300,12 +288,8 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="prezi" data-url="http://prezi.com" data-width="1" data-height="2"/></section>'.replace(
-      /\n|\r/g,
-      ''
-    )
-  ); // Strip new lines
-
+    '<section><embed data-resource="prezi" data-url="http://prezi.com" data-width="1" data-height="2"/></section>'
+  );
   const embeds = [
     {
       embed: articleContent('embed[data-resource="prezi"]'),
@@ -324,11 +308,8 @@ test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="commoncraft" data-url="http://common.craft" data-width="1" data-height="2"/></section>'.replace(
-      /\n|\r/g,
-      ''
-    )
-  ); // Strip new lines
+    '<section><embed data-resource="commoncraft" data-url="http://common.craft" data-width="1" data-height="2"/></section>'
+  );
 
   const embeds = [
     {
@@ -348,11 +329,8 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="ndla-filmiundervisning" data-url="http://ndla.filmiundervisning.no/" data-width="1" data-height="2"/></section>'.replace(
-      /\n|\r/g,
-      ''
-    )
-  ); // Strip new lines
+    '<section><embed data-resource="ndla-filmiundervisning" data-url="http://ndla.filmiundervisning.no/" data-width="1" data-height="2"/></section>'
+  );
 
   const embeds = [
     {
