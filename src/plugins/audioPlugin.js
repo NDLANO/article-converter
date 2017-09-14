@@ -9,12 +9,6 @@
 import { fetchAudio } from '../api/audioApi';
 
 export default function createAudioPlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    url: obj.url,
-  });
-
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
 
   const embedToHTML = embed => {
@@ -26,7 +20,6 @@ export default function createAudioPlugin() {
   return {
     resource: 'audio',
     fetchResource,
-    createEmbedObject,
     embedToHTML,
   };
 }

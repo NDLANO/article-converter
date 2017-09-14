@@ -9,12 +9,6 @@
 import { fetchOembed } from '../api/oembedProxyApi';
 
 export default function createH5pPlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    url: obj.url,
-  });
-
   const fetchResource = (embed, headers) =>
     embed.data.url.startsWith('https://ndlah5p.joubel.com')
       ? fetchOembed(embed, headers)
@@ -32,7 +26,6 @@ export default function createH5pPlugin() {
 
   return {
     resource: 'h5p',
-    createEmbedObject,
     fetchResource,
     embedToHTML,
   };

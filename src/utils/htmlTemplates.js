@@ -16,6 +16,11 @@ export const htmlTemplate = (lang, title, article) => {
     )
     .join();
 
+  const introduction =
+    article.introduction !== undefined
+      ? `<section>${article.introduction}</section>`
+      : '';
+
   return `<!doctype html>\n<html lang=${lang} >
     <head>
       <meta charset="utf-8">
@@ -23,9 +28,7 @@ export const htmlTemplate = (lang, title, article) => {
     </head>
     <body>
       <h1>${title}</h1>
-      <section>
-        ${article.introduction}
-      </section>
+      ${introduction}
       ${article.content}
       ${scripts}
     </body>

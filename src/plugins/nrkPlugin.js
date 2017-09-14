@@ -7,12 +7,6 @@
  */
 
 export default function createNRKPlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    nrkVideoId: obj['nrk-video-id'],
-  });
-
   const embedToHTML = embed =>
     embed.embed.replaceWith(
       `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`
@@ -20,7 +14,6 @@ export default function createNRKPlugin() {
 
   return {
     resource: 'nrk',
-    createEmbedObject,
     embedToHTML,
   };
 }

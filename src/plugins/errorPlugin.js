@@ -7,12 +7,6 @@
  */
 
 export default function createContentLinkPlugin() {
-  const createEmbedObject = obj => ({
-    id: parseInt(obj.id, 10),
-    resource: obj.resource,
-    message: obj.message,
-  });
-
   const embedToHTML = embed =>
     embed.embed.replaceWith(
       `<div><strong>${embed.data.message}</strong></div>`
@@ -20,7 +14,6 @@ export default function createContentLinkPlugin() {
 
   return {
     resource: 'error',
-    createEmbedObject,
     embedToHTML,
   };
 }
