@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`replacer/replaceEmbedsInHtml replace footnote embeds 1`] = `
+Object {
+  "footnote": Object {
+    "ref_1": Object {
+      "authors": Array [
+        "regjeringen.no",
+      ],
+      "edition": "",
+      "publisher": "Barne-, likestillings- og inkluderingsdepartmentet",
+      "resource": undefined,
+      "title": "Likestilling kommer ikke av seg selv",
+      "type": "Report",
+      "year": 2013,
+    },
+    "ref_2": Object {
+      "authors": Array [
+        "Me",
+        "You",
+      ],
+      "edition": 2,
+      "publisher": "test",
+      "resource": undefined,
+      "title": "test",
+      "type": "Book",
+      "year": 2022,
+    },
+  },
+}
+`;
