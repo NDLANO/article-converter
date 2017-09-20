@@ -42,11 +42,12 @@ export async function transformContentAndExtractCopyrightInfo(
     })
   );
 
-  replaceEmbedsInHtml(embedsWithResources, lang);
+  const pluginData = replaceEmbedsInHtml(embedsWithResources, lang);
   tagReplacers.forEach(replacer => replacer(content));
 
   return {
     html: content.html(),
     copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
+    pluginData,
   };
 }
