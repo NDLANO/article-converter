@@ -22,6 +22,7 @@ import {
   createPreziPlugin,
   createCommoncraftPlugin,
   createNdlaFilmIUndervisning,
+  createKahootPlugin,
 } from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
@@ -347,6 +348,27 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
 
   expect(replaced).toMatch(
     '<iframe src="http://ndla.filmiundervisning.no/" style="border: none;" frameborder="0" width="1" height="2" allowfullscreen></iframe>'
+  );
+});
+
+test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="kahoot" data-url="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" data-width="1" data-height="2"/></section>'
+  );
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="kahoot"]'),
+      data: articleContent('embed[data-resource="kahoot"]').data(),
+      plugin: createKahootPlugin(),
+    },
+  ];
+
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch(
+    '<iframe src="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" width="1" height="2" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>'
   );
 });
 
