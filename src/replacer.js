@@ -7,18 +7,27 @@
  */
 import log from './utils/logger';
 
-function createEmbedMarkup(embed, lang) {
+function createEmbedMarkup(embed, lang, context) {
   const plugin = embed.plugin;
 
   if (plugin) {
-    plugin.embedToHTML(embed, lang);
-  } else {
-    log.warn(embed, 'Do not create markup for unknown embed');
+    return plugin.embedToHTML(embed, lang, context);
   }
+  return log.warn(embed, 'Do not create markup for unknown embed');
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
-  embeds.forEach(embed => createEmbedMarkup(embed, lang));
+  return embeds.reduce((ctx, embed) => {
+    const res = createEmbedMarkup(
+      embed,
+      lang,
+      ctx[embed.plugin.resource] || {}
+    );
+    return {
+      ...ctx,
+      [embed.plugin.resource]: res,
+    };
+  }, {});
 }
 
 export function addClassToTag(tag, className) {

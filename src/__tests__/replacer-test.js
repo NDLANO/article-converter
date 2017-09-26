@@ -23,6 +23,7 @@ import {
   createCommoncraftPlugin,
   createNdlaFilmIUndervisning,
   createKahootPlugin,
+  createFootnotePlugin,
 } from '../plugins';
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
@@ -370,6 +371,40 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
   expect(replaced).toMatch(
     '<iframe src="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" width="1" height="2" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>'
   );
+});
+
+test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
+  const articleContent = cheerio.load(
+    '<section>' +
+      '<embed data-authors="regjeringen.no" data-edition="" data-publisher="Barne-, likestillings- og inkluderingsdepartmentet" data-resource="footnote" data-title="Likestilling kommer ikke av seg selv" data-type="Report" data-year="2013">' +
+      '<embed data-authors="Me;You" data-edition="2" data-publisher="test" data-resource="footnote" data-title="test" data-type="Book" data-year="2022">' +
+      '</section>'
+  );
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="footnote"]').first(),
+      data: articleContent('embed[data-resource="footnote"]').first().data(),
+      plugin: createFootnotePlugin(),
+    },
+    {
+      embed: articleContent('embed[data-resource="footnote"]').last(),
+      data: articleContent('embed[data-resource="footnote"]').last().data(),
+      plugin: createFootnotePlugin(),
+    },
+  ];
+
+  const pluginMeta = replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent.html();
+
+  expect(replaced).toMatch(
+    '<a href="#ref_1_cite" name="ref_1_sup"><sup>1</sup></a>'
+  );
+  expect(replaced).toMatch(
+    '<a href="#ref_2_cite" name="ref_2_sup"><sup>2</sup></a>'
+  );
+
+  expect(pluginMeta).toMatchSnapshot();
 });
 
 test('replacer/addClassToTag can add class to tag', () => {

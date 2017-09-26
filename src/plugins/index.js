@@ -18,6 +18,7 @@ import createPreziPlugin from './preziPlugin';
 import createCommoncraftPlugin from './commoncraftPlugin';
 import createNdlaFilmIUndervisning from './ndlaFilmIUndervisningPlugin';
 import createKahootPlugin from './kahootPlugin';
+import createFootnotePlugin from './footNotePlugin';
 
 export {
   createNRKPlugin,
@@ -32,6 +33,7 @@ export {
   createCommoncraftPlugin,
   createNdlaFilmIUndervisning,
   createKahootPlugin,
+  createFootnotePlugin,
 };
 
 export default [
@@ -47,4 +49,5 @@ export default [
   createCommoncraftPlugin(),
   createNdlaFilmIUndervisning(),
   createKahootPlugin(),
+  createFootnotePlugin(),
 ];
