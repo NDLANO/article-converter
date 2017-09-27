@@ -61,7 +61,7 @@ const getAccessToken = () => {
 
 const getLicenseByNBTitle = title => {
   switch (title.replace(/\s/g, '').toLowerCase()) {
-    case 'navngivelse-ikkekommersiell-ingenbearbeidelser':
+    case 'navngivelse-ikkekommersiell-ingenbearbeidelse':
       return 'by-nc-nd';
     case 'navngivelse-ikkekommersiell-delpåsammevilkår':
       return 'by-nc-sa';
