@@ -26,9 +26,14 @@ export default function createBrightcovePlugin() {
     const { brightcove, data: { account, player, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
     const license = brightcove.copyright.license.license;
+    const licenseCopyString = `${license.includes('by')
+      ? 'CC '
+      : ''}${license}`.toUpperCase();
     const authorsCopyString = authors
-      .map(author => `${author.type}: ${author.name}`)
-      .join('\n');
+      .filter(author => author.type !== 'Leverandør')
+      .map(author => `${author.name}`)
+      .join(', ');
+    const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     const messages = {
       close: t(locale, 'close'),
@@ -79,7 +84,7 @@ export default function createBrightcovePlugin() {
               outline
               className="c-licenseToggle__button"
               data-copied-title={t(locale, 'reference.copied')}
-              data-copy-string={authorsCopyString}>
+              data-copy-string={copyString}>
               {t(locale, 'reference.copy')}
             </Button>
           </FigureDetails>
