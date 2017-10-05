@@ -6,15 +6,15 @@
  */
 
 export default function createKhanAcademyPlugin() {
-    const embedToHTML = embed => {
-        const { url, width, height } = embed.data;
-        embed.embed.replaceWith(
-            `<figure></figure><iframe src="${url}" width="${width}" height="${height}" scrolling="no" frameborder="no" align="center"></iframe></figure>`
-        );
-    };
+  const embedToHTML = embed => {
+    const { url, width, height } = embed.data;
+    embed.embed.replaceWith(
+      `<figure></figure><iframe src="${url}" width="${width}" height="${height}" scrolling="no" frameborder="no" align="center"></iframe></figure>`
+    );
+  };
 
-    return {
-        resource: 'khan-academy',
-        embedToHTML,
-    };
+  return {
+    resource: 'khan-academy',
+    embedToHTML,
+  };
 }
