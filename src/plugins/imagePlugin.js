@@ -52,9 +52,14 @@ export default function createImagePlugin() {
       `${src}?width=320 320w`,
     ].join(', ');
 
+    const licenseCopyString = `${license.toLowerCase().includes('by')
+      ? 'CC '
+      : ''}${license}`.toUpperCase();
     const authorsCopyString = authors
-      .map(author => `${author.type}: ${author.name}`)
-      .join('\n');
+      .filter(author => author.type !== 'Leverandør')
+      .map(author => `${author.name}`)
+      .join(', ');
+    const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     embed.embed.replaceWith(
       ReactDOMServerStream.renderToStaticMarkup(
@@ -86,7 +91,7 @@ export default function createImagePlugin() {
               outline
               className="c-licenseToggle__button"
               data-copied-title={t(locale, 'reference.copied')}
-              data-copy-string={authorsCopyString}>
+              data-copy-string={copyString}>
               {t(locale, 'reference.copy')}
             </Button>
             <a
