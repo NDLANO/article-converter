@@ -9,7 +9,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React from 'react';
-import ReactDOMServerStream from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
@@ -41,7 +41,7 @@ export default function createBrightcovePlugin() {
     };
 
     embed.embed.replaceWith(
-      ReactDOMServerStream.renderToStaticMarkup(
+      renderToStaticMarkup(
         <Figure>
           <div
             style={{

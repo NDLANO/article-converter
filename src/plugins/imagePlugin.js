@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import ReactDOMServerStream from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
@@ -62,7 +62,7 @@ export default function createImagePlugin() {
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     embed.embed.replaceWith(
-      ReactDOMServerStream.renderToStaticMarkup(
+      renderToStaticMarkup(
         <Figure className={figureClassNames}>
           <div className="c-figure__img">
             <picture>
