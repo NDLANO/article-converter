@@ -2108,6 +2108,10 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
+hoist-non-react-statics@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -2230,15 +2234,15 @@ intl-messageformat-parser@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.3.0.tgz#c5d26ffb894c7d9c2b9fa444c67f417ab2594268"
 
-intl-messageformat@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-1.3.0.tgz#f7d926aded7a3ab19b2dc601efd54e99a4bd4eae"
-  dependencies:
-    intl-messageformat-parser "1.2.0"
-
 intl-messageformat@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.0.0.tgz#3d56982583425aee23b76c8b985fb9b0aae5be3c"
+  dependencies:
+    intl-messageformat-parser "1.2.0"
+
+intl-messageformat@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.1.0.tgz#1c51da76f02a3f7b360654cdc51bbc4d3fa6c72c"
   dependencies:
     intl-messageformat-parser "1.2.0"
 
@@ -3088,23 +3092,24 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-ndla-i18n@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ndla-i18n/-/ndla-i18n-0.0.2.tgz#f0ca9575ebf719f66e8a757e480eafcb4862cd1f"
+ndla-i18n@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ndla-i18n/-/ndla-i18n-0.2.0.tgz#1e663e0675254a1918394b243191949560dc01a6"
   dependencies:
+    hoist-non-react-statics "^2.3.0"
     intl-format-cache "^2.0.5"
-    intl-messageformat "^1.3.0"
+    intl-messageformat "^2.1.0"
     invariant "^2.2.2"
 
-ndla-licenses@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.0.8.tgz#758fbe422c185ce8c41147f2a2a45576a90f77a6"
+ndla-licenses@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.1.0.tgz#24f8d97e8dbb14ecbe9df485b414cd731a74cbd4"
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.6.7:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.6.7.tgz#dd146337e9c6204ac92f30539ce09fd0fcbe3290"
+ndla-ui@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.8.5.tgz#729746f05a5b24e4a01a5a6d115f12cba453608f"
   dependencies:
     classnames "2.2.5"
     react-bem-helper "1.4.1"

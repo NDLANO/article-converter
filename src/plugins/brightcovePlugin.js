@@ -8,14 +8,11 @@
 
 /* eslint-disable jsx-a11y/media-has-caption */
 
-import {
-  Figure,
-  FigureDetails,
-  FigureCaption,
-} from 'ndla-ui/lib/article/Figure';
-import Button from 'ndla-ui/lib/button/Button';
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
+import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
+import Button from 'ndla-ui/lib/button/Button';
+import { getLicenseByAbbreviation } from 'ndla-licenses';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 
@@ -26,6 +23,7 @@ export default function createBrightcovePlugin() {
     const { brightcove, data: { account, player, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
     const license = brightcove.copyright.license.license;
+    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
     const licenseCopyString = `${license.includes('by')
       ? 'CC '
       : ''}${license}`.toUpperCase();
@@ -38,7 +36,8 @@ export default function createBrightcovePlugin() {
     const messages = {
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'video.rulesForUse'),
-      howToReference: t(locale, 'video.howToReference'),
+      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      source: t(locale, 'source'),
     };
 
     embed.embed.replaceWith(
@@ -73,11 +72,11 @@ export default function createBrightcovePlugin() {
           <FigureCaption
             caption={caption}
             reuseLabel={t(locale, 'video.reuse')}
-            licenseAbbreviation={license}
+            licenseRights={licenseRights}
             authors={authors}
           />
           <FigureDetails
-            licenseAbbreviation={license}
+            licenseRights={licenseRights}
             authors={authors}
             messages={messages}>
             <Button
