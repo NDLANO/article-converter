@@ -8,13 +8,13 @@
     "clean": "rimraf build",
     "test": "cross-env NDLA_ENVIRONMENT=test jest",
     "tdd": "cross-env NDLA_ENVIRONMENT=test jest --watch",
-    "lint": "yarn lint-prettier --silent && yarn lint-es --silent",
+    "lint": "yarn lint-prettier && yarn lint-es",
     "lint-es": "eslint src",
     "lint-prettier": "node prettier.js lint",
     "start": "nodemon --exec babel-node --watch src/ src/server.js | bunyan",
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
-    "prebuild": "yarn run clean --silent",
-    "pretest": "yarn lint --silent",
+    "prebuild": "yarn run clean",
+    "pretest": "yarn lint",
     "prettier": "node prettier.js write"
   },
   "engines": {
