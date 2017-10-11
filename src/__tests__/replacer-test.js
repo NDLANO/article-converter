@@ -271,7 +271,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
       data: articleContent('embed[data-resource="audio"]').data(),
       plugin: createAudioPlugin(),
       audio: {
-        title: 'Tittel',
+        title: { title: 'Tittel', language: 'Unknown' },
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
           mimeType: 'audio/mpeg',
@@ -283,9 +283,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent.html();
 
-  expect(replaced).toMatch(
-    '<figure class="article_audio"><audio controls type="audio/mpeg" src="http://audio.no/file/voof.mp3"></audio><figcaption>Tittel</figcaption></figure>'
-  );
+  expect(replaced).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {

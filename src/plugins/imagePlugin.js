@@ -7,14 +7,11 @@
  */
 
 import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
-import ReactDOMServerStream from 'react-dom/server';
-import {
-  Figure,
-  FigureDetails,
-  FigureCaption,
-} from 'ndla-ui/lib/article/Figure';
+import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
+import { getLicenseByAbbreviation } from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 
@@ -27,6 +24,8 @@ export default function createImagePlugin() {
     const { authors, license: { license } } = image.copyright;
     const altText = image.alttext.alttext;
     const caption = embedCaption === '' ? image.caption.caption : embedCaption;
+    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
+
     const figureClassNames = classnames('c-figure', {
       'article_figure--float-right': align === 'right',
       'article_figure--float-left': align === 'left',
@@ -35,7 +34,8 @@ export default function createImagePlugin() {
     const messages = {
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'image.rulesForUse'),
-      howToReference: t(locale, 'image.howToReference'),
+      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      source: t(locale, 'source'),
     };
 
     const srcSets = [
@@ -62,7 +62,7 @@ export default function createImagePlugin() {
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     embed.embed.replaceWith(
-      ReactDOMServerStream.renderToStaticMarkup(
+      renderToStaticMarkup(
         <Figure className={figureClassNames}>
           <div className="c-figure__img">
             <picture>
@@ -80,12 +80,13 @@ export default function createImagePlugin() {
           <FigureCaption
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}
-            licenseAbbreviation={license}
+            licenseRights={licenseRights}
             authors={authors}
           />
           <FigureDetails
-            licenseAbbreviation={license}
+            licenseRights={licenseRights}
             authors={authors}
+            origin={image.copyright.origin}
             messages={messages}>
             <Button
               outline
