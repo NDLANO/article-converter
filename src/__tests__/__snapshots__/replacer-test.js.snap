@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `"<html><head></head><body><section><figure class=\\"article_audio\\"><audio controls type=\\"audio/mpeg\\" src=\\"http://audio.no/file/voof.mp3\\"></audio><figcaption>Tittel</figcaption></figure></section></body></html>"`;
+
 exports[`replacer/replaceEmbedsInHtml replace footnote embeds 1`] = `
 Object {
   "footnote": Object {

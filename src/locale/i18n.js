@@ -24,11 +24,11 @@ const messages = {
     'reference.copied': 'Kopiert!',
     'image.download': 'Last ned bilde',
     'image.rulesForUse': 'Regler for bruk av bildet',
-    'image.howToReference': 'Slik skal du referere til dette bildet',
     'image.reuse': 'Bruk bildet',
     'video.rulesForUse': 'Regler for bruk av videoen',
-    'video.howToReference': 'Slik skal du referere til denne videoen',
     'video.reuse': 'Bruk video',
+    learnAboutOpenLicenses: 'Lær mer om åpne lisenser',
+    source: 'Kilde',
   },
   en: {
     close: 'Close',
@@ -36,11 +36,11 @@ const messages = {
     'reference.copied': 'Copied!',
     'image.download': 'Download image',
     'image.rulesForUse': 'Rules for use of image',
-    'image.howToReference': 'How to reference this image',
     'image.reuse': 'Use image',
     'video.rulesForUse': 'Rules for use of video',
-    'video.howToReference': 'How to reference this video',
     'video.reuse': 'Use video',
+    learnAboutOpenLicenses: 'Learn more about open licenses',
+    source: 'Source',
   },
 };
 
