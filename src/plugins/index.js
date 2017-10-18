@@ -18,6 +18,7 @@ import createPreziPlugin from './preziPlugin';
 import createCommoncraftPlugin from './commoncraftPlugin';
 import createNdlaFilmIUndervisning from './ndlaFilmIUndervisningPlugin';
 import createKahootPlugin from './kahootPlugin';
+import createKhanAcademyPlugin from './khanAcademyPlugin';
 import createFootnotePlugin from './footNotePlugin';
 
 export {
@@ -33,6 +34,7 @@ export {
   createCommoncraftPlugin,
   createNdlaFilmIUndervisning,
   createKahootPlugin,
+  createKhanAcademyPlugin,
   createFootnotePlugin,
 };
 
@@ -49,5 +51,6 @@ export default [
   createCommoncraftPlugin(),
   createNdlaFilmIUndervisning(),
   createKahootPlugin(),
+  createKhanAcademyPlugin(),
   createFootnotePlugin(),
 ];
