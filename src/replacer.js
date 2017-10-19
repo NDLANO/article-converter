@@ -13,19 +13,17 @@ function createEmbedMarkup(embed, lang, context) {
   if (plugin) {
     return plugin.embedToHTML(embed, lang, context);
   }
-  return log.warn(embed, 'Do not create markup for unknown embed');
+  return log.warn(
+    `Do not create markup for unknown embed '${embed.data.resource}'`
+  );
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
   return embeds.reduce((ctx, embed) => {
-    const res = createEmbedMarkup(
-      embed,
-      lang,
-      ctx[embed.plugin.resource] || {}
-    );
+    const res = createEmbedMarkup(embed, lang, ctx[embed.data.resource] || {});
     return {
       ...ctx,
-      [embed.plugin.resource]: res,
+      [embed.data.resource]: res,
     };
   }, {});
 }
