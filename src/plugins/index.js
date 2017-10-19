@@ -20,6 +20,7 @@ import createNdlaFilmIUndervisning from './ndlaFilmIUndervisningPlugin';
 import createKahootPlugin from './kahootPlugin';
 import createKhanAcademyPlugin from './khanAcademyPlugin';
 import createFootnotePlugin from './footNotePlugin';
+import createConceptPluin from './conceptPlugin';
 
 export {
   createNRKPlugin,
@@ -36,6 +37,7 @@ export {
   createKahootPlugin,
   createKhanAcademyPlugin,
   createFootnotePlugin,
+  createConceptPluin,
 };
 
 export default [
@@ -53,4 +55,5 @@ export default [
   createKahootPlugin(),
   createKhanAcademyPlugin(),
   createFootnotePlugin(),
+  createConceptPluin(),
 ];
