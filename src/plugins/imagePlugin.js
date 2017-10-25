@@ -55,9 +55,13 @@ export default function createImagePlugin() {
     const licenseCopyString = `${license.toLowerCase().includes('by')
       ? 'CC '
       : ''}${license}`.toUpperCase();
-    const authorsCopyString = authors
-      .filter(author => author.type !== 'Leverandør')
-      .map(author => `${author.name}`)
+
+    const authorsWithoutSuppliers = authors.filter(
+      author => author.type !== 'Leverandør'
+    );
+
+    const authorsCopyString = authorsWithoutSuppliers
+      .map(author => author.name)
       .join(', ');
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
@@ -81,7 +85,7 @@ export default function createImagePlugin() {
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}
             licenseRights={licenseRights}
-            authors={authors}
+            authors={authorsWithoutSuppliers}
           />
           <FigureDetails
             licenseRights={licenseRights}
