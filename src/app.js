@@ -29,7 +29,7 @@ app.use(
 );
 
 async function fetchAndTransformArticle(articleId, lang, accessToken) {
-  const article = await fetchArticle(articleId, accessToken);
+  const article = await fetchArticle(articleId, accessToken, lang);
   const articleContent = cheerio.load(article.content.content);
   const content = await transformContentAndExtractCopyrightInfo(
     articleContent,

@@ -13,8 +13,10 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 
-export function fetchArticle(articleId, accessToken, method = 'GET') {
-  const url = apiResourceUrl(`/article-api/v2/articles/${articleId}`);
+export function fetchArticle(articleId, accessToken, language, method = 'GET') {
+  const url = apiResourceUrl(
+    `/article-api/v2/articles/${articleId}?language=${language}`
+  );
   return fetch(url, {
     method,
     headers: headerWithAccessToken(accessToken),
