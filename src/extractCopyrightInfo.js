@@ -6,7 +6,7 @@
  *
  */
 
-import { groupBy, map, filter, compose } from 'lodash/fp';
+import { groupBy, map, get, filter, compose } from 'lodash/fp';
 
 function createCopyrightObject(embed, src) {
   return {
@@ -26,7 +26,10 @@ function toCopyrightObject(embed) {
         ...createCopyrightObject(embed, embed.audio.audioFile.url),
       };
     case 'brightcove':
-      return createCopyrightObject(embed);
+      return createCopyrightObject(
+        embed,
+        get('brightcove.images.poster.src', embed)
+      );
     default:
       return undefined;
   }
