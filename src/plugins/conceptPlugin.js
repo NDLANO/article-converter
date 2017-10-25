@@ -8,7 +8,7 @@
 
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
-import { Glossary } from 'ndla-ui';
+import Glossary from 'ndla-ui/lib/Glossary';
 import { fetchConcept } from '../api/conceptApi';
 
 export default function createConceptPlugin() {
