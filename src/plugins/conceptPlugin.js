@@ -11,16 +11,18 @@ import ReactDOMServerStream from 'react-dom/server';
 import defined from 'defined';
 import Glossary from 'ndla-ui/lib/Glossary';
 import { fetchConcept } from '../api/conceptApi';
+import t from '../locale/i18n';
 
 export default function createConceptPlugin() {
-  const fetchResource = (embed, headers) => fetchConcept(embed, headers);
+  const fetchResource = (embed, headers, lang) =>
+    fetchConcept(embed, headers, lang);
 
-  const embedToHTML = embed => {
+  const embedToHTML = (embed, locale) => {
     const { id, title: { title }, content: { content } } = embed.concept;
 
     const messages = {
-      ariaLabel: 'Vis begrep beskrivelse',
-      close: 'Lukk',
+      ariaLabel: t(locale, 'concept.showDescription'),
+      close: t(locale, 'close'),
     };
 
     const copyright = defined(embed.concept.copyright, {});

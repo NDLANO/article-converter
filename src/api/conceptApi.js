@@ -13,9 +13,9 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 
-export const fetchConcept = (embed, accessToken, method = 'GET') => {
+export const fetchConcept = (embed, accessToken, language, method = 'GET') => {
   const url = apiResourceUrl(
-    `/article-api/v1/concepts/${embed.data.contentId}`
+    `/article-api/v1/concepts/${embed.data.contentId}?language=${language}`
   );
   return fetch(url, {
     method,
