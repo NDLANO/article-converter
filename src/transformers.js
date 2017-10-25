@@ -36,7 +36,7 @@ export async function transformContentAndExtractCopyrightInfo(
     embeds.map(embed => {
       const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
-        return plugin.fetchResource(embed, accessToken);
+        return plugin.fetchResource(embed, accessToken, lang);
       }
       return embed;
     })
