@@ -8,6 +8,7 @@
 
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
+import defined from 'defined';
 import Glossary from 'ndla-ui/lib/Glossary';
 import { fetchConcept } from '../api/conceptApi';
 
@@ -15,28 +16,27 @@ export default function createConceptPlugin() {
   const fetchResource = (embed, headers) => fetchConcept(embed, headers);
 
   const embedToHTML = embed => {
-    const {
-      id,
-      title: { title },
-      content: { content },
-      copyright,
-    } = embed.concept;
+    const { id, title: { title }, content: { content } } = embed.concept;
 
     const messages = {
       ariaLabel: 'Vis begrep beskrivelse',
       close: 'Lukk',
     };
 
+    const copyright = defined(embed.concept.copyright, {});
+    const authors = defined(copyright.authors, []).map(author => author.name);
+    const license = defined(copyright.license, {}).license;
+
     embed.embed.replaceWith(
       ReactDOMServerStream.renderToStaticMarkup(
         <Glossary
           id={id}
           title={title}
-          authors={copyright.authors.map(author => author.name)}
+          authors={authors}
           content={content}
           messages={messages}
           source={copyright.origin}
-          license={copyright.license.license}>
+          license={license}>
           {embed.data.linkText}
         </Glossary>
       )
