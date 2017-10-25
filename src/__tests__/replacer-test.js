@@ -171,7 +171,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   );
 
   expect(replaced).toMatch(
-    /<figure class="c-figure article_figure--float-left">.*?<\/figure>/
+    /<figure class="c-figure u-float-left">.*?<\/figure>/
   );
   expect(replaced).toMatch(
     /<img alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/>/

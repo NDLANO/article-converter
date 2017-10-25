@@ -27,8 +27,8 @@ export default function createImagePlugin() {
     const licenseRights = getLicenseByAbbreviation(license, locale).rights;
 
     const figureClassNames = classnames('c-figure', {
-      'article_figure--float-right': align === 'right',
-      'article_figure--float-left': align === 'left',
+      'u-float-right': align === 'right',
+      'u-float-left': align === 'left',
     });
 
     const messages = {
