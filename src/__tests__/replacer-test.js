@@ -134,7 +134,20 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/1.jpg',
         copyright: {
-          authors: [],
+          authors: [
+            {
+              type: 'Leverandør',
+              name: 'Scanpix',
+            },
+            {
+              type: 'Fotograf',
+              name: 'Ola Foton',
+            },
+            {
+              type: 'Kunstner',
+              name: 'Kari Maler',
+            },
+          ],
           license: {
             license: 'by-nc',
           },
@@ -175,6 +188,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   );
   expect(replaced).toMatch(
     /<img alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/>/
+  );
+  expect(replaced).toMatch(
+    /<span class="article_meta">Ola Foton, Kari Maler<\/span>/
   );
 });
 
