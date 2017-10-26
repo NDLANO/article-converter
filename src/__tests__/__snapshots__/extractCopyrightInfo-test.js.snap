@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractCopyrightInfo from embeds 1`] = `
+Object {
+  "audio": Array [
+    Object {
+      "copyright": Object {
+        "license": "by-sa",
+      },
+      "src": "http://audio.no/file/voof.mp3",
+      "title": "Tittel",
+      "type": "audio",
+    },
+  ],
+  "brightcove": Array [
+    Object {
+      "copyright": Object {
+        "license": "by-sa",
+      },
+      "src": undefined,
+      "type": "brightcove",
+    },
+    Object {
+      "copyright": Object {
+        "license": "by-sa",
+      },
+      "src": "https://image.no/123.jpg",
+      "type": "brightcove",
+    },
+  ],
+  "image": Array [
+    Object {
+      "copyright": Object {
+        "license": "by-sa",
+      },
+      "src": "http://example.no/1234.jpg",
+      "type": "image",
+    },
+    Object {
+      "copyright": Object {
+        "license": "by-sa",
+      },
+      "src": "http://example.no/4123.jpg",
+      "type": "image",
+    },
+  ],
+}
+`;

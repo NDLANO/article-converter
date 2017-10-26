@@ -14,6 +14,7 @@ import Button from 'ndla-ui/lib/button/Button';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
+import { CREATOR_TYPES } from '../constants';
 
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
@@ -27,8 +28,8 @@ export default function createImagePlugin() {
     const licenseRights = getLicenseByAbbreviation(license, locale).rights;
 
     const figureClassNames = classnames('c-figure', {
-      'article_figure--float-right': align === 'right',
-      'article_figure--float-left': align === 'left',
+      'u-float-right': align === 'right',
+      'u-float-left': align === 'left',
     });
 
     const messages = {
@@ -55,9 +56,14 @@ export default function createImagePlugin() {
     const licenseCopyString = `${license.toLowerCase().includes('by')
       ? 'CC '
       : ''}${license}`.toUpperCase();
+
+    const creators = authors.filter(author =>
+      CREATOR_TYPES.find(type => author.type === type)
+    );
+
     const authorsCopyString = authors
       .filter(author => author.type !== 'Leverandør')
-      .map(author => `${author.name}`)
+      .map(author => author.name)
       .join(', ');
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
@@ -81,7 +87,7 @@ export default function createImagePlugin() {
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}
             licenseRights={licenseRights}
-            authors={authors}
+            authors={creators}
           />
           <FigureDetails
             licenseRights={licenseRights}
