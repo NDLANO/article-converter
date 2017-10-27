@@ -7,40 +7,18 @@
  */
 import log from './utils/logger';
 
-function createEmbedMarkup(embed, lang) {
-  const plugin = embed.plugin;
-
-  if (plugin) {
-    const html = plugin.embedToHTML(embed, lang);
-    embed.embed.replaceWith(html);
-  } else {
-    log.warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
-  }
-
-  if (plugin.getMetaData) {
-    const metaData = embed.plugin.getMetaData(embed);
-    return {
-      ...metaData,
-    };
-  }
-  return undefined;
-}
-
 export function replaceEmbedsInHtml(embeds, lang) {
-  return embeds.reduce((ctx, embed) => {
-    const res = createEmbedMarkup(embed, lang);
-    if (res) {
-      const resourceMetaData = ctx[embed.data.resource];
-      return {
-        ...ctx,
-        [embed.data.resource]: {
-          ...resourceMetaData,
-          ...res,
-        },
-      };
+  embeds.forEach(embed => {
+    const plugin = embed.plugin;
+    if (plugin) {
+      const html = plugin.embedToHTML(embed, lang);
+      embed.embed.replaceWith(html);
+    } else {
+      log.warn(
+        `Do not create markup for unknown embed '${embed.data.resource}'`
+      );
     }
-    return ctx;
-  }, {});
+  });
 }
 
 export function addClassToTag(tag, className) {

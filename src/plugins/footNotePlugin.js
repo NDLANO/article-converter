@@ -19,11 +19,10 @@ export default function createFootnotePlugin() {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = (embed, context) => {
+  const getMetaData = embed => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     return {
-      ...context,
       [`ref_${footNoteEntryNum}`]: {
         ...embed.data,
         authors: embed.data.authors.split(';'),
@@ -32,21 +31,10 @@ export default function createFootnotePlugin() {
     };
   };
 
-  const embedToHTML = (embed, _, context) => {
+  const embedToHTML = () => {
     const footNoteEntryNum = embedToHTMLCounter.getNextCount();
 
-    embed.embed.replaceWith(
-      `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${footNoteEntryNum}_sup"><sup>${footNoteEntryNum}</sup></a>`
-    );
-
-    return {
-      ...context,
-      [`ref_${footNoteEntryNum}`]: {
-        ...embed.data,
-        authors: embed.data.authors.split(';'),
-        resource: undefined,
-      },
-    };
+    return `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${footNoteEntryNum}_sup"><sup>${footNoteEntryNum}</sup></a>`;
   };
 
   return {

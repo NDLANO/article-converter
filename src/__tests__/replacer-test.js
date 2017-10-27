@@ -12,6 +12,7 @@ import {
   addClassToTag,
   replaceStartAndEndTag,
 } from '../replacer';
+import { getEmbedMetaData } from '../getEmbedMetaData';
 import {
   createContentLinkPlugin,
   createH5pPlugin,
@@ -409,7 +410,7 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
     },
   ];
 
-  const pluginMeta = replaceEmbedsInHtml(embeds, 'nb');
+  replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent.html();
 
   expect(replaced).toMatch(
@@ -419,7 +420,7 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
     '<a href="#ref_2_cite" name="ref_2_sup"><sup>2</sup></a>'
   );
 
-  expect(pluginMeta).toMatchSnapshot();
+  expect(getEmbedMetaData(embeds).other).toMatchSnapshot();
 });
 
 test('replacer/addClassToTag can add class to tag', () => {

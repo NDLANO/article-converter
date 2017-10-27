@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`extractCopyrightInfo from embeds 1`] = `
+exports[`getEmbedMetaData/getCopyrightInfoFromEmbeds get meta data from embeds 1`] = `
 Object {
   "audio": Array [
     Object {

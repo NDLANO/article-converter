@@ -8,7 +8,7 @@
 
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
-import { extractCopyrightInfoFromEmbeds } from './extractCopyrightInfo';
+import { getEmbedMetaData } from './getEmbedMetaData';
 
 export const tagReplacers = [
   content => {
@@ -26,11 +26,7 @@ export const tagReplacers = [
       .addClass('ol-list--roman'),
 ];
 
-export async function transformContentAndExtractCopyrightInfo(
-  content,
-  lang,
-  accessToken
-) {
+export async function transform(content, lang, accessToken) {
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(
     embeds.map(embed => {
@@ -42,12 +38,12 @@ export async function transformContentAndExtractCopyrightInfo(
     })
   );
 
-  const pluginData = replaceEmbedsInHtml(embedsWithResources, lang);
+  replaceEmbedsInHtml(embedsWithResources, lang);
+  const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
   tagReplacers.forEach(replacer => replacer(content));
 
   return {
     html: content.html(),
-    copyrights: extractCopyrightInfoFromEmbeds(embedsWithResources),
-    pluginData,
+    embedMetaData,
   };
 }

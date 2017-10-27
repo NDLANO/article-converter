@@ -16,7 +16,7 @@ import config from './config';
 import { fetchArticle } from './api/articleApi';
 import { getHtmlLang } from './locale/configureLocale';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
-import { transformContentAndExtractCopyrightInfo } from './transformers';
+import { transform } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
@@ -31,7 +31,7 @@ app.use(
 async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken, lang);
   const articleContent = cheerio.load(article.content.content);
-  const content = await transformContentAndExtractCopyrightInfo(
+  const { html, embedMetaData } = await transform(
     articleContent,
     lang,
     accessToken
@@ -39,15 +39,15 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
 
   return {
     ...article,
-    content: content.html,
-    footNotes: content.pluginData.footnote,
+    content: html,
+    footNotes: embedMetaData.other.footnote,
     title: article.title.title,
     tags: article.tags.tags,
     introduction: article.introduction
       ? article.introduction.introduction
       : undefined,
     metaDescription: article.metaDescription.metaDescription,
-    contentCopyrights: content.copyrights,
+    contentCopyrights: embedMetaData.copyrights,
   };
 }
 
