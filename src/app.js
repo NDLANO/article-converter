@@ -95,4 +95,4 @@ app.get('*', (req, res) => {
   res.status(404).json({ status: 404, text: 'Not found' });
 });
 
-module.exports = app;
+export default app;

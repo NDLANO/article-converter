@@ -7,7 +7,7 @@
  */
 
 import cheerio from 'cheerio';
-import { tagReplacers } from '../transformers';
+import { tagReplacers, transform } from '../transformers';
 
 test('transformers/tagReplacers changes aside to accommodate frontend styling', () => {
   const content = cheerio.load(`
