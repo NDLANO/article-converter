@@ -26,7 +26,10 @@ export const tagReplacers = [
       .addClass('ol-list--roman'),
 ];
 
-export async function transform(content, lang, accessToken) {
+export async function transform(content, lang, accessToken, visualElement) {
+  if (visualElement.visualElement) {
+    content.root().prepend(`<section>${visualElement.visualElement}</section>`);
+  }
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(
     embeds.map(embed => {

@@ -28,13 +28,14 @@ app.use(
   })
 );
 
-async function fetchAndTransformArticle(articleId, lang, accessToken) {
+export async function fetchAndTransformArticle(articleId, lang, accessToken) {
   const article = await fetchArticle(articleId, accessToken, lang);
   const articleContent = cheerio.load(article.content.content);
   const { html, embedMetaData } = await transform(
     articleContent,
     lang,
-    accessToken
+    accessToken,
+    article.visualElement
   );
 
   return {
