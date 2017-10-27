@@ -27,7 +27,7 @@ export const tagReplacers = [
 ];
 
 export async function transform(content, lang, accessToken, visualElement) {
-  if (visualElement.visualElement) {
+  if (visualElement && visualElement.visualElement) {
     content('body').prepend(
       `<section>${visualElement.visualElement}</section>`
     );
