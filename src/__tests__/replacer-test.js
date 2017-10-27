@@ -121,7 +121,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="image"]').first(),
-      data: articleContent('embed[data-resource="image"]').first().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .first()
+        .data(),
       plugin: createImagePlugin(),
       id: 1,
       resource: 'image',
@@ -153,7 +155,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
     {
       embed: articleContent('embed[data-resource="image"]').last(),
-      data: articleContent('embed[data-resource="image"]').last().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .last()
+        .data(),
       plugin: createImagePlugin(),
       id: 2,
       resource: 'image',
@@ -202,7 +206,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="brightcove"]').first(),
-      data: articleContent('embed[data-resource="brightcove"]').first().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .first()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -215,7 +221,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     },
     {
       embed: articleContent('embed[data-resource="brightcove"]').last(),
-      data: articleContent('embed[data-resource="brightcove"]').last().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .last()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -257,12 +265,16 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="nrk"]').first(),
-      data: articleContent('embed[data-resource="nrk"]').first().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .first()
+        .data(),
       plugin: createNRKPlugin(),
     },
     {
       embed: articleContent('embed[data-resource="nrk"]').last(),
-      data: articleContent('embed[data-resource="nrk"]').last().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .last()
+        .data(),
       plugin: createNRKPlugin(),
     },
   ];
@@ -396,12 +408,16 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="footnote"]').first(),
-      data: articleContent('embed[data-resource="footnote"]').first().data(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .first()
+        .data(),
       plugin,
     },
     {
       embed: articleContent('embed[data-resource="footnote"]').last(),
-      data: articleContent('embed[data-resource="footnote"]').last().data(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .last()
+        .data(),
       plugin,
     },
   ];
