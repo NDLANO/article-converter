@@ -7,11 +7,7 @@
  */
 
 import cheerio from 'cheerio';
-import {
-  replaceEmbedsInHtml,
-  addClassToTag,
-  replaceStartAndEndTag,
-} from '../replacer';
+import { replaceEmbedsInHtml } from '../replacer';
 import { getEmbedMetaData } from '../getEmbedMetaData';
 import {
   createContentLinkPlugin,
@@ -421,38 +417,4 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   );
 
   expect(getEmbedMetaData(embeds).other).toMatchSnapshot();
-});
-
-test('replacer/addClassToTag can add class to tag', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <aside><h3>Test2</h3><div>Other stuff</div></aside>
-  </section>`;
-
-  const fn1 = addClassToTag('aside', 'u-1/3@desktop');
-  const fn2 = addClassToTag('h3', 'headline-level-3');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>'
-  );
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>'
-  );
-});
-
-test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/html', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <p>Lorem ipsum</p>
-  </section>`;
-
-  const fn1 = replaceStartAndEndTag('aside', '<section>', '</section>');
-  const fn2 = replaceStartAndEndTag('p', '<aside><div>', '</div></aside>');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
-  expect(result).toMatch('<aside><div>Lorem ipsum</div></aside>');
 });

@@ -20,18 +20,3 @@ export function replaceEmbedsInHtml(embeds, lang) {
     }
   });
 }
-
-export function addClassToTag(tag, className) {
-  return html => {
-    const reTag = new RegExp(`<${tag}>`, 'g');
-    return html.replace(reTag, `<${tag} class="${className}">`);
-  };
-}
-
-export function replaceStartAndEndTag(tag, newStartTag, newEndTag) {
-  return html => {
-    const reStart = new RegExp(`<${tag}>`, 'g');
-    const reEnd = new RegExp(`</${tag}>`, 'g');
-    return html.replace(reStart, newStartTag).replace(reEnd, newEndTag);
-  };
-}
