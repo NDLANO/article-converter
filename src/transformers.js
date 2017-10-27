@@ -28,7 +28,9 @@ export const tagReplacers = [
 
 export async function transform(content, lang, accessToken, visualElement) {
   if (visualElement.visualElement) {
-    content.root().prepend(`<section>${visualElement.visualElement}</section>`);
+    content('body').prepend(
+      `<section>${visualElement.visualElement}</section>`
+    );
   }
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(
@@ -46,7 +48,7 @@ export async function transform(content, lang, accessToken, visualElement) {
   tagReplacers.forEach(replacer => replacer(content));
 
   return {
-    html: content.html(),
+    html: content('body').html(),
     embedMetaData,
   };
 }
