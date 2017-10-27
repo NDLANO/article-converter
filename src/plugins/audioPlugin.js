@@ -13,8 +13,7 @@ export default function createAudioPlugin() {
 
   const embedToHTML = embed => {
     const { audio: { title, audioFile: { mimeType, url } } } = embed;
-    const replacement = `<figure class="article_audio"><audio controls type="${mimeType}" src="${url}"></audio><figcaption>${title.title}</figcaption></figure>`;
-    embed.embed.replaceWith(replacement);
+    return `<figure class="article_audio"><audio controls type="${mimeType}" src="${url}"></audio><figcaption>${title.title}</figcaption></figure>`;
   };
 
   return {

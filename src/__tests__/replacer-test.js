@@ -388,6 +388,7 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
 });
 
 test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
+  const plugin = createFootnotePlugin();
   const articleContent = cheerio.load(
     '<section>' +
       '<embed data-authors="regjeringen.no" data-edition="" data-publisher="Barne-, likestillings- og inkluderingsdepartmentet" data-resource="footnote" data-title="Likestilling kommer ikke av seg selv" data-type="Report" data-year="2013">' +
@@ -399,12 +400,12 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
     {
       embed: articleContent('embed[data-resource="footnote"]').first(),
       data: articleContent('embed[data-resource="footnote"]').first().data(),
-      plugin: createFootnotePlugin(),
+      plugin,
     },
     {
       embed: articleContent('embed[data-resource="footnote"]').last(),
       data: articleContent('embed[data-resource="footnote"]').last().data(),
-      plugin: createFootnotePlugin(),
+      plugin,
     },
   ];
 

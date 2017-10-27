@@ -16,12 +16,9 @@ export default function createH5pPlugin() {
 
   const embedToHTML = h5p => {
     if (h5p.oembed) {
-      h5p.embed.replaceWith(`<figure>${h5p.oembed.html}</figure>`);
-    } else {
-      h5p.embed.replaceWith(
-        `<figure><iframe src="${h5p.data.url}"></iframe></figure>`
-      );
+      return `<figure>${h5p.oembed.html}</figure>`;
     }
+    return `<figure><iframe src="${h5p.data.url}"></iframe></figure>`;
   };
 
   return {

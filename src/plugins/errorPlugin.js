@@ -8,9 +8,7 @@
 
 export default function createContentLinkPlugin() {
   const embedToHTML = embed =>
-    embed.embed.replaceWith(
-      `<div><strong>${embed.data.message}</strong></div>`
-    );
+    `<div><strong>${embed.data.message}</strong></div>`;
 
   return {
     resource: 'error',

@@ -40,7 +40,7 @@ export {
   createConceptPluin,
 };
 
-export default [
+export default () => [
   createNRKPlugin(),
   createAudioPlugin(),
   createImagePlugin(),

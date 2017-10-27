@@ -8,9 +8,7 @@
 export default function createKhanAcademyPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    embed.embed.replaceWith(
-      `<figure><iframe src="${url}" width="${width}" height="${height}" scrolling="no" frameborder="no" align="center"></iframe></figure>`
-    );
+    return `<figure><iframe src="${url}" width="${width}" height="${height}" scrolling="no" frameborder="no" align="center"></iframe></figure>`;
   };
 
   return {

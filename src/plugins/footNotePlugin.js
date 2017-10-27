@@ -6,9 +6,34 @@
  *
  */
 
+function FootNoteCounter(initialCount = 0) {
+  this.count = initialCount;
+
+  FootNoteCounter.prototype.getNextCount = function getNextCount() {
+    this.count = this.count + 1;
+    return this.count;
+  };
+}
+
 export default function createFootnotePlugin() {
+  const metaDataCounter = new FootNoteCounter();
+  const embedToHTMLCounter = new FootNoteCounter();
+
+  const getMetaData = (embed, context) => {
+    const footNoteEntryNum = metaDataCounter.getNextCount();
+
+    return {
+      ...context,
+      [`ref_${footNoteEntryNum}`]: {
+        ...embed.data,
+        authors: embed.data.authors.split(';'),
+        resource: undefined,
+      },
+    };
+  };
+
   const embedToHTML = (embed, _, context) => {
-    const footNoteEntryNum = Object.keys(context).length + 1;
+    const footNoteEntryNum = embedToHTMLCounter.getNextCount();
 
     embed.embed.replaceWith(
       `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${footNoteEntryNum}_sup"><sup>${footNoteEntryNum}</sup></a>`
@@ -26,6 +51,7 @@ export default function createFootnotePlugin() {
 
   return {
     resource: 'footnote',
+    getMetaData,
     embedToHTML,
   };
 }

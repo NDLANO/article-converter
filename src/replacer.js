@@ -7,24 +7,39 @@
  */
 import log from './utils/logger';
 
-function createEmbedMarkup(embed, lang, context) {
+function createEmbedMarkup(embed, lang) {
   const plugin = embed.plugin;
 
   if (plugin) {
-    return plugin.embedToHTML(embed, lang, context);
+    const html = plugin.embedToHTML(embed, lang);
+    embed.embed.replaceWith(html);
+  } else {
+    log.warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
   }
-  return log.warn(
-    `Do not create markup for unknown embed '${embed.data.resource}'`
-  );
+
+  if (plugin.getMetaData) {
+    const metaData = embed.plugin.getMetaData(embed);
+    return {
+      ...metaData,
+    };
+  }
+  return undefined;
 }
 
 export function replaceEmbedsInHtml(embeds, lang) {
   return embeds.reduce((ctx, embed) => {
-    const res = createEmbedMarkup(embed, lang, ctx[embed.data.resource] || {});
-    return {
-      ...ctx,
-      [embed.data.resource]: res,
-    };
+    const res = createEmbedMarkup(embed, lang);
+    if (res) {
+      const resourceMetaData = ctx[embed.data.resource];
+      return {
+        ...ctx,
+        [embed.data.resource]: {
+          ...resourceMetaData,
+          ...res,
+        },
+      };
+    }
+    return ctx;
   }, {});
 }
 

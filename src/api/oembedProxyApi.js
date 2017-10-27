@@ -7,7 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import plugins from '../plugins';
+import createPlugins from '../plugins';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
@@ -21,6 +21,7 @@ export const fetchOembed = (embed, accessToken) =>
     .then(resolveJsonOrRejectWithError)
     .then(oembed => ({ ...embed, oembed }))
     .catch(e => {
+      const plugins = createPlugins;
       if (e.status === 501 && e.json.code === 'PROVIDER_NOT_SUPPORTED') {
         return {
           ...embed,

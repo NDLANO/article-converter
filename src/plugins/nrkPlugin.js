@@ -8,9 +8,7 @@
 
 export default function createNRKPlugin() {
   const embedToHTML = embed =>
-    embed.embed.replaceWith(
-      `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`
-    );
+    `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`;
 
   return {
     resource: 'nrk',

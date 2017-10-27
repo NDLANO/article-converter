@@ -67,49 +67,47 @@ export default function createImagePlugin() {
       .join(', ');
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
-    embed.embed.replaceWith(
-      renderToStaticMarkup(
-        <Figure className={figureClassNames}>
-          <div className="c-figure__img">
-            <picture>
-              <source
-                srcSet={srcSets}
-                sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
-              />
-              <img
-                alt={altText}
-                src={`${src}?width=1024`}
-                srcSet={`${src}?width=2048 2x`}
-              />
-            </picture>
-          </div>
-          <FigureCaption
-            caption={caption}
-            reuseLabel={t(locale, 'image.reuse')}
-            licenseRights={licenseRights}
-            authors={creators}
-          />
-          <FigureDetails
-            licenseRights={licenseRights}
-            authors={authors}
-            origin={image.copyright.origin}
-            messages={messages}>
-            <Button
-              outline
-              className="c-licenseToggle__button"
-              data-copied-title={t(locale, 'reference.copied')}
-              data-copy-string={copyString}>
-              {t(locale, 'reference.copy')}
-            </Button>
-            <a
-              href={src}
-              className="c-button c-button--outline c-licenseToggle__button"
-              download>
-              {t(locale, 'image.download')}
-            </a>
-          </FigureDetails>
-        </Figure>
-      )
+    return renderToStaticMarkup(
+      <Figure className={figureClassNames}>
+        <div className="c-figure__img">
+          <picture>
+            <source
+              srcSet={srcSets}
+              sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
+            />
+            <img
+              alt={altText}
+              src={`${src}?width=1024`}
+              srcSet={`${src}?width=2048 2x`}
+            />
+          </picture>
+        </div>
+        <FigureCaption
+          caption={caption}
+          reuseLabel={t(locale, 'image.reuse')}
+          licenseRights={licenseRights}
+          authors={creators}
+        />
+        <FigureDetails
+          licenseRights={licenseRights}
+          authors={authors}
+          origin={image.copyright.origin}
+          messages={messages}>
+          <Button
+            outline
+            className="c-licenseToggle__button"
+            data-copied-title={t(locale, 'reference.copied')}
+            data-copy-string={copyString}>
+            {t(locale, 'reference.copy')}
+          </Button>
+          <a
+            href={src}
+            className="c-button c-button--outline c-licenseToggle__button"
+            download>
+            {t(locale, 'image.download')}
+          </a>
+        </FigureDetails>
+      </Figure>
     );
   };
 
