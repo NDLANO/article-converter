@@ -7,11 +7,8 @@
  */
 
 import cheerio from 'cheerio';
-import {
-  replaceEmbedsInHtml,
-  addClassToTag,
-  replaceStartAndEndTag,
-} from '../replacer';
+import { replaceEmbedsInHtml } from '../replacer';
+import { getEmbedMetaData } from '../getEmbedMetaData';
 import {
   createContentLinkPlugin,
   createH5pPlugin,
@@ -124,7 +121,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="image"]').first(),
-      data: articleContent('embed[data-resource="image"]').first().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .first()
+        .data(),
       plugin: createImagePlugin(),
       id: 1,
       resource: 'image',
@@ -156,7 +155,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
     {
       embed: articleContent('embed[data-resource="image"]').last(),
-      data: articleContent('embed[data-resource="image"]').last().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .last()
+        .data(),
       plugin: createImagePlugin(),
       id: 2,
       resource: 'image',
@@ -205,7 +206,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="brightcove"]').first(),
-      data: articleContent('embed[data-resource="brightcove"]').first().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .first()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -218,7 +221,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     },
     {
       embed: articleContent('embed[data-resource="brightcove"]').last(),
-      data: articleContent('embed[data-resource="brightcove"]').last().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .last()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -260,12 +265,16 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="nrk"]').first(),
-      data: articleContent('embed[data-resource="nrk"]').first().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .first()
+        .data(),
       plugin: createNRKPlugin(),
     },
     {
       embed: articleContent('embed[data-resource="nrk"]').last(),
-      data: articleContent('embed[data-resource="nrk"]').last().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .last()
+        .data(),
       plugin: createNRKPlugin(),
     },
   ];
@@ -388,6 +397,7 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
 });
 
 test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
+  const plugin = createFootnotePlugin();
   const articleContent = cheerio.load(
     '<section>' +
       '<embed data-authors="regjeringen.no" data-edition="" data-publisher="Barne-, likestillings- og inkluderingsdepartmentet" data-resource="footnote" data-title="Likestilling kommer ikke av seg selv" data-type="Report" data-year="2013">' +
@@ -398,17 +408,21 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="footnote"]').first(),
-      data: articleContent('embed[data-resource="footnote"]').first().data(),
-      plugin: createFootnotePlugin(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .first()
+        .data(),
+      plugin,
     },
     {
       embed: articleContent('embed[data-resource="footnote"]').last(),
-      data: articleContent('embed[data-resource="footnote"]').last().data(),
-      plugin: createFootnotePlugin(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .last()
+        .data(),
+      plugin,
     },
   ];
 
-  const pluginMeta = replaceEmbedsInHtml(embeds, 'nb');
+  replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent.html();
 
   expect(replaced).toMatch(
@@ -418,39 +432,5 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
     '<a href="#ref_2_cite" name="ref_2_sup"><sup>2</sup></a>'
   );
 
-  expect(pluginMeta).toMatchSnapshot();
-});
-
-test('replacer/addClassToTag can add class to tag', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <aside><h3>Test2</h3><div>Other stuff</div></aside>
-  </section>`;
-
-  const fn1 = addClassToTag('aside', 'u-1/3@desktop');
-  const fn2 = addClassToTag('h3', 'headline-level-3');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>'
-  );
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>'
-  );
-});
-
-test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/html', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <p>Lorem ipsum</p>
-  </section>`;
-
-  const fn1 = replaceStartAndEndTag('aside', '<section>', '</section>');
-  const fn2 = replaceStartAndEndTag('p', '<aside><div>', '</div></aside>');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
-  expect(result).toMatch('<aside><div>Lorem ipsum</div></aside>');
+  expect(getEmbedMetaData(embeds).other).toMatchSnapshot();
 });

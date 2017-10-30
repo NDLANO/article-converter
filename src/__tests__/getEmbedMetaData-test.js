@@ -6,9 +6,9 @@
  *
  */
 
-import { extractCopyrightInfoFromEmbeds } from '../extractCopyrightInfo';
+import { getCopyrightInfoFromEmbeds } from '../getEmbedMetaData';
 
-it('extractCopyrightInfo from embeds', async () => {
+it('getEmbedMetaData/getCopyrightInfoFromEmbeds get meta data from embeds', async () => {
   const embeds = [
     { data: { resource: 'content-link' } },
     { data: { resource: 'h5p' } },
@@ -56,7 +56,7 @@ it('extractCopyrightInfo from embeds', async () => {
     },
   ];
 
-  const copyrights = extractCopyrightInfoFromEmbeds(embeds);
+  const copyrights = getCopyrightInfoFromEmbeds(embeds);
 
   expect(copyrights).toMatchSnapshot();
 });

@@ -35,10 +35,32 @@ function toCopyrightObject(embed) {
   }
 }
 
-export function extractCopyrightInfoFromEmbeds(embeds) {
+export function getCopyrightInfoFromEmbeds(embeds) {
   return compose(
     groupBy('type'),
     filter(embed => embed !== undefined),
     map(embed => toCopyrightObject(embed))
   )(embeds);
+}
+
+export function getEmbedMetaData(embeds) {
+  const pluginMetaData = embeds.reduce((ctx, embed) => {
+    const resourceMetaData = ctx[embed.data.resource];
+    if (embed.plugin.getMetaData) {
+      const metaData = embed.plugin.getMetaData(embed);
+      return {
+        ...ctx,
+        [embed.data.resource]: {
+          ...resourceMetaData,
+          ...metaData,
+        },
+      };
+    }
+    return ctx;
+  }, {});
+
+  return {
+    copyrights: getCopyrightInfoFromEmbeds(embeds),
+    other: pluginMetaData,
+  };
 }

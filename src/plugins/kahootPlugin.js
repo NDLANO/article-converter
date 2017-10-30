@@ -8,9 +8,7 @@
 export default function createKahootPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    embed.embed.replaceWith(
-      `<iframe src="${url}" width="${width}" height="${height}" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>`
-    );
+    return `<iframe src="${url}" width="${width}" height="${height}" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>`;
   };
 
   return {

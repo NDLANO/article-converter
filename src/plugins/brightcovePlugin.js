@@ -40,55 +40,53 @@ export default function createBrightcovePlugin() {
       source: t(locale, 'source'),
     };
 
-    embed.embed.replaceWith(
-      renderToStaticMarkup(
-        <Figure>
-          <div
-            style={{
-              display: 'block',
-              position: 'relative',
-              maxWidth: '100%',
-            }}>
-            <div style={{ paddingTop: '56.25%' }}>
-              <video
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  position: 'absolute',
-                  top: '0px',
-                  bottom: '0px',
-                  right: '0px',
-                  left: '0px',
-                }}
-                data-video-id={videoid}
-                data-account={account}
-                data-player={player}
-                data-embed="default"
-                className="video-js"
-                controls
-              />
-            </div>
+    return renderToStaticMarkup(
+      <Figure>
+        <div
+          style={{
+            display: 'block',
+            position: 'relative',
+            maxWidth: '100%',
+          }}>
+          <div style={{ paddingTop: '56.25%' }}>
+            <video
+              style={{
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                top: '0px',
+                bottom: '0px',
+                right: '0px',
+                left: '0px',
+              }}
+              data-video-id={videoid}
+              data-account={account}
+              data-player={player}
+              data-embed="default"
+              className="video-js"
+              controls
+            />
           </div>
-          <FigureCaption
-            caption={caption}
-            reuseLabel={t(locale, 'video.reuse')}
-            licenseRights={licenseRights}
-            authors={authors}
-          />
-          <FigureDetails
-            licenseRights={licenseRights}
-            authors={authors}
-            messages={messages}>
-            <Button
-              outline
-              className="c-licenseToggle__button"
-              data-copied-title={t(locale, 'reference.copied')}
-              data-copy-string={copyString}>
-              {t(locale, 'reference.copy')}
-            </Button>
-          </FigureDetails>
-        </Figure>
-      )
+        </div>
+        <FigureCaption
+          caption={caption}
+          reuseLabel={t(locale, 'video.reuse')}
+          licenseRights={licenseRights}
+          authors={authors}
+        />
+        <FigureDetails
+          licenseRights={licenseRights}
+          authors={authors}
+          messages={messages}>
+          <Button
+            outline
+            className="c-licenseToggle__button"
+            data-copied-title={t(locale, 'reference.copied')}
+            data-copy-string={copyString}>
+            {t(locale, 'reference.copy')}
+          </Button>
+        </FigureDetails>
+      </Figure>
     );
   };
 

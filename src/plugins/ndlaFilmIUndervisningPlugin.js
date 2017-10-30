@@ -8,9 +8,7 @@
 export default function createNdlaFilmIUndervisningPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    embed.embed.replaceWith(
-      `<iframe src="${url}" style="border: none;" frameborder="0" width="${width}" height="${height}" allowfullscreen></iframe>`
-    );
+    return `<iframe src="${url}" style="border: none;" frameborder="0" width="${width}" height="${height}" allowfullscreen></iframe>`;
   };
 
   return {

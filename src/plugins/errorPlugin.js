@@ -6,11 +6,9 @@
  *
  */
 
-export default function createContentLinkPlugin() {
+export default function createErrorPlugin() {
   const embedToHTML = embed =>
-    embed.embed.replaceWith(
-      `<div><strong>${embed.data.message}</strong></div>`
-    );
+    `<div><strong>${embed.data.message}</strong></div>`;
 
   return {
     resource: 'error',

@@ -29,19 +29,17 @@ export default function createConceptPlugin() {
     const authors = defined(copyright.authors, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
 
-    embed.embed.replaceWith(
-      ReactDOMServerStream.renderToStaticMarkup(
-        <Glossary
-          id={id}
-          title={title}
-          authors={authors}
-          content={content}
-          messages={messages}
-          source={copyright.origin}
-          license={license}>
-          {embed.data.linkText}
-        </Glossary>
-      )
+    return ReactDOMServerStream.renderToStaticMarkup(
+      <Glossary
+        id={id}
+        title={title}
+        authors={authors}
+        content={content}
+        messages={messages}
+        source={copyright.origin}
+        license={license}>
+        {embed.data.linkText}
+      </Glossary>
     );
   };
 
