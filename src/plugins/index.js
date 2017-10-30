@@ -21,6 +21,7 @@ import createKahootPlugin from './kahootPlugin';
 import createKhanAcademyPlugin from './khanAcademyPlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPluin from './conceptPlugin';
+import createRelatedContent from './relatedContentPlugin';
 
 export {
   createNRKPlugin,
@@ -38,6 +39,7 @@ export {
   createKhanAcademyPlugin,
   createFootnotePlugin,
   createConceptPluin,
+  createRelatedContent,
 };
 
 export default () => [
@@ -56,4 +58,5 @@ export default () => [
   createKhanAcademyPlugin(),
   createFootnotePlugin(),
   createConceptPluin(),
+  createRelatedContent(),
 ];
