@@ -84,6 +84,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
             license: 'by-nc',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
   ];
@@ -188,6 +189,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
             license: 'by-sa',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
     {
@@ -203,6 +205,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
             license: 'by-sa',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
   ];

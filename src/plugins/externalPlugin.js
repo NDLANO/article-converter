@@ -12,7 +12,7 @@ import { wrapInFigureEmbedded } from './pluginHelpers';
 export default function createExternalPlugin() {
   const fetchResource = (embed, headers) => fetchOembed(embed, headers);
 
-  const embedToHTML = embed => wrapInFigureEmbedded(embed.oembed.html, true);
+  const embedToHTML = embed => wrapInFigureEmbedded(embed.oembed.html);
 
   return {
     resource: 'external',

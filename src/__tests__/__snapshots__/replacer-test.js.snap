@@ -18,18 +18,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
 <section>
   <figure class=\\"c-figure\\">
-    <div style=\\"display:block;position:relative;max-width:100%\\">
-      <div style=\\"padding-top:56.25%\\">
-        <video style=\\"width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px\\"
-          data-video-id=\\"ref:1\\"
-          data-account=\\"1337\\"
-          data-player=\\"BkLm8fT\\"
-          data-embed=\\"default\\"
-          class=\\"video-js\\"
-          controls />
+    <iframe title=\\"Video: undefined\\"
+      height=\\"768\\"
+      width=\\"1024\\"
+      src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
+      allowfullscreen />
 
-      </div>
-    </div>
     <figcaption class=\\"c-figure__caption\\">
       <div class=\\"c-figure__info\\">Brightcove caption</div>
       <footer class=\\"c-figure__byline\\">
@@ -207,18 +201,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </div>
   </figure>
   <figure class=\\"c-figure\\">
-    <div style=\\"display:block;position:relative;max-width:100%\\">
-      <div style=\\"padding-top:56.25%\\">
-        <video style=\\"width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px\\"
-          data-video-id=\\"ref:2\\"
-          data-account=\\"1337\\"
-          data-player=\\"BkLm8fT\\"
-          data-embed=\\"default\\"
-          class=\\"video-js\\"
-          controls />
+    <iframe title=\\"Video: undefined\\"
+      height=\\"768\\"
+      width=\\"1024\\"
+      src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
+      allowfullscreen />
 
-      </div>
-    </div>
     <figcaption class=\\"c-figure__caption\\">
       <div class=\\"c-figure__info\\">Another caption</div>
       <footer class=\\"c-figure__byline\\">
@@ -1101,18 +1089,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 
 <section>
   <figure class=\\"c-figure\\">
-    <div style=\\"display:block;position:relative;max-width:100%\\">
-      <div style=\\"padding-top:56.25%\\">
-        <video style=\\"width:100%;height:100%;position:absolute;top:0px;bottom:0px;right:0px;left:0px\\"
-          data-video-id=\\"ref:46012\\"
-          data-account=\\"4806596774001\\"
-          data-player=\\"BkLm8fT\\"
-          data-embed=\\"default\\"
-          class=\\"video-js\\"
-          controls />
+    <iframe title=\\"Video: undefined\\"
+      height=\\"768\\"
+      width=\\"1024\\"
+      src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
+      allowfullscreen />
 
-      </div>
-    </div>
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
