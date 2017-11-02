@@ -21,6 +21,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     <iframe title=\\"Video: undefined\\"
       height=\\"768\\"
       width=\\"1024\\"
+      frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
       allowfullscreen />
 
@@ -204,6 +205,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     <iframe title=\\"Video: undefined\\"
       height=\\"768\\"
       width=\\"1024\\"
+      frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
       allowfullscreen />
 
@@ -1092,6 +1094,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     <iframe title=\\"Video: undefined\\"
       height=\\"768\\"
       width=\\"1024\\"
+      frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
       allowfullscreen />
 

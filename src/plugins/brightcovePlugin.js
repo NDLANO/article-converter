@@ -49,6 +49,7 @@ export default function createBrightcovePlugin() {
           title={`Video: ${brightcove.name}`}
           height={height}
           width={width}
+          frameBorder="0"
           src={`https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`}
           allowFullScreen
         />
