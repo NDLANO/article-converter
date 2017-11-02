@@ -7,6 +7,7 @@
  */
 
 import cheerio from 'cheerio';
+import { prettify } from './testHelpers';
 import { replaceEmbedsInHtml } from '../replacer';
 import { getEmbedMetaData } from '../getEmbedMetaData';
 import {
@@ -88,26 +89,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg\?width=1024".*?\/>/
-  );
-
-  expect(replaced).toMatch(
-    '<figure class="c-embedded"><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>'
-  );
-
-  expect(replaced).toMatch(
-    '<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>'
-  );
-  expect(replaced).toMatch('<video');
-  expect(replaced).toMatch(
-    'data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls>'
-  );
-  expect(replaced).toMatch('</video>');
-  expect(replaced).toMatch('<p>SomeText1</p>');
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
@@ -177,22 +161,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg\?width=1024".*?\/>/
-  );
-
-  expect(replaced).toMatch(
-    /<figure class="c-figure u-float-left">.*?<\/figure>/
-  );
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/>/
-  );
-  expect(replaced).toMatch(
-    /<span class="article_meta">Ola Foton, Kari Maler<\/span>/
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
@@ -237,21 +208,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    /data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
-  );
-  expect(replaced).toMatch(
-    /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
-  );
-  expect(replaced).toMatch(
-    /<figure.*>.*<figcaption.*?>.*Brightcove caption.*<\/figcaption>.*<\/figure>/
-  );
-  expect(replaced).toMatch(
-    /<figure.*>.*<figcaption.*?>.*Another caption.*<\/figcaption>.*<\/figure>/
-  );
-  expect(replaced).toMatch(/<button.*>Kopier referanse<\/button>/);
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
@@ -306,9 +265,9 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatchSnapshot();
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
@@ -324,11 +283,9 @@ test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="http://prezi.com" width="1" height="2" allowfullscreen scrolling="no" frameborder="0"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
@@ -345,11 +302,9 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="http://common.craft" width="1" height="2" allowfullscreen scrolling="no" frameborder="0"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async () => {
@@ -368,11 +323,9 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="http://ndla.filmiundervisning.no/" width="1" height="2" allowfullscreen scrolling="no" frameborder="0"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
@@ -389,11 +342,9 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" width="1" height="2" allowfullscreen scrolling="no" frameborder="0"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
@@ -423,14 +374,8 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
-
-  expect(replaced).toMatch(
-    '<a href="#ref_1_cite" name="ref_1_sup"><sup>1</sup></a>'
-  );
-  expect(replaced).toMatch(
-    '<a href="#ref_2_cite" name="ref_2_sup"><sup>2</sup></a>'
-  );
+  const replaced = articleContent('body').html();
 
   expect(getEmbedMetaData(embeds).other).toMatchSnapshot();
+  expect(prettify(replaced)).toMatchSnapshot();
 });
