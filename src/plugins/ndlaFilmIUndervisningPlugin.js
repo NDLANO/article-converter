@@ -6,7 +6,7 @@
  *
  */
 
-import { makeIframe } from './helpers';
+import { makeIframe } from './pluginHelpers';
 
 export default function createNdlaFilmIUndervisningPlugin() {
   const embedToHTML = embed => {

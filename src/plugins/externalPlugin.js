@@ -7,7 +7,7 @@
  */
 
 import { fetchOembed } from '../api/oembedProxyApi';
-import { wrapInFigureEmbedded } from './helpers';
+import { wrapInFigureEmbedded } from './pluginHelpers';
 
 export default function createExternalPlugin() {
   const fetchResource = (embed, headers) => fetchOembed(embed, headers);
