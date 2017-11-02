@@ -1,14 +1,17 @@
-/*
- * Part of NDLA article-converter.
- * Copyright (C) 2017 NDLA
+/**
+ * Copyright (c) 2017-present, NDLA.
  *
- * See LICENSE
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
  */
+
+import { makeIframe } from './helpers';
 
 export default function createKahootPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    return `<iframe src="${url}" width="${width}" height="${height}" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>`;
+    return makeIframe(url, width, height);
   };
 
   return {

@@ -326,7 +326,7 @@ Object {
 exports[`app/fetchAndTransformArticle 270 2`] = `
 "
 <section>
-  <figure>
+  <figure class=\\"c-embedded\\">
     <iframe src=\\"//ndla.no/h5p/embed/174974\\" />
 
   </figure>

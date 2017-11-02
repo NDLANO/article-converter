@@ -7,6 +7,7 @@
  */
 
 import { fetchOembed } from '../api/oembedProxyApi';
+import { wrapInFigureEmbedded } from './helpers';
 
 export default function createH5pPlugin() {
   const fetchResource = (embed, headers) =>
@@ -16,9 +17,13 @@ export default function createH5pPlugin() {
 
   const embedToHTML = h5p => {
     if (h5p.oembed) {
-      return `<figure>${h5p.oembed.html}</figure>`;
+      return wrapInFigureEmbedded(h5p.oembed.html, false);
     }
-    return `<figure><iframe src="${h5p.data.url}"></iframe></figure>`;
+
+    return wrapInFigureEmbedded(
+      `<iframe src="${h5p.data.url}"></iframe>`,
+      false
+    );
   };
 
   return {
