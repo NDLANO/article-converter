@@ -10,16 +10,30 @@ import fetch from 'isomorphic-fetch';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { brightcoveClientId, brightcoveClientSecret } from '../config';
 
-function fetchVideo(videoId, accountId, accessToken) {
+const getHeaders = accessToken => ({
+  headers: {
+    'content-type': 'Content-Type: application/json',
+    Authorization: `Bearer ${accessToken.access_token}`,
+  },
+});
+
+async function fetchVideoSources(videoId, accountId, accessToken) {
+  const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${videoId}/sources`;
+  const response = await fetch(url, {
+    method: 'GET',
+    ...getHeaders(accessToken),
+  });
+  return resolveJsonOrRejectWithError(response);
+}
+
+async function fetchVideo(videoId, accountId, accessToken) {
   const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${videoId}`;
 
-  return fetch(url, {
+  const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'content-type': 'Content-Type: application/json',
-      Authorization: `Bearer ${accessToken.access_token}`,
-    },
+    ...getHeaders(accessToken),
   });
+  return resolveJsonOrRejectWithError(response);
 }
 
 const expiresIn = accessToken => accessToken.expires_in - 10;
@@ -30,32 +44,32 @@ const storeAccessToken = accessToken => {
   global.access_token_expires_at = expiresAt;
 };
 
-function fetchAccessToken() {
+async function fetchAccessToken() {
   const base64Encode = str => new Buffer(str).toString('base64');
   const url =
     'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
   const clientIdSecret = `${brightcoveClientId}:${brightcoveClientSecret}`;
 
-  return fetch(url, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${base64Encode(clientIdSecret)}`,
     },
-  })
-    .then(resolveJsonOrRejectWithError)
-    .then(accessToken => {
-      storeAccessToken(accessToken);
-      return accessToken;
-    });
+  });
+  const accessToken = await resolveJsonOrRejectWithError(response);
+
+  storeAccessToken(accessToken);
+  return accessToken;
 }
 
-const getAccessToken = () => {
+const getAccessToken = async () => {
   if (
     global.access_token &&
     new Date().getTime() < global.access_token_expires_at
-  )
-    return Promise.resolve(global.access_token);
+  ) {
+    return global.access_token;
+  }
   return fetchAccessToken();
 };
 
@@ -92,19 +106,19 @@ export const getAuthors = fields => {
   return licenseInfoKeys.map(key => parseAuthorString(fields[key]));
 };
 
-export const fetchVideoMeta = embed => {
+export const fetchVideoMeta = async embed => {
   const { videoid, account } = embed.data;
-  return getAccessToken()
-    .then(accessToken => fetchVideo(videoid, account, accessToken))
-    .then(resolveJsonOrRejectWithError)
-    .then(video => {
-      const copyright = {
-        license: {
-          license: getLicenseByNBTitle(video.custom_fields.license),
-        },
-        authors: getAuthors(video.custom_fields),
-      };
+  const accessToken = await getAccessToken();
+  const [video, sources] = await Promise.all([
+    fetchVideo(videoid, account, accessToken),
+    fetchVideoSources(videoid, account, accessToken),
+  ]);
 
-      return { ...embed, brightcove: { ...video, copyright } };
-    });
+  const copyright = {
+    license: {
+      license: getLicenseByNBTitle(video.custom_fields.license),
+    },
+    authors: getAuthors(video.custom_fields),
+  };
+  return { ...embed, brightcove: { ...video, copyright, sources } };
 };

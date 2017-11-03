@@ -9,6 +9,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React from 'react';
+import defined from 'defined';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
@@ -20,9 +21,11 @@ export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const embedToHTML = (embed, locale) => {
-    const { brightcove, data: { account, player, videoid, caption } } = embed;
+    const { brightcove, data: { account, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
     const license = brightcove.copyright.license.license;
+    const height = defined(brightcove.sources[0].height, '480');
+    const width = defined(brightcove.sources[0].width, '640');
     const licenseRights = getLicenseByAbbreviation(license, locale).rights;
     const licenseCopyString = `${license.includes('by')
       ? 'CC '
@@ -42,32 +45,14 @@ export default function createBrightcovePlugin() {
 
     return renderToStaticMarkup(
       <Figure>
-        <div
-          style={{
-            display: 'block',
-            position: 'relative',
-            maxWidth: '100%',
-          }}>
-          <div style={{ paddingTop: '56.25%' }}>
-            <video
-              style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                top: '0px',
-                bottom: '0px',
-                right: '0px',
-                left: '0px',
-              }}
-              data-video-id={videoid}
-              data-account={account}
-              data-player={player}
-              data-embed="default"
-              className="video-js"
-              controls
-            />
-          </div>
-        </div>
+        <iframe
+          title={`Video: ${brightcove.name}`}
+          height={height}
+          width={width}
+          frameBorder="0"
+          src={`https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`}
+          allowFullScreen
+        />
         <FigureCaption
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}

@@ -7,17 +7,15 @@
  */
 
 import nock from 'nock';
-import prettier from 'prettier';
+import { prettify } from './testHelpers';
 import article270 from './articles/article-270';
 import article1036 from './articles/article-1036';
 import article116 from './articles/article-116';
 import image2357 from './images/image-2357';
 import video125442 from './brightcove/video-125442';
+import videoSources125442 from './brightcove/video-sources-125442';
 
 import { fetchAndTransformArticle } from '../app';
-
-// Use prettier to format html for better diffing. N.B. prettier html formating is currently experimental
-const prettify = content => prettier.format(`${content}`, { parser: 'parse5' });
 
 test('app/fetchAndTransformArticle 270', async () => {
   nock('https://test.api.ndla.no')
@@ -60,6 +58,10 @@ test('app/fetchAndTransformArticle 116', async () => {
   nock('https://cms.api.brightcove.com')
     .get('/v1/accounts/4806596774001/videos/ref:125442')
     .reply(200, video125442);
+  nock('https://cms.api.brightcove.com')
+    .get('/v1/accounts/4806596774001/videos/ref:125442/sources')
+    .reply(200, videoSources125442);
+
   const transformed = await fetchAndTransformArticle('116', 'nb', 'some_token');
   const { content, ...rest } = transformed;
 
