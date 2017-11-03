@@ -68,7 +68,7 @@ const getAccessToken = async () => {
     global.access_token &&
     new Date().getTime() < global.access_token_expires_at
   ) {
-    return Promise.resolve(global.access_token);
+    return global.access_token;
   }
   return fetchAccessToken();
 };
