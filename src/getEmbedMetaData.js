@@ -46,8 +46,10 @@ export function getCopyrightInfoFromEmbeds(embeds) {
 export function getEmbedMetaData(embeds) {
   const pluginMetaData = embeds.reduce((ctx, embed) => {
     const resourceMetaData = ctx[embed.data.resource];
-    if (embed.plugin.getMetaData) {
-      const metaData = embed.plugin.getMetaData(embed);
+    const embedPlugin = embed.plugin;
+
+    if (embedPlugin && embedPlugin.getMetaData) {
+      const metaData = embedPlugin.getMetaData(embed);
       return {
         ...ctx,
         [embed.data.resource]: {
