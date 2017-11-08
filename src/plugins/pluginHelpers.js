@@ -17,8 +17,10 @@ export const wrapInFigureEmbedded = (content, resize = true) => {
 };
 
 export const makeIframe = (url, width, height, resize = true) => {
-  const strippedWidth = isNumber ? width : width.replace(/\s*px/, '');
-  const strippedHeight = isNumber ? height : height.replace(/\s*px/, '');
+  const strippedWidth = isNumber(width) ? width : width.replace(/\s*px/, '');
+  const strippedHeight = isNumber(height)
+    ? height
+    : height.replace(/\s*px/, '');
   return wrapInFigureEmbedded(
     `<iframe src="${url}" width="${strippedWidth}" height="${strippedHeight}" allowfullscreen scrolling="no" frameborder="0" ></iframe>`,
     resize
