@@ -13,10 +13,12 @@ import { getEmbedMetaData } from './getEmbedMetaData';
 export const tagReplacers = [
   content => {
     content('aside').each((_, aside) => {
+      const isFactAside = aside.attribs && aside.attribs['data-type'] === 'factAside';
+      const expandButton = isFactAside ? '<button class="c-button c-aside__button"/>' : ''
       const innerAside = `<div class="c-aside__content">${content(
         aside
-      ).children()}</div>`;
-      content(aside).addClass('c-aside c-aside--float expanded');
+      ).children()}</div>${expandButton}`;
+      content(aside).addClass(`c-aside ${!isFactAside ? 'c-aside--float expanded' : ''}`);
       content(aside).html(innerAside);
     });
   },
