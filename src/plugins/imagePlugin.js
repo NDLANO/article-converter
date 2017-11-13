@@ -53,9 +53,9 @@ export default function createImagePlugin() {
       `${src}?width=320 320w`,
     ].join(', ');
 
-    const licenseCopyString = `${license.toLowerCase().includes('by')
-      ? 'CC '
-      : ''}${license}`.toUpperCase();
+    const licenseCopyString = `${
+      license.toLowerCase().includes('by') ? 'CC ' : ''
+    }${license}`.toUpperCase();
 
     const creators = authors.filter(author =>
       CREATOR_TYPES.find(type => author.type === type)

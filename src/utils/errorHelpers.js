@@ -9,13 +9,13 @@
 import defined from 'defined';
 
 /**
-* Get appropriate error object with correct status. Defaults to
-* striping stacktrace.
-*
-* @param {object} error Error object
-* @param {bool} isProduction strip stacktrace if true
-* @returns {object} appropriate error resonse object
-*/
+ * Get appropriate error object with correct status. Defaults to
+ * striping stacktrace.
+ *
+ * @param {object} error Error object
+ * @param {bool} isProduction strip stacktrace if true
+ * @returns {object} appropriate error resonse object
+ */
 export const getAppropriateErrorResponse = (error, isProduction = true) => {
   const status = defined(error.status, 500); // Default to 500 if no status is provided
   const { description } = defined(error.json, { description: '' });
@@ -28,13 +28,13 @@ export const getAppropriateErrorResponse = (error, isProduction = true) => {
 };
 
 /**
-* Create a new Error with additional info
-*
-* @param {number} status Http status to include in error. May be used to determin appropriate response to client
-* @param {string} message Message used when initializing the new Error object
-* @param {object} json JSON response from failed api calls
-* @returns {object} Error object with additional info
-*/
+ * Create a new Error with additional info
+ *
+ * @param {number} status Http status to include in error. May be used to determin appropriate response to client
+ * @param {string} message Message used when initializing the new Error object
+ * @param {object} json JSON response from failed api calls
+ * @returns {object} Error object with additional info
+ */
 export function createErrorPayload(status, message, json) {
   return Object.assign(new Error(message), { status, json });
 }
