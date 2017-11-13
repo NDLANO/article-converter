@@ -48,3 +48,24 @@ test('transformers/tagReplacers changes ol to accommodate frontend styling', () 
   expect(result).toMatch('<ol class="ol-list--roman">');
   expect(result).toMatch('<ol>');
 });
+
+test('transformers/tagReplacers changes fact aside to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <aside data-type='factAside'><h2>Test1</h2><div>Stuff</div></aside>
+  </section>
+    <aside data-type="factAside"><h2>Test2</h2><div>Other stuff</div></aside>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch(
+    '<aside class="c-aside"><div class="c-aside__content"><h2>Test1</h2><div>Stuff</div></div><button class="c-button c-aside__button"></button></aside>'
+  );
+  expect(result).toMatch(
+    '<aside class="c-aside"><div class="c-aside__content"><h2>Test2</h2><div>Other stuff</div></div><button class="c-button c-aside__button"></button></aside>'
+  );
+});
