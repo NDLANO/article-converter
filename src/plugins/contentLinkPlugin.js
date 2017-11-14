@@ -10,7 +10,7 @@ import { ndlaFrontendUrl } from '../config';
 
 export default function createContentLinkPlugin() {
   const embedToHTML = (embed, lang) => {
-    if (embed.data.openIn) {
+    if (embed.data.openIn === 'new-context') {
       return `<a href="${ndlaFrontendUrl}/${lang}/article/${
         embed.data.contentId
       }" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
