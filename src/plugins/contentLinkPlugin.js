@@ -9,10 +9,16 @@
 import { ndlaFrontendUrl } from '../config';
 
 export default function createContentLinkPlugin() {
-  const embedToHTML = (embed, lang) =>
-    `<a href="${ndlaFrontendUrl}/${lang}/article/${embed.data.contentId}">${
-      embed.data.linkText
-    }</a>`;
+  const embedToHTML = (embed, lang) => {
+    if (embed.data.openIn) {
+      return `<a href="${ndlaFrontendUrl}/${lang}/article/${
+        embed.data.contentId
+      }" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
+    }
+    return `<a href="${ndlaFrontendUrl}/${lang}/article/${
+      embed.data.contentId
+    }">${embed.data.linkText}</a>`;
+  };
 
   return {
     resource: 'content-link',
