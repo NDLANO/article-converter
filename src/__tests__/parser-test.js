@@ -96,6 +96,7 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
         resource: 'content-link',
         contentId: 424,
         linkText: 'Bearbeiding av datamaterialet',
+        openIn: 'new-context',
       },
     },
   ]);

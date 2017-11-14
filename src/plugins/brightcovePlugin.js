@@ -27,9 +27,9 @@ export default function createBrightcovePlugin() {
     const height = defined(brightcove.sources[0].height, '480');
     const width = defined(brightcove.sources[0].width, '640');
     const licenseRights = getLicenseByAbbreviation(license, locale).rights;
-    const licenseCopyString = `${license.includes('by')
-      ? 'CC '
-      : ''}${license}`.toUpperCase();
+    const licenseCopyString = `${license.includes('by') ? 'CC ' : ''}${
+      license
+    }`.toUpperCase();
     const authorsCopyString = authors
       .filter(author => author.type !== 'Leverandør')
       .map(author => `${author.name}`)
@@ -50,7 +50,9 @@ export default function createBrightcovePlugin() {
           height={height}
           width={width}
           frameBorder="0"
-          src={`https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`}
+          src={`https://players.brightcove.net/${
+            account
+          }/default_default/index.html?videoId=${videoid}`}
           allowFullScreen
         />
         <FigureCaption
