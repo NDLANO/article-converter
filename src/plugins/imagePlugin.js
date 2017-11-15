@@ -57,6 +57,10 @@ export default function createImagePlugin() {
       'u-float-left': align === 'left',
     });
 
+    const sizes = align
+      ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
+      : '(min-width: 1024px) 1024px, 100vw';
+
     const messages = {
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'image.rulesForUse'),
@@ -86,6 +90,7 @@ export default function createImagePlugin() {
           <Image
             focalPoint={focalPoint}
             crop={crop}
+            sizes={sizes}
             alt={altText}
             src={`${src}`}
           />
