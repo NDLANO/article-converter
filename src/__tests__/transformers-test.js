@@ -69,3 +69,23 @@ test('transformers/tagReplacers changes fact aside to accommodate frontend styli
     '<aside class="c-aside"><div class="c-aside__content"><h2>Test2</h2><div>Other stuff</div></div><button class="c-button c-aside__button"></button></aside>'
   );
 });
+
+test('transformers/tagReplacers adds display block to math tags', () => {
+  const content = cheerio.load(`
+  <section>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>f</mi><mo>'</mo>
+      <mfenced><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow></mfenced>
+      <mo>=</mo><mn>2</mn><mo>&#xB7;</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>1</mn>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mn>0</mn><mo>,</mo><mn>5</mn>
+    </math>
+  </section>
+  `);
+
+  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatchSnapshot();
+});
