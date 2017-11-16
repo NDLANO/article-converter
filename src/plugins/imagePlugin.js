@@ -11,10 +11,35 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
+import Image from 'ndla-ui/lib/Image';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
+
+const getFocalPoint = data => {
+  if (data.focalX && data.focalY) {
+    return { x: data.focalX, y: data.focalY };
+  }
+  return undefined;
+};
+
+const getCrop = data => {
+  if (
+    data.lowerRightX &&
+    data.lowerRightY &&
+    data.upperLeftX &&
+    data.upperLeftY
+  ) {
+    return {
+      startX: data.lowerRightX,
+      startY: data.lowerRightY,
+      endX: data.upperLeftX,
+      endY: data.upperLeftY,
+    };
+  }
+  return undefined;
+};
 
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
@@ -32,6 +57,10 @@ export default function createImagePlugin() {
       'u-float-left': align === 'left',
     });
 
+    const sizes = align
+      ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
+      : '(min-width: 1024px) 1024px, 100vw';
+
     const messages = {
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'image.rulesForUse'),
@@ -39,20 +68,8 @@ export default function createImagePlugin() {
       source: t(locale, 'source'),
     };
 
-    const srcSets = [
-      `${src}?width=2720 2720w`,
-      `${src}?width=2080 2080w`,
-      `${src}?width=1760 1760w`,
-      `${src}?width=1440 1440w`,
-      `${src}?width=1120 1120w`,
-      `${src}?width=1000 1000w`,
-      `${src}?width=960 960w`,
-      `${src}?width=800 800w`,
-      `${src}?width=640 640w`,
-      `${src}?width=480 480w`,
-      `${src}?width=320 320w`,
-    ].join(', ');
-
+    const focalPoint = getFocalPoint(embed.data);
+    const crop = getCrop(embed.data);
     const licenseCopyString = `${
       license.toLowerCase().includes('by') ? 'CC ' : ''
     }${license}`.toUpperCase();
@@ -70,17 +87,13 @@ export default function createImagePlugin() {
     return renderToStaticMarkup(
       <Figure className={figureClassNames}>
         <div className="c-figure__img">
-          <picture>
-            <source
-              srcSet={srcSets}
-              sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
-            />
-            <img
-              alt={altText}
-              src={`${src}?width=1024`}
-              srcSet={`${src}?width=2048 2x`}
-            />
-          </picture>
+          <Image
+            focalPoint={focalPoint}
+            crop={crop}
+            sizes={sizes}
+            alt={altText}
+            src={`${src}`}
+          />
         </div>
         <FigureCaption
           caption={caption}
