@@ -27,6 +27,9 @@ export const tagReplacers = [
       content(aside).html(innerAside);
     });
   },
+  content => {
+    content('math').attr('display', 'block');
+  },
   content =>
     content('ol[data-type="letters"]')
       .removeAttr('data-type')
