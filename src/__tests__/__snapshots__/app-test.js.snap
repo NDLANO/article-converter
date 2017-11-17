@@ -83,7 +83,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -152,7 +152,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Senter for nye medier, Høgskolen i Bergen
+            <span class=\\"c-figure__byline-authors\\">Senter for nye medier, Høgskolen i Bergen
             </span>
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -165,7 +165,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av videoen</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -238,7 +238,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
@@ -470,7 +470,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -561,7 +561,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -573,7 +573,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -668,14 +668,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -879,7 +879,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Vann</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -970,7 +970,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -982,7 +982,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1077,14 +1077,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -1125,7 +1125,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Lorem ipsum</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1216,7 +1216,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -1228,7 +1228,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1323,14 +1323,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -1367,7 +1367,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Crop</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1458,7 +1458,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -1470,7 +1470,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1565,14 +1565,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no

@@ -29,7 +29,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       <div class=\\"c-figure__info\\">Brightcove caption</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -98,7 +98,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\" />
+            <span class=\\"c-figure__byline-authors\\" />
 
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -111,7 +111,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av videoen</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -184,7 +184,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\" />
@@ -213,7 +213,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       <div class=\\"c-figure__info\\">Another caption</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -282,7 +282,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\" />
+            <span class=\\"c-figure__byline-authors\\" />
 
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -295,7 +295,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av videoen</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -368,7 +368,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\" />
@@ -462,7 +462,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -531,7 +531,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ola Foton, Kari Maler</span>
+            <span class=\\"c-figure__byline-authors\\">Ola Foton, Kari Maler</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -543,7 +543,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -616,7 +616,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
@@ -651,7 +651,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -720,7 +720,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\" />
+            <span class=\\"c-figure__byline-authors\\" />
 
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
@@ -733,7 +733,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -806,7 +806,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\" />
@@ -890,7 +890,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -959,7 +959,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\" />
+            <span class=\\"c-figure__byline-authors\\" />
 
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
@@ -972,7 +972,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1045,7 +1045,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\" />
@@ -1089,7 +1089,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1158,7 +1158,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\" />
+            <span class=\\"c-figure__byline-authors\\" />
 
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -1171,7 +1171,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av videoen</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1244,7 +1244,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\" />

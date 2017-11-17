@@ -23,13 +23,13 @@ export default function createBrightcovePlugin() {
   const embedToHTML = (embed, locale) => {
     const { brightcove, data: { account, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
-    const license = brightcove.copyright.license.license;
+    const licenseAbbreviation = brightcove.copyright.license.license;
     const height = defined(brightcove.sources[0].height, '480');
     const width = defined(brightcove.sources[0].width, '640');
-    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
-    const licenseCopyString = `${license.includes('by') ? 'CC ' : ''}${
-      license
-    }`.toUpperCase();
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+    const licenseCopyString = `${
+      licenseAbbreviation.includes('by') ? 'CC ' : ''
+    }${licenseAbbreviation}`.toUpperCase();
     const authorsCopyString = authors
       .filter(author => author.type !== 'Leverandør')
       .map(author => `${author.name}`)
@@ -37,9 +37,10 @@ export default function createBrightcovePlugin() {
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     const messages = {
+      title: t(locale, 'title'),
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'video.rulesForUse'),
-      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
 
@@ -58,11 +59,12 @@ export default function createBrightcovePlugin() {
         <FigureCaption
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
-          licenseRights={licenseRights}
+          licenseRights={license.rights}
           authors={authors}
         />
         <FigureDetails
-          licenseRights={licenseRights}
+          licenseRights={license.rights}
+          licenseUrl={license.url}
           authors={authors}
           messages={messages}>
           <Button
