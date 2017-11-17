@@ -44,6 +44,16 @@ const getCrop = data => {
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
+  const getMetaData = embed => {
+    const { image } = embed;
+    return {
+      title: image.title.title,
+      altText: image.alttext.alttext,
+      copyright: image.copyright,
+      src: image.imageUrl,
+    };
+  };
+
   const embedToHTML = (embed, locale) => {
     const { image, data: { align, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
@@ -106,6 +116,7 @@ export default function createImagePlugin() {
           authors={creators}
         />
         <FigureDetails
+          title={image.title.title}
           licenseRights={license.rights}
           licenseUrl={license.url}
           authors={authors}
@@ -131,6 +142,7 @@ export default function createImagePlugin() {
 
   return {
     resource: 'image',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

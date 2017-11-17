@@ -405,31 +405,35 @@ exports[`replacer/replaceEmbedsInHtml replace commoncraft embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace footnote embeds 1`] = `
 Object {
-  "footnote": Object {
-    "ref_1": Object {
-      "authors": Array [
-        "regjeringen.no",
-      ],
-      "edition": "",
-      "publisher": "Barne-, likestillings- og inkluderingsdepartmentet",
-      "resource": undefined,
-      "title": "Likestilling kommer ikke av seg selv",
-      "type": "Report",
-      "year": 2013,
+  "footnotes": Array [
+    Object {
+      "ref_1": Object {
+        "authors": Array [
+          "regjeringen.no",
+        ],
+        "edition": "",
+        "publisher": "Barne-, likestillings- og inkluderingsdepartmentet",
+        "resource": undefined,
+        "title": "Likestilling kommer ikke av seg selv",
+        "type": "Report",
+        "year": 2013,
+      },
     },
-    "ref_2": Object {
-      "authors": Array [
-        "Me",
-        "You",
-      ],
-      "edition": 2,
-      "publisher": "test",
-      "resource": undefined,
-      "title": "test",
-      "type": "Book",
-      "year": 2022,
+    Object {
+      "ref_2": Object {
+        "authors": Array [
+          "Me",
+          "You",
+        ],
+        "edition": 2,
+        "publisher": "test",
+        "resource": undefined,
+        "title": "test",
+        "type": "Book",
+        "year": 2022,
+      },
     },
-  },
+  ],
 }
 `;
 
@@ -620,6 +624,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: image title 1</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Scanpix</li>
               <li class=\\"c-figure-list__item\\">Fotograf: Ola Foton</li>
               <li class=\\"c-figure-list__item\\">Kunstner: Kari Maler</li>
@@ -809,8 +814,9 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
-            <ul class=\\"c-figure__list\\" />
-
+            <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: image title 2</li>
+            </ul>
             <div class=\\"c-figure-license__cta-block\\">
               <button class=\\"c-button c-button--outline c-licenseToggle__button\\"
                 data-copied-title=\\"Kopiert!\\"
@@ -1048,8 +1054,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
-            <ul class=\\"c-figure__list\\" />
-
+            <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: image title</li>
+            </ul>
             <div class=\\"c-figure-license__cta-block\\">
               <button class=\\"c-button c-button--outline c-licenseToggle__button\\"
                 data-copied-title=\\"Kopiert!\\"
@@ -1079,7 +1086,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 
 <section>
   <figure class=\\"c-figure\\">
-    <iframe title=\\"Video: undefined\\"
+    <iframe title=\\"Video: brightcove video\\"
       height=\\"768\\"
       width=\\"1024\\"
       frameborder=\\"0\\"

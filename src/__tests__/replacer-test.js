@@ -9,7 +9,7 @@
 import cheerio from 'cheerio';
 import { prettify } from './testHelpers';
 import { replaceEmbedsInHtml } from '../replacer';
-import { getEmbedMetaData } from '../getEmbedMetaData';
+import getEmbedMetaData from '../getEmbedMetaData';
 import {
   createContentLinkPlugin,
   createH5pPlugin,
@@ -61,6 +61,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       plugin: createImagePlugin(),
       image: {
         id: '1326',
+        title: {
+          title: 'image title',
+        },
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
@@ -78,6 +81,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       data: articleContent('embed[data-resource="brightcove"]').data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
+        name: 'brightcove video',
         copyright: {
           authors: [],
           license: {
@@ -114,6 +118,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: '',
       image: {
+        title: {
+          title: 'image title 1',
+        },
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/1.jpg',
@@ -148,6 +155,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: 'left',
       image: {
+        title: {
+          title: 'image title 2',
+        },
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/2.jpg',
@@ -379,6 +389,6 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
-  expect(getEmbedMetaData(embeds).other).toMatchSnapshot();
+  expect(getEmbedMetaData(embeds)).toMatchSnapshot();
   expect(prettify(replaced)).toMatchSnapshot();
 });

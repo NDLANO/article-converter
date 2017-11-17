@@ -14,11 +14,27 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
+import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
+
+  const iframeSrc = (account, videoid) =>
+    `https://players.brightcove.net/${
+      account
+    }/default_default/index.html?videoId=${videoid}`;
+
+  const getMetaData = embed => {
+    const { brightcove, data: { account, videoid } } = embed;
+    return {
+      title: brightcove.name,
+      copyright: brightcove.copyright,
+      cover: get('images.poster.src', brightcove),
+      src: iframeSrc(account, videoid),
+    };
+  };
 
   const embedToHTML = (embed, locale) => {
     const { brightcove, data: { account, videoid, caption } } = embed;
@@ -51,9 +67,7 @@ export default function createBrightcovePlugin() {
           height={height}
           width={width}
           frameBorder="0"
-          src={`https://players.brightcove.net/${
-            account
-          }/default_default/index.html?videoId=${videoid}`}
+          src={iframeSrc(account, videoid)}
           allowFullScreen
         />
         <FigureCaption
@@ -81,6 +95,7 @@ export default function createBrightcovePlugin() {
 
   return {
     resource: 'brightcove',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

@@ -6,22 +6,32 @@
  *
  */
 
-import { getCopyrightInfoFromEmbeds } from '../getEmbedMetaData';
+import getEmbedMetaData from '../getEmbedMetaData';
+import createImagePlugin from '../plugins/imagePlugin';
+import createAudioPlugin from '../plugins/audioPlugin';
+import createBrightcovePlugin from '../plugins/brightcovePlugin';
 
-it('getEmbedMetaData/getCopyrightInfoFromEmbeds get meta data from embeds', async () => {
+const imagePlugin = createImagePlugin();
+const audioPlugin = createAudioPlugin();
+const brightcovePlugin = createBrightcovePlugin();
+
+test('get meta data from embeds', async () => {
   const embeds = [
-    { data: { resource: 'content-link' } },
-    { data: { resource: 'h5p' } },
     {
       data: { resource: 'image' },
       image: {
+        title: { title: 'title' },
+        alttext: { alttext: 'alt' },
         copyright: { license: 'by-sa' },
         imageUrl: 'http://example.no/1234.jpg',
       },
+      plugin: imagePlugin,
     },
     {
       data: { resource: 'image' },
       image: {
+        title: { title: 'title 2' },
+        alttext: { alttext: 'alt 2' },
         copyright: { license: 'by-sa' },
         imageUrl: 'http://example.no/4123.jpg',
       },
@@ -29,23 +39,19 @@ it('getEmbedMetaData/getCopyrightInfoFromEmbeds get meta data from embeds', asyn
     {
       data: { resource: 'audio' },
       audio: {
-        title: 'Tittel',
+        title: { title: 'Tittel' },
         language: 'nb',
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
         },
         copyright: { license: 'by-sa' },
       },
+      plugin: audioPlugin,
     },
     {
-      data: { resource: 'brightcove' },
+      data: { resource: 'brightcove', account: 'account', videoid: '1337' },
       brightcove: {
-        copyright: { license: 'by-sa' },
-      },
-    },
-    {
-      data: { resource: 'brightcove' },
-      brightcove: {
+        name: 'video title',
         copyright: { license: 'by-sa' },
         images: {
           poster: {
@@ -53,10 +59,18 @@ it('getEmbedMetaData/getCopyrightInfoFromEmbeds get meta data from embeds', asyn
           },
         },
       },
+      plugin: brightcovePlugin,
+    },
+    {
+      data: { resource: 'brightcove', account: 'account', videoid: '42' },
+      brightcove: {
+        copyright: { license: 'by-sa' },
+      },
+      plugin: brightcovePlugin,
     },
   ];
 
-  const copyrights = getCopyrightInfoFromEmbeds(embeds);
+  const copyrights = getEmbedMetaData(embeds);
 
   expect(copyrights).toMatchSnapshot();
 });

@@ -41,14 +41,13 @@ export async function fetchAndTransformArticle(articleId, lang, accessToken) {
   return {
     ...article,
     content: html,
-    footNotes: embedMetaData.other.footnote,
+    metaData: embedMetaData,
     title: article.title.title,
     tags: article.tags.tags,
     introduction: article.introduction
       ? article.introduction.introduction
       : undefined,
     metaDescription: article.metaDescription.metaDescription,
-    contentCopyrights: embedMetaData.copyrights,
   };
 }
 
