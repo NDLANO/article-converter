@@ -55,7 +55,7 @@ export default function createImagePlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const { image, data: { align, caption: embedCaption } } = embed;
+    const { image, data: { align, size, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
     const {
       authors,
@@ -66,8 +66,10 @@ export default function createImagePlugin() {
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureClassNames = classnames('c-figure', {
-      'u-float-right': align === 'right',
-      'u-float-left': align === 'left',
+      'u-float-right': align === 'right' && size !== 'hoyrespalte',
+      'u-float-left': align === 'left' && size !== 'hoyrespalte',
+      'u-float-small-right': align === 'right' && size === 'hoyrespalte',
+      'u-float-small-left': align === 'left' && size === 'hoyrespalte',
     });
 
     const sizes = align
