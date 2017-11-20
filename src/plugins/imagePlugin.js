@@ -44,17 +44,32 @@ const getCrop = data => {
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
+  const getMetaData = embed => {
+    const { image } = embed;
+    return {
+      title: image.title.title,
+      altText: image.alttext.alttext,
+      copyright: image.copyright,
+      src: image.imageUrl,
+    };
+  };
+
   const embedToHTML = (embed, locale) => {
-    const { image, data: { align, caption: embedCaption } } = embed;
+    const { image, data: { align, size, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
-    const { authors, license: { license } } = image.copyright;
+    const {
+      authors,
+      license: { license: licenseAbbreviation },
+    } = image.copyright;
     const altText = image.alttext.alttext;
     const caption = embedCaption === '' ? image.caption.caption : embedCaption;
-    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureClassNames = classnames('c-figure', {
-      'u-float-right': align === 'right',
-      'u-float-left': align === 'left',
+      'u-float-right': align === 'right' && size !== 'hoyrespalte',
+      'u-float-left': align === 'left' && size !== 'hoyrespalte',
+      'u-float-small-right': align === 'right' && size === 'hoyrespalte',
+      'u-float-small-left': align === 'left' && size === 'hoyrespalte',
     });
 
     const sizes = align
@@ -62,17 +77,18 @@ export default function createImagePlugin() {
       : '(min-width: 1024px) 1024px, 100vw';
 
     const messages = {
+      title: t(locale, 'title'),
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'image.rulesForUse'),
-      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
 
     const focalPoint = getFocalPoint(embed.data);
     const crop = getCrop(embed.data);
     const licenseCopyString = `${
-      license.toLowerCase().includes('by') ? 'CC ' : ''
-    }${license}`.toUpperCase();
+      licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
+    }${licenseAbbreviation}`.toUpperCase();
 
     const creators = authors.filter(author =>
       CREATOR_TYPES.find(type => author.type === type)
@@ -98,11 +114,13 @@ export default function createImagePlugin() {
         <FigureCaption
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
-          licenseRights={licenseRights}
+          licenseRights={license.rights}
           authors={creators}
         />
         <FigureDetails
-          licenseRights={licenseRights}
+          title={image.title.title}
+          licenseRights={license.rights}
+          licenseUrl={license.url}
           authors={authors}
           origin={image.copyright.origin}
           messages={messages}>
@@ -126,6 +144,7 @@ export default function createImagePlugin() {
 
   return {
     resource: 'image',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

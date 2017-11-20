@@ -11,6 +11,15 @@ import { fetchAudio } from '../api/audioApi';
 export default function createAudioPlugin() {
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
 
+  const getMetaData = embed => {
+    const { audio } = embed;
+    return {
+      title: audio.title.title,
+      copyright: audio.copyright,
+      src: audio.audioFile.url,
+    };
+  };
+
   const embedToHTML = embed => {
     const { audio: { title, audioFile: { mimeType, url } } } = embed;
     return `<figure class="article_audio"><audio controls type="${
@@ -20,6 +29,7 @@ export default function createAudioPlugin() {
 
   return {
     resource: 'audio',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

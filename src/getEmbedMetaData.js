@@ -6,63 +6,21 @@
  *
  */
 
-import { groupBy, map, get, filter, compose } from 'lodash/fp';
+import defined from 'defined';
 
-function createCopyrightObject(embed, src) {
-  return {
-    type: embed.data.resource,
-    copyright: embed[`${embed.data.resource}`].copyright,
-    src,
-  };
-}
-
-function toCopyrightObject(embed) {
-  switch (embed.data.resource) {
-    case 'image':
-      return createCopyrightObject(embed, embed.image.imageUrl);
-    case 'audio':
-      return {
-        title: embed.audio.title,
-        ...createCopyrightObject(embed, embed.audio.audioFile.url),
-      };
-    case 'brightcove':
-      return createCopyrightObject(
-        embed,
-        get('brightcove.images.poster.src', embed)
-      );
-    default:
-      return undefined;
-  }
-}
-
-export function getCopyrightInfoFromEmbeds(embeds) {
-  return compose(
-    groupBy('type'),
-    filter(embed => embed !== undefined),
-    map(embed => toCopyrightObject(embed))
-  )(embeds);
-}
-
-export function getEmbedMetaData(embeds) {
-  const pluginMetaData = embeds.reduce((ctx, embed) => {
-    const resourceMetaData = ctx[embed.data.resource];
+export default function getEmbedMetaData(embeds) {
+  return embeds.reduce((ctx, embed) => {
+    const key = `${embed.data.resource}s`;
+    const resourceMetaData = defined(ctx[key], []);
     const embedPlugin = embed.plugin;
 
     if (embedPlugin && embedPlugin.getMetaData) {
       const metaData = embedPlugin.getMetaData(embed);
       return {
         ...ctx,
-        [embed.data.resource]: {
-          ...resourceMetaData,
-          ...metaData,
-        },
+        [key]: [...resourceMetaData, metaData],
       };
     }
     return ctx;
   }, {});
-
-  return {
-    copyrights: getCopyrightInfoFromEmbeds(embeds),
-    other: pluginMetaData,
-  };
 }

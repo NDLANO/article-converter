@@ -8,7 +8,7 @@
 
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
-import { getEmbedMetaData } from './getEmbedMetaData';
+import getEmbedMetaData from './getEmbedMetaData';
 
 export const tagReplacers = [
   content => {

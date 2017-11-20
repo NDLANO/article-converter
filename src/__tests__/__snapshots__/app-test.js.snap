@@ -3,25 +3,6 @@
 exports[`app/fetchAndTransformArticle 116 1`] = `
 Object {
   "articleType": "standard",
-  "contentCopyrights": Object {
-    "brightcove": Array [
-      Object {
-        "copyright": Object {
-          "authors": Array [
-            Object {
-              "name": "Senter for nye medier, Høgskolen i Bergen",
-              "type": "Leverandør",
-            },
-          ],
-          "license": Object {
-            "license": "by-sa",
-          },
-        },
-        "src": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
-        "type": "brightcove",
-      },
-    ],
-  },
   "copyright": Object {
     "authors": Array [
       Object {
@@ -37,9 +18,28 @@ Object {
     "origin": "",
   },
   "created": "2013-08-07T10:34:45Z",
-  "footNotes": undefined,
   "id": 116,
   "introduction": undefined,
+  "metaData": Object {
+    "brightcoves": Array [
+      Object {
+        "copyright": Object {
+          "authors": Array [
+            Object {
+              "name": "Senter for nye medier, Høgskolen i Bergen",
+              "type": "Leverandør",
+            },
+          ],
+          "license": Object {
+            "license": "by-sa",
+          },
+        },
+        "cover": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
+        "src": "https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:125442",
+        "title": "Offentlige debatter",
+      },
+    ],
+  },
   "metaDescription": "",
   "oldNdlaUrl": "//red.ndla.no/node/125442",
   "requiredLibraries": Array [
@@ -83,7 +83,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -152,7 +152,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Senter for nye medier, Høgskolen i Bergen
+            <span class=\\"c-figure__byline-authors\\">Senter for nye medier, Høgskolen i Bergen
             </span>
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -165,7 +165,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av videoen</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -238,7 +238,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
@@ -263,7 +263,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
 exports[`app/fetchAndTransformArticle 270 1`] = `
 Object {
   "articleType": "topic-article",
-  "contentCopyrights": Object {},
   "copyright": Object {
     "authors": Array [
       Object {
@@ -287,9 +286,9 @@ Object {
     "origin": "",
   },
   "created": "2016-05-31T12:16:33Z",
-  "footNotes": undefined,
   "id": 270,
   "introduction": "Algebra brukes til å tolke og bruke formler som gjelder dagligliv og yrkesliv, vi bruker algebra til å til å forenkle uttrykk, regne med forhold, prosent, prosentpoeng og vekstfaktor, og når vi skal behandle proporsjonale og omvendt proporsjonale størrelser i praktiske sammenhenger.",
+  "metaData": Object {},
   "metaDescription": "Tall er grunnlaget for all matematikk. Det er derfor veldig viktig å ha god tallforståelse for å gjøre det bra i matematikk.",
   "oldNdlaUrl": "//red.ndla.no/node/165193",
   "requiredLibraries": Array [
@@ -343,9 +342,81 @@ exports[`app/fetchAndTransformArticle 270 2`] = `
 exports[`app/fetchAndTransformArticle 1036 1`] = `
 Object {
   "articleType": "standard",
-  "contentCopyrights": Object {
-    "image": Array [
+  "copyright": Object {
+    "authors": Array [
       Object {
+        "name": "Inga Berntsen Rudi",
+        "type": "Forfatter",
+      },
+    ],
+    "license": Object {
+      "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
+      "license": "by-sa",
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    },
+    "origin": "",
+  },
+  "created": "2009-07-02T15:18:58Z",
+  "id": 1036,
+  "introduction": "FNs utviklingsprogram (UNDP) har flere ganger rangert Norge som det beste landet å leve i. Her skal vi ta for oss noen av de faktorene som gjør at Norge kommer såpass høyt opp på listene, og vi skal se litt på hva som ligger bak tallene.",
+  "metaData": Object {
+    "footnotes": Array [
+      Object {
+        "ref_1": Object {
+          "authors": Array [
+            "",
+          ],
+          "edition": "",
+          "publisher": "SSB",
+          "resource": undefined,
+          "title": "Forventet levealder ved fødsel",
+          "type": "Web Article",
+          "year": 2013,
+        },
+      },
+      Object {
+        "ref_2": Object {
+          "authors": Array [
+            "",
+          ],
+          "edition": "",
+          "publisher": "UNDP",
+          "resource": undefined,
+          "title": "UNDP Education Index",
+          "type": "Web Article",
+          "year": 2013,
+        },
+      },
+      Object {
+        "ref_3": Object {
+          "authors": Array [
+            "",
+          ],
+          "edition": "",
+          "publisher": "Statistisk sentralbyrå",
+          "resource": undefined,
+          "title": "SSB tema utdanning",
+          "type": "Web Article",
+          "year": 2014,
+        },
+      },
+      Object {
+        "ref_4": Object {
+          "authors": Array [
+            "",
+          ],
+          "edition": "",
+          "publisher": "Statistisk sentralbyrå",
+          "resource": undefined,
+          "title": "SSB tema lønn",
+          "type": "Web Article",
+          "year": 2014,
+        },
+      },
+    ],
+    "images": Array [
+      Object {
+        "altText": "",
         "copyright": Object {
           "authors": Array [
             Object {
@@ -369,73 +440,10 @@ Object {
           "origin": "http://www.scanpix.no",
         },
         "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
-        "type": "image",
+        "title": "Fottur på Kvamsfjellet",
       },
     ],
   },
-  "copyright": Object {
-    "authors": Array [
-      Object {
-        "name": "Inga Berntsen Rudi",
-        "type": "Forfatter",
-      },
-    ],
-    "license": Object {
-      "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
-      "license": "by-sa",
-      "url": "https://creativecommons.org/licenses/by-sa/2.0/",
-    },
-    "origin": "",
-  },
-  "created": "2009-07-02T15:18:58Z",
-  "footNotes": Object {
-    "ref_1": Object {
-      "authors": Array [
-        "",
-      ],
-      "edition": "",
-      "publisher": "SSB",
-      "resource": undefined,
-      "title": "Forventet levealder ved fødsel",
-      "type": "Web Article",
-      "year": 2013,
-    },
-    "ref_2": Object {
-      "authors": Array [
-        "",
-      ],
-      "edition": "",
-      "publisher": "UNDP",
-      "resource": undefined,
-      "title": "UNDP Education Index",
-      "type": "Web Article",
-      "year": 2013,
-    },
-    "ref_3": Object {
-      "authors": Array [
-        "",
-      ],
-      "edition": "",
-      "publisher": "Statistisk sentralbyrå",
-      "resource": undefined,
-      "title": "SSB tema utdanning",
-      "type": "Web Article",
-      "year": 2014,
-    },
-    "ref_4": Object {
-      "authors": Array [
-        "",
-      ],
-      "edition": "",
-      "publisher": "Statistisk sentralbyrå",
-      "resource": undefined,
-      "title": "SSB tema lønn",
-      "type": "Web Article",
-      "year": 2014,
-    },
-  },
-  "id": 1036,
-  "introduction": "FNs utviklingsprogram (UNDP) har flere ganger rangert Norge som det beste landet å leve i. Her skal vi ta for oss noen av de faktorene som gjør at Norge kommer såpass høyt opp på listene, og vi skal se litt på hva som ligger bak tallene.",
   "metaDescription": "",
   "oldNdlaUrl": "//red.ndla.no/node/2390",
   "requiredLibraries": Array [],
@@ -470,7 +478,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -561,7 +569,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -573,7 +581,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -668,14 +676,16 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: Fottur på Kvamsfjellet
+              </li>
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -743,88 +753,6 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
 exports[`app/fetchAndTransformArticle 2139 1`] = `
 Object {
   "articleType": "standard",
-  "contentCopyrights": Object {
-    "image": Array [
-      Object {
-        "copyright": Object {
-          "authors": Array [
-            Object {
-              "name": "Ingar Storfjell",
-              "type": "Fotograf",
-            },
-            Object {
-              "name": "Aftenposten",
-              "type": "Leverandør",
-            },
-            Object {
-              "name": "NTB scanpix",
-              "type": "Leverandør",
-            },
-          ],
-          "license": Object {
-            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-            "license": "by-nc-sa",
-            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-          },
-          "origin": "http://www.scanpix.no",
-        },
-        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
-        "type": "image",
-      },
-      Object {
-        "copyright": Object {
-          "authors": Array [
-            Object {
-              "name": "Ingar Storfjell",
-              "type": "Fotograf",
-            },
-            Object {
-              "name": "Aftenposten",
-              "type": "Leverandør",
-            },
-            Object {
-              "name": "NTB scanpix",
-              "type": "Leverandør",
-            },
-          ],
-          "license": Object {
-            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-            "license": "by-nc-sa",
-            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-          },
-          "origin": "http://www.scanpix.no",
-        },
-        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
-        "type": "image",
-      },
-      Object {
-        "copyright": Object {
-          "authors": Array [
-            Object {
-              "name": "Ingar Storfjell",
-              "type": "Fotograf",
-            },
-            Object {
-              "name": "Aftenposten",
-              "type": "Leverandør",
-            },
-            Object {
-              "name": "NTB scanpix",
-              "type": "Leverandør",
-            },
-          ],
-          "license": Object {
-            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-            "license": "by-nc-sa",
-            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-          },
-          "origin": "http://www.scanpix.no",
-        },
-        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
-        "type": "image",
-      },
-    ],
-  },
   "copyright": Object {
     "authors": Array [
       Object {
@@ -840,9 +768,93 @@ Object {
     "origin": "",
   },
   "created": "2017-10-23T10:16:50Z",
-  "footNotes": undefined,
   "id": 2139,
   "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "metaData": Object {
+    "images": Array [
+      Object {
+        "altText": "",
+        "copyright": Object {
+          "authors": Array [
+            Object {
+              "name": "Ingar Storfjell",
+              "type": "Fotograf",
+            },
+            Object {
+              "name": "Aftenposten",
+              "type": "Leverandør",
+            },
+            Object {
+              "name": "NTB scanpix",
+              "type": "Leverandør",
+            },
+          ],
+          "license": Object {
+            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
+            "license": "by-nc-sa",
+            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+          },
+          "origin": "http://www.scanpix.no",
+        },
+        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
+        "title": "Fottur på Kvamsfjellet",
+      },
+      Object {
+        "altText": "",
+        "copyright": Object {
+          "authors": Array [
+            Object {
+              "name": "Ingar Storfjell",
+              "type": "Fotograf",
+            },
+            Object {
+              "name": "Aftenposten",
+              "type": "Leverandør",
+            },
+            Object {
+              "name": "NTB scanpix",
+              "type": "Leverandør",
+            },
+          ],
+          "license": Object {
+            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
+            "license": "by-nc-sa",
+            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+          },
+          "origin": "http://www.scanpix.no",
+        },
+        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
+        "title": "Fottur på Kvamsfjellet",
+      },
+      Object {
+        "altText": "",
+        "copyright": Object {
+          "authors": Array [
+            Object {
+              "name": "Ingar Storfjell",
+              "type": "Fotograf",
+            },
+            Object {
+              "name": "Aftenposten",
+              "type": "Leverandør",
+            },
+            Object {
+              "name": "NTB scanpix",
+              "type": "Leverandør",
+            },
+          ],
+          "license": Object {
+            "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
+            "license": "by-nc-sa",
+            "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+          },
+          "origin": "http://www.scanpix.no",
+        },
+        "src": "https://test.api.ndla.no/image-api/raw/sxd08dab.jpg",
+        "title": "Fottur på Kvamsfjellet",
+      },
+    ],
+  },
   "metaDescription": "Meta",
   "requiredLibraries": Array [],
   "revision": 18,
@@ -879,7 +891,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Vann</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -970,7 +982,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -982,7 +994,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1077,14 +1089,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: Fottur på Kvamsfjellet
+              </li>
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -1125,7 +1139,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Lorem ipsum</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1216,7 +1230,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -1228,7 +1242,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1323,14 +1337,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: Fottur på Kvamsfjellet
+              </li>
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
@@ -1367,7 +1383,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"c-figure__info\\">Crop</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1458,7 +1474,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"article_meta\\">Ingar Storfjell</span>
+            <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
             <button class=\\"c-figure__captionbtn\\">Bruk bildet</button>
           </div>
         </div>
@@ -1470,7 +1486,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <div class=\\"u-expanded\\">
         <div class=\\"c-figure-license__details\\">
           <h3 class=\\"c-figure-license__title\\">Regler for bruk av bildet</h3>
-          <div class=\\"license-byline\\">
+          <div class=\\"c-license-byline\\">
             <ul class=\\"c-license-icons__list\\">
               <li class=\\"c-license-icons__item\\">
                 <svg version=\\"1\\"
@@ -1565,14 +1581,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <a class=\\"c-figure-license__link\\"
             target=\\"_blank\\"
             rel=\\"noopener noreferrer\\"
-            href=\\"https://creativecommons.org/licenses/by-nc-nd/3.0/no/\\">Lær mer om åpne lisenser
+            href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
           </a>
           <div class=\\"c-figure-license__cta-wrapper\\">
             <ul class=\\"c-figure__list\\">
+              <li class=\\"c-figure-list__item\\">Tittel: Fottur på Kvamsfjellet
+              </li>
               <li class=\\"c-figure-list__item\\">Fotograf: Ingar Storfjell</li>
               <li class=\\"c-figure-list__item\\">Leverandør: Aftenposten</li>
               <li class=\\"c-figure-list__item\\">Leverandør: NTB scanpix</li>
-              <li>Kilde:
+              <li class=\\"c-figure-list__item\\">Kilde:
                 <a href=\\"http://www.scanpix.no\\"
                   target=\\"_blank\\"
                   rel=\\"noopener noreferrer\\">http://www.scanpix.no
