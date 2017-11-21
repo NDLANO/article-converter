@@ -48,3 +48,15 @@ test('transformers/tagReplacers changes ol to accommodate frontend styling', () 
   expect(result).toMatch('<ol class="ol-list--roman">');
   expect(result).toMatch('<ol>');
 });
+
+test('transformers/tagReplacers changes p to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+  <p data-align='center'>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch('<p class="u-text-center">');
+});
