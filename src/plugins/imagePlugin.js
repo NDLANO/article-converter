@@ -105,6 +105,7 @@ export default function createImagePlugin() {
         <div className="c-figure__img">
           <Image
             focalPoint={focalPoint}
+            contentType={image.contentType}
             crop={crop}
             sizes={sizes}
             alt={altText}

@@ -13,6 +13,7 @@ import article1036 from './articles/article-1036';
 import article116 from './articles/article-116';
 import article2139 from './articles/article-2139';
 import image2357 from './images/image-2357';
+import image347 from './images/image-347';
 import video125442 from './brightcove/video-125442';
 import videoSources125442 from './brightcove/video-sources-125442';
 
@@ -83,7 +84,7 @@ test('app/fetchAndTransformArticle 2139', async () => {
     .reply(200, image2357);
   nock('https://test.api.ndla.no')
     .get('/image-api/v2/images/3676')
-    .reply(200, image2357);
+    .reply(200, image347);
 
   const transformed = await fetchAndTransformArticle(
     '2139',
