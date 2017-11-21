@@ -1,16 +1,17 @@
-/*
- * Part of NDLA article-converter.
- * Copyright (C) 2017 NDLA
+/**
+ * Copyright (c) 2017-present, NDLA.
  *
- * See LICENSE
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
  */
+
+import { makeIframe } from './pluginHelpers';
 
 export default function createKhanAcademyPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    embed.embed.replaceWith(
-      `<figure><iframe src="${url}" width="${width}" height="${height}" scrolling="no" frameborder="no" align="center"></iframe></figure>`
-    );
+    return makeIframe(url, width, height);
   };
 
   return {

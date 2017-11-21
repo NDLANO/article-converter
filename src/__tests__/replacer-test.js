@@ -7,11 +7,9 @@
  */
 
 import cheerio from 'cheerio';
-import {
-  replaceEmbedsInHtml,
-  addClassToTag,
-  replaceStartAndEndTag,
-} from '../replacer';
+import { prettify } from './testHelpers';
+import { replaceEmbedsInHtml } from '../replacer';
+import getEmbedMetaData from '../getEmbedMetaData';
 import {
   createContentLinkPlugin,
   createH5pPlugin,
@@ -63,6 +61,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       plugin: createImagePlugin(),
       image: {
         id: '1326',
+        title: {
+          title: 'image title',
+        },
         metaUrl: 'http://api.test.ndla.no/images/1326',
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
@@ -80,37 +81,22 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       data: articleContent('embed[data-resource="brightcove"]').data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
+        name: 'brightcove video',
         copyright: {
           authors: [],
           license: {
             license: 'by-nc',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/api.test.ndla.no\/images\/1.jpg\?width=1024".*?\/>/
-  );
-
-  expect(replaced).toMatch(
-    '<figure><iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe></figure>'
-  );
-
-  expect(replaced).toMatch(
-    '<a href="https://ndla-frontend.test.api.ndla.no/nb/article/425">Valg av informanter</a>'
-  );
-  expect(replaced).toMatch('<video');
-  expect(replaced).toMatch(
-    'data-video-id="ref:46012" data-account="4806596774001" data-player="BkLm8fT" data-embed="default" class="video-js" controls>'
-  );
-  expect(replaced).toMatch('</video>');
-  expect(replaced).toMatch('<p>SomeText1</p>');
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
@@ -124,17 +110,35 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="image"]').first(),
-      data: articleContent('embed[data-resource="image"]').first().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .first()
+        .data(),
       plugin: createImagePlugin(),
       id: 1,
       resource: 'image',
       align: '',
       image: {
+        title: {
+          title: 'image title 1',
+        },
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/1.jpg',
         copyright: {
-          authors: [],
+          authors: [
+            {
+              type: 'Leverandør',
+              name: 'Scanpix',
+            },
+            {
+              type: 'Fotograf',
+              name: 'Ola Foton',
+            },
+            {
+              type: 'Kunstner',
+              name: 'Kari Maler',
+            },
+          ],
           license: {
             license: 'by-nc',
           },
@@ -143,12 +147,17 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
     {
       embed: articleContent('embed[data-resource="image"]').last(),
-      data: articleContent('embed[data-resource="image"]').last().data(),
+      data: articleContent('embed[data-resource="image"]')
+        .last()
+        .data(),
       plugin: createImagePlugin(),
       id: 2,
       resource: 'image',
       align: 'left',
       image: {
+        title: {
+          title: 'image title 2',
+        },
         alttext: { alttext: 'alt' },
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/2.jpg',
@@ -163,19 +172,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(/<figure class="c-figure".*?>.*?<\/figure>/);
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/ndla.no\/images\/1.jpg\?width=1024".*?\/>/
-  );
-
-  expect(replaced).toMatch(
-    /<figure class="c-figure article_figure--float-left">.*?<\/figure>/
-  );
-  expect(replaced).toMatch(
-    /<img alt="alt" src="http:\/\/ndla.no\/images\/2.jpg\?width=1024".*?\/>/
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
@@ -189,7 +188,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="brightcove"]').first(),
-      data: articleContent('embed[data-resource="brightcove"]').first().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .first()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -198,11 +199,14 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
             license: 'by-sa',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
     {
       embed: articleContent('embed[data-resource="brightcove"]').last(),
-      data: articleContent('embed[data-resource="brightcove"]').last().data(),
+      data: articleContent('embed[data-resource="brightcove"]')
+        .last()
+        .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
@@ -211,26 +215,15 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
             license: 'by-sa',
           },
         },
+        sources: [{ height: 768, width: 1024 }],
       },
     },
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    /data-video-id="ref:1" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
-  );
-  expect(replaced).toMatch(
-    /data-video-id="ref:2" data-account="1337" data-player="BkLm8fT" data-embed="default" class="video-js" controls>/
-  );
-  expect(replaced).toMatch(
-    /<figure.*>.*<figcaption.*?>.*Brightcove caption.*<\/figcaption>.*<\/figure>/
-  );
-  expect(replaced).toMatch(
-    /<figure.*>.*<figcaption.*?>.*Another caption.*<\/figcaption>.*<\/figure>/
-  );
-  expect(replaced).toMatch(/<button.*>Kopier referanse<\/button>/);
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
@@ -244,12 +237,16 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="nrk"]').first(),
-      data: articleContent('embed[data-resource="nrk"]').first().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .first()
+        .data(),
       plugin: createNRKPlugin(),
     },
     {
       embed: articleContent('embed[data-resource="nrk"]').last(),
-      data: articleContent('embed[data-resource="nrk"]').last().data(),
+      data: articleContent('embed[data-resource="nrk"]')
+        .last()
+        .data(),
       plugin: createNRKPlugin(),
     },
   ];
@@ -281,9 +278,9 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatchSnapshot();
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
@@ -299,11 +296,9 @@ test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen width="1" height="2" src="http://prezi.com"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
@@ -320,11 +315,9 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe id="cc-embed" src="http://common.craft" width="1" height="2" frameborder="0" scrolling="false"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async () => {
@@ -343,11 +336,9 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="http://ndla.filmiundervisning.no/" style="border: none;" frameborder="0" width="1" height="2" allowfullscreen></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
@@ -364,14 +355,13 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
   ];
 
   replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<iframe src="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" width="1" height="2" name="iframe1" scrolling="no" frameborder="no" align="center"></iframe>'
-  );
+  expect(prettify(replaced)).toMatchSnapshot();
 });
 
 test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
+  const plugin = createFootnotePlugin();
   const articleContent = cheerio.load(
     '<section>' +
       '<embed data-authors="regjeringen.no" data-edition="" data-publisher="Barne-, likestillings- og inkluderingsdepartmentet" data-resource="footnote" data-title="Likestilling kommer ikke av seg selv" data-type="Report" data-year="2013">' +
@@ -382,59 +372,23 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   const embeds = [
     {
       embed: articleContent('embed[data-resource="footnote"]').first(),
-      data: articleContent('embed[data-resource="footnote"]').first().data(),
-      plugin: createFootnotePlugin(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .first()
+        .data(),
+      plugin,
     },
     {
       embed: articleContent('embed[data-resource="footnote"]').last(),
-      data: articleContent('embed[data-resource="footnote"]').last().data(),
-      plugin: createFootnotePlugin(),
+      data: articleContent('embed[data-resource="footnote"]')
+        .last()
+        .data(),
+      plugin,
     },
   ];
 
-  const pluginMeta = replaceEmbedsInHtml(embeds, 'nb');
-  const replaced = articleContent.html();
+  replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent('body').html();
 
-  expect(replaced).toMatch(
-    '<a href="#ref_1_cite" name="ref_1_sup"><sup>1</sup></a>'
-  );
-  expect(replaced).toMatch(
-    '<a href="#ref_2_cite" name="ref_2_sup"><sup>2</sup></a>'
-  );
-
-  expect(pluginMeta).toMatchSnapshot();
-});
-
-test('replacer/addClassToTag can add class to tag', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <aside><h3>Test2</h3><div>Other stuff</div></aside>
-  </section>`;
-
-  const fn1 = addClassToTag('aside', 'u-1/3@desktop');
-  const fn2 = addClassToTag('h3', 'headline-level-3');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h2>Test1</h2><div>Stuff</div></aside>'
-  );
-  expect(result).toMatch(
-    '<aside class="u-1/3@desktop"><h3 class="headline-level-3">Test2</h3><div>Other stuff</div></aside>'
-  );
-});
-
-test('replacer/replaceStartAndEndTag can relace start and end tag with new tag/html', () => {
-  const content = `
-  <section>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-    <p>Lorem ipsum</p>
-  </section>`;
-
-  const fn1 = replaceStartAndEndTag('aside', '<section>', '</section>');
-  const fn2 = replaceStartAndEndTag('p', '<aside><div>', '</div></aside>');
-  const result = [fn1, fn2].reduce((html, f) => f(html), content);
-
-  expect(result).toMatch('<section><h2>Test1</h2><div>Stuff</div></section>');
-  expect(result).toMatch('<aside><div>Lorem ipsum</div></aside>');
+  expect(getEmbedMetaData(embeds)).toMatchSnapshot();
+  expect(prettify(replaced)).toMatchSnapshot();
 });

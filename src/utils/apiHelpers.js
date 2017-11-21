@@ -32,7 +32,9 @@ export function resolveJsonOrRejectWithError(res) {
       return res.status === 204 ? resolve() : resolve(res.json());
     }
     log.warn(
-      `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
+      `Api call to ${res.url} failed with status ${res.status} ${
+        res.statusText
+      }`
     );
     return res
       .json()

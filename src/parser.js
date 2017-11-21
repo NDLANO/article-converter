@@ -6,9 +6,10 @@
  *
  */
 
-import plugins from './plugins';
+import createPlugins from './plugins';
 
 export function getEmbedsFromHtml(html) {
+  const plugins = createPlugins();
   return new Promise(resolve => {
     const embeds = html('embed')
       .map((_, embed) => ({

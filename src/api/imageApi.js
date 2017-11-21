@@ -16,7 +16,9 @@ function resolveJsonOrRejectWithImageObject(res) {
       return res.status === 204 ? resolve() : resolve(res.json());
     }
     log.warn(
-      `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
+      `Api call to ${res.url} failed with status ${res.status} ${
+        res.statusText
+      }`
     );
     return res
       .json()
@@ -30,7 +32,9 @@ function resolveJsonOrRejectWithImageObject(res) {
       .then(() =>
         resolve(
           Object.assign({
-            imageUrl: `https://placeholdit.imgix.net/~text?txtsize=28&txt=${res.statusText}&w=1000&h=500`,
+            imageUrl: `https://placeholdit.imgix.net/~text?txtsize=28&txt=${
+              res.statusText
+            }&w=1000&h=500`,
           })
         )
       );

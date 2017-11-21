@@ -1,16 +1,17 @@
-/*
- * Part of NDLA article-converter.
- * Copyright (C) 2017 NDLA
+/**
+ * Copyright (c) 2017-present, NDLA.
  *
- * See LICENSE
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
  */
+
+import { makeIframe } from './pluginHelpers';
 
 export default function createPreziPlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    embed.embed.replaceWith(
-      `<iframe id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="${width}" height="${height}" src="${url}"></iframe>`
-    );
+    return makeIframe(url, width, height);
   };
 
   return {

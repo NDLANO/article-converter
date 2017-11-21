@@ -34,7 +34,7 @@
     "eslint-config-ndla": "^0.2.1",
     "jest": "^20.0.4",
     "nodemon": "^1.11.0",
-    "prettier": "^1.5.2",
+    "prettier": "^1.8.2",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
@@ -55,9 +55,9 @@
     "lodash": "^4.17.4",
     "ndla-i18n": "^0.2.0",
     "ndla-licenses": "^0.1.0",
-    "ndla-ui": "^0.8.5",
+    "ndla-ui": "^0.8.20",
     "ndla-util": "^0.1.2",
-    "parse5": "^3.0.2",
+    "nock": "^9.0.25",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",

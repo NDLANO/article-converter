@@ -16,7 +16,7 @@ import config from './config';
 import { fetchArticle } from './api/articleApi';
 import { getHtmlLang } from './locale/configureLocale';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
-import { transformContentAndExtractCopyrightInfo } from './transformers';
+import { transform } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 
 const app = express();
@@ -28,26 +28,26 @@ app.use(
   })
 );
 
-async function fetchAndTransformArticle(articleId, lang, accessToken) {
-  const article = await fetchArticle(articleId, accessToken);
+export async function fetchAndTransformArticle(articleId, lang, accessToken) {
+  const article = await fetchArticle(articleId, accessToken, lang);
   const articleContent = cheerio.load(article.content.content);
-  const content = await transformContentAndExtractCopyrightInfo(
+  const { html, embedMetaData } = await transform(
     articleContent,
     lang,
-    accessToken
+    accessToken,
+    article.visualElement
   );
 
   return {
     ...article,
-    content: content.html,
-    footNotes: content.pluginData.footnote,
+    content: html,
+    metaData: embedMetaData,
     title: article.title.title,
     tags: article.tags.tags,
     introduction: article.introduction
       ? article.introduction.introduction
       : undefined,
     metaDescription: article.metaDescription.metaDescription,
-    contentCopyrights: content.copyrights,
   };
 }
 
@@ -94,4 +94,4 @@ app.get('*', (req, res) => {
   res.status(404).json({ status: 404, text: 'Not found' });
 });
 
-module.exports = app;
+export default app;
