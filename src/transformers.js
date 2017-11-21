@@ -24,6 +24,10 @@ export const tagReplacers = [
     content('ol[data-type="letters"]')
       .removeAttr('data-type')
       .addClass('ol-list--roman'),
+  content =>
+    content('p[data-align="center"]')
+      .removeAttr('data-align')
+      .addClass('u-text-center'),
 ];
 
 export async function transformContentAndExtractCopyrightInfo(
