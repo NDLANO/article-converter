@@ -89,3 +89,15 @@ test('transformers/tagReplacers adds display block to math tags', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('transformers/tagReplacers changes p to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+  <p data-align='center'>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch('<p class="u-text-center">');
+});
