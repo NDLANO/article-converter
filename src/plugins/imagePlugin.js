@@ -12,11 +12,11 @@ import classnames from 'classnames';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import Image from 'ndla-ui/lib/Image';
-import { fetchImageResources } from '../api/imageApi';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
+import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
 
