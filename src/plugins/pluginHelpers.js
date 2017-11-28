@@ -28,3 +28,32 @@ export const makeIframe = (url, width, height, resize = true) => {
     resize
   );
 };
+
+function getContributorGroups(copyright, lang) {
+  const creators = mkContributorString(copyright.creators, lang, 'originator');
+  const rightsholders = mkContributorString(
+    copyright.rightsholders,
+    lang,
+    'rightsholder'
+  );
+  const processors = mkContributorString(
+    copyright.processors,
+    lang,
+    'processor'
+  );
+
+  return [
+    {
+      type: contributorTypes[lang].creator,
+      name: creators,
+    },
+    {
+      type: contributorTypes[lang].rightsholder,
+      name: rightsholders,
+    },
+    {
+      type: contributorTypes[lang].processor,
+      name: processors,
+    },
+  ].filter(item => item.name !== '');
+}
