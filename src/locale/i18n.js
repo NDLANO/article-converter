@@ -10,7 +10,6 @@ const defined = require('defined');
 const IntlMessageFormat = require('intl-messageformat');
 const memoizeIntlConstructor = require('intl-format-cache');
 const { formatMessage } = require('ndla-i18n');
-const { contributorTypes } = require('ndla-licenses');
 
 let getMessageFormat;
 
@@ -32,7 +31,6 @@ const messages = {
     'concept.showDescription': 'Vis begrep beskrivelse',
     learnAboutLicenses: 'Lær mer om åpne lisenser',
     source: 'Kilde',
-    'license.contributorTypes': contributorTypes.nb,
   },
   en: {
     close: 'Close',
@@ -47,7 +45,6 @@ const messages = {
     'concept.showDescription': 'Show concept description',
     learnAboutLicenses: 'Learn more about open licenses',
     source: 'Source',
-    'license.contributorTypes': contributorTypes.en,
   },
 };
 
