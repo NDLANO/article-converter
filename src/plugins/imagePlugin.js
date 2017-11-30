@@ -12,7 +12,10 @@ import classnames from 'classnames';
 import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import Image from 'ndla-ui/lib/Image';
-import { getLicenseByAbbreviation } from 'ndla-licenses';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+} from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
@@ -90,15 +93,41 @@ export default function createImagePlugin() {
       licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
     }${licenseAbbreviation}`.toUpperCase();
 
-    const creators = authors.filter(author =>
-      CREATOR_TYPES.find(type => author.type === type)
-    );
+    let creators = [];
+    if (authors) {
+      creators = authors.filter(author =>
+        CREATOR_TYPES.find(type => author.type === type)
+      );
+    } else {
+      creators = image.copyright.creators;
+    }
 
-    const authorsCopyString = authors
-      .filter(author => author.type !== 'Leverandør')
-      .map(author => author.name)
-      .join(', ');
-    const copyString = `${licenseCopyString} ${authorsCopyString}`;
+    let contributors = [];
+    if (authors) {
+      contributors = authors;
+    } else {
+      contributors = getGroupedContributorDescriptionList(
+        image.copyright,
+        locale
+      ).map(item => ({
+        name: item.description,
+        type: item.label,
+      }));
+    }
+
+    let contributorsCopyString;
+    if (authors) {
+      contributorsCopyString = authors
+        .filter(author => author.type !== 'Leverandør')
+        .map(author => author.name)
+        .join(', ');
+    } else {
+      contributorsCopyString = image.copyright.creators
+        .map(author => author.name)
+        .join(', ');
+    }
+
+    const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
     return renderToStaticMarkup(
       <Figure className={figureClassNames}>
@@ -122,7 +151,7 @@ export default function createImagePlugin() {
           title={image.title.title}
           licenseRights={license.rights}
           licenseUrl={license.url}
-          authors={authors}
+          authors={contributors}
           origin={image.copyright.origin}
           messages={messages}>
           <Button
