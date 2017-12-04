@@ -443,7 +443,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 exports[`replacer/replaceEmbedsInHtml replace commoncraft embeds 1`] = `
 "
 <section>
-  <figure class=\\"c-embedded c-embedded--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"http://common.craft\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -943,7 +943,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
 "
 <section>
-  <figure class=\\"c-embedded c-embedded--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -958,7 +958,7 @@ exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
 exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] = `
 "
 <section>
-  <figure class=\\"c-embedded c-embedded--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"http://ndla.filmiundervisning.no/\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -973,7 +973,7 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
 exports[`replacer/replaceEmbedsInHtml replace prezi embeds 1`] = `
 "
 <section>
-  <figure class=\\"c-embedded c-embedded--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"http://prezi.com\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -1204,7 +1204,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </div>
   </figure>
   <p>SomeText1</p>
-  <figure class=\\"c-embedded\\">
+  <figure class=\\"c-figure\\">
     <iframe src=\\"https://ndlah5p.joubel.com/h5p/embed/4\\" />
 
   </figure>

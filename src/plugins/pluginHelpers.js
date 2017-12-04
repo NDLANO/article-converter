@@ -9,9 +9,9 @@
 import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 
-export const wrapInFigureEmbedded = (content, resize = true) => {
-  const embedClassnames = classnames('c-embedded', {
-    'c-embedded--resize': resize,
+export const wrapInFigure = (content, resize = true) => {
+  const embedClassnames = classnames('c-figure', {
+    'c-figure--resize': resize,
   });
   return `<figure class="${embedClassnames}">${content}</figure>`;
 };
@@ -21,7 +21,7 @@ export const makeIframe = (url, width, height, resize = true) => {
   const strippedHeight = isNumber(height)
     ? height
     : height.replace(/\s*px/, '');
-  return wrapInFigureEmbedded(
+  return wrapInFigure(
     `<iframe src="${url}" width="${strippedWidth}" height="${
       strippedHeight
     }" allowfullscreen scrolling="no" frameborder="0" ></iframe>`,
