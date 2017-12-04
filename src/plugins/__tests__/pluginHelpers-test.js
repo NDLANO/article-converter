@@ -6,11 +6,11 @@
  *
  */
 
-import { makeIframe, wrapInFigureEmbedded } from '../pluginHelpers';
+import { makeIframe, wrapInFigure } from '../pluginHelpers';
 
-test('wrapInFigureEmbed', () => {
-  expect(wrapInFigureEmbedded('<div></div>')).toMatchSnapshot();
-  expect(wrapInFigureEmbedded('<div></div>', false)).toMatchSnapshot();
+test('wrapInFigure', () => {
+  expect(wrapInFigure('<div></div>')).toMatchSnapshot();
+  expect(wrapInFigure('<div></div>', false)).toMatchSnapshot();
 });
 
 test('makeIframe', () => {
