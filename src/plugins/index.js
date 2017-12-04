@@ -21,6 +21,7 @@ import createKahootPlugin from './kahootPlugin';
 import createKhanAcademyPlugin from './khanAcademyPlugin';
 import createTv2SkolePlugin from './tv2SkolePlugin';
 import createVgNoPlugin from './vgnoPlugin';
+import createScribdPlugin from './scribdPlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPluin from './conceptPlugin';
 
@@ -40,6 +41,7 @@ export {
   createKhanAcademyPlugin,
   createTv2SkolePlugin,
   createVgNoPlugin,
+  createScribdPlugin,
   createFootnotePlugin,
   createConceptPluin,
 };
@@ -60,6 +62,7 @@ export default () => [
   createKhanAcademyPlugin(),
   createTv2SkolePlugin(),
   createVgNoPlugin(),
+  createScribdPlugin(),
   createFootnotePlugin(),
   createConceptPluin(),
 ];
