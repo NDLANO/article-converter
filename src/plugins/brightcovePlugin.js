@@ -61,7 +61,7 @@ export default function createBrightcovePlugin() {
     };
 
     return renderToStaticMarkup(
-      <Figure>
+      <Figure resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           height={height}
@@ -77,6 +77,7 @@ export default function createBrightcovePlugin() {
           authors={authors}
         />
         <FigureDetails
+          id={videoid}
           licenseRights={license.rights}
           licenseUrl={license.url}
           authors={authors}

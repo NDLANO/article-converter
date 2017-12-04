@@ -114,10 +114,10 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         .first()
         .data(),
       plugin: createImagePlugin(),
-      id: 1,
       resource: 'image',
       align: '',
       image: {
+        id: 1,
         title: {
           title: 'image title 1',
         },
@@ -151,10 +151,10 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         .last()
         .data(),
       plugin: createImagePlugin(),
-      id: 2,
       resource: 'image',
       align: 'left',
       image: {
+        id: 2,
         title: {
           title: 'image title 2',
         },

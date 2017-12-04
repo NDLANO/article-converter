@@ -148,6 +148,7 @@ export default function createImagePlugin() {
           authors={creators}
         />
         <FigureDetails
+          id={image.id.toString()}
           title={image.title.title}
           licenseRights={license.rights}
           licenseUrl={license.url}
