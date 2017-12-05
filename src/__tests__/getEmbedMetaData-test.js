@@ -58,6 +58,18 @@ test('get meta data from embeds', async () => {
             src: 'https://image.no/123.jpg',
           },
         },
+        sources: [
+          {
+            src: 'test3.mp4',
+            container: 'MP4',
+            size: 3,
+          },
+          {
+            src: 'test4.mp4',
+            container: 'MP4',
+            size: 4,
+          },
+        ],
       },
       plugin: brightcovePlugin,
     },

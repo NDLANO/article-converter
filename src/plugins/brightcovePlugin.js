@@ -28,11 +28,16 @@ export default function createBrightcovePlugin() {
 
   const getMetaData = embed => {
     const { brightcove, data: { account, videoid } } = embed;
+    const mp4s = defined(embed.brightcove.sources, [])
+      .filter(source => source.container === 'MP4' && source.src)
+      .sort((a, b) => b.size - a.size);
+
     return {
       title: brightcove.name,
       copyright: brightcove.copyright,
       cover: get('images.poster.src', brightcove),
-      src: iframeSrc(account, videoid),
+      src: mp4s[0] ? mp4s[0].src : undefined,
+      iframeSrc: iframeSrc(account, videoid),
     };
   };
 
