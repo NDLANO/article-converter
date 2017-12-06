@@ -17,7 +17,12 @@ Object {
         "license": "by-sa",
       },
       "cover": "https://image.no/123.jpg",
-      "src": "https://players.brightcove.net/account/default_default/index.html?videoId=1337",
+      "iframe": Object {
+        "height": 600,
+        "src": "https://players.brightcove.net/account/default_default/index.html?videoId=1337",
+        "width": 1000,
+      },
+      "src": "test4.mp4",
       "title": "video title",
     },
     Object {
@@ -25,7 +30,12 @@ Object {
         "license": "by-sa",
       },
       "cover": undefined,
-      "src": "https://players.brightcove.net/account/default_default/index.html?videoId=42",
+      "iframe": Object {
+        "height": "480",
+        "src": "https://players.brightcove.net/account/default_default/index.html?videoId=42",
+        "width": "640",
+      },
+      "src": "test4.mp4",
       "title": undefined,
     },
   ],

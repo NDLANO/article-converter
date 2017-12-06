@@ -58,6 +58,20 @@ test('get meta data from embeds', async () => {
             src: 'https://image.no/123.jpg',
           },
         },
+        sources: [
+          {
+            src: 'test3.mp4',
+            container: 'STREAM',
+            size: 3,
+            width: 1000,
+            height: 600,
+          },
+          {
+            src: 'test4.mp4',
+            container: 'MP4',
+            size: 4,
+          },
+        ],
       },
       plugin: brightcovePlugin,
     },
@@ -65,6 +79,18 @@ test('get meta data from embeds', async () => {
       data: { resource: 'brightcove', account: 'account', videoid: '42' },
       brightcove: {
         copyright: { license: 'by-sa' },
+        sources: [
+          {
+            src: 'test3.mp4',
+            container: 'MP4',
+            size: 3,
+          },
+          {
+            src: 'test4.mp4',
+            container: 'MP4',
+            size: 4,
+          },
+        ],
       },
       plugin: brightcovePlugin,
     },

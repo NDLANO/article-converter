@@ -21,18 +21,27 @@ import t from '../locale/i18n';
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const iframeSrc = (account, videoid) =>
-    `https://players.brightcove.net/${
+  const getIframeProps = (account, videoid, sources) => ({
+    src: `https://players.brightcove.net/${
       account
-    }/default_default/index.html?videoId=${videoid}`;
+    }/default_default/index.html?videoId=${videoid}`,
+    height: defined(sources[0].height, '480'),
+    width: defined(sources[0].width, '640'),
+  });
 
   const getMetaData = embed => {
     const { brightcove, data: { account, videoid } } = embed;
+
+    const mp4s = brightcove.sources
+      .filter(source => source.container === 'MP4' && source.src)
+      .sort((a, b) => b.size - a.size);
+
     return {
       title: brightcove.name,
       copyright: brightcove.copyright,
       cover: get('images.poster.src', brightcove),
-      src: iframeSrc(account, videoid),
+      src: mp4s[0] ? mp4s[0].src : undefined,
+      iframe: getIframeProps(account, videoid, brightcove.sources),
     };
   };
 
@@ -40,8 +49,6 @@ export default function createBrightcovePlugin() {
     const { brightcove, data: { account, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
     const licenseAbbreviation = brightcove.copyright.license.license;
-    const height = defined(brightcove.sources[0].height, '480');
-    const width = defined(brightcove.sources[0].width, '640');
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
     const licenseCopyString = `${
       licenseAbbreviation.includes('by') ? 'CC ' : ''
@@ -64,10 +71,8 @@ export default function createBrightcovePlugin() {
       <Figure resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
-          height={height}
-          width={width}
           frameBorder="0"
-          src={iframeSrc(account, videoid)}
+          {...getIframeProps(account, videoid, brightcove.sources)}
           allowFullScreen
         />
         <FigureCaption
