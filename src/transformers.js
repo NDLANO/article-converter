@@ -6,11 +6,18 @@
  *
  */
 
+import cheerio from 'cheerio';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 
-export const tagReplacers = [
+export const moveDialogsToRoot = content => {
+  const dialog = cheerio.html(content('[role=dialog]'));
+  content('[role=dialog]').remove();
+  content('body').append(dialog);
+};
+
+export const htmlTransforms = [
   content => {
     content('aside').each((_, aside) => {
       const isFactAside =
@@ -59,7 +66,7 @@ export async function transform(content, lang, accessToken, visualElement) {
 
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
-  tagReplacers.forEach(replacer => replacer(content));
+  htmlTransforms.forEach(replacer => replacer(content));
 
   return {
     html: content('body').html(),
