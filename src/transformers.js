@@ -11,9 +11,9 @@ import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 
-export const moveDialogsToRoot = content => {
-  const dialog = cheerio.html(content('[role=dialog]'));
-  content('[role=dialog]').remove();
+export const moveReactPortals = content => {
+  const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
+  content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
 };
 
@@ -45,7 +45,7 @@ export const htmlTransforms = [
     content('p[data-align="center"]')
       .removeAttr('data-align')
       .addClass('u-text-center'),
-  moveDialogsToRoot,
+  moveReactPortals,
 ];
 
 export async function transform(content, lang, accessToken, visualElement) {

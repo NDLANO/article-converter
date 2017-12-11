@@ -14,11 +14,11 @@ exports[`transformers/htmlTransforms adds display block to math tags 1`] = `
   </body></html>"
 `;
 
-exports[`transformers/moveDialogsToRoot 1`] = `
+exports[`transformers/moveReactPortals 1`] = `
 "<html><head></head><body><section>
     <figure>
       <p>Lorem ipsum dolor sit amet...</p>
       
     </figure>
-  </section><div role=\\"dialog\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
+  </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
 `;

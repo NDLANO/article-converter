@@ -130,7 +130,7 @@ export default function createImagePlugin() {
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
     return renderToStaticMarkup(
-      <Figure className={figureClassNames}>
+      <Figure id={image.id.toString()} className={figureClassNames}>
         <div className="c-figure__img">
           <Image
             focalPoint={focalPoint}

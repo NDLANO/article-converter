@@ -7,7 +7,7 @@
  */
 
 import cheerio from 'cheerio';
-import { htmlTransforms, moveDialogsToRoot } from '../transformers';
+import { htmlTransforms, moveReactPortals } from '../transformers';
 
 test('transformers/htmlTransforms changes aside to accommodate frontend styling', () => {
   const content = cheerio.load(`
@@ -102,16 +102,16 @@ test('transformers/htmlTransforms changes p to accommodate frontend styling', ()
   expect(result).toMatch('<p class="u-text-center">');
 });
 
-test('transformers/moveDialogsToRoot', () => {
+test('transformers/moveReactPortals', () => {
   const content = cheerio.load(`
   <section>
     <figure>
       <p>Lorem ipsum dolor sit amet...</p>
-      <div role="dialog"><h2>Modal dialog</h2><div>Stuff</div></div>
+      <div data-react-universal-portal="true"><h2>Modal dialog</h2><div>Stuff</div></div>
     </figure>
   </section>`);
 
-  moveDialogsToRoot(content);
+  moveReactPortals(content);
 
   const result = content.html();
 

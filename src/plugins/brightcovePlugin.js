@@ -68,7 +68,7 @@ export default function createBrightcovePlugin() {
     };
 
     return renderToStaticMarkup(
-      <Figure resizeIframe>
+      <Figure id={videoid} resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           frameBorder="0"
