@@ -45,6 +45,7 @@ export const htmlTransforms = [
     content('p[data-align="center"]')
       .removeAttr('data-align')
       .addClass('u-text-center'),
+  moveDialogsToRoot,
 ];
 
 export async function transform(content, lang, accessToken, visualElement) {
