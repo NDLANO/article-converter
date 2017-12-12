@@ -161,10 +161,7 @@ export default function createImagePlugin() {
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
           </Button>
-          <a
-            href={src}
-            className="c-button c-button--outline"
-            download>
+          <a href={src} className="c-button c-button--outline" download>
             {t(locale, 'image.download')}
           </a>
         </FigureLicenseDialog>
