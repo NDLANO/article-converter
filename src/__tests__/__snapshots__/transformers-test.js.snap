@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformers/tagReplacers adds display block to math tags 1`] = `
+exports[`transformers/htmlTransforms adds display block to math tags 1`] = `
 "<html><head></head><body><section>
     <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
       <mi>f</mi><mo>&apos;</mo>
@@ -12,4 +12,13 @@ exports[`transformers/tagReplacers adds display block to math tags 1`] = `
     </math>
   </section>
   </body></html>"
+`;
+
+exports[`transformers/moveReactPortals 1`] = `
+"<html><head></head><body><section>
+    <figure>
+      <p>Lorem ipsum dolor sit amet...</p>
+      
+    </figure>
+  </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
 `;

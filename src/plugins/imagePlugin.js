@@ -9,7 +9,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
-import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import Image from 'ndla-ui/lib/Image';
 import {
@@ -130,7 +130,7 @@ export default function createImagePlugin() {
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
     return renderToStaticMarkup(
-      <Figure className={figureClassNames}>
+      <Figure id={image.id.toString()} className={figureClassNames}>
         <div className="c-figure__img">
           <Image
             focalPoint={focalPoint}
@@ -147,7 +147,7 @@ export default function createImagePlugin() {
           licenseRights={license.rights}
           authors={creators}
         />
-        <FigureDetails
+        <FigureLicenseDialog
           id={image.id.toString()}
           title={image.title.title}
           licenseRights={license.rights}
@@ -157,18 +157,14 @@ export default function createImagePlugin() {
           messages={messages}>
           <Button
             outline
-            className="c-licenseToggle__button"
             data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
           </Button>
-          <a
-            href={src}
-            className="c-button c-button--outline c-licenseToggle__button"
-            download>
+          <a href={src} className="c-button c-button--outline" download>
             {t(locale, 'image.download')}
           </a>
-        </FigureDetails>
+        </FigureLicenseDialog>
       </Figure>
     );
   };

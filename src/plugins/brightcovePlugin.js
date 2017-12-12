@@ -11,7 +11,7 @@
 import React from 'react';
 import defined from 'defined';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
 import { get } from 'lodash/fp';
@@ -68,7 +68,7 @@ export default function createBrightcovePlugin() {
     };
 
     return renderToStaticMarkup(
-      <Figure resizeIframe>
+      <Figure id={videoid} resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           frameBorder="0"
@@ -81,7 +81,7 @@ export default function createBrightcovePlugin() {
           licenseRights={license.rights}
           authors={authors}
         />
-        <FigureDetails
+        <FigureLicenseDialog
           id={videoid}
           licenseRights={license.rights}
           licenseUrl={license.url}
@@ -89,12 +89,11 @@ export default function createBrightcovePlugin() {
           messages={messages}>
           <Button
             outline
-            className="c-licenseToggle__button"
             data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
           </Button>
-        </FigureDetails>
+        </FigureLicenseDialog>
       </Figure>
     );
   };
