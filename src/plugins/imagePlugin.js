@@ -9,110 +9,169 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
-import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
-import { getLicenseByAbbreviation } from 'ndla-licenses';
+import Image from 'ndla-ui/lib/Image';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+} from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
 
+const getFocalPoint = data => {
+  if (data.focalX && data.focalY) {
+    return { x: data.focalX, y: data.focalY };
+  }
+  return undefined;
+};
+
+const getCrop = data => {
+  if (
+    data.lowerRightX &&
+    data.lowerRightY &&
+    data.upperLeftX &&
+    data.upperLeftY
+  ) {
+    return {
+      startX: data.lowerRightX,
+      startY: data.lowerRightY,
+      endX: data.upperLeftX,
+      endY: data.upperLeftY,
+    };
+  }
+  return undefined;
+};
+
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
+  const getMetaData = embed => {
+    const { image } = embed;
+    return {
+      title: image.title.title,
+      altText: image.alttext.alttext,
+      copyright: image.copyright,
+      src: image.imageUrl,
+    };
+  };
+
   const embedToHTML = (embed, locale) => {
-    const { image, data: { align, caption: embedCaption } } = embed;
+    const { image, data: { align, size, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
-    const { authors, license: { license } } = image.copyright;
+    const {
+      authors,
+      license: { license: licenseAbbreviation },
+    } = image.copyright;
     const altText = image.alttext.alttext;
     const caption = embedCaption === '' ? image.caption.caption : embedCaption;
-    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureClassNames = classnames('c-figure', {
-      'u-float-right': align === 'right',
-      'u-float-left': align === 'left',
+      'u-float-right': align === 'right' && size !== 'hoyrespalte',
+      'u-float-left': align === 'left' && size !== 'hoyrespalte',
+      'u-float-small-right': align === 'right' && size === 'hoyrespalte',
+      'u-float-small-left': align === 'left' && size === 'hoyrespalte',
     });
 
+    const sizes = align
+      ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
+      : '(min-width: 1024px) 1024px, 100vw';
+
     const messages = {
+      title: t(locale, 'title'),
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'image.rulesForUse'),
-      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
 
-    const srcSets = [
-      `${src}?width=2720 2720w`,
-      `${src}?width=2080 2080w`,
-      `${src}?width=1760 1760w`,
-      `${src}?width=1440 1440w`,
-      `${src}?width=1120 1120w`,
-      `${src}?width=1000 1000w`,
-      `${src}?width=960 960w`,
-      `${src}?width=800 800w`,
-      `${src}?width=640 640w`,
-      `${src}?width=480 480w`,
-      `${src}?width=320 320w`,
-    ].join(', ');
+    const focalPoint = getFocalPoint(embed.data);
+    const crop = getCrop(embed.data);
+    const licenseCopyString = `${
+      licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
+    }${licenseAbbreviation}`.toUpperCase();
 
-    const licenseCopyString = `${license.toLowerCase().includes('by')
-      ? 'CC '
-      : ''}${license}`.toUpperCase();
+    let creators = [];
+    if (authors) {
+      creators = authors.filter(author =>
+        CREATOR_TYPES.find(type => author.type === type)
+      );
+    } else {
+      creators = image.copyright.creators;
+    }
 
-    const creators = authors.filter(author =>
-      CREATOR_TYPES.find(type => author.type === type)
-    );
+    let contributors = [];
+    if (authors) {
+      contributors = authors;
+    } else {
+      contributors = getGroupedContributorDescriptionList(
+        image.copyright,
+        locale
+      ).map(item => ({
+        name: item.description,
+        type: item.label,
+      }));
+    }
 
-    const authorsCopyString = authors
-      .filter(author => author.type !== 'Leverandør')
-      .map(author => author.name)
-      .join(', ');
-    const copyString = `${licenseCopyString} ${authorsCopyString}`;
+    let contributorsCopyString;
+    if (authors) {
+      contributorsCopyString = authors
+        .filter(author => author.type !== 'Leverandør')
+        .map(author => author.name)
+        .join(', ');
+    } else {
+      contributorsCopyString = image.copyright.creators
+        .map(author => author.name)
+        .join(', ');
+    }
+
+    const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
     return renderToStaticMarkup(
-      <Figure className={figureClassNames}>
+      <Figure id={image.id.toString()} className={figureClassNames}>
         <div className="c-figure__img">
-          <picture>
-            <source
-              srcSet={srcSets}
-              sizes="(min-width: 1000px) 1000px, 100vw" // max-width 1024 - 52 padding = 972 ≈ 1000
-            />
-            <img
-              alt={altText}
-              src={`${src}?width=1024`}
-              srcSet={`${src}?width=2048 2x`}
-            />
-          </picture>
+          <Image
+            focalPoint={focalPoint}
+            contentType={image.contentType}
+            crop={crop}
+            sizes={sizes}
+            alt={altText}
+            src={`${src}`}
+          />
         </div>
         <FigureCaption
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
-          licenseRights={licenseRights}
+          licenseRights={license.rights}
           authors={creators}
         />
-        <FigureDetails
-          licenseRights={licenseRights}
-          authors={authors}
+        <FigureLicenseDialog
+          id={image.id.toString()}
+          title={image.title.title}
+          licenseRights={license.rights}
+          licenseUrl={license.url}
+          authors={contributors}
           origin={image.copyright.origin}
           messages={messages}>
           <Button
             outline
-            className="c-licenseToggle__button"
             data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
           </Button>
-          <a
-            href={src}
-            className="c-button c-button--outline c-licenseToggle__button"
-            download>
+          <a href={src} className="c-button c-button--outline" download>
             {t(locale, 'image.download')}
           </a>
-        </FigureDetails>
+        </FigureLicenseDialog>
       </Figure>
     );
   };
 
   return {
     resource: 'image',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

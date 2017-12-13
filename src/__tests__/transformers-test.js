@@ -7,9 +7,9 @@
  */
 
 import cheerio from 'cheerio';
-import { tagReplacers } from '../transformers';
+import { htmlTransforms, moveReactPortals } from '../transformers';
 
-test('transformers/tagReplacers changes aside to accommodate frontend styling', () => {
+test('transformers/htmlTransforms changes aside to accommodate frontend styling', () => {
   const content = cheerio.load(`
   <section>
     <p>Lorem ipsum dolor sit amet...</p>
@@ -19,7 +19,7 @@ test('transformers/tagReplacers changes aside to accommodate frontend styling', 
     <p>Lorem ipsum dolor sit amet...</p>
   </section>`);
 
-  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch(
@@ -30,7 +30,7 @@ test('transformers/tagReplacers changes aside to accommodate frontend styling', 
   );
 });
 
-test('transformers/tagReplacers changes ol to accommodate frontend styling', () => {
+test('transformers/htmlTransforms changes ol to accommodate frontend styling', () => {
   const content = cheerio.load(`
   <section>
     <ol data-type='letters'>
@@ -42,9 +42,78 @@ test('transformers/tagReplacers changes ol to accommodate frontend styling', () 
     </ol>
   </section>`);
 
-  tagReplacers.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch('<ol class="ol-list--roman">');
   expect(result).toMatch('<ol>');
+});
+
+test('transformers/htmlTransforms changes fact aside to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <aside data-type='factAside'><h2>Test1</h2><div>Stuff</div></aside>
+  </section>
+    <aside data-type="factAside"><h2>Test2</h2><div>Other stuff</div></aside>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch(
+    '<aside class="c-aside"><div class="c-aside__content"><h2>Test1</h2><div>Stuff</div></div><button class="c-button c-aside__button"></button></aside>'
+  );
+  expect(result).toMatch(
+    '<aside class="c-aside"><div class="c-aside__content"><h2>Test2</h2><div>Other stuff</div></div><button class="c-button c-aside__button"></button></aside>'
+  );
+});
+
+test('transformers/htmlTransforms adds display block to math tags', () => {
+  const content = cheerio.load(`
+  <section>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>f</mi><mo>'</mo>
+      <mfenced><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow></mfenced>
+      <mo>=</mo><mn>2</mn><mo>&#xB7;</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>1</mn>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mn>0</mn><mo>,</mo><mn>5</mn>
+    </math>
+  </section>
+  `);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatchSnapshot();
+});
+
+test('transformers/htmlTransforms changes p to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+  <p data-align='center'>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch('<p class="u-text-center">');
+});
+
+test('transformers/moveReactPortals', () => {
+  const content = cheerio.load(`
+  <section>
+    <figure>
+      <p>Lorem ipsum dolor sit amet...</p>
+      <div data-react-universal-portal="true"><h2>Modal dialog</h2><div>Stuff</div></div>
+    </figure>
+  </section>`);
+
+  moveReactPortals(content);
+
+  const result = content.html();
+
+  expect(result).toMatchSnapshot();
 });

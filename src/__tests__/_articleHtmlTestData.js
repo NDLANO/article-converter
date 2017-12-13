@@ -15,7 +15,7 @@ export const articleWithMultipleResources = `
      <p></p>
   </section>
   <section>
-     I Lasswells kommunikasjonsmodell kan kommunikasjonsprosessen formulerast i ei setning: «Kven seier kva til kven gjennom kva kanal med kva verknad?» 
+     I Lasswells kommunikasjonsmodell kan kommunikasjonsprosessen formulerast i ei setning: «Kven seier kva til kven gjennom kva kanal med kva verknad?»
      <p>Modellen forklarer ikke fullt og heilt korleis kommunikasjon faktisk går føre seg. Vi skal ikkje gløyme at modellar er forenklingar av verkelegheita.</p>
      <p>Nedanfor får du nokre døme på korleis vi kan nytte prosessmodellen til å forklare ulike typar kommunikasjon. Vi ser nærmare på eit døme på propaganda, eit på underhaldning og så døme på journalistikk, reklame og informasjon.</p>
   </section>
@@ -90,7 +90,7 @@ export const articleWithContentLink = `
     <section>
       <ul>
         <li><embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"></embed></li>
-        <li><embed data-resource="content-link" data-id="2" data-content-id="424" data-link-text="Bearbeiding av datamaterialet"></embed></li>
+        <li><embed data-resource="content-link" data-id="2" data-content-id="424" data-link-text="Bearbeiding av datamaterialet" data-open-in="new-context"></embed></li>
       </ul>
     </section>
   </article> `;

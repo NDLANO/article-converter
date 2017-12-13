@@ -36,8 +36,9 @@ export const fetchOembed = (embed, accessToken) =>
         ...embed,
         plugin,
         data: {
-          message: `En uventet feil oppsto med følgende embed url: ${embed.data
-            .url}`,
+          message: `En uventet feil oppsto med følgende embed url: ${
+            embed.data.url
+          }`,
         },
         resource: 'error',
       };

@@ -9,24 +9,50 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React from 'react';
+import defined from 'defined';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Figure, FigureDetails, FigureCaption } from 'ndla-ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import { getLicenseByAbbreviation } from 'ndla-licenses';
+import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
+  const getIframeProps = (account, videoid, sources) => ({
+    src: `https://players.brightcove.net/${
+      account
+    }/default_default/index.html?videoId=${videoid}`,
+    height: defined(sources[0].height, '480'),
+    width: defined(sources[0].width, '640'),
+  });
+
+  const getMetaData = embed => {
+    const { brightcove, data: { account, videoid } } = embed;
+
+    const mp4s = brightcove.sources
+      .filter(source => source.container === 'MP4' && source.src)
+      .sort((a, b) => b.size - a.size);
+
+    return {
+      title: brightcove.name,
+      copyright: brightcove.copyright,
+      cover: get('images.poster.src', brightcove),
+      src: mp4s[0] ? mp4s[0].src : undefined,
+      iframe: getIframeProps(account, videoid, brightcove.sources),
+    };
+  };
+
   const embedToHTML = (embed, locale) => {
-    const { brightcove, data: { account, player, videoid, caption } } = embed;
+    const { brightcove, data: { account, videoid, caption } } = embed;
     const authors = brightcove.copyright.authors;
-    const license = brightcove.copyright.license.license;
-    const licenseRights = getLicenseByAbbreviation(license, locale).rights;
-    const licenseCopyString = `${license.includes('by')
-      ? 'CC '
-      : ''}${license}`.toUpperCase();
+    const licenseAbbreviation = brightcove.copyright.license.license;
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+    const licenseCopyString = `${
+      licenseAbbreviation.includes('by') ? 'CC ' : ''
+    }${licenseAbbreviation}`.toUpperCase();
     const authorsCopyString = authors
       .filter(author => author.type !== 'Leverandør')
       .map(author => `${author.name}`)
@@ -34,64 +60,47 @@ export default function createBrightcovePlugin() {
     const copyString = `${licenseCopyString} ${authorsCopyString}`;
 
     const messages = {
+      title: t(locale, 'title'),
       close: t(locale, 'close'),
       rulesForUse: t(locale, 'video.rulesForUse'),
-      learnAboutOpenLicenses: t(locale, 'learnAboutOpenLicenses'),
+      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
 
     return renderToStaticMarkup(
-      <Figure>
-        <div
-          style={{
-            display: 'block',
-            position: 'relative',
-            maxWidth: '100%',
-          }}>
-          <div style={{ paddingTop: '56.25%' }}>
-            <video
-              style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                top: '0px',
-                bottom: '0px',
-                right: '0px',
-                left: '0px',
-              }}
-              data-video-id={videoid}
-              data-account={account}
-              data-player={player}
-              data-embed="default"
-              className="video-js"
-              controls
-            />
-          </div>
-        </div>
+      <Figure id={videoid} resizeIframe>
+        <iframe
+          title={`Video: ${brightcove.name}`}
+          frameBorder="0"
+          {...getIframeProps(account, videoid, brightcove.sources)}
+          allowFullScreen
+        />
         <FigureCaption
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
-          licenseRights={licenseRights}
+          licenseRights={license.rights}
           authors={authors}
         />
-        <FigureDetails
-          licenseRights={licenseRights}
+        <FigureLicenseDialog
+          id={videoid}
+          licenseRights={license.rights}
+          licenseUrl={license.url}
           authors={authors}
           messages={messages}>
           <Button
             outline
-            className="c-licenseToggle__button"
             data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
           </Button>
-        </FigureDetails>
+        </FigureLicenseDialog>
       </Figure>
     );
   };
 
   return {
     resource: 'brightcove',
+    getMetaData,
     fetchResource,
     embedToHTML,
   };

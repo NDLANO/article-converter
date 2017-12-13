@@ -8,14 +8,14 @@
 
 import { makeIframe } from './pluginHelpers';
 
-export default function createCommoncraftPlugin() {
+export default function createTv2SkolePlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
     return makeIframe(url, width, height);
   };
 
   return {
-    resource: 'commoncraft',
+    resource: 'tv2-skole',
     embedToHTML,
   };
 }

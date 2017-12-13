@@ -20,6 +20,7 @@ if (!getMessageFormat) {
 const messages = {
   nb: {
     close: 'Lukk',
+    title: 'Tittel',
     'reference.copy': 'Kopier referanse',
     'reference.copied': 'Kopiert!',
     'image.download': 'Last ned bilde',
@@ -28,11 +29,12 @@ const messages = {
     'video.rulesForUse': 'Regler for bruk av videoen',
     'video.reuse': 'Bruk video',
     'concept.showDescription': 'Vis begrep beskrivelse',
-    learnAboutOpenLicenses: 'Lær mer om åpne lisenser',
+    learnAboutLicenses: 'Lær mer om åpne lisenser',
     source: 'Kilde',
   },
   en: {
     close: 'Close',
+    title: 'Title',
     'reference.copy': 'Copy reference',
     'reference.copied': 'Copied!',
     'image.download': 'Download image',
@@ -41,7 +43,7 @@ const messages = {
     'video.rulesForUse': 'Rules for use of video',
     'video.reuse': 'Use video',
     'concept.showDescription': 'Show concept description',
-    learnAboutOpenLicenses: 'Learn more about open licenses',
+    learnAboutLicenses: 'Learn more about open licenses',
     source: 'Source',
   },
 };

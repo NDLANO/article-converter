@@ -20,17 +20,29 @@ export default {
       url: 'https://creativecommons.org/licenses/by-nc-sa/2.0/',
     },
     origin: 'http://www.scanpix.no',
-    authors: [
+    creators: [
       {
-        type: 'Fotograf',
+        type: 'photographer',
         name: 'Ingar Storfjell',
       },
+    ],
+    processors: [
       {
-        type: 'Leverandør',
+        type: 'processor',
+        name: 'Intel',
+      },
+      {
+        type: 'linguistic',
+        name: 'Google translate',
+      },
+    ],
+    rightsholders: [
+      {
+        type: 'publisher',
         name: 'Aftenposten',
       },
       {
-        type: 'Leverandør',
+        type: 'rightsholder',
         name: 'NTB scanpix',
       },
     ],

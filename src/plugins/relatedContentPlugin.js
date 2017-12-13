@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import RelatedArticles from 'ndla-ui/lib/RelatedArticles/RelatedArticles';
+import RelatedArticleList from 'ndla-ui/lib/RelatedArticleList';
 import { fetchArticle } from '../api/articleApi';
 
 export default function createRelatedContentPlugin() {
@@ -32,7 +32,7 @@ export default function createRelatedContentPlugin() {
       introduction: article.metaDescription.metaDescription,
     }));
 
-    return renderToStaticMarkup(<RelatedArticles resources={articles} />);
+    return renderToStaticMarkup(<RelatedArticleList resources={articles} />);
   };
 
   return {

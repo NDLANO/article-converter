@@ -19,6 +19,9 @@ import createCommoncraftPlugin from './commoncraftPlugin';
 import createNdlaFilmIUndervisning from './ndlaFilmIUndervisningPlugin';
 import createKahootPlugin from './kahootPlugin';
 import createKhanAcademyPlugin from './khanAcademyPlugin';
+import createTv2SkolePlugin from './tv2SkolePlugin';
+import createVgNoPlugin from './vgnoPlugin';
+import createScribdPlugin from './scribdPlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPluin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
@@ -37,6 +40,9 @@ export {
   createNdlaFilmIUndervisning,
   createKahootPlugin,
   createKhanAcademyPlugin,
+  createTv2SkolePlugin,
+  createVgNoPlugin,
+  createScribdPlugin,
   createFootnotePlugin,
   createConceptPluin,
   createRelatedContent,
@@ -56,6 +62,9 @@ export default () => [
   createNdlaFilmIUndervisning(),
   createKahootPlugin(),
   createKhanAcademyPlugin(),
+  createTv2SkolePlugin(),
+  createVgNoPlugin(),
+  createScribdPlugin(),
   createFootnotePlugin(),
   createConceptPluin(),
   createRelatedContent(),

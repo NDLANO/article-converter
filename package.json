@@ -25,16 +25,16 @@
     "url": "https://github.com/NDLANO/article-converter.git"
   },
   "devDependencies": {
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^21.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.1",
-    "eslint": "^3.19.0",
-    "eslint-config-ndla": "^0.2.1",
-    "jest": "^20.0.4",
+    "eslint": "^4.12.1",
+    "eslint-config-ndla": "^0.3.4",
+    "jest": "^21.2.1",
     "nodemon": "^1.11.0",
-    "prettier": "^1.7.4",
+    "prettier": "^1.8.2",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
@@ -54,18 +54,22 @@
     "isomorphic-fetch": "2.2.1",
     "lodash": "^4.17.4",
     "ndla-i18n": "^0.2.0",
-    "ndla-licenses": "^0.1.0",
-    "ndla-ui": "^0.8.5",
-    "ndla-util": "^0.1.2",
-    "nock": "^9.0.25",
+    "ndla-icons": "^0.1.0",
+    "ndla-licenses": "^0.1.4",
+    "ndla-ui": "^0.8.30",
+    "ndla-util": "^0.1.9",
+    "nock": "^9.1.4",
     "prop-types": "^15.6.0",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
     "react-router-dom": "^4.2.2",
     "string-replace-async": "^1.2.0"
   },
   "jest": {
-    "testRegex": "/__tests__/.*-test.(js|jsx)$"
+    "testRegex": "/__tests__/.*-test.(js|jsx)$",
+    "setupFiles": [
+      "./src/__tests__/_initTestEnv.js"
+    ]
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"
