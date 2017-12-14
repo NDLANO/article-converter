@@ -11,8 +11,7 @@
     "lint": "yarn lint-prettier && yarn lint-es",
     "lint-es": "eslint src",
     "lint-prettier": "node prettier.js lint",
-    "start":
-      "cross-env=NODE_ENV=development nodemon --exec babel-node --watch src/ src/server.js | bunyan",
+    "start": "nodemon --exec babel-node --watch src/ src/server.js | bunyan",
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "prebuild": "yarn run clean",
     "pretest": "yarn lint",

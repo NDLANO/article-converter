@@ -4,6 +4,7 @@ let log;
 
 if (!log) {
   log = bunyan.createLogger({ name: 'article-converter' });
+  // console.log(log);
 }
 
 log.logAndReturnValue = (level, msg, value) => {

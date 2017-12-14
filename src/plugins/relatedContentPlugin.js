@@ -60,7 +60,7 @@ export default function createRelatedContentPlugin() {
         ? [embed.data.articleIds]
         : embed.data.articleIds.split(',');
 
-    const articlesWithRespource = await Promise.all(
+    const articlesWithResource = await Promise.all(
       articleIds.map(async id => {
         try {
           const [article, resource] = await Promise.all([
@@ -75,7 +75,7 @@ export default function createRelatedContentPlugin() {
       })
     );
 
-    const articles = articlesWithRespource.filter(
+    const articles = articlesWithResource.filter(
       article => article !== undefined && article.resource !== undefined
     );
 
