@@ -11,7 +11,8 @@
     "lint": "yarn lint-prettier && yarn lint-es",
     "lint-es": "eslint src",
     "lint-prettier": "node prettier.js lint",
-    "start": "nodemon --exec babel-node --watch src/ src/server.js | bunyan",
+    "start":
+      "cross-env=NODE_ENV=development nodemon --exec babel-node --watch src/ src/server.js | bunyan",
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "prebuild": "yarn run clean",
     "pretest": "yarn lint",
@@ -67,9 +68,7 @@
   },
   "jest": {
     "testRegex": "/__tests__/.*-test.(js|jsx)$",
-    "setupFiles": [
-      "./src/__tests__/_initTestEnv.js"
-    ]
+    "setupFiles": ["./src/__tests__/_initTestEnv.js"]
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"
