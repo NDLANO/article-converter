@@ -24,6 +24,7 @@ import createVgNoPlugin from './vgnoPlugin';
 import createScribdPlugin from './scribdPlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPluin from './conceptPlugin';
+import createRelatedContent from './relatedContentPlugin';
 
 export {
   createNRKPlugin,
@@ -44,6 +45,7 @@ export {
   createScribdPlugin,
   createFootnotePlugin,
   createConceptPluin,
+  createRelatedContent,
 };
 
 export default () => [
@@ -65,4 +67,5 @@ export default () => [
   createScribdPlugin(),
   createFootnotePlugin(),
   createConceptPluin(),
+  createRelatedContent(),
 ];

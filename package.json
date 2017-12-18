@@ -62,13 +62,12 @@
     "prop-types": "^15.6.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
+    "react-router-dom": "^4.2.2",
     "string-replace-async": "^1.2.0"
   },
   "jest": {
     "testRegex": "/__tests__/.*-test.(js|jsx)$",
-    "setupFiles": [
-      "./src/__tests__/_initTestEnv.js"
-    ]
+    "setupFiles": ["./src/__tests__/_initTestEnv.js"]
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"

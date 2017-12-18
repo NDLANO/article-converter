@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchResource for two related articles 1`] = `
+Object {
+  "articles": Array [
+    Object {
+      "introduction": Object {
+        "introduction": "introduction1",
+      },
+      "resource": Object {
+        "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "resourceTypes": Array [
+          Object {
+            "id": "urn:resourcetype:tasksAndActivities",
+            "name": "Oppgaver og aktiviteter",
+          },
+        ],
+      },
+      "title": Object {
+        "title": "title1",
+      },
+    },
+    Object {
+      "introduction": Object {
+        "introduction": "introduction2",
+      },
+      "resource": Object {
+        "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "resourceTypes": Array [
+          Object {
+            "id": "urn:resourcetype:tasksAndActivities",
+            "name": "Oppgaver og aktiviteter",
+          },
+        ],
+      },
+      "title": Object {
+        "title": "title2",
+      },
+    },
+  ],
+  "data": Object {
+    "articleIds": "1,2",
+  },
+}
+`;
+
+exports[`fetchResource for two related articles, where one fails 1`] = `
+Object {
+  "articles": Array [
+    Object {
+      "introduction": Object {
+        "introduction": "introduction1",
+      },
+      "resource": Object {
+        "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "resourceTypes": Array [
+          Object {
+            "id": "urn:resourcetype:tasksAndActivities",
+            "name": "Oppgaver og aktiviteter",
+          },
+        ],
+      },
+      "title": Object {
+        "title": "title1",
+      },
+    },
+  ],
+  "data": Object {
+    "articleIds": "1,2",
+  },
+}
+`;

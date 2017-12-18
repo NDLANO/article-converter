@@ -18,6 +18,7 @@ import { getHtmlLang } from './locale/configureLocale';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { transform } from './transformers';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
+import log from './utils/logger';
 
 const app = express();
 app.use(compression());
@@ -66,6 +67,7 @@ app.get('/article-converter/json/:lang/:id', (req, res) => {
       res.json(article);
     })
     .catch(error => {
+      log.error(error);
       const response = getAppropriateErrorResponse(error, config.isProduction);
       res.status(response.status).json(response);
     });
@@ -81,6 +83,7 @@ app.get('/article-converter/html/:lang/:id', (req, res) => {
       res.end();
     })
     .catch(error => {
+      log.error(error);
       const response = getAppropriateErrorResponse(error, config.isProduction);
       res.status(response.status).send(htmlErrorTemplate(lang, response));
     });
