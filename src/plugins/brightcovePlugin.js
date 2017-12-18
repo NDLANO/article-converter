@@ -22,9 +22,7 @@ export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const getIframeProps = (account, videoid, sources) => ({
-    src: `https://players.brightcove.net/${
-      account
-    }/default_default/index.html?videoId=${videoid}`,
+    src: `https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`,
     height: defined(sources[0].height, '480'),
     width: defined(sources[0].width, '640'),
   });

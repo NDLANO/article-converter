@@ -34,9 +34,7 @@ export default function createFootnotePlugin() {
   const embedToHTML = () => {
     const footNoteEntryNum = embedToHTMLCounter.getNextCount();
 
-    return `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${
-      footNoteEntryNum
-    }_sup"><sup>${footNoteEntryNum}</sup></a>`;
+    return `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${footNoteEntryNum}_sup"><sup>${footNoteEntryNum}</sup></a>`;
   };
 
   return {

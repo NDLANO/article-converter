@@ -22,9 +22,7 @@ export const makeIframe = (url, width, height, resize = true) => {
     ? height
     : height.replace(/\s*px/, '');
   return wrapInFigure(
-    `<iframe src="${url}" width="${strippedWidth}" height="${
-      strippedHeight
-    }" allowfullscreen scrolling="no" frameborder="0" ></iframe>`,
+    `<iframe src="${url}" width="${strippedWidth}" height="${strippedHeight}" allowfullscreen scrolling="no" frameborder="0" ></iframe>`,
     resize
   );
 };

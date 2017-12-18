@@ -18,9 +18,7 @@ const getHeaders = accessToken => ({
 });
 
 async function fetchVideoSources(videoId, accountId, accessToken) {
-  const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${
-    videoId
-  }/sources`;
+  const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${videoId}/sources`;
   const response = await fetch(url, {
     method: 'GET',
     ...getHeaders(accessToken),
@@ -29,9 +27,7 @@ async function fetchVideoSources(videoId, accountId, accessToken) {
 }
 
 async function fetchVideo(videoId, accountId, accessToken) {
-  const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${
-    videoId
-  }`;
+  const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${videoId}`;
 
   const response = await fetch(url, {
     method: 'GET',
