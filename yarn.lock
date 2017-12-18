@@ -3271,13 +3271,13 @@ ndla-i18n@^0.2.0:
     intl-messageformat "^2.2.0"
     invariant "^2.2.2"
 
-ndla-icons@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/ndla-icons/-/ndla-icons-0.1.1.tgz#0fd14542f136079f63bf4b7bc72b15a324155779"
+ndla-icons@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/ndla-icons/-/ndla-icons-0.1.5.tgz#ebd8c65eb500201e0f302783cca053eb5307166c"
 
-ndla-licenses@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.1.4.tgz#864b7a4b54bc3ca41bb91a5aac85c2b5674430a6"
+ndla-licenses@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.1.5.tgz#c385e17f6eb1a3f54d6a3877979e9bb3e575932d"
   dependencies:
     defined "1.0.0"
 
