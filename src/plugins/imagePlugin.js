@@ -123,8 +123,11 @@ export default function createImagePlugin() {
         .join(', ');
     } else {
       contributorsCopyString = image.copyright.creators
-        .map(author => author.name)
-        .join(', ');
+        .map(creator => {
+          const type = t(locale, `${creator.type.toLowerCase()}`);
+          return `${type}: ${creator.name}`;
+        })
+        .join('\n');
     }
 
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
