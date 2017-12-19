@@ -18,7 +18,6 @@ import {
 } from 'ndla-licenses';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
-import { CREATOR_TYPES } from '../constants';
 
 const getFocalPoint = data => {
   if (data.focalX && data.focalY) {
@@ -61,7 +60,7 @@ export default function createImagePlugin() {
     const { image, data: { align, size, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
     const {
-      authors,
+      creators,
       license: { license: licenseAbbreviation },
     } = image.copyright;
     const altText = image.alttext.alttext;
@@ -93,42 +92,20 @@ export default function createImagePlugin() {
       licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
     }${licenseAbbreviation}`.toUpperCase();
 
-    let creators = [];
-    if (authors) {
-      creators = authors.filter(author =>
-        CREATOR_TYPES.find(type => author.type === type)
-      );
-    } else {
-      creators = image.copyright.creators;
-    }
+    const contributors = getGroupedContributorDescriptionList(
+      image.copyright,
+      locale
+    ).map(item => ({
+      name: item.description,
+      type: item.label,
+    }));
 
-    let contributors = [];
-    if (authors) {
-      contributors = authors;
-    } else {
-      contributors = getGroupedContributorDescriptionList(
-        image.copyright,
-        locale
-      ).map(item => ({
-        name: item.description,
-        type: item.label,
-      }));
-    }
-
-    let contributorsCopyString;
-    if (authors) {
-      contributorsCopyString = authors
-        .filter(author => author.type !== 'Leverandør')
-        .map(author => author.name)
-        .join(', ');
-    } else {
-      contributorsCopyString = image.copyright.creators
-        .map(creator => {
-          const type = t(locale, `${creator.type.toLowerCase()}`);
-          return `${type}: ${creator.name}`;
-        })
-        .join('\n');
-    }
+    const contributorsCopyString = creators
+      .map(creator => {
+        const type = t(locale, `${creator.type.toLowerCase()}`);
+        return `${type}: ${creator.name}`;
+      })
+      .join('\n');
 
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
