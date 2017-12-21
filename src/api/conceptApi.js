@@ -13,14 +13,19 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 
-export const fetchConcept = (embed, accessToken, language, method = 'GET') => {
+export const fetchConcept = async (
+  embed,
+  accessToken,
+  language,
+  method = 'GET'
+) => {
   const url = apiResourceUrl(
     `/article-api/v1/concepts/${embed.data.contentId}?language=${language}`
   );
-  return fetch(url, {
+  const response = await fetch(url, {
     method,
     headers: headerWithAccessToken(accessToken),
-  })
-    .then(resolveJsonOrRejectWithError)
-    .then(concept => ({ ...embed, concept }));
+  });
+  const concept = await resolveJsonOrRejectWithError(response);
+  return { ...embed, concept };
 };

@@ -13,17 +13,31 @@ import Glossary from 'ndla-ui/lib/Glossary';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 
+const messages = locale => ({
+  ariaLabel: t(locale, 'concept.showDescription'),
+  close: t(locale, 'close'),
+});
+
 export default function createConceptPlugin() {
   const fetchResource = (embed, headers, lang) =>
     fetchConcept(embed, headers, lang);
 
+  const onError = (embed, locale) => {
+    const { contentId, linkText } = embed.data;
+    return ReactDOMServerStream.renderToStaticMarkup(
+      <Glossary
+        id={contentId}
+        authors={[]}
+        title={t(locale, 'concept.error.title')}
+        content={t(locale, 'concept.error.content')}
+        messages={messages(locale)}>
+        {linkText}
+      </Glossary>
+    );
+  };
+
   const embedToHTML = (embed, locale) => {
     const { id, title: { title }, content: { content } } = embed.concept;
-
-    const messages = {
-      ariaLabel: t(locale, 'concept.showDescription'),
-      close: t(locale, 'close'),
-    };
 
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.authors, []).map(author => author.name);
@@ -35,7 +49,7 @@ export default function createConceptPlugin() {
         title={title}
         authors={authors}
         content={content}
-        messages={messages}
+        messages={messages(locale)}
         source={copyright.origin}
         license={license}>
         {embed.data.linkText}
@@ -45,6 +59,7 @@ export default function createConceptPlugin() {
 
   return {
     resource: 'concept',
+    onError,
     fetchResource,
     embedToHTML,
   };
