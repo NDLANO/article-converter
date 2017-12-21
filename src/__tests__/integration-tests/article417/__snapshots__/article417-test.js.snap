@@ -46,11 +46,15 @@ Object {
 
 exports[`app/fetchAndTransformArticle 417 2`] = `
 "
+
 <section>
-  <div>
-    <strong>En uventet feil oppsto med følgende embed url: https://www.youtube.com/watch?v=csSRXp-GTKs
-    </strong>
-  </div>
+
+  <figure class=\\"c-figure c-figure--resize\\">
+    <img alt=\\"En feil oppsto ved lasting av en ekstern ressurs.\\"
+      role=\\"presentation\\"
+      src=\\"https://placeholdit.imgix.net/~text?bg=EFF0F2&txtclr=777777&txtsize=50&txtfont=Source-Serif-Pro&txt=En feil oppsto ved lasting av en ekstern ressurs.&w=1600&h=800\\">
+
+  </figure>
 </section>
 <section>
   <p>Vil du lære deg å programmere? Da må du først velge et programmeringsspråk. Jobber du med nettsider, er det naturlig å lære seg JavaScript. Det er flere måter å komme i gang på. Du kan for eksempel følge et nettbasert kurs som det vi ser i videoen over, eller opplegget hos
