@@ -10,7 +10,11 @@ import log from './utils/logger';
 export function replaceEmbedsInHtml(embeds, lang) {
   embeds.forEach(embed => {
     const plugin = embed.plugin;
-    if (plugin) {
+
+    if (embed.status === 'error') {
+      const html = plugin.onError(embed, lang);
+      embed.embed.replaceWith(html);
+    } else if (plugin) {
       const html = plugin.embedToHTML(embed, lang);
       embed.embed.replaceWith(html);
     } else {

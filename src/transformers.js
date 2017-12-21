@@ -10,6 +10,7 @@ import cheerio from 'cheerio';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
+import log from './utils/logger';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -56,10 +57,17 @@ export async function transform(content, lang, accessToken, visualElement) {
   }
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await Promise.all(
-    embeds.map(embed => {
+    embeds.map(async embed => {
       const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
-        return plugin.fetchResource(embed, accessToken, lang);
+        try {
+          const resource = await plugin.fetchResource(embed, accessToken, lang);
+          return resource;
+        } catch (e) {
+          log.warn('Failed to fetch embed resource data for ', embed.data);
+          log.warn(e);
+          return { ...embed, status: 'error' };
+        }
       }
       return embed;
     })
