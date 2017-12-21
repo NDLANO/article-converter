@@ -20,6 +20,14 @@ import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
 
+const getFigureClassnames = (size, align) =>
+  classnames('c-figure', {
+    'u-float-right': align === 'right' && size !== 'hoyrespalte',
+    'u-float-left': align === 'left' && size !== 'hoyrespalte',
+    'u-float-small-right': align === 'right' && size === 'hoyrespalte',
+    'u-float-small-left': align === 'left' && size === 'hoyrespalte',
+  });
+
 const getFocalPoint = data => {
   if (data.focalX && data.focalY) {
     return { x: data.focalX, y: data.focalY };
@@ -57,6 +65,27 @@ export default function createImagePlugin() {
     };
   };
 
+  const onError = (embed, locale) => {
+    const { image, data: { resourceId, align, size } } = embed;
+    const figureClassNames = getFigureClassnames(size, align);
+    const src =
+      image && image.imageUrl
+        ? encodeURI(image.imageUrl)
+        : `https://placeholdit.imgix.net/~text?bg=EFF0F2&txtclr=777777&txtsize=100&txtfont=Source-Serif-Pro&txt=${t(
+            locale,
+            'image.error.url'
+          )}&w=1600&h=800`;
+
+    return renderToStaticMarkup(
+      <Figure id={resourceId.toString()} className={figureClassNames}>
+        <div className="c-figure__img">
+          <img alt={t(locale, 'image.error.url')} src={src} />
+        </div>
+        <figcaption>{t(locale, 'image.error.caption')}</figcaption>
+      </Figure>
+    );
+  };
+
   const embedToHTML = (embed, locale) => {
     const { image, data: { align, size, caption: embedCaption } } = embed;
     const src = encodeURI(image.imageUrl);
@@ -68,12 +97,7 @@ export default function createImagePlugin() {
     const caption = embedCaption === '' ? image.caption.caption : embedCaption;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
-    const figureClassNames = classnames('c-figure', {
-      'u-float-right': align === 'right' && size !== 'hoyrespalte',
-      'u-float-left': align === 'left' && size !== 'hoyrespalte',
-      'u-float-small-right': align === 'right' && size === 'hoyrespalte',
-      'u-float-small-left': align === 'left' && size === 'hoyrespalte',
-    });
+    const figureClassNames = getFigureClassnames(size, align);
 
     const sizes = align
       ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
@@ -171,6 +195,7 @@ export default function createImagePlugin() {
 
   return {
     resource: 'image',
+    onError,
     getMetaData,
     fetchResource,
     embedToHTML,

@@ -30,6 +30,9 @@ const messages = {
     'video.reuse': 'Bruk video',
     'video.error':
       'Beklager, en feil oppsto ved lasting av videoen eller metadata om videoen.',
+    'resource.error': 'Beklager, en del av innholdet kunne ikke vises.',
+    'image.error.url': 'Feil ved lasting av bildet.',
+    'image.error.caption': 'Beklager, en feil oppsto ved lasting av bildet.',
     'concept.showDescription': 'Vis begrep beskrivelse',
     learnAboutLicenses: 'Lær mer om åpne lisenser',
     source: 'Kilde',
@@ -46,6 +49,9 @@ const messages = {
     'video.reuse': 'Use video',
     'video.error':
       'Sorry, an error occurd while loading the video or metadata about the video.',
+    'resource.error': 'Sorry, a part of the content could not be shown.',
+    'image.error.url': 'Error loading the image.',
+    'image.error.caption': 'Sorry, an error occurd while loading the image.',
     'concept.showDescription': 'Show concept description',
     learnAboutLicenses: 'Learn more about open licenses',
     source: 'Source',
