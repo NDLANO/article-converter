@@ -16,6 +16,7 @@ import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
+import { errorSvgSrc } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { CREATOR_TYPES } from '../constants';
@@ -69,12 +70,7 @@ export default function createImagePlugin() {
     const { image, data: { resourceId, align, size } } = embed;
     const figureClassNames = getFigureClassnames(size, align);
     const src =
-      image && image.imageUrl
-        ? encodeURI(image.imageUrl)
-        : `https://placeholdit.imgix.net/~text?bg=EFF0F2&txtclr=777777&txtsize=100&txtfont=Source-Serif-Pro&txt=${t(
-            locale,
-            'image.error.url'
-          )}&w=1600&h=800`;
+      image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
 
     return renderToStaticMarkup(
       <Figure id={resourceId.toString()} className={figureClassNames}>
