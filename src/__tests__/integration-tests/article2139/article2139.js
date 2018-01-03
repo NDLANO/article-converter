@@ -17,12 +17,14 @@ export default {
       url: 'https://creativecommons.org/licenses/by-sa/2.0/',
     },
     origin: '',
-    authors: [
+    creators: [
       {
-        type: 'Forfatter',
+        type: 'Writer',
         name: 'Øyvind',
       },
     ],
+    processors: [],
+    rightsholders: [],
   },
   tags: {
     tags: ['vannlating', 'vannlatingsmønster', 'rent vann'],

@@ -10,6 +10,7 @@ const defined = require('defined');
 const IntlMessageFormat = require('intl-messageformat');
 const memoizeIntlConstructor = require('intl-format-cache');
 const { formatMessage } = require('ndla-i18n');
+const { contributorTypes } = require('ndla-licenses');
 
 let getMessageFormat;
 
@@ -39,6 +40,7 @@ const messages = {
     'external.error': 'En feil oppsto ved lasting av en ekstern ressurs.',
     learnAboutLicenses: 'Lær mer om åpne lisenser',
     source: 'Kilde',
+    ...contributorTypes.nb,
   },
   en: {
     close: 'Close',
@@ -61,6 +63,7 @@ const messages = {
     'external.error': 'An error occurd while loading an external resource.',
     learnAboutLicenses: 'Learn more about open licenses',
     source: 'Source',
+    ...contributorTypes.en,
   },
 };
 

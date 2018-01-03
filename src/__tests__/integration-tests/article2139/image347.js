@@ -25,6 +25,14 @@ export default {
         name: 'Oktan Orangeriet',
       },
     ],
+    creators: [
+      {
+        type: 'photographer',
+        name: 'Oktan Orangeriet',
+      },
+    ],
+    processors: [],
+    rightsholders: [],
   },
   tags: {
     tags: ['annonse', 'filformater', 'formater'],

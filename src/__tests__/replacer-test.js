@@ -69,7 +69,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
         caption: { caption: '' },
         imageUrl: 'http://api.test.ndla.no/images/1.jpg',
         copyright: {
-          authors: [],
+          creators: [],
+          rightsholders: [],
+          processors: [],
           license: {
             license: 'by-nc',
           },
@@ -125,20 +127,24 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/1.jpg',
         copyright: {
-          authors: [
+          creators: [
             {
-              type: 'Leverandør',
-              name: 'Scanpix',
-            },
-            {
-              type: 'Fotograf',
+              type: 'Writer',
               name: 'Ola Foton',
             },
             {
-              type: 'Kunstner',
+              type: 'Artist',
               name: 'Kari Maler',
             },
           ],
+          rightsholders: [
+            {
+              type: 'Supplier',
+              name: 'Scanpix',
+            },
+          ],
+          processors: [],
+
           license: {
             license: 'by-nc',
           },
@@ -162,7 +168,9 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
         caption: { caption: '' },
         imageUrl: 'http://ndla.no/images/2.jpg',
         copyright: {
-          authors: [],
+          creators: [],
+          rightsholders: [],
+          processors: [],
           license: {
             license: 'by-nc',
           },

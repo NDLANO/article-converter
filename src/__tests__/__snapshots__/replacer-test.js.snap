@@ -515,6 +515,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "
 
 <section>
+
   <figure id=\\"1\\"
     class=\\"c-figure u-float-left\\">
     <div class=\\"c-figure__img\\">
@@ -612,14 +613,18 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
         </div>
       </footer>
     </figcaption>
+
     <div data-react-universal-portal=\\"true\\">
+
       <div class=\\"c-dialog\\"
         data-dialog-id=\\"1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-1\\">
+
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
+
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -709,17 +714,22 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               rel=\\"noopener noreferrer\\"
               href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
             </a>
+
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
                 <li class=\\"c-figure-license__item\\">Tittel: image title 1</li>
-                <li class=\\"c-figure-license__item\\">Leverandør: Scanpix</li>
-                <li class=\\"c-figure-license__item\\">Fotograf: Ola Foton</li>
-                <li class=\\"c-figure-license__item\\">Kunstner: Kari Maler</li>
+                <li class=\\"c-figure-license__item\\">Opphavsmann: Forfatter Ola Foton, Kunstner Kari Maler
+                </li>
+                <li class=\\"c-figure-license__item\\">Rettighetshaver: Leverandør Scanpix
+                </li>
               </ul>
+
               <div class=\\"c-figure-license__cta-block\\">
+
                 <button class=\\"c-button c-button--outline\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC Ola Foton, Kari Maler\\"
+                  data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
+Kunstner: Kari Maler\\"
                   type=\\"button\\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/1.jpg\\"
