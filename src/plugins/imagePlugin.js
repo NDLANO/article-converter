@@ -66,13 +66,13 @@ export default function createImagePlugin() {
   };
 
   const onError = (embed, locale) => {
-    const { image, data: { resourceId, align, size } } = embed;
+    const { image, data: { align, size } } = embed;
     const figureClassNames = getFigureClassnames(size, align);
     const src =
       image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
 
     return renderToStaticMarkup(
-      <Figure id={resourceId.toString()} className={figureClassNames}>
+      <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <img alt={t(locale, 'image.error.url')} src={src} />
         </div>
@@ -128,9 +128,9 @@ export default function createImagePlugin() {
       .join('\n');
 
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
-
+    const figureLicenseDialogId = `image-${image.id.toString()}`;
     return renderToStaticMarkup(
-      <Figure id={image.id.toString()} className={figureClassNames}>
+      <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <Image
             focalPoint={focalPoint}
@@ -142,13 +142,14 @@ export default function createImagePlugin() {
           />
         </div>
         <FigureCaption
+          id={figureLicenseDialogId}
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
           licenseRights={license.rights}
           authors={creators}
         />
         <FigureLicenseDialog
-          id={image.id.toString()}
+          id={figureLicenseDialogId}
           title={image.title.title}
           licenseRights={license.rights}
           licenseUrl={license.url}
