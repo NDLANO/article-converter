@@ -6,11 +6,18 @@
  *
  */
 import log from './utils/logger';
+import t from './locale/i18n';
 
 export function replaceEmbedsInHtml(embeds, lang) {
   embeds.forEach(embed => {
     const plugin = embed.plugin;
-    if (plugin) {
+
+    if (embed.status === 'error') {
+      const html = plugin.onError
+        ? plugin.onError(embed, lang)
+        : `<strong style="color: #FE5F55">${t.error}</strong>`;
+      embed.embed.replaceWith(html);
+    } else if (plugin) {
       const html = plugin.embedToHTML(embed, lang);
       embed.embed.replaceWith(html);
     } else {

@@ -21,11 +21,17 @@ import t from '../locale/i18n';
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const getIframeProps = (account, videoid, sources) => ({
-    src: `https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`,
-    height: defined(sources[0].height, '480'),
-    width: defined(sources[0].width, '640'),
-  });
+  const getIframeProps = (account, videoid, sources) => {
+    const source =
+      sources
+        .filter(s => s.width && s.height)
+        .sort((a, b) => a.height < b.height)[0] || {};
+    return {
+      src: `https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`,
+      height: defined(source.height, '480'),
+      width: defined(source.width, '640'),
+    };
+  };
 
   const getMetaData = embed => {
     const { brightcove, data: { account, videoid } } = embed;
@@ -41,6 +47,22 @@ export default function createBrightcovePlugin() {
       src: mp4s[0] ? mp4s[0].src : undefined,
       iframe: getIframeProps(account, videoid, brightcove.sources),
     };
+  };
+
+  const onError = (embed, locale) => {
+    const { data: { account, videoid } } = embed;
+
+    return renderToStaticMarkup(
+      <Figure id={videoid} resizeIframe>
+        <iframe
+          title={`Video: ${videoid}`}
+          frameBorder="0"
+          {...getIframeProps(account, videoid, [])}
+          allowFullScreen
+        />
+        <figcaption>{t(locale, 'video.error')}</figcaption>
+      </Figure>
+    );
   };
 
   const embedToHTML = (embed, locale) => {
@@ -97,6 +119,7 @@ export default function createBrightcovePlugin() {
   };
 
   return {
+    onError,
     resource: 'brightcove',
     getMetaData,
     fetchResource,

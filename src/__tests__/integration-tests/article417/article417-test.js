@@ -7,11 +7,13 @@
  */
 
 import nock from 'nock';
+import bunyan from 'bunyan';
 import { prettify } from '../../testHelpers';
 import article417 from './article417';
 import articleResource413 from './articleResource413';
 import articleResource414 from './articleResource414';
 import { fetchAndTransformArticle } from '../../../app';
+import log from '../../../utils/logger';
 
 const resources = {
   '413': articleResource413,
@@ -32,8 +34,12 @@ test('app/fetchAndTransformArticle 417', async () => {
       .reply(200, resources[id]);
   });
 
+  log.level(bunyan.FATAL + 1); // temporarily disable logging
+
   const transformed = await fetchAndTransformArticle('417', 'nb', 'some_token');
   const { content, ...rest } = transformed;
+
+  log.level(bunyan.INFO);
 
   expect(rest).toMatchSnapshot();
   expect(prettify(content)).toMatchSnapshot();
