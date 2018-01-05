@@ -44,7 +44,7 @@ export default function createConceptPlugin() {
     const license = defined(copyright.license, {}).license;
 
     return ReactDOMServerStream.renderToStaticMarkup(
-      <Glossary
+      <Concept
         id={id}
         title={title}
         authors={authors}
@@ -53,7 +53,7 @@ export default function createConceptPlugin() {
         source={copyright.origin}
         license={license}>
         {embed.data.linkText}
-      </Glossary>
+      </Concept>
     );
   };
 
