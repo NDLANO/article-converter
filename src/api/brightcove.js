@@ -7,6 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { contributorTypes, contributorGroups } from 'ndla-licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { brightcoveClientId, brightcoveClientSecret } from '../config';
 
@@ -92,18 +93,42 @@ const getLicenseByNBTitle = title => {
   }
 };
 
-export const getAuthors = fields => {
-  const parseAuthorString = authorString => {
-    const authorFields = authorString.split(/: */);
-    if (authorFields.length !== 2) return { type: '', name: authorFields[0] };
-
-    const [type, name] = authorFields;
-    return { type, name };
+export const getContributorGroups = fields => {
+  const parseContributorsString = contributorString => {
+    const contributorFields = contributorString.split(/: */);
+    if (contributorFields.length !== 2)
+      return { creators: { type: '', name: contributorFields[0] } };
+    const [type, name] = contributorFields;
+    const contributorType = Object.keys(contributorTypes.nb).find(
+      key => contributorTypes.nb[key] === type
+    );
+    return { type: contributorType, name };
   };
+
   const licenseInfoKeys = Object.keys(fields).filter(key =>
     key.startsWith('licenseinfo')
   );
-  return licenseInfoKeys.map(key => parseAuthorString(fields[key]));
+
+  const contributors = licenseInfoKeys.map(key =>
+    parseContributorsString(fields[key])
+  );
+
+  return contributors.reduce(
+    (groups, contributor) => {
+      const group = Object.keys(contributorGroups).find(key =>
+        contributorGroups[key].find(type => type === contributor.type)
+      );
+      if (group) {
+        return { ...groups, [group]: [...groups[group], contributor] };
+      }
+      return { ...groups, creators: [...groups.creators, contributor] };
+    },
+    {
+      creators: [],
+      processors: [],
+      rightsholders: [],
+    }
+  );
 };
 
 export const fetchVideoMeta = async embed => {
@@ -118,7 +143,7 @@ export const fetchVideoMeta = async embed => {
     license: {
       license: getLicenseByNBTitle(video.custom_fields.license),
     },
-    authors: getAuthors(video.custom_fields),
+    ...getContributorGroups(video.custom_fields),
   };
   return { ...embed, brightcove: { ...video, copyright, sources } };
 };

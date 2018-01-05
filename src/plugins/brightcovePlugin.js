@@ -13,7 +13,10 @@ import defined from 'defined';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
-import { getLicenseByAbbreviation } from 'ndla-licenses';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+} from 'ndla-licenses';
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
@@ -67,17 +70,32 @@ export default function createBrightcovePlugin() {
 
   const embedToHTML = (embed, locale) => {
     const { brightcove, data: { account, videoid, caption } } = embed;
-    const authors = brightcove.copyright.authors;
-    const licenseAbbreviation = brightcove.copyright.license.license;
+
+    const {
+      creators,
+      license: { license: licenseAbbreviation },
+    } = brightcove.copyright;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
     const licenseCopyString = `${
       licenseAbbreviation.includes('by') ? 'CC ' : ''
     }${licenseAbbreviation}`.toUpperCase();
-    const authorsCopyString = authors
-      .filter(author => author.type !== 'Leverandør')
-      .map(author => `${author.name}`)
-      .join(', ');
-    const copyString = `${licenseCopyString} ${authorsCopyString}`;
+
+    const contributors = getGroupedContributorDescriptionList(
+      brightcove.copyright,
+      locale
+    ).map(item => ({
+      name: item.description,
+      type: item.label,
+    }));
+
+    const contributorsCopyString = creators
+      .map(creator => {
+        const type = t(locale, `${creator.type.toLowerCase()}`);
+        return `${type}: ${creator.name}`;
+      })
+      .join('\n');
+
+    const copyString = `${licenseCopyString} ${contributorsCopyString}`;
 
     const messages = {
       title: t(locale, 'title'),
@@ -99,13 +117,13 @@ export default function createBrightcovePlugin() {
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={authors}
+          authors={contributors}
         />
         <FigureLicenseDialog
           id={videoid}
           licenseRights={license.rights}
           licenseUrl={license.url}
-          authors={authors}
+          authors={contributors}
           messages={messages}>
           <Button
             outline

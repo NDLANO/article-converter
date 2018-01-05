@@ -85,7 +85,9 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       brightcove: {
         name: 'brightcove video',
         copyright: {
-          authors: [],
+          creators: [],
+          rightsholders: [],
+          processors: [],
           license: {
             license: 'by-nc',
           },
@@ -202,7 +204,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
-          authors: [],
+          creators: [],
+          rightsholders: [],
+          processors: [],
           license: {
             license: 'by-sa',
           },
@@ -218,7 +222,9 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
       plugin: createBrightcovePlugin(),
       brightcove: {
         copyright: {
-          authors: [],
+          creators: [],
+          rightsholders: [],
+          processors: [],
           license: {
             license: 'by-sa',
           },

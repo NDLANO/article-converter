@@ -24,15 +24,17 @@ Object {
     "brightcoves": Array [
       Object {
         "copyright": Object {
-          "authors": Array [
-            Object {
-              "name": "Senter for nye medier, Høgskolen i Bergen",
-              "type": "Leverandør",
-            },
-          ],
+          "creators": Array [],
           "license": Object {
             "license": "by-sa",
           },
+          "processors": Array [],
+          "rightsholders": Array [
+            Object {
+              "name": "Senter for nye medier, Høgskolen i Bergen",
+              "type": "supplier",
+            },
+          ],
         },
         "cover": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
         "iframe": Object {
@@ -168,7 +170,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"c-figure__byline-authors\\">Senter for nye medier, Høgskolen i Bergen
+            <span class=\\"c-figure__byline-authors\\">Leverandør Senter for nye medier, Høgskolen i Bergen
             </span>
             <button class=\\"c-figure__captionbtn\\">Bruk video</button>
           </div>
@@ -276,7 +278,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
         </a>
         <div class=\\"c-figure-license__cta-wrapper\\">
           <ul class=\\"c-figure-license__list\\">
-            <li class=\\"c-figure-license__item\\">Leverandør: Senter for nye medier, Høgskolen i Bergen
+            <li class=\\"c-figure-license__item\\">Rettighetshaver: Leverandør Senter for nye medier, Høgskolen i Bergen
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">

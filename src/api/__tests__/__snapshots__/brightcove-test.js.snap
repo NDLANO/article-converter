@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parses contributor string correctly 1`] = `
+Object {
+  "creators": Array [
+    Object {
+      "name": "Senter for nye medier, Høgskolen i Bergen",
+      "type": "originator",
+    },
+    Object {
+      "name": "Adalia film & media",
+      "type": "originator",
+    },
+  ],
+  "processors": Array [],
+  "rightsholders": Array [
+    Object {
+      "name": "Norsk Helseinformatikk",
+      "type": "supplier",
+    },
+  ],
+}
+`;
+
+exports[`uses fallback if contributor string could not be parsed 1`] = `
+Object {
+  "creators": Array [
+    Object {
+      "name": "Senter for nye medier, Høgskolen i Bergen",
+      "type": "originator",
+    },
+    Object {
+      "creators": Object {
+        "name": "Opphavsmann Adalia film & media",
+        "type": "",
+      },
+    },
+  ],
+  "processors": Array [],
+  "rightsholders": Array [],
+}
+`;

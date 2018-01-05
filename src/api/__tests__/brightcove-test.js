@@ -1,32 +1,19 @@
-import { getAuthors } from '../brightcove';
+import { getContributorGroups } from '../brightcove';
 
-test('brightcove/getAuthors parses author string correctly', () => {
+test('parses contributor string correctly', () => {
   const fields = {
     licenseinfo: 'Opphavsmann: Senter for nye medier, Høgskolen i Bergen',
     licenseinfo1: 'Opphavsmann:Adalia film & media',
-    licenseinfo2: 'Opphavsmann:    Norsk Helseinformatikk',
+    licenseinfo2: 'Leverandør:    Norsk Helseinformatikk',
     yt_privacy_status: 'private',
     license: 'Navngivelse-Del på samme vilkår',
   };
 
-  const authors = getAuthors(fields);
-  expect(authors).toEqual([
-    {
-      type: 'Opphavsmann',
-      name: 'Senter for nye medier, Høgskolen i Bergen',
-    },
-    {
-      type: 'Opphavsmann',
-      name: 'Adalia film & media',
-    },
-    {
-      type: 'Opphavsmann',
-      name: 'Norsk Helseinformatikk',
-    },
-  ]);
+  const authors = getContributorGroups(fields);
+  expect(authors).toMatchSnapshot();
 });
 
-test('brightcove/getAuthors uses fallback if author string could not be parsed', () => {
+test('uses fallback if contributor string could not be parsed', () => {
   const fields = {
     licenseinfo: 'Opphavsmann: Senter for nye medier, Høgskolen i Bergen',
     licenseinfo1: 'Opphavsmann Adalia film & media',
@@ -34,15 +21,6 @@ test('brightcove/getAuthors uses fallback if author string could not be parsed',
     license: 'Navngivelse-Del på samme vilkår',
   };
 
-  const authors = getAuthors(fields);
-  expect(authors).toEqual([
-    {
-      type: 'Opphavsmann',
-      name: 'Senter for nye medier, Høgskolen i Bergen',
-    },
-    {
-      type: '',
-      name: 'Opphavsmann Adalia film & media',
-    },
-  ]);
+  const authors = getContributorGroups(fields);
+  expect(authors).toMatchSnapshot();
 });
