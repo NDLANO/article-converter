@@ -6,6 +6,8 @@
  *
  */
 
+import isNumber from 'lodash/fp/isNumber';
+
 function FootNoteCounter(initialCount = 0) {
   this.count = initialCount;
 
@@ -23,18 +25,18 @@ export default function createFootnotePlugin() {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     return {
-      [`ref_${footNoteEntryNum}`]: {
-        ...embed.data,
-        authors: embed.data.authors.split(';'),
-        resource: undefined,
-      },
+      ...embed.data,
+      ref: footNoteEntryNum,
+      authors: embed.data.authors.split(';'),
+      year: isNumber(embed.data.year)
+        ? embed.data.year.toString()
+        : embed.data.year,
     };
   };
 
   const embedToHTML = () => {
     const footNoteEntryNum = embedToHTMLCounter.getNextCount();
-
-    return `<a href="#ref_${footNoteEntryNum}_cite" name="ref_${footNoteEntryNum}_sup"><sup>${footNoteEntryNum}</sup></a>`;
+    return `<span id="ref${footNoteEntryNum}" class="c-footnotes__ref"><sup><a href="#note${footNoteEntryNum}" target="_self">[${footNoteEntryNum}]</a></sup></span>`;
   };
 
   return {
