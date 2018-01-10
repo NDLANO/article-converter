@@ -163,38 +163,42 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
     <div class=\\"c-related-articles\\">
       <div class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
         <h3 class=\\"c-related-articles__title\\">
-          <svg fill=\\"currentColor\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon c-icon--medium\\"
-            viewBox=\\"0 0 80 76\\"
-            data-license=\\"CC-BY 4.0\\"
-            data-source=\\"Netlife\\"
-            style=\\"vertical-align:middle\\">
-            <g>
-              <g fill=\\"none\\">
-                <path fill=\\"#5CBC80\\"
-                  d=\\"M37.8119658,76 C58.6949744,76 75.6239316,58.9868571 75.6239316,38 C75.6239316,17.0131429 58.6949744,0 37.8119658,0 C16.9289573,0 0,17.0131429 0,38 C0,58.9868571 16.9289573,76 37.8119658,76\\" />
+          <div class=\\"c-content-type-badge c-content-type-badge--tasks-and-activities c-content-type-badge--small c-content-type-badge--background\\">
+            <svg fill=\\"currentColor\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align:middle\\">
+              <g>
+                <title>Oppgaver og aktiviteter</title>
+                <g id=\\"Page-1\\"
+                  stroke=\\"none\\"
+                  fill=\\"none\\"
+                  stroke-width=\\"1\\"
+                  fill-rule=\\"evenodd\\">
+                  <g id=\\"oppgaver-og-aktiviteter\\">
+                    <g id=\\"Shape\\">
+                      <polygon points=\\"0 0 24 0 24 24 0 24\\" />
 
-                <path fill=\\"#4C9363\\"
-                  d=\\"M69.9070325,5.15551429 L25.3051179,42.4443714 C26.7716821,43.6495143 29.1349299,43.5735143 31.0822462,42.2489429 L72.1730496,7.89422857 L69.9070325,5.15551429 Z\\" />
+                      <path d=\\"M17.75,8 L14,4.25 L4,14.25 L4,18 L7.75,18 L17.75,8 Z M20.71,5.04 C21.1,4.65 21.1,4.02 20.71,3.63 L18.37,1.29 C17.98,0.9 17.35,0.9 16.96,1.29 L15,3.25 L18.75,7 L20.71,5.04 Z\\"
+                        fill=\\"currentColor\\"
+                        fill-rule=\\"nonzero\\" />
 
-                <path fill=\\"#4D4D4D\\"
-                  d=\\"M77.5690872,14.4117714 L72.1727795,7.89477143 L31.0819761,42.2494857 L31.0846769,42.2494857 C31.0684718,42.2684857 31.0603692,42.2820571 31.0441641,42.2956286 C31.0603692,42.2874857 31.0819761,42.2684857 31.0954803,42.2576286 C29.2507966,44.1359143 28.8321641,46.8149143 30.2150017,48.4896286 C31.6005402,50.1589143 34.2959932,50.2322 36.4701812,48.7502 C36.4566769,48.7637714 36.4377709,48.7827714 36.4242667,48.7936286 C36.4404718,48.7827714 36.4593778,48.7773429 36.4782838,48.7664857 L36.4755829,48.7692 L77.5690872,14.4117714 Z\\" />
+                      <polygon fill=\\"currentColor\\"
+                        points=\\"0 22 24 22 24 24 0 24\\"
+                        fill-opacity=\\"0.36\\"
+                        fill-rule=\\"nonzero\\" />
 
-                <path fill=\\"#4C9363\\"
-                  d=\\"M36.4761231,48.7697429 C34.8259009,50.4498857 34.3235419,52.7733143 35.2337299,54.4426 L79.8356444,17.1537429 L77.5696274,14.4123143 L36.4761231,48.7697429 Z\\" />
-
-                <path fill=\\"#FFF\\"
-                  d=\\"M35.2377812,54.4499286 C34.3221915,52.7806429 34.8245504,50.4517857 36.4747726,48.7689286 L36.4774735,48.7662143 C36.4612684,48.7770714 36.4396615,48.7825 36.4234564,48.7933571 C36.4369607,48.7825 36.4585675,48.7635 36.4720718,48.7499286 C34.2951829,50.2319286 31.6024308,50.1586429 30.2141915,48.4893571 C28.8313538,46.8146429 29.2499863,44.1356429 31.0973709,42.2573571 C31.0811658,42.2682143 31.059559,42.2872143 31.0460547,42.2953571 C31.059559,42.2817857 31.0703624,42.2682143 31.0838667,42.2492143 L31.0811658,42.2492143 C29.1311487,43.5765 26.7624991,43.6497857 25.295935,42.4392143 L20.7963111,56.3635 L35.2377812,54.4499286 Z\\" />
-
-                <path fill=\\"#4D4D4D\\"
-                  d=\\"M23.0048,49.5278429 L20.7955009,56.3651286 L27.8825436,55.4259857 C27.3828855,54.2371286 26.7238769,53.1242714 25.8812103,52.1091286 C25.0439453,51.0939857 24.0716376,50.2389857 23.0048,49.5278429\\" />
-
+                    </g>
+                  </g>
+                </g>
               </g>
-            </g>
-          </svg>
+            </svg>
+          </div>
           <a href=\\"/article/urn:subject:12/urn:topic:1:183846/urn:topic:1:183935/urn:topic:1:110265/urn:resource:1:110271/417\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>
@@ -204,58 +208,38 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
       </div>
       <div class=\\"c-related-articles__item c-related-articles__item--subject-material\\">
         <h3 class=\\"c-related-articles__title\\">
-          <svg fill=\\"currentColor\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon c-icon--medium\\"
-            viewBox=\\"0 0 78 77\\"
-            data-license=\\"CC-BY 4.0\\"
-            data-source=\\"Netlife\\"
-            style=\\"vertical-align:middle\\">
-            <g>
-              <circle fill=\\"#FFF\\"
-                cx=\\"38.5\\"
-                cy=\\"38.9\\"
-                r=\\"38.3\\" />
+          <div class=\\"c-content-type-badge c-content-type-badge--subject-material c-content-type-badge--small c-content-type-badge--background\\">
+            <svg fill=\\"currentColor\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align:middle\\">
+              <g>
+                <title>Fagstoff</title>
+                <g id=\\"Page-1\\"
+                  stroke=\\"none\\"
+                  fill=\\"none\\"
+                  stroke-width=\\"1\\"
+                  fill-rule=\\"evenodd\\">
+                  <g id=\\"fagstoff\\">
+                    <g>
+                      <polygon id=\\"Shape\\"
+                        points=\\"0 0 24 0 24 24 0 24\\" />
 
-              <g fill=\\"none\\">
-                <path fill=\\"#DA788D\\"
-                  d=\\"M39.0741334,76.5226713 C60.3071369,76.5226713 77.5202746,59.4081284 77.5202746,38.2935557 C77.5202746,17.178983 60.3071369,0.061854495 39.0741334,0.061854495 C17.8411299,0.061854495 0.627992189,17.178983 0.627992189,38.2935557 C0.627992189,59.4081284 17.8411299,76.5226713 39.0741334,76.5226713\\" />
+                      <path d=\\"M0,10 L0,8 L11,8 L11,10 L0,10 Z M24,0 L24,2 L0,2 L0,0 L24,0 Z M24,4 L24,6 L0,6 L0,4 L24,4 Z M13,8 L24,15.5 L13,23 L13,8 Z\\"
+                        id=\\"shape\\"
+                        fill=\\"currentColor\\" />
 
-                <polygon fill=\\"#FFF\\"
-                  points=\\"58.32 62.973 58.32 34.859 58.32 20.762 48.164 10.663 19.83 10.663 19.83 21.098 19.83 34.859 19.83 62.973\\" />
-
-                <polygon fill=\\"gray\\"
-                  points=\\"48.165 20.762 58.321 20.762 48.165 10.662\\" />
-
-                <polygon fill=\\"#CCC\\"
-                  points=\\"58.32 20.762 48.164 20.762 58.32 30.861\\" />
-
-                <polygon fill=\\"#DA788D\\"
-                  points=\\"27.12 21.457 38.896 21.457 38.896 20.5 27.12 20.5\\" />
-
-                <polygon fill=\\"#B3B3B3\\"
-                  points=\\"27.12 26.16 51.033 26.16 51.033 25.203 27.12 25.203\\" />
-
-                <polygon fill=\\"#B3B3B3\\"
-                  points=\\"27.12 29.162 51.033 29.162 51.033 28.208 27.12 28.208\\" />
-
-                <polygon fill=\\"#B3B3B3\\"
-                  points=\\"27.12 32.167 51.033 32.167 51.033 31.21 27.12 31.21\\" />
-
-                <polygon fill=\\"#B3B3B3\\"
-                  points=\\"27.12 35.171 51.033 35.171 51.033 34.214 27.12 34.214\\" />
-
-                <polygon fill=\\"#DA788D\\"
-                  points=\\"27.12 58.53 50.802 58.53 50.802 39.262 27.12 39.262\\" />
-
-                <polygon fill=\\"#FFF\\"
-                  points=\\"44.342 48.896 35.73 53.178 35.73 44.614\\" />
-
+                    </g>
+                  </g>
+                </g>
               </g>
-            </g>
-          </svg>
+            </svg>
+          </div>
           <a href=\\"/article/urn:subject:1/urn:topic:1:172733/urn:topic:1:169379/urn:resource:1:158547/417\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>
@@ -265,38 +249,42 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
       </div>
       <div class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
         <h3 class=\\"c-related-articles__title\\">
-          <svg fill=\\"currentColor\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon c-icon--medium\\"
-            viewBox=\\"0 0 80 76\\"
-            data-license=\\"CC-BY 4.0\\"
-            data-source=\\"Netlife\\"
-            style=\\"vertical-align:middle\\">
-            <g>
-              <g fill=\\"none\\">
-                <path fill=\\"#5CBC80\\"
-                  d=\\"M37.8119658,76 C58.6949744,76 75.6239316,58.9868571 75.6239316,38 C75.6239316,17.0131429 58.6949744,0 37.8119658,0 C16.9289573,0 0,17.0131429 0,38 C0,58.9868571 16.9289573,76 37.8119658,76\\" />
+          <div class=\\"c-content-type-badge c-content-type-badge--tasks-and-activities c-content-type-badge--small c-content-type-badge--background\\">
+            <svg fill=\\"currentColor\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align:middle\\">
+              <g>
+                <title>Oppgaver og aktiviteter</title>
+                <g id=\\"Page-1\\"
+                  stroke=\\"none\\"
+                  fill=\\"none\\"
+                  stroke-width=\\"1\\"
+                  fill-rule=\\"evenodd\\">
+                  <g id=\\"oppgaver-og-aktiviteter\\">
+                    <g id=\\"Shape\\">
+                      <polygon points=\\"0 0 24 0 24 24 0 24\\" />
 
-                <path fill=\\"#4C9363\\"
-                  d=\\"M69.9070325,5.15551429 L25.3051179,42.4443714 C26.7716821,43.6495143 29.1349299,43.5735143 31.0822462,42.2489429 L72.1730496,7.89422857 L69.9070325,5.15551429 Z\\" />
+                      <path d=\\"M17.75,8 L14,4.25 L4,14.25 L4,18 L7.75,18 L17.75,8 Z M20.71,5.04 C21.1,4.65 21.1,4.02 20.71,3.63 L18.37,1.29 C17.98,0.9 17.35,0.9 16.96,1.29 L15,3.25 L18.75,7 L20.71,5.04 Z\\"
+                        fill=\\"currentColor\\"
+                        fill-rule=\\"nonzero\\" />
 
-                <path fill=\\"#4D4D4D\\"
-                  d=\\"M77.5690872,14.4117714 L72.1727795,7.89477143 L31.0819761,42.2494857 L31.0846769,42.2494857 C31.0684718,42.2684857 31.0603692,42.2820571 31.0441641,42.2956286 C31.0603692,42.2874857 31.0819761,42.2684857 31.0954803,42.2576286 C29.2507966,44.1359143 28.8321641,46.8149143 30.2150017,48.4896286 C31.6005402,50.1589143 34.2959932,50.2322 36.4701812,48.7502 C36.4566769,48.7637714 36.4377709,48.7827714 36.4242667,48.7936286 C36.4404718,48.7827714 36.4593778,48.7773429 36.4782838,48.7664857 L36.4755829,48.7692 L77.5690872,14.4117714 Z\\" />
+                      <polygon fill=\\"currentColor\\"
+                        points=\\"0 22 24 22 24 24 0 24\\"
+                        fill-opacity=\\"0.36\\"
+                        fill-rule=\\"nonzero\\" />
 
-                <path fill=\\"#4C9363\\"
-                  d=\\"M36.4761231,48.7697429 C34.8259009,50.4498857 34.3235419,52.7733143 35.2337299,54.4426 L79.8356444,17.1537429 L77.5696274,14.4123143 L36.4761231,48.7697429 Z\\" />
-
-                <path fill=\\"#FFF\\"
-                  d=\\"M35.2377812,54.4499286 C34.3221915,52.7806429 34.8245504,50.4517857 36.4747726,48.7689286 L36.4774735,48.7662143 C36.4612684,48.7770714 36.4396615,48.7825 36.4234564,48.7933571 C36.4369607,48.7825 36.4585675,48.7635 36.4720718,48.7499286 C34.2951829,50.2319286 31.6024308,50.1586429 30.2141915,48.4893571 C28.8313538,46.8146429 29.2499863,44.1356429 31.0973709,42.2573571 C31.0811658,42.2682143 31.059559,42.2872143 31.0460547,42.2953571 C31.059559,42.2817857 31.0703624,42.2682143 31.0838667,42.2492143 L31.0811658,42.2492143 C29.1311487,43.5765 26.7624991,43.6497857 25.295935,42.4392143 L20.7963111,56.3635 L35.2377812,54.4499286 Z\\" />
-
-                <path fill=\\"#4D4D4D\\"
-                  d=\\"M23.0048,49.5278429 L20.7955009,56.3651286 L27.8825436,55.4259857 C27.3828855,54.2371286 26.7238769,53.1242714 25.8812103,52.1091286 C25.0439453,51.0939857 24.0716376,50.2389857 23.0048,49.5278429\\" />
-
+                    </g>
+                  </g>
+                </g>
               </g>
-            </g>
-          </svg>
+            </svg>
+          </div>
           <a href=\\"/article/urn:subject:12/urn:topic:1:183846/urn:topic:1:183935/urn:topic:1:110265/urn:resource:1:110271/417\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>

@@ -11,7 +11,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import RelatedArticleList, {
   RelatedArticle,
 } from 'ndla-ui/lib/RelatedArticleList';
-import { Document, Pencil } from 'ndla-icons/common';
+import ContentTypeBadge from 'ndla-ui/lib/ContentTypeBadge';
+import constants from 'ndla-ui/lib/model';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
@@ -22,15 +23,30 @@ const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
 
 const mapping = {
   [RESOURCE_TYPE_SUBJECT_MATERIAL]: {
-    icon: <Document />,
+    icon: (
+      <ContentTypeBadge
+        background
+        type={constants.contentTypes.SUBJECT_MATERIAL}
+      />
+    ),
     modifier: 'subject-material',
   },
   [RESOURCE_TYPE_TASKS_AND_ACTIVITIES]: {
-    icon: <Pencil />,
+    icon: (
+      <ContentTypeBadge
+        background
+        type={constants.contentTypes.TASKS_AND_ACTIVITIES}
+      />
+    ),
     modifier: 'tasks-and-activities',
   },
   default: {
-    icon: <Document />,
+    icon: (
+      <ContentTypeBadge
+        background
+        type={constants.contentTypes.SUBJECT_MATERIAL}
+      />
+    ),
     modifier: 'subject-material',
   },
 };
