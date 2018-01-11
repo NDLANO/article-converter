@@ -7,9 +7,15 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
-import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
+import {
+  Figure,
+  FigureLicenseDialog,
+  FigureCaption,
+  FigureFullscreenDialog,
+} from 'ndla-ui/lib/Figure';
 import Button from 'ndla-ui/lib/button/Button';
 import Image from 'ndla-ui/lib/Image';
 import {
@@ -52,6 +58,25 @@ const getCrop = data => {
   return undefined;
 };
 
+const ImageActionButtons = ({ locale, src, copyString }) => [
+  <Button
+    key="copy"
+    outline
+    data-copied-title={t(locale, 'reference.copied')}
+    data-copy-string={copyString}>
+    {t(locale, 'reference.copy')}
+  </Button>,
+  <a key="download" href={src} className="c-button c-button--outline" download>
+    {t(locale, 'image.download')}
+  </a>,
+];
+
+ImageActionButtons.propTypes = {
+  locale: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  copyString: PropTypes.string.isRequired,
+};
+
 export default function createImagePlugin() {
   const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
 
@@ -66,13 +91,13 @@ export default function createImagePlugin() {
   };
 
   const onError = (embed, locale) => {
-    const { image, data: { resourceId, align, size } } = embed;
+    const { image, data: { align, size } } = embed;
     const figureClassNames = getFigureClassnames(size, align);
     const src =
       image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
 
     return renderToStaticMarkup(
-      <Figure id={resourceId.toString()} className={figureClassNames}>
+      <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <img alt={t(locale, 'image.error.url')} src={src} />
         </div>
@@ -96,7 +121,7 @@ export default function createImagePlugin() {
 
     const sizes = align
       ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
-      : '(min-width: 1024px) 1024px, 100vw';
+      : '(min-width: 1024px) 1024px 100vw';
 
     const messages = {
       title: t(locale, 'title'),
@@ -128,43 +153,71 @@ export default function createImagePlugin() {
       .join('\n');
 
     const copyString = `${licenseCopyString} ${contributorsCopyString}`;
-
+    const figureLicenseDialogId = `image-${image.id.toString()}`;
+    const figureFullscreenDialogId = `fs-${image.id.toString()}`;
     return renderToStaticMarkup(
-      <Figure id={image.id.toString()} className={figureClassNames}>
-        <div className="c-figure__img">
-          <Image
-            focalPoint={focalPoint}
-            contentType={image.contentType}
-            crop={crop}
-            sizes={sizes}
-            alt={altText}
-            src={`${src}`}
-          />
-        </div>
+      <Figure className={figureClassNames}>
+        <Button
+          key="button"
+          data-dialog-trigger-id={figureFullscreenDialogId}
+          stripped
+          className="u-fullw">
+          <div className="c-figure__img">
+            <Image
+              focalPoint={focalPoint}
+              contentType={image.contentType}
+              crop={crop}
+              sizes={sizes}
+              alt={altText}
+              src={`${src}`}
+            />
+          </div>
+        </Button>
         <FigureCaption
+          id={figureLicenseDialogId}
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
           licenseRights={license.rights}
           authors={creators}
         />
         <FigureLicenseDialog
-          id={image.id.toString()}
+          id={figureLicenseDialogId}
           title={image.title.title}
           licenseRights={license.rights}
           licenseUrl={license.url}
           authors={contributors}
           origin={image.copyright.origin}
           messages={messages}>
-          <Button
-            outline
-            data-copied-title={t(locale, 'reference.copied')}
-            data-copy-string={copyString}>
-            {t(locale, 'reference.copy')}
-          </Button>
-          <a href={src} className="c-button c-button--outline" download>
-            {t(locale, 'image.download')}
-          </a>
+          <ImageActionButtons
+            locale={locale}
+            copyString={copyString}
+            src={src}
+          />
         </FigureLicenseDialog>
+        <FigureFullscreenDialog
+          id={figureFullscreenDialogId}
+          title={image.title.title}
+          licenseRights={license.rights}
+          licenseUrl={license.url}
+          caption={caption}
+          reuseLabel={t(locale, 'image.reuse')}
+          authors={contributors}
+          actionButtons={
+            <ImageActionButtons
+              locale={locale}
+              copyString={copyString}
+              src={src}
+            />
+          }
+          messages={messages}
+          origin={image.copyright.origin}>
+          <Image
+            contentType={image.contentType}
+            sizes="100vw"
+            alt={altText}
+            src={`${src}`}
+          />
+        </FigureFullscreenDialog>
       </Figure>
     );
   };

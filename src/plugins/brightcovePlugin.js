@@ -56,7 +56,7 @@ export default function createBrightcovePlugin() {
     const { data: { account, videoid } } = embed;
 
     return renderToStaticMarkup(
-      <Figure id={videoid} resizeIframe>
+      <Figure resizeIframe>
         <iframe
           title={`Video: ${videoid}`}
           frameBorder="0"
@@ -105,8 +105,9 @@ export default function createBrightcovePlugin() {
       source: t(locale, 'source'),
     };
 
+    const figureLicenseDialogId = `brightcove-${videoid}`;
     return renderToStaticMarkup(
-      <Figure id={videoid} resizeIframe>
+      <Figure resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           frameBorder="0"
@@ -114,13 +115,14 @@ export default function createBrightcovePlugin() {
           allowFullScreen
         />
         <FigureCaption
+          id={figureLicenseDialogId}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
           authors={contributors}
         />
         <FigureLicenseDialog
-          id={videoid}
+          id={figureLicenseDialogId}
           licenseRights={license.rights}
           licenseUrl={license.url}
           authors={contributors}

@@ -9,7 +9,7 @@
 import React from 'react';
 import ReactDOMServerStream from 'react-dom/server';
 import defined from 'defined';
-import Glossary from 'ndla-ui/lib/Glossary';
+import Concept from 'ndla-ui/lib/Concept';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 
@@ -25,14 +25,14 @@ export default function createConceptPlugin() {
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
     return ReactDOMServerStream.renderToStaticMarkup(
-      <Glossary
+      <Concept
         id={contentId}
         authors={[]}
         title={t(locale, 'concept.error.title')}
         content={t(locale, 'concept.error.content')}
         messages={messages(locale)}>
         {linkText}
-      </Glossary>
+      </Concept>
     );
   };
 
@@ -44,7 +44,7 @@ export default function createConceptPlugin() {
     const license = defined(copyright.license, {}).license;
 
     return ReactDOMServerStream.renderToStaticMarkup(
-      <Glossary
+      <Concept
         id={id}
         title={title}
         authors={authors}
@@ -53,7 +53,7 @@ export default function createConceptPlugin() {
         source={copyright.origin}
         license={license}>
         {embed.data.linkText}
-      </Glossary>
+      </Concept>
     );
   };
 
