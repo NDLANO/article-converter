@@ -6,8 +6,6 @@
  *
  */
 
-import isNumber from 'lodash/fp/isNumber';
-
 function FootNoteCounter(initialCount = 0) {
   this.count = initialCount;
 
@@ -28,9 +26,7 @@ export default function createFootnotePlugin() {
       ...embed.data,
       ref: footNoteEntryNum,
       authors: embed.data.authors.split(';'),
-      year: isNumber(embed.data.year)
-        ? embed.data.year.toString()
-        : embed.data.year,
+      year: embed.data.year.toString(),
     };
   };
 
