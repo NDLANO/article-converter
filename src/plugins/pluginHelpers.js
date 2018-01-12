@@ -8,6 +8,7 @@
 
 import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
+import t from '../locale/i18n';
 
 export const wrapInFigure = (content, resize = true) => {
   const embedClassnames = classnames('c-figure', {
@@ -33,3 +34,16 @@ export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,
         <path transform="scale(0.3) translate(28, 8.5)" d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
       </svg>
     `;
+
+export const getCopyString = (licenseAbbreviation, creators, locale) => {
+  const licenseCopyString = `${
+    licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
+  }${licenseAbbreviation}`.toUpperCase();
+  const contributorsCopyString = creators
+    .map(creator => {
+      const type = t(locale, `${creator.type.toLowerCase()}`);
+      return `${type}: ${creator.name}`;
+    })
+    .join('\n');
+  return `${licenseCopyString} ${contributorsCopyString}`;
+};

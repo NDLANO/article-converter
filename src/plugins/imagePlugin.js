@@ -22,7 +22,7 @@ import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
-import { errorSvgSrc } from './pluginHelpers';
+import { errorSvgSrc, getCopyString } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 
@@ -133,9 +133,6 @@ export default function createImagePlugin() {
 
     const focalPoint = getFocalPoint(embed.data);
     const crop = getCrop(embed.data);
-    const licenseCopyString = `${
-      licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
-    }${licenseAbbreviation}`.toUpperCase();
 
     const contributors = getGroupedContributorDescriptionList(
       image.copyright,
@@ -144,15 +141,7 @@ export default function createImagePlugin() {
       name: item.description,
       type: item.label,
     }));
-
-    const contributorsCopyString = creators
-      .map(creator => {
-        const type = t(locale, `${creator.type.toLowerCase()}`);
-        return `${type}: ${creator.name}`;
-      })
-      .join('\n');
-
-    const copyString = `${licenseCopyString} ${contributorsCopyString}`;
+    const copyString = getCopyString(licenseAbbreviation, creators, locale);
     const figureLicenseDialogId = `image-${image.id.toString()}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
     return renderToStaticMarkup(
