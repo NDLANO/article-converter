@@ -287,6 +287,16 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
           url: 'http://audio.no/file/voof.mp3',
           mimeType: 'audio/mpeg',
         },
+        copyright: {
+          license: {
+            license: 'by-sa',
+            description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
+            url: 'https://creativecommons.org/licenses/by-sa/2.0/',
+          },
+          creators: [{ type: 'type', name: 'name' }],
+          rightsholders: [{ type: 'type', name: 'name' }],
+          processors: [{ type: 'type', name: 'name' }],
+        },
       },
     },
   ];

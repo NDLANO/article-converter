@@ -81,6 +81,7 @@ export default function createAudioPlugin() {
     } = audio;
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+
     const contributors = getGroupedContributorDescriptionList(
       audio.copyright,
       locale
@@ -89,7 +90,7 @@ export default function createAudioPlugin() {
       type: item.label,
     }));
 
-    const figureLicenseDialogId = `audio-${id.toString()}`;
+    const figureLicenseDialogId = `audio-${id}`;
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
