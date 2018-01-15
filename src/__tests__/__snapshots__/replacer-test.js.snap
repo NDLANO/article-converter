@@ -145,7 +145,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             <span class=\\"c-figure__byline-authors\\">name</span>
             <button data-dialog-trigger-id=\\"audio-undefined\\"
               class=\\"c-figure__captionbtn\\">
-              <span>Bruk lydfil</span>
+              <span>Bruk lydklipp</span>
             </button>
           </div>
         </div>
@@ -161,7 +161,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-audio-undefined\\"
-              class=\\"c-figure-license__title\\">Regler for bruk av lydfil
+              class=\\"c-figure-license__title\\">Regler for bruk av lydklipp
             </h3>
             <div class=\\"c-license-byline\\">
               <div>
@@ -268,7 +268,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 </button>
                 <a href=\\"http://audio.no/file/voof.mp3\\"
                   class=\\"c-button c-button--outline\\"
-                  download>Last ned lydfil
+                  download>Last ned lydklipp
                 </a>
               </div>
             </div>
