@@ -20,6 +20,7 @@ import {
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
+import { getCopyString } from './pluginHelpers';
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
@@ -76,9 +77,6 @@ export default function createBrightcovePlugin() {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
-    const licenseCopyString = `${
-      licenseAbbreviation.includes('by') ? 'CC ' : ''
-    }${licenseAbbreviation}`.toUpperCase();
 
     const contributors = getGroupedContributorDescriptionList(
       brightcove.copyright,
@@ -88,14 +86,7 @@ export default function createBrightcovePlugin() {
       type: item.label,
     }));
 
-    const contributorsCopyString = creators
-      .map(creator => {
-        const type = t(locale, `${creator.type.toLowerCase()}`);
-        return `${type}: ${creator.name}`;
-      })
-      .join('\n');
-
-    const copyString = `${licenseCopyString} ${contributorsCopyString}`;
+    const copyString = getCopyString(licenseAbbreviation, creators, locale);
 
     const messages = {
       title: t(locale, 'title'),
