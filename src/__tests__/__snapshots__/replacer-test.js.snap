@@ -5,10 +5,10 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
 <section>
   <figure class=\\"c-figure u-float-full\\">
     <section class=\\"c-audio-player\\">
-      <h1 class=\\"c-audio-player__title\\" />
-
+      <h1 class=\\"c-audio-player__title\\">Tittel</h1>
       <audio type=\\"audio/mpeg\\"
         src=\\"http://audio.no/file/voof.mp3\\"
+        title=\\"Tittel\\"
         preload=\\"metadata\\" />
 
       <div class=\\"c-audio-player__controls\\">
