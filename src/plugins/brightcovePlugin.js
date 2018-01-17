@@ -114,8 +114,7 @@ export default function createBrightcovePlugin() {
         />
         <FigureLicenseDialog
           id={figureLicenseDialogId}
-          licenseRights={license.rights}
-          licenseUrl={license.url}
+          license={license}
           authors={contributors}
           messages={messages}>
           <Button

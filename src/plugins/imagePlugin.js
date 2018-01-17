@@ -172,8 +172,7 @@ export default function createImagePlugin() {
         <FigureLicenseDialog
           id={figureLicenseDialogId}
           title={image.title.title}
-          licenseRights={license.rights}
-          licenseUrl={license.url}
+          license={license}
           authors={contributors}
           origin={image.copyright.origin}
           messages={messages}>
@@ -186,8 +185,7 @@ export default function createImagePlugin() {
         <FigureFullscreenDialog
           id={figureFullscreenDialogId}
           title={image.title.title}
-          licenseRights={license.rights}
-          licenseUrl={license.url}
+          license={license}
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
           authors={contributors}
