@@ -1596,21 +1596,6 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
 </section>"
 `;
 
-exports[`replacer/replaceEmbedsInHtml replace prezi embeds 1`] = `
-"
-<section>
-  <figure class=\\"c-figure c-figure--resize\\">
-    <iframe src=\\"http://prezi.com\\"
-      width=\\"1\\"
-      height=\\"2\\"
-      allowfullscreen
-      scrolling=\\"no\\"
-      frameborder=\\"0\\" />
-
-  </figure>
-</section>"
-`;
-
 exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "
 

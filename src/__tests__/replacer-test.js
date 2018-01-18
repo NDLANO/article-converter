@@ -349,9 +349,7 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
   const embeds = [
     {
       embed: articleContent('embed[data-resource="iframe"]'),
-      data: articleContent(
-        'embed[data-resource="iframe"]'
-      ).data(),
+      data: articleContent('embed[data-resource="iframe"]').data(),
       plugin: createIframePlugin(),
     },
   ];
