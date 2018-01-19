@@ -123,8 +123,7 @@ export default function createAudioPlugin() {
         <FigureLicenseDialog
           id={figureLicenseDialogId}
           title={title}
-          licenseRights={license.rights}
-          licenseUrl={license.url}
+          license={license}
           authors={contributors}
           origin={origin}
           messages={messages}>
