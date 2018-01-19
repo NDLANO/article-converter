@@ -17,10 +17,7 @@ import {
   createBrightcovePlugin,
   createNRKPlugin,
   createAudioPlugin,
-  createPreziPlugin,
-  createCommoncraftPlugin,
-  createNdlaFilmIUndervisning,
-  createKahootPlugin,
+  createIframePlugin,
   createFootnotePlugin,
 } from '../plugins';
 
@@ -307,15 +304,15 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   expect(prettify(replaced)).toMatchSnapshot();
 });
 
-test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
+test('replacer/replaceEmbedsInHtml replace iframe embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="prezi" data-url="http://prezi.com" data-width="1" data-height="2"/></section>'
+    '<section><embed data-resource="iframe" data-url="http://prezi.com" data-width="1" data-height="2"/></section>'
   );
   const embeds = [
     {
-      embed: articleContent('embed[data-resource="prezi"]'),
-      data: articleContent('embed[data-resource="prezi"]').data(),
-      plugin: createPreziPlugin(),
+      embed: articleContent('embed[data-resource="iframe"]'),
+      data: articleContent('embed[data-resource="iframe"]').data(),
+      plugin: createIframePlugin(),
     },
   ];
 
@@ -327,14 +324,14 @@ test('replacer/replaceEmbedsInHtml replace prezi embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="commoncraft" data-url="http://common.craft" data-width="1" data-height="2"/></section>'
+    '<section><embed data-resource="iframe" data-url="http://common.craft" data-width="1" data-height="2"/></section>'
   );
 
   const embeds = [
     {
-      embed: articleContent('embed[data-resource="commoncraft"]'),
-      data: articleContent('embed[data-resource="commoncraft"]').data(),
-      plugin: createCommoncraftPlugin(),
+      embed: articleContent('embed[data-resource="iframe"]'),
+      data: articleContent('embed[data-resource="iframe"]').data(),
+      plugin: createIframePlugin(),
     },
   ];
 
@@ -346,16 +343,14 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="ndla-filmiundervisning" data-url="http://ndla.filmiundervisning.no/" data-width="1" data-height="2"/></section>'
+    '<section><embed data-resource="iframe" data-url="http://ndla.filmiundervisning.no/" data-width="1" data-height="2"/></section>'
   );
 
   const embeds = [
     {
-      embed: articleContent('embed[data-resource="ndla-filmiundervisning"]'),
-      data: articleContent(
-        'embed[data-resource="ndla-filmiundervisning"]'
-      ).data(),
-      plugin: createNdlaFilmIUndervisning(),
+      embed: articleContent('embed[data-resource="iframe"]'),
+      data: articleContent('embed[data-resource="iframe"]').data(),
+      plugin: createIframePlugin(),
     },
   ];
 
@@ -367,14 +362,14 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
 
 test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="kahoot" data-url="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" data-width="1" data-height="2"/></section>'
+    '<section><embed data-resource="iframe" data-url="https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d" data-width="1" data-height="2"/></section>'
   );
 
   const embeds = [
     {
-      embed: articleContent('embed[data-resource="kahoot"]'),
-      data: articleContent('embed[data-resource="kahoot"]').data(),
-      plugin: createKahootPlugin(),
+      embed: articleContent('embed[data-resource="iframe"]'),
+      data: articleContent('embed[data-resource="iframe"]').data(),
+      plugin: createIframePlugin(),
     },
   ];
 

@@ -790,6 +790,21 @@ exports[`replacer/replaceEmbedsInHtml replace footnote embeds 2`] = `
 </section>"
 `;
 
+exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
+"
+<section>
+  <figure class=\\"c-figure c-figure--resize\\">
+    <iframe src=\\"http://prezi.com\\"
+      width=\\"1\\"
+      height=\\"2\\"
+      allowfullscreen
+      scrolling=\\"no\\"
+      frameborder=\\"0\\" />
+
+  </figure>
+</section>"
+`;
+
 exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "
 
@@ -1571,21 +1586,6 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
 <section>
   <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"http://ndla.filmiundervisning.no/\\"
-      width=\\"1\\"
-      height=\\"2\\"
-      allowfullscreen
-      scrolling=\\"no\\"
-      frameborder=\\"0\\" />
-
-  </figure>
-</section>"
-`;
-
-exports[`replacer/replaceEmbedsInHtml replace prezi embeds 1`] = `
-"
-<section>
-  <figure class=\\"c-figure c-figure--resize\\">
-    <iframe src=\\"http://prezi.com\\"
       width=\\"1\\"
       height=\\"2\\"
       allowfullscreen
