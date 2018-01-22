@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformers/htmlTransforms adds display block to math tags 1`] = `
+exports[`htmlTransforms adds display block to math tags 1`] = `
 "<html><head></head><body><section>
     <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
       <mi>f</mi><mo>&apos;</mo>
@@ -14,7 +14,7 @@ exports[`transformers/htmlTransforms adds display block to math tags 1`] = `
   </body></html>"
 `;
 
-exports[`transformers/moveReactPortals 1`] = `
+exports[`move react portals to bottom 1`] = `
 "<html><head></head><body><section>
     <figure>
       <p>Lorem ipsum dolor sit amet...</p>
@@ -23,7 +23,7 @@ exports[`transformers/moveReactPortals 1`] = `
   </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
 `;
 
-exports[`transformers/transformAsides duplicates right column aside for better narrowscreen experience 1`] = `
+exports[`transformAsides duplicates right column aside for better narrowscreen experience 1`] = `
 "
 
 <section>
@@ -56,7 +56,7 @@ exports[`transformers/transformAsides duplicates right column aside for better n
 </section>"
 `;
 
-exports[`transformers/transformAsides encloses aside duplication to sections 1`] = `
+exports[`transformAsides encloses aside duplication to sections 1`] = `
 "
 
 <section>
@@ -100,7 +100,7 @@ exports[`transformers/transformAsides encloses aside duplication to sections 1`]
 </section>"
 `;
 
-exports[`transformers/transformAsides replaces factAsides with factbox component 1`] = `
+exports[`transformAsides replaces factAsides with factbox component 1`] = `
 "
 
 <section>

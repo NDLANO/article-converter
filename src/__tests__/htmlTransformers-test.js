@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016-present, NDLA.
+ * Copyright (c) 2018-present, NDLA.
  *
  * This source code is licensed under the GPLv3 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,9 +12,9 @@ import {
   htmlTransforms,
   moveReactPortals,
   transformAsides,
-} from '../transformers';
+} from '../htmlTransformers';
 
-test('transformers/htmlTransforms changes ol to accommodate frontend styling', () => {
+test('htmlTransforms changes ol to accommodate frontend styling', () => {
   const content = cheerio.load(`
   <section>
     <ol data-type='letters'>
@@ -33,7 +33,7 @@ test('transformers/htmlTransforms changes ol to accommodate frontend styling', (
   expect(result).toMatch('<ol>');
 });
 
-test('transformers/htmlTransforms adds display block to math tags', () => {
+test('htmlTransforms adds display block to math tags', () => {
   const content = cheerio.load(`
   <section>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -53,7 +53,7 @@ test('transformers/htmlTransforms adds display block to math tags', () => {
   expect(result).toMatchSnapshot();
 });
 
-test('transformers/htmlTransforms changes p to accommodate frontend styling', () => {
+test('htmlTransforms changes p to accommodate frontend styling', () => {
   const content = cheerio.load(`
   <section>
   <p data-align='center'>Lorem ipsum dolor sit amet...</p>
@@ -65,7 +65,7 @@ test('transformers/htmlTransforms changes p to accommodate frontend styling', ()
   expect(result).toMatch('<p class="u-text-center">');
 });
 
-test('transformers/moveReactPortals', () => {
+test('move react portals to bottom', () => {
   const content = cheerio.load(`
   <section>
     <figure>
@@ -81,7 +81,7 @@ test('transformers/moveReactPortals', () => {
   expect(result).toMatchSnapshot();
 });
 
-test('transformers/transformAsides duplicates right column aside for better narrowscreen experience', () => {
+test('transformAsides duplicates right column aside for better narrowscreen experience', () => {
   const content = cheerio.load(`
   <section>
     <aside><h2>Test1</h2><div>Stuff</div></aside>
@@ -99,7 +99,7 @@ test('transformers/transformAsides duplicates right column aside for better narr
   expect(prettify(result)).toMatchSnapshot();
 });
 
-test('transformers/transformAsides encloses aside duplication to sections', () => {
+test('transformAsides encloses aside duplication to sections', () => {
   const content = cheerio.load(`
   <section>
     <aside><h2>Test1</h2><div>Stuff</div></aside>
@@ -116,7 +116,7 @@ test('transformers/transformAsides encloses aside duplication to sections', () =
   expect(prettify(result)).toMatchSnapshot();
 });
 
-test('transformers/transformAsides replaces factAsides with factbox component', () => {
+test('transformAsides replaces factAsides with factbox component', () => {
   const content = cheerio.load(`
   <section>
     <p>Lorem ipsum dolor sit amet...</p>
