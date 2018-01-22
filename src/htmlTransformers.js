@@ -34,7 +34,7 @@ export const transformAsides = content => {
       );
 
       const parent = aside.parent;
-      content(parent).prepend(wideAside);
+      content(aside).after(wideAside);
       if (parent.name === 'section') {
         // Only append duplicate if we are in a section
         content(parent).append(narrowAside);

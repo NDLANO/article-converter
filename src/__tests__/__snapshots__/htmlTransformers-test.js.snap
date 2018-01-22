@@ -27,6 +27,10 @@ exports[`transformAsides duplicates right column aside for better narrowscreen e
 "
 
 <section>
+
+  <figure>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </figure>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
       <div>

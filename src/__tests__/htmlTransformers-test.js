@@ -84,6 +84,9 @@ test('move react portals to bottom', () => {
 test('transformAsides duplicates right column aside for better narrowscreen experience', () => {
   const content = cheerio.load(`
   <section>
+    <figure>
+      <p>Lorem ipsum dolor sit amet...</p>
+    </figure>
     <aside><h2>Test1</h2><div>Stuff</div></aside>
     <p>sdfjljklsdfjlsdf</p>
     <figure>
