@@ -7,8 +7,8 @@
  */
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import Aside from 'ndla-ui/lib/aside/Aside';
-import Factbox from 'ndla-ui/lib/Factbox';
+import Aside from 'ndla-ui/lib/Aside';
+import FactBox from 'ndla-ui/lib/FactBox';
 
 export function createAside(props, children) {
   return renderToStaticMarkup(
@@ -24,12 +24,12 @@ export function createAside(props, children) {
 
 export function createFactbox(props, children) {
   return renderToStaticMarkup(
-    <Factbox {...props}>
+    <FactBox {...props}>
       <div
         dangerouslySetInnerHTML={{
           __html: children,
         }}
       />
-    </Factbox>
+    </FactBox>
   );
 }
