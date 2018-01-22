@@ -11,6 +11,7 @@ import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
+import { createAside, createFactbox } from './utils/aside';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -18,23 +19,37 @@ export const moveReactPortals = content => {
   content('body').append(dialog);
 };
 
+export const transformAsides = content => {
+  content('aside').each((_, aside) => {
+    const isFactAside =
+      aside.attribs && aside.attribs['data-type'] === 'factAside';
+    if (isFactAside) {
+      const factbox = createFactbox({}, content(aside).children());
+      content(aside).after(factbox);
+    } else {
+      const narrowAside = createAside(
+        { narrowScreen: true },
+        content(aside).children()
+      );
+
+      const wideAside = createAside(
+        { wideScreen: true },
+        content(aside).children()
+      );
+
+      const parent = aside.parent;
+      content(parent).prepend(wideAside);
+      if (parent.name === 'section') {
+        // Only append duplicate if we are in a section
+        content(parent).append(narrowAside);
+      }
+    }
+    content(aside).remove();
+  });
+};
+
 export const htmlTransforms = [
-  content => {
-    content('aside').each((_, aside) => {
-      const isFactAside =
-        aside.attribs && aside.attribs['data-type'] === 'factAside';
-      const expandButton = isFactAside
-        ? '<button class="c-button c-aside__button"/>'
-        : '';
-      const innerAside = `<div class="c-aside__content">${content(
-        aside
-      ).children()}</div>${expandButton}`;
-      content(aside)
-        .removeAttr('data-type')
-        .addClass(`c-aside ${!isFactAside ? 'c-aside--float expanded' : ''}`);
-      content(aside).html(innerAside);
-    });
-  },
+  transformAsides,
   content => {
     content('math').attr('display', 'block');
   },

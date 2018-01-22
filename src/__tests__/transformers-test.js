@@ -7,28 +7,12 @@
  */
 
 import cheerio from 'cheerio';
-import { htmlTransforms, moveReactPortals } from '../transformers';
-
-test('transformers/htmlTransforms changes aside to accommodate frontend styling', () => {
-  const content = cheerio.load(`
-  <section>
-    <p>Lorem ipsum dolor sit amet...</p>
-    <aside><h2>Test1</h2><div>Stuff</div></aside>
-  </section>
-    <aside><h2>Test2</h2><div>Other stuff</div></aside>
-    <p>Lorem ipsum dolor sit amet...</p>
-  </section>`);
-
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
-  const result = content.html();
-
-  expect(result).toMatch(
-    '<aside class="c-aside c-aside--float expanded"><div class="c-aside__content"><h2>Test1</h2><div>Stuff</div></div></aside>'
-  );
-  expect(result).toMatch(
-    '<aside class="c-aside c-aside--float expanded"><div class="c-aside__content"><h2>Test2</h2><div>Other stuff</div></div></aside>'
-  );
-});
+import { prettify } from './testHelpers';
+import {
+  htmlTransforms,
+  moveReactPortals,
+  transformAsides,
+} from '../transformers';
 
 test('transformers/htmlTransforms changes ol to accommodate frontend styling', () => {
   const content = cheerio.load(`
@@ -47,27 +31,6 @@ test('transformers/htmlTransforms changes ol to accommodate frontend styling', (
 
   expect(result).toMatch('<ol class="ol-list--roman">');
   expect(result).toMatch('<ol>');
-});
-
-test('transformers/htmlTransforms changes fact aside to accommodate frontend styling', () => {
-  const content = cheerio.load(`
-  <section>
-    <p>Lorem ipsum dolor sit amet...</p>
-    <aside data-type='factAside'><h2>Test1</h2><div>Stuff</div></aside>
-  </section>
-    <aside data-type="factAside"><h2>Test2</h2><div>Other stuff</div></aside>
-    <p>Lorem ipsum dolor sit amet...</p>
-  </section>`);
-
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
-  const result = content.html();
-
-  expect(result).toMatch(
-    '<aside class="c-aside"><div class="c-aside__content"><h2>Test1</h2><div>Stuff</div></div><button class="c-button c-aside__button"></button></aside>'
-  );
-  expect(result).toMatch(
-    '<aside class="c-aside"><div class="c-aside__content"><h2>Test2</h2><div>Other stuff</div></div><button class="c-button c-aside__button"></button></aside>'
-  );
 });
 
 test('transformers/htmlTransforms adds display block to math tags', () => {
@@ -116,4 +79,55 @@ test('transformers/moveReactPortals', () => {
   const result = content.html();
 
   expect(result).toMatchSnapshot();
+});
+
+test('transformers/transformAsides duplicates right column aside for better narrowscreen experience', () => {
+  const content = cheerio.load(`
+  <section>
+    <aside><h2>Test1</h2><div>Stuff</div></aside>
+    <p>sdfjljklsdfjlsdf</p>
+    <figure>
+      <p>Lorem ipsum dolor sit amet...</p>
+      <div data-react-universal-portal="true"><h2>Modal dialog</h2><div>Stuff</div></div>
+    </figure>
+    <p>sdfjljklsdfjlsdf</p>
+  </section>`);
+
+  transformAsides(content);
+
+  const result = content('body').html();
+  expect(prettify(result)).toMatchSnapshot();
+});
+
+test('transformers/transformAsides encloses aside duplication to sections', () => {
+  const content = cheerio.load(`
+  <section>
+    <aside><h2>Test1</h2><div>Stuff</div></aside>
+    <p>Lorem</p>
+  </section>
+  <section>
+    <aside><h2>Test1</h2><div>Stuff</div></aside>
+    <p>Ipsum</p>
+  </section>`);
+
+  transformAsides(content);
+
+  const result = content('body').html();
+  expect(prettify(result)).toMatchSnapshot();
+});
+
+test('transformers/transformAsides replaces factAsides with factbox component', () => {
+  const content = cheerio.load(`
+  <section>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <aside data-type='factAside'><h2>Test1</h2><div>Stuff</div></aside>
+  </section>
+    <aside data-type="factAside"><h2>Test2</h2><div>Other stuff</div></aside>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </section>`);
+
+  transformAsides(content);
+
+  const result = content('body').html();
+  expect(prettify(result)).toMatchSnapshot();
 });

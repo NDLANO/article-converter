@@ -22,3 +22,111 @@ exports[`transformers/moveReactPortals 1`] = `
     </figure>
   </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
 `;
+
+exports[`transformers/transformAsides duplicates right column aside for better narrowscreen experience 1`] = `
+"
+
+<section>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>sdfjljklsdfjlsdf</p>
+
+  <figure>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <div data-react-universal-portal=\\"true\\">
+      <h2>Modal dialog</h2>
+      <div>Stuff</div>
+    </div>
+  </figure>
+  <p>sdfjljklsdfjlsdf</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>"
+`;
+
+exports[`transformers/transformAsides encloses aside duplication to sections 1`] = `
+"
+
+<section>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>Lorem</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>Ipsum</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>"
+`;
+
+exports[`transformers/transformAsides replaces factAsides with factbox component 1`] = `
+"
+
+<section>
+  <p>Lorem ipsum dolor sit amet...</p>
+  <aside class=\\"c-factbox\\">
+    <div class=\\"c-factbox__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+    <button class=\\"c-button c-factbox__button\\"
+      type=\\"button\\" />
+
+  </aside>
+</section>
+<aside class=\\"c-factbox\\">
+  <div class=\\"c-factbox__content\\">
+    <div>
+      <h2>Test2</h2>
+      <div>Other stuff</div>
+    </div>
+  </div>
+  <button class=\\"c-button c-factbox__button\\"
+    type=\\"button\\" />
+
+</aside>
+<p>Lorem ipsum dolor sit amet...</p>"
+`;
