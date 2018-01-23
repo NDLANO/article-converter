@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`htmlTransforms adds display block to math tags 1`] = `
+"<html><head></head><body><section>
+    <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
+      <mi>f</mi><mo>&apos;</mo>
+      <mfenced><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow></mfenced>
+      <mo>=</mo><mn>2</mn><mo>&#xB7;</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>1</mn>
+    </math>
+    <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
+      <mn>0</mn><mo>,</mo><mn>5</mn>
+    </math>
+  </section>
+  </body></html>"
+`;
+
+exports[`move react portals to bottom 1`] = `
+"<html><head></head><body><section>
+    <figure>
+      <p>Lorem ipsum dolor sit amet...</p>
+      
+    </figure>
+  </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
+`;
+
+exports[`transformAsides duplicates right column aside for better narrowscreen experience 1`] = `
+"
+
+<section>
+
+  <figure>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </figure>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>sdfjljklsdfjlsdf</p>
+
+  <figure>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <div data-react-universal-portal=\\"true\\">
+      <h2>Modal dialog</h2>
+      <div>Stuff</div>
+    </div>
+  </figure>
+  <p>sdfjljklsdfjlsdf</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>"
+`;
+
+exports[`transformAsides encloses aside duplication to sections 1`] = `
+"
+
+<section>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>Lorem</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section>
+  <aside class=\\"c-aside c-aside--wideScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+  <p>Ipsum</p>
+  <aside class=\\"c-aside c-aside--narrowScreen\\">
+    <div class=\\"c-aside__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+  </aside>
+</section>"
+`;
+
+exports[`transformAsides replaces factAsides with factbox component 1`] = `
+"
+
+<section>
+  <p>Lorem ipsum dolor sit amet...</p>
+  <aside class=\\"c-factbox\\">
+    <div class=\\"c-factbox__content\\">
+      <div>
+        <h2>Test1</h2>
+        <div>Stuff</div>
+      </div>
+    </div>
+    <button class=\\"c-button c-factbox__button\\"
+      type=\\"button\\" />
+
+  </aside>
+</section>
+<aside class=\\"c-factbox\\">
+  <div class=\\"c-factbox__content\\">
+    <div>
+      <h2>Test2</h2>
+      <div>Other stuff</div>
+    </div>
+  </div>
+  <button class=\\"c-button c-factbox__button\\"
+    type=\\"button\\" />
+
+</aside>
+<p>Lorem ipsum dolor sit amet...</p>"
+`;
