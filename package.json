@@ -55,7 +55,7 @@
     "lodash": "^4.17.4",
     "ndla-i18n": "^0.2.0",
     "ndla-icons": "^0.1.11",
-    "ndla-licenses": "^0.1.5",
+    "ndla-licenses": "^0.1.7",
     "ndla-ui": "^0.10.1",
     "ndla-util": "^0.1.9",
     "nock": "^9.1.4",
