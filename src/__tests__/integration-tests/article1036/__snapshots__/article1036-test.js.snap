@@ -464,7 +464,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
               class=\\"c-button c-button--outline\\"
-              download>Last ned bilde
+              download>Last ned bildet
             </a>
           </div>
         </div>
@@ -638,7 +638,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
                   class=\\"c-button c-button--outline\\"
-                  download>Last ned bilde
+                  download>Last ned bildet
                 </a>
               </div>
             </div>

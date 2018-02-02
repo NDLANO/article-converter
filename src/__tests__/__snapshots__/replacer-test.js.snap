@@ -1036,7 +1036,7 @@ Kunstner: Kari Maler\\"
                 </button>
                 <a href=\\"http://ndla.no/images/1.jpg\\"
                   class=\\"c-button c-button--outline\\"
-                  download>Last ned bilde
+                  download>Last ned bildet
                 </a>
               </div>
             </div>
@@ -1186,7 +1186,7 @@ Kunstner: Kari Maler\\"
                     </button>
                     <a href=\\"http://ndla.no/images/1.jpg\\"
                       class=\\"c-button c-button--outline\\"
-                      download>Last ned bilde
+                      download>Last ned bildet
                     </a>
                   </div>
                 </div>
@@ -1414,7 +1414,7 @@ Kunstner: Kari Maler\\"
                 </button>
                 <a href=\\"http://ndla.no/images/2.jpg\\"
                   class=\\"c-button c-button--outline\\"
-                  download>Last ned bilde
+                  download>Last ned bildet
                 </a>
               </div>
             </div>
@@ -1550,7 +1550,7 @@ Kunstner: Kari Maler\\"
                     </button>
                     <a href=\\"http://ndla.no/images/2.jpg\\"
                       class=\\"c-button c-button--outline\\"
-                      download>Last ned bilde
+                      download>Last ned bildet
                     </a>
                   </div>
                 </div>
@@ -1815,7 +1815,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 </button>
                 <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
                   class=\\"c-button c-button--outline\\"
-                  download>Last ned bilde
+                  download>Last ned bildet
                 </a>
               </div>
             </div>
@@ -1950,7 +1950,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     </button>
                     <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
                       class=\\"c-button c-button--outline\\"
-                      download>Last ned bilde
+                      download>Last ned bildet
                     </a>
                   </div>
                 </div>
