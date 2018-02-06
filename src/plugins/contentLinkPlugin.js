@@ -6,7 +6,6 @@
  *
  */
 
-import { ndlaFrontendUrl } from '../config';
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 
@@ -19,28 +18,20 @@ export default function createContentLinkPlugin() {
         lang
       );
 
-      const urnPath = resource.path
-        .split('/')
-        .map(s => (s !== '' ? `urn:${s}` : s))
-        .join('/');
-      const fullPath = `article${urnPath}/${embed.data.contentId}`;
-
-      return { ...embed, path: fullPath };
+      return { ...embed, path: `subjects${resource.path}` };
     } catch (error) {
       log.error(error);
       return { ...embed, path: `article/${embed.data.contentId}` };
     }
   }
 
-  const embedToHTML = (embed, lang) => {
+  const embedToHTML = embed => {
     if (embed.data.openIn === 'new-context') {
-      return `<a href="${ndlaFrontendUrl}/${lang}/${
+      return `<a href="/${
         embed.path
       }" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
     }
-    return `<a href="${ndlaFrontendUrl}/${lang}/${embed.path}">${
-      embed.data.linkText
-    }</a>`;
+    return `<a href="/${embed.path}">${embed.data.linkText}</a>`;
   };
 
   return {

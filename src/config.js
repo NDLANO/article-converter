@@ -32,23 +32,10 @@ const domain = () => {
   }
 };
 
-const ndlaFrontendDomain = () => {
-  const env = defined(process.env.NDLA_ENVIRONMENT, 'test');
-  switch (env) {
-    case 'local':
-      return 'http://localhost';
-    case 'prod':
-      return 'https://api.ndla.no';
-    default:
-      return `https://ndla-frontend.${env}.api.ndla.no`;
-  }
-};
-
 module.exports = Object.assign(
   {
     host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
     port: process.env.ARTICLE_CONVERTER_PORT || '3100',
-    ndlaFrontendUrl: process.env.NDLA_FRONTEND_URL || ndlaFrontendDomain(),
     ndlaApiUrl: process.env.NDLA_API_URL || domain(),
     ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
     brightcoveClientId: process.env.BRIGHTCOVE_API_CLIENT_ID || '',

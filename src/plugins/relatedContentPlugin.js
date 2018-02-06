@@ -51,13 +51,9 @@ const mapping = {
   },
 };
 
-const getRelatedArticleProps = (resource, articleId) => {
+const getRelatedArticleProps = resource => {
   const resourceType = resource.resourceTypes.find(type => mapping[type.id]);
-  const urnPath = resource.path
-    .split('/')
-    .map(s => (s !== '' ? `urn:${s}` : s))
-    .join('/');
-  const to = `/article${urnPath}/${articleId}`;
+  const to = `/subjects${resource.path}`;
 
   if (resourceType) {
     return { ...mapping[resourceType.id], to };
