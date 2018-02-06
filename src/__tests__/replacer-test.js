@@ -11,7 +11,6 @@ import { prettify } from './testHelpers';
 import { replaceEmbedsInHtml } from '../replacer';
 import getEmbedMetaData from '../getEmbedMetaData';
 import {
-  createContentLinkPlugin,
   createH5pPlugin,
   createImagePlugin,
   createBrightcovePlugin,
@@ -34,16 +33,10 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     <section>
       <embed data-resource="brightcove" data-id="2" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"/>
       <p>SomeText3</p>
-      <embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"/>
     </section>`
   );
 
   const embeds = [
-    {
-      embed: articleContent('embed[data-resource="content-link"]'),
-      data: articleContent('embed[data-resource="content-link"]').data(),
-      plugin: createContentLinkPlugin(),
-    },
     {
       embed: articleContent('embed[data-resource="h5p"]'),
       data: articleContent('embed[data-resource="h5p"]').data(),

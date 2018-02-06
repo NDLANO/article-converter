@@ -2193,7 +2193,5 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </div>
   </figure>
   <p>SomeText3</p>
-  <a href=\\"https://ndla-frontend.test.api.ndla.no/nb/article/425\\">Valg av informanter
-  </a>
 </section>"
 `;
