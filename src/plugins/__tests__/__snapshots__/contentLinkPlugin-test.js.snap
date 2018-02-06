@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`embedToHtml should return anchor tag with path 1`] = `"<a href=\\"https://ndla-frontend.test.api.ndla.no/nb/urn:test:1\\">text</a>"`;
+exports[`embedToHtml should return anchor tag with path 1`] = `"<a href=\\"/urn:test:1\\">text</a>"`;
 
 exports[`fetchResource for content-link 1`] = `
 Object {
   "data": Object {
     "contentId": "1",
   },
-  "path": "article/urn:subject:12/urn:topic:1:183846/urn:topic:1:183935/urn:resource:1:110269/1",
+  "path": "subjects/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
 }
 `;

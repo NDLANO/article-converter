@@ -6,8 +6,6 @@
  *
  */
 
-import defined from 'defined';
-
 const environment = {
   development: {
     isProduction: false,
