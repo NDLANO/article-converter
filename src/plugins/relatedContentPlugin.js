@@ -81,22 +81,18 @@ export default function createRelatedContentPlugin() {
 
     const articlesWithResource = await Promise.all(
       articleIds.map(async id => {
-        let article;
-        let resource;
+        const [article, resource] = await Promise.all([
+          fetchArticle(id, accessToken, lang).catch(error => {
+            log.warn(error);
+            return undefined;
+          }),
+          fetchArticleResource(id, accessToken, lang).catch(error => {
+            log.warn(error);
+            return undefined;
+          }),
+        ]);
 
-        try {
-          article = await fetchArticle(id, accessToken, lang);
-        } catch (error) {
-          log.error(error);
-          return undefined;
-        }
-
-        try {
-          resource = await fetchArticleResource(id, accessToken, lang);
-        } catch (error) {
-          log.error(`Failed to fetch taxonomy for ${id} with error: `, error);
-        }
-
+        if (article === undefined) return undefined;
         return { ...article, resource: resource || {} };
       })
     );
