@@ -52,11 +52,12 @@ const mapping = {
 };
 
 const getRelatedArticleProps = (resource, articleId) => {
-  const to = resource.path
-    ? `/subjects${resource.path}`
-    : `/article/${articleId}`;
+  const to =
+    resource && resource.path
+      ? `/subjects${resource.path}`
+      : `/article/${articleId}`;
 
-  if (!resource.resourceTypes) {
+  if (!resource || !resource.resourceTypes) {
     return { ...mapping.default, to };
   }
 
@@ -83,17 +84,17 @@ export default function createRelatedContentPlugin() {
       articleIds.map(async id => {
         const [article, resource] = await Promise.all([
           fetchArticle(id, accessToken, lang).catch(error => {
-            log.warn(error);
+            log.error(error);
             return undefined;
           }),
           fetchArticleResource(id, accessToken, lang).catch(error => {
-            log.warn(error);
+            log.error(error);
             return undefined;
           }),
         ]);
 
         if (article === undefined) return undefined;
-        return { ...article, resource: resource || {} };
+        return { ...article, resource };
       })
     );
 

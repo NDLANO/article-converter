@@ -97,7 +97,7 @@ Object {
       "introduction": Object {
         "introduction": "introduction2",
       },
-      "resource": Object {},
+      "resource": undefined,
       "title": Object {
         "title": "title2",
       },
