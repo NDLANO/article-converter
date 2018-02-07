@@ -51,9 +51,16 @@ const mapping = {
   },
 };
 
-const getRelatedArticleProps = resource => {
+const getRelatedArticleProps = (resource, articleId) => {
+  const to = resource.path
+    ? `/subjects${resource.path}`
+    : `/article/${articleId}`;
+
+  if (!resource.resourceTypes) {
+    return { ...mapping.default, to };
+  }
+
   const resourceType = resource.resourceTypes.find(type => mapping[type.id]);
-  const to = `/subjects${resource.path}`;
 
   if (resourceType) {
     return { ...mapping[resourceType.id], to };
@@ -74,21 +81,28 @@ export default function createRelatedContentPlugin() {
 
     const articlesWithResource = await Promise.all(
       articleIds.map(async id => {
+        let article;
+        let resource;
+
         try {
-          const [article, resource] = await Promise.all([
-            fetchArticle(id, accessToken, lang),
-            fetchArticleResource(id, accessToken, lang),
-          ]);
-          return { ...article, resource };
+          article = await fetchArticle(id, accessToken, lang);
         } catch (error) {
           log.error(error);
           return undefined;
         }
+
+        try {
+          resource = await fetchArticleResource(id, accessToken, lang);
+        } catch (error) {
+          log.error(`Failed to fetch taxonomy for ${id} with error: `, error);
+        }
+
+        return { ...article, resource: resource || {} };
       })
     );
 
     const articles = articlesWithResource.filter(
-      article => article !== undefined && article.resource !== undefined
+      article => article !== undefined
     );
 
     return { ...embed, articles };

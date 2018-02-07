@@ -55,7 +55,7 @@ test('fetchResource for two related articles', async () => {
   expect(resource).toMatchSnapshot();
 });
 
-test('fetchResource for two related articles, where one fails', async () => {
+test('fetchResource for two related articles, where one could not be fetched from article-api', async () => {
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -86,6 +86,42 @@ test('fetchResource for two related articles, where one fails', async () => {
   log.level(bunyan.INFO);
 });
 
+test('fetchResource for two related articles, where one could not be fetched from taxonomy-api', async () => {
+  log.level(bunyan.FATAL + 1); // temporarily disable logging
+
+  const relatedContentPlugin = createRelatedContentPlugin();
+  nock('https://test.api.ndla.no')
+    .get(`/article-api/v2/articles/1?language=nb`)
+    .reply(200, {
+      title: { title: `title1` },
+      introduction: { introduction: `introduction1` },
+    });
+  nock('https://test.api.ndla.no')
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .reply(200, articleResource);
+
+  nock('https://test.api.ndla.no')
+    .get(`/article-api/v2/articles/2?language=nb`)
+    .reply(200, {
+      title: { title: `title2` },
+      introduction: { introduction: `introduction2` },
+    });
+  nock('https://test.api.ndla.no')
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2`)
+    .reply(500, {});
+
+  const resource = await relatedContentPlugin.fetchResource(
+    {
+      data: { articleIds: '1,2' },
+    },
+    'token',
+    'nb'
+  );
+
+  expect(resource).toMatchSnapshot();
+  log.level(bunyan.INFO);
+});
+
 test('embedToHtml should return empty string if no related articles is provided', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
@@ -93,4 +129,34 @@ test('embedToHtml should return empty string if no related articles is provided'
   expect(relatedContentPlugin.embedToHTML({ embed: { articles: [] } })).toBe(
     ''
   );
+});
+
+test('embedToHtml should return fallback url if no resource was found', async () => {
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  const embed = {
+    data: { articleIds: '1231,1232,1145', resource: 'related-content' },
+    articles: [
+      {
+        id: 1231,
+        title: { title: 't1' },
+        metaDescription: { metaDescription: 'm1' },
+        resource: {},
+      },
+      {
+        id: 1145,
+        title: { title: 't2' },
+        metaDescription: { metaDescription: 'm2' },
+        resource: {
+          path: '/subject:4/topic:1:172816/topic:1:178048/resource:1:74420',
+          resourceTypes: [
+            { id: 'urn:resourcetype:academicArticle', name: 'Fagartikkel' },
+            { id: 'urn:resourcetype:subjectMaterial', name: 'Fagstoff' },
+          ],
+        },
+      },
+    ],
+  };
+
+  expect(relatedContentPlugin.embedToHTML(embed)).toMatchSnapshot();
 });
