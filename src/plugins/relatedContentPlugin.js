@@ -93,8 +93,7 @@ export default function createRelatedContentPlugin() {
           }),
         ]);
 
-        if (article === undefined) return undefined;
-        return { ...article, resource };
+        return article ? { ...article, resource } : undefined;
       })
     );
 
