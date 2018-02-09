@@ -16,6 +16,7 @@ import constants from 'ndla-ui/lib/model';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
+import t from '../locale/i18n';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
@@ -94,12 +95,17 @@ export default function createRelatedContentPlugin() {
     return { ...embed, articles };
   }
 
-  const embedToHTML = embed => {
+  const embedToHTML = (embed, locale) => {
     if (!embed.articles || embed.articles.length === 0) {
       return '';
     }
     return renderToStaticMarkup(
-      <RelatedArticleList messages={{ title: 'Relaterte arikler' }}>
+      <RelatedArticleList
+        messages={{
+          title: t(locale, 'related.title'),
+          showMore: t(locale, 'showMore'),
+          showLess: t(locale, 'showLess'),
+        }}>
         {embed.articles.map(article => (
           <RelatedArticle
             key={article.id}

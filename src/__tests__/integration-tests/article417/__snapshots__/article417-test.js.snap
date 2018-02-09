@@ -158,11 +158,11 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
   </p>
 </section>
 <section>
-  <div>
-    <h2 class=\\"c-related-articles__component-title\\">Relaterte arikler</h2>
-    <div class=\\"c-related-articles\\">
-      <div class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
-        <h3 class=\\"c-related-articles__title\\">
+  <section class=\\"c-related-articles\\">
+    <h1 class=\\"c-related-articles__component-title\\">Relaterte arikler</h1>
+    <div class=\\"c-related-articles__articles\\">
+      <article class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
+        <h1 class=\\"c-related-articles__title\\">
           <div class=\\"c-content-type-badge c-content-type-badge--tasks-and-activities c-content-type-badge--small c-content-type-badge--background\\">
             <svg fill=\\"currentColor\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
@@ -202,12 +202,12 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
           <a href=\\"/subjects/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110271\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>
-        </h3>
+        </h1>
         <p class=\\"c-related-articles__description\\">Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.
         </p>
-      </div>
-      <div class=\\"c-related-articles__item c-related-articles__item--subject-material\\">
-        <h3 class=\\"c-related-articles__title\\">
+      </article>
+      <article class=\\"c-related-articles__item c-related-articles__item--subject-material\\">
+        <h1 class=\\"c-related-articles__title\\">
           <div class=\\"c-content-type-badge c-content-type-badge--subject-material c-content-type-badge--small c-content-type-badge--background\\">
             <svg fill=\\"currentColor\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
@@ -243,12 +243,12 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
           <a href=\\"/subjects/subject:1/topic:1:172733/topic:1:169379/resource:1:158547\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>
-        </h3>
+        </h1>
         <p class=\\"c-related-articles__description\\">Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.
         </p>
-      </div>
-      <div class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
-        <h3 class=\\"c-related-articles__title\\">
+      </article>
+      <article class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities c-related-articles__item--hidden\\">
+        <h1 class=\\"c-related-articles__title\\">
           <div class=\\"c-content-type-badge c-content-type-badge--tasks-and-activities c-content-type-badge--small c-content-type-badge--background\\">
             <svg fill=\\"currentColor\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
@@ -288,11 +288,16 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
           <a href=\\"/subjects/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110271\\"
             class=\\"c-related-articles__link\\">Skripting gjør sidene mer interaktive
           </a>
-        </h3>
+        </h1>
         <p class=\\"c-related-articles__description\\">Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.
         </p>
-      </div>
+      </article>
     </div>
-  </div>
+    <button class=\\"c-button c-button--outline c-related-articles__button\\"
+      data-showmore=\\"Vis flere relaterte artikler\\"
+      data-showless=\\"Vis mindre\\"
+      type=\\"button\\">Vis flere relaterte artikler
+    </button>
+  </section>
 </section>"
 `;

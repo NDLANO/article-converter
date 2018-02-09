@@ -45,6 +45,9 @@ const messages = {
     'external.error': 'Ein feil oppsto ved lasting av ein ekstern ressurs.',
     learnAboutLicenses: 'Lær meir om opne lisensar',
     source: 'Kjelde',
+    'related.title': 'Relaterte arikler',
+    showMore: 'Vis fleire relaterte artikler',
+    showLess: 'Vis mindre',
     ...contributorTypes.nn,
   },
   nb: {
@@ -73,6 +76,9 @@ const messages = {
     'external.error': 'En feil oppsto ved lasting av en ekstern ressurs.',
     learnAboutLicenses: 'Lær mer om åpne lisenser',
     source: 'Kilde',
+    'related.title': 'Relaterte arikler',
+    showMore: 'Vis flere relaterte artikler',
+    showLess: 'Vis mindre',
     ...contributorTypes.nb,
   },
   en: {
@@ -101,6 +107,9 @@ const messages = {
     'external.error': 'An error occurd while loading an external resource.',
     learnAboutLicenses: 'Learn more about open licenses',
     source: 'Source',
+    'related.title': 'Related articles',
+    showMore: 'Show more related articles',
+    showLess: 'Show less',
     ...contributorTypes.en,
   },
 };

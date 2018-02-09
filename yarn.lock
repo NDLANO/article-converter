@@ -3222,13 +3222,14 @@ ndla-licenses@^0.1.7:
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.10.1.tgz#b293dfaf3231baa89fa9dd429d3b8ef7a0432073"
+ndla-ui@^0.10.7:
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.10.7.tgz#acc920e97548439837577909aa60d40021b3c20d"
   dependencies:
     classnames "2.2.5"
     focus-trap "^2.4.2"
     jump.js "^1.0.2"
+    lodash "^4.17.4"
     react-bem-helper "1.4.1"
     react-prop-types "0.4.0"
 
