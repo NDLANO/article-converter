@@ -52,9 +52,17 @@ const mapping = {
   },
 };
 
-const getRelatedArticleProps = resource => {
+const getRelatedArticleProps = (resource, articleId) => {
+  const to =
+    resource && resource.path
+      ? `/subjects${resource.path}`
+      : `/article/${articleId}`;
+
+  if (!resource || !resource.resourceTypes) {
+    return { ...mapping.default, to };
+  }
+
   const resourceType = resource.resourceTypes.find(type => mapping[type.id]);
-  const to = `/subjects${resource.path}`;
 
   if (resourceType) {
     return { ...mapping[resourceType.id], to };
@@ -75,21 +83,23 @@ export default function createRelatedContentPlugin() {
 
     const articlesWithResource = await Promise.all(
       articleIds.map(async id => {
-        try {
-          const [article, resource] = await Promise.all([
-            fetchArticle(id, accessToken, lang),
-            fetchArticleResource(id, accessToken, lang),
-          ]);
-          return { ...article, resource };
-        } catch (error) {
-          log.error(error);
-          return undefined;
-        }
+        const [article, resource] = await Promise.all([
+          fetchArticle(id, accessToken, lang).catch(error => {
+            log.error(error);
+            return undefined;
+          }),
+          fetchArticleResource(id, accessToken, lang).catch(error => {
+            log.error(error);
+            return undefined;
+          }),
+        ]);
+
+        return article ? { ...article, resource } : undefined;
       })
     );
 
     const articles = articlesWithResource.filter(
-      article => article !== undefined && article.resource !== undefined
+      article => article !== undefined
     );
 
     return { ...embed, articles };

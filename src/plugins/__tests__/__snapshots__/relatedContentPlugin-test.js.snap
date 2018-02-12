@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`embedToHtml should return fallback url if no resource was found 1`] = `"<div><h2 class=\\"c-related-articles__component-title\\">Relaterte arikler</h2><div class=\\"c-related-articles\\"><div class=\\"c-related-articles__item c-related-articles__item--subject-material\\"><h3 class=\\"c-related-articles__title\\"><div class=\\"c-content-type-badge c-content-type-badge--subject-material c-content-type-badge--small c-content-type-badge--background\\"><svg fill=\\"currentColor\\" preserveAspectRatio=\\"xMidYMid meet\\" height=\\"1em\\" width=\\"1em\\" class=\\"c-icon\\" viewBox=\\"0 0 24 24\\" data-license=\\"Apache License 2.0\\" data-source=\\"Material Design\\" style=\\"vertical-align:middle\\"><g><title>Fagstoff</title><g id=\\"Page-1\\" stroke=\\"none\\" fill=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\"><g id=\\"fagstoff\\"><g><polygon id=\\"Shape\\" points=\\"0 0 24 0 24 24 0 24\\"></polygon><path d=\\"M0,10 L0,8 L11,8 L11,10 L0,10 Z M24,0 L24,2 L0,2 L0,0 L24,0 Z M24,4 L24,6 L0,6 L0,4 L24,4 Z M13,8 L24,15.5 L13,23 L13,8 Z\\" id=\\"shape\\" fill=\\"currentColor\\"></path></g></g></g></g></svg></div><a href=\\"/article/1231\\" class=\\"c-related-articles__link\\">t1</a></h3><p class=\\"c-related-articles__description\\">m1</p></div><div class=\\"c-related-articles__item c-related-articles__item--subject-material\\"><h3 class=\\"c-related-articles__title\\"><div class=\\"c-content-type-badge c-content-type-badge--subject-material c-content-type-badge--small c-content-type-badge--background\\"><svg fill=\\"currentColor\\" preserveAspectRatio=\\"xMidYMid meet\\" height=\\"1em\\" width=\\"1em\\" class=\\"c-icon\\" viewBox=\\"0 0 24 24\\" data-license=\\"Apache License 2.0\\" data-source=\\"Material Design\\" style=\\"vertical-align:middle\\"><g><title>Fagstoff</title><g id=\\"Page-1\\" stroke=\\"none\\" fill=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\"><g id=\\"fagstoff\\"><g><polygon id=\\"Shape\\" points=\\"0 0 24 0 24 24 0 24\\"></polygon><path d=\\"M0,10 L0,8 L11,8 L11,10 L0,10 Z M24,0 L24,2 L0,2 L0,0 L24,0 Z M24,4 L24,6 L0,6 L0,4 L24,4 Z M13,8 L24,15.5 L13,23 L13,8 Z\\" id=\\"shape\\" fill=\\"currentColor\\"></path></g></g></g></g></svg></div><a href=\\"/subjects/subject:4/topic:1:172816/topic:1:178048/resource:1:74420\\" class=\\"c-related-articles__link\\">t2</a></h3><p class=\\"c-related-articles__description\\">m2</p></div></div></div>"`;
+
 exports[`fetchResource for two related articles 1`] = `
 Object {
   "articles": Array [
@@ -44,7 +46,7 @@ Object {
 }
 `;
 
-exports[`fetchResource for two related articles, where one fails 1`] = `
+exports[`fetchResource for two related articles, where one could not be fetched from article-api 1`] = `
 Object {
   "articles": Array [
     Object {
@@ -62,6 +64,42 @@ Object {
       },
       "title": Object {
         "title": "title1",
+      },
+    },
+  ],
+  "data": Object {
+    "articleIds": "1,2",
+  },
+}
+`;
+
+exports[`fetchResource for two related articles, where one could not be fetched from taxonomy-api 1`] = `
+Object {
+  "articles": Array [
+    Object {
+      "introduction": Object {
+        "introduction": "introduction1",
+      },
+      "resource": Object {
+        "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "resourceTypes": Array [
+          Object {
+            "id": "urn:resourcetype:tasksAndActivities",
+            "name": "Oppgaver og aktiviteter",
+          },
+        ],
+      },
+      "title": Object {
+        "title": "title1",
+      },
+    },
+    Object {
+      "introduction": Object {
+        "introduction": "introduction2",
+      },
+      "resource": undefined,
+      "title": Object {
+        "title": "title2",
       },
     },
   ],
