@@ -107,14 +107,17 @@ export default function createImagePlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const { image, data: { align, size, caption: embedCaption } } = embed;
+    const {
+      image,
+      data: { align, size, caption: embedCaption, alt: embedAlttext },
+    } = embed;
     const src = encodeURI(image.imageUrl);
     const {
       creators,
       license: { license: licenseAbbreviation },
     } = image.copyright;
-    const altText = image.alttext.alttext;
-    const caption = embedCaption === '' ? image.caption.caption : embedCaption;
+    const altText = embedAlttext || image.alttext.alttext;
+    const caption = embedCaption || image.caption.caption;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureClassNames = getFigureClassnames(size, align);
