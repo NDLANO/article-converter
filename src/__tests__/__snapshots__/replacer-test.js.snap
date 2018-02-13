@@ -60,7 +60,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       </div>
     </section>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\">Tittel</div>
+      <div class=\\"c-figure__info\\">Caption</div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <div class=\\"c-license-byline\\">
