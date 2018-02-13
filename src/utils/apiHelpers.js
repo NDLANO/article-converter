@@ -42,7 +42,8 @@ export async function resolveJsonOrRejectWithError(res) {
   log.warn(
     `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
   );
-  throw rejectWithError(await res.json(), res);
+  const json = await res.json();
+  throw rejectWithError(json, res);
 }
 
 export function headerWithAccessToken(accessToken) {
