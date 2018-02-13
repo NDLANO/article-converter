@@ -26,34 +26,24 @@ export function apiResourceUrl(path) {
   return apiBaseUrl + path;
 }
 
-export function resolveJsonOrRejectWithError(res) {
-  return new Promise((resolve, reject) => {
-    if (res.ok) {
-      return res.status === 204 ? resolve() : resolve(res.json());
-    }
-    log.warn(
-      `Api call to ${res.url} failed with status ${res.status} ${
-        res.statusText
-      }`
-    );
-    return res
-      .json()
-      .then(json =>
-        log.logAndReturnValue(
-          'warn',
-          'JSON response from failed api call: ',
-          json
-        )
-      )
-      .then(json =>
-        createErrorPayload(
-          res.status,
-          defined(json.message, res.statusText),
-          json
-        )
-      )
-      .then(reject);
-  });
+export function rejectWithError(json, res) {
+  log.logAndReturnValue('warn', 'JSON response from failed api call: ', json);
+  return createErrorPayload(
+    res.status,
+    defined(json.message, res.statusText),
+    json
+  );
+}
+
+export async function resolveJsonOrRejectWithError(res) {
+  if (res.ok) {
+    return res.status === 204 ? undefined : res.json();
+  }
+  log.warn(
+    `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
+  );
+  const json = await res.json();
+  throw rejectWithError(json, res);
 }
 
 export function headerWithAccessToken(accessToken) {
