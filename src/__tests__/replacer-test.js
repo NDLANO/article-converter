@@ -264,7 +264,7 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="audio" data-id="1"/></section>'
+    '<section><embed data-resource="audio" data-caption="Caption" data-id="1"/></section>'
   ); // Strip new lines
   const embeds = [
     {

@@ -80,7 +80,7 @@ export default function createAudioPlugin() {
     copyString: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio }, locale) => {
+  const embedToHTML = ({ audio, data }, locale) => {
     const {
       id,
       title: { title },
@@ -91,6 +91,8 @@ export default function createAudioPlugin() {
         origin,
       },
     } = audio;
+
+    const caption = data.caption || title;
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
@@ -115,7 +117,7 @@ export default function createAudioPlugin() {
         <AudioPlayer type={mimeType} src={url} title={title} />
         <FigureCaption
           id={figureLicenseDialogId}
-          caption={title}
+          caption={caption}
           reuseLabel={t(locale, 'audio.reuse')}
           licenseRights={license.rights}
           authors={creators}
