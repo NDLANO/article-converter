@@ -34,7 +34,7 @@ test('fetchResource for two related articles', async () => {
 
   ['1', '2'].forEach(id => {
     nock('https://test.api.ndla.no')
-      .get(`/article-api/v2/articles/${id}?language=nb`)
+      .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, {
         title: { title: `title${id}` },
         introduction: { introduction: `introduction${id}` },
@@ -60,7 +60,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
 
   const relatedContentPlugin = createRelatedContentPlugin();
   nock('https://test.api.ndla.no')
-    .get(`/article-api/v2/articles/1?language=nb`)
+    .get(`/article-api/v2/articles/1?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title1` },
       introduction: { introduction: `introduction1` },
@@ -71,7 +71,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
     .reply(200, articleResource);
 
   nock('https://test.api.ndla.no')
-    .get(`/article-api/v2/articles/2?language=nb`)
+    .get(`/article-api/v2/articles/2?language=nb&fallback=true`)
     .reply(501, {});
 
   const resource = await relatedContentPlugin.fetchResource(
@@ -91,7 +91,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
 
   const relatedContentPlugin = createRelatedContentPlugin();
   nock('https://test.api.ndla.no')
-    .get(`/article-api/v2/articles/1?language=nb`)
+    .get(`/article-api/v2/articles/1?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title1` },
       introduction: { introduction: `introduction1` },
@@ -101,7 +101,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
     .reply(200, articleResource);
 
   nock('https://test.api.ndla.no')
-    .get(`/article-api/v2/articles/2?language=nb`)
+    .get(`/article-api/v2/articles/2?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title2` },
       introduction: { introduction: `introduction2` },
