@@ -14,17 +14,14 @@ import {
 } from '../utils/apiHelpers';
 
 export async function fetchArticle(articleId, accessToken, language) {
-  const fetchit = async lang =>
-    fetch(
-      apiResourceUrl(
-        `/article-api/v2/articles/${articleId}?language=${lang}&fallback=true`
-      ),
-      {
-        method: 'GET',
-        headers: headerWithAccessToken(accessToken),
-      }
-    );
-
-  const response = await fetchit(language);
+  const response = await fetch(
+    apiResourceUrl(
+      `/article-api/v2/articles/${articleId}?language=${language}&fallback=true`
+    ),
+    {
+      method: 'GET',
+      headers: headerWithAccessToken(accessToken),
+    }
+  );
   return resolveJsonOrRejectWithError(response);
 }
