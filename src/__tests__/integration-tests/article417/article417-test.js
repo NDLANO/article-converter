@@ -23,11 +23,11 @@ const resources = {
 
 test('app/fetchAndTransformArticle 417', async () => {
   nock('https://test.api.ndla.no')
-    .get('/article-api/v2/articles/417?language=nb')
+    .get('/article-api/v2/articles/417?language=nb&fallback=true')
     .reply(200, article417);
   ['413', '414', '416'].forEach(id => {
     nock('https://test.api.ndla.no')
-      .get(`/article-api/v2/articles/${id}?language=nb`)
+      .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, article417);
     nock('https://test.api.ndla.no')
       .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:${id}`)

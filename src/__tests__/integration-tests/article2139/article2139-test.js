@@ -16,7 +16,7 @@ import { fetchAndTransformArticle } from '../../../app';
 
 test('app/fetchAndTransformArticle 2139', async () => {
   nock('https://test.api.ndla.no')
-    .get('/article-api/v2/articles/2139?language=nb')
+    .get('/article-api/v2/articles/2139?language=nb&fallback=true')
     .reply(200, article2139);
 
   nock('https://test.api.ndla.no')

@@ -16,7 +16,7 @@ import { fetchAndTransformArticle } from '../../../app';
 
 test('app/fetchAndTransformArticle 116', async () => {
   nock('https://test.api.ndla.no')
-    .get('/article-api/v2/articles/116?language=nb')
+    .get('/article-api/v2/articles/116?language=nb&fallback=true')
     .reply(200, article116);
   nock('https://oauth.brightcove.com/')
     .post('/v4/access_token?grant_type=client_credentials')
