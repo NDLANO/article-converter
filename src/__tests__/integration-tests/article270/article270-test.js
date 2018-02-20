@@ -14,7 +14,7 @@ import { fetchAndTransformArticle } from '../../../app';
 
 test('app/fetchAndTransformArticle 270', async () => {
   nock('https://test.api.ndla.no')
-    .get('/article-api/v2/articles/270?language=nb')
+    .get('/article-api/v2/articles/270?language=nb&fallback=true')
     .reply(200, article270);
   const transformed = await fetchAndTransformArticle('270', 'nb', 'some_token');
   const { content, ...rest } = transformed;
