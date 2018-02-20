@@ -253,17 +253,16 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
                 <li class=\\"c-figure-license__item\\">Tittel: Tittel</li>
-                <li class=\\"c-figure-license__item\\">Opphavsmann: undefined name
+                <li class=\\"c-figure-license__item\\">Opphavsmann: Forfatter name
                 </li>
-                <li class=\\"c-figure-license__item\\">Rettighetshaver: undefined name
+                <li class=\\"c-figure-license__item\\">Rettighetshaver: Bearbeider name
                 </li>
-                <li class=\\"c-figure-license__item\\">Bearbeider: undefined name
-                </li>
+                <li class=\\"c-figure-license__item\\">Bearbeider: Forlag name</li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA type: name\\"
+                  data-copy-string=\\"CC BY-SA Forfatter: name\\"
                   type=\\"button\\">Kopier referanse
                 </button>
                 <a href=\\"http://audio.no/file/voof.mp3\\"
