@@ -1206,7 +1206,7 @@ Kunstner: Kari Maler\\"
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
-          sizes=\\"(min-width: 1024px) 1024px 100vw\\"
+          sizes=\\"(min-width: 1024px) 1024px, 100vw\\"
           src=\\"http://ndla.no/images/2.jpg?width=1024\\">
 
       </div>
@@ -1607,7 +1607,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
-          sizes=\\"(min-width: 1024px) 1024px 100vw\\"
+          sizes=\\"(min-width: 1024px) 1024px, 100vw\\"
           src=\\"http://api.test.ndla.no/images/1.jpg?width=1024\\">
 
       </div>

@@ -96,8 +96,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const articleContent = cheerio.load(
     `<section>
-      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
-      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
+      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="full">
+      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="full">
     </section>`
   );
 
