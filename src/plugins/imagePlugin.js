@@ -28,11 +28,24 @@ import t from '../locale/i18n';
 
 const getFigureClassnames = (size, align) =>
   classnames('c-figure', {
-    'u-float-right': align === 'right' && size !== 'hoyrespalte',
-    'u-float-left': align === 'left' && size !== 'hoyrespalte',
-    'u-float-small-right': align === 'right' && size === 'hoyrespalte',
-    'u-float-small-left': align === 'left' && size === 'hoyrespalte',
+    'u-float-right': align === 'right' && size !== 'small',
+    'u-float-left': align === 'left' && size !== 'small',
+    'u-float-small-right': align === 'right' && size === 'small',
+    'u-float-small-left': align === 'left' && size === 'small',
+    'u-float-xsmall-right': align === 'right' && size === 'xsmall',
+    'u-float-xsmall-left': align === 'left' && size === 'xsmall',
   });
+
+const getSizes = (size, align) => {
+  if (align && size === 'full') {
+    return '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw';
+  } else if (align && size === 'small') {
+    return '(min-width: 1024px) 350px, (min-width: 768px) 180px, 100vw';
+  } else if (align && size === 'xsmall') {
+    return '(min-width: 1024px) 180px, (min-width: 768px) 180px, 100vw';
+  }
+  return '(min-width: 1024px) 1024px, 100vw';
+};
 
 const getFocalPoint = data => {
   if (data.focalX && data.focalY) {
@@ -121,10 +134,7 @@ export default function createImagePlugin() {
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureClassNames = getFigureClassnames(size, align);
-
-    const sizes = align
-      ? '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw'
-      : '(min-width: 1024px) 1024px 100vw';
+    const sizes = getSizes(size, align);
 
     const messages = {
       title: t(locale, 'title'),

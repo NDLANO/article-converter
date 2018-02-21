@@ -96,8 +96,8 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
 test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
   const articleContent = cheerio.load(
     `<section>
-      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
-      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte">
+      <embed data-resource="image" data-id="1" data-align="left" data-url="http://api.test.ndla.no/images/1326" data-size="full">
+      <embed data-resource="image" data-id="2" data-align="" data-url="http://api.test.ndla.no/images/1326" data-size="full">
     </section>`
   );
 
@@ -283,9 +283,9 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
             description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
             url: 'https://creativecommons.org/licenses/by-sa/2.0/',
           },
-          creators: [{ type: 'type', name: 'name' }],
-          rightsholders: [{ type: 'type', name: 'name' }],
-          processors: [{ type: 'type', name: 'name' }],
+          creators: [{ type: 'writer', name: 'name' }],
+          rightsholders: [{ type: 'processor', name: 'name' }],
+          processors: [{ type: 'publisher', name: 'name' }],
         },
       },
     },

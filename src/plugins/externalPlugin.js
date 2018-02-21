@@ -6,6 +6,8 @@
  *
  */
 
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
@@ -14,13 +16,12 @@ export default function createExternalPlugin() {
   const fetchResource = (embed, headers) => fetchOembed(embed, headers);
 
   const onError = (embed, locale) =>
-    wrapInFigure(`
-      <img
-        alt="${t(locale, 'external.error')}"
-        role="presentation"
-        src="${errorSvgSrc}"
-      />
-    `);
+    renderToStaticMarkup(
+      <figure className="c-figure">
+        <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
+        <figcaption>{t(locale, 'external.error')}</figcaption>
+      </figure>
+    );
 
   const embedToHTML = embed => wrapInFigure(embed.oembed.html);
 

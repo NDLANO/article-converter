@@ -143,7 +143,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       <div class=\\"c-figure__img\\">
         <img alt=\\"To barn på fottur på Kvamsfjellet. Foto.\\"
           srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
-          sizes=\\"(min-width: 1024px) 1024px 100vw\\"
+          sizes=\\"(min-width: 1024px) 1024px, 100vw\\"
           src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\">
 
       </div>
