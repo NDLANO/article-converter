@@ -46,7 +46,7 @@ const storeAccessToken = accessToken => {
 };
 
 async function fetchAccessToken() {
-  const base64Encode = str => new Buffer(str).toString('base64');
+  const base64Encode = str => Buffer.from(str).toString('base64');
   const url =
     'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
   const clientIdSecret = `${brightcoveClientId}:${brightcoveClientSecret}`;
