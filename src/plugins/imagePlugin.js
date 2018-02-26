@@ -16,7 +16,7 @@ import {
   FigureCaption,
   FigureFullscreenDialog,
 } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-ui/lib/button/Button';
+import Button from 'ndla-ui/lib/Button';
 import Image from 'ndla-ui/lib/Image';
 import {
   getLicenseByAbbreviation,
