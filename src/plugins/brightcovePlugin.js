@@ -12,7 +12,7 @@ import React from 'react';
 import defined from 'defined';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-ui/lib/button/Button';
+import Button from 'ndla-ui/lib/Button';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
