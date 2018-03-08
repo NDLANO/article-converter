@@ -54,6 +54,10 @@ export const htmlTransforms = [
       .removeAttr('data-type')
       .addClass('ol-list--roman'),
   content =>
+    content('ul[data-type="two-column"]')
+      .removeAttr('data-type')
+      .addClass('o-list--two-columns'),
+  content =>
     content('p[data-align="center"]')
       .removeAttr('data-align')
       .addClass('u-text-center'),

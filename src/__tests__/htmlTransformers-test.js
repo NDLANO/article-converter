@@ -33,6 +33,28 @@ test('htmlTransforms changes ol to accommodate frontend styling', () => {
   expect(result).toMatch('<ol>');
 });
 
+test('htmlTransforms changes ul to accommodate frontend styling', () => {
+  const content = cheerio.load(`
+  <section>
+    <ul data-type='two-column'>
+        <li>Lorem ipsum dolor sit amet...</li>
+        <li>Lorem ipsum dolor sit amet...</li>
+        <li>Lorem ipsum dolor sit amet...</li>
+        <li>Lorem ipsum dolor sit amet...</li>
+    </ul>
+  </section>
+    <ul>
+        <li>Lorem ipsum dolor sit amet...</li>
+    </ul>
+  </section>`);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch('<ul class="o-list--two-columns">');
+  expect(result).toMatch('<ul>');
+});
+
 test('htmlTransforms adds display block to math tags', () => {
   const content = cheerio.load(`
   <section>
