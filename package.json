@@ -2,7 +2,7 @@
   "name": "article-converter",
   "version": "0.0.1",
   "description": "NDLA Article converter",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "build": "babel src -d build --ignore __tests__/",
     "clean": "rimraf build",
@@ -18,7 +18,7 @@
     "prettier": "node prettier.js write"
   },
   "engines": {
-    "node": "^8.4.0"
+    "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
+    "body-parser": "^1.18.2",
     "bunyan": "^1.8.10",
     "cheerio": "^1.0.0-rc.2",
     "classnames": "2.2.5",
@@ -63,7 +64,8 @@
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "^4.2.2",
-    "string-replace-async": "^1.2.0"
+    "string-replace-async": "^1.2.0",
+    "swagger-jsdoc": "^1.9.7"
   },
   "jest": {
     "testRegex": "/__tests__/.*-test.(js|jsx)$",
