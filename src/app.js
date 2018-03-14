@@ -12,13 +12,13 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
-import routes from './api/routes';
-import swaggerDefinition from './swaggerDefinition';
+import routes from './routes';
+import swaggerDefinition from './swagger/swaggerDefinition';
 
 // Swagger settings
 const swaggerJSDocOptions = {
   swaggerDefinition,
-  apis: [`${__dirname}/api/routes.js`, `${__dirname}/api/swagger/swagger.yaml`],
+  apis: [`${__dirname}/routes.js`, `${__dirname}/swagger/swagger.yaml`],
 };
 const swaggerSpec = swaggerJSDoc(swaggerJSDocOptions);
 

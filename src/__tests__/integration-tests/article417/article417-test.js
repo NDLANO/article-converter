@@ -12,7 +12,7 @@ import { prettify } from '../../testHelpers';
 import article417 from './article417';
 import articleResource413 from './articleResource413';
 import articleResource414 from './articleResource414';
-import { fetchAndTransformArticle } from '../../../api/helpers';
+import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 import log from '../../../utils/logger';
 
 const resources = {

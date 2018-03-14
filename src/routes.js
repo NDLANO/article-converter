@@ -7,12 +7,12 @@
  */
 
 import defined from 'defined';
-import { fetchAndTransformArticle } from './helpers';
-import { htmlTemplate, htmlErrorTemplate } from '../utils/htmlTemplates';
-import { getHtmlLang } from '../locale/configureLocale';
-import { getAppropriateErrorResponse } from '../utils/errorHelpers';
-import config from '../config';
-import log from '../utils/logger';
+import fetchAndTransformArticle from './fetchAndTransformArticle';
+import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
+import { getHtmlLang } from './locale/configureLocale';
+import { getAppropriateErrorResponse } from './utils/errorHelpers';
+import config from './config';
+import log from './utils/logger';
 
 // Sets up the routes.
 module.exports.setup = function routes(app) {

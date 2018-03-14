@@ -1,8 +1,12 @@
 import cheerio from 'cheerio';
-import { fetchArticle } from '../articleApi';
-import { transform } from '../../transformers';
+import { fetchArticle } from './api/articleApi';
+import { transform } from './transformers';
 
-async function fetchAndTransformArticle(articleId, lang, accessToken) {
+export default async function fetchAndTransformArticle(
+  articleId,
+  lang,
+  accessToken
+) {
   const article = await fetchArticle(articleId, accessToken, lang);
   const articleContent = cheerio.load(article.content.content);
   const { html, embedMetaData } = await transform(
@@ -24,5 +28,3 @@ async function fetchAndTransformArticle(articleId, lang, accessToken) {
     metaDescription: article.metaDescription.metaDescription,
   };
 }
-
-export { fetchAndTransformArticle };

@@ -6,7 +6,7 @@
  *
  */
 
-import config from './config';
+import config from '../config';
 
 const host = `${config.host}:${config.port}`;
 

@@ -12,7 +12,7 @@ import article2139 from './article2139';
 import image2357 from './image2357';
 import image347 from './image347';
 
-import { fetchAndTransformArticle } from '../../../api/helpers';
+import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
 test('app/fetchAndTransformArticle 2139', async () => {
   nock('https://test.api.ndla.no')

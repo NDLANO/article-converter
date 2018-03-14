@@ -11,7 +11,7 @@ import { prettify } from '../../testHelpers';
 import article1036 from './article1036';
 import image2357 from './image2357';
 
-import { fetchAndTransformArticle } from '../../../api/helpers';
+import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
 test('app/fetchAndTransformArticle 1036', async () => {
   nock('https://test.api.ndla.no')
