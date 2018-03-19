@@ -8,7 +8,8 @@ export default {
   cue_points: [],
   custom_fields: {
     yt_privacy_status: 'private',
-    licenseinfo: 'Leverandør: Senter for nye medier, Høgskolen i Bergen',
+    licenseinfo: 'Redaksjonelt: Live Marie Toft Sundbye',
+    licenseinfo1: 'Leverandør: Senter for nye medier, Høgskolen i Bergen',
     license: 'Navngivelse-Del på samme vilkår',
   },
   delivery_type: 'static_origin',
