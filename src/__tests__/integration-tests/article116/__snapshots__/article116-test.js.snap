@@ -24,7 +24,12 @@ Object {
     "brightcoves": Array [
       Object {
         "copyright": Object {
-          "creators": Array [],
+          "creators": Array [
+            Object {
+              "name": "Live Marie Toft Sundbye",
+              "type": "editorial",
+            },
+          ],
           "license": Object {
             "license": "by-sa",
           },
@@ -169,7 +174,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 </span>
               </li>
             </ul>
-            <span class=\\"c-figure__byline-authors\\">Leverandør Senter for nye medier, Høgskolen i Bergen
+            <span class=\\"c-figure__byline-authors\\">Live Marie Toft Sundbye
             </span>
             <button data-dialog-trigger-id=\\"brightcove-ref:125442\\"
               class=\\"c-figure__captionbtn\\">
@@ -282,13 +287,15 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
         </a>
         <div class=\\"c-figure-license__cta-wrapper\\">
           <ul class=\\"c-figure-license__list\\">
+            <li class=\\"c-figure-license__item\\">Opphavsmann: Redaksjonelt Live Marie Toft Sundbye
+            </li>
             <li class=\\"c-figure-license__item\\">Rettighetshaver: Leverandør Senter for nye medier, Høgskolen i Bergen
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <button class=\\"c-button c-button--outline\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-SA \\"
+              data-copy-string=\\"CC BY-SA Redaksjonelt: Live Marie Toft Sundbye\\"
               type=\\"button\\">Kopier referanse
             </button>
           </div>
