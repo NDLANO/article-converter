@@ -33,10 +33,8 @@ exports[`transformAsides duplicates right column aside for better narrowscreen e
   </figure>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
   <p>sdfjljklsdfjlsdf</p>
@@ -51,10 +49,8 @@ exports[`transformAsides duplicates right column aside for better narrowscreen e
   <p>sdfjljklsdfjlsdf</p>
   <aside class=\\"c-aside c-aside--narrowScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
 </section>"
@@ -66,19 +62,15 @@ exports[`transformAsides encloses aside duplication to sections 1`] = `
 <section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
   <p>Lorem</p>
   <aside class=\\"c-aside c-aside--narrowScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
 </section>
@@ -86,19 +78,15 @@ exports[`transformAsides encloses aside duplication to sections 1`] = `
 <section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
   <p>Ipsum</p>
   <aside class=\\"c-aside c-aside--narrowScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
   </aside>
 </section>"
@@ -111,10 +99,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
   <p>Lorem ipsum dolor sit amet...</p>
   <aside class=\\"c-factbox\\">
     <div class=\\"c-factbox__content\\">
-      <div>
-        <h2>Test1</h2>
-        <div>Stuff</div>
-      </div>
+      <h2>Test1</h2>
+      <div>Stuff</div>
     </div>
     <button class=\\"c-button c-factbox__button\\"
       type=\\"button\\" />
@@ -123,10 +109,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
 </section>
 <aside class=\\"c-factbox\\">
   <div class=\\"c-factbox__content\\">
-    <div>
-      <h2>Test2</h2>
-      <div>Other stuff</div>
-    </div>
+    <h2>Test2</h2>
+    <div>Other stuff</div>
   </div>
   <button class=\\"c-button c-factbox__button\\"
     type=\\"button\\" />
