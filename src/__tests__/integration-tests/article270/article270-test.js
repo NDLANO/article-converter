@@ -10,7 +10,7 @@ import nock from 'nock';
 import { prettify } from '../../testHelpers';
 import article270 from './article270';
 
-import { fetchAndTransformArticle } from '../../../app';
+import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
 test('app/fetchAndTransformArticle 270', async () => {
   nock('https://test.api.ndla.no')

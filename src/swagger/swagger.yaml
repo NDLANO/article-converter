@@ -1,0 +1,81 @@
+parameters:
+  authorizationHeader:
+    in: header
+    name: authorization
+    description: Authorization token.
+    required: true
+    type: string
+
+securityDefinitions:
+    oauth2:
+      type: oauth2
+      description:
+      flow: client credentials
+      authorizationUrl: https://ndla.eu.auth0.com/authorize
+
+definitions:
+  copyright:
+    type: object
+    description: Copyright attributes.
+    properties:
+      license:
+        type: object
+        description: License information.
+        properties:
+          license:
+            type: string
+            description: License short name.
+            example: by-sa
+          description:
+            type: string
+            description: License full name.
+            example: Creative Commons Attribution-ShareAlike 2.0 Generic
+          url:
+            type: string
+            description: URL to full license documentation.
+            example: https://creativecommons.org/licenses/by-sa/2.0/
+      origin:
+        type: string
+        description: Copyright origin.
+      creators:
+        type: array
+        description: Creators.
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              description: Creator type
+              example: Writer
+            name:
+              type: string
+              description: Creator name
+              example: John Doe
+      processors:
+        type: array
+        description: Processors.
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              description: Processors type
+              example: Supplier
+            name:
+              type: string
+              description: Processors name
+              example: John Doe
+      rightholders:
+        type: array
+        description: Rightholders.
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              description: Rightholders type
+              example: Owner
+            name:
+              type: string
+              description: Rightholders name
+              example: John Doe
