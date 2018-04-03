@@ -20,17 +20,26 @@ export const transformAsides = content => {
     const isFactAside =
       aside.attribs && aside.attribs['data-type'] === 'factAside';
     if (isFactAside) {
-      const factbox = createFactbox({}, content(aside).children());
+      const factbox = createFactbox(
+        {},
+        content(aside)
+          .children()
+          .toString()
+      );
       content(aside).after(factbox);
     } else {
       const narrowAside = createAside(
         { narrowScreen: true },
-        content(aside).children()
+        content(aside)
+          .children()
+          .toString()
       );
 
       const wideAside = createAside(
         { wideScreen: true },
-        content(aside).children()
+        content(aside)
+          .children()
+          .toString()
       );
 
       const parent = aside.parent;

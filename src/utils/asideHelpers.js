@@ -12,24 +12,22 @@ import FactBox from 'ndla-ui/lib/FactBox';
 
 export function createAside(props, children) {
   return renderToStaticMarkup(
-    <Aside {...props}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: children,
-        }}
-      />
-    </Aside>
+    <Aside
+      {...props}
+      dangerouslySetInnerHTML={{
+        __html: children,
+      }}
+    />
   );
 }
 
 export function createFactbox(props, children) {
   return renderToStaticMarkup(
-    <FactBox {...props}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: children,
-        }}
-      />
-    </FactBox>
+    <FactBox
+      {...props}
+      dangerouslySetInnerHTML={{
+        __html: children,
+      }}
+    />
   );
 }
