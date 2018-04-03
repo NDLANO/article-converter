@@ -7,20 +7,29 @@
  */
 
 import 'isomorphic-fetch';
-import cheerio from 'cheerio';
-import defined from 'defined';
 import express from 'express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
-import config from './config';
-import { fetchArticle } from './api/articleApi';
-import { getHtmlLang } from './locale/configureLocale';
-import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
-import { transform } from './transformers';
-import { getAppropriateErrorResponse } from './utils/errorHelpers';
-import log from './utils/logger';
+import routes from './routes';
+import swaggerDefinition from './swagger/swaggerDefinition';
+
+// Swagger settings
+const swaggerJSDocOptions = {
+  swaggerDefinition,
+  apis: [`${__dirname}/routes.js`, `${__dirname}/swagger/swagger.yaml`],
+};
+const swaggerSpec = swaggerJSDoc(swaggerJSDocOptions);
 
 const app = express();
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    // To support URL-encoded bodies
+    extended: true,
+  })
+);
 app.use(compression());
 app.use(
   cors({
@@ -29,64 +38,11 @@ app.use(
   })
 );
 
-export async function fetchAndTransformArticle(articleId, lang, accessToken) {
-  const article = await fetchArticle(articleId, accessToken, lang);
-  const articleContent = cheerio.load(article.content.content);
-  const { html, embedMetaData } = await transform(
-    articleContent,
-    lang,
-    accessToken,
-    article.visualElement
-  );
+routes.setup(app);
 
-  return {
-    ...article,
-    content: html,
-    metaData: embedMetaData,
-    title: article.title.title,
-    tags: article.tags.tags,
-    introduction: article.introduction
-      ? article.introduction.introduction
-      : undefined,
-    metaDescription: article.metaDescription.metaDescription,
-  };
-}
-
-app.get('/article-converter/raw/:lang/:id', (req, res) => {
-  const url = req.url.replace('raw', 'json');
-  res.redirect(url);
-});
-
-app.get('/article-converter/json/:lang/:id', (req, res) => {
+app.get('/api-docs', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  const lang = getHtmlLang(defined(req.params.lang, ''));
-  const articleId = req.params.id;
-  const accessToken = req.headers.authorization;
-  fetchAndTransformArticle(articleId, lang, accessToken)
-    .then(article => {
-      res.json(article);
-    })
-    .catch(error => {
-      log.error(error);
-      const response = getAppropriateErrorResponse(error, config.isProduction);
-      res.status(response.status).json(response);
-    });
-});
-
-app.get('/article-converter/html/:lang/:id', (req, res) => {
-  const lang = getHtmlLang(defined(req.params.lang, ''));
-  const articleId = req.params.id;
-  const accessToken = req.headers.authorization;
-  fetchAndTransformArticle(articleId, lang, accessToken, true)
-    .then(article => {
-      res.send(htmlTemplate(lang, article.title, article));
-      res.end();
-    })
-    .catch(error => {
-      log.error(error);
-      const response = getAppropriateErrorResponse(error, config.isProduction);
-      res.status(response.status).send(htmlErrorTemplate(lang, response));
-    });
+  res.send(swaggerSpec);
 });
 
 app.get('/health', (req, res) => {
