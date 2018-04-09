@@ -22,7 +22,11 @@ import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
-import { errorSvgSrc, getCopyString } from './pluginHelpers';
+import {
+  errorSvgSrc,
+  getCopyString,
+  getLicenenseCredits,
+} from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 
@@ -125,10 +129,10 @@ export default function createImagePlugin() {
       data: { align, size, caption: embedCaption, alt: embedAlttext },
     } = embed;
     const src = encodeURI(image.imageUrl);
-    const {
-      creators,
-      license: { license: licenseAbbreviation },
-    } = image.copyright;
+    const { license: { license: licenseAbbreviation } } = image.copyright;
+
+    const authors = getLicenenseCredits(image.copyright);
+
     const altText = embedAlttext || image.alttext.alttext;
     const caption = embedCaption || image.caption.caption;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
@@ -154,7 +158,7 @@ export default function createImagePlugin() {
       name: item.description,
       type: item.label,
     }));
-    const copyString = getCopyString(licenseAbbreviation, creators, locale);
+    const copyString = getCopyString(licenseAbbreviation, authors, locale);
     const figureLicenseDialogId = `image-${image.id.toString()}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
     return renderToStaticMarkup(
@@ -180,7 +184,7 @@ export default function createImagePlugin() {
           caption={caption}
           reuseLabel={t(locale, 'image.reuse')}
           licenseRights={license.rights}
-          authors={creators}
+          authors={authors}
         />
         <FigureLicenseDialog
           id={figureLicenseDialogId}

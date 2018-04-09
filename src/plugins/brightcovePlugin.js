@@ -20,7 +20,7 @@ import {
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
-import { getCopyString } from './pluginHelpers';
+import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
@@ -71,12 +71,11 @@ export default function createBrightcovePlugin() {
 
   const embedToHTML = (embed, locale) => {
     const { brightcove, data: { account, videoid, caption } } = embed;
+    const { license: { license: licenseAbbreviation } } = brightcove.copyright;
 
-    const {
-      creators,
-      license: { license: licenseAbbreviation },
-    } = brightcove.copyright;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+
+    const authors = getLicenenseCredits(brightcove.copyright);
 
     const contributors = getGroupedContributorDescriptionList(
       brightcove.copyright,
@@ -86,7 +85,7 @@ export default function createBrightcovePlugin() {
       type: item.label,
     }));
 
-    const copyString = getCopyString(licenseAbbreviation, creators, locale);
+    const copyString = getCopyString(licenseAbbreviation, authors, locale);
 
     const messages = {
       title: t(locale, 'title'),
@@ -110,7 +109,7 @@ export default function createBrightcovePlugin() {
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={creators}
+          authors={authors}
         />
         <FigureLicenseDialog
           id={figureLicenseDialogId}

@@ -16,7 +16,7 @@ import {
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
 import t from '../locale/i18n';
-import { getCopyString } from './pluginHelpers';
+import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 
 export default function createAudioPlugin() {
@@ -85,14 +85,12 @@ export default function createAudioPlugin() {
       id,
       title: { title },
       audioFile: { mimeType, url },
-      copyright: {
-        creators,
-        license: { license: licenseAbbreviation },
-        origin,
-      },
+      copyright: { license: { license: licenseAbbreviation }, origin },
     } = audio;
 
     const caption = data.caption || title;
+
+    const authors = getLicenenseCredits(audio.copyright);
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
@@ -120,7 +118,7 @@ export default function createAudioPlugin() {
           caption={caption}
           reuseLabel={t(locale, 'audio.reuse')}
           licenseRights={license.rights}
-          authors={creators}
+          authors={authors}
         />
         <FigureLicenseDialog
           id={figureLicenseDialogId}
@@ -131,7 +129,7 @@ export default function createAudioPlugin() {
           messages={messages}>
           <AudioActionButtons
             locale={locale}
-            copyString={getCopyString(licenseAbbreviation, creators, locale)}
+            copyString={getCopyString(licenseAbbreviation, authors, locale)}
             src={url}
           />
         </FigureLicenseDialog>
