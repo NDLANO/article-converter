@@ -3695,13 +3695,13 @@ ndla-i18n@^0.2.2:
     intl-messageformat "^2.2.0"
     invariant "^2.2.3"
 
-ndla-icons@^0.2.4:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/ndla-icons/-/ndla-icons-0.2.5.tgz#e9b2cd78540cc1f6fffd7c6574c11e2f2ff9ae9d"
+ndla-icons@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/ndla-icons/-/ndla-icons-0.2.13.tgz#48a21048083542e54635d99c40b44727b5d3e4c5"
 
-ndla-licenses@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.1.8.tgz#d8add06c68448e1e5407ecfc6647b99dd127a0f0"
+ndla-licenses@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.2.0.tgz#a9ea489c1f8398ff3d5ae66df702b967a652d3cd"
   dependencies:
     defined "1.0.0"
 

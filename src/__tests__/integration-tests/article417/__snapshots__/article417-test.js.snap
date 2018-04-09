@@ -180,7 +180,6 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
 
                       <polygon fill=\\"currentColor\\"
                         points=\\"0 22 24 22 24 24 0 24\\"
-                        fill-opacity=\\"0.36\\"
                         fill-rule=\\"nonzero\\" />
 
                     </g>
@@ -270,7 +269,6 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
 
                       <polygon fill=\\"currentColor\\"
                         points=\\"0 22 24 22 24 24 0 24\\"
-                        fill-opacity=\\"0.36\\"
                         fill-rule=\\"nonzero\\" />
 
                     </g>
