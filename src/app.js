@@ -40,7 +40,7 @@ app.use(
 
 routes.setup(app);
 
-app.get('/api-docs', (req, res) => {
+app.get('/article-converter/api-docs', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
 });
