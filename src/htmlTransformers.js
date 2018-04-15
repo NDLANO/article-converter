@@ -44,14 +44,6 @@ export const transformAsides = content => {
   });
 };
 
-export const transformSpans = content => {
-  content('span[data-size]').each((_, span) => {
-    const s = span.attribs;
-    s.style = `font-size: ${s['data-size']};`;
-  });
-  content('span[data-size]').removeAttr('data-size');
-};
-
 export const htmlTransforms = [
   transformAsides,
   content => {
@@ -66,5 +58,8 @@ export const htmlTransforms = [
       .removeAttr('data-align')
       .addClass('u-text-center'),
   moveReactPortals,
-  transformSpans,
+  content =>
+    content('span[data-size="large"]')
+      .removeAttr('data-size')
+      .addClass('u-large-body-text'),
 ];
