@@ -87,6 +87,20 @@ test('htmlTransforms changes p to accommodate frontend styling', () => {
   expect(result).toMatch('<p class="u-text-center">');
 });
 
+test('htmlTransforms changes span with data-size to a span with font size', () => {
+  const content = cheerio.load(`
+  <section>
+  Lorem ipsum <span data-size="large">dolor</span> sit amet...
+  </section>`);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch(
+    'Lorem ipsum <span class="u-large-body-text">dolor</span> sit amet'
+  );
+});
+
 test('move react portals to bottom', () => {
   const content = cheerio.load(`
   <section>

@@ -71,4 +71,8 @@ export const htmlTransforms = [
       .removeAttr('data-align')
       .addClass('u-text-center'),
   moveReactPortals,
+  content =>
+    content('span[data-size="large"]')
+      .removeAttr('data-size')
+      .addClass('u-large-body-text'),
 ];
