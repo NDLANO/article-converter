@@ -264,12 +264,41 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
 
 test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
   const articleContent = cheerio.load(
-    '<section><embed data-resource="audio" data-caption="Caption" data-id="1"/></section>'
+    `<section>
+      <embed data-resource="audio" data-type="standard" data-caption="Caption 1" data-id="1"/>
+      <embed data-resource="audio" data-type="minimal" data-caption="Caption 2" data-id="2"/>
+    </section>`
   ); // Strip new lines
   const embeds = [
     {
-      embed: articleContent('embed[data-resource="audio"]'),
-      data: articleContent('embed[data-resource="audio"]').data(),
+      embed: articleContent('embed[data-resource="audio"]').first(),
+      data: articleContent('embed[data-resource="audio"]')
+        .first()
+        .data(),
+      plugin: createAudioPlugin(),
+      audio: {
+        title: { title: 'Tittel', language: 'Unknown' },
+        audioFile: {
+          url: 'http://audio.no/file/voof.mp3',
+          mimeType: 'audio/mpeg',
+        },
+        copyright: {
+          license: {
+            license: 'by-sa',
+            description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
+            url: 'https://creativecommons.org/licenses/by-sa/2.0/',
+          },
+          creators: [{ type: 'writer', name: 'name' }],
+          rightsholders: [{ type: 'processor', name: 'name' }],
+          processors: [{ type: 'publisher', name: 'name' }],
+        },
+      },
+    },
+    {
+      embed: articleContent('embed[data-resource="audio"]').last(),
+      data: articleContent('embed[data-resource="audio"]')
+        .last()
+        .data(),
       plugin: createAudioPlugin(),
       audio: {
         title: { title: 'Tittel', language: 'Unknown' },
