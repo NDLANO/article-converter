@@ -111,29 +111,33 @@ export default function createAudioPlugin() {
       source: t(locale, 'source'),
     };
     return renderToStaticMarkup(
-      <Figure>
-        <AudioPlayer type={mimeType} src={url} title={title} />
-        <FigureCaption
-          id={figureLicenseDialogId}
-          caption={caption}
-          reuseLabel={t(locale, 'audio.reuse')}
-          licenseRights={license.rights}
-          authors={authors}
-        />
-        <FigureLicenseDialog
-          id={figureLicenseDialogId}
-          title={title}
-          license={license}
-          authors={contributors}
-          origin={origin}
-          messages={messages}>
-          <AudioActionButtons
-            locale={locale}
-            copyString={getCopyString(licenseAbbreviation, authors, locale)}
-            src={url}
+      data.type === 'minimal' ? (
+        <AudioPlayer speech type={mimeType} src={url} title={title} />
+      ) : (
+        <Figure>
+          <AudioPlayer type={mimeType} src={url} title={title} />
+          <FigureCaption
+            id={figureLicenseDialogId}
+            caption={caption}
+            reuseLabel={t(locale, 'audio.reuse')}
+            licenseRights={license.rights}
+            authors={authors}
           />
-        </FigureLicenseDialog>
-      </Figure>
+          <FigureLicenseDialog
+            id={figureLicenseDialogId}
+            title={title}
+            license={license}
+            authors={contributors}
+            origin={origin}
+            messages={messages}>
+            <AudioActionButtons
+              locale={locale}
+              copyString={getCopyString(licenseAbbreviation, authors, locale)}
+              src={url}
+            />
+          </FigureLicenseDialog>
+        </Figure>
+      )
     );
   };
 
