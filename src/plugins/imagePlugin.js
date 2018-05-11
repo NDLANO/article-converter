@@ -179,13 +179,15 @@ export default function createImagePlugin() {
             />
           </div>
         </Button>
-        <FigureCaption
-          id={figureLicenseDialogId}
-          caption={caption}
-          reuseLabel={t(locale, 'image.reuse')}
-          licenseRights={license.rights}
-          authors={authors}
-        />
+        {size !== 'xsmall' && (
+          <FigureCaption
+            id={figureLicenseDialogId}
+            caption={caption}
+            reuseLabel={t(locale, 'image.reuse')}
+            licenseRights={license.rights}
+            authors={authors}
+          />
+        )}
         <FigureLicenseDialog
           id={figureLicenseDialogId}
           title={image.title.title}
