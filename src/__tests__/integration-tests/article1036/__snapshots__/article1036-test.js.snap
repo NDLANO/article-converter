@@ -315,7 +315,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   </p>
 </section>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"

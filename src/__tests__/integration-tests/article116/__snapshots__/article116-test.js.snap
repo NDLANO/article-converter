@@ -191,7 +191,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
   </figure>
 </section>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"brightcove-ref:125442\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"

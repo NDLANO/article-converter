@@ -533,7 +533,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 
 </section>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
@@ -869,7 +869,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </div>
 </div>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
@@ -1205,7 +1205,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </div>
 </div>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-347\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"

@@ -149,7 +149,8 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
 </section>
 <section>
   <section class=\\"c-related-articles\\">
-    <h1 class=\\"c-related-articles__component-title\\">Relaterte artikler</h1>
+    <h1 class=\\"c-section-heading c-related-articles__component-title\\">Relaterte artikler
+    </h1>
     <div class=\\"c-related-articles__articles\\">
       <article class=\\"c-related-articles__item c-related-articles__item--tasks-and-activities\\">
         <h1 class=\\"c-related-articles__title\\">

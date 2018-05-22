@@ -153,7 +153,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"audio-undefined\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -412,7 +412,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -630,7 +630,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -940,7 +940,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 
     <div data-react-universal-portal=\\"true\\">
 
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -1328,7 +1328,7 @@ Kunstner: Kari Maler\\"
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -1729,7 +1729,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-1326\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -2100,7 +2100,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:46012\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
