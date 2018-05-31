@@ -8,15 +8,12 @@
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import RelatedArticleList, {
-  RelatedArticle,
-} from 'ndla-ui/lib/RelatedArticleList';
+import { RelatedArticle } from 'ndla-ui/lib/RelatedArticleList';
 import ContentTypeBadge from 'ndla-ui/lib/ContentTypeBadge';
 import constants from 'ndla-ui/lib/model';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
-import t from '../locale/i18n';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
@@ -72,59 +69,40 @@ const getRelatedArticleProps = (resource, articleId) => {
 
 export default function createRelatedContentPlugin() {
   async function fetchResource(embed, accessToken, lang) {
-    if (!embed.data || !embed.data.articleIds) {
+    if (!embed.data || !embed.data.articleId) {
       return embed;
     }
 
-    const articleIds =
-      typeof embed.data.articleIds === 'number'
-        ? [embed.data.articleIds]
-        : embed.data.articleIds.split(',');
+    const [article, resource] = await Promise.all([
+      fetchArticle(embed.data.articleId, accessToken, lang).catch(error => {
+        log.error(error);
+        return undefined;
+      }),
+      fetchArticleResource(embed.data.articleId, accessToken, lang).catch(
+        error => {
+          log.error(error);
+          return undefined;
+        }
+      ),
+    ]);
 
-    const articlesWithResource = await Promise.all(
-      articleIds.map(async id => {
-        const [article, resource] = await Promise.all([
-          fetchArticle(id, accessToken, lang).catch(error => {
-            log.error(error);
-            return undefined;
-          }),
-          fetchArticleResource(id, accessToken, lang).catch(error => {
-            log.error(error);
-            return undefined;
-          }),
-        ]);
-
-        return article ? { ...article, resource } : undefined;
-      })
-    );
-
-    const articles = articlesWithResource.filter(
-      article => article !== undefined
-    );
-
-    return { ...embed, articles };
+    return {
+      ...embed,
+      article: article ? { ...article, resource } : undefined,
+    };
   }
 
-  const embedToHTML = (embed, locale) => {
-    if (!embed.articles || embed.articles.length === 0) {
+  const embedToHTML = embed => {
+    if (!embed.article) {
       return '';
     }
     return renderToStaticMarkup(
-      <RelatedArticleList
-        messages={{
-          title: t(locale, 'related.title'),
-          showMore: t(locale, 'showMore'),
-          showLess: t(locale, 'showLess'),
-        }}>
-        {embed.articles.map(article => (
-          <RelatedArticle
-            key={article.id}
-            title={article.title.title}
-            introduction={article.metaDescription.metaDescription}
-            {...getRelatedArticleProps(article.resource, article.id)}
-          />
-        ))}
-      </RelatedArticleList>
+      <RelatedArticle
+        key={embed.article.id}
+        title={embed.article.title.title}
+        introduction={embed.article.metaDescription.metaDescription}
+        {...getRelatedArticleProps(embed.article.resource, embed.article.id)}
+      />
     );
   };
 

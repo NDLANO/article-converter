@@ -8,6 +8,7 @@
 
 import cheerio from 'cheerio';
 import { createAside, createFactbox } from './utils/asideHelpers';
+import { createRelatedArticleList } from './utils/embedGroupHelpers';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -53,8 +54,26 @@ export const transformAsides = content => {
   });
 };
 
+export const transformRelatedContent = (content, lang) => {
+  content('div').each((_, div) => {
+    const isRelatedContentGroup =
+      div.attribs && div.attribs['data-type'] === 'related-content';
+    if (isRelatedContentGroup) {
+      const relatedArticleList = createRelatedArticleList(
+        { lang },
+        content(div)
+          .children()
+          .toString()
+      );
+      content(div).before(relatedArticleList);
+      content(div).remove();
+    }
+  });
+};
+
 export const htmlTransforms = [
   transformAsides,
+  transformRelatedContent,
   content => {
     content('math').attr('display', 'block');
   },
