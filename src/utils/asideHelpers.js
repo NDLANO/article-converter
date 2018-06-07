@@ -8,10 +8,10 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { uuid } from 'ndla-util';
-import t from '../locale/i18n';
 import Aside from 'ndla-ui/lib/Aside';
-import Table from 'ndla-ui/lib/table';
+import Table from 'ndla-ui/lib/Table';
 import FactBox from 'ndla-ui/lib/FactBox';
+import t from '../locale/i18n';
 
 export function createAside(props, children) {
   return renderToStaticMarkup(

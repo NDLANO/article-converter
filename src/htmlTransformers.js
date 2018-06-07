@@ -75,5 +75,14 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
-  (content, lang) => createTable({}, content, lang),
+  (content, lang) =>
+    content('table').each(table =>
+      createTable(
+        {},
+        content(table)
+          .children()
+          .toString(),
+        lang
+      )
+    ),
 ];
