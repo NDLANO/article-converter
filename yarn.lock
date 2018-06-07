@@ -3727,9 +3727,9 @@ ndla-licenses@^0.2.0:
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.12.15:
-  version "0.12.15"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.12.15.tgz#1b999c3b25113db067ec80166c6158ebd8e3ea98"
+ndla-ui@^0.12.16:
+  version "0.12.16"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.12.16.tgz#60313fd6cacb23c0817b1b8dda8fa513cb1e07e2"
   dependencies:
     classnames "2.2.5"
     focus-trap "^2.4.3"

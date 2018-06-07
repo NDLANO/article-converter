@@ -155,7 +155,8 @@ Object {
 exports[`app/fetchAndTransformArticle 2139 2`] = `
 "
 <section>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure\\"
+    id=\\"figure-2357\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-2357\\"
       type=\\"button\\">
@@ -292,7 +293,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <figure class=\\"c-figure u-float-left\\">
+  <figure class=\\"c-figure u-float-left\\"
+    id=\\"figure-2357\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-2357\\"
       type=\\"button\\">
@@ -425,7 +427,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </figure>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure\\"
+    id=\\"figure-347\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-347\\"
       type=\\"button\\">
@@ -533,7 +536,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 
 </section>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
@@ -702,14 +705,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <button class=\\"c-dialog__close\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
-          <img alt=\\"Vann\\"
-            srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
-            sizes=\\"100vw\\"
-            src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\">
+          <button class=\\"c-figure-license__image-wrapper\\">
+            <img alt=\\"Vann\\"
+              srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
+              sizes=\\"100vw\\"
+              src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\">
 
-          <h3 id=\\"heading-fs-2357\\"
+          </button>
+          <h1 id=\\"heading-fs-2357\\"
             class=\\"c-figure-license__image-title\\">Fottur på Kvamsfjellet
-          </h3>Vann
+          </h1>Vann
           <p>
             <button class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -869,7 +874,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </div>
 </div>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
@@ -1038,14 +1043,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <button class=\\"c-dialog__close\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
-          <img alt=\\"Ipsum\\"
-            srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
-            sizes=\\"100vw\\"
-            src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\">
+          <button class=\\"c-figure-license__image-wrapper\\">
+            <img alt=\\"Ipsum\\"
+              srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
+              sizes=\\"100vw\\"
+              src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\">
 
-          <h3 id=\\"heading-fs-2357\\"
+          </button>
+          <h1 id=\\"heading-fs-2357\\"
             class=\\"c-figure-license__image-title\\">Fottur på Kvamsfjellet
-          </h3>Lorem ipsum
+          </h1>Lorem ipsum
           <p>
             <button class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -1205,7 +1212,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </div>
 </div>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"image-347\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
@@ -1337,13 +1344,15 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       <button class=\\"c-dialog__close\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
-          <img alt=\\"Cropped\\"
-            src=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif\\"
-            sizes=\\"100vw\\">
+          <button class=\\"c-figure-license__image-wrapper\\">
+            <img alt=\\"Cropped\\"
+              src=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif\\"
+              sizes=\\"100vw\\">
 
-          <h3 id=\\"heading-fs-347\\"
+          </button>
+          <h1 id=\\"heading-fs-347\\"
             class=\\"c-figure-license__image-title\\">Annonse i gif-format
-          </h3>Crop
+          </h1>Crop
           <p>
             <button class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>

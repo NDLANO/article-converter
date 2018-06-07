@@ -161,8 +161,9 @@ export default function createImagePlugin() {
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
     const figureLicenseDialogId = `image-${image.id.toString()}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
+    const figureid = `figure-${image.id}`;
     return renderToStaticMarkup(
-      <Figure className={figureClassNames}>
+      <Figure id={figureid} className={figureClassNames}>
         <Button
           key="button"
           data-dialog-trigger-id={figureFullscreenDialogId}
@@ -181,6 +182,7 @@ export default function createImagePlugin() {
         </Button>
         {size !== 'xsmall' && (
           <FigureCaption
+            figureid={figureid}
             id={figureLicenseDialogId}
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}

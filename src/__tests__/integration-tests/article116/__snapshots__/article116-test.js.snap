@@ -89,7 +89,8 @@ Object {
 exports[`app/fetchAndTransformArticle 116 2`] = `
 "
 <section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-ref:125442\\">
     <iframe title=\\"Video: Offentlige debatter\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:125442\\"
@@ -191,7 +192,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
   </figure>
 </section>
 <div data-react-universal-portal=\\"true\\">
-  <div class=\\"c-dialog c-dialog--undefined\\"
+  <div class=\\"c-dialog\\"
     data-dialog-id=\\"brightcove-ref:125442\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"

@@ -4,7 +4,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
 "
 
 <section>
-  <figure class=\\"c-figure u-float-full\\">
+  <figure class=\\"c-figure u-float-full\\"
+    id=\\"figure-undefined\\">
     <section class=\\"c-audio-player\\">
       <h1 class=\\"c-audio-player__title\\">Tittel</h1>
       <audio type=\\"audio/mpeg\\"
@@ -23,6 +24,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               viewBox=\\"0 0 24 24\\"
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
+              role=\\"img\\"
+              aria-label=\\"play\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <g>
                 <title>Play</title>
@@ -40,6 +44,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               viewBox=\\"0 0 24 24\\"
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
+              role=\\"img\\"
+              aria-label=\\"pause\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <g>
                 <title>pause</title>
@@ -153,7 +160,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"audio-undefined\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -294,6 +301,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         viewBox=\\"0 0 24 24\\"
         data-license=\\"Apache License 2.0\\"
         data-source=\\"Material Design\\"
+        role=\\"img\\"
+        aria-label=\\"play\\"
+        title=\\"play\\"
         style=\\"vertical-align:middle\\">
         <g>
           <title>volume_up</title>
@@ -310,7 +320,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 "
 
 <section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-ref:1\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
@@ -412,7 +423,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -528,7 +539,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </div>
     </div>
   </figure>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-ref:2\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
@@ -630,7 +642,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -834,7 +846,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 
 <section>
 
-  <figure class=\\"c-figure u-float-left\\">
+  <figure class=\\"c-figure u-float-left\\"
+    id=\\"figure-1\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-1\\"
       type=\\"button\\">
@@ -940,7 +953,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 
     <div data-react-universal-portal=\\"true\\">
 
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -1085,14 +1098,16 @@ Kunstner: Kari Maler\\"
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
 
             <div class=\\"c-figure-license__content\\">
-              <img alt=\\"alt\\"
-                srcset=\\"http://ndla.no/images/1.jpg?width=2720 2720w, http://ndla.no/images/1.jpg?width=2080 2080w, http://ndla.no/images/1.jpg?width=1760 1760w, http://ndla.no/images/1.jpg?width=1440 1440w, http://ndla.no/images/1.jpg?width=1120 1120w, http://ndla.no/images/1.jpg?width=1000 1000w, http://ndla.no/images/1.jpg?width=960 960w, http://ndla.no/images/1.jpg?width=800 800w, http://ndla.no/images/1.jpg?width=640 640w, http://ndla.no/images/1.jpg?width=480 480w, http://ndla.no/images/1.jpg?width=320 320w, http://ndla.no/images/1.jpg?width=240 240w, http://ndla.no/images/1.jpg?width=180 180w\\"
-                sizes=\\"100vw\\"
-                src=\\"http://ndla.no/images/1.jpg?width=1024\\">
+              <button class=\\"c-figure-license__image-wrapper\\">
+                <img alt=\\"alt\\"
+                  srcset=\\"http://ndla.no/images/1.jpg?width=2720 2720w, http://ndla.no/images/1.jpg?width=2080 2080w, http://ndla.no/images/1.jpg?width=1760 1760w, http://ndla.no/images/1.jpg?width=1440 1440w, http://ndla.no/images/1.jpg?width=1120 1120w, http://ndla.no/images/1.jpg?width=1000 1000w, http://ndla.no/images/1.jpg?width=960 960w, http://ndla.no/images/1.jpg?width=800 800w, http://ndla.no/images/1.jpg?width=640 640w, http://ndla.no/images/1.jpg?width=480 480w, http://ndla.no/images/1.jpg?width=320 320w, http://ndla.no/images/1.jpg?width=240 240w, http://ndla.no/images/1.jpg?width=180 180w\\"
+                  sizes=\\"100vw\\"
+                  src=\\"http://ndla.no/images/1.jpg?width=1024\\">
 
-              <h3 id=\\"heading-fs-1\\"
+              </button>
+              <h1 id=\\"heading-fs-1\\"
                 class=\\"c-figure-license__image-title\\">image title 1
-              </h3>
+              </h1>
               <p>
                 <button class=\\"c-figure__captionbtn\\">
                   <span>Bruk bildet</span>
@@ -1223,7 +1238,8 @@ Kunstner: Kari Maler\\"
       </div>
     </div>
   </figure>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure\\"
+    id=\\"figure-2\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-2\\"
       type=\\"button\\">
@@ -1328,7 +1344,7 @@ Kunstner: Kari Maler\\"
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -1458,14 +1474,16 @@ Kunstner: Kari Maler\\"
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
-              <img alt=\\"alt\\"
-                srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
-                sizes=\\"100vw\\"
-                src=\\"http://ndla.no/images/2.jpg?width=1024\\">
+              <button class=\\"c-figure-license__image-wrapper\\">
+                <img alt=\\"alt\\"
+                  srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
+                  sizes=\\"100vw\\"
+                  src=\\"http://ndla.no/images/2.jpg?width=1024\\">
 
-              <h3 id=\\"heading-fs-2\\"
+              </button>
+              <h1 id=\\"heading-fs-2\\"
                 class=\\"c-figure-license__image-title\\">image title 2
-              </h3>
+              </h1>
               <p>
                 <button class=\\"c-figure__captionbtn\\">
                   <span>Bruk bildet</span>
@@ -1624,7 +1642,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "
 
 <section>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure\\"
+    id=\\"figure-1326\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-1326\\"
       type=\\"button\\">
@@ -1729,7 +1748,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"image-1326\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
@@ -1859,14 +1878,16 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
-              <img alt=\\"alt\\"
-                srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
-                sizes=\\"100vw\\"
-                src=\\"http://api.test.ndla.no/images/1.jpg?width=1024\\">
+              <button class=\\"c-figure-license__image-wrapper\\">
+                <img alt=\\"alt\\"
+                  srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
+                  sizes=\\"100vw\\"
+                  src=\\"http://api.test.ndla.no/images/1.jpg?width=1024\\">
 
-              <h3 id=\\"heading-fs-1326\\"
+              </button>
+              <h1 id=\\"heading-fs-1326\\"
                 class=\\"c-figure-license__image-title\\">image title
-              </h3>
+              </h1>
               <p>
                 <button class=\\"c-figure__captionbtn\\">
                   <span>Bruk bildet</span>
@@ -1999,7 +2020,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 </section>
 
 <section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-ref:46012\\">
     <iframe title=\\"Video: brightcove video\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
@@ -2100,7 +2122,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       </footer>
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
-      <div class=\\"c-dialog c-dialog--undefined\\"
+      <div class=\\"c-dialog\\"
         data-dialog-id=\\"brightcove-ref:46012\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
