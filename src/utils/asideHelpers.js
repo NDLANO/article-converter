@@ -7,7 +7,10 @@
  */
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { uuid } from 'ndla-util';
+import t from '../locale/i18n';
 import Aside from 'ndla-ui/lib/Aside';
+import Table from 'ndla-ui/lib/table';
 import FactBox from 'ndla-ui/lib/FactBox';
 
 export function createAside(props, children) {
@@ -24,6 +27,22 @@ export function createAside(props, children) {
 export function createFactbox(props, children) {
   return renderToStaticMarkup(
     <FactBox
+      {...props}
+      dangerouslySetInnerHTML={{
+        __html: children,
+      }}
+    />
+  );
+}
+
+export function createTable(props, children, lang) {
+  return renderToStaticMarkup(
+    <Table
+      id={uuid()}
+      messages={{
+        dialogCloseButton: t(lang, 'close'),
+        expandButtonLabel: t(lang, 'expandButton'),
+      }}
       {...props}
       dangerouslySetInnerHTML={{
         __html: children,

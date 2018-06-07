@@ -38,7 +38,7 @@ export async function transform(content, lang, accessToken, visualElement) {
 
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
-  htmlTransforms.forEach(replacer => replacer(content));
+  htmlTransforms.forEach(replacer => replacer(content, lang));
 
   return {
     html: content('body').html(),

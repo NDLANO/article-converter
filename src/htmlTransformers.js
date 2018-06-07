@@ -7,7 +7,7 @@
  */
 
 import cheerio from 'cheerio';
-import { createAside, createFactbox } from './utils/asideHelpers';
+import { createAside, createFactbox, createTable } from './utils/asideHelpers';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -75,4 +75,5 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
+  (content, lang) => createTable({}, content, lang),
 ];

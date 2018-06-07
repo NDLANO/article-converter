@@ -49,6 +49,7 @@ const messages = {
     showMore: 'Vis fleire relaterte artikler',
     showLess: 'Vis mindre',
     ...contributorTypes.nn,
+    expandButton: 'Vis stor versjon',
   },
   nb: {
     close: 'Lukk',
@@ -79,6 +80,7 @@ const messages = {
     'related.title': 'Relaterte artikler',
     showMore: 'Vis flere relaterte artikler',
     showLess: 'Vis mindre',
+    expandButton: 'Vis stor versjon',
     ...contributorTypes.nb,
   },
   en: {
@@ -110,6 +112,7 @@ const messages = {
     'related.title': 'Related articles',
     showMore: 'Show more related articles',
     showLess: 'Show less',
+    expandButton: 'Show large version',
     ...contributorTypes.en,
   },
 };
