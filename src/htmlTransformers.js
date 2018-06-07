@@ -60,7 +60,7 @@ export const transformRelatedContent = (content, lang) => {
       div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
       const relatedArticleList = createRelatedArticleList(
-        { lang },
+        { locale: lang, articleCount: content(div).children().length },
         content(div)
           .children()
           .toString()

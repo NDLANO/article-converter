@@ -14,77 +14,134 @@ import constants from 'ndla-ui/lib/model';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
+import t from '../locale/i18n';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
   'urn:resourcetype:tasksAndActivities';
 
-const mapping = {
-  [RESOURCE_TYPE_SUBJECT_MATERIAL]: {
-    icon: (
-      <ContentTypeBadge
-        background
-        type={constants.contentTypes.SUBJECT_MATERIAL}
-      />
-    ),
-    modifier: 'subject-material',
-  },
-  [RESOURCE_TYPE_TASKS_AND_ACTIVITIES]: {
-    icon: (
-      <ContentTypeBadge
-        background
-        type={constants.contentTypes.TASKS_AND_ACTIVITIES}
-      />
-    ),
-    modifier: 'tasks-and-activities',
-  },
-  default: {
-    icon: (
-      <ContentTypeBadge
-        background
-        type={constants.contentTypes.SUBJECT_MATERIAL}
-      />
-    ),
-    modifier: 'subject-material',
-  },
+const mapping = relatedArticleEntryNum => {
+  const hiddenModifier = relatedArticleEntryNum > 2 ? ' hidden' : '';
+  return {
+    [RESOURCE_TYPE_SUBJECT_MATERIAL]: {
+      icon: (
+        <ContentTypeBadge
+          background
+          type={constants.contentTypes.SUBJECT_MATERIAL}
+        />
+      ),
+      modifier: `subject-material${hiddenModifier}`,
+    },
+    [RESOURCE_TYPE_TASKS_AND_ACTIVITIES]: {
+      icon: (
+        <ContentTypeBadge
+          background
+          type={constants.contentTypes.TASKS_AND_ACTIVITIES}
+        />
+      ),
+      modifier: `tasks-and-activities${hiddenModifier}`,
+    },
+    'external-learning-resources': {
+      icon: (
+        <ContentTypeBadge
+          background
+          type={constants.contentTypes.EXTERNAL_LEARNING_RESOURCES}
+        />
+      ),
+      modifier: `external-learning-resources${hiddenModifier}`,
+    },
+    default: {
+      icon: (
+        <ContentTypeBadge
+          background
+          type={constants.contentTypes.SUBJECT_MATERIAL}
+        />
+      ),
+      modifier: `subject-material${hiddenModifier}`,
+    },
+  };
 };
 
-const getRelatedArticleProps = (resource, articleId) => {
-  const to =
-    resource && resource.path
-      ? `/subjects${resource.path}`
-      : `/article/${articleId}`;
+function RelatedArticleCounter(initialCount = 0) {
+  this.count = initialCount;
+
+  RelatedArticleCounter.prototype.getNextCount = function getNextCount() {
+    this.count = this.count + 1;
+    return this.count;
+  };
+}
+
+const getRelatedArticleProps = (
+  resource,
+  articleId,
+  relatedArticleEntryNum,
+  url
+) => {
+  let to;
+  if (articleId) {
+    to =
+      resource && resource.path
+        ? `/subjects${resource.path}`
+        : `/article/${articleId}`;
+  } else {
+    return {
+      ...mapping(relatedArticleEntryNum)['external-learning-resources'],
+      url,
+    };
+  }
 
   if (!resource || !resource.resourceTypes) {
-    return { ...mapping.default, to };
+    return { ...mapping(relatedArticleEntryNum).default, to };
   }
 
-  const resourceType = resource.resourceTypes.find(type => mapping[type.id]);
+  const resourceType = resource.resourceTypes.find(
+    type => mapping(relatedArticleEntryNum)[type.id]
+  );
 
   if (resourceType) {
-    return { ...mapping[resourceType.id], to };
+    return { ...mapping(relatedArticleEntryNum)[resourceType.id], to };
   }
-  return { ...mapping.default, to };
+  return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
 export default function createRelatedContentPlugin() {
+  const embedToHTMLCounter = new RelatedArticleCounter();
   async function fetchResource(embed, accessToken, lang) {
-    if (!embed.data || !embed.data.articleId) {
-      return embed;
-    }
+    if (!embed.data) return embed;
+    if (!embed.data.articleId && !embed.data.url) return embed;
 
-    const [article, resource] = await Promise.all([
-      fetchArticle(embed.data.articleId, accessToken, lang).catch(error => {
-        log.error(error);
-        return undefined;
-      }),
-      fetchArticleResource(embed.data.articleId, accessToken, lang).catch(
-        error => {
+    let article;
+    let resource;
+
+    if (embed.data.articleId) {
+      [article, resource] = await Promise.all([
+        fetchArticle(embed.data.articleId, accessToken, lang).catch(error => {
           log.error(error);
           return undefined;
-        }
-      ),
-    ]);
+        }),
+        fetchArticleResource(embed.data.articleId, accessToken, lang).catch(
+          error => {
+            log.error(error);
+            return undefined;
+          }
+        ),
+      ]);
+    }
+
+    if (embed.data.url) {
+      article = {
+        title: { title: embed.data.title },
+        metaDescription: {
+          metaDescription: embed.data.metaDescription || embed.data.url,
+        },
+        linkInfo: `${t(lang, 'related.linkInfo')} ${
+          embed.data.url.match(
+            /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
+          )[1]
+        }`,
+        url: embed.data.url,
+      };
+    }
 
     return {
       ...embed,
@@ -96,12 +153,24 @@ export default function createRelatedContentPlugin() {
     if (!embed.article) {
       return '';
     }
+
+    const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
+
     return renderToStaticMarkup(
       <RelatedArticle
-        key={embed.article.id}
+        key={
+          embed.article.id ||
+          `external-learning-resources-${relatedArticleEntryNum}`
+        }
         title={embed.article.title.title}
         introduction={embed.article.metaDescription.metaDescription}
-        {...getRelatedArticleProps(embed.article.resource, embed.article.id)}
+        linkInfo={embed.article.linkInfo || null}
+        {...getRelatedArticleProps(
+          embed.article.resource,
+          embed.article.id,
+          relatedArticleEntryNum,
+          embed.article.url
+        )}
       />
     );
   };
