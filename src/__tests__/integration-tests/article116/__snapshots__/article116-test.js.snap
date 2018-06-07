@@ -114,6 +114,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -138,6 +139,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -164,6 +166,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -182,6 +185,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\">Wes Anderson</span>
             <button data-dialog-trigger-id=\\"brightcove-ref:125442\\"
+              data-dialog-source-id=\\"figure-ref:125442\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -217,6 +221,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -241,6 +246,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -267,6 +273,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"

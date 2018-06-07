@@ -164,6 +164,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
               style=\\"vertical-align:middle\\">
+              <title>TasksAndActivities</title>
               <g>
                 <title>Oppgaver og aktiviteter</title>
                 <g id=\\"Page-1\\"
@@ -210,6 +211,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
               style=\\"vertical-align:middle\\">
+              <title>SubjectMaterial</title>
               <g>
                 <title>Fagstoff</title>
                 <g id=\\"Page-1\\"
@@ -253,6 +255,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
               style=\\"vertical-align:middle\\">
+              <title>TasksAndActivities</title>
               <g>
                 <title>Oppgaver og aktiviteter</title>
                 <g id=\\"Page-1\\"
