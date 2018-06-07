@@ -118,7 +118,7 @@ export default function createAudioPlugin() {
         <Figure id={figureid}>
           <AudioPlayer type={mimeType} src={url} title={title} />
           <FigureCaption
-            figureid={figureid}
+            figureId={figureid}
             id={figureLicenseDialogId}
             caption={caption}
             reuseLabel={t(locale, 'audio.reuse')}

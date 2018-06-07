@@ -106,7 +106,7 @@ export default function createBrightcovePlugin() {
           allowFullScreen
         />
         <FigureCaption
-          figureid={figureid}
+          figureId={figureid}
           id={figureLicenseDialogId}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
