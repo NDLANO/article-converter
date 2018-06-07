@@ -146,6 +146,7 @@ export default function createImagePlugin() {
       rulesForUse: t(locale, 'image.rulesForUse'),
       learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
+      zoomImageButtonLabel: t(locale, 'image.zoom'),
     };
 
     const focalPoint = getFocalPoint(embed.data);
