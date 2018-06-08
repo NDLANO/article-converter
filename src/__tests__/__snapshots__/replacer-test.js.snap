@@ -23,6 +23,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               viewBox=\\"0 0 24 24\\"
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
+              role=\\"img\\"
+              aria-label=\\"play\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <g>
                 <title>Play</title>
@@ -40,6 +43,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               viewBox=\\"0 0 24 24\\"
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
+              role=\\"img\\"
+              aria-label=\\"pause\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <g>
                 <title>pause</title>
@@ -294,6 +300,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         viewBox=\\"0 0 24 24\\"
         data-license=\\"Apache License 2.0\\"
         data-source=\\"Material Design\\"
+        role=\\"img\\"
+        aria-label=\\"play\\"
+        title=\\"play\\"
         style=\\"vertical-align:middle\\">
         <g>
           <title>volume_up</title>

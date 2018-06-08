@@ -11,6 +11,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { RelatedArticle } from 'ndla-ui/lib/RelatedArticleList';
 import ContentTypeBadge from 'ndla-ui/lib/ContentTypeBadge';
 import constants from 'ndla-ui/lib/model';
+import { isObject } from 'lodash/fp';
+import { RelatedArticleCounter } from '../utils/embedGroupHelpers';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
@@ -62,15 +64,6 @@ const mapping = relatedArticleEntryNum => {
   };
 };
 
-function RelatedArticleCounter(initialCount = 0) {
-  this.count = initialCount;
-
-  RelatedArticleCounter.prototype.getNextCount = function getNextCount() {
-    this.count = this.count + 1;
-    return this.count;
-  };
-}
-
 const getRelatedArticleProps = (
   resource,
   articleId,
@@ -115,18 +108,15 @@ export default function createRelatedContentPlugin() {
     let resource;
 
     if (embed.data.articleId) {
-      [article, resource] = await Promise.all([
-        fetchArticle(embed.data.articleId, accessToken, lang).catch(error => {
-          log.error(error);
-          return undefined;
-        }),
-        fetchArticleResource(embed.data.articleId, accessToken, lang).catch(
-          error => {
-            log.error(error);
-            return undefined;
-          }
-        ),
-      ]);
+      try {
+        [article, resource] = await Promise.all([
+          fetchArticle(embed.data.articleId, accessToken, lang),
+          fetchArticleResource(embed.data.articleId, accessToken, lang),
+        ]);
+      } catch (error) {
+        log.error(error);
+        return undefined;
+      }
     }
 
     if (embed.data.url) {
@@ -136,6 +126,7 @@ export default function createRelatedContentPlugin() {
           metaDescription: embed.data.metaDescription || embed.data.url,
         },
         linkInfo: `${t(lang, 'related.linkInfo')} ${
+          // Get domain name only from url
           embed.data.url.match(
             /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
           )[1]
@@ -163,8 +154,12 @@ export default function createRelatedContentPlugin() {
           embed.article.id ||
           `external-learning-resources-${relatedArticleEntryNum}`
         }
-        title={embed.article.title.title}
-        introduction={embed.article.metaDescription.metaDescription}
+        title={isObject(embed.article.title) ? embed.article.title.title : ''}
+        introduction={
+          isObject(embed.article.metaDescription)
+            ? embed.article.metaDescription.metaDescription
+            : ''
+        }
         linkInfo={embed.article.linkInfo || null}
         {...getRelatedArticleProps(
           embed.article.resource,
