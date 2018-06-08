@@ -49,6 +49,8 @@ const messages = {
     'related.linkInfo': 'Nettside hos',
     showMore: 'Vis fleire relaterte artikler',
     showLess: 'Vis mindre',
+    files: 'Filer',
+    download: 'Last ned fil: ',
     ...contributorTypes.nn,
   },
   nb: {
@@ -81,6 +83,8 @@ const messages = {
     'related.linkInfo': 'Nettside hos',
     showMore: 'Vis flere relaterte artikler',
     showLess: 'Vis mindre',
+    files: 'Filer',
+    download: 'Last ned fil: ',
     ...contributorTypes.nb,
   },
   en: {
@@ -113,6 +117,8 @@ const messages = {
     'related.linkInfo': 'Web page at',
     showMore: 'Show more related articles',
     showLess: 'Show less',
+    files: 'Files',
+    download: 'Download file: ',
     ...contributorTypes.en,
   },
 };

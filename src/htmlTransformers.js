@@ -7,8 +7,13 @@
  */
 
 import cheerio from 'cheerio';
-import { createAside, createFactbox } from './utils/asideHelpers';
+import {
+  createAside,
+  createFactbox,
+  createFileList,
+} from './utils/asideHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
+import t from './locale/i18n';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -54,6 +59,36 @@ export const transformAsides = content => {
   });
 };
 
+const transformFileList = (content, locale) => {
+  content('div').each((_, div) => {
+    const isFileList = div.attribs && div.attribs['data-type'] === 'file';
+    if (isFileList) {
+      const files = [];
+      content(div)
+        .children()
+        .each((__, file) => {
+          const { url, type, title } = file.data;
+          files.push({
+            title,
+            formats: [
+              {
+                url,
+                fileType: type,
+                tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
+              },
+            ],
+          });
+        });
+      const fileList = createFileList({
+        files,
+        heading: t(locale, 'files'),
+      });
+      content(div).before(fileList);
+      content(div).remove();
+    }
+  });
+};
+
 export const transformRelatedContent = (content, lang) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
@@ -94,4 +129,5 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
+  transformFileList,
 ];

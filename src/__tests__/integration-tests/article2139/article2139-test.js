@@ -15,7 +15,7 @@ import image347 from './image347';
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
 test('app/fetchAndTransformArticle 2139', async () => {
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/article-api/v2/articles/2139?language=nb&fallback=true')
     .reply(200, article2139);
 

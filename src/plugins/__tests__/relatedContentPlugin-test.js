@@ -33,13 +33,13 @@ test('fetchResource for two related articles', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
   ['1', '2'].forEach(id => {
-    nock('https://test.api.ndla.no')
+    nock('http://ndla-api')
       .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, {
         title: { title: `title${id}` },
         introduction: { introduction: `introduction${id}` },
       });
-    nock('https://test.api.ndla.no')
+    nock('http://ndla-api')
       .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:${id}`)
       .reply(200, articleResource);
   });
@@ -67,18 +67,18 @@ test('fetchResource for two related articles, where one could not be fetched fro
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/article-api/v2/articles/1?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title1` },
       introduction: { introduction: `introduction1` },
     });
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
     .reply(200, articleResource);
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/article-api/v2/articles/2?language=nb&fallback=true`)
     .reply(501, {});
 
@@ -106,23 +106,23 @@ test('fetchResource for two related articles, where one could not be fetched fro
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/article-api/v2/articles/1?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title1` },
       introduction: { introduction: `introduction1` },
     });
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
     .reply(200, articleResource);
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/article-api/v2/articles/2?language=nb&fallback=true`)
     .reply(200, {
       title: { title: `title2` },
       introduction: { introduction: `introduction2` },
     });
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2`)
     .reply(500, {});
 

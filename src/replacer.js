@@ -11,7 +11,6 @@ import t from './locale/i18n';
 export function replaceEmbedsInHtml(embeds, lang) {
   embeds.forEach(embed => {
     const plugin = embed.plugin;
-
     if (embed.status === 'error') {
       const html = plugin.onError
         ? plugin.onError(embed, lang)
@@ -20,6 +19,8 @@ export function replaceEmbedsInHtml(embeds, lang) {
     } else if (plugin) {
       const html = plugin.embedToHTML(embed, lang);
       embed.embed.replaceWith(html);
+    } else if (embed.embed.attr('data-resource') === 'file') {
+      // do nothing
     } else {
       log.warn(
         `Do not create markup for unknown embed '${embed.data.resource}'`
