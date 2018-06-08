@@ -35,5 +35,6 @@ export function createFactbox(props, children) {
 }
 
 export function createFileList(props) {
-  return renderToStaticMarkup(<FileList {...props} id={uuid()} />);
+  const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
+  return renderToStaticMarkup(<FileList {...props} id={id} />);
 }

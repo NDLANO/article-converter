@@ -15,7 +15,7 @@ import videoSources125442 from './videoSources125442';
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
 test('app/fetchAndTransformArticle 116', async () => {
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/article-api/v2/articles/116?language=nb&fallback=true')
     .reply(200, article116);
   nock('https://oauth.brightcove.com/')
