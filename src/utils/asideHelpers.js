@@ -7,8 +7,10 @@
  */
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { uuid } from 'ndla-util';
 import Aside from 'ndla-ui/lib/Aside';
 import FactBox from 'ndla-ui/lib/FactBox';
+import FileList from 'ndla-ui/lib/FileList';
 
 export function createAside(props, children) {
   return renderToStaticMarkup(
@@ -30,4 +32,8 @@ export function createFactbox(props, children) {
       }}
     />
   );
+}
+
+export function createFileList(props) {
+  return renderToStaticMarkup(<FileList {...props} id={uuid()} />);
 }
