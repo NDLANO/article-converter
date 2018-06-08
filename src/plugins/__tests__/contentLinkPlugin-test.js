@@ -26,7 +26,7 @@ const articleResource = [
 test('fetchResource for content-link', async () => {
   const contentLinkPlugin = createContentLinkPlugin();
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
     .reply(200, articleResource);
 
@@ -41,7 +41,7 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const contentLinkPlugin = createContentLinkPlugin();
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
     .reply(500, {});
 

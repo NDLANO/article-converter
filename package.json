@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src -d build --ignore __tests__/",
     "clean": "rimraf build",
-    "test": "cross-env NDLA_ENVIRONMENT=test jest",
+    "test": "cross-env NDLA_ENVIRONMENT=test NODE_ENV=unittest jest",
     "tdd": "cross-env NDLA_ENVIRONMENT=test jest --watch",
     "lint": "yarn lint-prettier && yarn lint-es",
     "lint-es": "eslint src",

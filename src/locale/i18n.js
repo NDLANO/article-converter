@@ -48,6 +48,8 @@ const messages = {
     'related.title': 'Relaterte artikler',
     showMore: 'Vis fleire relaterte artikler',
     showLess: 'Vis mindre',
+    files: 'Filer',
+    download: 'Last ned fil: ',
     ...contributorTypes.nn,
   },
   nb: {
@@ -79,6 +81,8 @@ const messages = {
     'related.title': 'Relaterte artikler',
     showMore: 'Vis flere relaterte artikler',
     showLess: 'Vis mindre',
+    files: 'Filer',
+    download: 'Last ned fil: ',
     ...contributorTypes.nb,
   },
   en: {
@@ -110,6 +114,8 @@ const messages = {
     'related.title': 'Related articles',
     showMore: 'Show more related articles',
     showLess: 'Show less',
+    files: 'Files',
+    download: 'Download file: ',
     ...contributorTypes.en,
   },
 };
