@@ -59,6 +59,23 @@ export const transformAsides = content => {
   });
 };
 
+export const transformRelatedContent = (content, lang) => {
+  content('div').each((_, div) => {
+    const isRelatedContentGroup =
+      div.attribs && div.attribs['data-type'] === 'related-content';
+    if (isRelatedContentGroup) {
+      const relatedArticleList = createRelatedArticleList(
+        { locale: lang, articleCount: content(div).children().length },
+        content(div)
+          .children()
+          .toString()
+      );
+      content(div).before(relatedArticleList);
+      content(div).remove();
+    }
+  });
+};
+
 const transformFileList = (content, locale) => {
   content('div').each((_, div) => {
     const isFileList = div.attribs && div.attribs['data-type'] === 'file';
@@ -84,23 +101,6 @@ const transformFileList = (content, locale) => {
         heading: t(locale, 'files'),
       });
       content(div).before(fileList);
-      content(div).remove();
-    }
-  });
-};
-
-export const transformRelatedContent = (content, lang) => {
-  content('div').each((_, div) => {
-    const isRelatedContentGroup =
-      div.attribs && div.attribs['data-type'] === 'related-content';
-    if (isRelatedContentGroup) {
-      const relatedArticleList = createRelatedArticleList(
-        { locale: lang, articleCount: content(div).children().length },
-        content(div)
-          .children()
-          .toString()
-      );
-      content(div).before(relatedArticleList);
       content(div).remove();
     }
   });

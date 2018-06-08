@@ -51,6 +51,8 @@ test('fetchResource for two related articles', async () => {
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
+
   const resource2 = await relatedContentPlugin.fetchResource(
     {
       data: { articleId: '2' },
@@ -58,8 +60,6 @@ test('fetchResource for two related articles', async () => {
     'token',
     'nb'
   );
-
-  expect(resource1).toMatchSnapshot();
   expect(resource2).toMatchSnapshot();
 });
 
@@ -89,6 +89,8 @@ test('fetchResource for two related articles, where one could not be fetched fro
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
+
   const resource2 = await relatedContentPlugin.fetchResource(
     {
       data: { articleId: '2' },
@@ -96,9 +98,8 @@ test('fetchResource for two related articles, where one could not be fetched fro
     'token',
     'nb'
   );
-
-  expect(resource1).toMatchSnapshot();
   expect(resource2).toMatchSnapshot();
+
   log.level(bunyan.INFO);
 });
 
@@ -133,6 +134,8 @@ test('fetchResource for two related articles, where one could not be fetched fro
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
+
   const resource2 = await relatedContentPlugin.fetchResource(
     {
       data: { articleId: '2' },
@@ -140,9 +143,8 @@ test('fetchResource for two related articles, where one could not be fetched fro
     'token',
     'nb'
   );
-
-  expect(resource1).toMatchSnapshot();
   expect(resource2).toMatchSnapshot();
+
   log.level(bunyan.INFO);
 });
 
@@ -165,6 +167,8 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       resource: {},
     },
   };
+  expect(relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();
+
   const embed2 = {
     data: { articleId: '1145', resource: 'related-content' },
     article: {
@@ -180,7 +184,5 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       },
     },
   };
-
-  expect(relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();
   expect(relatedContentPlugin.embedToHTML(embed2)).toMatchSnapshot();
 });
