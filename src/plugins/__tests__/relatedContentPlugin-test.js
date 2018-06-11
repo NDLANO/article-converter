@@ -63,6 +63,27 @@ test('fetchResource for two related articles', async () => {
   expect(resource2).toMatchSnapshot();
 });
 
+test('fetchResource for an external article', async () => {
+  log.level(bunyan.FATAL + 1); // temporarily disable logging
+
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  const externalResource = await relatedContentPlugin.fetchResource(
+    {
+      data: {
+        title: 'Helsedirektoratet om reklame for alkohol',
+        url:
+          'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
+      },
+    },
+    'token',
+    'nb'
+  );
+  expect(externalResource).toMatchSnapshot();
+
+  log.level(bunyan.INFO);
+});
+
 test('fetchResource for two related articles, where one could not be fetched from article-api', async () => {
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 

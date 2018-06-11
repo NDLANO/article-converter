@@ -77,10 +77,9 @@ const getRelatedArticleProps = (
         ? `/subjects${resource.path}`
         : `/article/${articleId}`;
   } else {
-    to = url;
     return {
       ...mapping(relatedArticleEntryNum)['external-learning-resources'],
-      to,
+      to: url,
     };
   }
 

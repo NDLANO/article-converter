@@ -4,6 +4,26 @@ exports[`embedToHtml should return fallback url if no resource was found 1`] = `
 
 exports[`embedToHtml should return fallback url if no resource was found 2`] = `"<article class=\\"c-related-articles__item c-related-articles__item--subject-material\\"><h1 class=\\"c-related-articles__title\\"><div class=\\"c-content-type-badge c-content-type-badge--subject-material c-content-type-badge--small c-content-type-badge--background\\"><svg fill=\\"currentColor\\" preserveAspectRatio=\\"xMidYMid meet\\" height=\\"1em\\" width=\\"1em\\" class=\\"c-icon\\" viewBox=\\"0 0 24 24\\" data-license=\\"Apache License 2.0\\" data-source=\\"Material Design\\" style=\\"vertical-align:middle\\"><g><title>Fagstoff</title><g id=\\"Page-1\\" stroke=\\"none\\" fill=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\"><g id=\\"fagstoff\\"><g><polygon id=\\"Shape\\" points=\\"0 0 24 0 24 24 0 24\\"></polygon><path d=\\"M0,10 L0,8 L11,8 L11,10 L0,10 Z M24,0 L24,2 L0,2 L0,0 L24,0 Z M24,4 L24,6 L0,6 L0,4 L24,4 Z M13,8 L24,15.5 L13,23 L13,8 Z\\" id=\\"shape\\" fill=\\"currentColor\\"></path></g></g></g></g></svg></div><span class=\\"c-related-articles__link-wrapper\\"><a href=\\"/subjects/subject:4/topic:1:172816/topic:1:178048/resource:1:74420\\" class=\\"c-related-articles__link\\">t2</a></span></h1><p class=\\"c-related-articles__description\\">m2</p></article>"`;
 
+exports[`fetchResource for an external article 1`] = `
+Object {
+  "article": Object {
+    "linkInfo": "Nettside hos helsedirektoratet.no",
+    "metaDescription": Object {
+      "metaDescription": "https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame",
+    },
+    "resource": undefined,
+    "title": Object {
+      "title": "Helsedirektoratet om reklame for alkohol",
+    },
+    "url": "https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame",
+  },
+  "data": Object {
+    "title": "Helsedirektoratet om reklame for alkohol",
+    "url": "https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame",
+  },
+}
+`;
+
 exports[`fetchResource for two related articles 1`] = `
 Object {
   "article": Object {
