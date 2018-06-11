@@ -128,7 +128,7 @@ export default function createRelatedContentPlugin() {
           // Get domain name only from url
           embed.data.url.match(
             /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
-          )[1]
+          )[1] || embed.data.url
         }`,
         url: embed.data.url,
       };
