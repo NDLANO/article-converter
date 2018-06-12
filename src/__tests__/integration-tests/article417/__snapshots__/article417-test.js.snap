@@ -287,6 +287,51 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         <p class=\\"c-related-articles__description\\">Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.
         </p>
       </article>
+      <article class=\\"c-related-articles__item c-related-articles__item--external-learning-resources c-related-articles__item--hidden\\">
+        <h1 class=\\"c-related-articles__title\\">
+          <div class=\\"c-content-type-badge c-content-type-badge--external-learning-resources c-content-type-badge--small c-content-type-badge--background\\">
+            <svg fill=\\"currentColor\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align:middle\\">
+              <g>
+                <title>Eksterne ressurser</title>
+                <g id=\\"Page-1\\"
+                  stroke=\\"none\\"
+                  fill=\\"none\\"
+                  stroke-width=\\"1\\"
+                  fill-rule=\\"evenodd\\">
+                  <g id=\\"delte-ressurser\\">
+                    <g id=\\"Shape\\">
+                      <polygon points=\\"0 0 24 0 24 24 0 24\\" />
+
+                      <path d=\\"M3.9,12 C3.9,10.29 5.29,8.9 7,8.9 L11,8.9 L11,7 L7,7 C4.24,7 2,9.24 2,12 C2,14.76 4.24,17 7,17 L11,17 L11,15.1 L7,15.1 C5.29,15.1 3.9,13.71 3.9,12 Z M8,13 L16,13 L16,11 L8,11 L8,13 Z M17,7 L13,7 L13,8.9 L17,8.9 C18.71,8.9 20.1,10.29 20.1,12 C20.1,13.71 18.71,15.1 17,15.1 L13,15.1 L13,17 L17,17 C19.76,17 22,14.76 22,12 C22,9.24 19.76,7 17,7 Z\\"
+                        fill=\\"currentColor\\"
+                        fill-rule=\\"nonzero\\" />
+
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class=\\"c-related-articles__link-wrapper\\">
+            <a href=\\"https://www.codecademy.com/learn/introduction-to-javascript\\"
+              class=\\"c-related-articles__link\\"
+              target=\\"_blank\\"
+              rel=\\"noopener noreferrer\\">Introduction To JavaScript | Codecademy
+            </a>
+          </span>
+        </h1>
+        <p class=\\"c-related-articles__description\\">https://www.codecademy.com/learn/introduction-to-javascript
+        </p>
+        <p class=\\"c-related-articles__link-info\\">Nettside hos codecademy.com</p>
+      </article>
     </div>
     <button class=\\"c-button c-button--outline c-related-articles__button\\"
       data-showmore=\\"Vis flere relaterte artikler\\"

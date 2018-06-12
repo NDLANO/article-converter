@@ -44,15 +44,44 @@ test('fetchResource for two related articles', async () => {
       .reply(200, articleResource);
   });
 
-  const resource = await relatedContentPlugin.fetchResource(
+  const resource1 = await relatedContentPlugin.fetchResource(
     {
-      data: { articleIds: '1,2' },
+      data: { articleId: '1' },
     },
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
 
-  expect(resource).toMatchSnapshot();
+  const resource2 = await relatedContentPlugin.fetchResource(
+    {
+      data: { articleId: '2' },
+    },
+    'token',
+    'nb'
+  );
+  expect(resource2).toMatchSnapshot();
+});
+
+test('fetchResource for an external article', async () => {
+  log.level(bunyan.FATAL + 1); // temporarily disable logging
+
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  const externalResource = await relatedContentPlugin.fetchResource(
+    {
+      data: {
+        title: 'Helsedirektoratet om reklame for alkohol',
+        url:
+          'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
+      },
+    },
+    'token',
+    'nb'
+  );
+  expect(externalResource).toMatchSnapshot();
+
+  log.level(bunyan.INFO);
 });
 
 test('fetchResource for two related articles, where one could not be fetched from article-api', async () => {
@@ -74,15 +103,24 @@ test('fetchResource for two related articles, where one could not be fetched fro
     .get(`/article-api/v2/articles/2?language=nb&fallback=true`)
     .reply(501, {});
 
-  const resource = await relatedContentPlugin.fetchResource(
+  const resource1 = await relatedContentPlugin.fetchResource(
     {
-      data: { articleIds: '1,2' },
+      data: { articleId: '1' },
     },
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
 
-  expect(resource).toMatchSnapshot();
+  const resource2 = await relatedContentPlugin.fetchResource(
+    {
+      data: { articleId: '2' },
+    },
+    'token',
+    'nb'
+  );
+  expect(resource2).toMatchSnapshot();
+
   log.level(bunyan.INFO);
 });
 
@@ -110,15 +148,24 @@ test('fetchResource for two related articles, where one could not be fetched fro
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2`)
     .reply(500, {});
 
-  const resource = await relatedContentPlugin.fetchResource(
+  const resource1 = await relatedContentPlugin.fetchResource(
     {
-      data: { articleIds: '1,2' },
+      data: { articleId: '1' },
     },
     'token',
     'nb'
   );
+  expect(resource1).toMatchSnapshot();
 
-  expect(resource).toMatchSnapshot();
+  const resource2 = await relatedContentPlugin.fetchResource(
+    {
+      data: { articleId: '2' },
+    },
+    'token',
+    'nb'
+  );
+  expect(resource2).toMatchSnapshot();
+
   log.level(bunyan.INFO);
 });
 
@@ -126,37 +173,37 @@ test('embedToHtml should return empty string if no related articles is provided'
   const relatedContentPlugin = createRelatedContentPlugin();
 
   expect(relatedContentPlugin.embedToHTML({ embed: {} })).toBe('');
-  expect(relatedContentPlugin.embedToHTML({ embed: { articles: [] } })).toBe(
-    ''
-  );
+  expect(relatedContentPlugin.embedToHTML({ embed: { article: {} } })).toBe('');
 });
 
 test('embedToHtml should return fallback url if no resource was found', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  const embed = {
-    data: { articleIds: '1231,1232,1145', resource: 'related-content' },
-    articles: [
-      {
-        id: 1231,
-        title: { title: 't1' },
-        metaDescription: { metaDescription: 'm1' },
-        resource: {},
-      },
-      {
-        id: 1145,
-        title: { title: 't2' },
-        metaDescription: { metaDescription: 'm2' },
-        resource: {
-          path: '/subject:4/topic:1:172816/topic:1:178048/resource:1:74420',
-          resourceTypes: [
-            { id: 'urn:resourcetype:academicArticle', name: 'Fagartikkel' },
-            { id: 'urn:resourcetype:subjectMaterial', name: 'Fagstoff' },
-          ],
-        },
-      },
-    ],
+  const embed1 = {
+    data: { articleId: '1231', resource: 'related-content' },
+    article: {
+      id: 1231,
+      title: { title: 't1' },
+      metaDescription: { metaDescription: 'm1' },
+      resource: {},
+    },
   };
+  expect(relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();
 
-  expect(relatedContentPlugin.embedToHTML(embed)).toMatchSnapshot();
+  const embed2 = {
+    data: { articleId: '1145', resource: 'related-content' },
+    article: {
+      id: 1145,
+      title: { title: 't2' },
+      metaDescription: { metaDescription: 'm2' },
+      resource: {
+        path: '/subject:4/topic:1:172816/topic:1:178048/resource:1:74420',
+        resourceTypes: [
+          { id: 'urn:resourcetype:academicArticle', name: 'Fagartikkel' },
+          { id: 'urn:resourcetype:subjectMaterial', name: 'Fagstoff' },
+        ],
+      },
+    },
+  };
+  expect(relatedContentPlugin.embedToHTML(embed2)).toMatchSnapshot();
 });

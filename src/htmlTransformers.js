@@ -12,6 +12,7 @@ import {
   createFactbox,
   createFileList,
 } from './utils/asideHelpers';
+import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
 
 export const moveReactPortals = content => {
@@ -58,6 +59,23 @@ export const transformAsides = content => {
   });
 };
 
+export const transformRelatedContent = (content, lang) => {
+  content('div').each((_, div) => {
+    const isRelatedContentGroup =
+      div.attribs && div.attribs['data-type'] === 'related-content';
+    if (isRelatedContentGroup) {
+      const relatedArticleList = createRelatedArticleList(
+        { locale: lang, articleCount: content(div).children().length },
+        content(div)
+          .children()
+          .toString()
+      );
+      content(div).before(relatedArticleList);
+      content(div).remove();
+    }
+  });
+};
+
 const transformFileList = (content, locale) => {
   content('div').each((_, div) => {
     const isFileList = div.attribs && div.attribs['data-type'] === 'file';
@@ -90,6 +108,7 @@ const transformFileList = (content, locale) => {
 
 export const htmlTransforms = [
   transformAsides,
+  transformRelatedContent,
   content => {
     content('math').attr('display', 'block');
   },
