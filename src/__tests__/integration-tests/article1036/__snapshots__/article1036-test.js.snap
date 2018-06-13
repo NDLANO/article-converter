@@ -136,10 +136,12 @@ Object {
 exports[`app/fetchAndTransformArticle 1036 2`] = `
 "
 <section>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure\\"
+    id=\\"figure-2357\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
       data-dialog-trigger-id=\\"fs-2357\\"
-      type=\\"button\\">
+      data-dialog-source-id=\\"figure-2357\\"
+      aria-label=\\"Se stor utgave av bilde\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"To barn på fottur på Kvamsfjellet. Foto.\\"
           srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
@@ -257,7 +259,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
-            <button data-dialog-trigger-id=\\"image-2357\\"
+            <button data-dialog-trigger-id=\\"2357\\"
+              data-dialog-source-id=\\"figure-2357\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
             </button>
@@ -316,14 +319,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
 </section>
 <div data-react-universal-portal=\\"true\\">
   <div class=\\"c-dialog\\"
-    data-dialog-id=\\"image-2357\\"
+    data-dialog-id=\\"2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
-    aria-labelledby=\\"heading-image-2357\\">
+    aria-labelledby=\\"heading-2357\\">
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-image-2357\\"
+        <h3 id=\\"heading-2357\\"
           class=\\"c-figure-license__title\\">Regler for bruk av bildet
         </h3>
         <div class=\\"c-license-byline\\">
@@ -459,8 +462,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           <div class=\\"c-figure-license__cta-block\\">
             <button class=\\"c-button c-button--outline\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\"
-              type=\\"button\\">Kopier referanse
+              data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
               class=\\"c-button c-button--outline\\"
@@ -480,7 +482,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-fs-2357\\">
-    <div class=\\"c-dialog__content c-dialog__content--fullscreen\\">
+    <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
@@ -636,8 +638,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
                   class=\\"c-button c-button--outline\\"

@@ -28,6 +28,7 @@ const messages = {
     'image.rulesForUse': 'Reglar for bruk av bildet',
     'image.reuse': 'Bruk bildet',
     'image.zoom': 'Forstørr bilde',
+    'image.largeSize': 'Se stor utgave av bilde',
     'audio.download': 'Last ned lydklipp',
     'audio.rulesForUse': 'Reglar for bruk av lydklipp',
     'audio.reuse': 'Bruk lydklipp',
@@ -52,6 +53,7 @@ const messages = {
     showLess: 'Vis mindre',
     files: 'Filer',
     download: 'Last ned fil: ',
+
     ...contributorTypes.nn,
   },
   nb: {
@@ -63,6 +65,7 @@ const messages = {
     'image.rulesForUse': 'Regler for bruk av bildet',
     'image.reuse': 'Bruk bildet',
     'image.zoom': 'Forstørr bilde',
+    'image.largeSize': 'Se stor utgave av bilde',
     'audio.download': 'Last ned lydklipp',
     'audio.rulesForUse': 'Regler for bruk av lydklipp',
     'audio.reuse': 'Bruk lydklipp',
@@ -98,6 +101,7 @@ const messages = {
     'image.rulesForUse': 'Rules for use of image',
     'image.reuse': 'Use image',
     'image.zoom': 'Zoom image',
+    'image.largeSize': 'Se stor utgave av bilde',
     'audio.download': 'Download audio',
     'audio.rulesForUse': 'Rules for use of audio',
     'audio.reuse': 'Use audio',
