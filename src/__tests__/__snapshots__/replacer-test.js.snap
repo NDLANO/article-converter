@@ -268,6 +268,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-SA Forfatter: name\\">Kopier referanse
                 </button>
@@ -523,6 +524,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-SA \\">Kopier referanse
                 </button>
@@ -740,6 +742,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-SA \\">Kopier referanse
                 </button>
@@ -843,6 +846,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
   <figure class=\\"c-figure u-float-left\\"
     id=\\"figure-1\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1\\"
       data-dialog-source-id=\\"figure-1\\"
       aria-label=\\"Se stor utgave av bilde\\">
@@ -1062,6 +1066,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div class=\\"c-figure-license__cta-block\\">
 
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
@@ -1214,6 +1219,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   <div class=\\"c-figure-license__cta-block\\">
 
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
@@ -1236,6 +1242,7 @@ Kunstner: Kari Maler\\">Kopier referanse
   <figure class=\\"c-figure\\"
     id=\\"figure-2\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2\\"
       data-dialog-source-id=\\"figure-2\\"
       aria-label=\\"Se stor utgave av bilde\\">
@@ -1445,6 +1452,7 @@ Kunstner: Kari Maler\\">Kopier referanse
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
@@ -1583,6 +1591,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
@@ -1641,6 +1650,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
   <figure class=\\"c-figure\\"
     id=\\"figure-1326\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1326\\"
       data-dialog-source-id=\\"figure-1326\\"
       aria-label=\\"Se stor utgave av bilde\\">
@@ -1850,6 +1860,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
@@ -1987,6 +1998,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
@@ -2221,6 +2233,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>

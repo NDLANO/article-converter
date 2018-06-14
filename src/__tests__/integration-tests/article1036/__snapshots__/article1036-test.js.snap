@@ -139,6 +139,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <figure class=\\"c-figure\\"
     id=\\"figure-2357\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2357\\"
       data-dialog-source-id=\\"figure-2357\\"
       aria-label=\\"Se stor utgave av bilde\\">
@@ -461,6 +462,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <button class=\\"c-button c-button--outline\\"
+              type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
             </button>
@@ -637,6 +639,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
                 </button>

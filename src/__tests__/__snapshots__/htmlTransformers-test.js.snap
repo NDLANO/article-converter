@@ -102,7 +102,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <button class=\\"c-button c-factbox__button\\" />
+    <button class=\\"c-button c-factbox__button\\"
+      type=\\"button\\" />
 
   </aside>
 </section>
@@ -111,7 +112,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <button class=\\"c-button c-factbox__button\\" />
+  <button class=\\"c-button c-factbox__button\\"
+    type=\\"button\\" />
 
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>"
