@@ -308,9 +308,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <button class=\\"c-button c-button--outline\\"
+              type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-SA Regissør: Wes Anderson\\"
-              type=\\"button\\">Kopier referanse
+              data-copy-string=\\"CC BY-SA Regissør: Wes Anderson\\">Kopier referanse
             </button>
           </div>
         </div>

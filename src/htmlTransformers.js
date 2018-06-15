@@ -7,7 +7,14 @@
  */
 
 import cheerio from 'cheerio';
-import { createAside, createFactbox, createTable } from './utils/asideHelpers';
+import {
+  createAside,
+  createFactbox,
+  createTable,
+  createFileList,
+} from './utils/asideHelpers';
+import { createRelatedArticleList } from './utils/embedGroupHelpers';
+import t from './locale/i18n';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -53,8 +60,56 @@ export const transformAsides = content => {
   });
 };
 
+export const transformRelatedContent = (content, lang) => {
+  content('div').each((_, div) => {
+    const isRelatedContentGroup =
+      div.attribs && div.attribs['data-type'] === 'related-content';
+    if (isRelatedContentGroup) {
+      const relatedArticleList = createRelatedArticleList(
+        { locale: lang, articleCount: content(div).children().length },
+        content(div)
+          .children()
+          .toString()
+      );
+      content(div).before(relatedArticleList);
+      content(div).remove();
+    }
+  });
+};
+
+const transformFileList = (content, locale) => {
+  content('div').each((_, div) => {
+    const isFileList = div.attribs && div.attribs['data-type'] === 'file';
+    if (isFileList) {
+      const files = [];
+      content(div)
+        .children()
+        .each((__, file) => {
+          const { url, type, title } = file.data;
+          files.push({
+            title,
+            formats: [
+              {
+                url,
+                fileType: type,
+                tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
+              },
+            ],
+          });
+        });
+      const fileList = createFileList({
+        files,
+        heading: t(locale, 'files'),
+      });
+      content(div).before(fileList);
+      content(div).remove();
+    }
+  });
+};
+
 export const htmlTransforms = [
   transformAsides,
+  transformRelatedContent,
   content => {
     content('math').attr('display', 'block');
   },
@@ -85,4 +140,5 @@ export const htmlTransforms = [
         lang
       )
     ),
+  transformFileList,
 ];

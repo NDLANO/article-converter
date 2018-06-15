@@ -160,15 +160,17 @@ export default function createImagePlugin() {
       type: item.label,
     }));
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
-    const figureLicenseDialogId = `image-${image.id.toString()}`;
+    const figureId = `figure-${image.id}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
     const figureid = `figure-${image.id}`;
     return renderToStaticMarkup(
-      <Figure id={figureid} className={figureClassNames}>
+      <Figure id={figureId} className={figureClassNames}>
         <Button
           key="button"
           data-dialog-trigger-id={figureFullscreenDialogId}
+          data-dialog-source-id={figureId}
           stripped
+          aria-label={t(locale, 'image.largeSize')}
           className="u-fullw">
           <div className="c-figure__img">
             <Image
@@ -183,8 +185,8 @@ export default function createImagePlugin() {
         </Button>
         {size !== 'xsmall' && (
           <FigureCaption
-            figureId={figureid}
-            id={figureLicenseDialogId}
+            figureId={figureId}
+            id={image.id}
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}
             licenseRights={license.rights}
@@ -192,7 +194,7 @@ export default function createImagePlugin() {
           />
         )}
         <FigureLicenseDialog
-          id={figureLicenseDialogId}
+          id={image.id}
           title={image.title.title}
           license={license}
           authors={contributors}

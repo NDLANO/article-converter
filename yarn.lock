@@ -3727,9 +3727,9 @@ ndla-licenses@^0.2.0:
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.12.16:
-  version "0.12.16"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.12.16.tgz#60313fd6cacb23c0817b1b8dda8fa513cb1e07e2"
+ndla-ui@^0.12.18:
+  version "0.12.18"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.12.18.tgz#cfbe314c15f8dba1be518317f5dcd92171eb8017"
   dependencies:
     classnames "2.2.5"
     focus-trap "^2.4.3"
@@ -3741,9 +3741,9 @@ ndla-ui@^0.12.16:
     react-slick "^0.19.0"
     react-transition-group "^2.2.1"
 
-ndla-util@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/ndla-util/-/ndla-util-0.1.11.tgz#aed9c78841658c4bd844831485947524c81d598f"
+ndla-util@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ndla-util/-/ndla-util-0.2.0.tgz#4f70e364ae9c22009f793432de3174e8aaf6096b"
   dependencies:
     defined "1.0.0"
 
@@ -4290,9 +4290,9 @@ react-bem-helper@1.4.1:
   dependencies:
     object-assign "^4.1.1"
 
-react-dom@16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
+react-dom@16.3.2:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -4367,9 +4367,9 @@ react-transition-group@^2.2.1:
     prop-types "^15.5.8"
     warning "^3.0.0"
 
-react@16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+react@16.3.2:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

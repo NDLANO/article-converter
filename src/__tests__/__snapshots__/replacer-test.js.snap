@@ -26,6 +26,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"play\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <title>play</title>
               <g>
@@ -45,6 +46,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"pause\\"
+              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <title>play</title>
               <g>
@@ -274,9 +276,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA Forfatter: name\\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-SA Forfatter: name\\">Kopier referanse
                 </button>
                 <a href=\\"http://audio.no/file/voof.mp3\\"
                   class=\\"c-button c-button--outline\\"
@@ -308,6 +310,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         data-source=\\"Material Design\\"
         role=\\"img\\"
         aria-label=\\"play\\"
+        title=\\"play\\"
         style=\\"vertical-align:middle\\">
         <title>play</title>
         <g>
@@ -537,9 +540,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA \\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-SA \\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -763,9 +766,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA \\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-SA \\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -867,8 +870,10 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
   <figure class=\\"c-figure u-float-left\\"
     id=\\"figure-1\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1\\"
-      type=\\"button\\">
+      data-dialog-source-id=\\"figure-1\\"
+      aria-label=\\"Se stor utgave av bilde\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://ndla.no/images/1.jpg?width=2720 2720w, http://ndla.no/images/1.jpg?width=2080 2080w, http://ndla.no/images/1.jpg?width=1760 1760w, http://ndla.no/images/1.jpg?width=1440 1440w, http://ndla.no/images/1.jpg?width=1120 1120w, http://ndla.no/images/1.jpg?width=1000 1000w, http://ndla.no/images/1.jpg?width=960 960w, http://ndla.no/images/1.jpg?width=800 800w, http://ndla.no/images/1.jpg?width=640 640w, http://ndla.no/images/1.jpg?width=480 480w, http://ndla.no/images/1.jpg?width=320 320w, http://ndla.no/images/1.jpg?width=240 240w, http://ndla.no/images/1.jpg?width=180 180w\\"
@@ -963,7 +968,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Ola Foton, Kari Maler</span>
-            <button data-dialog-trigger-id=\\"image-1\\"
+            <button data-dialog-trigger-id=\\"1\\"
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -976,16 +981,16 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
     <div data-react-universal-portal=\\"true\\">
 
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"image-1\\"
+        data-dialog-id=\\"1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-image-1\\">
+        aria-labelledby=\\"heading-1\\">
 
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
 
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-image-1\\"
+            <h3 id=\\"heading-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
             </h3>
             <div class=\\"c-license-byline\\">
@@ -1091,10 +1096,10 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div class=\\"c-figure-license__cta-block\\">
 
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
-Kunstner: Kari Maler\\"
-                  type=\\"button\\">Kopier referanse
+Kunstner: Kari Maler\\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/1.jpg\\"
                   class=\\"c-button c-button--outline\\"
@@ -1117,7 +1122,7 @@ Kunstner: Kari Maler\\"
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-fs-1\\">
 
-        <div class=\\"c-dialog__content c-dialog__content--fullscreen\\">
+        <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
 
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
@@ -1247,10 +1252,10 @@ Kunstner: Kari Maler\\"
                   <div class=\\"c-figure-license__cta-block\\">
 
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
-Kunstner: Kari Maler\\"
-                      type=\\"button\\">Kopier referanse
+Kunstner: Kari Maler\\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/1.jpg\\"
                       class=\\"c-button c-button--outline\\"
@@ -1270,8 +1275,10 @@ Kunstner: Kari Maler\\"
   <figure class=\\"c-figure\\"
     id=\\"figure-2\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2\\"
-      type=\\"button\\">
+      data-dialog-source-id=\\"figure-2\\"
+      aria-label=\\"Se stor utgave av bilde\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
@@ -1367,7 +1374,7 @@ Kunstner: Kari Maler\\"
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"image-2\\"
+            <button data-dialog-trigger-id=\\"2\\"
               data-dialog-source-id=\\"figure-2\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -1378,14 +1385,14 @@ Kunstner: Kari Maler\\"
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"image-2\\"
+        data-dialog-id=\\"2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-image-2\\">
+        aria-labelledby=\\"heading-2\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-image-2\\"
+            <h3 id=\\"heading-2\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
             </h3>
             <div class=\\"c-license-byline\\">
@@ -1484,9 +1491,9 @@ Kunstner: Kari Maler\\"
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/2.jpg\\"
                   class=\\"c-button c-button--outline\\"
@@ -1506,7 +1513,7 @@ Kunstner: Kari Maler\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-fs-2\\">
-        <div class=\\"c-dialog__content c-dialog__content--fullscreen\\">
+        <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
@@ -1626,9 +1633,9 @@ Kunstner: Kari Maler\\"
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC BY-NC \\"
-                      type=\\"button\\">Kopier referanse
+                      data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/2.jpg\\"
                       class=\\"c-button c-button--outline\\"
@@ -1685,8 +1692,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
   <figure class=\\"c-figure\\"
     id=\\"figure-1326\\">
     <button class=\\"c-button c-button--stripped u-fullw\\"
+      type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1326\\"
-      type=\\"button\\">
+      data-dialog-source-id=\\"figure-1326\\"
+      aria-label=\\"Se stor utgave av bilde\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
@@ -1782,7 +1791,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"image-1326\\"
+            <button data-dialog-trigger-id=\\"1326\\"
               data-dialog-source-id=\\"figure-1326\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -1793,14 +1802,14 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"image-1326\\"
+        data-dialog-id=\\"1326\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-image-1326\\">
+        aria-labelledby=\\"heading-1326\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-image-1326\\"
+            <h3 id=\\"heading-1326\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
             </h3>
             <div class=\\"c-license-byline\\">
@@ -1899,9 +1908,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
                 <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
                   class=\\"c-button c-button--outline\\"
@@ -1921,7 +1930,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-fs-1326\\">
-        <div class=\\"c-dialog__content c-dialog__content--fullscreen\\">
+        <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
@@ -2040,9 +2049,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
                     <button class=\\"c-button c-button--outline\\"
+                      type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC BY-NC \\"
-                      type=\\"button\\">Kopier referanse
+                      data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
                     <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
                       class=\\"c-button c-button--outline\\"
@@ -2283,9 +2292,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
+                  type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\"
-                  type=\\"button\\">Kopier referanse
+                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
               </div>
             </div>
