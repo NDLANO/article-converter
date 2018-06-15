@@ -302,6 +302,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
               style=\\"vertical-align:middle\\">
+              <title>ExternalLearningResource</title>
               <g>
                 <title>Eksterne ressurser</title>
                 <g id=\\"Page-1\\"

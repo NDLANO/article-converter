@@ -26,7 +26,6 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"play\\"
-              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <title>play</title>
               <g>
@@ -46,7 +45,6 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"pause\\"
-              title=\\"play\\"
               style=\\"vertical-align:middle\\">
               <title>play</title>
               <g>
@@ -310,7 +308,6 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         data-source=\\"Material Design\\"
         role=\\"img\\"
         aria-label=\\"play\\"
-        title=\\"play\\"
         style=\\"vertical-align:middle\\">
         <title>play</title>
         <g>

@@ -162,7 +162,7 @@ export default function createImagePlugin() {
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
     const figureId = `figure-${image.id}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
-    const figureid = `figure-${image.id}`;
+
     return renderToStaticMarkup(
       <Figure id={figureId} className={figureClassNames}>
         <Button
@@ -186,7 +186,7 @@ export default function createImagePlugin() {
         {size !== 'xsmall' && (
           <FigureCaption
             figureId={figureId}
-            id={image.id}
+            id={`${image.id}`}
             caption={caption}
             reuseLabel={t(locale, 'image.reuse')}
             licenseRights={license.rights}
@@ -194,7 +194,7 @@ export default function createImagePlugin() {
           />
         )}
         <FigureLicenseDialog
-          id={image.id}
+          id={`${image.id}`}
           title={image.title.title}
           license={license}
           authors={contributors}
