@@ -334,9 +334,9 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
       </article>
     </div>
     <button class=\\"c-button c-button--outline c-related-articles__button\\"
+      type=\\"button\\"
       data-showmore=\\"Vis flere relaterte artikler\\"
-      data-showless=\\"Vis mindre\\"
-      type=\\"button\\">Vis flere relaterte artikler
+      data-showless=\\"Vis mindre\\">Vis flere relaterte artikler
     </button>
   </section>
 </section>"
