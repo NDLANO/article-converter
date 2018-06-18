@@ -167,6 +167,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -191,6 +192,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -217,6 +219,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -243,6 +246,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -344,6 +348,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -368,6 +373,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -394,6 +400,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -420,6 +427,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -520,6 +528,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                         data-source=\\"Creative Commons\\"
                         aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                         style=\\"vertical-align:middle\\">
+                        <title>Cc</title>
                         <g>
                           <circle fill=\\"none\\"
                             cx=\\"37.785\\"
@@ -544,6 +553,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                         data-source=\\"Creative Commons\\"
                         aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                         style=\\"vertical-align:middle\\">
+                        <title>By</title>
                         <g>
                           <circle fill=\\"none\\"
                             cx=\\"37.637\\"
@@ -570,6 +580,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                         data-source=\\"Creative Commons\\"
                         aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                         style=\\"vertical-align:middle\\">
+                        <title>Nc</title>
                         <g>
                           <circle fill=\\"none\\"
                             cx=\\"37.47\\"
@@ -596,6 +607,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                         data-source=\\"Creative Commons\\"
                         aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                         style=\\"vertical-align:middle\\">
+                        <title>Sa</title>
                         <g>
                           <circle fill=\\"none\\"
                             cx=\\"36.944\\"

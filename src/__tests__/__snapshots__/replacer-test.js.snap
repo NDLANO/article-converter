@@ -25,10 +25,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"play\\"
-              title=\\"play\\"
               style=\\"vertical-align:middle\\">
+              <title>play</title>
               <g>
-                <title>Play</title>
                 <path d=\\"M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z\\" />
 
               </g>
@@ -45,10 +44,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-source=\\"Material Design\\"
               role=\\"img\\"
               aria-label=\\"pause\\"
-              title=\\"play\\"
               style=\\"vertical-align:middle\\">
+              <title>play</title>
               <g>
-                <title>pause</title>
                 <path d=\\"M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z\\" />
 
               </g>
@@ -83,6 +81,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -107,6 +106,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -133,6 +133,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -184,6 +185,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -208,6 +210,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -234,6 +237,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Sa</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"36.944\\"
@@ -302,10 +306,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         data-source=\\"Material Design\\"
         role=\\"img\\"
         aria-label=\\"play\\"
-        title=\\"play\\"
         style=\\"vertical-align:middle\\">
+        <title>play</title>
         <g>
-          <title>volume_up</title>
           <path d=\\"M14.016 3.234c4.031 0.891 6.984 4.5 6.984 8.766s-2.953 7.875-6.984 8.766v-2.063c2.906-0.844 4.969-3.516 4.969-6.703s-2.063-5.859-4.969-6.703v-2.063zM16.5 12c0 1.781-0.984 3.281-2.484 4.031v-8.063c1.5 0.75 2.484 2.25 2.484 4.031zM3 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6z\\" />
 
         </g>
@@ -319,7 +322,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 "
 
 <section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-1\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
@@ -344,6 +348,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -368,6 +373,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -394,6 +400,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -412,7 +419,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:1\\"
+            <button data-dialog-trigger-id=\\"1\\"
+              data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -422,14 +430,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:1\\"
+        data-dialog-id=\\"1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:1\\">
+        aria-labelledby=\\"heading-1\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:1\\"
+            <h3 id=\\"heading-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -446,6 +454,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -470,6 +479,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -496,6 +506,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Sa</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"36.944\\"
@@ -537,7 +548,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
       </div>
     </div>
   </figure>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-2\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
@@ -562,6 +574,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -586,6 +599,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -612,6 +626,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Sa</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"36.944\\"
@@ -630,7 +645,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:2\\"
+            <button data-dialog-trigger-id=\\"2\\"
+              data-dialog-source-id=\\"figure-2\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -640,14 +656,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:2\\"
+        data-dialog-id=\\"2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:2\\">
+        aria-labelledby=\\"heading-2\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:2\\"
+            <h3 id=\\"heading-2\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -664,6 +680,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -688,6 +705,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -714,6 +732,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Sa</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"36.944\\"
@@ -874,6 +893,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -898,6 +918,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -924,6 +945,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -980,6 +1002,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -1004,6 +1027,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -1030,6 +1054,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Nc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.47\\"
@@ -1131,6 +1156,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Cc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.785\\"
@@ -1155,6 +1181,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>By</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.637\\"
@@ -1181,6 +1208,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Nc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.47\\"
@@ -1270,6 +1298,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -1294,6 +1323,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -1320,6 +1350,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -1373,6 +1404,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -1397,6 +1429,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -1423,6 +1456,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Nc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.47\\"
@@ -1510,6 +1544,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Cc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.785\\"
@@ -1534,6 +1569,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>By</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.637\\"
@@ -1560,6 +1596,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Nc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.47\\"
@@ -1678,6 +1715,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -1702,6 +1740,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -1728,6 +1767,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -1781,6 +1821,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -1805,6 +1846,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -1831,6 +1873,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Nc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.47\\"
@@ -1918,6 +1961,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Cc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.785\\"
@@ -1942,6 +1986,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>By</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.637\\"
@@ -1968,6 +2013,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             data-source=\\"Creative Commons\\"
                             aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                             style=\\"vertical-align:middle\\">
+                            <title>Nc</title>
                             <g>
                               <circle fill=\\"none\\"
                                 cx=\\"37.47\\"
@@ -2029,7 +2075,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 </section>
 
 <section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\">
+  <figure class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-46012\\">
     <iframe title=\\"Video: brightcove video\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
@@ -2053,6 +2100,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Cc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.785\\"
@@ -2077,6 +2125,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>By</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.637\\"
@@ -2103,6 +2152,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-source=\\"Creative Commons\\"
                   aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                   style=\\"vertical-align:middle\\">
+                  <title>Nc</title>
                   <g>
                     <circle fill=\\"none\\"
                       cx=\\"37.47\\"
@@ -2121,7 +2171,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:46012\\"
+            <button data-dialog-trigger-id=\\"46012\\"
+              data-dialog-source-id=\\"figure-46012\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -2131,14 +2182,14 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:46012\\"
+        data-dialog-id=\\"46012\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:46012\\">
+        aria-labelledby=\\"heading-46012\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:46012\\"
+            <h3 id=\\"heading-46012\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -2155,6 +2206,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Cc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.785\\"
@@ -2179,6 +2231,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>By</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.637\\"
@@ -2205,6 +2258,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-source=\\"Creative Commons\\"
                       aria-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
                       style=\\"vertical-align:middle\\">
+                      <title>Nc</title>
                       <g>
                         <circle fill=\\"none\\"
                           cx=\\"37.47\\"
@@ -2229,8 +2283,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
-              <ul class=\\"c-figure-license__list\\" />
-
+              <ul class=\\"c-figure-license__list\\">
+                <li class=\\"c-figure-license__item\\">Tittel: brightcove video</li>
+              </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"

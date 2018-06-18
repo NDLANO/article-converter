@@ -67,6 +67,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
             style=\\"vertical-align:middle\\">
+            <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
 
@@ -101,6 +102,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
             style=\\"vertical-align:middle\\">
+            <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
 
@@ -135,6 +137,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
             style=\\"vertical-align:middle\\">
+            <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
 
