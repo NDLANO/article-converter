@@ -96,8 +96,9 @@ export default function createBrightcovePlugin() {
     };
 
     const figureLicenseDialogId = `brightcove-${videoid}`;
+    const figureid = `figure-${videoid}`;
     return renderToStaticMarkup(
-      <Figure resizeIframe>
+      <Figure id={figureid} resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           frameBorder="0"
@@ -105,6 +106,7 @@ export default function createBrightcovePlugin() {
           allowFullScreen
         />
         <FigureCaption
+          figureId={figureid}
           id={figureLicenseDialogId}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}

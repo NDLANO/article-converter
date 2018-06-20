@@ -170,3 +170,24 @@ test('transformAsides replaces factAsides with factbox component', () => {
   const result = content('body').html();
   expect(prettify(result)).toMatchSnapshot();
 });
+
+test('transformAsides replaces table with <Table>', () => {
+  const content = cheerio.load(`
+  <table>
+  <thead>
+  <tr><th>test</th>
+  <th>test</th>
+  <th>test</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>test</td><td>test</td><td>test</td></tr>
+  <tr><td>test</td><td>test</td><td>test</td></tr>
+  <tr><td>test</td><td>test</td><td>test</td></tr>
+  </tbody>
+  </table>`);
+
+  transformAsides(content);
+
+  const result = content('body').html();
+  expect(prettify(result)).toMatchSnapshot();
+});
