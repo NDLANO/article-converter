@@ -474,7 +474,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
             </button>
-            <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
+            <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               class=\\"c-button c-button--outline\\"
               download>Last ned bildet
             </a>
@@ -655,7 +655,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
                 </button>
-                <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg\\"
+                <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
                   download>Last ned bildet
                 </a>

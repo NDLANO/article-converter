@@ -1098,7 +1098,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
                 </button>
-                <a href=\\"http://ndla.no/images/1.jpg\\"
+                <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
                   download>Last ned bildet
                 </a>
@@ -1254,7 +1254,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                       data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
                     </button>
-                    <a href=\\"http://ndla.no/images/1.jpg\\"
+                    <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
                       download>Last ned bildet
                     </a>
@@ -1492,7 +1492,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
-                <a href=\\"http://ndla.no/images/2.jpg\\"
+                <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
                   download>Last ned bildet
                 </a>
@@ -1634,7 +1634,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
-                    <a href=\\"http://ndla.no/images/2.jpg\\"
+                    <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
                       download>Last ned bildet
                     </a>
@@ -1909,7 +1909,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC BY-NC \\">Kopier referanse
                 </button>
-                <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
+                <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
                   download>Last ned bildet
                 </a>
@@ -2050,7 +2050,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC BY-NC \\">Kopier referanse
                     </button>
-                    <a href=\\"http://api.test.ndla.no/images/1.jpg\\"
+                    <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
                       download>Last ned bildet
                     </a>
