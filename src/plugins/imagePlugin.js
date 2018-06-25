@@ -22,6 +22,7 @@ import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from 'ndla-licenses';
+import queryString from 'query-string';
 import {
   errorSvgSrc,
   getCopyString,
@@ -75,6 +76,14 @@ const getCrop = data => {
   return undefined;
 };
 
+const downloadUrl = imageSrc => {
+  const urlObject = queryString.parseUrl(imageSrc);
+  return `${urlObject.url}?${queryString.stringify({
+    ...urlObject.query,
+    download: true,
+  })}`;
+};
+
 const ImageActionButtons = ({ locale, src, copyString }) => [
   <Button
     key="copy"
@@ -83,7 +92,11 @@ const ImageActionButtons = ({ locale, src, copyString }) => [
     data-copy-string={copyString}>
     {t(locale, 'reference.copy')}
   </Button>,
-  <a key="download" href={src} className="c-button c-button--outline" download>
+  <a
+    key="download"
+    href={downloadUrl(src)}
+    className="c-button c-button--outline"
+    download>
     {t(locale, 'image.download')}
   </a>,
 ];
