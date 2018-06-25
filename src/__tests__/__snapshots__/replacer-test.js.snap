@@ -4,7 +4,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
 "
 
 <section>
-  <figure class=\\"c-figure u-float-full\\">
+  <figure class=\\"c-figure u-float-full\\"
+    id=\\"figure-1\\">
     <section class=\\"c-audio-player\\">
       <h1 class=\\"c-audio-player__title\\">Tittel</h1>
       <audio type=\\"audio/mpeg\\"
@@ -151,7 +152,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">name</span>
-            <button data-dialog-trigger-id=\\"audio-undefined\\"
+            <button data-dialog-trigger-id=\\"audio-1\\"
+              data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk lydklipp</span>
             </button>
@@ -161,14 +163,14 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"audio-undefined\\"
+        data-dialog-id=\\"audio-1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-audio-undefined\\">
+        aria-labelledby=\\"heading-audio-1\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-audio-undefined\\"
+            <h3 id=\\"heading-audio-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av lydklipp
             </h3>
             <div class=\\"c-license-byline\\">

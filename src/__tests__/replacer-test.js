@@ -280,6 +280,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         .data(),
       plugin: createAudioPlugin(),
       audio: {
+        id: 1,
         title: { title: 'Tittel', language: 'Unknown' },
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
@@ -304,6 +305,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         .data(),
       plugin: createAudioPlugin(),
       audio: {
+        id: 2,
         title: { title: 'Tittel', language: 'Unknown' },
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
