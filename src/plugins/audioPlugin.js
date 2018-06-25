@@ -103,6 +103,7 @@ export default function createAudioPlugin() {
     }));
 
     const figureLicenseDialogId = `audio-${id}`;
+    const figureid = `figure-${id}`;
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
@@ -114,9 +115,10 @@ export default function createAudioPlugin() {
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
-        <Figure>
+        <Figure id={figureid}>
           <AudioPlayer type={mimeType} src={url} title={title} />
           <FigureCaption
+            figureId={figureid}
             id={figureLicenseDialogId}
             caption={caption}
             reuseLabel={t(locale, 'audio.reuse')}

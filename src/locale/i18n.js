@@ -55,6 +55,7 @@ const messages = {
     download: 'Last ned fil: ',
 
     ...contributorTypes.nn,
+    expandButton: 'Vis stor versjon',
   },
   nb: {
     close: 'Lukk',
@@ -90,6 +91,7 @@ const messages = {
     showLess: 'Vis mindre',
     files: 'Filer',
     download: 'Last ned fil: ',
+    expandButton: 'Vis stor versjon',
     ...contributorTypes.nb,
   },
   en: {
@@ -126,6 +128,7 @@ const messages = {
     showLess: 'Show less',
     files: 'Files',
     download: 'Download file: ',
+    expandButton: 'Show large version',
     ...contributorTypes.en,
   },
 };

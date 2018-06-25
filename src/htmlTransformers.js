@@ -10,6 +10,7 @@ import cheerio from 'cheerio';
 import {
   createAside,
   createFactbox,
+  createTable,
   createFileList,
 } from './utils/asideHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
@@ -129,5 +130,15 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
+  (content, lang) =>
+    content('table').each(table =>
+      createTable(
+        {},
+        content(table)
+          .children()
+          .toString(),
+        lang
+      )
+    ),
   transformFileList,
 ];

@@ -118,3 +118,37 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>"
 `;
+
+exports[`transformAsides replaces table with <Table> 1`] = `
+"
+
+<table>
+
+  <thead>
+
+    <tr>
+      <th>test</th>
+      <th>test</th>
+      <th>test</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </tbody>
+</table>"
+`;
