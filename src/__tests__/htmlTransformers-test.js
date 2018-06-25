@@ -12,6 +12,7 @@ import {
   htmlTransforms,
   moveReactPortals,
   transformAsides,
+  transformTables,
 } from '../htmlTransformers';
 
 test('htmlTransforms changes ol to accommodate frontend styling', () => {
@@ -171,7 +172,7 @@ test('transformAsides replaces factAsides with factbox component', () => {
   expect(prettify(result)).toMatchSnapshot();
 });
 
-test('transformAsides replaces table with <Table>', () => {
+test('transformTables replaces table with <Table>', () => {
   const content = cheerio.load(`
   <table>
   <thead>
@@ -186,7 +187,7 @@ test('transformAsides replaces table with <Table>', () => {
   </tbody>
   </table>`);
 
-  transformAsides(content);
+  transformTables(content);
 
   const result = content('body').html();
   expect(prettify(result)).toMatchSnapshot();

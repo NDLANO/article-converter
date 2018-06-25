@@ -119,36 +119,101 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
 <p>Lorem ipsum dolor sit amet...</p>"
 `;
 
-exports[`transformAsides replaces table with <Table> 1`] = `
+exports[`transformTables replaces table with <Table> 1`] = `
 "
 
-<table>
+<div class=\\"c-table__wrapper\\">
 
-  <thead>
+  <div class=\\"c-table__content\\">
+    <div class=\\"c-table__left-shadow\\" />
 
-    <tr>
-      <th>test</th>
-      <th>test</th>
-      <th>test</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <tr>
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
-    </tr>
-    <tr>
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
-    </tr>
-    <tr>
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
-    </tr>
-  </tbody>
-</table>"
+    <table id=\\"4cf500a7-1a1b-4137-a187-3691ed19178b\\"
+      class=\\"c-table o-table\\">
+
+      <thead>
+
+        <tr>
+          <th>test</th>
+          <th>test</th>
+          <th>test</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+        </tr>
+        <tr>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+        </tr>
+        <tr>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+        </tr>
+      </tbody>
+    </table>
+    <button data-dialog-trigger-id=\\"dialog-4cf500a7-1a1b-4137-a187-3691ed19178b\\"
+      data-dialog-source-id=\\"4cf500a7-1a1b-4137-a187-3691ed19178b\\"
+      data-table-id=\\"4cf500a7-1a1b-4137-a187-3691ed19178b\\"
+      class=\\"c-table__expand-button\\"
+      aria-label=\\"Vis stor versjon\\">
+      <svg fill=\\"currentColor\\"
+        preserveAspectRatio=\\"xMidYMid meet\\"
+        height=\\"1em\\"
+        width=\\"1em\\"
+        class=\\"c-icon\\"
+        viewBox=\\"0 0 24 24\\"
+        data-license=\\"Apache License 2.0\\"
+        data-source=\\"Material Design\\"
+        style=\\"vertical-align:middle\\">
+        <title>ZoomOutMap</title>
+        <g>
+          <defs>
+            <path d=\\"M0 0h24v24H0z\\"
+              id=\\"a\\" />
+
+          </defs>
+          <clipPath id=\\"b\\">
+            <use overflow=\\"visible\\" />
+
+          </clipPath>
+          <path d=\\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\\"
+            clip-path=\\"url(#b)\\" />
+
+          <path d=\\"M0 0h24v24H0z\\"
+            fill=\\"none\\"
+            clip-path=\\"url(#b)\\" />
+
+        </g>
+      </svg>
+    </button>
+    <div class=\\"c-table__right-shadow\\" />
+
+  </div>
+  <div data-react-universal-portal=\\"true\\">
+    <div class=\\"c-dialog c-dialog--fullscreen\\"
+      data-dialog-id=\\"dialog-4cf500a7-1a1b-4137-a187-3691ed19178b\\"
+      role=\\"dialog\\"
+      aria-hidden=\\"true\\"
+      aria-label=\\"Vis stor versjon\\">
+      <div class=\\"c-dialog__content\\">
+        <button class=\\"c-dialog__close\\">Lukk</button>
+        <div class=\\"c-table__dialog\\">
+          <div class=\\"c-table__expanded-table-wrapper\\">
+            <div class=\\"c-table__content\\" />
+
+          </div>
+        </div>
+      </div>
+      <div class=\\"o-backdrop\\" />
+
+    </div>
+  </div>
+</div>"
 `;
