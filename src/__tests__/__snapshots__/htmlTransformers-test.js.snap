@@ -128,7 +128,7 @@ exports[`transformTables replaces table with <Table> 1`] = `
     <div class=\\"c-table__left-shadow\\" />
 
 
-    <table id=\\"1b62e3e5-131e-487a-bed5-2a377aa8125c\\"
+    <table id=\\"testid\\"
       class=\\"c-table o-table\\">
 
       <thead>
@@ -158,9 +158,9 @@ exports[`transformTables replaces table with <Table> 1`] = `
         </tr>
       </tbody>
     </table>
-    <button data-dialog-trigger-id=\\"dialog-1b62e3e5-131e-487a-bed5-2a377aa8125c\\"
-      data-dialog-source-id=\\"1b62e3e5-131e-487a-bed5-2a377aa8125c\\"
-      data-table-id=\\"1b62e3e5-131e-487a-bed5-2a377aa8125c\\"
+    <button data-dialog-trigger-id=\\"dialog-testid\\"
+      data-dialog-source-id=\\"testid\\"
+      data-table-id=\\"testid\\"
       class=\\"c-table__expand-button\\"
       aria-label=\\"Vis stor versjon\\">
       <svg fill=\\"currentColor\\"
@@ -198,7 +198,7 @@ exports[`transformTables replaces table with <Table> 1`] = `
   </div>
   <div data-react-universal-portal=\\"true\\">
     <div class=\\"c-dialog c-dialog--fullscreen\\"
-      data-dialog-id=\\"dialog-1b62e3e5-131e-487a-bed5-2a377aa8125c\\"
+      data-dialog-id=\\"dialog-testid\\"
       role=\\"dialog\\"
       aria-hidden=\\"true\\"
       aria-label=\\"Vis stor versjon\\">
