@@ -88,6 +88,12 @@ const getLicenseByNBTitle = title => {
       return 'by-sa';
     case 'navngivelse':
       return 'by';
+    case 'offentligdomene':
+      return 'pd';
+    case 'fristatus-erklæring':
+      return 'cc0';
+    case 'opphavsrett':
+      return 'copyrighted';
     default:
       return title;
   }

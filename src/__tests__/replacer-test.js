@@ -74,6 +74,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       plugin: createBrightcovePlugin(),
       brightcove: {
         name: 'brightcove video',
+        reference_id: '46012',
         copyright: {
           creators: [],
           rightsholders: [],
@@ -111,7 +112,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: '',
       image: {
-        id: 1,
+        id: '1',
         title: {
           title: 'image title 1',
         },
@@ -152,7 +153,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
       resource: 'image',
       align: 'left',
       image: {
-        id: 2,
+        id: '2',
         title: {
           title: 'image title 2',
         },
@@ -193,6 +194,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
         .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
+        reference_id: '1',
         copyright: {
           creators: [],
           rightsholders: [],
@@ -211,6 +213,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
         .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
+        reference_id: '2',
         copyright: {
           creators: [],
           rightsholders: [],
@@ -277,6 +280,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         .data(),
       plugin: createAudioPlugin(),
       audio: {
+        id: 1,
         title: { title: 'Tittel', language: 'Unknown' },
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
@@ -301,6 +305,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         .data(),
       plugin: createAudioPlugin(),
       audio: {
+        id: 2,
         title: { title: 'Tittel', language: 'Unknown' },
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',

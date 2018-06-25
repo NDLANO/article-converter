@@ -5,7 +5,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
 
 <section>
   <figure class=\\"c-figure u-float-full\\"
-    id=\\"figure-undefined\\">
+    id=\\"figure-1\\">
     <section class=\\"c-audio-player\\">
       <h1 class=\\"c-audio-player__title\\">Tittel</h1>
       <audio type=\\"audio/mpeg\\"
@@ -152,8 +152,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">name</span>
-            <button data-dialog-trigger-id=\\"audio-undefined\\"
-              data-dialog-source-id=\\"figure-undefined\\"
+            <button data-dialog-trigger-id=\\"audio-1\\"
+              data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk lydklipp</span>
             </button>
@@ -163,14 +163,14 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"audio-undefined\\"
+        data-dialog-id=\\"audio-1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-audio-undefined\\">
+        aria-labelledby=\\"heading-audio-1\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-audio-undefined\\"
+            <h3 id=\\"heading-audio-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av lydklipp
             </h3>
             <div class=\\"c-license-byline\\">
@@ -325,7 +325,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
 <section>
   <figure class=\\"c-figure c-figure--resize u-float-full\\"
-    id=\\"figure-ref:1\\">
+    id=\\"figure-1\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
@@ -421,8 +421,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:1\\"
-              data-dialog-source-id=\\"figure-ref:1\\"
+            <button data-dialog-trigger-id=\\"1\\"
+              data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -432,14 +432,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:1\\"
+        data-dialog-id=\\"1\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:1\\">
+        aria-labelledby=\\"heading-1\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:1\\"
+            <h3 id=\\"heading-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -551,7 +551,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </div>
   </figure>
   <figure class=\\"c-figure c-figure--resize u-float-full\\"
-    id=\\"figure-ref:2\\">
+    id=\\"figure-2\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
@@ -647,8 +647,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:2\\"
-              data-dialog-source-id=\\"figure-ref:2\\"
+            <button data-dialog-trigger-id=\\"2\\"
+              data-dialog-source-id=\\"figure-2\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -658,14 +658,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:2\\"
+        data-dialog-id=\\"2\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:2\\">
+        aria-labelledby=\\"heading-2\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:2\\"
+            <h3 id=\\"heading-2\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -2078,7 +2078,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 
 <section>
   <figure class=\\"c-figure c-figure--resize u-float-full\\"
-    id=\\"figure-ref:46012\\">
+    id=\\"figure-46012\\">
     <iframe title=\\"Video: brightcove video\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
@@ -2173,8 +2173,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"brightcove-ref:46012\\"
-              data-dialog-source-id=\\"figure-ref:46012\\"
+            <button data-dialog-trigger-id=\\"46012\\"
+              data-dialog-source-id=\\"figure-46012\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
             </button>
@@ -2184,14 +2184,14 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </figcaption>
     <div data-react-universal-portal=\\"true\\">
       <div class=\\"c-dialog\\"
-        data-dialog-id=\\"brightcove-ref:46012\\"
+        data-dialog-id=\\"46012\\"
         role=\\"dialog\\"
         aria-hidden=\\"true\\"
-        aria-labelledby=\\"heading-brightcove-ref:46012\\">
+        aria-labelledby=\\"heading-46012\\">
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-brightcove-ref:46012\\"
+            <h3 id=\\"heading-46012\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
             </h3>
             <div class=\\"c-license-byline\\">
@@ -2285,8 +2285,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
-              <ul class=\\"c-figure-license__list\\" />
-
+              <ul class=\\"c-figure-license__list\\">
+                <li class=\\"c-figure-license__item\\">Tittel: brightcove video</li>
+              </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
