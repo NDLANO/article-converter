@@ -12,7 +12,7 @@ import {
   createFactbox,
   createTable,
   createFileList,
-} from './utils/asideHelpers';
+} from './utils/htmlTagHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
 
@@ -107,6 +107,19 @@ const transformFileList = (content, locale) => {
   });
 };
 
+export const transformTables = (content, lang) =>
+  content('table').each((_, table) => {
+    const newTable = createTable(
+      {},
+      content(table)
+        .children()
+        .toString(),
+      lang
+    );
+    content(table).before(newTable);
+    content(table).remove();
+  });
+
 export const htmlTransforms = [
   transformAsides,
   transformRelatedContent,
@@ -130,15 +143,6 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
-  (content, lang) =>
-    content('table').each(table =>
-      createTable(
-        {},
-        content(table)
-          .children()
-          .toString(),
-        lang
-      )
-    ),
+  transformTables,
   transformFileList,
 ];

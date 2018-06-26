@@ -42,9 +42,10 @@ export function createFileList(props) {
 }
 
 export function createTable(props, children, lang) {
+  const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return renderToStaticMarkup(
     <Table
-      id={uuid()}
+      id={id}
       messages={{
         dialogCloseButton: t(lang, 'close'),
         expandButtonLabel: t(lang, 'expandButton'),
