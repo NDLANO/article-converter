@@ -14,6 +14,24 @@ securityDefinitions:
       authorizationUrl: https://ndla.eu.auth0.com/authorize
 
 definitions:
+  bodyArticle:
+    type: object
+    content:
+      content: string
+      language: string
+      exmaple: <section>some text</section>
+    title:
+      title: string
+      language: string
+      example: test
+    introduction:
+      introduction: string
+      language: nb
+      example: intro
+    metaDescription:
+      metaDescription: string
+      language: string
+      example: meta description here
   copyright:
     type: object
     description: Copyright attributes.
