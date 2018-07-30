@@ -381,8 +381,6 @@ module.exports.setup = function routes(app) {
    *                          example: https://test.api.ndla.no/image-api/raw/tacf8f02.jpg
    *       401:
    *         description: Unauthorized
-   *       404:
-   *         description: Not found
    */
   app.post('/article-converter/json/:lang/transform-article', (req, res) => {
     const body = req.body;
