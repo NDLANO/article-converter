@@ -16,8 +16,10 @@ export async function transformArticle(article, lang, accessToken) {
     metaData: embedMetaData || '',
     title: article.title.title || '',
     tags: article.tags.tags,
-    introduction: article.introduction ? article.introduction.introduction : '',
-    metaDescription: article.metaDescription.metaDescription || '',
+    introduction: article.introduction
+      ? article.introduction.introduction
+      : undefined,
+    metaDescription: article.metaDescription.metaDescription,
   };
 }
 
@@ -27,6 +29,6 @@ export default async function fetchAndTransformArticle(
   accessToken
 ) {
   const article = await fetchArticle(articleId, accessToken, lang);
-  const transformedArticle = await transformArticle(article, accessToken, lang);
+  const transformedArticle = await transformArticle(article, lang, accessToken);
   return transformedArticle;
 }
