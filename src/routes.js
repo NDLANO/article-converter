@@ -253,7 +253,6 @@ module.exports.setup = function routes(app) {
   /**
    * @swagger
    * /article-converter/json/{language}/transform-article:
-   *
    *   post:
    *     summary: Returns an extended and transformed json structure based on the one provided by article-api
    *     produces:
@@ -267,7 +266,7 @@ module.exports.setup = function routes(app) {
    *       - in: body
    *         name: article
    *         description: the article to transform
-   *         schema
+   *         schema:
    *           $ref: '#/definitions/bodyArticle'
    *       - $ref: '#/parameters/authorizationHeader'
    *     consumes:
