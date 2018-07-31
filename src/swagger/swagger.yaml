@@ -7,11 +7,11 @@ parameters:
     type: string
 
 securityDefinitions:
-    oauth2:
-      type: oauth2
-      description:
-      flow: client credentials
-      authorizationUrl: https://ndla.eu.auth0.com/authorize
+  oauth2:
+    type: oauth2
+    description:
+    flow: client credentials
+    authorizationUrl: https://ndla.eu.auth0.com/authorize
 
 definitions:
   bodyArticle:
