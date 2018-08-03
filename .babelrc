@@ -1,15 +1,14 @@
 {
   "presets": [
     [
-      "env", 
+      "env",
       {
         "targets": {
           "node": "current"
-      },
-      "include": ["transform-async-to-generator"]
+        }
       }
     ],
-    "react"
-    ],
-    "plugins": ["transform-object-rest-spread"]
+    "react",
+    "stage-2"
+  ]
 }

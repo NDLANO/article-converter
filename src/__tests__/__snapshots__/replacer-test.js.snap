@@ -14,7 +14,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         preload=\\"metadata\\" />
 
       <div class=\\"c-audio-player__controls\\">
-        <button class=\\"c-audio-player__play\\">
+        <button type=\\"button\\"
+          class=\\"c-audio-player__play\\">
           <span class=\\"c-audio-player__play-icon\\">
             <svg fill=\\"currentColor\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
@@ -152,7 +153,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">name</span>
-            <button data-dialog-trigger-id=\\"audio-1\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"audio-1\\"
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk lydklipp</span>
@@ -168,7 +170,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-audio-1\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-audio-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av lydklipp
@@ -297,7 +299,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       title=\\"Tittel\\"
       preload=\\"metadata\\" />
 
-    <button class=\\"c-audio-player__play\\">
+    <button type=\\"button\\"
+      class=\\"c-audio-player__play\\">
       <svg fill=\\"currentColor\\"
         preserveAspectRatio=\\"xMidYMid meet\\"
         height=\\"1em\\"
@@ -421,7 +424,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"1\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"1\\"
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
@@ -437,7 +441,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-1\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
@@ -647,7 +651,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"2\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"2\\"
               data-dialog-source-id=\\"figure-2\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
@@ -663,7 +668,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-2\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-2\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
@@ -965,7 +970,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Ola Foton, Kari Maler</span>
-            <button data-dialog-trigger-id=\\"1\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"1\\"
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -984,7 +990,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
         aria-labelledby=\\"heading-1\\">
 
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
 
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1\\"
@@ -1120,12 +1126,13 @@ Kunstner: Kari Maler\\">Kopier referanse
         aria-labelledby=\\"heading-fs-1\\">
 
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
 
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
 
             <div class=\\"c-figure-license__content\\">
               <button class=\\"c-figure-license__image-wrapper\\"
+                type=\\"button\\"
                 aria-label=\\"Forstørr bilde\\">
                 <img alt=\\"alt\\"
                   srcset=\\"http://ndla.no/images/1.jpg?width=2720 2720w, http://ndla.no/images/1.jpg?width=2080 2080w, http://ndla.no/images/1.jpg?width=1760 1760w, http://ndla.no/images/1.jpg?width=1440 1440w, http://ndla.no/images/1.jpg?width=1120 1120w, http://ndla.no/images/1.jpg?width=1000 1000w, http://ndla.no/images/1.jpg?width=960 960w, http://ndla.no/images/1.jpg?width=800 800w, http://ndla.no/images/1.jpg?width=640 640w, http://ndla.no/images/1.jpg?width=480 480w, http://ndla.no/images/1.jpg?width=320 320w, http://ndla.no/images/1.jpg?width=240 240w, http://ndla.no/images/1.jpg?width=180 180w\\"
@@ -1137,7 +1144,8 @@ Kunstner: Kari Maler\\">Kopier referanse
                 class=\\"c-figure-license__image-title\\">image title 1
               </h1>
               <p>
-                <button class=\\"c-figure__captionbtn\\">
+                <button class=\\"c-figure__captionbtn\\"
+                  type=\\"button\\">
                   <span>Bruk bildet</span>
                 </button>
               </p>
@@ -1371,7 +1379,8 @@ Kunstner: Kari Maler\\">Kopier referanse
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"2\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"2\\"
               data-dialog-source-id=\\"figure-2\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -1387,7 +1396,7 @@ Kunstner: Kari Maler\\">Kopier referanse
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-2\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-2\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -1511,10 +1520,11 @@ Kunstner: Kari Maler\\">Kopier referanse
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-fs-2\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
               <button class=\\"c-figure-license__image-wrapper\\"
+                type=\\"button\\"
                 aria-label=\\"Forstørr bilde\\">
                 <img alt=\\"alt\\"
                   srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
@@ -1526,7 +1536,8 @@ Kunstner: Kari Maler\\">Kopier referanse
                 class=\\"c-figure-license__image-title\\">image title 2
               </h1>
               <p>
-                <button class=\\"c-figure__captionbtn\\">
+                <button class=\\"c-figure__captionbtn\\"
+                  type=\\"button\\">
                   <span>Bruk bildet</span>
                 </button>
               </p>
@@ -1788,7 +1799,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"1326\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"1326\\"
               data-dialog-source-id=\\"figure-1326\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -1804,7 +1816,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-1326\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1326\\"
               class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -1928,10 +1940,11 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-fs-1326\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license c-figure-license--fullscreen\\">
             <div class=\\"c-figure-license__content\\">
               <button class=\\"c-figure-license__image-wrapper\\"
+                type=\\"button\\"
                 aria-label=\\"Forstørr bilde\\">
                 <img alt=\\"alt\\"
                   srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
@@ -1943,7 +1956,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 class=\\"c-figure-license__image-title\\">image title
               </h1>
               <p>
-                <button class=\\"c-figure__captionbtn\\">
+                <button class=\\"c-figure__captionbtn\\"
+                  type=\\"button\\">
                   <span>Bruk bildet</span>
                 </button>
               </p>
@@ -2173,7 +2187,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             </ul>
             <span class=\\"c-figure__byline-authors\\" />
 
-            <button data-dialog-trigger-id=\\"46012\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"46012\\"
               data-dialog-source-id=\\"figure-46012\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
@@ -2189,7 +2204,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
         aria-hidden=\\"true\\"
         aria-labelledby=\\"heading-46012\\">
         <div class=\\"c-dialog__content\\">
-          <button class=\\"c-dialog__close\\">Lukk</button>
+          <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-46012\\"
               class=\\"c-figure-license__title\\">Regler for bruk av videoen
