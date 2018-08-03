@@ -8,7 +8,7 @@
 
 import defined from 'defined';
 import config from '../config';
-import { createErrorPayload } from '../utils/errorHelpers';
+import { createErrorPayload } from './errorHelpers';
 import log from './logger';
 
 const NDLA_API_URL = config.ndlaApiUrl;

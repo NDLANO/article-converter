@@ -51,9 +51,11 @@ export const getCopyString = (licenseAbbreviation, creators, locale) => {
 export const getLicenenseCredits = copyright => {
   if (copyright.creators && copyright.creators.length > 0) {
     return copyright.creators;
-  } else if (copyright.rightsholders && copyright.rightsholders.length > 0) {
+  }
+  if (copyright.rightsholders && copyright.rightsholders.length > 0) {
     return copyright.rightsholders;
-  } else if (copyright.processors && copyright.processors.length > 0) {
+  }
+  if (copyright.processors && copyright.processors.length > 0) {
     return copyright.processors;
   }
   return [];
