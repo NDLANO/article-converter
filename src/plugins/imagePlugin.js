@@ -121,7 +121,10 @@ export default function createImagePlugin() {
   };
 
   const onError = (embed, locale) => {
-    const { image, data: { align, size } } = embed;
+    const {
+      image,
+      data: { align, size },
+    } = embed;
     const figureClassNames = getFigureClassnames(size, align);
     const src =
       image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
@@ -142,7 +145,9 @@ export default function createImagePlugin() {
       data: { align, size, caption: embedCaption, alt: embedAlttext },
     } = embed;
     const src = encodeURI(image.imageUrl);
-    const { license: { license: licenseAbbreviation } } = image.copyright;
+    const {
+      license: { license: licenseAbbreviation },
+    } = image.copyright;
 
     const authors = getLicenenseCredits(image.copyright);
 

@@ -85,7 +85,10 @@ export default function createAudioPlugin() {
       id,
       title: { title },
       audioFile: { mimeType, url },
-      copyright: { license: { license: licenseAbbreviation }, origin },
+      copyright: {
+        license: { license: licenseAbbreviation },
+        origin,
+      },
     } = audio;
 
     const caption = data.caption || title;
