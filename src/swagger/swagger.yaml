@@ -1,3 +1,4 @@
+---
 parameters:
   authorizationHeader:
     in: header
@@ -5,21 +6,19 @@ parameters:
     description: Authorization token.
     required: true
     type: string
-
 securityDefinitions:
   oauth2:
     type: oauth2
     description:
     flow: client credentials
     authorizationUrl: https://ndla.eu.auth0.com/authorize
-
 definitions:
   bodyArticle:
     type: object
     content:
       content: string
       language: string
-      exmaple: <section>some text</section>
+      exmaple: "<section>some text</section>"
     title:
       title: string
       language: string
