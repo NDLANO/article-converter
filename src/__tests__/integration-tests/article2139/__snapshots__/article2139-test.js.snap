@@ -284,7 +284,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
-            <button data-dialog-trigger-id=\\"2357\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"2357\\"
               data-dialog-source-id=\\"figure-2357\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -429,7 +430,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
-            <button data-dialog-trigger-id=\\"2357\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"2357\\"
               data-dialog-source-id=\\"figure-2357\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -542,7 +544,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Oktan Orangeriet</span>
-            <button data-dialog-trigger-id=\\"347\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"347\\"
               data-dialog-source-id=\\"figure-347\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk bildet</span>
@@ -562,7 +565,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-2357\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
         <h3 id=\\"heading-2357\\"
           class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -726,10 +729,11 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-fs-2357\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
           <button class=\\"c-figure-license__image-wrapper\\"
+            type=\\"button\\"
             aria-label=\\"Forstørr bilde\\">
             <img alt=\\"Vann\\"
               srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
@@ -741,7 +745,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             class=\\"c-figure-license__image-title\\">Fottur på Kvamsfjellet
           </h1>Vann
           <p>
-            <button class=\\"c-figure__captionbtn\\">
+            <button class=\\"c-figure__captionbtn\\"
+              type=\\"button\\">
               <span>Bruk bildet</span>
             </button>
           </p>
@@ -909,7 +914,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-2357\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
         <h3 id=\\"heading-2357\\"
           class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -1073,10 +1078,11 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-fs-2357\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
           <button class=\\"c-figure-license__image-wrapper\\"
+            type=\\"button\\"
             aria-label=\\"Forstørr bilde\\">
             <img alt=\\"Ipsum\\"
               srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
@@ -1088,7 +1094,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             class=\\"c-figure-license__image-title\\">Fottur på Kvamsfjellet
           </h1>Lorem ipsum
           <p>
-            <button class=\\"c-figure__captionbtn\\">
+            <button class=\\"c-figure__captionbtn\\"
+              type=\\"button\\">
               <span>Bruk bildet</span>
             </button>
           </p>
@@ -1256,7 +1263,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-347\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
         <h3 id=\\"heading-347\\"
           class=\\"c-figure-license__title\\">Regler for bruk av bildet
@@ -1382,10 +1389,11 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-fs-347\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license c-figure-license--fullscreen\\">
         <div class=\\"c-figure-license__content\\">
           <button class=\\"c-figure-license__image-wrapper\\"
+            type=\\"button\\"
             aria-label=\\"Forstørr bilde\\">
             <img alt=\\"Cropped\\"
               src=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif\\"
@@ -1396,7 +1404,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             class=\\"c-figure-license__image-title\\">Annonse i gif-format
           </h1>Crop
           <p>
-            <button class=\\"c-figure__captionbtn\\">
+            <button class=\\"c-figure__captionbtn\\"
+              type=\\"button\\">
               <span>Bruk bildet</span>
             </button>
           </p>

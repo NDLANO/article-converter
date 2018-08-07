@@ -158,7 +158,8 @@ exports[`transformTables replaces table with <Table> 1`] = `
         </tr>
       </tbody>
     </table>
-    <button data-dialog-trigger-id=\\"dialog-testid\\"
+    <button type=\\"button\\"
+      data-dialog-trigger-id=\\"dialog-testid\\"
       data-dialog-source-id=\\"testid\\"
       data-table-id=\\"testid\\"
       class=\\"c-table__expand-button\\"
@@ -194,7 +195,7 @@ exports[`transformTables replaces table with <Table> 1`] = `
       aria-hidden=\\"true\\"
       aria-label=\\"Vis stor versjon\\">
       <div class=\\"c-dialog__content\\">
-        <button class=\\"c-dialog__close\\">Lukk</button>
+        <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
         <div class=\\"c-table__dialog\\">
           <div class=\\"c-table__expanded-table-wrapper\\">
             <div class=\\"c-table__content\\" />

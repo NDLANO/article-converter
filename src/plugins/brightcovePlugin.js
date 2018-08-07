@@ -38,7 +38,10 @@ export default function createBrightcovePlugin() {
   };
 
   const getMetaData = embed => {
-    const { brightcove, data: { account, videoid } } = embed;
+    const {
+      brightcove,
+      data: { account, videoid },
+    } = embed;
 
     const mp4s = brightcove.sources
       .filter(source => source.container === 'MP4' && source.src)
@@ -54,7 +57,9 @@ export default function createBrightcovePlugin() {
   };
 
   const onError = (embed, locale) => {
-    const { data: { account, videoid } } = embed;
+    const {
+      data: { account, videoid },
+    } = embed;
 
     return renderToStaticMarkup(
       <Figure resizeIframe>
@@ -70,8 +75,13 @@ export default function createBrightcovePlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const { brightcove, data: { account, videoid, caption } } = embed;
-    const { license: { license: licenseAbbreviation } } = brightcove.copyright;
+    const {
+      brightcove,
+      data: { account, videoid, caption },
+    } = embed;
+    const {
+      license: { license: licenseAbbreviation },
+    } = brightcove.copyright;
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 

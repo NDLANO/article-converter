@@ -8,19 +8,29 @@
 
 import 'isomorphic-fetch';
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
 import routes from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
+import swaggerRoutes from './swagger/swaggerRoutes';
 
 // Swagger settings
-const swaggerJSDocOptions = {
+const swaggerOptions = {
   swaggerDefinition,
   apis: [`${__dirname}/routes.js`, `${__dirname}/swagger/swagger.yaml`],
 };
-const swaggerSpec = swaggerJSDoc(swaggerJSDocOptions);
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+swaggerSpec.paths['/article-converter/raw/{language}/{article_id}:'] =
+  swaggerRoutes.getRawArticle;
+swaggerSpec.paths['/article-converter/json/{language}/{article_id}:'] =
+  swaggerRoutes.getJsonArticle;
+swaggerSpec.paths['/article-converter/html/{language}/{article_id}:'] =
+  swaggerRoutes.getHtmlArticle;
+swaggerSpec.paths['/article-converter/json/{language}/transform-article:'] =
+  swaggerRoutes.postJsonTransformArticle;
 
 const app = express();
 app.use(bodyParser.json());
@@ -44,6 +54,9 @@ app.get('/article-converter/api-docs', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
 });
+
+// For local swagger-ui testing
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 200, text: 'Health check ok' });

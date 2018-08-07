@@ -44,9 +44,11 @@ const getFigureClassnames = (size, align) =>
 const getSizes = (size, align) => {
   if (align && size === 'full') {
     return '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw';
-  } else if (align && size === 'small') {
+  }
+  if (align && size === 'small') {
     return '(min-width: 1024px) 350px, (min-width: 768px) 180px, 100vw';
-  } else if (align && size === 'xsmall') {
+  }
+  if (align && size === 'xsmall') {
     return '(min-width: 1024px) 180px, (min-width: 768px) 180px, 100vw';
   }
   return '(min-width: 1024px) 1024px, 100vw';
@@ -121,7 +123,10 @@ export default function createImagePlugin() {
   };
 
   const onError = (embed, locale) => {
-    const { image, data: { align, size } } = embed;
+    const {
+      image,
+      data: { align, size },
+    } = embed;
     const figureClassNames = getFigureClassnames(size, align);
     const src =
       image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
@@ -142,7 +147,9 @@ export default function createImagePlugin() {
       data: { align, size, caption: embedCaption, alt: embedAlttext },
     } = embed;
     const src = encodeURI(image.imageUrl);
-    const { license: { license: licenseAbbreviation } } = image.copyright;
+    const {
+      license: { license: licenseAbbreviation },
+    } = image.copyright;
 
     const authors = getLicenenseCredits(image.copyright);
 

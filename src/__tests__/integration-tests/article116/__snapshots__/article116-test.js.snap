@@ -184,7 +184,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               </li>
             </ul>
             <span class=\\"c-figure__byline-authors\\">Wes Anderson</span>
-            <button data-dialog-trigger-id=\\"125442\\"
+            <button type=\\"button\\"
+              data-dialog-trigger-id=\\"125442\\"
               data-dialog-source-id=\\"figure-125442\\"
               class=\\"c-figure__captionbtn\\">
               <span>Bruk video</span>
@@ -202,7 +203,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     aria-hidden=\\"true\\"
     aria-labelledby=\\"heading-125442\\">
     <div class=\\"c-dialog__content\\">
-      <button class=\\"c-dialog__close\\">Lukk</button>
+      <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
         <h3 id=\\"heading-125442\\"
           class=\\"c-figure-license__title\\">Regler for bruk av videoen
