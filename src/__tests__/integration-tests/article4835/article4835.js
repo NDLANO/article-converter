@@ -35,6 +35,7 @@ export default {
   requiredLibraries: [],
   metaImage: {
     url: 'https://test.api.ndla.no/image-api/raw/id/2061',
+    alt: 'Eit bilde',
     language: 'nn',
   },
   introduction: {
