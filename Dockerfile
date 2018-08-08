@@ -8,7 +8,7 @@ COPY yarn.lock package.json $APP_PATH/
 
 # Run yarn before src copy to enable better layer caching
 WORKDIR $APP_PATH
-RUN yarn install --production
+RUN yarn
 
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
