@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:8.11-alpine
 
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter
@@ -8,7 +8,7 @@ COPY yarn.lock package.json $APP_PATH/
 
 # Run yarn before src copy to enable better layer caching
 WORKDIR $APP_PATH
-RUN yarn
+RUN yarn install --production
 
 COPY .babelrc $APP_PATH/
 COPY src $APP_PATH/src
