@@ -341,6 +341,10 @@ module.exports = {
                     type: 'string',
                     description: 'Meta image URL.',
                   },
+                  alt: {
+                    type: 'string',
+                    description: 'Meta image URL.',
+                  },
                   language: {
                     type: 'string',
                     description: 'Meta image language.',
