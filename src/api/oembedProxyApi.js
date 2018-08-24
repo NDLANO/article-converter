@@ -7,6 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import queryString from 'query-string';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
@@ -15,8 +16,13 @@ import {
 
 export const fetchOembed = async (embed, accessToken) => {
   const response = await fetch(
-    apiResourceUrl(`/oembed-proxy/v1/oembed?url=${embed.data.url}`),
+    apiResourceUrl(
+      `/oembed-proxy/v1/oembed?${queryString.stringify({
+        url: embed.data.url,
+      })}`
+    ),
     {
+      method: 'GET',
       headers: headerWithAccessToken(accessToken),
     }
   );
