@@ -22,7 +22,6 @@ export const fetchOembed = async (embed, accessToken) => {
       })}`
     ),
     {
-      method: 'GET',
       headers: headerWithAccessToken(accessToken),
     }
   );
