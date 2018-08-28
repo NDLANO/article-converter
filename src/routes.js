@@ -26,9 +26,10 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/json/:lang/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const lang = getHtmlLang(defined(req.params.lang, ''));
+    const isOembedRequest = defined(req.query.oembed);
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
-    fetchAndTransformArticle(articleId, lang, accessToken)
+    fetchAndTransformArticle(articleId, lang, accessToken, isOembedRequest)
       .then(article => {
         res.json(article);
       })

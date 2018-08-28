@@ -12,7 +12,7 @@ import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 
-export async function transform(content, lang, accessToken, visualElement) {
+export async function transform(content, lang, accessToken, visualElement, isOembedRequest) {
   if (visualElement && visualElement.visualElement) {
     content('body').prepend(
       `<section>${visualElement.visualElement}</section>`
@@ -35,11 +35,9 @@ export async function transform(content, lang, accessToken, visualElement) {
       return embed;
     })
   );
-
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
   htmlTransforms.forEach(replacer => replacer(content, lang));
-
   return {
     html: content('body').html(),
     embedMetaData,
