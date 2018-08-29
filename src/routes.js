@@ -46,8 +46,9 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/html/:lang/:id', (req, res) => {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const articleId = req.params.id;
+    const isOembedRequest = defined(req.query.oembed);
     const accessToken = req.headers.authorization;
-    fetchAndTransformArticle(articleId, lang, accessToken, true)
+    fetchAndTransformArticle(articleId, lang, accessToken, isOembedRequest)
       .then(article => {
         res.send(htmlTemplate(lang, article.title, article));
         res.end();
