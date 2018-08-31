@@ -187,7 +187,6 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       id: 1231,
       title: { title: 't1' },
       metaDescription: { metaDescription: 'm1' },
-      resource: {},
     },
   };
   expect(relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();

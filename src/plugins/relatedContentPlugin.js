@@ -52,6 +52,12 @@ const mapping = relatedArticleEntryNum => {
       ),
       modifier: `external-learning-resources${hiddenModifier}`,
     },
+    subject: {
+      icon: (
+        <ContentTypeBadge background type={constants.contentTypes.SUBJECT} />
+      ),
+      modifier: `subject${hiddenModifier}`,
+    },
     default: {
       icon: (
         <ContentTypeBadge
@@ -64,30 +70,24 @@ const mapping = relatedArticleEntryNum => {
   };
 };
 
-const getRelatedArticleProps = (
-  resource,
-  articleId,
-  relatedArticleEntryNum,
-  url
-) => {
-  let to;
-  if (articleId) {
-    to =
-      resource && resource.path
-        ? `/subjects${resource.path}`
-        : `/article/${articleId}`;
-  } else {
+const getRelatedArticleProps = (article, relatedArticleEntryNum) => {
+  if (article.url) {
     return {
       ...mapping(relatedArticleEntryNum)['external-learning-resources'],
-      to: url,
+      to: article.url,
     };
   }
 
-  if (!resource || !resource.resourceTypes) {
-    return { ...mapping(relatedArticleEntryNum).default, to };
+  if (!article.resource) {
+    return {
+      ...mapping(relatedArticleEntryNum).default,
+      to: `/article/${article.id}`,
+    };
   }
 
-  const resourceType = resource.resourceTypes.find(
+  const to = `/subjects${article.resource.path}`;
+
+  const resourceType = article.resource.resourceTypes.find(
     type => mapping(relatedArticleEntryNum)[type.id]
   );
 
@@ -102,7 +102,6 @@ export default function createRelatedContentPlugin() {
 
   async function fetchResource(embed, accessToken, lang) {
     if (!embed.data) return embed;
-    if (!embed.data.articleId && !embed.data.url) return embed;
 
     if (embed.data.articleId) {
       try {
@@ -138,6 +137,8 @@ export default function createRelatedContentPlugin() {
         },
       };
     }
+
+    return embed;
   }
 
   const embedToHTML = embed => {
@@ -160,12 +161,7 @@ export default function createRelatedContentPlugin() {
             : ''
         }
         linkInfo={embed.article.linkInfo || null}
-        {...getRelatedArticleProps(
-          embed.article.resource,
-          embed.article.id,
-          relatedArticleEntryNum,
-          embed.article.url
-        )}
+        {...getRelatedArticleProps(embed.article, relatedArticleEntryNum)}
       />
     );
   };
