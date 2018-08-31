@@ -8,8 +8,8 @@
 
 import createPlugins from './plugins';
 
-export function getEmbedsFromHtml(html) {
-  const plugins = createPlugins();
+export function getEmbedsFromHtml(html, options) {
+  const plugins = createPlugins(options);
   return new Promise(resolve => {
     const embeds = html('embed')
       .map((_, embed) => ({

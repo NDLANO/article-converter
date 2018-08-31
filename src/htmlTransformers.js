@@ -60,12 +60,12 @@ export const transformAsides = content => {
   });
 };
 
-export const transformRelatedContent = (content, lang, isOembedRequest) => {
+export const transformRelatedContent = (content, lang, options) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
       div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
-      if (!isOembedRequest) {
+      if (!options.removeRelatedContent) {
         const relatedArticleList = createRelatedArticleList(
           { locale: lang, articleCount: content(div).children().length },
           content(div)
@@ -124,6 +124,7 @@ export const transformTables = (content, lang) =>
 
 export const htmlTransforms = [
   transformAsides,
+  transformRelatedContent,
   content => {
     content('math').attr('display', 'block');
   },

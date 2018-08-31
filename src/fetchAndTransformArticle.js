@@ -6,7 +6,7 @@ export async function transformArticle(
   article,
   lang,
   accessToken,
-  isOembedRequest
+  options = {}
 ) {
   const articleContent = article.content.content
     ? cheerio.load(article.content.content)
@@ -17,7 +17,7 @@ export async function transformArticle(
         lang,
         accessToken,
         article.visualElement,
-        isOembedRequest
+        options
       )
     : {};
 
@@ -38,14 +38,14 @@ export default async function fetchAndTransformArticle(
   articleId,
   lang,
   accessToken,
-  isOembedRequest
+  options = {}
 ) {
   const article = await fetchArticle(articleId, accessToken, lang);
   const transformedArticle = await transformArticle(
     article,
     lang,
     accessToken,
-    isOembedRequest
+    options
   );
   return transformedArticle;
 }

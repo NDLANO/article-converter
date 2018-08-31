@@ -26,10 +26,12 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/json/:lang/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const lang = getHtmlLang(defined(req.params.lang, ''));
-    const isOembedRequest = defined(req.query.oembed);
+    const removeRelatedContent = defined(req.query.oembed, false);
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
-    fetchAndTransformArticle(articleId, lang, accessToken, isOembedRequest)
+    fetchAndTransformArticle(articleId, lang, accessToken, {
+      removeRelatedContent,
+    })
       .then(article => {
         res.json(article);
       })
@@ -46,9 +48,11 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/html/:lang/:id', (req, res) => {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const articleId = req.params.id;
-    const isOembedRequest = defined(req.query.oembed);
+    const removeRelatedContent = defined(req.query.oembed, false);
     const accessToken = req.headers.authorization;
-    fetchAndTransformArticle(articleId, lang, accessToken, isOembedRequest)
+    fetchAndTransformArticle(articleId, lang, accessToken, {
+      removeRelatedContent,
+    })
       .then(article => {
         res.send(htmlTemplate(lang, article.title, article));
         res.end();

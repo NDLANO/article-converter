@@ -97,7 +97,10 @@ const getRelatedArticleProps = (
   return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
-export default function createRelatedContentPlugin() {
+export default function createRelatedContentPlugin(options = {}) {
+  if (options.removeRelatedContent) {
+    return {};
+  }
   const embedToHTMLCounter = new RelatedArticleCounter();
   async function fetchResource(embed, accessToken, lang) {
     if (!embed.data) return embed;

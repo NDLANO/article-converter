@@ -10,21 +10,21 @@ import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
-import { htmlTransforms, transformRelatedContent } from './htmlTransformers';
+import { htmlTransforms } from './htmlTransformers';
 
 export async function transform(
   content,
   lang,
   accessToken,
   visualElement,
-  isOembedRequest
+  options
 ) {
   if (visualElement && visualElement.visualElement) {
     content('body').prepend(
       `<section>${visualElement.visualElement}</section>`
     );
   }
-  const embeds = await getEmbedsFromHtml(content);
+  const embeds = await getEmbedsFromHtml(content, options);
   const embedsWithResources = await Promise.all(
     embeds.map(async embed => {
       const plugin = embed.plugin;
@@ -43,8 +43,7 @@ export async function transform(
   );
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
-  htmlTransforms.forEach(replacer => replacer(content, lang));
-  transformRelatedContent(content, lang, isOembedRequest);
+  htmlTransforms.forEach(replacer => replacer(content, lang, options));
 
   return {
     html: content('body').html(),
