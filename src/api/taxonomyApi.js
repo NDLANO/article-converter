@@ -44,5 +44,9 @@ export async function fetchArticleResource(articleId, accessToken, language) {
 
   const topics = await queryTopics(articleId, accessToken, language);
 
-  return topics[0];
+  if (topics[0]) {
+    // Add resourceType so that content type is correct
+    return { ...topics[0], resourceTypes: [{ id: 'subject' }] };
+  }
+  return undefined;
 }
