@@ -40,7 +40,9 @@ test('fetchResource for two related articles', async () => {
         introduction: { introduction: `introduction${id}` },
       });
     nock('http://ndla-api')
-      .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:${id}`)
+      .get(
+        `/taxonomy/v1/queries/resources?contentURI=urn:article:${id}&language=nb`
+      )
       .reply(200, articleResource);
   });
 
@@ -96,7 +98,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
     });
 
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   nock('http://ndla-api')
@@ -135,7 +137,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       introduction: { introduction: `introduction1` },
     });
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   nock('http://ndla-api')
@@ -145,7 +147,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       introduction: { introduction: `introduction2` },
     });
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2&language=nb`)
     .reply(500, {});
 
   const resource1 = await relatedContentPlugin.fetchResource(
