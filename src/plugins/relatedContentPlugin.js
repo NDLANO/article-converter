@@ -99,19 +99,21 @@ const getRelatedArticleProps = (
 
 export default function createRelatedContentPlugin() {
   const embedToHTMLCounter = new RelatedArticleCounter();
+
   async function fetchResource(embed, accessToken, lang) {
     if (!embed.data) return embed;
     if (!embed.data.articleId && !embed.data.url) return embed;
 
-    let article;
-    let resource;
-
     if (embed.data.articleId) {
       try {
-        [article, resource] = await Promise.all([
+        const [article, resource] = await Promise.all([
           fetchArticle(embed.data.articleId, accessToken, lang),
           fetchArticleResource(embed.data.articleId, accessToken, lang),
         ]);
+        return {
+          ...embed,
+          article: article ? { ...article, resource } : undefined,
+        };
       } catch (error) {
         log.error(error);
         return undefined;
@@ -119,25 +121,23 @@ export default function createRelatedContentPlugin() {
     }
 
     if (embed.data.url) {
-      article = {
-        title: { title: embed.data.title },
-        metaDescription: {
-          metaDescription: embed.data.metaDescription || embed.data.url,
+      return {
+        ...embed,
+        article: {
+          title: { title: embed.data.title },
+          metaDescription: {
+            metaDescription: embed.data.metaDescription || embed.data.url,
+          },
+          linkInfo: `${t(lang, 'related.linkInfo')} ${
+            // Get domain name only from url
+            embed.data.url.match(
+              /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
+            )[1] || embed.data.url
+          }`,
+          url: embed.data.url,
         },
-        linkInfo: `${t(lang, 'related.linkInfo')} ${
-          // Get domain name only from url
-          embed.data.url.match(
-            /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
-          )[1] || embed.data.url
-        }`,
-        url: embed.data.url,
       };
     }
-
-    return {
-      ...embed,
-      article: article ? { ...article, resource } : undefined,
-    };
   }
 
   const embedToHTML = embed => {
