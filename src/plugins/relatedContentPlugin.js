@@ -71,13 +71,6 @@ const mapping = relatedArticleEntryNum => {
 };
 
 const getRelatedArticleProps = (article, relatedArticleEntryNum) => {
-  if (article.url) {
-    return {
-      ...mapping(relatedArticleEntryNum)['external-learning-resources'],
-      to: article.url,
-    };
-  }
-
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
@@ -119,34 +112,34 @@ export default function createRelatedContentPlugin() {
       }
     }
 
-    if (embed.data.url) {
-      return {
-        ...embed,
-        article: {
-          title: { title: embed.data.title },
-          metaDescription: {
-            metaDescription: embed.data.metaDescription || embed.data.url,
-          },
-          linkInfo: `${t(lang, 'related.linkInfo')} ${
-            // Get domain name only from url
-            embed.data.url.match(
-              /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
-            )[1] || embed.data.url
-          }`,
-          url: embed.data.url,
-        },
-      };
-    }
-
     return embed;
   }
 
-  const embedToHTML = embed => {
-    if (!embed.article) {
+  const embedToHTML = (embed, lang) => {
+    if (!embed.article && !embed.data.url) {
       return '';
     }
 
     const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
+
+    // handle externalRelatedArticles
+    if (embed.data && embed.data.url) {
+      return renderToStaticMarkup(
+        <RelatedArticle
+          key={`external-learning-resources-${relatedArticleEntryNum}`}
+          title={embed.data.title}
+          introduction={embed.data.metaDescription || embed.data.url}
+          linkInfo={`${t(lang, 'related.linkInfo')} ${
+            // Get domain name only from url
+            embed.data.url.match(
+              /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
+            )[1] || embed.data.url
+          }`}
+          to={embed.data.url}
+          {...mapping(relatedArticleEntryNum)['external-learning-resources']}
+        />
+      );
+    }
 
     return renderToStaticMarkup(
       <RelatedArticle
@@ -160,7 +153,6 @@ export default function createRelatedContentPlugin() {
             ? embed.article.metaDescription.metaDescription
             : ''
         }
-        linkInfo={embed.article.linkInfo || null}
         {...getRelatedArticleProps(embed.article, relatedArticleEntryNum)}
       />
     );

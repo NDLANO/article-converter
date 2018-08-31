@@ -174,8 +174,14 @@ test('fetchResource for two related articles, where one could not be fetched fro
 test('embedToHtml should return empty string if no related articles is provided', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  expect(relatedContentPlugin.embedToHTML({ embed: {} })).toBe('');
-  expect(relatedContentPlugin.embedToHTML({ embed: { article: {} } })).toBe('');
+  expect(
+    relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })
+  ).toBe('');
+  expect(
+    relatedContentPlugin.embedToHTML({
+      data: { resource: 'related-content' },
+    })
+  ).toBe('');
 });
 
 test('embedToHtml should return fallback url if no resource was found', async () => {
@@ -207,4 +213,19 @@ test('embedToHtml should return fallback url if no resource was found', async ()
     },
   };
   expect(relatedContentPlugin.embedToHTML(embed2)).toMatchSnapshot();
+});
+
+test('embedToHtml should return an external article if url is set', async () => {
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  const embed = {
+    data: {
+      resource: 'related-content',
+      title: 'Om lov om forbud mot diskriminering',
+      url:
+        'https://www.regjeringen.no/no/dokumenter/otprp-nr-44-2007-2008-/id505404/',
+    },
+  };
+
+  expect(relatedContentPlugin.embedToHTML(embed)).toMatchSnapshot();
 });
