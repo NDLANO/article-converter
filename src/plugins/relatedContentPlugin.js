@@ -143,10 +143,7 @@ export default function createRelatedContentPlugin() {
 
     return renderToStaticMarkup(
       <RelatedArticle
-        key={
-          embed.article.id ||
-          `external-learning-resources-${relatedArticleEntryNum}`
-        }
+        key={embed.article.id}
         title={isObject(embed.article.title) ? embed.article.title.title : ''}
         introduction={
           isObject(embed.article.metaDescription)
