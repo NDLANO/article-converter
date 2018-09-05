@@ -40,7 +40,9 @@ test('fetchResource for two related articles', async () => {
         introduction: { introduction: `introduction${id}` },
       });
     nock('http://ndla-api')
-      .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:${id}`)
+      .get(
+        `/taxonomy/v1/queries/resources?contentURI=urn:article:${id}&language=nb`
+      )
       .reply(200, articleResource);
   });
 
@@ -96,7 +98,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
     });
 
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   nock('http://ndla-api')
@@ -135,7 +137,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       introduction: { introduction: `introduction1` },
     });
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   nock('http://ndla-api')
@@ -145,7 +147,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       introduction: { introduction: `introduction2` },
     });
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2`)
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:2&language=nb`)
     .reply(500, {});
 
   const resource1 = await relatedContentPlugin.fetchResource(
@@ -172,8 +174,14 @@ test('fetchResource for two related articles, where one could not be fetched fro
 test('embedToHtml should return empty string if no related articles is provided', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  expect(relatedContentPlugin.embedToHTML({ embed: {} })).toBe('');
-  expect(relatedContentPlugin.embedToHTML({ embed: { article: {} } })).toBe('');
+  expect(
+    relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })
+  ).toBe('');
+  expect(
+    relatedContentPlugin.embedToHTML({
+      data: { resource: 'related-content' },
+    })
+  ).toBe('');
 });
 
 test('embedToHtml should return fallback url if no resource was found', async () => {
@@ -185,7 +193,6 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       id: 1231,
       title: { title: 't1' },
       metaDescription: { metaDescription: 'm1' },
-      resource: {},
     },
   };
   expect(relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();
@@ -206,4 +213,19 @@ test('embedToHtml should return fallback url if no resource was found', async ()
     },
   };
   expect(relatedContentPlugin.embedToHTML(embed2)).toMatchSnapshot();
+});
+
+test('embedToHtml should return an external article if url is set', async () => {
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  const embed = {
+    data: {
+      resource: 'related-content',
+      title: 'Om lov om forbud mot diskriminering',
+      url:
+        'https://www.regjeringen.no/no/dokumenter/otprp-nr-44-2007-2008-/id505404/',
+    },
+  };
+
+  expect(relatedContentPlugin.embedToHTML(embed)).toMatchSnapshot();
 });
