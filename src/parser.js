@@ -16,7 +16,7 @@ export function getEmbedsFromHtml(html, options) {
         embed: html(embed),
         data: html(embed).data(),
         plugin: plugins.find(
-          p => p.resource === embed.attribs['data-resource']
+          p => p && p.resource === embed.attribs['data-resource']
         ),
       }))
       .get();

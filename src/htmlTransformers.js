@@ -60,20 +60,19 @@ export const transformAsides = content => {
   });
 };
 
-export const transformRelatedContent = (content, lang, options) => {
+export const transformRelatedContent = (content, lang) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
-      div.attribs && div.attribs['data-type'] === 'related-content';
+      div.attribs && div.attribs['data-type'] === 'related-content' && div.data;
     if (isRelatedContentGroup) {
-      if (!options.removeRelatedContent) {
-        const relatedArticleList = createRelatedArticleList(
-          { locale: lang, articleCount: content(div).children().length },
-          content(div)
-            .children()
-            .toString()
-        );
-        content(div).before(relatedArticleList);
-      }
+      const relatedArticleList = createRelatedArticleList(
+        { locale: lang, articleCount: content(div).children().length },
+        content(div)
+          .children()
+          .toString()
+      );
+      content(div).before(relatedArticleList);
+
       content(div).remove();
     }
   });

@@ -98,9 +98,6 @@ const getRelatedArticleProps = (
 };
 
 export default function createRelatedContentPlugin(options = {}) {
-  if (options.removeRelatedContent) {
-    return {};
-  }
   const embedToHTMLCounter = new RelatedArticleCounter();
   async function fetchResource(embed, accessToken, lang) {
     if (!embed.data) return embed;
@@ -144,7 +141,7 @@ export default function createRelatedContentPlugin(options = {}) {
   }
 
   const embedToHTML = embed => {
-    if (!embed.article) {
+    if (!embed.article || options.removeRelatedContent) {
       return '';
     }
 
