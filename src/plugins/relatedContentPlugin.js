@@ -52,6 +52,12 @@ const mapping = relatedArticleEntryNum => {
       ),
       modifier: `external-learning-resources${hiddenModifier}`,
     },
+    subject: {
+      icon: (
+        <ContentTypeBadge background type={constants.contentTypes.SUBJECT} />
+      ),
+      modifier: `subject${hiddenModifier}`,
+    },
     default: {
       icon: (
         <ContentTypeBadge
@@ -64,30 +70,17 @@ const mapping = relatedArticleEntryNum => {
   };
 };
 
-const getRelatedArticleProps = (
-  resource,
-  articleId,
-  relatedArticleEntryNum,
-  url
-) => {
-  let to;
-  if (articleId) {
-    to =
-      resource && resource.path
-        ? `/subjects${resource.path}`
-        : `/article/${articleId}`;
-  } else {
+const getRelatedArticleProps = (article, relatedArticleEntryNum) => {
+  if (!article.resource) {
     return {
-      ...mapping(relatedArticleEntryNum)['external-learning-resources'],
-      to: url,
+      ...mapping(relatedArticleEntryNum).default,
+      to: `/article/${article.id}`,
     };
   }
 
-  if (!resource || !resource.resourceTypes) {
-    return { ...mapping(relatedArticleEntryNum).default, to };
-  }
+  const to = `/subjects${article.resource.path}`;
 
-  const resourceType = resource.resourceTypes.find(
+  const resourceType = article.resource.resourceTypes.find(
     type => mapping(relatedArticleEntryNum)[type.id]
   );
 
@@ -99,73 +92,65 @@ const getRelatedArticleProps = (
 
 export default function createRelatedContentPlugin(options = {}) {
   const embedToHTMLCounter = new RelatedArticleCounter();
+
   async function fetchResource(embed, accessToken, lang) {
     if (!embed.data) return embed;
-    if (!embed.data.articleId && !embed.data.url) return embed;
-
-    let article;
-    let resource;
 
     if (embed.data.articleId) {
       try {
-        [article, resource] = await Promise.all([
+        const [article, resource] = await Promise.all([
           fetchArticle(embed.data.articleId, accessToken, lang),
           fetchArticleResource(embed.data.articleId, accessToken, lang),
         ]);
+        return {
+          ...embed,
+          article: article ? { ...article, resource } : undefined,
+        };
       } catch (error) {
         log.error(error);
         return undefined;
       }
     }
 
-    if (embed.data.url) {
-      article = {
-        title: { title: embed.data.title },
-        metaDescription: {
-          metaDescription: embed.data.metaDescription || embed.data.url,
-        },
-        linkInfo: `${t(lang, 'related.linkInfo')} ${
-          // Get domain name only from url
-          embed.data.url.match(
-            /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
-          )[1] || embed.data.url
-        }`,
-        url: embed.data.url,
-      };
-    }
-
-    return {
-      ...embed,
-      article: article ? { ...article, resource } : undefined,
-    };
+    return embed;
   }
 
-  const embedToHTML = embed => {
-    if (!embed.article || options.removeRelatedContent) {
+  const embedToHTML = (embed, lang) => {
+    if (!embed.article && !embed.data.url || options.removeRelatedContent) {
       return '';
     }
 
     const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
 
+    // handle externalRelatedArticles
+    if (embed.data && embed.data.url) {
+      return renderToStaticMarkup(
+        <RelatedArticle
+          key={`external-learning-resources-${relatedArticleEntryNum}`}
+          title={embed.data.title}
+          introduction={embed.data.metaDescription || embed.data.url}
+          linkInfo={`${t(lang, 'related.linkInfo')} ${
+            // Get domain name only from url
+            embed.data.url.match(
+              /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
+            )[1] || embed.data.url
+          }`}
+          to={embed.data.url}
+          {...mapping(relatedArticleEntryNum)['external-learning-resources']}
+        />
+      );
+    }
+
     return renderToStaticMarkup(
       <RelatedArticle
-        key={
-          embed.article.id ||
-          `external-learning-resources-${relatedArticleEntryNum}`
-        }
+        key={embed.article.id}
         title={isObject(embed.article.title) ? embed.article.title.title : ''}
         introduction={
           isObject(embed.article.metaDescription)
             ? embed.article.metaDescription.metaDescription
             : ''
         }
-        linkInfo={embed.article.linkInfo || null}
-        {...getRelatedArticleProps(
-          embed.article.resource,
-          embed.article.id,
-          relatedArticleEntryNum,
-          embed.article.url
-        )}
+        {...getRelatedArticleProps(embed.article, relatedArticleEntryNum)}
       />
     );
   };
