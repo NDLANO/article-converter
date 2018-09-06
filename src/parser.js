@@ -8,15 +8,15 @@
 
 import createPlugins from './plugins';
 
-export function getEmbedsFromHtml(html) {
-  const plugins = createPlugins();
+export function getEmbedsFromHtml(html, options) {
+  const plugins = createPlugins(options);
   return new Promise(resolve => {
     const embeds = html('embed')
       .map((_, embed) => ({
         embed: html(embed),
         data: html(embed).data(),
         plugin: plugins.find(
-          p => p.resource === embed.attribs['data-resource']
+          p => p && p.resource === embed.attribs['data-resource']
         ),
       }))
       .get();

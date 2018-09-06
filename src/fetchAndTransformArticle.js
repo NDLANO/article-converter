@@ -2,12 +2,23 @@ import cheerio from 'cheerio';
 import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 
-export async function transformArticle(article, lang, accessToken) {
+export async function transformArticle(
+  article,
+  lang,
+  accessToken,
+  options = {}
+) {
   const articleContent = article.content.content
     ? cheerio.load(article.content.content)
     : undefined;
   const { html, embedMetaData } = articleContent
-    ? await transform(articleContent, lang, accessToken, article.visualElement)
+    ? await transform(
+        articleContent,
+        lang,
+        accessToken,
+        article.visualElement,
+        options
+      )
     : {};
 
   return {
@@ -26,9 +37,15 @@ export async function transformArticle(article, lang, accessToken) {
 export default async function fetchAndTransformArticle(
   articleId,
   lang,
-  accessToken
+  accessToken,
+  options = {}
 ) {
   const article = await fetchArticle(articleId, accessToken, lang);
-  const transformedArticle = await transformArticle(article, lang, accessToken);
+  const transformedArticle = await transformArticle(
+    article,
+    lang,
+    accessToken,
+    options
+  );
   return transformedArticle;
 }

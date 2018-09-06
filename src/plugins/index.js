@@ -34,7 +34,7 @@ export {
   createRelatedContent,
 };
 
-export default () => [
+export default options => [
   createNRKPlugin(),
   createAudioPlugin(),
   createImagePlugin(),
@@ -46,5 +46,5 @@ export default () => [
   createIframePlugin(),
   createFootnotePlugin(),
   createConceptPluin(),
-  createRelatedContent(),
+  createRelatedContent(options),
 ];
