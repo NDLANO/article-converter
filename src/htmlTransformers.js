@@ -63,16 +63,17 @@ export const transformAsides = content => {
 export const transformRelatedContent = (content, lang) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
-      div.attribs && div.attribs['data-type'] === 'related-content' && div.data;
+      div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
-      const relatedArticleList = createRelatedArticleList(
-        { locale: lang, articleCount: content(div).children().length },
-        content(div)
-          .children()
-          .toString()
-      );
-      content(div).before(relatedArticleList);
-
+      if (div.children && div.children.length > 0) {
+        const relatedArticleList = createRelatedArticleList(
+          { locale: lang, articleCount: content(div).children().length },
+          content(div)
+            .children()
+            .toString()
+        );
+        content(div).before(relatedArticleList);
+      }
       content(div).remove();
     }
   });
