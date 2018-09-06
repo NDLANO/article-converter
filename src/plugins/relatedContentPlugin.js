@@ -116,7 +116,7 @@ export default function createRelatedContentPlugin(options = {}) {
   }
 
   const embedToHTML = (embed, lang) => {
-    if (!embed.article && !embed.data.url || options.removeRelatedContent) {
+    if ((!embed.article && !embed.data.url) || options.removeRelatedContent) {
       return '';
     }
 
