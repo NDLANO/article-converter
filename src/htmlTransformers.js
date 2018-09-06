@@ -60,12 +60,12 @@ export const transformAsides = content => {
   });
 };
 
-export const transformRelatedContent = (content, lang) => {
+export const transformRelatedContent = (content, lang, options) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
       div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
-      if (div.children && div.children.length > 0) {
+      if (!options.removeRelatedContent) {
         const relatedArticleList = createRelatedArticleList(
           { locale: lang, articleCount: content(div).children().length },
           content(div)
