@@ -112,7 +112,7 @@ export default function createRelatedContentPlugin(options = {}) {
         };
       } catch (error) {
         log.error(error);
-        return undefined;
+        return embed;
       }
     }
 

@@ -90,7 +90,13 @@ Object {
 }
 `;
 
-exports[`fetchResource for two related articles, where one could not be fetched from article-api 2`] = `undefined`;
+exports[`fetchResource for two related articles, where one could not be fetched from article-api 2`] = `
+Object {
+  "data": Object {
+    "articleId": "2",
+  },
+}
+`;
 
 exports[`fetchResource for two related articles, where one could not be fetched from taxonomy-api 1`] = `
 Object {
@@ -117,4 +123,10 @@ Object {
 }
 `;
 
-exports[`fetchResource for two related articles, where one could not be fetched from taxonomy-api 2`] = `undefined`;
+exports[`fetchResource for two related articles, where one could not be fetched from taxonomy-api 2`] = `
+Object {
+  "data": Object {
+    "articleId": "2",
+  },
+}
+`;
