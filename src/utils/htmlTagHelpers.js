@@ -6,16 +6,16 @@
  *
  */
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { uuid } from 'ndla-util';
 import Aside from 'ndla-ui/lib/Aside';
 import Table from 'ndla-ui/lib/Table';
 import FactBox from 'ndla-ui/lib/FactBox';
 import FileList from 'ndla-ui/lib/FileList';
 import t from '../locale/i18n';
+import { render } from './render';
 
 export function createAside(props, children) {
-  return renderToStaticMarkup(
+  return render(
     <Aside
       {...props}
       dangerouslySetInnerHTML={{
@@ -26,7 +26,7 @@ export function createAside(props, children) {
 }
 
 export function createFactbox(props, children) {
-  return renderToStaticMarkup(
+  return render(
     <FactBox
       {...props}
       dangerouslySetInnerHTML={{
@@ -38,12 +38,12 @@ export function createFactbox(props, children) {
 
 export function createFileList(props) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
-  return renderToStaticMarkup(<FileList {...props} id={id} />);
+  return render(<FileList {...props} id={id} />);
 }
 
 export function createTable(props, children, lang) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
-  return renderToStaticMarkup(
+  return render(
     <Table
       id={id}
       messages={{

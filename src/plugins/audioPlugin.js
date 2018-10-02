@@ -7,7 +7,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
 import Button from 'ndla-button/lib/Button';
 import AudioPlayer from 'ndla-ui/lib/AudioPlayer';
@@ -18,6 +17,7 @@ import {
 import t from '../locale/i18n';
 import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
+import { render } from '../utils/render';
 
 export default function createAudioPlugin() {
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
@@ -33,7 +33,7 @@ export default function createAudioPlugin() {
 
   const onError = ({ audio }, locale) => {
     const { audioFile: { mimeType, url } = {} } = audio || {};
-    return renderToStaticMarkup(
+    return render(
       <Figure>
         {audio ? (
           <AudioPlayer type={mimeType} src={url} />
@@ -114,7 +114,7 @@ export default function createAudioPlugin() {
       learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
-    return renderToStaticMarkup(
+    return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
