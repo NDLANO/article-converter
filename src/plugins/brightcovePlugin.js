@@ -31,7 +31,7 @@ export default function createBrightcovePlugin() {
         .filter(s => s.width && s.height)
         .sort((a, b) => a.height < b.height)[0] || {};
     return {
-      src: `https://preview-players.brightcove.net/v2/accounts/${account}/players/${player}/preview/embeds/default/master/index.html?videoId=${videoid}`,
+      src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
       height: defined(source.height, '480'),
       width: defined(source.width, '640'),
     };
