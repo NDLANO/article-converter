@@ -450,7 +450,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         <a class=\\"c-figure-license__link\\"
           target=\\"_blank\\"
           rel=\\"noopener noreferrer\\"
-          href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
+          href=\\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no\\">Lær mer om åpne lisenser
         </a>
         <div class=\\"c-figure-license__cta-wrapper\\">
           <ul class=\\"c-figure-license__list\\">
@@ -632,7 +632,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               <a class=\\"c-figure-license__link\\"
                 target=\\"_blank\\"
                 rel=\\"noopener noreferrer\\"
-                href=\\"https://creativecommons.org/licenses/by-nc-sa/3.0/no/\\">Lær mer om åpne lisenser
+                href=\\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no\\">Lær mer om åpne lisenser
               </a>
             </div>
             <div class=\\"c-figure-license__cta-wrapper\\">

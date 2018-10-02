@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-ui/lib/Button';
+import Button from 'ndla-button/lib/Button';
 import AudioPlayer from 'ndla-ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
