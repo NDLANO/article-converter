@@ -24,7 +24,7 @@ export default function createConceptPlugin() {
 
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
-    return ReactDOMServerStream.renderToStaticMarkup(
+    return ReactDOMServerStream.render(
       <Concept
         id={contentId}
         authors={[]}
@@ -47,7 +47,7 @@ export default function createConceptPlugin() {
     const authors = defined(copyright.authors, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
 
-    return ReactDOMServerStream.renderToStaticMarkup(
+    return ReactDOMServerStream.render(
       <Concept
         id={id}
         title={title}

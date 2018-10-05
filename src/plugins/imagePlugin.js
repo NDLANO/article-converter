@@ -8,7 +8,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderToStaticMarkup } from 'react-dom/server';
 import classnames from 'classnames';
 import {
   Figure,
@@ -16,7 +15,7 @@ import {
   FigureCaption,
   FigureFullscreenDialog,
 } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-ui/lib/Button';
+import Button from 'ndla-button/lib/Button';
 import Image from 'ndla-ui/lib/Image';
 import {
   getLicenseByAbbreviation,
@@ -30,6 +29,7 @@ import {
 } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
+import { render } from '../utils/render';
 
 const getFigureClassnames = (size, align) =>
   classnames('c-figure', {
@@ -131,7 +131,7 @@ export default function createImagePlugin() {
     const src =
       image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
 
-    return renderToStaticMarkup(
+    return render(
       <Figure className={figureClassNames}>
         <div className="c-figure__img">
           <img alt={t(locale, 'image.error.url')} src={src} />
@@ -183,7 +183,7 @@ export default function createImagePlugin() {
     const figureId = `figure-${image.id}`;
     const figureFullscreenDialogId = `fs-${image.id.toString()}`;
 
-    return renderToStaticMarkup(
+    return render(
       <Figure id={figureId} className={figureClassNames}>
         <Button
           key="button"

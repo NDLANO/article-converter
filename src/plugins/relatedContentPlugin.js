@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { RelatedArticle } from 'ndla-ui/lib/RelatedArticleList';
 import ContentTypeBadge from 'ndla-ui/lib/ContentTypeBadge';
 import constants from 'ndla-ui/lib/model';
@@ -17,6 +16,7 @@ import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
+import { render } from '../utils/render';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
@@ -128,7 +128,7 @@ export default function createRelatedContentPlugin(options = {}) {
 
     // handle externalRelatedArticles
     if (embed.data && embed.data.url) {
-      return renderToStaticMarkup(
+      return render(
         <RelatedArticle
           key={`external-learning-resources-${relatedArticleEntryNum}`}
           title={embed.data.title}
@@ -145,7 +145,7 @@ export default function createRelatedContentPlugin(options = {}) {
       );
     }
 
-    return renderToStaticMarkup(
+    return render(
       <RelatedArticle
         key={embed.article.id}
         title={isObject(embed.article.title) ? embed.article.title.title : ''}

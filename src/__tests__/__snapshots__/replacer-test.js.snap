@@ -263,7 +263,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-sa/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
@@ -534,7 +534,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-sa/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\" />
@@ -761,7 +761,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-sa/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-sa/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\" />
@@ -1084,7 +1084,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
 
             <div class=\\"c-figure-license__cta-wrapper\\">
@@ -1240,7 +1240,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   <a class=\\"c-figure-license__link\\"
                     target=\\"_blank\\"
                     rel=\\"noopener noreferrer\\"
-                    href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+                    href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
                   </a>
                 </div>
 
@@ -1489,7 +1489,7 @@ Kunstner: Kari Maler\\">Kopier referanse
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
@@ -1631,7 +1631,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                   <a class=\\"c-figure-license__link\\"
                     target=\\"_blank\\"
                     rel=\\"noopener noreferrer\\"
-                    href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+                    href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
                   </a>
                 </div>
                 <div class=\\"c-figure-license__cta-wrapper\\">
@@ -1909,7 +1909,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
@@ -2051,7 +2051,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   <a class=\\"c-figure-license__link\\"
                     target=\\"_blank\\"
                     rel=\\"noopener noreferrer\\"
-                    href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+                    href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
                   </a>
                 </div>
                 <div class=\\"c-figure-license__cta-wrapper\\">
@@ -2297,7 +2297,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
             <a class=\\"c-figure-license__link\\"
               target=\\"_blank\\"
               rel=\\"noopener noreferrer\\"
-              href=\\"https://creativecommons.org/licenses/by-nc/3.0/no/\\">Lær mer om åpne lisenser
+              href=\\"https://creativecommons.org/licenses/by-nc/4.0/deed.no\\">Lær mer om åpne lisenser
             </a>
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">

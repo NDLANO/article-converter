@@ -10,9 +10,8 @@
 
 import React from 'react';
 import defined from 'defined';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-ui/lib/Button';
+import Button from 'ndla-button/lib/Button';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
@@ -21,6 +20,7 @@ import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 import { getCopyString, getLicenenseCredits } from './pluginHelpers';
+import { render } from '../utils/render';
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
@@ -61,7 +61,7 @@ export default function createBrightcovePlugin() {
       data: { account, videoid },
     } = embed;
 
-    return renderToStaticMarkup(
+    return render(
       <Figure resizeIframe>
         <iframe
           title={`Video: ${videoid}`}
@@ -108,7 +108,7 @@ export default function createBrightcovePlugin() {
     const id = brightcove.reference_id.toString();
     const figureId = `figure-${id}`;
 
-    return renderToStaticMarkup(
+    return render(
       <Figure id={figureId} resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}

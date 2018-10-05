@@ -6,8 +6,8 @@
  *
  */
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import RelatedArticleList from 'ndla-ui/lib/RelatedArticleList';
+import { render } from './render';
 import t from '../locale/i18n';
 
 export function RelatedArticleCounter(initialCount = 0) {
@@ -20,7 +20,7 @@ export function RelatedArticleCounter(initialCount = 0) {
 }
 
 export function createRelatedArticleList(props, children) {
-  return renderToStaticMarkup(
+  return render(
     <RelatedArticleList
       {...props}
       messages={{
