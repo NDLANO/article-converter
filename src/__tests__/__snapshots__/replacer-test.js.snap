@@ -331,7 +331,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     id=\\"figure-1\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
-      src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:1\\"
+      src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\"
       height=\\"768\\"
       width=\\"1024\\"
       allowfullscreen />
@@ -558,7 +558,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
     id=\\"figure-2\\">
     <iframe title=\\"Video: undefined\\"
       frameborder=\\"0\\"
-      src=\\"https://players.brightcove.net/1337/default_default/index.html?videoId=ref:2\\"
+      src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\"
       height=\\"768\\"
       width=\\"1024\\"
       allowfullscreen />
@@ -2095,7 +2095,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     id=\\"figure-46012\\">
     <iframe title=\\"Video: brightcove video\\"
       frameborder=\\"0\\"
-      src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:46012\\"
+      src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012\\"
       height=\\"768\\"
       width=\\"1024\\"
       allowfullscreen />

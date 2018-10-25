@@ -25,23 +25,23 @@ import { render } from '../utils/render';
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const getIframeProps = (account, videoid, sources) => {
+  const getIframeProps = (
+    { account, videoid, player = 'default' },
+    sources
+  ) => {
     const source =
       sources
         .filter(s => s.width && s.height)
         .sort((a, b) => a.height < b.height)[0] || {};
     return {
-      src: `https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoid}`,
+      src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
       height: defined(source.height, '480'),
       width: defined(source.width, '640'),
     };
   };
 
   const getMetaData = embed => {
-    const {
-      brightcove,
-      data: { account, videoid },
-    } = embed;
+    const { brightcove, data } = embed;
 
     const mp4s = brightcove.sources
       .filter(source => source.container === 'MP4' && source.src)
@@ -52,21 +52,20 @@ export default function createBrightcovePlugin() {
       copyright: brightcove.copyright,
       cover: get('images.poster.src', brightcove),
       src: mp4s[0] ? mp4s[0].src : undefined,
-      iframe: getIframeProps(account, videoid, brightcove.sources),
+      iframe: getIframeProps(data, brightcove.sources),
     };
   };
 
   const onError = (embed, locale) => {
-    const {
-      data: { account, videoid },
-    } = embed;
+    const { data } = embed;
+    const { videoid } = data;
 
     return render(
       <Figure resizeIframe>
         <iframe
           title={`Video: ${videoid}`}
           frameBorder="0"
-          {...getIframeProps(account, videoid, [])}
+          {...getIframeProps(data, [])}
           allowFullScreen
         />
         <figcaption>{t(locale, 'video.error')}</figcaption>
@@ -75,10 +74,8 @@ export default function createBrightcovePlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const {
-      brightcove,
-      data: { account, videoid, caption },
-    } = embed;
+    const { brightcove, data } = embed;
+    const { caption } = data;
     const {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
@@ -113,7 +110,7 @@ export default function createBrightcovePlugin() {
         <iframe
           title={`Video: ${brightcove.name}`}
           frameBorder="0"
-          {...getIframeProps(account, videoid, brightcove.sources)}
+          {...getIframeProps(data, brightcove.sources)}
           allowFullScreen
         />
         <FigureCaption

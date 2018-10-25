@@ -49,7 +49,7 @@ Object {
         "cover": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
         "iframe": Object {
           "height": 1080,
-          "src": "https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:125442",
+          "src": "https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442",
           "width": 1920,
         },
         "src": "http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001",
@@ -93,7 +93,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     id=\\"figure-125442\\">
     <iframe title=\\"Video: Offentlige debatter\\"
       frameborder=\\"0\\"
-      src=\\"https://players.brightcove.net/4806596774001/default_default/index.html?videoId=ref:125442\\"
+      src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442\\"
       height=\\"1080\\"
       width=\\"1920\\"
       allowfullscreen />
