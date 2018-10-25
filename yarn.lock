@@ -2979,6 +2979,11 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
+facepaint@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/facepaint/-/facepaint-1.2.1.tgz#89929e601b15227278c53c516f764fc462b09c33"
+  integrity sha512-oNvBekbhsm/0PNSOWca5raHNAi6dG960Bx6LJgxDPNF59WpuspgQ17bN5MKwOr7JcFdQYc7StW3VZ28DBZLavQ==
+
 falafel@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/falafel/-/falafel-2.1.0.tgz#96bb17761daba94f46d001738b3cedf3a67fe06c"
@@ -5112,24 +5117,25 @@ ncp@~2.0.0:
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
   integrity sha1-GVoh1sRuNh0vsSgbo4uR6d9727M=
 
-ndla-button@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ndla-button/-/ndla-button-0.0.2.tgz#c9d6deba93e1ceffeea04847f2cc03c4682ba8ac"
-  integrity sha512-OgYgmYdKjb40XJxWFn7dpaZt9iVid51aKRv+t0Yg6duBTeYY8ULjZ3kGy2mYoy4soeSW3Lbt3ZVzX2FEkXA/yg==
+ndla-button@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/ndla-button/-/ndla-button-0.0.3.tgz#e92918d12a314c514e88082d17156cc71dc01c2d"
+  integrity sha512-57L3gS/ztnmFsRgj+tfuK3Jbf2WTM5pt+oqQF/QqYqdkUtwDkXIUDyzzqaD2YnbLkkVsGngdIrzmtt395gSGpg==
 
-ndla-core@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ndla-core/-/ndla-core-0.2.0.tgz#54b0c0a536eb6187508322bff39010229f398dac"
-  integrity sha512-kRB0WeQhxsmtF+xXBJUA/d++XjAUKH8h/8r8AlY+5xdGvfUa8M5JM5VpLqIHzW9KKIChWoPmbvvZlcPIhXx5LQ==
+ndla-core@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ndla-core/-/ndla-core-0.3.1.tgz#484c0602910c9c3233154dfd55636aa2ae326b76"
+  integrity sha512-n6D0MEpX33XxApw5Fj72oFd4qQsRnwPtgnrwhXdB0EksgWSl5txgo0Awg+GwsMxw4laX67FuAGAlQj2SxuP5dQ==
   dependencies:
+    facepaint "^1.2.1"
     inuitcss "6.0.0-beta.4"
     polished "^2.2.0"
     sass-mq "^5.0.0"
 
-ndla-i18n@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ndla-i18n/-/ndla-i18n-0.3.0.tgz#51c2387d7a610c294517680d1730208627892d1c"
-  integrity sha512-2lpJtZhOxKR9Nwcz/u8RmIgLQFYXzVdLIm62yHOPLo/ZKzmk60ZoxUzyIDwHL9pzVkGTIh0by6y/hXpnsSUTLA==
+ndla-i18n@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ndla-i18n/-/ndla-i18n-0.3.1.tgz#650594774ae297e72515e5bba4bc0c5908e3a96a"
+  integrity sha512-s8V5FQtf6lhV81t+FkXd/pnap9FMJYZ+fczCMcSfyFZh+yofEfUJTMeaDvhjlxhRz3lc49nR8fbbY4KACBjICw==
   dependencies:
     hoist-non-react-statics "^2.5.0"
     intl-format-cache "^2.1.0"
@@ -5141,17 +5147,17 @@ ndla-icons@^0.4.1:
   resolved "https://registry.yarnpkg.com/ndla-icons/-/ndla-icons-0.4.1.tgz#d979cf16c1f7a034ab55e413bcbd16557d203a62"
   integrity sha512-jCVi1epTU7T8+qymZ24M0CSP/wq2VNAmgmf3XgdwtuzCj5QqssxIDGotBChM95JB9ebbmjP6p7Pw7vkZsL8v/w==
 
-ndla-licenses@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.2.2.tgz#a4f446839f9d280918e5ef0b282f2f1be3cab6c5"
-  integrity sha512-3qVd3dnRP6FoY/T0U8YubGkO3LRpCjW2dj9/pUHWS3qt+wb+EFYXS3dYaq/0I34e6znX8Uu90+HMSHADTSDSxQ==
+ndla-licenses@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ndla-licenses/-/ndla-licenses-0.3.0.tgz#c668cb82292579ea78cff120f70b0f52840a2b1e"
+  integrity sha512-hAPIU4BsF2EBmez2wnEht4No7qDpLNJH4TpF/7qZJcpQj/Kt/UUg8Djhif6YMX3L6QJBdqXuzG51NcW34+MYMQ==
   dependencies:
     defined "1.0.0"
 
-ndla-ui@^0.17.1:
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.17.1.tgz#6b7a9766b2ba5d2d30c54f00c5ab4ae5485a2b6c"
-  integrity sha512-H3d8IXIVH50Eh1fP4v4QA199djlsxMJiAlM7IpkS0GMHgH61Ty26bENif3vFiLyEqIdK6GkL4thwIHg9TYwiZw==
+ndla-ui@^0.17.7:
+  version "0.17.7"
+  resolved "https://registry.yarnpkg.com/ndla-ui/-/ndla-ui-0.17.7.tgz#ec1b33388e4b57af1c7729527ca87a6bf2ba8081"
+  integrity sha512-XyAmCqIkLpkkG4EqBpAJWxWMlDlQI+jA88qhTng0s64c6ULrxMTl0AYVOa9LiP06nbDgBS5aLWNgZ2QQ3SsHZQ==
   dependencies:
     classnames "2.2.5"
     focus-trap "^2.4.3"
@@ -5165,10 +5171,10 @@ ndla-ui@^0.17.1:
     react-slick "^0.19.0"
     react-transition-group "^2.2.1"
 
-ndla-util@^0.2.8:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/ndla-util/-/ndla-util-0.2.8.tgz#7ff0c0748ab09ca192cdf6ef36c11203b929af3a"
-  integrity sha512-9H9s50rUU+bxg6PxX+rrqxoJPQGw4BduTh3tz3yqsP39JXtztlmwYQBU8SyUluif7pm4+oYPaAvZTYhJzvb6tQ==
+ndla-util@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/ndla-util/-/ndla-util-0.2.9.tgz#81d81c9b3720ba8ce0fde64ba9179dea24fe4cea"
+  integrity sha512-82vtLS2nvJVXx2idTpq57CL/x7eiOfzXlTyD/IPzuo8AAv2CJeXyKIWG1nRMJqTXIowzYkkCotQUys+FS9YApQ==
   dependencies:
     defined "1.0.0"
     pdfmake "^0.1.38"

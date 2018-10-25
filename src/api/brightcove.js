@@ -77,23 +77,23 @@ const getAccessToken = async () => {
 const getLicenseByNBTitle = title => {
   switch (title.replace(/\s/g, '').toLowerCase()) {
     case 'navngivelse-ikkekommersiell-ingenbearbeidelse':
-      return 'by-nc-nd';
+      return 'CC-BY-NC-ND-4.0';
     case 'navngivelse-ikkekommersiell-delpåsammevilkår':
-      return 'by-nc-sa';
+      return 'CC-BY-NC-SA-4.0';
     case 'navngivelse-ikkekommersiell':
-      return 'by-nc';
+      return 'CC-BY-NC-4.0';
     case 'navngivelse-ingenbearbeidelse':
-      return 'by-nd';
+      return 'CC-BY-ND-4.0';
     case 'navngivelse-delpåsammevilkår':
-      return 'by-sa';
+      return 'CC-BY-SA-4.0';
     case 'navngivelse':
-      return 'by';
+      return 'CC-BY-4.0';
     case 'offentligdomene':
-      return 'pd';
+      return 'PD';
     case 'fristatus-erklæring':
-      return 'cc0';
+      return 'CC0 1.0';
     case 'opphavsrett':
-      return 'copyrighted';
+      return 'COPYRIGHTED';
     default:
       return title;
   }

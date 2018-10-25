@@ -36,16 +36,13 @@ export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,
     `;
 
 export const getCopyString = (licenseAbbreviation, creators, locale) => {
-  const licenseCopyString = `${
-    licenseAbbreviation.toLowerCase().includes('by') ? 'CC ' : ''
-  }${licenseAbbreviation}`.toUpperCase();
   const contributorsCopyString = creators
     .map(creator => {
       const type = t(locale, `${creator.type.toLowerCase()}`);
       return `${type}: ${creator.name}`;
     })
     .join('\n');
-  return `${licenseCopyString} ${contributorsCopyString}`;
+  return `${licenseAbbreviation} ${contributorsCopyString}`;
 };
 
 export const getLicenenseCredits = copyright => {

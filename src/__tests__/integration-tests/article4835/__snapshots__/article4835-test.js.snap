@@ -12,7 +12,7 @@ Object {
     ],
     "license": Object {
       "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-      "license": "by-nc-sa",
+      "license": "CC-BY-NC-SA-4.0",
       "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
     },
     "origin": "",

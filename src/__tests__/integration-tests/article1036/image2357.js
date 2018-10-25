@@ -14,7 +14,7 @@ export default {
   contentType: 'image/jpeg',
   copyright: {
     license: {
-      license: 'by-nc-sa',
+      license: 'CC-BY-NC-SA-4.0',
       description:
         'Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic',
       url: 'https://creativecommons.org/licenses/by-nc-sa/2.0/',
