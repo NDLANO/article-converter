@@ -25,7 +25,10 @@ import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
 
-  const getIframeProps = ({ account, videoid, player }, sources) => {
+  const getIframeProps = (
+    { account, videoid, player = 'default' },
+    sources
+  ) => {
     const source =
       sources
         .filter(s => s.width && s.height)

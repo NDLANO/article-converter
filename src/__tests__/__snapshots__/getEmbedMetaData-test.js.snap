@@ -19,7 +19,7 @@ Object {
       "cover": "https://image.no/123.jpg",
       "iframe": Object {
         "height": 600,
-        "src": "https://players.brightcove.net/account/undefined_default/index.html?videoId=1337",
+        "src": "https://players.brightcove.net/account/default_default/index.html?videoId=1337",
         "width": 1000,
       },
       "src": "test4.mp4",
@@ -32,7 +32,7 @@ Object {
       "cover": undefined,
       "iframe": Object {
         "height": "480",
-        "src": "https://players.brightcove.net/account/undefined_default/index.html?videoId=42",
+        "src": "https://players.brightcove.net/account/default_default/index.html?videoId=42",
         "width": "640",
       },
       "src": "test4.mp4",
