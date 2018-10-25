@@ -5,7 +5,7 @@ Object {
   "audios": Array [
     Object {
       "copyright": Object {
-        "license": "by-sa",
+        "license": "CC-BY-SA-4.0",
       },
       "src": "http://audio.no/file/voof.mp3",
       "title": "Tittel",
@@ -14,7 +14,7 @@ Object {
   "brightcoves": Array [
     Object {
       "copyright": Object {
-        "license": "by-sa",
+        "license": "CC-BY-SA-4.0",
       },
       "cover": "https://image.no/123.jpg",
       "iframe": Object {
@@ -27,7 +27,7 @@ Object {
     },
     Object {
       "copyright": Object {
-        "license": "by-sa",
+        "license": "CC-BY-SA-4.0",
       },
       "cover": undefined,
       "iframe": Object {
@@ -43,7 +43,7 @@ Object {
     Object {
       "altText": "alt",
       "copyright": Object {
-        "license": "by-sa",
+        "license": "CC-BY-SA-4.0",
       },
       "src": "http://example.no/1234.jpg",
       "title": "title",

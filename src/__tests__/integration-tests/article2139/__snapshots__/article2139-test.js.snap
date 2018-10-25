@@ -12,7 +12,7 @@ Object {
     ],
     "license": Object {
       "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
-      "license": "by-sa",
+      "license": "CC-BY-SA-4.0",
       "url": "https://creativecommons.org/licenses/by-sa/2.0/",
     },
     "origin": "",
@@ -35,7 +35,7 @@ Object {
           ],
           "license": Object {
             "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-            "license": "by-nc-sa",
+            "license": "CC-BY-NC-SA-4.0",
             "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
           },
           "origin": "http://www.scanpix.no",
@@ -74,7 +74,7 @@ Object {
           ],
           "license": Object {
             "description": "Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic",
-            "license": "by-nc-sa",
+            "license": "CC-BY-NC-SA-4.0",
             "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
           },
           "origin": "http://www.scanpix.no",
@@ -119,7 +119,7 @@ Object {
           ],
           "license": Object {
             "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
-            "license": "by-sa",
+            "license": "CC-BY-SA-4.0",
             "url": "https://creativecommons.org/licenses/by-sa/2.0/",
           },
           "origin": "",
@@ -708,7 +708,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             <button class=\\"c-button c-button--outline\\"
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
+              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               class=\\"c-button c-button--outline\\"
@@ -891,7 +891,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -1057,7 +1057,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             <button class=\\"c-button c-button--outline\\"
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
+              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               class=\\"c-button c-button--outline\\"
@@ -1240,7 +1240,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC-SA Fotograf: Ingar Storfjell\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -1368,7 +1368,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             <button class=\\"c-button c-button--outline\\"
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-SA Fotograf: Oktan Orangeriet\\">Kopier referanse
+              data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\">Kopier referanse
             </button>
             <a href=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif?download=true\\"
               class=\\"c-button c-button--outline\\"
@@ -1513,7 +1513,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA Fotograf: Oktan Orangeriet\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\">Kopier referanse
                 </button>
                 <a href=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif?download=true\\"
                   class=\\"c-button c-button--outline\\"

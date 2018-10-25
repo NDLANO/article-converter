@@ -14,7 +14,7 @@ export default {
   contentType: 'image/gif',
   copyright: {
     license: {
-      license: 'by-sa',
+      license: 'CC-BY-SA-4.0',
       description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
       url: 'https://creativecommons.org/licenses/by-sa/2.0/',
     },

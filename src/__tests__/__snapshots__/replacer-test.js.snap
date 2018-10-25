@@ -278,7 +278,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA Forfatter: name\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\">Kopier referanse
                 </button>
                 <a href=\\"http://audio.no/file/voof.mp3\\"
                   class=\\"c-button c-button--outline\\"
@@ -543,7 +543,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 \\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -770,7 +770,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-SA \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 \\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -1101,7 +1101,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
+                  data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
@@ -1259,7 +1259,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                     <button class=\\"c-button c-button--outline\\"
                       type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC BY-NC Forfatter: Ola Foton
+                      data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
 Kunstner: Kari Maler\\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
@@ -1499,7 +1499,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -1643,7 +1643,7 @@ Kunstner: Kari Maler\\">Kopier referanse
                     <button class=\\"c-button c-button--outline\\"
                       type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC BY-NC \\">Kopier referanse
+                      data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
@@ -1919,7 +1919,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
                 </button>
                 <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -2062,7 +2062,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     <button class=\\"c-button c-button--outline\\"
                       type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC BY-NC \\">Kopier referanse
+                      data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
                     </button>
                     <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
@@ -2307,7 +2307,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 <button class=\\"c-button c-button--outline\\"
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC BY-NC \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
                 </button>
               </div>
             </div>

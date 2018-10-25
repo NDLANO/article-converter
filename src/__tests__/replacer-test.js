@@ -63,7 +63,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
           rightsholders: [],
           processors: [],
           license: {
-            license: 'by-nc',
+            license: 'CC-BY-NC-4.0',
           },
         },
       },
@@ -80,7 +80,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
           rightsholders: [],
           processors: [],
           license: {
-            license: 'by-nc',
+            license: 'CC-BY-NC-4.0',
           },
         },
         sources: [{ height: 768, width: 1024 }],
@@ -139,7 +139,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
           processors: [],
 
           license: {
-            license: 'by-nc',
+            license: 'CC-BY-NC-4.0',
           },
         },
       },
@@ -165,7 +165,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
           rightsholders: [],
           processors: [],
           license: {
-            license: 'by-nc',
+            license: 'CC-BY-NC-4.0',
           },
         },
       },
@@ -200,7 +200,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
           rightsholders: [],
           processors: [],
           license: {
-            license: 'by-sa',
+            license: 'CC-BY-SA-4.0',
           },
         },
         sources: [{ height: 768, width: 1024 }],
@@ -219,7 +219,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
           rightsholders: [],
           processors: [],
           license: {
-            license: 'by-sa',
+            license: 'CC-BY-SA-4.0',
           },
         },
         sources: [{ height: 768, width: 1024 }],
@@ -288,7 +288,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         },
         copyright: {
           license: {
-            license: 'by-sa',
+            license: 'CC-BY-SA-4.0',
             description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
             url: 'https://creativecommons.org/licenses/by-sa/2.0/',
           },
@@ -313,7 +313,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
         },
         copyright: {
           license: {
-            license: 'by-sa',
+            license: 'CC-BY-SA-4.0',
             description: 'Creative Commons Attribution-ShareAlike 2.0 Generic',
             url: 'https://creativecommons.org/licenses/by-sa/2.0/',
           },

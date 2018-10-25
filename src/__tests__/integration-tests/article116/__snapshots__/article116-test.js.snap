@@ -12,7 +12,7 @@ Object {
     ],
     "license": Object {
       "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
-      "license": "by-sa",
+      "license": "CC-BY-SA-4.0",
       "url": "https://creativecommons.org/licenses/by-sa/2.0/",
     },
     "origin": "",
@@ -31,7 +31,7 @@ Object {
             },
           ],
           "license": Object {
-            "license": "by-sa",
+            "license": "CC-BY-SA-4.0",
           },
           "processors": Array [
             Object {
@@ -312,7 +312,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             <button class=\\"c-button c-button--outline\\"
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC BY-SA Regissør: Wes Anderson\\">Kopier referanse
+              data-copy-string=\\"CC-BY-SA-4.0 Regissør: Wes Anderson\\">Kopier referanse
             </button>
           </div>
         </div>

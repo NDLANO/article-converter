@@ -22,7 +22,7 @@ test('get meta data from embeds', async () => {
       image: {
         title: { title: 'title' },
         alttext: { alttext: 'alt' },
-        copyright: { license: 'by-sa' },
+        copyright: { license: 'CC-BY-SA-4.0' },
         imageUrl: 'http://example.no/1234.jpg',
       },
       plugin: imagePlugin,
@@ -32,7 +32,7 @@ test('get meta data from embeds', async () => {
       image: {
         title: { title: 'title 2' },
         alttext: { alttext: 'alt 2' },
-        copyright: { license: 'by-sa' },
+        copyright: { license: 'CC-BY-SA-4.0' },
         imageUrl: 'http://example.no/4123.jpg',
       },
     },
@@ -44,7 +44,7 @@ test('get meta data from embeds', async () => {
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
         },
-        copyright: { license: 'by-sa' },
+        copyright: { license: 'CC-BY-SA-4.0' },
       },
       plugin: audioPlugin,
     },
@@ -52,7 +52,7 @@ test('get meta data from embeds', async () => {
       data: { resource: 'brightcove', account: 'account', videoid: '1337' },
       brightcove: {
         name: 'video title',
-        copyright: { license: 'by-sa' },
+        copyright: { license: 'CC-BY-SA-4.0' },
         images: {
           poster: {
             src: 'https://image.no/123.jpg',
@@ -78,7 +78,7 @@ test('get meta data from embeds', async () => {
     {
       data: { resource: 'brightcove', account: 'account', videoid: '42' },
       brightcove: {
-        copyright: { license: 'by-sa' },
+        copyright: { license: 'CC-BY-SA-4.0' },
         sources: [
           {
             src: 'test3.mp4',
