@@ -7,11 +7,11 @@
  */
 
 import React from 'react';
-import ReactDOMServerStream from 'react-dom/server';
 import defined from 'defined';
 import Concept from 'ndla-ui/lib/Concept';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
+import { render } from '../utils/render';
 
 const messages = locale => ({
   ariaLabel: t(locale, 'concept.showDescription'),
@@ -24,7 +24,7 @@ export default function createConceptPlugin() {
 
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
-    return ReactDOMServerStream.render(
+    return render(
       <Concept
         id={contentId}
         authors={[]}
@@ -47,7 +47,7 @@ export default function createConceptPlugin() {
     const authors = defined(copyright.authors, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
 
-    return ReactDOMServerStream.render(
+    return render(
       <Concept
         id={id}
         title={title}
