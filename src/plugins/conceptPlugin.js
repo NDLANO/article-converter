@@ -44,7 +44,7 @@ export default function createConceptPlugin() {
     } = embed.concept;
 
     const copyright = defined(embed.concept.copyright, {});
-    const authors = defined(copyright.authors, []).map(author => author.name);
+    const authors = defined(copyright.creators, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
 
     return render(
