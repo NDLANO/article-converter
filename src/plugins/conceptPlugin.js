@@ -25,20 +25,19 @@ export default function createConceptPlugin() {
     const { contentId, linkText } = embed.data;
     return render(
       <Notion
-        id={contentId}
+        id={`notion_id_${contentId}`}
         ariaLabel={t(locale, 'concept.showDescription')}
         title={t(locale, 'concept.error.title')}
         content={
-          <Fragment>
-            <NotionDialogContent>
-              <NotionDialogText>
-                {t(locale, 'concept.error.content')}
-              </NotionDialogText>
-            </NotionDialogContent>
-          </Fragment>
+          <NotionDialogContent>
+            <NotionDialogText>
+              {t(locale, 'concept.error.content')}
+            </NotionDialogText>
+          </NotionDialogContent>
         }>
         {linkText}
-      </Notion>
+      </Notion>,
+      locale
     );
   };
 
@@ -54,7 +53,7 @@ export default function createConceptPlugin() {
     const license = defined(copyright.license, {}).license;
     return render(
       <Notion
-        id={id}
+        id={`notion_id_${id}`}
         ariaLabel={t(locale, 'concept.showDescription')}
         title={title}
         content={
@@ -70,7 +69,8 @@ export default function createConceptPlugin() {
           </Fragment>
         }>
         {embed.data.linkText}
-      </Notion>
+      </Notion>,
+      locale
     );
   };
 
