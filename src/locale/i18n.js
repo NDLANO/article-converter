@@ -9,8 +9,8 @@
 const defined = require('defined');
 const IntlMessageFormat = require('intl-messageformat');
 const memoizeIntlConstructor = require('intl-format-cache');
-const { formatMessage } = require('ndla-i18n');
-const { contributorTypes } = require('ndla-licenses');
+const { formatMessage } = require('@ndla/i18n');
+const { contributorTypes } = require('@ndla/licenses');
 
 let getMessageFormat;
 

@@ -6,17 +6,16 @@
  *
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import defined from 'defined';
-import Concept from 'ndla-ui/lib/Concept';
+import Notion, {
+  NotionDialogContent,
+  NotionDialogText,
+  NotionDialogLicenses,
+} from '@ndla/notion';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-
-const messages = locale => ({
-  ariaLabel: t(locale, 'concept.showDescription'),
-  close: t(locale, 'close'),
-});
 
 export default function createConceptPlugin() {
   const fetchResource = (embed, headers, lang) =>
@@ -25,14 +24,21 @@ export default function createConceptPlugin() {
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
     return render(
-      <Concept
+      <Notion
         id={contentId}
-        authors={[]}
+        ariaLabel={t(locale, 'concept.showDescription')}
         title={t(locale, 'concept.error.title')}
-        content={t(locale, 'concept.error.content')}
-        messages={messages(locale)}>
+        content={
+          <Fragment>
+            <NotionDialogContent>
+              <NotionDialogText>
+                {t(locale, 'concept.error.content')}
+              </NotionDialogText>
+            </NotionDialogContent>
+          </Fragment>
+        }>
         {linkText}
-      </Concept>
+      </Notion>
     );
   };
 
@@ -46,18 +52,25 @@ export default function createConceptPlugin() {
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.creators, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
-
     return render(
-      <Concept
+      <Notion
         id={id}
+        ariaLabel={t(locale, 'concept.showDescription')}
         title={title}
-        authors={authors}
-        content={content}
-        messages={messages(locale)}
-        source={copyright.origin}
-        license={license}>
+        content={
+          <Fragment>
+            <NotionDialogContent>
+              <NotionDialogText>{content}</NotionDialogText>
+            </NotionDialogContent>
+            <NotionDialogLicenses
+              license={license}
+              source={copyright.origin}
+              authors={authors}
+            />
+          </Fragment>
+        }>
         {embed.data.linkText}
-      </Concept>
+      </Notion>
     );
   };
 
