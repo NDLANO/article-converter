@@ -18,7 +18,7 @@ if (!getMessageFormat) {
   getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
 }
 
-export const messages = {
+const messages = {
   nn: {
     close: 'Lukk',
     title: 'Tittel',
