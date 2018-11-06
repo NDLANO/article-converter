@@ -74,6 +74,16 @@ const getAccessToken = async () => {
   return fetchAccessToken();
 };
 
+// tmp solution for wrong contributorType in brightcove
+const mapContributorType = type => {
+  switch (type) {
+    case 'Manus':
+      return 'Manusforfatter';
+    default:
+      return type;
+  }
+};
+
 const getLicenseByNBTitle = title => {
   switch (title.replace(/\s/g, '').toLowerCase()) {
     case 'navngivelse-ikkekommersiell-ingenbearbeidelse':
@@ -106,7 +116,7 @@ export const getContributorGroups = fields => {
       return { creators: { type: '', name: contributorFields[0] } };
     const [type, name] = contributorFields;
     const contributorType = Object.keys(contributorTypes.nb).find(
-      key => contributorTypes.nb[key] === type
+      key => contributorTypes.nb[key] === mapContributorType(type)
     );
     return { type: contributorType, name };
   };
