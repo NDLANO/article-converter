@@ -10,12 +10,16 @@
 
 import React from 'react';
 import defined from 'defined';
-import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-button/lib/Button';
+import {
+  Figure,
+  FigureLicenseDialog,
+  FigureCaption,
+} from '@ndla/ui/lib/Figure';
+import Button from '@ndla/button/lib/Button';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
-} from 'ndla-licenses';
+} from '@ndla/licenses';
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';

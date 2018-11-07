@@ -14,13 +14,13 @@ import {
   FigureLicenseDialog,
   FigureCaption,
   FigureFullscreenDialog,
-} from 'ndla-ui/lib/Figure';
-import Button from 'ndla-button/lib/Button';
-import Image from 'ndla-ui/lib/Image';
+} from '@ndla/ui/lib/Figure';
+import Button from '@ndla/button/lib/Button';
+import Image from '@ndla/ui/lib/Image';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
-} from 'ndla-licenses';
+} from '@ndla/licenses';
 import queryString from 'query-string';
 import {
   errorSvgSrc,

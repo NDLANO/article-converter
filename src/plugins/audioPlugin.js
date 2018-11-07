@@ -7,13 +7,17 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Figure, FigureLicenseDialog, FigureCaption } from 'ndla-ui/lib/Figure';
-import Button from 'ndla-button/lib/Button';
-import AudioPlayer from 'ndla-ui/lib/AudioPlayer';
+import {
+  Figure,
+  FigureLicenseDialog,
+  FigureCaption,
+} from '@ndla/ui/lib/Figure';
+import Button from '@ndla/button/lib/Button';
+import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
-} from 'ndla-licenses';
+} from '@ndla/licenses';
 import t from '../locale/i18n';
 import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';

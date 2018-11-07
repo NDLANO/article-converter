@@ -7,9 +7,9 @@
  */
 
 import React from 'react';
-import { RelatedArticle } from 'ndla-ui/lib/RelatedArticleList';
-import ContentTypeBadge from 'ndla-ui/lib/ContentTypeBadge';
-import constants from 'ndla-ui/lib/model';
+import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
+import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
+import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
 import { RelatedArticleCounter } from '../utils/embedGroupHelpers';
 import log from '../utils/logger';

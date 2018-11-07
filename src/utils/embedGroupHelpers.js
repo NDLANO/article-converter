@@ -6,7 +6,7 @@
  *
  */
 import React from 'react';
-import RelatedArticleList from 'ndla-ui/lib/RelatedArticleList';
+import RelatedArticleList from '@ndla/ui/lib/RelatedArticleList';
 import { render } from './render';
 import t from '../locale/i18n';
 

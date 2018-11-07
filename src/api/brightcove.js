@@ -7,7 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { contributorTypes, contributorGroups } from 'ndla-licenses';
+import { contributorTypes, contributorGroups } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { brightcoveClientId, brightcoveClientSecret } from '../config';
 
