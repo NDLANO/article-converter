@@ -25,4 +25,12 @@ module.exports = {
   },
   host,
   basePath: '/',
+  securityDefinitions: {
+    oauth2: {
+      type: 'oauth2',
+      description: '',
+      flow: 'client credentials',
+      authorizationUrl: `https://${config.auth0Hostname}/authorize`,
+    },
+  },
 };
