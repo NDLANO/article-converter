@@ -79,6 +79,8 @@ const mapContributorType = type => {
   switch (type) {
     case 'Manus':
       return 'Manusforfatter';
+    case 'Musikk':
+      return 'Komponist';
     default:
       return type;
   }
