@@ -131,6 +131,7 @@ export default function createAudioPlugin() {
             reuseLabel={t(locale, 'audio.reuse')}
             licenseRights={license.rights}
             authors={authors}
+            locale={locale}
           />
           <FigureLicenseDialog
             id={figureLicenseDialogId}
@@ -138,6 +139,7 @@ export default function createAudioPlugin() {
             license={license}
             authors={contributors}
             origin={origin}
+            locale={locale}
             messages={messages}>
             <AudioActionButtons
               locale={locale}
