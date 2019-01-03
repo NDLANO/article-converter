@@ -30,6 +30,17 @@ const domain = () => {
   }
 };
 
+const getAuth0Hostname = () => {
+  switch (process.env.NDLA_ENVIRONMENT) {
+    case 'prod':
+      return 'ndla.eu.auth0.com';
+    case 'staging':
+      return 'ndla-staging.eu.auth0.com';
+    default:
+      return 'ndla-test.eu.auth0.com';
+  }
+};
+
 module.exports = Object.assign(
   {
     host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
@@ -38,6 +49,7 @@ module.exports = Object.assign(
     ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
     brightcoveClientId: process.env.BRIGHTCOVE_API_CLIENT_ID || '',
     brightcoveClientSecret: process.env.BRIGHTCOVE_API_CLIENT_SECRET || '',
+    auth0Hostname: getAuth0Hostname(),
 
     app: {
       title: 'NDLA Content frontend',

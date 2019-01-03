@@ -3,6 +3,8 @@ FROM node:10-alpine
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter
 
+RUN apk add py2-pip jq && pip install awscli
+COPY run-article-converter.sh /
 RUN npm install pm2 -g
 
 # Copy necessary files for installing dependencies
@@ -19,4 +21,4 @@ ENV NODE_ENV=production
 
 RUN yarn build
 
-CMD ["pm2-runtime", "-i", "max", "build/server.js", "|", "bunyan"]
+CMD ["/run-article-converter.sh", "pm2-runtime -i max build/server.js '|' bunyan"]
