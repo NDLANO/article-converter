@@ -123,7 +123,6 @@ export const transformTables = (content, lang) =>
   });
 
 export const htmlTransforms = [
-  transformAsides,
   transformRelatedContent,
   content => {
     content('math').attr('display', 'block');
@@ -147,4 +146,5 @@ export const htmlTransforms = [
       .addClass('u-large-body-text'),
   transformTables,
   transformFileList,
+  transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];
