@@ -211,6 +211,7 @@ export default function createImagePlugin() {
             reuseLabel={t(locale, 'image.reuse')}
             licenseRights={license.rights}
             authors={authors}
+            locale={locale}
           />
         )}
         <FigureLicenseDialog
@@ -219,6 +220,7 @@ export default function createImagePlugin() {
           license={license}
           authors={contributors}
           origin={image.copyright.origin}
+          locale={locale}
           messages={messages}>
           <ImageActionButtons
             locale={locale}
@@ -231,6 +233,7 @@ export default function createImagePlugin() {
           title={image.title.title}
           license={license}
           caption={caption}
+          locale={locale}
           reuseLabel={t(locale, 'image.reuse')}
           authors={contributors}
           actionButtons={

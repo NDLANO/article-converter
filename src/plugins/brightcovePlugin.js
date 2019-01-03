@@ -120,6 +120,7 @@ export default function createBrightcovePlugin() {
         <FigureCaption
           figureId={figureId}
           id={id}
+          locale={locale}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
@@ -128,6 +129,7 @@ export default function createBrightcovePlugin() {
         <FigureLicenseDialog
           id={id}
           title={brightcove.name}
+          locale={locale}
           license={license}
           authors={contributors}
           messages={messages}>

@@ -102,8 +102,57 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <button class=\\"c-button c-factbox__button\\"
-      type=\\"button\\" />
+    <style data-emotion-css=\\"4dbh1g\\">
+      .css-4dbh1g {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      }
+      .css-4dbh1g:hover,
+      .css-4dbh1g:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-4dbh1g:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-4dbh1g[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-4dbh1g:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+    </style>
+    <button type=\\"button\\"
+      class=\\"c-factbox__button css-4dbh1g e1ljv5qk0\\" />
 
   </aside>
 </section>
@@ -112,8 +161,57 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <button class=\\"c-button c-factbox__button\\"
-    type=\\"button\\" />
+  <style data-emotion-css=\\"4dbh1g\\">
+    .css-4dbh1g {
+      display: inline-block;
+      color: #ffffff;
+      background-color: #20588f;
+      border: 2px solid #20588f;
+      border-radius: 4px;
+      padding: 4px 13px;
+      outline-width: 0;
+      cursor: pointer;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      font-size: 16px;
+      font-size: 0.8888888888888888rem;
+      line-height: 1.625;
+      font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+        KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+        sans-serif;
+      font-weight: 700;
+      -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    }
+    .css-4dbh1g:hover,
+    .css-4dbh1g:focus {
+      color: white;
+      background-color: #184673;
+      border: 2px solid rgba(32, 88, 143, 0);
+      -webkit-transform: translateY(1px) translateX(1px);
+      -ms-transform: translateY(1px) translateX(1px);
+      transform: translateY(1px) translateX(1px);
+    }
+    .css-4dbh1g:active {
+      -webkit-transform: translateY(2px) translateX(2px);
+      -ms-transform: translateY(2px) translateX(2px);
+      transform: translateY(2px) translateX(2px);
+    }
+    .css-4dbh1g[disabled] {
+      color: #777777;
+      background-color: #e6e6e6;
+      border-color: transparent;
+      cursor: not-allowed;
+      -webkit-transform: translateY(0) translateX(0);
+      -ms-transform: translateY(0) translateX(0);
+      transform: translateY(0) translateX(0);
+    }
+    .css-4dbh1g:focus {
+      box-shadow: 0 0 2px #20588f;
+    }
+  </style>
+  <button type=\\"button\\"
+    class=\\"c-factbox__button css-4dbh1g e1ljv5qk0\\" />
 
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>"
