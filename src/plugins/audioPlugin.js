@@ -12,7 +12,7 @@ import {
   FigureLicenseDialog,
   FigureCaption,
 } from '@ndla/ui/lib/Figure';
-import Button from '@ndla/button/lib/Button';
+import Button, { buttonStyle, appearances } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
