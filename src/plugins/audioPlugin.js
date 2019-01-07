@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cx } from 'emotion';
 import {
   Figure,
   FigureLicenseDialog,
@@ -72,8 +73,8 @@ export default function createAudioPlugin() {
     <a
       key="download"
       href={src}
-      className="c-button c-button--outline"
-      download>
+      download
+      className={cx(buttonStyle, appearances.outline)}>
       {t(locale, 'audio.download')}
     </a>,
   ];
@@ -118,6 +119,7 @@ export default function createAudioPlugin() {
       learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
+
     return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
