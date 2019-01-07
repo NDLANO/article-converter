@@ -275,14 +275,156 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 <li class=\\"c-figure-license__item\\">Bearbeider: Forlag name</li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
+                <style data-emotion-css=\\"1vysomf\\">
+                  .css-1vysomf {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1vysomf:hover,
+                  .css-1vysomf:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1vysomf:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1vysomf[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1vysomf:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1vysomf:hover,
+                  .css-1vysomf:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1vysomf:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
                 <a href=\\"http://audio.no/file/voof.mp3\\"
-                  class=\\"c-button c-button--outline\\"
-                  download>Last ned lydklipp
+                  download
+                  class=\\"css-1vysomf\\">Last ned lydklipp
                 </a>
               </div>
             </div>
@@ -540,10 +682,81 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\" />
 
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 \\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -767,10 +980,81 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\" />
 
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 \\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
               </div>
             </div>
@@ -871,11 +1155,85 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 
   <figure class=\\"c-figure u-float-left\\"
     id=\\"figure-1\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1\\"
       data-dialog-source-id=\\"figure-1\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://ndla.no/images/1.jpg?width=2720 2720w, http://ndla.no/images/1.jpg?width=2080 2080w, http://ndla.no/images/1.jpg?width=1760 1760w, http://ndla.no/images/1.jpg?width=1440 1440w, http://ndla.no/images/1.jpg?width=1120 1120w, http://ndla.no/images/1.jpg?width=1000 1000w, http://ndla.no/images/1.jpg?width=960 960w, http://ndla.no/images/1.jpg?width=800 800w, http://ndla.no/images/1.jpg?width=640 640w, http://ndla.no/images/1.jpg?width=480 480w, http://ndla.no/images/1.jpg?width=320 320w, http://ndla.no/images/1.jpg?width=240 240w, http://ndla.no/images/1.jpg?width=180 180w\\"
@@ -1097,12 +1455,83 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               </ul>
 
               <div class=\\"c-figure-license__cta-block\\">
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
 
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
-Kunstner: Kari Maler\\">Kopier referanse
+Kunstner: Kari Maler\\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -1256,11 +1685,11 @@ Kunstner: Kari Maler\\">Kopier referanse
 
                   <div class=\\"c-figure-license__cta-block\\">
 
-                    <button class=\\"c-button c-button--outline\\"
-                      type=\\"button\\"
+                    <button type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
                       data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
-Kunstner: Kari Maler\\">Kopier referanse
+Kunstner: Kari Maler\\"
+                      class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/1.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
@@ -1279,11 +1708,85 @@ Kunstner: Kari Maler\\">Kopier referanse
   </figure>
   <figure class=\\"c-figure\\"
     id=\\"figure-2\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2\\"
       data-dialog-source-id=\\"figure-2\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://ndla.no/images/2.jpg?width=2720 2720w, http://ndla.no/images/2.jpg?width=2080 2080w, http://ndla.no/images/2.jpg?width=1760 1760w, http://ndla.no/images/2.jpg?width=1440 1440w, http://ndla.no/images/2.jpg?width=1120 1120w, http://ndla.no/images/2.jpg?width=1000 1000w, http://ndla.no/images/2.jpg?width=960 960w, http://ndla.no/images/2.jpg?width=800 800w, http://ndla.no/images/2.jpg?width=640 640w, http://ndla.no/images/2.jpg?width=480 480w, http://ndla.no/images/2.jpg?width=320 320w, http://ndla.no/images/2.jpg?width=240 240w, http://ndla.no/images/2.jpg?width=180 180w\\"
@@ -1496,10 +1999,81 @@ Kunstner: Kari Maler\\">Kopier referanse
                 <li class=\\"c-figure-license__item\\">Tittel: image title 2</li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -1640,10 +2214,10 @@ Kunstner: Kari Maler\\">Kopier referanse
                     </li>
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
-                    <button class=\\"c-button c-button--outline\\"
-                      type=\\"button\\"
+                    <button type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
+                      data-copy-string=\\"CC-BY-NC-4.0 \\"
+                      class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                     </button>
                     <a href=\\"http://ndla.no/images/2.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
@@ -1699,11 +2273,85 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 <section>
   <figure class=\\"c-figure\\"
     id=\\"figure-1326\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-1326\\"
       data-dialog-source-id=\\"figure-1326\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"alt\\"
           srcset=\\"http://api.test.ndla.no/images/1.jpg?width=2720 2720w, http://api.test.ndla.no/images/1.jpg?width=2080 2080w, http://api.test.ndla.no/images/1.jpg?width=1760 1760w, http://api.test.ndla.no/images/1.jpg?width=1440 1440w, http://api.test.ndla.no/images/1.jpg?width=1120 1120w, http://api.test.ndla.no/images/1.jpg?width=1000 1000w, http://api.test.ndla.no/images/1.jpg?width=960 960w, http://api.test.ndla.no/images/1.jpg?width=800 800w, http://api.test.ndla.no/images/1.jpg?width=640 640w, http://api.test.ndla.no/images/1.jpg?width=480 480w, http://api.test.ndla.no/images/1.jpg?width=320 320w, http://api.test.ndla.no/images/1.jpg?width=240 240w, http://api.test.ndla.no/images/1.jpg?width=180 180w\\"
@@ -1916,10 +2564,81 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 <li class=\\"c-figure-license__item\\">Tittel: image title</li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                   class=\\"c-button c-button--outline\\"
@@ -2059,10 +2778,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     <li class=\\"c-figure-license__item\\">Tittel: image title</li>
                   </ul>
                   <div class=\\"c-figure-license__cta-block\\">
-                    <button class=\\"c-button c-button--outline\\"
-                      type=\\"button\\"
+                    <button type=\\"button\\"
                       data-copied-title=\\"Kopiert!\\"
-                      data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
+                      data-copy-string=\\"CC-BY-NC-4.0 \\"
+                      class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                     </button>
                     <a href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                       class=\\"c-button c-button--outline\\"
@@ -2304,10 +3023,81 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 <li class=\\"c-figure-license__item\\">Tittel: brightcove video</li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <style data-emotion-css=\\"1kifoxg\\">
+                  .css-1kifoxg {
+                    display: inline-block;
+                    color: #ffffff;
+                    background-color: #20588f;
+                    border: 2px solid #20588f;
+                    border-radius: 4px;
+                    padding: 4px 13px;
+                    outline-width: 0;
+                    cursor: pointer;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-size: 0.8888888888888888rem;
+                    line-height: 1.625;
+                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
+                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
+                    font-weight: 700;
+                    -webkit-transition: all 0.2s
+                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    color: #20588f;
+                    background-color: transparent;
+                    border: 2px solid #20588f;
+                    font-weight: 700;
+                    box-shadow: none;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #184673;
+                    border: 2px solid rgba(32, 88, 143, 0);
+                    -webkit-transform: translateY(1px) translateX(1px);
+                    -ms-transform: translateY(1px) translateX(1px);
+                    transform: translateY(1px) translateX(1px);
+                  }
+                  .css-1kifoxg:active {
+                    -webkit-transform: translateY(2px) translateX(2px);
+                    -ms-transform: translateY(2px) translateX(2px);
+                    transform: translateY(2px) translateX(2px);
+                  }
+                  .css-1kifoxg[disabled] {
+                    color: #777777;
+                    background-color: #e6e6e6;
+                    border-color: transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:focus {
+                    box-shadow: 0 0 2px #20588f;
+                  }
+                  .css-1kifoxg:hover,
+                  .css-1kifoxg:focus {
+                    color: white;
+                    background-color: #20588f;
+                    border: 2px solid transparent;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                  .css-1kifoxg:disabled {
+                    border: 2px solid transparent;
+                    cursor: not-allowed;
+                    -webkit-transform: translateY(0) translateX(0);
+                    -ms-transform: translateY(0) translateX(0);
+                    transform: translateY(0) translateX(0);
+                  }
+                </style>
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-4.0 \\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-4.0 \\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
               </div>
             </div>
