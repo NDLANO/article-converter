@@ -408,6 +408,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
       }
     </style>
     <button type=\\"button\\"
+      data-type=\\"related-article-button\\"
       data-showmore=\\"Vis flere relaterte artikler\\"
       data-showless=\\"Vis mindre\\"
       class=\\"css-1kifoxg e1ljv5qk0\\">Vis flere relaterte artikler

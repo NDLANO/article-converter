@@ -173,27 +173,27 @@
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
 
-"@ndla/article-scripts@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@ndla/article-scripts/-/article-scripts-0.5.1.tgz#5cb07fb9e7ec45e74a3e23cb97802fa163eb3996"
-  integrity sha512-NmxtkG7GZenYNks+9UPOsnOEcSBRCaPJJekCLETse4B2LXypOdf5aQuT6J8IPk2dcEh2q+2qWHflw+8ySO0FHg==
+"@ndla/article-scripts@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@ndla/article-scripts/-/article-scripts-0.5.3.tgz#3d8f0ea7d09f9a07e941be7cbe3d871f89e0ff7b"
+  integrity sha512-zoTnzyg4uRo9diXBoDBdHGePhFYFTQBOU6731/X3NpC9R4O2k4CF4Hc54pgmIb9DreYKU2q+KCl6fEEjGao6pg==
   dependencies:
-    "@ndla/util" "^0.3.0"
-    focus-trap "^2.4.3"
+    "@ndla/util" "^0.3.1"
+    focus-trap "^3.0.0"
     jump.js "^1.0.2"
     lodash "^4.17.5"
 
-"@ndla/button@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@ndla/button/-/button-0.2.1.tgz#940bf815f6232db38a966e4f987199e84ed9cbef"
-  integrity sha512-kZZ/xYQlPJVTq7LhLK3Z6uRrJCXfBcHHqQkJQed1s5U2LqvU8U+dSf711167P22+GVxePNrgJ8CS3+JCeZ+tsw==
+"@ndla/button@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@ndla/button/-/button-0.2.2.tgz#08e41d12f446aad11d87d8c4b9169fef83b72b35"
+  integrity sha512-jTMN2RGPMGF8hnOwRzMi4DhaLYVQiyYuchnf92+/V3sW4tyIpb+U3lgE7vUFJNYiIQxX6KNTJN/fK7Xf433f8A==
   dependencies:
-    "@ndla/core" "^0.4.4"
+    "@ndla/core" "^0.4.5"
 
-"@ndla/core@^0.4.3", "@ndla/core@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@ndla/core/-/core-0.4.4.tgz#2113de68023b5e14fca8b8f37ecdb910477129f7"
-  integrity sha512-vPT5yYR34Vqj5i92FsiE3SiP6RuPw5F10scYHvqybCobyzGe6MbEnziq6Zv7EohzrNjIiuC+I4m/iCKR6Q9Wnw==
+"@ndla/core@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@ndla/core/-/core-0.4.5.tgz#435115293e29b5139de5c79c68d1259085c5f603"
+  integrity sha512-FqkiKH1Q+92GT46Exl0cgBVJjMIaZWU5BfllhmHcfpdxt6T03sbEMjSNjkXmakadNOCYSQPf0E/jRB0+fc0+AA==
   dependencies:
     facepaint "^1.2.1"
     inuitcss "6.0.0-beta.4"
@@ -210,65 +210,65 @@
     intl-messageformat "^2.2.0"
     invariant "^2.2.3"
 
-"@ndla/icons@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-0.6.2.tgz#d8776523b2f74193f64babcff1985f14868e3a9d"
-  integrity sha512-PeP0ZhRzzbkXjDLa2s8enMxKZ5zRMCdyj+Kc1CPhr4hvRfbY/KDpr6v6UzF+pcVA+VdHOV0wHUnvK9s/Af5zkg==
+"@ndla/icons@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-0.6.3.tgz#9026a4052349f3fb3b1499d05167fcaf828131c4"
+  integrity sha512-yXn9gBgpMEd08WjZ3qb5jDTj6sPt12867RLRAoae3MGPUNK+eQdhxC4dnk4i80W7yurCgmQfxkTgeONI6TjDQA==
 
-"@ndla/licenses@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.4.2.tgz#dd816da7bc9b426ee0162970703249258fe9b03b"
-  integrity sha512-C0qkfP/CaEreorgs3466UNTZVnhQmnMvCCOYS84rKLaNgiDdH0bEhM09P8gWXsqgl0FHGcZxuiqfshfQOxFHRw==
+"@ndla/licenses@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.4.3.tgz#26881ecd3bc371970c7c3678a0df068caed40896"
+  integrity sha512-wT18L6MvEEQD/RiC5EUZ4cWGxPhDc60FIg09QeaESAZQNqbUK4ON91GTUDzilB1meEBCuAhLe3w7/D90lZ/cAw==
   dependencies:
     defined "1.0.0"
 
-"@ndla/modal@^0.2.6":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/@ndla/modal/-/modal-0.2.6.tgz#ec105b82317ae139c71a20c7cf11229a8ffab672"
-  integrity sha512-vBfkO/FpGt031UW23Ohbm/EZ5JKwMqg54NwpSbZi6ovUoSjz/EinK9sS6b1Pm6JA+dE6LhPG7i/XfceLO/9UVg==
+"@ndla/modal@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@ndla/modal/-/modal-0.2.7.tgz#d8f865bc0f4160e6d2dc7a32ea36ff7a3e6d132b"
+  integrity sha512-j37RtnijmDANmP2I+n+gR3gugeb5ezo7iqQD1LjdpITehAL/zdGMhSkk2J7WaIhAYjSpitKm/oASjBzWCyPK1w==
   dependencies:
-    "@ndla/button" "^0.2.1"
-    "@ndla/core" "^0.4.4"
+    "@ndla/button" "^0.2.2"
+    "@ndla/core" "^0.4.5"
     "@ndla/util" "^0.3.1"
 
-"@ndla/notion@^0.1.20":
-  version "0.1.20"
-  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.1.20.tgz#2f527d0dea3695820bcb727adc1577dd7a6ea4a5"
-  integrity sha512-MsI3KoDN41KJ/PA77bI+dJnkz+3HGVQXWHgVDD3CG6QjtPp5N8WaZPbt+Wp0gjXNGwMjFmAzbOOAgqhyDB1D0A==
+"@ndla/notion@^0.1.21":
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.1.21.tgz#9f25155ac45fdd292d62c1e7bc9e9a8335a74fde"
+  integrity sha512-OoIYje3gIRIMf7LflMJn7lHV0ncpJrBC+GR+lMVjoNrm/zpiWpOSSgyKMa3i8XXb1N5XWF9odd1aE5iKIcRbEg==
   dependencies:
-    "@ndla/core" "^0.4.4"
-    "@ndla/licenses" "^0.4.2"
-    "@ndla/modal" "^0.2.6"
-    "@ndla/ui" "^0.19.7"
+    "@ndla/core" "^0.4.5"
+    "@ndla/licenses" "^0.4.3"
+    "@ndla/modal" "^0.2.7"
+    "@ndla/ui" "^0.19.8"
 
-"@ndla/tabs@^0.9.5":
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/@ndla/tabs/-/tabs-0.9.5.tgz#dc652589d600f29abf11dde5078ea862f23f4500"
-  integrity sha512-+/BmupmmWsTAYXxV9pe7eHIO+7PEfbLLuF0vta8C8pRZh/e3X28wmP3d5nKDFj+Iz7FU9ucTZLXvenKZzK3w+Q==
+"@ndla/tabs@^0.9.6":
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/@ndla/tabs/-/tabs-0.9.6.tgz#ab12d59126ec4931670321fa991fda80fcf9c91b"
+  integrity sha512-0B6H3PVopU7dcYNW0P5MI0NZGHLTRAMAMjXqxXaHn+YL8ySx/mQg3K2b3rSkCXTLGP52B6dNS+MiTu87nqBrGQ==
   dependencies:
-    "@ndla/core" "^0.4.4"
+    "@ndla/core" "^0.4.5"
     lodash "^4.17.11"
 
-"@ndla/tooltip@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@ndla/tooltip/-/tooltip-0.1.1.tgz#cca5ace82d6c1100c9dec5957d1dcf6cf626b5dc"
-  integrity sha512-MBj1JEmi85hwuQZfYwk/j/34DpBa091ENaWw5Nh4CDIodjlKCPW/X8dMaly+c/qRAI43u7kWFQEur/5HJILJ1A==
+"@ndla/tooltip@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@ndla/tooltip/-/tooltip-0.1.2.tgz#5358fb6505dcdafa076fcc3c75b0eaacb611a3ec"
+  integrity sha512-YitlIpzmtCqK2m0S8KvVLCjOhGuoukfqdF9xtB2YJRUnFLeMuYqnO98Gox5tP8+KDZxcwwWRTABWL3c4rzHj3g==
   dependencies:
-    "@ndla/core" "^0.4.3"
+    "@ndla/core" "^0.4.5"
 
-"@ndla/ui@^0.19.7":
-  version "0.19.7"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.19.7.tgz#d0042de35e4474f7afe53e1e895dcd861df9896d"
-  integrity sha512-vbQlKDCDnU3QkhUqUhn6+NGDRGF6FtxbKjH+X5S7vhOVHhSlb6W/fNYowSy+NhJ+XSDbx4/qQqQMZ+QbzsJWEw==
+"@ndla/ui@^0.19.8":
+  version "0.19.8"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.19.8.tgz#2cd3c1119c24f9c5712665136cd4b5b5d7b41681"
+  integrity sha512-fd/lU4HnloTTeRM9rPxokU1fR15zv+meguAWXN7E5k4v4ogA4Qt7vkR3/JsnEt8QLVQi15RyPZQFDLFnlbGcFA==
   dependencies:
-    "@ndla/button" "^0.2.1"
-    "@ndla/core" "^0.4.4"
+    "@ndla/button" "^0.2.2"
+    "@ndla/core" "^0.4.5"
     "@ndla/i18n" "^0.4.1"
-    "@ndla/icons" "^0.6.2"
-    "@ndla/licenses" "^0.4.2"
-    "@ndla/modal" "^0.2.6"
-    "@ndla/tabs" "^0.9.5"
-    "@ndla/tooltip" "^0.1.1"
+    "@ndla/icons" "^0.6.3"
+    "@ndla/licenses" "^0.4.3"
+    "@ndla/modal" "^0.2.7"
+    "@ndla/tabs" "^0.9.6"
+    "@ndla/tooltip" "^0.1.2"
     "@ndla/util" "^0.3.1"
     classnames "2.2.6"
     focus-trap "^3.0.0"
@@ -281,13 +281,6 @@
     react-prop-types "0.4.0"
     react-slick "^0.23.2"
     react-transition-group "^2.5.1"
-
-"@ndla/util@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@ndla/util/-/util-0.3.0.tgz#144727e6ac228d9b2a451f9f194e4a29793c50c4"
-  dependencies:
-    defined "1.0.0"
-    pdfmake "^0.1.38"
 
 "@ndla/util@^0.3.1":
   version "0.3.1"
@@ -2896,12 +2889,6 @@ focus-trap-react@^4.0.0:
   resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-4.0.1.tgz#3cffd39341df3b2f546a4a2fe94cfdea66154683"
   dependencies:
     focus-trap "^3.0.0"
-
-focus-trap@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-2.4.3.tgz#95edc23e77829b7772cb2486d61fd6371ce112f9"
-  dependencies:
-    tabbable "^1.0.3"
 
 focus-trap@^3.0.0:
   version "3.0.0"
@@ -6333,10 +6320,6 @@ swagger-ui-express@^3.0.10:
 symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
-
-tabbable@^1.0.3:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-1.1.2.tgz#b171680aea6e0a3e9281ff23532e2e5de11c0d94"
 
 tabbable@^3.1.0:
   version "3.1.1"

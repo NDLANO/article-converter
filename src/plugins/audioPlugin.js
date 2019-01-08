@@ -7,13 +7,12 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cx } from 'emotion';
 import {
   Figure,
   FigureLicenseDialog,
   FigureCaption,
 } from '@ndla/ui/lib/Figure';
-import Button, { buttonStyle, appearances } from '@ndla/button';
+import Button, { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
@@ -23,6 +22,8 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+
+const Anchor = StyledButton.withComponent('a');
 
 export default function createAudioPlugin() {
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
@@ -70,13 +71,9 @@ export default function createAudioPlugin() {
       data-copy-string={copyString}>
       {t(locale, 'reference.copy')}
     </Button>,
-    <a
-      key="download"
-      href={src}
-      download
-      className={cx(buttonStyle, appearances.outline)}>
+    <Anchor key="download" href={src} download appearance="outline">
       {t(locale, 'audio.download')}
-    </a>,
+    </Anchor>,
   ];
 
   AudioActionButtons.propTypes = {

@@ -15,7 +15,7 @@ import {
   FigureCaption,
   FigureFullscreenDialog,
 } from '@ndla/ui/lib/Figure';
-import Button from '@ndla/button';
+import Button, { StyledButton } from '@ndla/button';
 import Image from '@ndla/ui/lib/Image';
 import {
   getLicenseByAbbreviation,
@@ -30,6 +30,8 @@ import {
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+
+const Anchor = StyledButton.withComponent('a');
 
 const getFigureClassnames = (size, align) =>
   classnames('c-figure', {
@@ -94,13 +96,9 @@ const ImageActionButtons = ({ locale, src, copyString }) => [
     data-copy-string={copyString}>
     {t(locale, 'reference.copy')}
   </Button>,
-  <a
-    key="download"
-    href={downloadUrl(src)}
-    className="c-button c-button--outline"
-    download>
+  <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
     {t(locale, 'image.download')}
-  </a>,
+  </Anchor>,
 ];
 
 ImageActionButtons.propTypes = {
