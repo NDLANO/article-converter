@@ -15,7 +15,7 @@ import {
   FigureLicenseDialog,
   FigureCaption,
 } from '@ndla/ui/lib/Figure';
-import Button from '@ndla/button/lib/Button';
+import Button from '@ndla/button';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,

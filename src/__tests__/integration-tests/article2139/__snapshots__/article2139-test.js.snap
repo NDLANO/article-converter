@@ -157,11 +157,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 <section>
   <figure class=\\"c-figure\\"
     id=\\"figure-2357\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2357\\"
       data-dialog-source-id=\\"figure-2357\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"Vann\\"
           srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
@@ -303,11 +377,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </p>
   <figure class=\\"c-figure u-float-left\\"
     id=\\"figure-2357\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-2357\\"
       data-dialog-source-id=\\"figure-2357\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"Ipsum\\"
           srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720&focalX=65.08801679586563&focalY=45.28137450199203 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080&focalX=65.08801679586563&focalY=45.28137450199203 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760&focalX=65.08801679586563&focalY=45.28137450199203 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440&focalX=65.08801679586563&focalY=45.28137450199203 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120&focalX=65.08801679586563&focalY=45.28137450199203 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000&focalX=65.08801679586563&focalY=45.28137450199203 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960&focalX=65.08801679586563&focalY=45.28137450199203 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800&focalX=65.08801679586563&focalY=45.28137450199203 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640&focalX=65.08801679586563&focalY=45.28137450199203 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480&focalX=65.08801679586563&focalY=45.28137450199203 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320&focalX=65.08801679586563&focalY=45.28137450199203 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240&focalX=65.08801679586563&focalY=45.28137450199203 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180&focalX=65.08801679586563&focalY=45.28137450199203 180w\\"
@@ -445,11 +593,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </p>
   <figure class=\\"c-figure\\"
     id=\\"figure-347\\">
-    <button class=\\"c-button c-button--stripped u-fullw\\"
-      type=\\"button\\"
+    <style data-emotion-css=\\"1juhdny\\">
+      .css-1juhdny {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #20588f;
+        border: 2px solid #20588f;
+        border-radius: 4px;
+        padding: 4px 13px;
+        outline-width: 0;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 1.625;
+        font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+          KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+          sans-serif;
+        font-weight: 700;
+        -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        -webkit-transition: background-color none;
+        transition: background-color none;
+        padding: 0;
+        border-radius: 0;
+        color: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        font-weight: 400;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:focus {
+        color: white;
+        background-color: #184673;
+        border: 2px solid rgba(32, 88, 143, 0);
+        -webkit-transform: translateY(1px) translateX(1px);
+        -ms-transform: translateY(1px) translateX(1px);
+        transform: translateY(1px) translateX(1px);
+      }
+      .css-1juhdny:active {
+        -webkit-transform: translateY(2px) translateX(2px);
+        -ms-transform: translateY(2px) translateX(2px);
+        transform: translateY(2px) translateX(2px);
+      }
+      .css-1juhdny[disabled] {
+        color: #777777;
+        background-color: #e6e6e6;
+        border-color: transparent;
+        cursor: not-allowed;
+        -webkit-transform: translateY(0) translateX(0);
+        -ms-transform: translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+      }
+      .css-1juhdny:focus {
+        box-shadow: 0 0 2px #20588f;
+      }
+      .css-1juhdny:hover,
+      .css-1juhdny:active,
+      .css-1juhdny:disabled,
+      .css-1juhdny:focus {
+        box-shadow: none;
+        color: #20588f;
+        background-color: transparent;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        border: none;
+      }
+      .css-1juhdny:focus {
+        outline-width: medium;
+      }
+    </style>
+    <button type=\\"button\\"
       data-dialog-trigger-id=\\"fs-347\\"
       data-dialog-source-id=\\"figure-347\\"
-      aria-label=\\"Se stor utgave av bilde\\">
+      aria-label=\\"Se stor utgave av bilde\\"
+      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"Cropped\\"
           src=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif\\"
@@ -705,14 +927,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <button class=\\"c-button c-button--outline\\"
-              type=\\"button\\"
+            <style data-emotion-css=\\"1kifoxg\\">
+              .css-1kifoxg {
+                display: inline-block;
+                color: #ffffff;
+                background-color: #20588f;
+                border: 2px solid #20588f;
+                border-radius: 4px;
+                padding: 4px 13px;
+                outline-width: 0;
+                cursor: pointer;
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                font-size: 16px;
+                font-size: 0.8888888888888888rem;
+                line-height: 1.625;
+                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                  SongTi, \\"宋体\\", sans-serif;
+                font-weight: 700;
+                -webkit-transition: all 0.2s
+                  cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                color: #20588f;
+                background-color: transparent;
+                border: 2px solid #20588f;
+                font-weight: 700;
+                box-shadow: none;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #184673;
+                border: 2px solid rgba(32, 88, 143, 0);
+                -webkit-transform: translateY(1px) translateX(1px);
+                -ms-transform: translateY(1px) translateX(1px);
+                transform: translateY(1px) translateX(1px);
+              }
+              .css-1kifoxg:active {
+                -webkit-transform: translateY(2px) translateX(2px);
+                -ms-transform: translateY(2px) translateX(2px);
+                transform: translateY(2px) translateX(2px);
+              }
+              .css-1kifoxg[disabled] {
+                color: #777777;
+                background-color: #e6e6e6;
+                border-color: transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:focus {
+                box-shadow: 0 0 2px #20588f;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #20588f;
+                border: 2px solid transparent;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:disabled {
+                border: 2px solid transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+            </style>
+            <button type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
+              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
+              class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
-              class=\\"c-button c-button--outline\\"
-              download>Last ned bildet
+              download
+              class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
             </a>
           </div>
         </div>
@@ -888,14 +1181,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
-                  class=\\"c-button c-button--outline\\"
-                  download>Last ned bildet
+                  download
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
                 </a>
               </div>
             </div>
@@ -1054,14 +1347,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <button class=\\"c-button c-button--outline\\"
-              type=\\"button\\"
+            <style data-emotion-css=\\"1kifoxg\\">
+              .css-1kifoxg {
+                display: inline-block;
+                color: #ffffff;
+                background-color: #20588f;
+                border: 2px solid #20588f;
+                border-radius: 4px;
+                padding: 4px 13px;
+                outline-width: 0;
+                cursor: pointer;
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                font-size: 16px;
+                font-size: 0.8888888888888888rem;
+                line-height: 1.625;
+                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                  SongTi, \\"宋体\\", sans-serif;
+                font-weight: 700;
+                -webkit-transition: all 0.2s
+                  cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                color: #20588f;
+                background-color: transparent;
+                border: 2px solid #20588f;
+                font-weight: 700;
+                box-shadow: none;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #184673;
+                border: 2px solid rgba(32, 88, 143, 0);
+                -webkit-transform: translateY(1px) translateX(1px);
+                -ms-transform: translateY(1px) translateX(1px);
+                transform: translateY(1px) translateX(1px);
+              }
+              .css-1kifoxg:active {
+                -webkit-transform: translateY(2px) translateX(2px);
+                -ms-transform: translateY(2px) translateX(2px);
+                transform: translateY(2px) translateX(2px);
+              }
+              .css-1kifoxg[disabled] {
+                color: #777777;
+                background-color: #e6e6e6;
+                border-color: transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:focus {
+                box-shadow: 0 0 2px #20588f;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #20588f;
+                border: 2px solid transparent;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:disabled {
+                border: 2px solid transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+            </style>
+            <button type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
+              data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
+              class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
-              class=\\"c-button c-button--outline\\"
-              download>Last ned bildet
+              download
+              class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
             </a>
           </div>
         </div>
@@ -1237,14 +1601,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
-                  class=\\"c-button c-button--outline\\"
-                  download>Last ned bildet
+                  download
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
                 </a>
               </div>
             </div>
@@ -1365,14 +1729,85 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <button class=\\"c-button c-button--outline\\"
-              type=\\"button\\"
+            <style data-emotion-css=\\"1kifoxg\\">
+              .css-1kifoxg {
+                display: inline-block;
+                color: #ffffff;
+                background-color: #20588f;
+                border: 2px solid #20588f;
+                border-radius: 4px;
+                padding: 4px 13px;
+                outline-width: 0;
+                cursor: pointer;
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                font-size: 16px;
+                font-size: 0.8888888888888888rem;
+                line-height: 1.625;
+                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                  SongTi, \\"宋体\\", sans-serif;
+                font-weight: 700;
+                -webkit-transition: all 0.2s
+                  cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                color: #20588f;
+                background-color: transparent;
+                border: 2px solid #20588f;
+                font-weight: 700;
+                box-shadow: none;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #184673;
+                border: 2px solid rgba(32, 88, 143, 0);
+                -webkit-transform: translateY(1px) translateX(1px);
+                -ms-transform: translateY(1px) translateX(1px);
+                transform: translateY(1px) translateX(1px);
+              }
+              .css-1kifoxg:active {
+                -webkit-transform: translateY(2px) translateX(2px);
+                -ms-transform: translateY(2px) translateX(2px);
+                transform: translateY(2px) translateX(2px);
+              }
+              .css-1kifoxg[disabled] {
+                color: #777777;
+                background-color: #e6e6e6;
+                border-color: transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:focus {
+                box-shadow: 0 0 2px #20588f;
+              }
+              .css-1kifoxg:hover,
+              .css-1kifoxg:focus {
+                color: white;
+                background-color: #20588f;
+                border: 2px solid transparent;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1kifoxg:disabled {
+                border: 2px solid transparent;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+            </style>
+            <button type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\">Kopier referanse
+              data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\"
+              class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
             </button>
             <a href=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif?download=true\\"
-              class=\\"c-button c-button--outline\\"
-              download>Last ned bildet
+              download
+              class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
             </a>
           </div>
         </div>
@@ -1510,14 +1945,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </li>
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
-                <button class=\\"c-button c-button--outline\\"
-                  type=\\"button\\"
+                <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\">Kopier referanse
+                  data-copy-string=\\"CC-BY-SA-4.0 Fotograf: Oktan Orangeriet\\"
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif?download=true\\"
-                  class=\\"c-button c-button--outline\\"
-                  download>Last ned bildet
+                  download
+                  class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
                 </a>
               </div>
             </div>

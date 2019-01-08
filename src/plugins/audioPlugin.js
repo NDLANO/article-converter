@@ -12,7 +12,7 @@ import {
   FigureLicenseDialog,
   FigureCaption,
 } from '@ndla/ui/lib/Figure';
-import Button from '@ndla/button/lib/Button';
+import Button, { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
@@ -22,6 +22,8 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+
+const Anchor = StyledButton.withComponent('a');
 
 export default function createAudioPlugin() {
   const fetchResource = (embed, headers) => fetchAudio(embed, headers);
@@ -69,13 +71,9 @@ export default function createAudioPlugin() {
       data-copy-string={copyString}>
       {t(locale, 'reference.copy')}
     </Button>,
-    <a
-      key="download"
-      href={src}
-      className="c-button c-button--outline"
-      download>
+    <Anchor key="download" href={src} download appearance="outline">
       {t(locale, 'audio.download')}
-    </a>,
+    </Anchor>,
   ];
 
   AudioActionButtons.propTypes = {
@@ -118,6 +116,7 @@ export default function createAudioPlugin() {
       learnAboutLicenses: t(locale, 'learnAboutLicenses'),
       source: t(locale, 'source'),
     };
+
     return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
