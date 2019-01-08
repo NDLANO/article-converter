@@ -179,17 +179,41 @@
     jump.js "^1.0.2"
     lodash "^4.17.5"
 
+<<<<<<< HEAD
 "@ndla/button@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@ndla/button/-/button-0.2.2.tgz#08e41d12f446aad11d87d8c4b9169fef83b72b35"
   integrity sha512-jTMN2RGPMGF8hnOwRzMi4DhaLYVQiyYuchnf92+/V3sW4tyIpb+U3lgE7vUFJNYiIQxX6KNTJN/fK7Xf433f8A==
+=======
+"@ndla/button@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ndla/button/-/button-0.1.0.tgz#e3432064f486daf24fb28ece095bbe6348b5ded9"
+  dependencies:
+    "@ndla/core" "^0.4.0"
+
+"@ndla/button@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@ndla/button/-/button-0.2.1.tgz#940bf815f6232db38a966e4f987199e84ed9cbef"
+  dependencies:
+    "@ndla/core" "^0.4.4"
+
+"@ndla/core@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@ndla/core/-/core-0.4.0.tgz#18c0912df0d240c30b09d453d60850688e95162b"
+>>>>>>> master
   dependencies:
     "@ndla/core" "^0.4.5"
 
+<<<<<<< HEAD
 "@ndla/core@^0.4.5":
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/@ndla/core/-/core-0.4.5.tgz#435115293e29b5139de5c79c68d1259085c5f603"
   integrity sha512-FqkiKH1Q+92GT46Exl0cgBVJjMIaZWU5BfllhmHcfpdxt6T03sbEMjSNjkXmakadNOCYSQPf0E/jRB0+fc0+AA==
+=======
+"@ndla/core@^0.4.3", "@ndla/core@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@ndla/core/-/core-0.4.4.tgz#2113de68023b5e14fca8b8f37ecdb910477129f7"
+>>>>>>> master
   dependencies:
     facepaint "^1.2.1"
     inuitcss "6.0.0-beta.4"
@@ -211,6 +235,7 @@
   resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-0.6.3.tgz#9026a4052349f3fb3b1499d05167fcaf828131c4"
   integrity sha512-yXn9gBgpMEd08WjZ3qb5jDTj6sPt12867RLRAoae3MGPUNK+eQdhxC4dnk4i80W7yurCgmQfxkTgeONI6TjDQA==
 
+<<<<<<< HEAD
 "@ndla/licenses@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.4.3.tgz#26881ecd3bc371970c7c3678a0df068caed40896"
@@ -225,6 +250,34 @@
   dependencies:
     "@ndla/button" "^0.2.2"
     "@ndla/core" "^0.4.5"
+=======
+"@ndla/licenses@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.4.0.tgz#6e6c0f12e754345ec251303e92b9f05b047fe13b"
+  dependencies:
+    defined "1.0.0"
+
+"@ndla/licenses@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.4.2.tgz#dd816da7bc9b426ee0162970703249258fe9b03b"
+  dependencies:
+    defined "1.0.0"
+
+"@ndla/modal@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ndla/modal/-/modal-0.2.0.tgz#a8bfb30c70dd445a19c9c90688a515cceb1634c5"
+  dependencies:
+    "@ndla/button" "^0.1.0"
+    "@ndla/core" "^0.4.0"
+    "@ndla/util" "^0.3.0"
+
+"@ndla/modal@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@ndla/modal/-/modal-0.2.6.tgz#ec105b82317ae139c71a20c7cf11229a8ffab672"
+  dependencies:
+    "@ndla/button" "^0.2.1"
+    "@ndla/core" "^0.4.4"
+>>>>>>> master
     "@ndla/util" "^0.3.1"
 
 "@ndla/notion@^0.1.21":
@@ -245,13 +298,33 @@
     "@ndla/core" "^0.4.5"
     lodash "^4.17.11"
 
+<<<<<<< HEAD
 "@ndla/tooltip@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@ndla/tooltip/-/tooltip-0.1.2.tgz#5358fb6505dcdafa076fcc3c75b0eaacb611a3ec"
   integrity sha512-YitlIpzmtCqK2m0S8KvVLCjOhGuoukfqdF9xtB2YJRUnFLeMuYqnO98Gox5tP8+KDZxcwwWRTABWL3c4rzHj3g==
+=======
+"@ndla/tabs@^0.9.5":
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/@ndla/tabs/-/tabs-0.9.5.tgz#dc652589d600f29abf11dde5078ea862f23f4500"
+  dependencies:
+    "@ndla/core" "^0.4.4"
+    lodash "^4.17.11"
+
+"@ndla/tooltip@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ndla/tooltip/-/tooltip-0.1.1.tgz#cca5ace82d6c1100c9dec5957d1dcf6cf626b5dc"
+  dependencies:
+    "@ndla/core" "^0.4.3"
+
+"@ndla/ui@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.18.0.tgz#b12fc2fa635bc67c1d924977c5353b7b4ce491e3"
+>>>>>>> master
   dependencies:
     "@ndla/core" "^0.4.5"
 
+<<<<<<< HEAD
 "@ndla/ui@^0.19.8":
   version "0.19.8"
   resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.19.8.tgz#2cd3c1119c24f9c5712665136cd4b5b5d7b41681"
@@ -265,6 +338,20 @@
     "@ndla/modal" "^0.2.7"
     "@ndla/tabs" "^0.9.6"
     "@ndla/tooltip" "^0.1.2"
+=======
+"@ndla/ui@^0.19.7":
+  version "0.19.7"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.19.7.tgz#d0042de35e4474f7afe53e1e895dcd861df9896d"
+  dependencies:
+    "@ndla/button" "^0.2.1"
+    "@ndla/core" "^0.4.4"
+    "@ndla/i18n" "^0.4.1"
+    "@ndla/icons" "^0.6.2"
+    "@ndla/licenses" "^0.4.2"
+    "@ndla/modal" "^0.2.6"
+    "@ndla/tabs" "^0.9.5"
+    "@ndla/tooltip" "^0.1.1"
+>>>>>>> master
     "@ndla/util" "^0.3.1"
     classnames "2.2.6"
     focus-trap "^3.0.0"
