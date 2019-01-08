@@ -1,5 +1,10 @@
 # NDLA article-converter
+
 [![Build Status](https://travis-ci.org/NDLANO/article-converter.svg?branch=master)](https://travis-ci.org/NDLANO/article-converter)
+
+One of several apis powering [https://ndla.no](https://ndla.no).
+
+Norwegian Digital Learning Arena (NDLA) (Norwegian: Nasjonal digital læringsarena) is a joint county enterprise offering [open digital learning assets](https://en.wikipedia.org/wiki/Digital_learning_assets) for upper secondary education. In addition to being a compilation of [open educational resources (OER)](https://en.wikipedia.org/wiki/Open_educational_resources), NDLA provides a range of other online tools for sharing and cooperation.
 
 ## API documentation
 
@@ -15,25 +20,24 @@ _Returns the content attribute from [Article API](https://github.com/NDLANO/arti
 
 The service mainly converts `<embed>` tags in the content attribute to appropriate html tags. For some embed tags fetching additional data from other api's is required.
 
-
 ### Developer notes
+
 To properly display the converted html some script from [ndla-article-scripts](https://github.com/NDLANO/frontend-packages/tree/master/packages/ndla-article-scripts) is required. See [ndla-frontend](https://github.com/NDLANO/ndla-frontend) for examples.
 
 ## Developer documentation
 
-
 ### Requirements
 
-- Node.JS ~8.1
-- npm ~5.04
-- Yarn ~0.23.2
+- Node.JS ~10
+- npm ~6
+- Yarn ~1.1
 - Docker (optional)
 
 ### Getting started
 
 #### Dependencies
 
-All dependencies are defined in `package.json` and are managed with yarn/npm.  To
+All dependencies are defined in `package.json` and are managed with yarn/npm. To
 initially install all dependencies and when the list dependency has changed,
 run `yarn`.
 
@@ -45,7 +49,7 @@ $ yarn
 
 Start node server with hot reloading middleware listening on port 3000.
 
-```$ yarn start```
+`$ yarn start`
 
 To use a different api set the `NDLA_API_URL` environment variable.
 
@@ -53,27 +57,40 @@ To use a different api set the `NDLA_API_URL` environment variable.
 
 Test framework: jest.
 
-```$ yarn test```
+`$ yarn test`
 
 Do you tdd?
 
-```$ yarn run tdd```
+`$ yarn tdd`
 
-#### Code style
+### Code style
 
-*tl;dr*: Use eslint! Rules: [Airbnb Styleguide]https://github.com/airbnb/javascript.
-
-Lint code with [eslint](http://eslint.org/), including [eslint react plugin](https://github.com/yannickcr/eslint-plugin-react), [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y#readme).
-Beside linting with globally installed eslint, eslint can be invoked with `npm`:
+[Prettier](https://prettier.io/) is used for automatic code formatting.
 
 ```
-$ yarn run lint
+$ yarn format
 ```
 
-Rules are configured in `./.eslintrc.js` and extends [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). If feeling brave, try `eslint --fix`.
+```
+$ yarn format-check
+```
 
+### Linting
+
+Eslint is used for linting.
+
+```
+$ yarn lint-es
+```
+
+Rules are configured in `./eslintrc` and extends [esling-config-ndla](https://github.com/NDLANO/frontend-packages/tree/master/packages/eslint-config-ndla).
 
 #### Other scripts
+
+```
+# GTG? Checks code formating, linting and runs unit tests:
+$ yarn check-all
+```
 
 ```
 # Run with NODE_ENV=production:
@@ -84,5 +101,3 @@ $ npm yarn start-prod
 # Docker stuff
 $ ./build.sh
 ```
-
-
