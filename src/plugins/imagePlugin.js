@@ -126,8 +126,7 @@ export default function createImagePlugin() {
       data: { align, size },
     } = embed;
     const figureClassNames = getFigureClassnames(size, align);
-    const src =
-      image && image.imageUrl ? encodeURI(image.imageUrl) : errorSvgSrc;
+    const src = image && image.imageUrl ? image.imageUrl : errorSvgSrc;
 
     return render(
       <Figure className={figureClassNames}>
@@ -144,7 +143,6 @@ export default function createImagePlugin() {
       image,
       data: { align, size, caption: embedCaption, alt: embedAlttext },
     } = embed;
-    const src = encodeURI(image.imageUrl);
     const {
       license: { license: licenseAbbreviation },
     } = image.copyright;
@@ -197,7 +195,7 @@ export default function createImagePlugin() {
               crop={crop}
               sizes={sizes}
               alt={altText}
-              src={`${src}`}
+              src={`${image.imageUrl}`}
             />
           </div>
         </Button>
@@ -223,7 +221,7 @@ export default function createImagePlugin() {
           <ImageActionButtons
             locale={locale}
             copyString={copyString}
-            src={src}
+            src={image.imageUrl}
           />
         </FigureLicenseDialog>
         <FigureFullscreenDialog
@@ -238,7 +236,7 @@ export default function createImagePlugin() {
             <ImageActionButtons
               locale={locale}
               copyString={copyString}
-              src={src}
+              src={image.imageUrl}
             />
           }
           messages={messages}
@@ -247,7 +245,7 @@ export default function createImagePlugin() {
             contentType={image.contentType}
             sizes="100vw"
             alt={altText}
-            src={`${src}`}
+            src={`${image.imageUrl}`}
           />
         </FigureFullscreenDialog>
       </Figure>
