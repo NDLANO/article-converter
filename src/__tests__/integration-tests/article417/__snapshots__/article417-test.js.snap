@@ -337,8 +337,8 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         <p class=\\"c-related-articles__link-info\\">Nettside hos codecademy.com</p>
       </article>
     </div>
-    <style data-emotion-css=\\"1kifoxg\\">
-      .css-1kifoxg {
+    <style data-emotion-css=\\"1gnmc5k\\">
+      .css-1gnmc5k {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -358,14 +358,16 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         font-weight: 700;
         -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
         transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        box-shadow: none;
+        text-align: center;
         color: #20588f;
         background-color: transparent;
         border: 2px solid #20588f;
         font-weight: 700;
         box-shadow: none;
       }
-      .css-1kifoxg:hover,
-      .css-1kifoxg:focus {
+      .css-1gnmc5k:hover,
+      .css-1gnmc5k:focus {
         color: white;
         background-color: #184673;
         border: 2px solid rgba(32, 88, 143, 0);
@@ -373,12 +375,12 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         -ms-transform: translateY(1px) translateX(1px);
         transform: translateY(1px) translateX(1px);
       }
-      .css-1kifoxg:active {
+      .css-1gnmc5k:active {
         -webkit-transform: translateY(2px) translateX(2px);
         -ms-transform: translateY(2px) translateX(2px);
         transform: translateY(2px) translateX(2px);
       }
-      .css-1kifoxg[disabled] {
+      .css-1gnmc5k[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
@@ -387,11 +389,11 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         -ms-transform: translateY(0) translateX(0);
         transform: translateY(0) translateX(0);
       }
-      .css-1kifoxg:focus {
+      .css-1gnmc5k:focus {
         box-shadow: 0 0 2px #20588f;
       }
-      .css-1kifoxg:hover,
-      .css-1kifoxg:focus {
+      .css-1gnmc5k:hover,
+      .css-1gnmc5k:focus {
         color: white;
         background-color: #20588f;
         border: 2px solid transparent;
@@ -399,7 +401,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
         -ms-transform: translateY(0) translateX(0);
         transform: translateY(0) translateX(0);
       }
-      .css-1kifoxg:disabled {
+      .css-1gnmc5k:disabled {
         border: 2px solid transparent;
         cursor: not-allowed;
         -webkit-transform: translateY(0) translateX(0);
@@ -411,7 +413,7 @@ exports[`app/fetchAndTransformArticle 417 2`] = `
       data-type=\\"related-article-button\\"
       data-showmore=\\"Vis flere relaterte artikler\\"
       data-showless=\\"Vis mindre\\"
-      class=\\"css-1kifoxg e1ljv5qk0\\">Vis flere relaterte artikler
+      class=\\"css-1gnmc5k e1ljv5qk0\\">Vis flere relaterte artikler
     </button>
   </section>
 </section>"

@@ -138,8 +138,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
 <section>
   <figure class=\\"c-figure\\"
     id=\\"figure-2357\\">
-    <style data-emotion-css=\\"1juhdny\\">
-      .css-1juhdny {
+    <style data-emotion-css=\\"ac6kxl\\">
+      .css-ac6kxl {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -159,6 +159,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         font-weight: 700;
         -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
         transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        box-shadow: none;
+        text-align: center;
         -webkit-transition: background-color none;
         transition: background-color none;
         padding: 0;
@@ -170,8 +172,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         border: none;
         font-weight: 400;
       }
-      .css-1juhdny:hover,
-      .css-1juhdny:focus {
+      .css-ac6kxl:hover,
+      .css-ac6kxl:focus {
         color: white;
         background-color: #184673;
         border: 2px solid rgba(32, 88, 143, 0);
@@ -179,12 +181,12 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         -ms-transform: translateY(1px) translateX(1px);
         transform: translateY(1px) translateX(1px);
       }
-      .css-1juhdny:active {
+      .css-ac6kxl:active {
         -webkit-transform: translateY(2px) translateX(2px);
         -ms-transform: translateY(2px) translateX(2px);
         transform: translateY(2px) translateX(2px);
       }
-      .css-1juhdny[disabled] {
+      .css-ac6kxl[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
@@ -193,13 +195,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         -ms-transform: translateY(0) translateX(0);
         transform: translateY(0) translateX(0);
       }
-      .css-1juhdny:focus {
+      .css-ac6kxl:focus {
         box-shadow: 0 0 2px #20588f;
       }
-      .css-1juhdny:hover,
-      .css-1juhdny:active,
-      .css-1juhdny:disabled,
-      .css-1juhdny:focus {
+      .css-ac6kxl:hover,
+      .css-ac6kxl:active,
+      .css-ac6kxl:disabled,
+      .css-ac6kxl:focus {
         box-shadow: none;
         color: #20588f;
         background-color: transparent;
@@ -208,7 +210,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transform: none;
         border: none;
       }
-      .css-1juhdny:focus {
+      .css-ac6kxl:focus {
         outline-width: medium;
       }
     </style>
@@ -216,7 +218,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       data-dialog-trigger-id=\\"fs-2357\\"
       data-dialog-source-id=\\"figure-2357\\"
       aria-label=\\"Se stor utgave av bilde\\"
-      class=\\"u-fullw css-1juhdny e1ljv5qk0\\">
+      class=\\"u-fullw css-ac6kxl e1ljv5qk0\\">
       <div class=\\"c-figure__img\\">
         <img alt=\\"To barn på fottur på Kvamsfjellet. Foto.\\"
           srcset=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960 960w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800 800w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640 640w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480 480w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320 320w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240 240w, https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180 180w\\"
@@ -544,8 +546,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <style data-emotion-css=\\"1kifoxg\\">
-              .css-1kifoxg {
+            <style data-emotion-css=\\"1gnmc5k\\">
+              .css-1gnmc5k {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -566,14 +568,16 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -webkit-transition: all 0.2s
                   cubic-bezier(0.17, 0.04, 0.03, 0.94);
                 transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                box-shadow: none;
+                text-align: center;
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-1kifoxg:hover,
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:hover,
+              .css-1gnmc5k:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -581,12 +585,12 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-1kifoxg:active {
+              .css-1gnmc5k:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-1kifoxg[disabled] {
+              .css-1gnmc5k[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -595,11 +599,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1kifoxg:hover,
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:hover,
+              .css-1gnmc5k:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -607,7 +611,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1kifoxg:disabled {
+              .css-1gnmc5k:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -618,11 +622,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             <button type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
-              class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
+              class=\\"css-1gnmc5k e1ljv5qk0\\">Kopier referanse
             </button>
             <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download
-              class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
+              class=\\"css-1gnmc5k e1ljv5qk0\\">Last ned bildet
             </a>
           </div>
         </div>
@@ -801,11 +805,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 <button type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
-                  class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
+                  class=\\"css-1gnmc5k e1ljv5qk0\\">Kopier referanse
                 </button>
                 <a href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
                   download
-                  class=\\"css-1kifoxg e1ljv5qk0\\">Last ned bildet
+                  class=\\"css-1gnmc5k e1ljv5qk0\\">Last ned bildet
                 </a>
               </div>
             </div>

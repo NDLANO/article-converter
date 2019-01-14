@@ -309,8 +309,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <style data-emotion-css=\\"1kifoxg\\">
-              .css-1kifoxg {
+            <style data-emotion-css=\\"1gnmc5k\\">
+              .css-1gnmc5k {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -331,14 +331,16 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -webkit-transition: all 0.2s
                   cubic-bezier(0.17, 0.04, 0.03, 0.94);
                 transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                box-shadow: none;
+                text-align: center;
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-1kifoxg:hover,
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:hover,
+              .css-1gnmc5k:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -346,12 +348,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-1kifoxg:active {
+              .css-1gnmc5k:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-1kifoxg[disabled] {
+              .css-1gnmc5k[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -360,11 +362,11 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1kifoxg:hover,
-              .css-1kifoxg:focus {
+              .css-1gnmc5k:hover,
+              .css-1gnmc5k:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -372,7 +374,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1kifoxg:disabled {
+              .css-1gnmc5k:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -383,7 +385,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             <button type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-SA-4.0 Regissør: Wes Anderson\\"
-              class=\\"css-1kifoxg e1ljv5qk0\\">Kopier referanse
+              class=\\"css-1gnmc5k e1ljv5qk0\\">Kopier referanse
             </button>
           </div>
         </div>
