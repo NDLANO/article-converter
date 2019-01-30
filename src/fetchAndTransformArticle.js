@@ -26,7 +26,7 @@ export async function transformArticle(
     content: html || '',
     metaData: embedMetaData || '',
     title: article.title.title || '',
-    tags: article.tags.tags,
+    tags: article.tags ? article.tags.tags : [],
     introduction: article.introduction
       ? article.introduction.introduction
       : undefined,
