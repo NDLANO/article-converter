@@ -30,7 +30,9 @@ export async function transformArticle(
     introduction: article.introduction
       ? article.introduction.introduction
       : undefined,
-    metaDescription: article.metaDescription.metaDescription,
+    metaDescription: article.metaDescription
+      ? article.metaDescription.metaDescription
+      : '',
   };
 }
 
