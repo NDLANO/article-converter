@@ -9,7 +9,7 @@
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 
-export default function createContentLinkPlugin() {
+export default function createContentLinkPlugin(options = {}) {
   async function fetchResource(embed, accessToken, lang) {
     try {
       const resource = await fetchArticleResource(
@@ -17,8 +17,11 @@ export default function createContentLinkPlugin() {
         accessToken,
         lang
       );
-
-      return { ...embed, path: `subjects${resource.path}` };
+      let path = `subjects${resource.path}`;
+      if (options.filters) {
+        path = path + `?filters=${options.filters}`;
+      }
+      return { ...embed, path: path };
     } catch (error) {
       log.error(error);
       return { ...embed, path: `article/${embed.data.contentId}` };
