@@ -32,7 +32,7 @@ module.exports.setup = function routes(app) {
     const filters = req.query.filters;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
-      filters: filters,
+      filters,
     })
       .then(article => {
         res.json(article);
@@ -55,7 +55,7 @@ module.exports.setup = function routes(app) {
     const filters = req.query.filters;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
-      filters: filters,
+      filters,
     })
       .then(article => {
         res.send(htmlTemplate(lang, article.title, article));
