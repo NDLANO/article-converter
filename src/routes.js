@@ -29,8 +29,10 @@ module.exports.setup = function routes(app) {
     const removeRelatedContent = defined(req.query.removeRelatedContent, false);
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
+    const filters = req.query.filters;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
+      filters,
     })
       .then(article => {
         res.json(article);
@@ -50,8 +52,10 @@ module.exports.setup = function routes(app) {
     const articleId = req.params.id;
     const removeRelatedContent = defined(req.query.removeRelatedContent, false);
     const accessToken = req.headers.authorization;
+    const filters = req.query.filters;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
+      filters,
     })
       .then(article => {
         res.send(htmlTemplate(lang, article.title, article));

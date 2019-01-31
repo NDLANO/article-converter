@@ -41,7 +41,7 @@ export default options => [
   createBrightcovePlugin(),
   createH5pPlugin(),
   createExternalPlugin(),
-  createContentLinkPlugin(),
+  createContentLinkPlugin(options),
   createErrorPlugin(),
   createIframePlugin(),
   createFootnotePlugin(),
