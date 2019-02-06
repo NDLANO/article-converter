@@ -26,7 +26,10 @@ const domain = () => {
     case 'prod':
       return 'https://api.ndla.no';
     default:
-      return `https://${process.env.NDLA_ENVIRONMENT}.api.ndla.no`;
+      return `https://${process.env.NDLA_ENVIRONMENT.replace(
+        '_',
+        '-'
+      )}.api.ndla.no`;
   }
 };
 
