@@ -49,13 +49,17 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
     .reply(500, {});
 
-  const resource = await contentLinkPlugin.fetchResource({
-    data: { contentId: '1' },
-  });
+  const resource = await contentLinkPlugin.fetchResource(
+    {
+      data: { contentId: '1' },
+    },
+    '',
+    'nb'
+  );
 
   expect(resource).toEqual({
     data: { contentId: '1' },
-    path: `article/1`,
+    path: `nb/article/1`,
   });
   log.level(bunyan.INFO);
 });

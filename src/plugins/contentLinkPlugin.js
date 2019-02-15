@@ -17,14 +17,14 @@ export default function createContentLinkPlugin(options = {}) {
         accessToken,
         lang
       );
-      let path = `subjects${resource.path}`;
+      let path = `${lang}/subjects${resource.path}`;
       if (options.filters) {
         path = path + `?filters=${options.filters}`;
       }
       return { ...embed, path: path };
     } catch (error) {
       log.error(error);
-      return { ...embed, path: `article/${embed.data.contentId}` };
+      return { ...embed, path: `${lang}/article/${embed.data.contentId}` };
     }
   }
 
