@@ -17,7 +17,6 @@ export default function createContentLinkPlugin(options = {}) {
         accessToken,
         lang
       );
-      console.log(lang);
       let path = `${lang}/subjects${resource.path}`;
       if (options.filters) {
         path = path + `?filters=${options.filters}`;
