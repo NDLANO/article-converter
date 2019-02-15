@@ -24,10 +24,7 @@ exports[`move react portals to bottom 1`] = `
 `;
 
 exports[`transformAsides duplicates right column aside for better narrowscreen experience 1`] = `
-"
-
-<section>
-
+"<section>
   <figure>
     <p>Lorem ipsum dolor sit amet...</p>
   </figure>
@@ -38,7 +35,6 @@ exports[`transformAsides duplicates right column aside for better narrowscreen e
     </div>
   </aside>
   <p>sdfjljklsdfjlsdf</p>
-
   <figure>
     <p>Lorem ipsum dolor sit amet...</p>
     <div data-react-universal-portal=\\"true\\">
@@ -53,13 +49,12 @@ exports[`transformAsides duplicates right column aside for better narrowscreen e
       <div>Stuff</div>
     </div>
   </aside>
-</section>"
+</section>
+"
 `;
 
 exports[`transformAsides encloses aside duplication to sections 1`] = `
-"
-
-<section>
+"<section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
       <h2>Test1</h2>
@@ -74,7 +69,6 @@ exports[`transformAsides encloses aside duplication to sections 1`] = `
     </div>
   </aside>
 </section>
-
 <section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
@@ -89,13 +83,12 @@ exports[`transformAsides encloses aside duplication to sections 1`] = `
       <div>Stuff</div>
     </div>
   </aside>
-</section>"
+</section>
+"
 `;
 
 exports[`transformAsides replaces factAsides with factbox component 1`] = `
-"
-
-<section>
+"<section>
   <p>Lorem ipsum dolor sit amet...</p>
   <aside class=\\"c-factbox\\">
     <div class=\\"c-factbox__content\\">
@@ -151,11 +144,11 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       }
       .css-1j3euft:focus {
         box-shadow: 0 0 2px #20588f;
-      }
-    </style>
-    <button type=\\"button\\"
-      class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\" />
-
+      }</style
+    ><button
+      type=\\"button\\"
+      class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\"
+    ></button>
   </aside>
 </section>
 <aside class=\\"c-factbox\\">
@@ -212,36 +205,28 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     }
     .css-1j3euft:focus {
       box-shadow: 0 0 2px #20588f;
-    }
-  </style>
-  <button type=\\"button\\"
-    class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\" />
-
+    }</style
+  ><button
+    type=\\"button\\"
+    class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\"
+  ></button>
 </aside>
-<p>Lorem ipsum dolor sit amet...</p>"
+<p>Lorem ipsum dolor sit amet...</p>
+"
 `;
 
 exports[`transformTables replaces table with <Table> 1`] = `
-"
-
-<div class=\\"c-table__wrapper\\">
-
+"<div class=\\"c-table__wrapper\\">
   <div class=\\"c-table__content\\">
-    <div class=\\"c-table__left-shadow\\" />
-
-
-    <table id=\\"testid\\"
-      class=\\"c-table o-table\\">
-
+    <div class=\\"c-table__left-shadow\\"></div>
+    <table id=\\"testid\\" class=\\"c-table o-table\\">
       <thead>
-
         <tr>
           <th>test</th>
           <th>test</th>
           <th>test</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
           <td>test</td>
@@ -260,13 +245,16 @@ exports[`transformTables replaces table with <Table> 1`] = `
         </tr>
       </tbody>
     </table>
-    <button type=\\"button\\"
+    <button
+      type=\\"button\\"
       data-dialog-trigger-id=\\"dialog-testid\\"
       data-dialog-source-id=\\"testid\\"
       data-table-id=\\"testid\\"
       class=\\"c-table__expand-button\\"
-      aria-label=\\"Vis stor versjon\\">
-      <svg fill=\\"currentColor\\"
+      aria-label=\\"Vis stor versjon\\"
+    >
+      <svg
+        fill=\\"currentColor\\"
         preserveAspectRatio=\\"xMidYMid meet\\"
         height=\\"1em\\"
         width=\\"1em\\"
@@ -274,40 +262,39 @@ exports[`transformTables replaces table with <Table> 1`] = `
         viewBox=\\"0 0 24 24\\"
         data-license=\\"Apache License 2.0\\"
         data-source=\\"Material Design\\"
-        style=\\"vertical-align:middle\\">
+        style=\\"vertical-align:middle\\"
+      >
         <title>ZoomOutMap</title>
         <g>
-          <path d=\\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\\"
-            clip-path=\\"url(#b)\\" />
-
-          <path d=\\"M0 0h24v24H0z\\"
-            fill=\\"none\\"
-            clip-path=\\"url(#b)\\" />
-
+          <path
+            d=\\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\\"
+            clip-path=\\"url(#b)\\"
+          />
+          <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" clip-path=\\"url(#b)\\" />
         </g>
       </svg>
     </button>
-    <div class=\\"c-table__right-shadow\\" />
-
+    <div class=\\"c-table__right-shadow\\"></div>
   </div>
   <div data-react-universal-portal=\\"true\\">
-    <div class=\\"c-dialog c-dialog--fullscreen\\"
+    <div
+      class=\\"c-dialog c-dialog--fullscreen\\"
       data-dialog-id=\\"dialog-testid\\"
       role=\\"dialog\\"
       aria-hidden=\\"true\\"
-      aria-label=\\"Vis stor versjon\\">
+      aria-label=\\"Vis stor versjon\\"
+    >
       <div class=\\"c-dialog__content\\">
         <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
         <div class=\\"c-table__dialog\\">
           <div class=\\"c-table__expanded-table-wrapper\\">
-            <div class=\\"c-table__content\\" />
-
+            <div class=\\"c-table__content\\"></div>
           </div>
         </div>
       </div>
-      <div class=\\"o-backdrop\\" />
-
+      <div class=\\"o-backdrop\\"></div>
     </div>
   </div>
-</div>"
+</div>
+"
 `;

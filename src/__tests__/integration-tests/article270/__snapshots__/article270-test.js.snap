@@ -58,23 +58,54 @@ Object {
 `;
 
 exports[`app/fetchAndTransformArticle 270 2`] = `
-"
-<section>
+"<section>
   <figure class=\\"c-figure\\">
-    <iframe src=\\"//ndla.no/h5p/embed/174974\\" />
-
+    <iframe src=\\"//ndla.no/h5p/embed/174974\\"></iframe>
   </figure>
 </section>
 <section>
   <p>
-    <em>Hovedområdet tall og algebra handler om å utvikle tallforståelse og innsikt i hvordan tall og tallbehandling inngår i systemer og mønster. Med tall kan man kvantifisere mengder og størrelser. Området tall omfatter både hele tall, brøk, desimaltall og prosent. Algebra i skolen generaliserer tallregning ved at bokstaver eller andre symboler representerer tall. Det gi anledning til å beskrive og analysere mønster og sammenhenger. Algebra benyttes også i forbindelse med hovedområdene geometri og funksjoner.
-    </em>(Udir)
+    <em
+      >Hovedomr&#xE5;det tall og algebra handler om &#xE5; utvikle
+      tallforst&#xE5;else og innsikt i hvordan tall og tallbehandling
+      inng&#xE5;r i systemer og m&#xF8;nster. Med tall kan man kvantifisere
+      mengder og st&#xF8;rrelser. Omr&#xE5;det tall omfatter b&#xE5;de hele
+      tall, br&#xF8;k, desimaltall og prosent. Algebra i skolen generaliserer
+      tallregning ved at bokstaver eller andre symboler representerer tall. Det
+      gi anledning til &#xE5; beskrive og analysere m&#xF8;nster og
+      sammenhenger. Algebra benyttes ogs&#xE5; i forbindelse med
+      hovedomr&#xE5;dene geometri og funksjoner. </em
+    >(Udir)
   </p>
-  <p>Vi lever i en verden full av tall! De ti enkle symbolene 0, 1, 2, 3, 4, 5, 6, 7, 8, og 9 som vi alle lærer tidlig i livet påvirker livet vårt mer enn vi kan forestille oss. Har du noen gang lurt på hvordan livet ville ha vært uten disse 10 sifrene og de uendelige andre tallene de kan lage? Bursdager, alder, tid datoer, adresser, kredittkortnummer, PIN-koder, priser og sportsresultater er bare noen får eksempler av en uendelig lang liste over hva vi bruker tallene til.
+  <p>
+    Vi lever i en verden full av tall! De ti enkle symbolene 0, 1, 2, 3, 4, 5,
+    6, 7, 8, og 9 som vi alle l&#xE6;rer tidlig i livet p&#xE5;virker livet
+    v&#xE5;rt mer enn vi kan forestille oss. Har du noen gang lurt p&#xE5;
+    hvordan livet ville ha v&#xE6;rt uten disse 10 sifrene og de uendelige andre
+    tallene de kan lage? Bursdager, alder, tid datoer, adresser,
+    kredittkortnummer, PIN-koder, priser og sportsresultater er bare noen
+    f&#xE5;r eksempler av en uendelig lang liste over hva vi bruker tallene til.
   </p>
-  <p>En viktig drivkraft i matematikk har vært å løse praktiske problemer. Du vil kanskje vite hvor raskt du kan kaste en ball, men kan du bruke dette tallet til å finne ut hvor langt du kan kaste den? Dersom du vet hvor mye du får i lønn for å male huset hjemme, kan du bruke den summen til å finne ut hvor mye du vil tjene per time på jobben? Med algebra kan du få svar på slike spørsmål. Algebra handler om å finne tall du ikke kan se. Da bruker du tall du allerede kjenner for å finne den ukjente verdien. I algebra regner man med bokstaver og andre symboler, og regner matematikk på et mer abstrakt plan.
+  <p>
+    En viktig drivkraft i matematikk har v&#xE6;rt &#xE5; l&#xF8;se praktiske
+    problemer. Du vil kanskje vite hvor raskt du kan kaste en ball, men kan du
+    bruke dette tallet til &#xE5; finne ut hvor langt du kan kaste den? Dersom
+    du vet hvor mye du f&#xE5;r i l&#xF8;nn for &#xE5; male huset hjemme, kan du
+    bruke den summen til &#xE5; finne ut hvor mye du vil tjene per time p&#xE5;
+    jobben? Med algebra kan du f&#xE5; svar p&#xE5; slike sp&#xF8;rsm&#xE5;l.
+    Algebra handler om &#xE5; finne tall du ikke kan se. Da bruker du tall du
+    allerede kjenner for &#xE5; finne den ukjente verdien. I algebra regner man
+    med bokstaver og andre symboler, og regner matematikk p&#xE5; et mer
+    abstrakt plan.
   </p>
-  <p>Algebra er et viktig verktøy for å utvikle evnen til å tenke logisk, finne mønstre og løse problemer som trenger en systematisk tilnærming. Dersom du tenker å studere matematikk videre er det helt nødvendig å lære algebra. Siden tall er grunnlaget for all matematikk, er det viktig for deg å få en god tallforståelse.
+  <p>
+    Algebra er et viktig verkt&#xF8;y for &#xE5; utvikle evnen til &#xE5; tenke
+    logisk, finne m&#xF8;nstre og l&#xF8;se problemer som trenger en systematisk
+    tiln&#xE6;rming. Dersom du tenker &#xE5; studere matematikk videre er det
+    helt n&#xF8;dvendig &#xE5; l&#xE6;re algebra. Siden tall er grunnlaget for
+    all matematikk, er det viktig for deg &#xE5; f&#xE5; en god
+    tallforst&#xE5;else.
   </p>
-</section>"
+</section>
+"
 `;
