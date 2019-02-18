@@ -6,23 +6,17 @@
  *
  */
 
-import { formatNestedMessages } from '@ndla/i18n';
 import defined from 'defined';
 import IntlMessageFormat from 'intl-messageformat';
 import memoizeIntlConstructor from 'intl-format-cache';
 import { formatMessage } from '@ndla/i18n';
 import { contributorTypes } from '@ndla/licenses';
-import { messagesNB, messagesEN, messagesNN } from '@ndla/ui';
 
 let getMessageFormat;
 
 if (!getMessageFormat) {
   getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
 }
-
-const formatedNBMessages = formatNestedMessages(messagesNB);
-const formatedNNMessages = formatNestedMessages(messagesNN);
-const formatedENMessages = formatNestedMessages(messagesEN);
 
 const messages = {
   nn: {
@@ -61,7 +55,6 @@ const messages = {
     download: 'Last ned fil: ',
     expandButton: 'Vis stor versjon',
     ...contributorTypes.nn,
-    // ...formatedNNMessages,
   },
   nb: {
     close: 'Lukk',
@@ -99,7 +92,6 @@ const messages = {
     download: 'Last ned fil: ',
     expandButton: 'Vis stor versjon',
     ...contributorTypes.nb,
-    // ...formatedNBMessages,
   },
   en: {
     close: 'Close',
@@ -137,7 +129,6 @@ const messages = {
     download: 'Download file: ',
     expandButton: 'Show large version',
     ...contributorTypes.en,
-    // ...formatedENMessages,
   },
 };
 
