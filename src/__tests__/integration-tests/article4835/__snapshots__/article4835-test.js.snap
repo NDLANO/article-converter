@@ -57,6 +57,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
         <a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
           class=\\"c-file-list__link\\"
+          target=\\"_blank\\"
           aria-label=\\"Forslag til &#xE5;rsplan 1P (DOC)\\"
           aria-describedby=\\"testid_doc\\"
           ><svg
@@ -92,6 +93,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
         <a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
           class=\\"c-file-list__link\\"
+          target=\\"_blank\\"
           aria-label=\\"Forslag til &#xE5;rsplan 1P (ODT)\\"
           aria-describedby=\\"testid_odt\\"
           ><svg
@@ -127,6 +129,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
         <a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
           class=\\"c-file-list__link\\"
+          target=\\"_blank\\"
           aria-label=\\"Forslag til &#xE5;rsplan 1P (PDF)\\"
           aria-describedby=\\"testid_pdf\\"
           ><svg

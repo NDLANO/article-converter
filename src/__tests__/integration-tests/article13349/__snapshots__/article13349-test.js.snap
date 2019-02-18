@@ -58,6 +58,7 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
             <a
               href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
               class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
               aria-label=\\"Gantt-diagram (PDF)\\"
               aria-describedby=\\"testid_pdf\\"
               ><svg
@@ -161,6 +162,7 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
             <a
               href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
               class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
               aria-label=\\"Gantt-diagram (PDF)\\"
               aria-describedby=\\"testid_pdf\\"
               ><svg

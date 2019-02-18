@@ -8,20 +8,20 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {
   Figure,
   FigureLicenseDialog,
   FigureCaption,
-  FigureFullscreenDialog,
+  FigureExpandButton,
 } from '@ndla/ui/lib/Figure';
 import Button, { StyledButton } from '@ndla/button';
-import Image from '@ndla/ui/lib/Image';
+import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import queryString from 'query-string';
+import { Trans } from '@ndla/i18n';
 import {
   errorSvgSrc,
   getCopyString,
@@ -33,15 +33,16 @@ import { render } from '../utils/render';
 
 const Anchor = StyledButton.withComponent('a');
 
-const getFigureClassnames = (size, align) =>
-  classnames('c-figure', {
-    'u-float-right': align === 'right' && size !== 'small',
-    'u-float-left': align === 'left' && size !== 'small',
-    'u-float-small-right': align === 'right' && size === 'small',
-    'u-float-small-left': align === 'left' && size === 'small',
-    'u-float-xsmall-right': align === 'right' && size === 'xsmall',
-    'u-float-xsmall-left': align === 'left' && size === 'xsmall',
-  });
+const getFigureType = (size, align) => {
+  if (isSmall(size) && align) {
+    return `${size}-${align}`;
+  }
+  if (isSmall(size) && !align) {
+    return size;
+  }
+
+  return 'full';
+};
 
 const getSizes = (size, align) => {
   if (align && size === 'full') {
@@ -88,6 +89,60 @@ const downloadUrl = imageSrc => {
   })}`;
 };
 
+function isSmall(size) {
+  return size === 'xsmall' || size === 'small';
+}
+
+function ImageWrapper({ typeClass, src, crop, size, children }) {
+  if (isSmall(size)) {
+    return (
+      <Trans>
+        {({ t }) => (
+          <>
+            <FigureExpandButton
+              typeClass={typeClass}
+              messages={{
+                zoomImageButtonLabel: t(
+                  'license.images.itemImage.zoomImageButtonLabel'
+                ),
+                zoomOutImageButtonLabel: t(
+                  'license.images.itemImage.zoomOutImageButtonLabel'
+                ),
+              }}
+            />
+            {children}
+          </>
+        )}
+      </Trans>
+    );
+  }
+
+  return (
+    <Trans>
+      {({ t }) => (
+        <ImageLink
+          src={src}
+          crop={crop}
+          aria-label={t('license.images.itemImage.ariaLabel')}>
+          {children}
+        </ImageLink>
+      )}
+    </Trans>
+  );
+}
+
+ImageWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  typeClass: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  crop: PropTypes.shape({
+    startX: PropTypes.number.isRequired,
+    startY: PropTypes.number.isRequired,
+    endX: PropTypes.number.isRequired,
+    endY: PropTypes.number.isRequired,
+  }),
+};
+
 const ImageActionButtons = ({ locale, src, copyString }) => [
   <Button
     key="copy"
@@ -125,11 +180,11 @@ export default function createImagePlugin() {
       image,
       data: { align, size },
     } = embed;
-    const figureClassNames = getFigureClassnames(size, align);
+    const figureType = getFigureType(size, align);
     const src = image && image.imageUrl ? image.imageUrl : errorSvgSrc;
 
     return render(
-      <Figure className={figureClassNames}>
+      <Figure type={figureType}>
         <div className="c-figure__img">
           <img alt={t(locale, 'image.error.url')} src={src} />
         </div>
@@ -153,7 +208,7 @@ export default function createImagePlugin() {
     const caption = embedCaption || image.caption.caption;
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
-    const figureClassNames = getFigureClassnames(size, align);
+    const figureType = getFigureType(size, align);
     const sizes = getSizes(size, align);
 
     const messages = {
@@ -177,77 +232,50 @@ export default function createImagePlugin() {
     }));
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
     const figureId = `figure-${image.id}`;
-    const figureFullscreenDialogId = `fs-${image.id.toString()}`;
-
     return render(
-      <Figure id={figureId} className={figureClassNames}>
-        <Button
-          key="button"
-          data-dialog-trigger-id={figureFullscreenDialogId}
-          data-dialog-source-id={figureId}
-          stripped
-          aria-label={t(locale, 'image.largeSize')}
-          className="u-fullw">
-          <div className="c-figure__img">
-            <Image
-              focalPoint={focalPoint}
-              contentType={image.contentType}
-              crop={crop}
-              sizes={sizes}
-              alt={altText}
-              src={`${image.imageUrl}`}
-            />
-          </div>
-        </Button>
-        {size !== 'xsmall' && (
-          <FigureCaption
-            figureId={figureId}
-            id={`${image.id}`}
-            caption={caption}
-            reuseLabel={t(locale, 'image.reuse')}
-            licenseRights={license.rights}
-            authors={authors}
-            locale={locale}
-          />
-        )}
-        <FigureLicenseDialog
-          id={`${image.id}`}
-          title={image.title.title}
-          license={license}
-          authors={contributors}
-          origin={image.copyright.origin}
-          locale={locale}
-          messages={messages}>
-          <ImageActionButtons
-            locale={locale}
-            copyString={copyString}
-            src={image.imageUrl}
-          />
-        </FigureLicenseDialog>
-        <FigureFullscreenDialog
-          id={figureFullscreenDialogId}
-          title={image.title.title}
-          license={license}
-          caption={caption}
-          locale={locale}
-          reuseLabel={t(locale, 'image.reuse')}
-          authors={contributors}
-          actionButtons={
-            <ImageActionButtons
-              locale={locale}
-              copyString={copyString}
+      <Figure id={figureId} type={figureType}>
+        {({ typeClass }) => (
+          <>
+            <ImageWrapper
               src={image.imageUrl}
-            />
-          }
-          messages={messages}
-          origin={image.copyright.origin}>
-          <Image
-            contentType={image.contentType}
-            sizes="100vw"
-            alt={altText}
-            src={`${image.imageUrl}`}
-          />
-        </FigureFullscreenDialog>
+              crop={crop}
+              size={size}
+              typeClass={typeClass}>
+              <Image
+                focalPoint={focalPoint}
+                contentType={image.contentType}
+                crop={crop}
+                sizes={sizes}
+                alt={altText}
+                src={image.imageUrl}
+              />
+            </ImageWrapper>
+            <FigureCaption
+              hideFigcaption={isSmall(size)}
+              figureId={figureId}
+              id={`${image.id}`}
+              caption={caption}
+              reuseLabel={t(locale, 'image.reuse')}
+              licenseRights={license.rights}
+              authors={authors}
+              locale={locale}>
+              <FigureLicenseDialog
+                id={`${image.id}`}
+                title={image.title.title}
+                license={license}
+                authors={contributors}
+                origin={image.copyright.origin}
+                locale={locale}
+                messages={messages}>
+                <ImageActionButtons
+                  locale={locale}
+                  copyString={copyString}
+                  src={image.imageUrl}
+                />
+              </FigureLicenseDialog>
+            </FigureCaption>
+          </>
+        )}
       </Figure>
     );
   };

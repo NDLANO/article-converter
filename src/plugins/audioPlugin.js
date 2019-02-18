@@ -121,7 +121,7 @@ export default function createAudioPlugin() {
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
-        <Figure id={figureid}>
+        <Figure id={figureid} type="full-column">
           <AudioPlayer type={mimeType} src={url} title={title} />
           <FigureCaption
             figureId={figureid}
