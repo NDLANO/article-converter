@@ -6,11 +6,11 @@
  *
  */
 
-const defined = require('defined');
-const IntlMessageFormat = require('intl-messageformat');
-const memoizeIntlConstructor = require('intl-format-cache');
-const { formatMessage } = require('@ndla/i18n');
-const { contributorTypes } = require('@ndla/licenses');
+import defined from 'defined';
+import IntlMessageFormat from 'intl-messageformat';
+import memoizeIntlConstructor from 'intl-format-cache';
+import { formatMessage } from '@ndla/i18n';
+import { contributorTypes } from '@ndla/licenses';
 
 let getMessageFormat;
 
@@ -53,9 +53,8 @@ const messages = {
     showLess: 'Vis mindre',
     files: 'Filer',
     download: 'Last ned fil: ',
-
-    ...contributorTypes.nn,
     expandButton: 'Vis stor versjon',
+    ...contributorTypes.nn,
   },
   nb: {
     close: 'Lukk',
@@ -138,4 +137,4 @@ const t = (locale, id, value) => {
   return formatMessage(locale, localeMessages, getMessageFormat, id, value);
 };
 
-module.exports = t;
+export default t;

@@ -48,18 +48,20 @@ Object {
 `;
 
 exports[`app/fetchAndTransformArticle 4835 2`] = `
-"
-<section>
-  <p>Forslag til årsplan 1P</p>
+"<section>
+  <p>Forslag til &#xE5;rsplan 1P</p>
   <section class=\\"c-file-list\\">
     <h1 class=\\"c-file-list__heading\\">Filer</h1>
     <ul class=\\"c-file-list__files\\">
       <li class=\\"c-file-list__item\\">
-        <a href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
+        <a
+          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
           class=\\"c-file-list__link\\"
-          aria-label=\\"Forslag til årsplan 1P (DOC)\\"
-          aria-describedby=\\"testid_doc\\">
-          <svg fill=\\"currentColor\\"
+          target=\\"_blank\\"
+          aria-label=\\"Forslag til &#xE5;rsplan 1P (DOC)\\"
+          aria-describedby=\\"testid_doc\\"
+          ><svg
+            fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"
@@ -67,34 +69,35 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             viewBox=\\"0 0 24 24\\"
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\">
+            style=\\"vertical-align:middle\\"
+          >
             <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-
-              <path d=\\"M0 0h24v24H0z\\"
-                fill=\\"none\\" />
-
-            </g>
-          </svg>
-          <span class=\\"c-file-list__link-text\\">
-            <span>Forslag til årsplan 1P (DOC)</span>
-          </span>
-          <span class=\\"c-file-list__tooltip\\"
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+            </g></svg
+          ><span class=\\"c-file-list__link-text\\"
+            ><span>Forslag til &#xE5;rsplan 1P (DOC)</span></span
+          ><span
+            class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
             role=\\"tooltip\\"
-            id=\\"testid_doc\\">
-            <span class=\\"c-file-list__tooltip-text\\">Last ned fil: 1p_arsplan_2013-2014_nynorsk.doc
-            </span>
-          </span>
-        </a>
+            id=\\"testid_doc\\"
+            ><span class=\\"c-file-list__tooltip-text\\"
+              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.doc</span
+            ></span
+          ></a
+        >
       </li>
       <li class=\\"c-file-list__item\\">
-        <a href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
+        <a
+          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
           class=\\"c-file-list__link\\"
-          aria-label=\\"Forslag til årsplan 1P (ODT)\\"
-          aria-describedby=\\"testid_odt\\">
-          <svg fill=\\"currentColor\\"
+          target=\\"_blank\\"
+          aria-label=\\"Forslag til &#xE5;rsplan 1P (ODT)\\"
+          aria-describedby=\\"testid_odt\\"
+          ><svg
+            fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"
@@ -102,34 +105,35 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             viewBox=\\"0 0 24 24\\"
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\">
+            style=\\"vertical-align:middle\\"
+          >
             <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-
-              <path d=\\"M0 0h24v24H0z\\"
-                fill=\\"none\\" />
-
-            </g>
-          </svg>
-          <span class=\\"c-file-list__link-text\\">
-            <span>Forslag til årsplan 1P (ODT)</span>
-          </span>
-          <span class=\\"c-file-list__tooltip\\"
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+            </g></svg
+          ><span class=\\"c-file-list__link-text\\"
+            ><span>Forslag til &#xE5;rsplan 1P (ODT)</span></span
+          ><span
+            class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
             role=\\"tooltip\\"
-            id=\\"testid_odt\\">
-            <span class=\\"c-file-list__tooltip-text\\">Last ned fil: 1p_arsplan_2013-2014_nynorsk.odt
-            </span>
-          </span>
-        </a>
+            id=\\"testid_odt\\"
+            ><span class=\\"c-file-list__tooltip-text\\"
+              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.odt</span
+            ></span
+          ></a
+        >
       </li>
       <li class=\\"c-file-list__item\\">
-        <a href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
+        <a
+          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
           class=\\"c-file-list__link\\"
-          aria-label=\\"Forslag til årsplan 1P (PDF)\\"
-          aria-describedby=\\"testid_pdf\\">
-          <svg fill=\\"currentColor\\"
+          target=\\"_blank\\"
+          aria-label=\\"Forslag til &#xE5;rsplan 1P (PDF)\\"
+          aria-describedby=\\"testid_pdf\\"
+          ><svg
+            fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"
@@ -137,29 +141,28 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             viewBox=\\"0 0 24 24\\"
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\">
+            style=\\"vertical-align:middle\\"
+          >
             <title>Download</title>
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-
-              <path d=\\"M0 0h24v24H0z\\"
-                fill=\\"none\\" />
-
-            </g>
-          </svg>
-          <span class=\\"c-file-list__link-text\\">
-            <span>Forslag til årsplan 1P (PDF)</span>
-          </span>
-          <span class=\\"c-file-list__tooltip\\"
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+            </g></svg
+          ><span class=\\"c-file-list__link-text\\"
+            ><span>Forslag til &#xE5;rsplan 1P (PDF)</span></span
+          ><span
+            class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
             role=\\"tooltip\\"
-            id=\\"testid_pdf\\">
-            <span class=\\"c-file-list__tooltip-text\\">Last ned fil: 1p_arsplan_2013-2014_nynorsk.pdf
-            </span>
-          </span>
-        </a>
+            id=\\"testid_pdf\\"
+            ><span class=\\"c-file-list__tooltip-text\\"
+              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.pdf</span
+            ></span
+          ></a
+        >
       </li>
     </ul>
   </section>
-</section>"
+</section>
+"
 `;

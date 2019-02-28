@@ -7,7 +7,6 @@
  *
  */
 
-import 'babel-polyfill';
 import app from './app';
 
 const http = require('http');

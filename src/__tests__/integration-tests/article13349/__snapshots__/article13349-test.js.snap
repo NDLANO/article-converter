@@ -48,19 +48,21 @@ Object {
 `;
 
 exports[`app/fetchAndTransformArticle 13349 2`] = `
-"
-<section>
+"<section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
       <section class=\\"c-file-list\\">
         <h1 class=\\"c-file-list__heading\\">Filer</h1>
         <ul class=\\"c-file-list__files\\">
           <li class=\\"c-file-list__item\\">
-            <a href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
+            <a
+              href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
               class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
               aria-label=\\"Gantt-diagram (PDF)\\"
-              aria-describedby=\\"testid_pdf\\">
-              <svg fill=\\"currentColor\\"
+              aria-describedby=\\"testid_pdf\\"
+              ><svg
+                fill=\\"currentColor\\"
                 preserveAspectRatio=\\"xMidYMid meet\\"
                 height=\\"1em\\"
                 width=\\"1em\\"
@@ -68,74 +70,88 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
                 viewBox=\\"0 0 24 24\\"
                 data-license=\\"Apache License 2.0\\"
                 data-source=\\"Material Design\\"
-                style=\\"vertical-align:middle\\">
+                style=\\"vertical-align:middle\\"
+              >
                 <title>Download</title>
                 <g>
                   <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-
-                  <path d=\\"M0 0h24v24H0z\\"
-                    fill=\\"none\\" />
-
-                </g>
-              </svg>
-              <span class=\\"c-file-list__link-text\\">
-                <span>Gantt-diagram (PDF)</span>
-              </span>
-              <span class=\\"c-file-list__tooltip\\"
+                  <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+                </g></svg
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Gantt-diagram (PDF)</span></span
+              ><span
+                class=\\"c-file-list__tooltip\\"
                 aria-hidden=\\"true\\"
                 role=\\"tooltip\\"
-                id=\\"testid_pdf\\">
-                <span class=\\"c-file-list__tooltip-text\\">Last ned fil: Gant diagram.pdf
-                </span>
-              </span>
-            </a>
+                id=\\"testid_pdf\\"
+                ><span class=\\"c-file-list__tooltip-text\\"
+                  >Last ned fil: Gant diagram.pdf</span
+                ></span
+              ></a
+            >
           </li>
         </ul>
       </section>
+      <p><strong>Lenke:</strong></p>
       <p>
-        <strong>Lenke:</strong>
-      </p>
-      <p>
-        <a href=\\"http://no.wikipedia.org/wiki/Norsk_Standard\\"
+        <a
+          href=\\"http://no.wikipedia.org/wiki/Norsk_Standard\\"
           rel=\\"noopener noreferrer\\"
           target=\\"_blank\\"
-          title=\\"Norsk Standard\\">Norsk Standard
-        </a>
+          title=\\"Norsk Standard\\"
+          >Norsk Standard</a
+        >
       </p>
     </div>
   </aside>
-  <h2>I planleggingsdelen må du:</h2>
+  <h2>I planleggingsdelen m&#xE5; du:</h2>
   <p>
-    <strong>1.
-    </strong>Foreta en risikovurdering, der du vurderer risikoen ved jobben du skal gjøre (HMS, vernetiltak, forskrifter), samt risikoen når installasjonen er i bruk.
+    <strong>1.</strong> Foreta en risikovurdering, der du vurderer risikoen ved
+    jobben du skal gj&#xF8;re (HMS, vernetiltak, forskrifter), samt risikoen
+    n&#xE5;r installasjonen er i bruk.
   </p>
   <ul>
-    <li>Du skal arbeide i høyden. Hva må vi tenke på her?</li>
+    <li>Du skal arbeide i h&#xF8;yden. Hva m&#xE5; vi tenke p&#xE5; her?</li>
     <li>Du skal kanskje jobbe med spenning?</li>
     <li>Tar vi hensyn til sikkerhetsforskriften?</li>
-    <li>Er det verktøy du ikke kjenner, og som du må ha opplæring i?</li>
+    <li>
+      Er det verkt&#xF8;y du ikke kjenner, og som du m&#xE5; ha oppl&#xE6;ring
+      i?
+    </li>
   </ul>
   <p>
-    <strong>2.
-    </strong>Utarbeide en materialliste, slik at du får med deg utstyr og materiell du trenger for å utføre jobben.
+    <strong>2.</strong> Utarbeide en materialliste, slik at du f&#xE5;r med deg
+    utstyr og materiell du trenger for &#xE5; utf&#xF8;re jobben.
   </p>
   <ul>
-    <li>Er installasjonen åpen eller skjult?</li>
-    <li>Finne fram egnet liste, og finne leverandør- eller grossistkatalog.</li>
+    <li>Er installasjonen &#xE5;pen eller skjult?</li>
+    <li>
+      Finne fram egnet liste, og finne leverand&#xF8;r- eller grossistkatalog.
+    </li>
   </ul>
   <p>
-    <strong>3.
-    </strong>Lage en plan for arbeidet (Gant-diagram), det vil si at du utarbeider en framdriftsplan der du setter opp på papir i kronologisk rekkefølge det du skal gjøre.
+    <strong>3.</strong> Lage en plan for arbeidet (Gant-diagram), det vil si at
+    du utarbeider en framdriftsplan der du setter opp p&#xE5; papir i
+    kronologisk rekkef&#xF8;lge det du skal gj&#xF8;re.
   </p>
   <ul>
-    <li>Gå gjennom oppdraget, og skriv ned de jobbene du skal gjennom i perioden (i venstre kolonne).
+    <li>
+      G&#xE5; gjennom oppdraget, og skriv ned de jobbene du skal gjennom i
+      perioden (i venstre kolonne).
     </li>
-    <li>Sett av den tiden du mener du trenger til de forskjellige delene av arbeidet.
+    <li>
+      Sett av den tiden du mener du trenger til de forskjellige delene av
+      arbeidet.
     </li>
-    <li>Lag deg en \\"buffer\\" på slutten av oppdraget slik at du har tid til ferdigstilling, selv om ikke alt går helt etter planen.
+    <li>
+      Lag deg en &quot;buffer&quot; p&#xE5; slutten av oppdraget slik at du har
+      tid til ferdigstilling, selv om ikke alt g&#xE5;r helt etter planen.
     </li>
   </ul>
-  <p>Finne fram aktuelt verktøy for jobben du skal gjøre. Klargjøre aktuell anleggsdokumentasjon for jobben. I dette oppdraget er det installasjonstegning og koblingsskjema.
+  <p>
+    Finne fram aktuelt verkt&#xF8;y for jobben du skal gj&#xF8;re.
+    Klargj&#xF8;re aktuell anleggsdokumentasjon for jobben. I dette oppdraget er
+    det installasjonstegning og koblingsskjema.
   </p>
   <aside class=\\"c-aside c-aside--narrowScreen\\">
     <div class=\\"c-aside__content\\">
@@ -143,11 +159,14 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
         <h1 class=\\"c-file-list__heading\\">Filer</h1>
         <ul class=\\"c-file-list__files\\">
           <li class=\\"c-file-list__item\\">
-            <a href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
+            <a
+              href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
               class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
               aria-label=\\"Gantt-diagram (PDF)\\"
-              aria-describedby=\\"testid_pdf\\">
-              <svg fill=\\"currentColor\\"
+              aria-describedby=\\"testid_pdf\\"
+              ><svg
+                fill=\\"currentColor\\"
                 preserveAspectRatio=\\"xMidYMid meet\\"
                 height=\\"1em\\"
                 width=\\"1em\\"
@@ -155,41 +174,40 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
                 viewBox=\\"0 0 24 24\\"
                 data-license=\\"Apache License 2.0\\"
                 data-source=\\"Material Design\\"
-                style=\\"vertical-align:middle\\">
+                style=\\"vertical-align:middle\\"
+              >
                 <title>Download</title>
                 <g>
                   <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-
-                  <path d=\\"M0 0h24v24H0z\\"
-                    fill=\\"none\\" />
-
-                </g>
-              </svg>
-              <span class=\\"c-file-list__link-text\\">
-                <span>Gantt-diagram (PDF)</span>
-              </span>
-              <span class=\\"c-file-list__tooltip\\"
+                  <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+                </g></svg
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Gantt-diagram (PDF)</span></span
+              ><span
+                class=\\"c-file-list__tooltip\\"
                 aria-hidden=\\"true\\"
                 role=\\"tooltip\\"
-                id=\\"testid_pdf\\">
-                <span class=\\"c-file-list__tooltip-text\\">Last ned fil: Gant diagram.pdf
-                </span>
-              </span>
-            </a>
+                id=\\"testid_pdf\\"
+                ><span class=\\"c-file-list__tooltip-text\\"
+                  >Last ned fil: Gant diagram.pdf</span
+                ></span
+              ></a
+            >
           </li>
         </ul>
       </section>
+      <p><strong>Lenke:</strong></p>
       <p>
-        <strong>Lenke:</strong>
-      </p>
-      <p>
-        <a href=\\"http://no.wikipedia.org/wiki/Norsk_Standard\\"
+        <a
+          href=\\"http://no.wikipedia.org/wiki/Norsk_Standard\\"
           rel=\\"noopener noreferrer\\"
           target=\\"_blank\\"
-          title=\\"Norsk Standard\\">Norsk Standard
-        </a>
+          title=\\"Norsk Standard\\"
+          >Norsk Standard</a
+        >
       </p>
     </div>
   </aside>
-</section>"
+</section>
+"
 `;
