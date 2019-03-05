@@ -70,7 +70,7 @@ const mapping = relatedArticleEntryNum => {
   };
 };
 
-const getRelatedArticleProps = (article, relatedArticleEntryNum) => {
+const getRelatedArticleProps = (article, relatedArticleEntryNum, filters) => {
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
@@ -78,7 +78,10 @@ const getRelatedArticleProps = (article, relatedArticleEntryNum) => {
     };
   }
 
-  const to = `/subjects${article.resource.path}`;
+  let to = `/subjects${article.resource.path}`;
+  if (filters) {
+    to = to + `?filters=${filters}`;
+  }
 
   const resourceType = article.resource.resourceTypes.find(
     type => mapping(relatedArticleEntryNum)[type.id]
@@ -94,6 +97,8 @@ export default function createRelatedContentPlugin(options = {}) {
   if (options.removeRelatedContent) {
     return { embedToHTML: () => '' };
   }
+
+  console.log(options.filters);
 
   const embedToHTMLCounter = new RelatedArticleCounter();
 
@@ -154,7 +159,11 @@ export default function createRelatedContentPlugin(options = {}) {
             ? embed.article.metaDescription.metaDescription
             : ''
         }
-        {...getRelatedArticleProps(embed.article, relatedArticleEntryNum)}
+        {...getRelatedArticleProps(
+          embed.article,
+          relatedArticleEntryNum,
+          options.filters
+        )}
       />
     );
   };
