@@ -98,8 +98,6 @@ export default function createRelatedContentPlugin(options = {}) {
     return { embedToHTML: () => '' };
   }
 
-  console.log(options.filters);
-
   const embedToHTMLCounter = new RelatedArticleCounter();
 
   async function fetchResource(embed, accessToken, lang) {
