@@ -100,15 +100,99 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <div class=\\"c-license-byline\\">
-            <ul class=\\"c-license-icons__list\\">
-              <li class=\\"c-license-icons__item\\">
+          <style data-emotion-css=\\"3yxr6g-StyledLicenseByline\\">
+            .css-3yxr6g-StyledLicenseByline {
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+            }
+          </style>
+          <div class=\\"css-3yxr6g-StyledLicenseByline ek97w010\\">
+            <style data-emotion-css=\\"mywyd3-StyledList\\">
+              .css-mywyd3-StyledList {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-direction: row;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                color: black;
+                fill: black;
+                margin-right: 13px;
+              }
+            </style>
+            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+              <style data-emotion-css=\\"115scau-StyledLicenseIconItem\\">
+                .css-115scau-StyledLicenseIconItem {
+                  display: -webkit-box;
+                  display: -webkit-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  padding-bottom: 5px;
+                  margin-bottom: 0;
+                  margin-right: 0.2em;
+                  line-height: 1.3rem;
+                }
+                .css-115scau-StyledLicenseIconItem span {
+                  z-index: 1;
+                  opacity: 0;
+                  display: none;
+                  max-width: 300px;
+                  position: absolute;
+                  background: #20588f;
+                  color: #fff;
+                  text-align: left;
+                  border-radius: 2px;
+                  padding: 13px;
+                  font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                    \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                    SongTi, \\"宋体\\", sans-serif;
+                  -webkit-transform: translate(0, calc(-100% - 6px));
+                  -ms-transform: translate(0, calc(-100% - 6px));
+                  transform: translate(0, calc(-100% - 6px));
+                  font-size: 14px;
+                  font-size: 0.7777777777777778rem;
+                  line-height: 18px;
+                }
+                .css-115scau-StyledLicenseIconItem svg {
+                  width: 24px;
+                  height: 24px;
+                  min-width: 24px;
+                }
+                .css-115scau-StyledLicenseIconItem:hover svg {
+                  color: #20588f;
+                }
+                .css-115scau-StyledLicenseIconItem:hover span {
+                  display: block;
+                  opacity: 1;
+                  -webkit-animation-name: fadeIn;
+                  animation-name: fadeIn;
+                  -webkit-animation-duration: 200ms;
+                  animation-duration: 200ms;
+                }
+              </style>
+              <li class=\\"css-115scau-StyledLicenseIconItem eqi7kid0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon c-license-icons__icon--hover\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -122,18 +206,18 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       d=\\"M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314		c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143		c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429		c-3.866-1.618-7.333-3.961-10.4-7.027c-3.067-3.066-5.4-6.524-7-10.372S5.5,32.767,5.5,28.5c0-4.229,0.809-8.295,2.428-12.2		c1.619-3.905,3.972-7.4,7.057-10.486C21.08-0.394,28.565-3.5,37.441-3.5z M37.557,2.272c-7.314,0-13.467,2.553-18.458,7.657		c-2.515,2.553-4.448,5.419-5.8,8.6c-1.354,3.181-2.029,6.505-2.029,9.972c0,3.429,0.675,6.734,2.029,9.913		c1.353,3.183,3.285,6.021,5.8,8.516c2.514,2.496,5.351,4.399,8.515,5.715c3.161,1.314,6.476,1.971,9.943,1.971		c3.428,0,6.75-0.665,9.973-1.999c3.219-1.335,6.121-3.257,8.713-5.771c4.99-4.876,7.484-10.99,7.484-18.344		c0-3.543-0.648-6.895-1.943-10.057c-1.293-3.162-3.18-5.98-5.654-8.458C50.984,4.844,44.795,2.272,37.557,2.272z M37.156,23.187		l-4.287,2.229c-0.458-0.951-1.019-1.619-1.685-2c-0.667-0.38-1.286-0.571-1.858-0.571c-2.856,0-4.286,1.885-4.286,5.657		c0,1.714,0.362,3.084,1.085,4.113c0.724,1.029,1.791,1.544,3.201,1.544c1.867,0,3.181-0.915,3.944-2.743l3.942,2		c-0.838,1.563-2,2.791-3.486,3.686c-1.484,0.896-3.123,1.343-4.914,1.343c-2.857,0-5.163-0.875-6.915-2.629		c-1.752-1.752-2.628-4.19-2.628-7.313c0-3.048,0.886-5.466,2.657-7.257c1.771-1.79,4.009-2.686,6.715-2.686		C32.604,18.558,35.441,20.101,37.156,23.187z M55.613,23.187l-4.229,2.229c-0.457-0.951-1.02-1.619-1.686-2		c-0.668-0.38-1.307-0.571-1.914-0.571c-2.857,0-4.287,1.885-4.287,5.657c0,1.714,0.363,3.084,1.086,4.113		c0.723,1.029,1.789,1.544,3.201,1.544c1.865,0,3.18-0.915,3.941-2.743l4,2c-0.875,1.563-2.057,2.791-3.541,3.686		c-1.486,0.896-3.105,1.343-4.857,1.343c-2.896,0-5.209-0.875-6.941-2.629c-1.736-1.752-2.602-4.19-2.602-7.313		c0-3.048,0.885-5.466,2.658-7.257c1.77-1.79,4.008-2.686,6.713-2.686C51.117,18.558,53.938,20.101,55.613,23.187z\\"
                     />
                   </g></svg
-                ><span class=\\"c-license-icons__hover\\"
+                ><span
                   >Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                   innholdet p&#xE5; visse vilk&#xE5;r.</span
                 >
               </li>
-              <li class=\\"c-license-icons__item\\">
+              <li class=\\"css-115scau-StyledLicenseIconItem eqi7kid0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon c-license-icons__icon--hover\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -149,17 +233,17 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       />
                     </g>
                   </g></svg
-                ><span class=\\"c-license-icons__hover\\"
+                ><span
                   >Du m&#xE5; alltid oppgi hvem som har laget innholdet.</span
                 >
               </li>
-              <li class=\\"c-license-icons__item\\">
+              <li class=\\"css-115scau-StyledLicenseIconItem eqi7kid0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon c-license-icons__icon--hover\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -175,7 +259,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       />
                     </g>
                   </g></svg
-                ><span class=\\"c-license-icons__hover\\"
+                ><span
                   >Du kan bare dele innholdet med samme lisens som det
                   opprinnelige innholdet.</span
                 >
@@ -210,16 +294,76 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
         <h3 id=\\"heading-125442\\" class=\\"c-figure-license__title\\">
           Regler for bruk av videoen
         </h3>
-        <div class=\\"c-license-byline\\">
+        <style data-emotion-css=\\"3yxr6g-StyledLicenseByline\\">
+          .css-3yxr6g-StyledLicenseByline {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+          }
+        </style>
+        <div class=\\"css-3yxr6g-StyledLicenseByline ek97w010\\">
           <div>
-            <ul class=\\"c-license-icons__list\\">
-              <li class=\\"c-license-icons__item\\">
+            <style data-emotion-css=\\"1rsmgzc-StyledList-StyledList\\">
+              .css-1rsmgzc-StyledList-StyledList {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                color: black;
+                fill: black;
+                margin-right: 0;
+              }
+              .css-1rsmgzc-StyledList-StyledList li:first-of-type {
+                margin-bottom: 13px;
+                border-bottom: 1px solid #a5bcd3;
+                padding-bottom: 13px;
+              }
+              .css-1rsmgzc-StyledList-StyledList li:first-of-type svg {
+                fill: #20588f;
+              }
+            </style>
+            <ul class=\\"css-1rsmgzc-StyledList-StyledList eqew8rm0\\">
+              <style data-emotion-css=\\"g27zpv-StyledLicenseIconItem\\">
+                .css-g27zpv-StyledLicenseIconItem {
+                  display: -webkit-box;
+                  display: -webkit-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  padding-bottom: 5px;
+                  margin-bottom: 0;
+                  margin-right: 0.2em;
+                  line-height: 1.3rem;
+                }
+                .css-g27zpv-StyledLicenseIconItem svg {
+                  width: 24px;
+                  height: 24px;
+                  min-width: 24px;
+                }
+              </style>
+              <li class=\\"css-g27zpv-StyledLicenseIconItem e13p0jgt0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -233,18 +377,22 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       d=\\"M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314		c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143		c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429		c-3.866-1.618-7.333-3.961-10.4-7.027c-3.067-3.066-5.4-6.524-7-10.372S5.5,32.767,5.5,28.5c0-4.229,0.809-8.295,2.428-12.2		c1.619-3.905,3.972-7.4,7.057-10.486C21.08-0.394,28.565-3.5,37.441-3.5z M37.557,2.272c-7.314,0-13.467,2.553-18.458,7.657		c-2.515,2.553-4.448,5.419-5.8,8.6c-1.354,3.181-2.029,6.505-2.029,9.972c0,3.429,0.675,6.734,2.029,9.913		c1.353,3.183,3.285,6.021,5.8,8.516c2.514,2.496,5.351,4.399,8.515,5.715c3.161,1.314,6.476,1.971,9.943,1.971		c3.428,0,6.75-0.665,9.973-1.999c3.219-1.335,6.121-3.257,8.713-5.771c4.99-4.876,7.484-10.99,7.484-18.344		c0-3.543-0.648-6.895-1.943-10.057c-1.293-3.162-3.18-5.98-5.654-8.458C50.984,4.844,44.795,2.272,37.557,2.272z M37.156,23.187		l-4.287,2.229c-0.458-0.951-1.019-1.619-1.685-2c-0.667-0.38-1.286-0.571-1.858-0.571c-2.856,0-4.286,1.885-4.286,5.657		c0,1.714,0.362,3.084,1.085,4.113c0.724,1.029,1.791,1.544,3.201,1.544c1.867,0,3.181-0.915,3.944-2.743l3.942,2		c-0.838,1.563-2,2.791-3.486,3.686c-1.484,0.896-3.123,1.343-4.914,1.343c-2.857,0-5.163-0.875-6.915-2.629		c-1.752-1.752-2.628-4.19-2.628-7.313c0-3.048,0.886-5.466,2.657-7.257c1.771-1.79,4.009-2.686,6.715-2.686		C32.604,18.558,35.441,20.101,37.156,23.187z M55.613,23.187l-4.229,2.229c-0.457-0.951-1.02-1.619-1.686-2		c-0.668-0.38-1.307-0.571-1.914-0.571c-2.857,0-4.287,1.885-4.287,5.657c0,1.714,0.363,3.084,1.086,4.113		c0.723,1.029,1.789,1.544,3.201,1.544c1.865,0,3.18-0.915,3.941-2.743l4,2c-0.875,1.563-2.057,2.791-3.541,3.686		c-1.486,0.896-3.105,1.343-4.857,1.343c-2.896,0-5.209-0.875-6.941-2.629c-1.736-1.752-2.602-4.19-2.602-7.313		c0-3.048,0.885-5.466,2.658-7.257c1.77-1.79,4.008-2.686,6.713-2.686C51.117,18.558,53.938,20.101,55.613,23.187z\\"
                     />
                   </g></svg
-                ><span class=\\"c-license-icons__licenselabel\\"
+                ><style data-emotion-css=\\"yfqdly-StyledLicenseLabel\\">
+                  .css-yfqdly-StyledLicenseLabel {
+                    margin-left: 13px;
+                  }</style
+                ><span class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt1\\"
                   >Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                   innholdet p&#xE5; visse vilk&#xE5;r.</span
                 >
               </li>
-              <li class=\\"c-license-icons__item\\">
+              <li class=\\"css-g27zpv-StyledLicenseIconItem e13p0jgt0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -260,17 +408,17 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       />
                     </g>
                   </g></svg
-                ><span class=\\"c-license-icons__licenselabel\\"
+                ><span class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt1\\"
                   >Du m&#xE5; alltid oppgi hvem som har laget innholdet.</span
                 >
               </li>
-              <li class=\\"c-license-icons__item\\">
+              <li class=\\"css-g27zpv-StyledLicenseIconItem e13p0jgt0\\">
                 <svg
                   fill=\\"currentColor\\"
                   preserveAspectRatio=\\"xMidYMid meet\\"
                   height=\\"1em\\"
                   width=\\"1em\\"
-                  class=\\"c-icon c-license-icons__icon\\"
+                  class=\\"c-icon\\"
                   viewBox=\\"5.5 -3.5 64 64\\"
                   data-license=\\"CC-BY 4.0\\"
                   data-source=\\"Creative Commons\\"
@@ -286,7 +434,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       />
                     </g>
                   </g></svg
-                ><span class=\\"c-license-icons__licenselabel\\"
+                ><span class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt1\\"
                   >Du kan bare dele innholdet med samme lisens som det
                   opprinnelige innholdet.</span
                 >
@@ -316,8 +464,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <style data-emotion-css=\\"1gnmc5k\\">
-              .css-1gnmc5k {
+            <style data-emotion-css=\\"ys4tu4-StyledButton-buttonStyle-outline\\">
+              .css-ys4tu4-StyledButton-buttonStyle-outline {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -346,8 +494,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-1gnmc5k:hover,
-              .css-1gnmc5k:focus {
+              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
+              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -355,12 +503,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-1gnmc5k:active {
+              .css-ys4tu4-StyledButton-buttonStyle-outline:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-1gnmc5k[disabled] {
+              .css-ys4tu4-StyledButton-buttonStyle-outline[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -369,11 +517,11 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1gnmc5k:focus {
+              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1gnmc5k:hover,
-              .css-1gnmc5k:focus {
+              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
+              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -381,7 +529,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1gnmc5k:disabled {
+              .css-ys4tu4-StyledButton-buttonStyle-outline:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -392,7 +540,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-SA-4.0 Regiss&#xF8;r: Wes Anderson\\"
-              class=\\"css-1gnmc5k e1ljv5qk0\\"
+              class=\\"css-ys4tu4-StyledButton-buttonStyle-outline e1ljv5qk0\\"
             >
               Kopier referanse
             </button>

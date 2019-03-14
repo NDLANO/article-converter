@@ -8,7 +8,6 @@
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { renderStylesToString } from 'emotion-server';
 import { messagesNB, messagesEN, messagesNN } from '@ndla/ui';
 import IntlProvider, { formatNestedMessages } from '@ndla/i18n';
 
@@ -19,11 +18,9 @@ const messages = {
 };
 
 export function render(component, locale = 'nb') {
-  return renderStylesToString(
-    renderToStaticMarkup(
-      <IntlProvider messages={messages[locale] || messages.nb} locale={locale}>
-        {component}
-      </IntlProvider>
-    )
+  return renderToStaticMarkup(
+    <IntlProvider messages={messages[locale] || messages.nb} locale={locale}>
+      {component}
+    </IntlProvider>
   );
 }

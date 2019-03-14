@@ -95,8 +95,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style data-emotion-css=\\"1j3euft\\">
-      .css-1j3euft {
+    <style data-emotion-css=\\"d3eygo-StyledButton-buttonStyle\\">
+      .css-d3eygo-StyledButton-buttonStyle {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -119,8 +119,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-1j3euft:hover,
-      .css-1j3euft:focus {
+      .css-d3eygo-StyledButton-buttonStyle:hover,
+      .css-d3eygo-StyledButton-buttonStyle:focus {
         color: white;
         background-color: #184673;
         border: 2px solid rgba(32, 88, 143, 0);
@@ -128,12 +128,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         -ms-transform: translateY(1px) translateX(1px);
         transform: translateY(1px) translateX(1px);
       }
-      .css-1j3euft:active {
+      .css-d3eygo-StyledButton-buttonStyle:active {
         -webkit-transform: translateY(2px) translateX(2px);
         -ms-transform: translateY(2px) translateX(2px);
         transform: translateY(2px) translateX(2px);
       }
-      .css-1j3euft[disabled] {
+      .css-d3eygo-StyledButton-buttonStyle[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
@@ -142,12 +142,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         -ms-transform: translateY(0) translateX(0);
         transform: translateY(0) translateX(0);
       }
-      .css-1j3euft:focus {
+      .css-d3eygo-StyledButton-buttonStyle:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
-      class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\"
+      class=\\"c-factbox__button css-d3eygo-StyledButton-buttonStyle e1ljv5qk0\\"
     ></button>
   </aside>
 </section>
@@ -156,8 +156,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style data-emotion-css=\\"1j3euft\\">
-    .css-1j3euft {
+  <style data-emotion-css=\\"d3eygo-StyledButton-buttonStyle\\">
+    .css-d3eygo-StyledButton-buttonStyle {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -180,8 +180,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-1j3euft:hover,
-    .css-1j3euft:focus {
+    .css-d3eygo-StyledButton-buttonStyle:hover,
+    .css-d3eygo-StyledButton-buttonStyle:focus {
       color: white;
       background-color: #184673;
       border: 2px solid rgba(32, 88, 143, 0);
@@ -189,12 +189,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       -ms-transform: translateY(1px) translateX(1px);
       transform: translateY(1px) translateX(1px);
     }
-    .css-1j3euft:active {
+    .css-d3eygo-StyledButton-buttonStyle:active {
       -webkit-transform: translateY(2px) translateX(2px);
       -ms-transform: translateY(2px) translateX(2px);
       transform: translateY(2px) translateX(2px);
     }
-    .css-1j3euft[disabled] {
+    .css-d3eygo-StyledButton-buttonStyle[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
@@ -203,12 +203,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       -ms-transform: translateY(0) translateX(0);
       transform: translateY(0) translateX(0);
     }
-    .css-1j3euft:focus {
+    .css-d3eygo-StyledButton-buttonStyle:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
-    class=\\"c-factbox__button css-1j3euft e1ljv5qk0\\"
+    class=\\"c-factbox__button css-d3eygo-StyledButton-buttonStyle e1ljv5qk0\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>
