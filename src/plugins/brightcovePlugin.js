@@ -106,7 +106,9 @@ export default function createBrightcovePlugin() {
       source: t(locale, 'source'),
     };
 
-    const id = brightcove.reference_id.toString();
+    const id = brightcove.reference_id
+      ? brightcove.reference_id
+      : brightcove.id;
     const figureId = `figure-${id}`;
 
     return render(
