@@ -6,26 +6,29 @@
  *
  */
 
-import { fetchOembed } from '../api/oembedProxyApi';
-import { wrapInFigure } from './pluginHelpers';
+import {
+  fetchOembed
+} from '../api/oembedProxyApi';
+import {
+  wrapInFigure
+} from './pluginHelpers';
 
 export default function createH5pPlugin() {
   const fetchResource = (embed, headers) =>
-    embed.data.url.startsWith('https://ndlah5p.joubel.com')
-      ? fetchOembed(embed, headers)
-      : embed;
+    embed.data.url.startsWith('https://ndlah5p.joubel.com') ?
+    fetchOembed(embed, headers) :
+    embed;
 
   const embedToHTML = h5p => {
     if (h5p.oembed) {
       return wrapInFigure(h5p.oembed.html, false);
     }
-
     return wrapInFigure(`<iframe src="${h5p.data.url}"></iframe>`, false);
   };
 
   return {
     resource: 'h5p',
     fetchResource,
-    embedToHTML,
+    embedToHTML
   };
 }
