@@ -6,11 +6,17 @@
  *
  */
 
-import { replaceEmbedsInHtml } from './replacer';
-import { getEmbedsFromHtml } from './parser';
+import {
+  replaceEmbedsInHtml
+} from './replacer';
+import {
+  getEmbedsFromHtml
+} from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
-import { htmlTransforms } from './htmlTransformers';
+import {
+  htmlTransforms
+} from './htmlTransformers';
 
 export async function transform(
   content,
@@ -35,7 +41,10 @@ export async function transform(
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
-          return { ...embed, status: 'error' };
+          return {
+            ...embed,
+            status: 'error'
+          };
         }
       }
       return embed;
