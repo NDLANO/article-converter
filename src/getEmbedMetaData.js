@@ -16,11 +16,11 @@ export default function getEmbedMetaData(embeds) {
 
     if (embedPlugin && embed.status !== 'error' && embedPlugin.getMetaData) {
       const metaData = embedPlugin.getMetaData(embed);
-       return {
+      return {
         ...ctx,
         [key]: [...resourceMetaData, metaData],
       };
-    }else{
+    } else {
       return ctx;
     }
   }, {});
