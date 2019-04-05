@@ -30,7 +30,7 @@ export default function createExternalPlugin() {
         if (h5pID) {
           fetchH5p(h5pID).then(h5pData => {
             data.embed.h5p = h5pData;
-            resolve(data)
+            resolve(data);
           }).catch(() => resolve(data));
         } else {
           return resolve(data);
