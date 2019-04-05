@@ -8,25 +8,31 @@
 
 import fetch from 'isomorphic-fetch';
 import {
-    resolveJsonOrRejectWithError,
+  resolveJsonOrRejectWithError,
 } from '../utils/apiHelpers';
 
 const getHeaders = () => ({
-    headers: {
-        'content-type': 'Content-Type: application/json',
-    },
+  headers: {
+    'content-type': 'Content-Type: application/json',
+  },
 });
 
 let H5P_HOST_URL = 'https://h5p-test.ndla.no'; // default testing url
 if (process.env.NDLA_ENVIRONMENT === 'prod') {
-    H5P_HOST_URL = 'https://h5p.ndla.no';
+  H5P_HOST_URL = 'https://h5p.ndla.no';
 }
 
-export const fetchH5p = async (id) => {
-    const url = `${H5P_HOST_URL}/v1/resource/${id}/copyright`;
+export const fetchH5p = async id => {
+  const url = `${H5P_HOST_URL}/v1/resource/${id}/copyright`;
+  // const url = 'https://jsonplaceholder.typicode.com/todos/1'; // for testing
+  try {
     const response = await fetch(url, {
-        method: 'GET',
-        ...getHeaders(),
+      method: 'GET',
+      ...getHeaders(),
     });
-    return resolveJsonOrRejectWithError(response) || null;
+    const result = await resolveJsonOrRejectWithError(response);
+    return result;
+  } catch (e) {
+    return null;
+  }
 }
