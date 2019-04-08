@@ -7,6 +7,8 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { h5pHost } from '../config.js';
+
 import {
   resolveJsonOrRejectWithError,
 } from '../utils/apiHelpers';
@@ -17,13 +19,8 @@ const getHeaders = () => ({
   },
 });
 
-let H5P_HOST_URL = 'https://h5p-test.ndla.no'; // default testing url
-if (process.env.NDLA_ENVIRONMENT === 'prod') {
-  H5P_HOST_URL = 'https://h5p.ndla.no';
-}
-
 export const fetchH5p = async id => {
-  const url = `${H5P_HOST_URL}/v1/resource/${id}/copyright`;
+  const url = `${h5pHost}/v1/resource/${id}/copyright`;
   // const url = 'https://jsonplaceholder.typicode.com/todos/1'; // for testing
   try {
     const response = await fetch(url, {
