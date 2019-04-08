@@ -52,7 +52,7 @@ export default function createExternalPlugin() {
 
   const getMetaData = embed => {
     if (embed && embed.embed && embed.embed.h5p) {
-      return { h5p: embed.embed.h5p };
+      return embed.embed.h5p;
     } else {
       return null;
     }
