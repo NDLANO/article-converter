@@ -70,7 +70,12 @@ const mapping = relatedArticleEntryNum => {
   };
 };
 
-const getRelatedArticleProps = (article, relatedArticleEntryNum, filters) => {
+const getRelatedArticleProps = (
+  article,
+  relatedArticleEntryNum,
+  filters,
+  subject
+) => {
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
@@ -78,7 +83,14 @@ const getRelatedArticleProps = (article, relatedArticleEntryNum, filters) => {
     };
   }
 
-  let to = `/subjects${article.resource.path}`;
+  const path =
+    (article.resource.paths &&
+      article.resource.paths.find(
+        p => subject && p.includes(subject.replace('urn:', ''))
+      )) ||
+    article.resource.path;
+
+  let to = `/subjects${path}`;
   if (filters) {
     to = to + `?filters=${filters}`;
   }
@@ -160,7 +172,8 @@ export default function createRelatedContentPlugin(options = {}) {
         {...getRelatedArticleProps(
           embed.article,
           relatedArticleEntryNum,
-          options.filters
+          options.filters,
+          options.subject
         )}
       />
     );

@@ -17,7 +17,7 @@ module.exports = {
     description:
       'Article converter is an api for getting a extended html version of the content attribute provided by Article API', // Description (optional)
     termsOfService: 'http://ndla.no',
-    contact: { name: 'christergundersen@ndla.no' },
+    contact: { name: 'sigurdtrageton@ndla.no' },
     license: {
       name: 'GPL v3.0',
       url: 'http://www.gnu.org/licenses/gpl-3.0.en.html',
