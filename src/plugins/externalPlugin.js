@@ -11,34 +11,42 @@ import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { fetchH5p } from '../api/h5pApi'
+import { fetchH5p } from '../api/h5pApi';
 
 export default function createExternalPlugin() {
-  const fetchResource = (embed, headers) => new Promise((resolve, reject) => {
-    fetchOembed(embed, headers).then(data => data).then(data => {
-      if (data && data.embed && data.embed.data) {
-        const myData = data.embed.data();
-        let h5pID = false;
-        if (myData.url) {
-          const arrUrl = myData.url.split('/');
-          // making sure we don't search for non hp5 urls
-          if (arrUrl[2].includes('h5p')) {
-            h5pID = (arrUrl && arrUrl.length && arrUrl[arrUrl.length - 1]) ? arrUrl[arrUrl.length - 1] : false;
+  const fetchResource = (embed, headers) =>
+    new Promise((resolve, reject) => {
+      fetchOembed(embed, headers)
+        .then(data => data)
+        .then(data => {
+          if (data && data.embed && data.embed.data) {
+            const myData = data.embed.data();
+            let h5pID = false;
+            if (myData.url) {
+              const arrUrl = myData.url.split('/');
+              // making sure we don't search for non hp5 urls
+              if (arrUrl[2].includes('h5p')) {
+                h5pID =
+                  arrUrl && arrUrl.length && arrUrl[arrUrl.length - 1]
+                    ? arrUrl[arrUrl.length - 1]
+                    : false;
+              }
+            }
+
+            if (h5pID) {
+              fetchH5p(h5pID)
+                .then(h5pData => {
+                  data.embed.h5p = h5pData;
+                  resolve(data);
+                })
+                .catch(() => resolve(data));
+            } else {
+              return resolve(data);
+            }
           }
-        }
-
-        if (h5pID) {
-          fetchH5p(h5pID).then(h5pData => {
-            data.embed.h5p = h5pData;
-            resolve(data);
-          }).catch(() => resolve(data));
-        } else {
-          return resolve(data);
-        }
-      }
-    }).catch(reject);
-  });
-
+        })
+        .catch(reject);
+    });
 
   const onError = (embed, locale) =>
     render(
@@ -63,6 +71,6 @@ export default function createExternalPlugin() {
     onError,
     fetchResource,
     embedToHTML,
-    getMetaData
+    getMetaData,
   };
 }

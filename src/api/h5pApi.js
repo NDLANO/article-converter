@@ -9,9 +9,7 @@
 import fetch from 'isomorphic-fetch';
 import { h5pHost } from '../config.js';
 
-import {
-  resolveJsonOrRejectWithError,
-} from '../utils/apiHelpers';
+import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 
 const getHeaders = () => ({
   headers: {
@@ -32,4 +30,4 @@ export const fetchH5p = async id => {
   } catch (e) {
     return null;
   }
-}
+};
