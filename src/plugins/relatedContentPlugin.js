@@ -84,9 +84,11 @@ const getRelatedArticleProps = (
   }
 
   const path =
-    article.resource.paths.find(
-      p => subject && p.includes(subject.replace('urn:', ''))
-    ) || article.resource.path;
+    (article.resource.paths &&
+      article.resource.paths.find(
+        p => subject && p.includes(subject.replace('urn:', ''))
+      )) ||
+    article.resource.path;
 
   let to = `/subjects${path}`;
   if (filters) {
