@@ -19,14 +19,12 @@ const getHeaders = () => ({
 
 export const fetchH5p = async id => {
   const url = `${h5pHost}/v1/resource/${id}/copyright`;
-  // const url = 'https://jsonplaceholder.typicode.com/todos/1'; // for testing
   try {
     const response = await fetch(url, {
       method: 'GET',
       ...getHeaders(),
     });
-    const result = await resolveJsonOrRejectWithError(response);
-    return result;
+    return await resolveJsonOrRejectWithError(response);
   } catch (e) {
     return null;
   }
