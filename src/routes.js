@@ -30,9 +30,11 @@ module.exports.setup = function routes(app) {
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
+    const subject = req.query.subject;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
       filters,
+      subject,
     })
       .then(article => {
         res.json(article);
