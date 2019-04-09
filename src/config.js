@@ -44,9 +44,9 @@ const getAuth0Hostname = () => {
   }
 };
 
-let H5P_HOST_URL = 'https://h5p-test.ndla.no'; // default testing url
-if (process.env.NDLA_ENVIRONMENT === 'prod') {
-  H5P_HOST_URL = 'https://h5p.ndla.no';
+let H5P_HOST_URL = 'https://h5p.ndla.no'; // default testing url
+if (process.env.NDLA_ENVIRONMENT === 'test') {
+  H5P_HOST_URL = 'https://h5p-test.ndla.no';
 }
 
 module.exports = Object.assign(
