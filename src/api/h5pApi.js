@@ -17,7 +17,7 @@ const getHeaders = () => ({
   },
 });
 
-export const fetchH5p = async id => {
+export const fetchH5pLicenseInformation = async id => {
   const url = `${h5pHost}/v1/resource/${id}/copyright`;
   try {
     const response = await fetch(url, {
