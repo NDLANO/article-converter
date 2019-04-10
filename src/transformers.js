@@ -35,7 +35,10 @@ export async function transform(
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
-          return { ...embed, status: 'error' };
+          return {
+            ...embed,
+            status: 'error',
+          };
         }
       }
       return embed;

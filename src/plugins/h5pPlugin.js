@@ -19,7 +19,6 @@ export default function createH5pPlugin() {
     if (h5p.oembed) {
       return wrapInFigure(h5p.oembed.html, false);
     }
-
     return wrapInFigure(`<iframe src="${h5p.data.url}"></iframe>`, false);
   };
 

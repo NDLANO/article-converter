@@ -20,7 +20,8 @@ export default function getEmbedMetaData(embeds) {
         ...ctx,
         [key]: [...resourceMetaData, metaData],
       };
+    } else {
+      return ctx;
     }
-    return ctx;
   }, {});
 }

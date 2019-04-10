@@ -44,6 +44,11 @@ const getAuth0Hostname = () => {
   }
 };
 
+let H5P_HOST_URL = 'https://h5p.ndla.no'; // All environments uses prod except test.
+if (process.env.NDLA_ENVIRONMENT === 'test') {
+  H5P_HOST_URL = 'https://h5p-test.ndla.no';
+}
+
 module.exports = Object.assign(
   {
     host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
@@ -53,6 +58,7 @@ module.exports = Object.assign(
     brightcoveClientId: process.env.BRIGHTCOVE_API_CLIENT_ID || '',
     brightcoveClientSecret: process.env.BRIGHTCOVE_API_CLIENT_SECRET || '',
     auth0Hostname: getAuth0Hostname(),
+    h5pHost: H5P_HOST_URL,
 
     app: {
       title: 'NDLA Content frontend',

@@ -26,5 +26,8 @@ export const fetchOembed = async (embed, accessToken) => {
     }
   );
   const oembed = await resolveJsonOrRejectWithError(response);
-  return { ...embed, oembed };
+  return {
+    ...embed,
+    oembed,
+  };
 };
