@@ -11,7 +11,7 @@ import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { fetchH5p } from '../api/h5pApi';
+import { fetchH5pLicenseInformation } from '../api/h5pApi';
 
 export default function createExternalPlugin() {
   const fetchResource = (embed, headers) =>
