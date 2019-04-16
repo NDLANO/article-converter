@@ -36,6 +36,7 @@ export default function createExternalPlugin() {
             if (h5pID) {
               fetchH5pLicenseInformation(h5pID)
                 .then(h5pData => {
+                  h5pData.url = myData.url;
                   data.embed.h5p = h5pData;
                   resolve(data);
                 })
