@@ -113,7 +113,7 @@ const getLicenseByNBTitle = title => {
 
 export const getContributorGroups = fields => {
   const parseContributorsString = contributorString => {
-    const contributorFields = contributorString.split(/: */);
+    const contributorFields = contributorString.split(/\s?: */);
     if (contributorFields.length !== 2)
       return { creators: { type: '', name: contributorFields[0] } };
     const [type, name] = contributorFields;
