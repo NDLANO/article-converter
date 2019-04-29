@@ -39,6 +39,9 @@ export async function resolveJsonOrRejectWithError(res) {
   if (res.ok) {
     return res.status === 204 ? undefined : res.json();
   }
+  if (res.status === 404) {
+    throw createErrorPayload(res.status, res.statusText);
+  }
   log.warn(
     `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
   );
