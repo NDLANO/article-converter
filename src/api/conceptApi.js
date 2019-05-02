@@ -20,7 +20,7 @@ export const fetchConcept = async (
   method = 'GET'
 ) => {
   const url = apiResourceUrl(
-    `/concepts/api/v1/concept/${
+    `/article-api/v1/concepts/${
       embed.data.contentId
     }?language=${language}&fallback=true`
   );
@@ -29,5 +29,5 @@ export const fetchConcept = async (
     headers: headerWithAccessToken(accessToken),
   });
   const concept = await resolveJsonOrRejectWithError(response);
-  return { ...embed, concept: concept && concept.data };
+  return { ...embed, concept };
 };
