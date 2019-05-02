@@ -23,7 +23,6 @@ export default function createConceptPlugin() {
 
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
-
     return render(
       <Notion
         id={`notion_id_${contentId}`}
@@ -43,7 +42,12 @@ export default function createConceptPlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const { id, title, content } = embed.concept;
+    const {
+      id,
+      title: { title },
+      content: { content },
+    } = embed.concept;
+
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.creators, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
