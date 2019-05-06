@@ -18,6 +18,7 @@ test('uses fallback if contributor string could not be parsed', () => {
   const fields = {
     licenseinfo: 'Opphavsmann: Senter for nye medier, Høgskolen i Bergen',
     licenseinfo1: 'Opphavsmann Adalia film & media',
+    licenseinfo2: ' Opphavsmann: Adalia film & media',
     yt_privacy_status: 'private',
     license: 'Navngivelse-Del på samme vilkår',
   };

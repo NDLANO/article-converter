@@ -39,6 +39,10 @@ Object {
         "type": "",
       },
     },
+    Object {
+      "name": "Adalia film & media",
+      "type": "originator",
+    },
   ],
   "processors": Array [],
   "rightsholders": Array [],
