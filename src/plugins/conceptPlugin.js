@@ -42,11 +42,7 @@ export default function createConceptPlugin() {
   };
 
   const embedToHTML = (embed, locale) => {
-    const {
-      id,
-      title: { title },
-      content: { content },
-    } = embed.concept;
+    const { id, title, content } = embed.concept;
 
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.creators, []).map(author => author.name);
