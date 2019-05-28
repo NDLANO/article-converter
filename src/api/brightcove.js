@@ -120,7 +120,7 @@ export const getContributorGroups = fields => {
     const contributorType = Object.keys(contributorTypes.nb).find(
       key => contributorTypes.nb[key] === mapContributorType(type.trim())
     );
-    return { type: contributorType, name };
+    return { type: contributorType || '', name };
   };
 
   const licenseInfoKeys = Object.keys(fields).filter(key =>
