@@ -115,7 +115,7 @@ export const getContributorGroups = fields => {
   const parseContributorsString = contributorString => {
     const contributorFields = contributorString.split(/: */);
     if (contributorFields.length !== 2)
-      return { creators: { type: '', name: contributorFields[0] } };
+      return { type: '', name: contributorFields[0] };
     const [type, name] = contributorFields;
     const contributorType = Object.keys(contributorTypes.nb).find(
       key => contributorTypes.nb[key] === mapContributorType(type.trim())

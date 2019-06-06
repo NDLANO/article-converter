@@ -37,6 +37,7 @@ export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,
 
 export const getCopyString = (licenseAbbreviation, creators, locale) => {
   const contributorsCopyString = creators
+    .filter(creator => !creator.type)
     .map(creator => {
       const type = t(locale, `${creator.type.toLowerCase()}`);
       return `${type}: ${creator.name}`;
