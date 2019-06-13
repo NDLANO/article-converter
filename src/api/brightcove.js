@@ -102,8 +102,12 @@ const getLicenseByNBTitle = title => {
       return 'CC-BY-4.0';
     case 'offentligdomene':
       return 'PD';
+    case 'publicdomaindedication':
+      return 'CC0-1.0';
+    case 'publicdomainmark':
+      return 'PD';
     case 'fristatus-erklæring':
-      return 'CC0 1.0';
+      return 'CC0-1.0';
     case 'opphavsrett':
       return 'COPYRIGHTED';
     default:
