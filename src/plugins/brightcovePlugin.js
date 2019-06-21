@@ -66,8 +66,8 @@ export default function createBrightcovePlugin() {
     return render(
       <Figure resizeIframe>
         <iframe
-          title={`Video: ${videoid}`}
-          aria-label={`Video: ${videoid}`}
+          title={`Video: ${videoid || ''}`}
+          aria-label={`Video: ${videoid || ''}`}
           frameBorder="0"
           {...getIframeProps(data, [])}
           allowFullScreen
