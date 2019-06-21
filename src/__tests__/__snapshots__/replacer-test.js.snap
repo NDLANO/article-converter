@@ -1590,6 +1590,8 @@ exports[`replacer/replaceEmbedsInHtml replace commoncraft embeds 1`] = `
 "<section>
   <figure class=\\"c-figure c-figure--resize\\">
     <iframe
+      title=\\"http://common.craft\\"
+      aria-label=\\"http://common.craft\\"
       src=\\"http://common.craft\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -1649,6 +1651,8 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 "<section>
   <figure class=\\"c-figure c-figure--resize\\">
     <iframe
+      title=\\"http://prezi.com\\"
+      aria-label=\\"http://prezi.com\\"
       src=\\"http://prezi.com\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -2814,6 +2818,8 @@ exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
 "<section>
   <figure class=\\"c-figure c-figure--resize\\">
     <iframe
+      title=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
+      aria-label=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
       src=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
       width=\\"1\\"
       height=\\"2\\"
@@ -2830,6 +2836,8 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
 "<section>
   <figure class=\\"c-figure c-figure--resize\\">
     <iframe
+      title=\\"http://ndla.filmiundervisning.no/\\"
+      aria-label=\\"http://ndla.filmiundervisning.no/\\"
       src=\\"http://ndla.filmiundervisning.no/\\"
       width=\\"1\\"
       height=\\"2\\"

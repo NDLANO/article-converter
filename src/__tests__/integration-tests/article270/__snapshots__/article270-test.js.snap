@@ -60,7 +60,11 @@ Object {
 exports[`app/fetchAndTransformArticle 270 2`] = `
 "<section>
   <figure class=\\"c-figure\\">
-    <iframe src=\\"//ndla.no/h5p/embed/174974\\"></iframe>
+    <iframe
+      title=\\"//ndla.no/h5p/embed/174974\\"
+      aria-label=\\"//ndla.no/h5p/embed/174974\\"
+      src=\\"//ndla.no/h5p/embed/174974\\"
+    ></iframe>
   </figure>
 </section>
 <section>

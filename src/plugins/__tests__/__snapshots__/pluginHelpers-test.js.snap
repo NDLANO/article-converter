@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`makeIframe 1`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
+exports[`makeIframe 1`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
 
-exports[`makeIframe 2`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
+exports[`makeIframe 2`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
 
-exports[`makeIframe 3`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
+exports[`makeIframe 3`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
 
-exports[`makeIframe 4`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
+exports[`makeIframe 4`] = `"<figure class=\\"c-figure c-figure--resize\\"><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" ></iframe></figure>"`;
 
 exports[`wrapInFigure 1`] = `"<figure class=\\"c-figure c-figure--resize\\"><div></div></figure>"`;
 
