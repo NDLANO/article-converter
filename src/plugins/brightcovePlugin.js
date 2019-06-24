@@ -50,7 +50,6 @@ export default function createBrightcovePlugin() {
     const mp4s = brightcove.sources
       .filter(source => source.container === 'MP4' && source.src)
       .sort((a, b) => b.size - a.size);
-
     return {
       title: brightcove.name,
       copyright: brightcove.copyright,
@@ -67,7 +66,8 @@ export default function createBrightcovePlugin() {
     return render(
       <Figure resizeIframe>
         <iframe
-          title={`Video: ${videoid}`}
+          title={`Video: ${videoid || ''}`}
+          aria-label={`Video: ${videoid || ''}`}
           frameBorder="0"
           {...getIframeProps(data, [])}
           allowFullScreen
@@ -115,6 +115,7 @@ export default function createBrightcovePlugin() {
       <Figure id={figureId} resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
+          aria-label={`Video: ${brightcove.name}`}
           frameBorder="0"
           {...getIframeProps(data, brightcove.sources)}
           allowFullScreen

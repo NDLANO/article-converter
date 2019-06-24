@@ -50,5 +50,7 @@ export async function resolveJsonOrRejectWithError(res) {
 }
 
 export function headerWithAccessToken(accessToken) {
-  return { Authorization: accessToken };
+  return {
+    Authorization: accessToken,
+  };
 }
