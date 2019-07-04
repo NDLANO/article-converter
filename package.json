@@ -16,7 +16,9 @@
     "start": "nodemon --exec babel-node --watch src/ src/server.js | bunyan",
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "prebuild": "yarn run clean",
-    "format": "node prettier.js write"
+    "format": "node prettier.js write",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -75,12 +77,14 @@
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
     "string-replace-async": "^1.2.1",
-    "swagger-jsdoc": "^3.2.7"
+    "swagger-jsdoc": "^3.2.7",
+    "snyk": "^1.189.0"
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"
   },
   "homepage": "https://github.com/NDLANO/article-converter",
   "author": "ndla@knowit.no",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "snyk": true
 }
