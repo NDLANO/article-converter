@@ -20,7 +20,7 @@ export const fetchConcept = async (
   method = 'GET'
 ) => {
   const url = apiResourceUrl(
-    `/article-api/v1/concepts/${
+    `/concept-api/v1/concepts/${
       embed.data.contentId
     }?language=${language}&fallback=true`
   );
