@@ -6,11 +6,22 @@
  *
  */
 
+import { performance } from 'perf_hooks';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
+
+function logIfLongTime(start, timeout, action, obj) {
+  const elapsedTime = (performance.now() - start).toFixed(2);
+  if (elapsedTime > timeout) {
+    console.warn(
+      `Action '${action}' took ${elapsedTime}ms, longer than time to warn of ${timeout}ms...`,
+      obj
+    );
+  }
+}
 
 export async function transform(
   content,
@@ -29,12 +40,20 @@ export async function transform(
     embeds.map(async embed => {
       const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
+        const startStamp = performance.now();
         try {
           const resource = await plugin.fetchResource(embed, accessToken, lang);
+          logIfLongTime(startStamp, 1000, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
+          logIfLongTime(
+            startStamp,
+            1000,
+            `Failed fetching resource`,
+            embed.data
+          );
           return {
             ...embed,
             status: 'error',
