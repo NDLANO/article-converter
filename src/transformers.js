@@ -43,14 +43,14 @@ export async function transform(
         const startStamp = performance.now();
         try {
           const resource = await plugin.fetchResource(embed, accessToken, lang);
-          logIfLongTime(startStamp, 1000, `Fetching resource`, embed.data);
+          logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
           logIfLongTime(
             startStamp,
-            1000,
+            500,
             `Failed fetching resource`,
             embed.data
           );
