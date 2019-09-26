@@ -88,7 +88,11 @@ Object {
 
 exports[`app/fetchAndTransformArticle 116 2`] = `
 "<section>
-  <figure class=\\"c-figure c-figure--resize u-float-full\\" id=\\"figure-125442\\">
+  <figure
+    data-sizetype=\\"full\\"
+    class=\\"c-figure c-figure--resize u-float-full\\"
+    id=\\"figure-125442\\"
+  >
     <iframe
       title=\\"Video: Offentlige debatter\\"
       aria-label=\\"Video: Offentlige debatter\\"
@@ -465,8 +469,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <style data-emotion-css=\\"ys4tu4-StyledButton-buttonStyle-outline\\">
-              .css-ys4tu4-StyledButton-buttonStyle-outline {
+            <style data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\">
+              .css-1sjlqwy-StyledButton-buttonStyle-outline {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -495,8 +499,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -504,12 +508,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:active {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline[disabled] {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -518,11 +522,11 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -530,7 +534,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:disabled {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -541,7 +545,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-SA-4.0 Regiss&#xF8;r: Wes Anderson\\"
-              class=\\"css-ys4tu4-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+              class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
             >
               Kopier referanse
             </button>
