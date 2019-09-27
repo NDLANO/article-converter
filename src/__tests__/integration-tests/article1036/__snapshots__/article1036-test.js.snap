@@ -135,32 +135,35 @@ Object {
 
 exports[`app/fetchAndTransformArticle 1036 2`] = `
 "<section>
-  <figure class=\\"c-figure u-float-full\\" id=\\"figure-2357\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2357\\">
     <a
       target=\\"_blank\\"
       href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=10720\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"&#xC5;pne bilde i et nytt vindu\\"
-      ><img
-        alt=\\"To barn p&#xE5; fottur p&#xE5; Kvamsfjellet. Foto.\\"
-        srcset=\\"
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960   960w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800   800w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640   640w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480   480w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320   320w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240   240w,
-          https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180   180w
-        \\"
-        sizes=\\"(min-width: 1024px) 1024px, 100vw\\"
-        src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\"
-    /></a>
+      ><picture
+        ><source
+          type=\\"image/jpeg\\"
+          srcset=\\"
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720 2720w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2080 2080w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1760 1760w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1440 1440w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1120 1120w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1000 1000w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=960   960w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=800   800w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=640   640w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=480   480w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=320   320w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240   240w,
+            https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180   180w
+          \\"
+          sizes=\\"(min-width: 1024px) 1024px, 100vw\\"/>
+        <img
+          alt=\\"To barn p&#xE5; fottur p&#xE5; Kvamsfjellet. Foto.\\"
+          src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\"/></picture
+    ></a>
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
@@ -667,8 +670,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
-            <style data-emotion-css=\\"ys4tu4-StyledButton-buttonStyle-outline\\">
-              .css-ys4tu4-StyledButton-buttonStyle-outline {
+            <style data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\">
+              .css-1sjlqwy-StyledButton-buttonStyle-outline {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -697,8 +700,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -706,12 +709,12 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:active {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline[disabled] {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -720,11 +723,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:hover,
-              .css-ys4tu4-StyledButton-buttonStyle-outline:focus {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -732,7 +735,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ys4tu4-StyledButton-buttonStyle-outline:disabled {
+              .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -743,13 +746,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
-              class=\\"css-ys4tu4-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+              class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
             >
               Kopier referanse</button
             ><style
-              data-emotion-css=\\"ocojlt-StyledButton-StyledButton-buttonStyle-outline\\"
+              data-emotion-css=\\"1p15mog-StyledButton-StyledButton-buttonStyle-outline\\"
             >
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -778,8 +781,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 font-weight: 700;
                 box-shadow: none;
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:hover,
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:focus {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -787,12 +790,12 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:active {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline[disabled] {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -801,11 +804,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:focus {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:hover,
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:focus {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -813,7 +816,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-ocojlt-StyledButton-StyledButton-buttonStyle-outline:disabled {
+              .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:disabled {
                 border: 2px solid transparent;
                 cursor: not-allowed;
                 -webkit-transform: translateY(0) translateX(0);
@@ -823,7 +826,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             ><a
               href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download=\\"\\"
-              class=\\"css-ocojlt-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+              class=\\"css-1p15mog-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
               >Last ned bildet</a
             >
           </div>
