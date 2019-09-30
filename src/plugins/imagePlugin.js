@@ -40,7 +40,9 @@ const getFigureType = (size, align) => {
   if (isSmall(size) && !align) {
     return size;
   }
-
+  if (align) {
+    return align;
+  }
   return 'full';
 };
 
