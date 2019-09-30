@@ -1681,7 +1681,7 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "<section>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1\\">
+  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-1\\">
     <a
       target=\\"_blank\\"
       href=\\"http://ndla.no/images/1.jpg?width=10720\\"

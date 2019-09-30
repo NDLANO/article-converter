@@ -404,7 +404,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2357\\">
+  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-2357\\">
     <a
       target=\\"_blank\\"
       href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=10720\\"
