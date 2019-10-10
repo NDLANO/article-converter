@@ -207,7 +207,7 @@ export default function createImagePlugin() {
     const authors = getLicenenseCredits(image.copyright);
 
     const altText = embedAlttext || image.alttext.alttext;
-    const caption = embedCaption || image.caption.caption;
+    const caption = embedCaption || '';
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureType = getFigureType(size, align);
