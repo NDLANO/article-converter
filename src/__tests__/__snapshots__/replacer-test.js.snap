@@ -1705,7 +1705,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             http://ndla.no/images/1.jpg?width=180   180w
           \\"
           sizes=\\"(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw\\"/>
-        <img alt=\\"alt\\" src=\\"http://ndla.no/images/1.jpg?width=1024\\"/></picture
+        <img alt=\\"\\" src=\\"http://ndla.no/images/1.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
@@ -2280,7 +2280,7 @@ Kunstner: Kari Maler\\"
             http://ndla.no/images/2.jpg?width=180   180w
           \\"
           sizes=\\"(min-width: 1024px) 1024px, 100vw\\"/>
-        <img alt=\\"alt\\" src=\\"http://ndla.no/images/2.jpg?width=1024\\"/></picture
+        <img alt=\\"\\" src=\\"http://ndla.no/images/2.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
@@ -2891,7 +2891,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           \\"
           sizes=\\"(min-width: 1024px) 1024px, 100vw\\"/>
         <img
-          alt=\\"alt\\"
+          alt=\\"\\"
           src=\\"http://api.test.ndla.no/images/1.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
