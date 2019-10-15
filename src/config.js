@@ -37,6 +37,8 @@ const getAuth0Hostname = () => {
   switch (process.env.NDLA_ENVIRONMENT) {
     case 'prod':
       return 'ndla.eu.auth0.com';
+    case 'ff':
+      return 'ndla.eu.auth0.com';
     case 'staging':
       return 'ndla-staging.eu.auth0.com';
     default:
@@ -47,6 +49,8 @@ const getAuth0Hostname = () => {
 let H5P_HOST_URL = 'https://h5p.ndla.no'; // All environments uses prod except test.
 if (process.env.NDLA_ENVIRONMENT === 'test') {
   H5P_HOST_URL = 'https://h5p-test.ndla.no';
+} else if (process.env.NDLA_ENVIRONMENT === 'ff') {
+  H5P_HOST_URL = 'https://h5p-ff.ndla.no';
 }
 
 module.exports = Object.assign(
