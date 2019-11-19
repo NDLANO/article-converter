@@ -20,17 +20,19 @@ export function RelatedArticleCounter(initialCount = 0) {
 }
 
 export function createRelatedArticleList(props, children) {
-  return render(
-    <RelatedArticleList
-      {...props}
-      messages={{
-        title: t(props.locale, 'related.title'),
-        showMore: t(props.locale, 'showMore'),
-        showLess: t(props.locale, 'showLess'),
-      }}
-      dangerouslySetInnerHTML={{
-        __html: children,
-      }}
-    />
-  );
+  if (children && children.length > 0) {
+    return render(
+      <RelatedArticleList
+        {...props}
+        messages={{
+          title: t(props.locale, 'related.title'),
+          showMore: t(props.locale, 'showMore'),
+          showLess: t(props.locale, 'showLess'),
+        }}
+        dangerouslySetInnerHTML={{
+          __html: children,
+        }}
+      />
+    );
+  }
 }
