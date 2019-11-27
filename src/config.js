@@ -13,7 +13,7 @@ const environment = {
   production: {
     isProduction: true,
   },
-} [process.env.NODE_ENV || 'development'];
+}[process.env.NODE_ENV || 'development'];
 
 const domain = () => {
   const apiHost = process.env.API_GATEWAY_HOST;
@@ -58,7 +58,8 @@ if (process.env.NDLA_ENVIRONMENT === 'test') {
   H5P_HOST_URL = 'https://h5p-ff.ndla.no';
 }
 
-module.exports = Object.assign({
+module.exports = Object.assign(
+  {
     host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
     port: process.env.ARTICLE_CONVERTER_PORT || '3100',
     ndlaApiUrl: process.env.NDLA_API_URL || domain(),
