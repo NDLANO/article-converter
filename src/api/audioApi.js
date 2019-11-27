@@ -10,9 +10,12 @@ import fetch from 'isomorphic-fetch';
 import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
+  convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 
 export const fetchAudio = (embed, accessToken) =>
-  fetch(embed.data.url, { headers: headerWithAccessToken(accessToken) })
+  fetch(convertToInternalUrlIfPossible(embed.data.url), {
+    headers: headerWithAccessToken(accessToken),
+  })
     .then(resolveJsonOrRejectWithError)
     .then(audio => ({ ...embed, audio }));

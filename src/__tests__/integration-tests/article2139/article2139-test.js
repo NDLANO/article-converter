@@ -19,13 +19,13 @@ test('app/fetchAndTransformArticle 2139', async () => {
     .get('/article-api/v2/articles/2139?language=nb&fallback=true')
     .reply(200, article2139);
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/image-api/v2/images/859')
     .reply(200, image2357);
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/image-api/v2/images/604')
     .reply(200, image2357);
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/image-api/v2/images/3676')
     .reply(200, image347);
 
