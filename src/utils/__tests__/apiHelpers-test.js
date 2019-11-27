@@ -48,7 +48,7 @@ it('errorHelpers getAppropriateErrorResponse with stacktrace', () => {
     ['https://example.com/test/?skvip', 'https://example.com/test/?skvip'],
   ];
 
-  urlsToConvert.map(testObj => {
+  for (const testObj of urlsToConvert) {
     expect(convertToInternalUrlIfPossible(testObj[0])).toBe(testObj[1]);
-  });
+  }
 });
