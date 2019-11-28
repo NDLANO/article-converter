@@ -20,6 +20,10 @@ const apiBaseUrl = (() => {
   return NDLA_API_URL;
 })();
 
+export function convertToInternalUrlIfPossible(url) {
+  return url.replace(/^https:\/\/(?!www)(.*?)api(.+?)ndla\.no/g, apiBaseUrl);
+}
+
 export { apiBaseUrl };
 
 export function apiResourceUrl(path) {

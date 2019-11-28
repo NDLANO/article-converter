@@ -18,7 +18,7 @@ test('app/fetchAndTransformArticle 1036', async () => {
     .get('/article-api/v2/articles/1036?language=nb&fallback=true')
     .reply(200, article1036);
 
-  nock('https://test.api.ndla.no')
+  nock('http://ndla-api')
     .get('/image-api/v2/images/2357')
     .reply(200, image2357);
 

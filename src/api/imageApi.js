@@ -10,10 +10,11 @@ import fetch from 'isomorphic-fetch';
 import {
   headerWithAccessToken,
   resolveJsonOrRejectWithError,
+  convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 
 export const fetchImageResources = async (embed, accessToken) => {
-  const response = await fetch(embed.data.url, {
+  const response = await fetch(convertToInternalUrlIfPossible(embed.data.url), {
     headers: headerWithAccessToken(accessToken),
   });
   const image = await resolveJsonOrRejectWithError(response);
