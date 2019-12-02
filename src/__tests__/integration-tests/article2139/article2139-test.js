@@ -20,13 +20,13 @@ test('app/fetchAndTransformArticle 2139', async () => {
     .reply(200, article2139);
 
   nock('http://ndla-api')
-    .get('/image-api/v2/images/859')
+    .get('/image-api/v2/images/859?language=nb')
     .reply(200, image2357);
   nock('http://ndla-api')
-    .get('/image-api/v2/images/604')
+    .get('/image-api/v2/images/604?language=nb')
     .reply(200, image2357);
   nock('http://ndla-api')
-    .get('/image-api/v2/images/3676')
+    .get('/image-api/v2/images/3676?language=nb')
     .reply(200, image347);
 
   const transformed = await fetchAndTransformArticle(
