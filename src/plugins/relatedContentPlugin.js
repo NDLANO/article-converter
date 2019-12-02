@@ -112,14 +112,14 @@ export default function createRelatedContentPlugin(options = {}) {
 
   const embedToHTMLCounter = new RelatedArticleCounter();
 
-  async function fetchResource(embed, accessToken, lang) {
+  async function fetchResource(embed, accessToken, language) {
     if (!embed.data) return embed;
 
     if (embed.data.articleId) {
       try {
         const [article, resource] = await Promise.all([
-          fetchArticle(embed.data.articleId, accessToken, lang),
-          fetchArticleResource(embed.data.articleId, accessToken, lang),
+          fetchArticle(embed.data.articleId, accessToken, language),
+          fetchArticleResource(embed.data.articleId, accessToken, language),
         ]);
         return {
           ...embed,

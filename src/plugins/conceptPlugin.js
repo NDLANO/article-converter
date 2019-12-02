@@ -18,8 +18,8 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 
 export default function createConceptPlugin() {
-  const fetchResource = (embed, headers, lang) =>
-    fetchConcept(embed, headers, lang);
+  const fetchResource = (embed, accessToken, language) =>
+    fetchConcept(embed, accessToken, language);
 
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;

@@ -10,9 +10,9 @@ import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure } from './pluginHelpers';
 
 export default function createH5pPlugin() {
-  const fetchResource = (embed, headers) =>
+  const fetchResource = (embed, accessToken) =>
     embed.data.url.startsWith('https://ndlah5p.joubel.com')
-      ? fetchOembed(embed, headers)
+      ? fetchOembed(embed, accessToken)
       : embed;
 
   const embedToHTML = h5p => {

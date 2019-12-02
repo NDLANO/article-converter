@@ -13,10 +13,13 @@ import {
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 
-export const fetchImageResources = async (embed, accessToken) => {
-  const response = await fetch(convertToInternalUrlIfPossible(embed.data.url), {
-    headers: headerWithAccessToken(accessToken),
-  });
+export const fetchImageResources = async (embed, accessToken, language) => {
+  const response = await fetch(
+    `${convertToInternalUrlIfPossible(embed.data.url)}?language=${language}`,
+    {
+      headers: headerWithAccessToken(accessToken),
+    }
+  );
   const image = await resolveJsonOrRejectWithError(response);
   return { ...embed, image };
 };
