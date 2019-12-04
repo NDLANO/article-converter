@@ -19,7 +19,7 @@ test('app/fetchAndTransformArticle 1036', async () => {
     .reply(200, article1036);
 
   nock('http://ndla-api')
-    .get('/image-api/v2/images/2357')
+    .get('/image-api/v2/images/2357?language=nb')
     .reply(200, image2357);
 
   const transformed = await fetchAndTransformArticle(

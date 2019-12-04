@@ -10,21 +10,21 @@ import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 
 export default function createContentLinkPlugin(options = {}) {
-  async function fetchResource(embed, accessToken, lang) {
+  async function fetchResource(embed, accessToken, language) {
     try {
       const resource = await fetchArticleResource(
         embed.data.contentId,
         accessToken,
-        lang
+        language
       );
-      let path = `${lang}/subjects${resource.path}`;
+      let path = `${language}/subjects${resource.path}`;
       if (options.filters) {
         path = path + `?filters=${options.filters}`;
       }
       return { ...embed, path: path };
     } catch (error) {
       log.error(error);
-      return { ...embed, path: `${lang}/article/${embed.data.contentId}` };
+      return { ...embed, path: `${language}/article/${embed.data.contentId}` };
     }
   }
 

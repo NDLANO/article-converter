@@ -26,7 +26,8 @@ import { render } from '../utils/render';
 const Anchor = StyledButton.withComponent('a');
 
 export default function createAudioPlugin() {
-  const fetchResource = (embed, headers) => fetchAudio(embed, headers);
+  const fetchResource = (embed, accessToken, language) =>
+    fetchAudio(embed, accessToken, language);
 
   const getMetaData = embed => {
     const { audio } = embed;

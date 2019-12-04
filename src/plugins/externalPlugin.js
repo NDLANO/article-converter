@@ -14,9 +14,9 @@ import { render } from '../utils/render';
 import { fetchH5pLicenseInformation } from '../api/h5pApi';
 
 export default function createExternalPlugin() {
-  const fetchResource = (embed, headers) =>
+  const fetchResource = (embed, accessToken) =>
     new Promise((resolve, reject) => {
-      fetchOembed(embed, headers)
+      fetchOembed(embed, accessToken)
         .then(data => data)
         .then(data => {
           if (data && data.embed && data.embed.data) {

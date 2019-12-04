@@ -13,9 +13,12 @@ import {
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 
-export const fetchAudio = (embed, accessToken) =>
-  fetch(convertToInternalUrlIfPossible(embed.data.url), {
-    headers: headerWithAccessToken(accessToken),
-  })
+export const fetchAudio = (embed, accessToken, language) =>
+  fetch(
+    `${convertToInternalUrlIfPossible(embed.data.url)}?language=${language}`,
+    {
+      headers: headerWithAccessToken(accessToken),
+    }
+  )
     .then(resolveJsonOrRejectWithError)
     .then(audio => ({ ...embed, audio }));

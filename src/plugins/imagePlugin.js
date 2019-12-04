@@ -165,7 +165,8 @@ ImageActionButtons.propTypes = {
 };
 
 export default function createImagePlugin() {
-  const fetchResource = (embed, headers) => fetchImageResources(embed, headers);
+  const fetchResource = (embed, accessToken, language) =>
+    fetchImageResources(embed, accessToken, language);
 
   const getMetaData = embed => {
     const { image } = embed;
