@@ -119,7 +119,7 @@ export default function createAudioPlugin() {
     };
 
     return render(
-      data.type === 'minimal' ? (
+      data.audiotype && data.audiotype === 'speech' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
         <Figure id={figureid} type="full-column">
