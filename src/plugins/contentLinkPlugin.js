@@ -11,11 +11,14 @@ import log from '../utils/logger';
 
 export default function createContentLinkPlugin(options = {}) {
   async function fetchResource(embed, accessToken, language) {
+    const contentType = embed && embed.data && embed.data.contentType;
+
     try {
       const resource = await fetchArticleResource(
         embed.data.contentId,
         accessToken,
-        language
+        language,
+        contentType
       );
       let path = `${language}/subjects${resource.path}`;
       if (options.filters) {
@@ -24,7 +27,12 @@ export default function createContentLinkPlugin(options = {}) {
       return { ...embed, path: path };
     } catch (error) {
       log.error(error);
-      return { ...embed, path: `${language}/article/${embed.data.contentId}` };
+      const fallbackRoute =
+        contentType === 'learningpath' ? 'learningpaths' : 'article';
+      return {
+        ...embed,
+        path: `${language}/${fallbackRoute}/${embed.data.contentId}`,
+      };
     }
   }
 
