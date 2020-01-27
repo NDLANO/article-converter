@@ -15,9 +15,9 @@ import {
 
 const baseUrl = apiResourceUrl(`/taxonomy/v1/`);
 
-async function queryResources(articleId, accessToken, language, contentType) {
+async function queryResources(contentId, accessToken, language, contentType) {
   const response = await fetch(
-    `${baseUrl}queries/resources?contentURI=urn:${contentType}:${articleId}&language=${language}`,
+    `${baseUrl}queries/resources?contentURI=urn:${contentType}:${contentId}&language=${language}`,
     {
       headers: headerWithAccessToken(accessToken),
     }
@@ -25,9 +25,9 @@ async function queryResources(articleId, accessToken, language, contentType) {
   return resolveJsonOrRejectWithError(response);
 }
 
-async function queryTopics(articleId, accessToken, language, contentType) {
+async function queryTopics(contentId, accessToken, language, contentType) {
   const response = await fetch(
-    `${baseUrl}queries/topics?contentURI=urn:${contentType}:${articleId}&language=${language}`,
+    `${baseUrl}queries/topics?contentURI=urn:${contentType}:${contentId}&language=${language}`,
     {
       headers: headerWithAccessToken(accessToken),
     }
@@ -36,13 +36,13 @@ async function queryTopics(articleId, accessToken, language, contentType) {
 }
 
 export async function fetchArticleResource(
-  articleId,
+  contentId,
   accessToken,
   language,
   contentType = 'article'
 ) {
   const resources = await queryResources(
-    articleId,
+    contentId,
     accessToken,
     language,
     contentType
@@ -53,7 +53,7 @@ export async function fetchArticleResource(
   }
 
   const topics = await queryTopics(
-    articleId,
+    contentId,
     accessToken,
     language,
     contentType
