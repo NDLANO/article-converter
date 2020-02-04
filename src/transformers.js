@@ -65,7 +65,14 @@ export async function transform(
   );
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
-  htmlTransforms.forEach(replacer => replacer(content, lang, options));
+
+  // We use this reduce trick so the transformations happen in sequence even if asynchronous
+  const starterPromise = Promise.resolve(null);
+  await htmlTransforms.reduce(
+    (maybePromise, replacer) =>
+      maybePromise.then(() => replacer(content, lang, options)),
+    starterPromise
+  );
 
   return {
     html: content('body').html(),
