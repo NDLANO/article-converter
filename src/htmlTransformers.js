@@ -99,25 +99,24 @@ const makeTheListFromDiv = async (content, div, locale) => {
     .map(async (_, file) => {
       const { url, type, title, path } = file.data;
       const fileExists = await checkIfFileExists(path);
-      if (fileExists) {
-        return {
-          title,
-          formats: [
-            {
-              url,
-              fileType: type,
-              tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
-            },
-          ],
-        };
-      }
+      return {
+        title,
+        fileExists,
+        formats: [
+          {
+            url,
+            fileType: type,
+            tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
+          },
+        ],
+      };
     })
     .get();
 
   const files = await Promise.all(filesPromises);
 
   return createFileList({
-    files: files.filter(x => x),
+    files: files.filter(f => f),
     heading: t(locale, 'files'),
   });
 };
