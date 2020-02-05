@@ -52,7 +52,7 @@
     "@ndla/i18n": "^0.4.2",
     "@ndla/licenses": "^0.6.20",
     "@ndla/notion": "^0.2.24",
-    "@ndla/ui": "^0.26.5",
+    "@ndla/ui": "^0.27.10",
     "@ndla/util": "^0.3.5",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
