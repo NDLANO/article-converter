@@ -97,6 +97,7 @@ const transformFileList = (content, locale) => {
                 tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
               },
             ],
+            fileExists: true,
           });
         });
       const fileList = createFileList({
