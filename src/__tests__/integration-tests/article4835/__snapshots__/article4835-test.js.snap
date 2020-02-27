@@ -54,12 +54,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
     <h1 class=\\"c-file-list__heading\\">Filer</h1>
     <ul class=\\"c-file-list__files\\">
       <li class=\\"c-file-list__item\\">
-        <a
-          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
-          class=\\"c-file-list__link\\"
-          target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (DOC)\\"
-          aria-describedby=\\"testid_doc\\"
+        <span
           ><svg
             fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
@@ -76,8 +71,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
               <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
             </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (DOC)</span></span
+          ><span>Forslag til &#xE5;rsplan 1P (DOC)</span
           ><span
             class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
@@ -86,16 +80,11 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             ><span class=\\"c-file-list__tooltip-text\\"
               >Last ned fil: 1p_arsplan_2013-2014_nynorsk.doc</span
             ></span
-          ></a
+          ></span
         >
       </li>
       <li class=\\"c-file-list__item\\">
-        <a
-          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
-          class=\\"c-file-list__link\\"
-          target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (ODT)\\"
-          aria-describedby=\\"testid_odt\\"
+        <span
           ><svg
             fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
@@ -112,8 +101,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
               <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
             </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (ODT)</span></span
+          ><span>Forslag til &#xE5;rsplan 1P (ODT)</span
           ><span
             class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
@@ -122,16 +110,11 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             ><span class=\\"c-file-list__tooltip-text\\"
               >Last ned fil: 1p_arsplan_2013-2014_nynorsk.odt</span
             ></span
-          ></a
+          ></span
         >
       </li>
       <li class=\\"c-file-list__item\\">
-        <a
-          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
-          class=\\"c-file-list__link\\"
-          target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (PDF)\\"
-          aria-describedby=\\"testid_pdf\\"
+        <span
           ><svg
             fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
@@ -148,8 +131,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
               <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
             </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (PDF)</span></span
+          ><span>Forslag til &#xE5;rsplan 1P (PDF)</span
           ><span
             class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
@@ -158,7 +140,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             ><span class=\\"c-file-list__tooltip-text\\"
               >Last ned fil: 1p_arsplan_2013-2014_nynorsk.pdf</span
             ></span
-          ></a
+          ></span
         >
       </li>
     </ul>

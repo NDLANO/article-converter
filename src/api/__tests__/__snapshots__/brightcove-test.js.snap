@@ -5,11 +5,11 @@ Object {
   "creators": Array [
     Object {
       "name": "Senter for nye medier, Høgskolen i Bergen",
-      "type": "originator",
+      "type": "",
     },
     Object {
       "name": "Adalia film & media",
-      "type": "originator",
+      "type": "",
     },
   ],
   "processors": Array [],
@@ -31,7 +31,7 @@ Object {
   "creators": Array [
     Object {
       "name": "Senter for nye medier, Høgskolen i Bergen",
-      "type": "originator",
+      "type": "",
     },
     Object {
       "name": "Opphavsmann Adalia film & media",
@@ -39,7 +39,7 @@ Object {
     },
     Object {
       "name": "Adalia film & media",
-      "type": "originator",
+      "type": "",
     },
     Object {
       "name": "Lucasfilm",

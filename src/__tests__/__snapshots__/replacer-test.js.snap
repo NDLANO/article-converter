@@ -434,9 +434,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             <div class=\\"c-figure-license__cta-wrapper\\">
               <ul class=\\"c-figure-license__list\\">
                 <li class=\\"c-figure-license__item\\">Tittel: Tittel</li>
-                <li class=\\"c-figure-license__item\\">
-                  Opphavsmann: Forfatter name
-                </li>
+                <li class=\\"c-figure-license__item\\">Opphaver: Forfatter name</li>
                 <li class=\\"c-figure-license__item\\">
                   Rettighetshaver: Bearbeider name
                 </li>
@@ -2073,7 +2071,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           Tittel: image title 1
                         </li>
                         <li class=\\"c-figure-license__item\\">
-                          Opphavsmann: Forfatter Ola Foton, Kunstner Kari Maler
+                          Opphaver: Forfatter Ola Foton, Kunstner Kari Maler
                         </li>
                         <li class=\\"c-figure-license__item\\">
                           Rettighetshaver: Leverand&#xF8;r Scanpix
