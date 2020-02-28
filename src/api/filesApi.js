@@ -7,11 +7,6 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import {
-  apiResourceUrl,
-  resolveJsonOrRejectWithError,
-  headerWithAccessToken,
-} from '../utils/apiHelpers';
 
 export async function checkIfFileExists(fileUrl) {
   const response = await fetch(fileUrl, { method: 'HEAD' });
