@@ -13,7 +13,7 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 
-export async function checkIfFileExists(filePath) {
-  const response = await fetch(apiResourceUrl(filePath), { method: 'HEAD' });
+export async function checkIfFileExists(fileUrl) {
+  const response = await fetch(fileUrl, { method: 'HEAD' });
   return response.status === 200;
 }

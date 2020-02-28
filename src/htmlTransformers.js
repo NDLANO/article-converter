@@ -97,8 +97,8 @@ const makeTheListFromDiv = async (content, div, locale) => {
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
-      const { url, type, title, path } = file.data;
-      const fileExists = await checkIfFileExists(path);
+      const { url, type, title } = file.data;
+      const fileExists = await checkIfFileExists(url);
       return {
         title,
         fileExists,
