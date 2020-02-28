@@ -8,9 +8,11 @@
 
 import React, { Fragment } from 'react';
 import defined from 'defined';
+import { Remarkable } from 'remarkable';
 import Notion, {
   NotionDialogContent,
   NotionDialogText,
+  NotionDialogImage,
   NotionDialogLicenses,
 } from '@ndla/notion';
 import { fetchConcept } from '../api/conceptApi';
@@ -20,6 +22,17 @@ import { render } from '../utils/render';
 export default function createConceptPlugin() {
   const fetchResource = (embed, accessToken, language) =>
     fetchConcept(embed, accessToken, language);
+
+  const renderMarkdown = text => {
+    const md = new Remarkable();
+    md.inline.ruler.enable(['sub', 'sup']);
+    const rendered = md.render(text);
+    return (
+      <Fragment>
+        <span dangerouslySetInnerHTML={{ __html: rendered }} />
+      </Fragment>
+    );
+  };
 
   const onError = (embed, locale) => {
     const { contentId, linkText } = embed.data;
@@ -46,6 +59,7 @@ export default function createConceptPlugin() {
       id,
       title: { title },
       content: { content },
+      metaImage,
     } = embed.concept;
 
     const copyright = defined(embed.concept.copyright, {});
@@ -59,7 +73,10 @@ export default function createConceptPlugin() {
         content={
           <Fragment>
             <NotionDialogContent>
-              <NotionDialogText>{content}</NotionDialogText>
+              {metaImage && (
+                <NotionDialogImage src={metaImage.url} alt={metaImage.alt} />
+              )}
+              <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
             </NotionDialogContent>
             <NotionDialogLicenses
               license={license}

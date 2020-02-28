@@ -81,6 +81,8 @@ const mapContributorType = type => {
       return 'Manusforfatter';
     case 'Musikk':
       return 'Komponist';
+    case 'Opphavsmann':
+      return 'Opphaver';
     default:
       return type;
   }

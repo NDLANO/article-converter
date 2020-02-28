@@ -1032,7 +1032,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               Tittel: Fottur p&#xE5; Kvamsfjellet
             </li>
             <li class=\\"c-figure-license__item\\">
-              Opphavsmann: Fotograf Ingar Storfjell
+              Opphaver: Fotograf Ingar Storfjell
             </li>
             <li class=\\"c-figure-license__item\\">
               Rettighetshaver: Forlag Aftenposten, NTB scanpix
@@ -1401,7 +1401,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               Tittel: Fottur p&#xE5; Kvamsfjellet
             </li>
             <li class=\\"c-figure-license__item\\">
-              Opphavsmann: Fotograf Ingar Storfjell
+              Opphaver: Fotograf Ingar Storfjell
             </li>
             <li class=\\"c-figure-license__item\\">
               Rettighetshaver: Forlag Aftenposten, NTB scanpix
@@ -1741,7 +1741,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           <ul class=\\"c-figure-license__list\\">
             <li class=\\"c-figure-license__item\\">Tittel: Annonse i gif-format</li>
             <li class=\\"c-figure-license__item\\">
-              Opphavsmann: Fotograf Oktan Orangeriet
+              Opphaver: Fotograf Oktan Orangeriet
             </li>
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
