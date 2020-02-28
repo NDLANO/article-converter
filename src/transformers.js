@@ -23,6 +23,16 @@ function logIfLongTime(start, timeout, action, obj) {
   }
 }
 
+async function executeHtmlTransforms(content, lang, options) {
+  // We use this reduce trick so the transformations happen in sequence even if the function is asynchronous
+  const starterPromise = Promise.resolve(null);
+  await htmlTransforms.reduce(
+    (maybePromise, replacer) =>
+      maybePromise.then(() => replacer(content, lang, options)),
+    starterPromise
+  );
+}
+
 export async function transform(
   content,
   lang,
@@ -65,7 +75,7 @@ export async function transform(
   );
   replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
-  htmlTransforms.forEach(replacer => replacer(content, lang, options));
+  await executeHtmlTransforms(content, lang, options);
 
   return {
     html: content('body').html(),

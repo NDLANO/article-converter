@@ -10,11 +10,12 @@ import cheerio from 'cheerio';
 import {
   createAside,
   createFactbox,
-  createTable,
   createFileList,
+  createTable,
 } from './utils/htmlTagHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
+import { checkIfFileExists } from './api/filesApi';
 
 export const moveReactPortals = content => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -79,34 +80,44 @@ export const transformRelatedContent = (content, lang, options) => {
   });
 };
 
-const transformFileList = (content, locale) => {
-  content('div').each((_, div) => {
+const transformFileList = async (content, locale) => {
+  const promises = content('div').map(async (_, div) => {
     const isFileList = div.attribs && div.attribs['data-type'] === 'file';
     if (isFileList) {
-      const files = [];
-      content(div)
-        .children()
-        .each((__, file) => {
-          const { url, type, title } = file.data;
-          files.push({
-            title,
-            formats: [
-              {
-                url,
-                fileType: type,
-                tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
-              },
-            ],
-            fileExists: true,
-          });
-        });
-      const fileList = createFileList({
-        files,
-        heading: t(locale, 'files'),
-      });
+      const fileList = await makeTheListFromDiv(content, div, locale);
       content(div).before(fileList);
       content(div).remove();
     }
+  });
+
+  await Promise.all(promises.get());
+};
+
+const makeTheListFromDiv = async (content, div, locale) => {
+  const filesPromises = content(div)
+    .children()
+    .map(async (_, file) => {
+      const { url, type, title } = file.data;
+      const fileExists = await checkIfFileExists(url);
+      return {
+        title,
+        fileExists,
+        formats: [
+          {
+            url,
+            fileType: type,
+            tooltip: `${t(locale, 'download')} ${url.split('/').pop()}`,
+          },
+        ],
+      };
+    })
+    .get();
+
+  const files = await Promise.all(filesPromises);
+
+  return createFileList({
+    files: files.filter(f => f),
+    heading: t(locale, 'files'),
   });
 };
 
