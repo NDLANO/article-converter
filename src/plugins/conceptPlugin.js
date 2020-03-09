@@ -73,7 +73,7 @@ export default function createConceptPlugin() {
         content={
           <Fragment>
             <NotionDialogContent>
-              {metaImage && (
+              {metaImage?.url && (
                 <NotionDialogImage src={metaImage.url} alt={metaImage.alt} />
               )}
               <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
