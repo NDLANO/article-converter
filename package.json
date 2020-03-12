@@ -45,7 +45,7 @@
     "swagger-ui-express": "^4.0.2"
   },
   "dependencies": {
-    "@babel/cli": "^7.2.3",
+    "@babel/cli": "^7.7.0",
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9",
     "@ndla/article-scripts": "^0.5.12",
@@ -69,7 +69,7 @@
     "intl-messageformat-parser": "^1.4.0",
     "isomorphic-fetch": "2.2.1",
     "lodash": "^4.17.15",
-    "nock": "^10.0.6",
+    "nock": "^11.9.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.2.0",
     "react": "^16.8.4",
