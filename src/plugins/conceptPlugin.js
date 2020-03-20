@@ -65,6 +65,7 @@ export default function createConceptPlugin() {
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.creators, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
+    const source = defined(embed.concept.source, '');
     return render(
       <Notion
         id={`notion_id_${id}`}
@@ -80,7 +81,7 @@ export default function createConceptPlugin() {
             </NotionDialogContent>
             <NotionDialogLicenses
               license={license}
-              source={copyright.origin}
+              source={source}
               authors={authors}
             />
           </Fragment>
