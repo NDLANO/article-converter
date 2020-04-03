@@ -442,9 +442,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                  data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                 >
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -473,8 +473,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     font-weight: 700;
                     box-shadow: none;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid rgba(32, 88, 143, 0);
@@ -482,12 +482,12 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(1px) translateX(1px);
                     transform: translateY(1px) translateX(1px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                     -webkit-transform: translateY(2px) translateX(2px);
                     -ms-transform: translateY(2px) translateX(2px);
                     transform: translateY(2px) translateX(2px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
@@ -496,11 +496,11 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
@@ -508,8 +508,10 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                    color: #777777;
                     border: 2px solid transparent;
+                    background-color: #e6e6e6;
                     cursor: not-allowed;
                     -webkit-transform: translateY(0) translateX(0);
                     -ms-transform: translateY(0) translateX(0);
@@ -519,13 +521,13 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\"
-                  class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                  class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                 >
                   Kopier referanse</button
                 ><style
-                  data-emotion-css=\\"1p15mog-StyledButton-StyledButton-buttonStyle-outline\\"
+                  data-emotion-css=\\"k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline\\"
                 >
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -554,8 +556,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     font-weight: 700;
                     box-shadow: none;
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid rgba(32, 88, 143, 0);
@@ -563,12 +565,12 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(1px) translateX(1px);
                     transform: translateY(1px) translateX(1px);
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:active {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:active {
                     -webkit-transform: translateY(2px) translateX(2px);
                     -ms-transform: translateY(2px) translateX(2px);
                     transform: translateY(2px) translateX(2px);
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline[disabled] {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
@@ -577,11 +579,11 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
@@ -589,8 +591,10 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:disabled {
+                  .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                    color: #777777;
                     border: 2px solid transparent;
+                    background-color: #e6e6e6;
                     cursor: not-allowed;
                     -webkit-transform: translateY(0) translateX(0);
                     -ms-transform: translateY(0) translateX(0);
@@ -599,7 +603,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 ><a
                   href=\\"http://audio.no/file/voof.mp3\\"
                   download=\\"\\"
-                  class=\\"css-1p15mog-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                  class=\\"css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                   >Last ned lydklipp</a
                 >
               </div>
@@ -1031,9 +1035,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                  data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                 >
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1062,8 +1066,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     font-weight: 700;
                     box-shadow: none;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid rgba(32, 88, 143, 0);
@@ -1071,12 +1075,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(1px) translateX(1px);
                     transform: translateY(1px) translateX(1px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                     -webkit-transform: translateY(2px) translateX(2px);
                     -ms-transform: translateY(2px) translateX(2px);
                     transform: translateY(2px) translateX(2px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
@@ -1085,11 +1089,11 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
@@ -1097,8 +1101,10 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                    color: #777777;
                     border: 2px solid transparent;
+                    background-color: #e6e6e6;
                     cursor: not-allowed;
                     -webkit-transform: translateY(0) translateX(0);
                     -ms-transform: translateY(0) translateX(0);
@@ -1108,7 +1114,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 \\"
-                  class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                  class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                 >
                   Kopier referanse
                 </button>
@@ -1505,9 +1511,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                  data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                 >
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1536,8 +1542,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     font-weight: 700;
                     box-shadow: none;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid rgba(32, 88, 143, 0);
@@ -1545,12 +1551,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(1px) translateX(1px);
                     transform: translateY(1px) translateX(1px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                     -webkit-transform: translateY(2px) translateX(2px);
                     -ms-transform: translateY(2px) translateX(2px);
                     transform: translateY(2px) translateX(2px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
@@ -1559,11 +1565,11 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
@@ -1571,8 +1577,10 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                    color: #777777;
                     border: 2px solid transparent;
+                    background-color: #e6e6e6;
                     cursor: not-allowed;
                     -webkit-transform: translateY(0) translateX(0);
                     -ms-transform: translateY(0) translateX(0);
@@ -1582,7 +1590,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 \\"
-                  class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                  class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                 >
                   Kopier referanse
                 </button>
@@ -2079,9 +2087,9 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -2111,8 +2119,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -2120,12 +2128,12 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -2134,11 +2142,11 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -2146,8 +2154,10 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -2158,13 +2168,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
 Kunstner: Kari Maler\\"
-                          class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1p15mog-StyledButton-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -2194,8 +2204,8 @@ Kunstner: Kari Maler\\"
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -2203,12 +2213,12 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:active {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline[disabled] {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -2217,11 +2227,11 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -2229,8 +2239,10 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:disabled {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -2239,7 +2251,7 @@ Kunstner: Kari Maler\\"
                         ><a
                           href=\\"http://ndla.no/images/1.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1p15mog-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -2648,9 +2660,9 @@ Kunstner: Kari Maler\\"
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -2680,8 +2692,8 @@ Kunstner: Kari Maler\\"
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -2689,12 +2701,12 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -2703,11 +2715,11 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -2715,8 +2727,10 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -2726,13 +2740,13 @@ Kunstner: Kari Maler\\"
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 \\"
-                          class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1p15mog-StyledButton-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -2762,8 +2776,8 @@ Kunstner: Kari Maler\\"
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -2771,12 +2785,12 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:active {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline[disabled] {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -2785,11 +2799,11 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -2797,8 +2811,10 @@ Kunstner: Kari Maler\\"
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:disabled {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -2807,7 +2823,7 @@ Kunstner: Kari Maler\\"
                         ><a
                           href=\\"http://ndla.no/images/2.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1p15mog-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -3260,9 +3276,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -3292,8 +3308,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -3301,12 +3317,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -3315,11 +3331,11 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -3327,8 +3343,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                          .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -3338,13 +3356,13 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 \\"
-                          class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1p15mog-StyledButton-StyledButton-buttonStyle-outline\\"
+                          data-emotion-css=\\"k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline\\"
                         >
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -3374,8 +3392,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             font-weight: 700;
                             box-shadow: none;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid rgba(32, 88, 143, 0);
@@ -3383,12 +3401,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(1px) translateX(1px);
                             transform: translateY(1px) translateX(1px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:active {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:active {
                             -webkit-transform: translateY(2px) translateX(2px);
                             -ms-transform: translateY(2px) translateX(2px);
                             transform: translateY(2px) translateX(2px);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline[disabled] {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
@@ -3397,11 +3415,11 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:hover,
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:focus {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
@@ -3409,8 +3427,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             -ms-transform: translateY(0) translateX(0);
                             transform: translateY(0) translateX(0);
                           }
-                          .css-1p15mog-StyledButton-StyledButton-buttonStyle-outline:disabled {
+                          .css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                            color: #777777;
                             border: 2px solid transparent;
+                            background-color: #e6e6e6;
                             cursor: not-allowed;
                             -webkit-transform: translateY(0) translateX(0);
                             -ms-transform: translateY(0) translateX(0);
@@ -3419,7 +3439,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         ><a
                           href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1p15mog-StyledButton-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                          class=\\"css-k7pdh-StyledButton-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -3824,9 +3844,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1sjlqwy-StyledButton-buttonStyle-outline\\"
+                  data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
                 >
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -3855,8 +3875,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     font-weight: 700;
                     box-shadow: none;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid rgba(32, 88, 143, 0);
@@ -3864,12 +3884,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     -ms-transform: translateY(1px) translateX(1px);
                     transform: translateY(1px) translateX(1px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:active {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
                     -webkit-transform: translateY(2px) translateX(2px);
                     -ms-transform: translateY(2px) translateX(2px);
                     transform: translateY(2px) translateX(2px);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline[disabled] {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
@@ -3878,11 +3898,11 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:hover,
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:focus {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
@@ -3890,8 +3910,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     -ms-transform: translateY(0) translateX(0);
                     transform: translateY(0) translateX(0);
                   }
-                  .css-1sjlqwy-StyledButton-buttonStyle-outline:disabled {
+                  .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+                    color: #777777;
                     border: 2px solid transparent;
+                    background-color: #e6e6e6;
                     cursor: not-allowed;
                     -webkit-transform: translateY(0) translateX(0);
                     -ms-transform: translateY(0) translateX(0);
@@ -3901,7 +3923,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-NC-4.0 \\"
-                  class=\\"css-1sjlqwy-StyledButton-buttonStyle-outline e1ljv5qk0\\"
+                  class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
                 >
                   Kopier referanse
                 </button>
