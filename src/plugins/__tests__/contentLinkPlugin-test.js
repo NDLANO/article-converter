@@ -41,6 +41,35 @@ test('fetchResource for content-link', async () => {
   expect(resource).toMatchSnapshot();
 });
 
+const articleResourceWithoutPath = [
+  {
+    resourceTypes: [
+      {
+        id: 'urn:resourcetype:tasksAndActivities',
+        name: 'Oppgaver og aktiviteter',
+      },
+    ],
+  },
+];
+
+test('fetchResource with missing taxonomy data should fallback to path without taxonomy', async () => {
+  const contentLinkPlugin = createContentLinkPlugin();
+
+  nock('http://ndla-api')
+    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
+    .reply(200, articleResourceWithoutPath);
+
+  const resource = await contentLinkPlugin.fetchResource(
+    {
+      data: { contentId: '1' },
+    },
+    'token',
+    'nb'
+  );
+
+  expect(resource).toMatchSnapshot();
+});
+
 test('fetchResource where taxonomy fails should fallback to path without taxonomy', async () => {
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
