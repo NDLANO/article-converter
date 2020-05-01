@@ -1,0 +1,20 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@ndla/ui > lodash':
+        patched: '2020-05-01T05:51:22.031Z'
+    - '@emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T05:51:22.031Z'
+    - '@emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T05:51:22.031Z'
+    - cheerio > lodash:
+        patched: '2020-05-01T05:51:22.031Z'
+    - nock > lodash:
+        patched: '2020-05-01T05:51:22.031Z'
+    - lodash:
+        patched: '2020-05-01T05:51:22.031Z'
+    - '@ndla/ui > @ndla/hooks > lodash':
+        patched: '2020-05-01T05:51:22.031Z'
