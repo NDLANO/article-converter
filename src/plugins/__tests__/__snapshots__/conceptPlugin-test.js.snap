@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetch concept and draft concept 1`] = `
+Object {
+  "concept": Object {
+    "content": Object {
+      "content": "concept content 1",
+    },
+    "title": Object {
+      "title": "concept 1",
+    },
+  },
+  "data": Object {
+    "contentId": "1",
+  },
+}
+`;
+
+exports[`fetch concept and draft concept 2`] = `
+Object {
+  "concept": Object {
+    "content": Object {
+      "content": "concept content 2",
+    },
+    "title": Object {
+      "title": "concept 2",
+    },
+  },
+  "data": Object {
+    "contentId": "2",
+  },
+}
+`;

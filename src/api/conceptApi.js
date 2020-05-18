@@ -17,10 +17,12 @@ export const fetchConcept = async (
   embed,
   accessToken,
   language,
+  options = {},
   method = 'GET'
 ) => {
+  const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
-    `/concept-api/v1/concepts/${
+    `/concept-api/v1/${endpoint}/${
       embed.data.contentId
     }?language=${language}&fallback=true`
   );
