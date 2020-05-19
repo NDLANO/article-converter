@@ -19,9 +19,9 @@ import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 
-export default function createConceptPlugin() {
+export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
-    fetchConcept(embed, accessToken, language);
+    fetchConcept(embed, accessToken, language, options);
 
   const renderMarkdown = text => {
     const md = new Remarkable();

@@ -45,6 +45,6 @@ export default options => [
   createErrorPlugin(),
   createIframePlugin(),
   createFootnotePlugin(),
-  createConceptPluin(),
+  createConceptPluin(options),
   createRelatedContent(options),
 ];

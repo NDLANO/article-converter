@@ -78,9 +78,10 @@ module.exports.setup = function routes(app) {
   app.post('/article-converter/json/:lang/transform-article', (req, res) => {
     const body = req.body;
     const lang = getHtmlLang(defined(req.params.lang, ''));
+    const draftConcept = defined(req.query.draftConcept, false);
     const accessToken = req.headers.authorization;
     if (body && body.article) {
-      transformArticle(body.article, lang, accessToken)
+      transformArticle(body.article, lang, accessToken, { draftConcept })
         .then(article => {
           res.json(article);
         })
