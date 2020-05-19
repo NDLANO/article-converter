@@ -31,3 +31,19 @@ Object {
   },
 }
 `;
+
+exports[`fetch concept and draft concept 3`] = `
+Object {
+  "concept": Object {
+    "content": Object {
+      "content": "concept content 3",
+    },
+    "title": Object {
+      "title": "concept 3",
+    },
+  },
+  "data": Object {
+    "contentId": "3",
+  },
+}
+`;

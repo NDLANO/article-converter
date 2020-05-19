@@ -50,5 +50,22 @@ test('fetch concept and draft concept', async () => {
   );
   expect(resource2).toMatchSnapshot();
 
+  conceptPlugin = createConceptPlugin({ draftConcept: false });
+  nock('http://ndla-api')
+    .get(`/concept-api/v1/concepts/3?language=nb&fallback=true`)
+    .reply(200, {
+      title: { title: `concept 3` },
+      content: { content: `concept content 3` },
+    });
+
+  const resource3 = await conceptPlugin.fetchResource(
+    {
+      data: { contentId: '3' },
+    },
+    'token',
+    'nb'
+  );
+  expect(resource3).toMatchSnapshot();
+
   log.level(bunyan.INFO);
 });
