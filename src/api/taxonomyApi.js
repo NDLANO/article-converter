@@ -17,7 +17,7 @@ const baseUrl = apiResourceUrl(`/taxonomy/v1/`);
 
 async function queryResources(contentId, accessToken, language, contentType) {
   const response = await fetch(
-    `${baseUrl}resources?contentURI=urn:${contentType}:${contentId}&language=${language}`,
+    `${baseUrl}queries/resources?contentURI=urn:${contentType}:${contentId}&language=${language}`,
     {
       headers: headerWithAccessToken(accessToken),
     }
@@ -27,7 +27,7 @@ async function queryResources(contentId, accessToken, language, contentType) {
 
 async function queryTopics(contentId, accessToken, language, contentType) {
   const response = await fetch(
-    `${baseUrl}topics?contentURI=urn:${contentType}:${contentId}&language=${language}`,
+    `${baseUrl}queries/topics?contentURI=urn:${contentType}:${contentId}&language=${language}`,
     {
       headers: headerWithAccessToken(accessToken),
     }
