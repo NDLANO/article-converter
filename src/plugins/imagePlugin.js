@@ -68,10 +68,10 @@ const getFocalPoint = data => {
 
 const getCrop = data => {
   if (
-    data.lowerRightX &&
-    data.lowerRightY &&
-    data.upperLeftX &&
-    data.upperLeftY
+    (data.lowerRightX &&
+      data.lowerRightY &&
+      data.upperLeftX &&
+      data.upperLeftY) !== undefined
   ) {
     return {
       startX: data.lowerRightX,
