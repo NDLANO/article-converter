@@ -12,7 +12,7 @@ export default [
         name: 'Arbeidsoppdrag',
       },
     ],
-    contentUri: 'urn:article:413',
+    contentUri: 'urn:article:1128',
     path:
       '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110271',
   },
@@ -29,7 +29,7 @@ export default [
         name: 'Arbeidsoppdrag',
       },
     ],
-    contentUri: 'urn:article:413',
+    contentUri: 'urn:article:1129',
     path:
       '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110266',
   },
@@ -46,7 +46,7 @@ export default [
         name: 'Fagstoff',
       },
     ],
-    contentUri: 'urn:article:413',
+    contentUri: 'urn:article:9201',
     path: '/subject:1/topic:1:172733/topic:1:169379/resource:1:158387',
   },
 ];

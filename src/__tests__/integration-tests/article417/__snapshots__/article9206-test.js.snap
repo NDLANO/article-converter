@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`app/fetchAndTransformArticle 417 1`] = `
+exports[`app/fetchAndTransformArticle 9206 1`] = `
 Object {
   "articleType": "standard",
   "copyright": Object {
@@ -20,7 +20,7 @@ Object {
     "rightsholders": Array [],
   },
   "created": "2016-03-22T08:46:42Z",
-  "id": 417,
+  "id": 9206,
   "introduction": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "metaData": Object {},
   "metaDescription": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
@@ -44,7 +44,7 @@ Object {
 }
 `;
 
-exports[`app/fetchAndTransformArticle 417 2`] = `
+exports[`app/fetchAndTransformArticle 9206 2`] = `
 "<section>
   <figure class=\\"c-figure\\">
     <img
