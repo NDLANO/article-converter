@@ -1,5 +1,5 @@
 export default {
-  id: 417,
+  id: 9206,
   oldNdlaUrl: '//red.ndla.no/node/160589',
   revision: 1,
   title: {

@@ -9,26 +9,26 @@
 import nock from 'nock';
 import bunyan from 'bunyan';
 import { prettify } from '../../testHelpers';
-import article417 from './article417';
-import articleResource413 from './articleResource413';
-import articleResource414 from './articleResource414';
+import article9206 from './article9206';
+import articleResource1128 from './articleResource1128';
+import articleResource9202 from './articleResource9202';
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 import log from '../../../utils/logger';
 
 const resources = {
-  '413': articleResource413,
-  '414': articleResource414,
-  '416': articleResource413,
+  '1128': articleResource1128,
+  '9202': articleResource9202,
+  '1129': articleResource1128,
 };
 
-test('app/fetchAndTransformArticle 417', async () => {
+test('app/fetchAndTransformArticle 9206', async () => {
   nock('http://ndla-api')
-    .get('/article-api/v2/articles/417?language=nb&fallback=true')
-    .reply(200, article417);
-  ['413', '414', '416'].forEach(id => {
+    .get('/article-api/v2/articles/9206?language=nb&fallback=true')
+    .reply(200, article9206);
+  ['1128', '9202', '1129'].forEach(id => {
     nock('http://ndla-api')
       .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
-      .reply(200, article417);
+      .reply(200, article9206);
     nock('http://ndla-api')
       .get(
         `/taxonomy/v1/queries/resources?contentURI=urn:article:${id}&language=nb`
@@ -38,7 +38,11 @@ test('app/fetchAndTransformArticle 417', async () => {
 
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
-  const transformed = await fetchAndTransformArticle('417', 'nb', 'some_token');
+  const transformed = await fetchAndTransformArticle(
+    '9206',
+    'nb',
+    'some_token'
+  );
   const { content, ...rest } = transformed;
 
   log.level(bunyan.INFO);
