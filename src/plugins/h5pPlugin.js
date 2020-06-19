@@ -63,6 +63,5 @@ export default function createH5pPlugin() {
     resource: 'h5p',
     fetchResource,
     embedToHTML,
-    getMetaData,
   };
 }
