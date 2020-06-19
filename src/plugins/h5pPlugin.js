@@ -59,13 +59,13 @@ export default function createH5pPlugin() {
       </figure>
     );
 
-  const getMetaData = embed => {
+  /*const getMetaData = embed => {
     if (embed?.embed?.h5p) {
       return embed.embed.h5p;
     } else {
       return null;
     }
-  };
+  };*/
 
   return {
     resource: 'h5p',
