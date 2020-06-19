@@ -95,8 +95,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style data-emotion-css=\\"1j95mr8-StyledButton-buttonStyle\\">
-      .css-1j95mr8-StyledButton-buttonStyle {
+    <style data-emotion-css=\\"y1jigk-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -119,8 +119,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-1j95mr8-StyledButton-buttonStyle:hover,
-      .css-1j95mr8-StyledButton-buttonStyle:focus {
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
         border: 2px solid rgba(32, 88, 143, 0);
@@ -128,12 +128,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         -ms-transform: translateY(1px) translateX(1px);
         transform: translateY(1px) translateX(1px);
       }
-      .css-1j95mr8-StyledButton-buttonStyle:active {
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:active {
         -webkit-transform: translateY(2px) translateX(2px);
         -ms-transform: translateY(2px) translateX(2px);
         transform: translateY(2px) translateX(2px);
       }
-      .css-1j95mr8-StyledButton-buttonStyle[disabled] {
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
@@ -142,12 +142,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         -ms-transform: translateY(0) translateX(0);
         transform: translateY(0) translateX(0);
       }
-      .css-1j95mr8-StyledButton-buttonStyle:focus {
+      .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
-      class=\\"c-factbox__button css-1j95mr8-StyledButton-buttonStyle e1ljv5qk0\\"
+      class=\\"c-factbox__button css-y1jigk-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
     ></button>
   </aside>
 </section>
@@ -156,8 +156,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style data-emotion-css=\\"1j95mr8-StyledButton-buttonStyle\\">
-    .css-1j95mr8-StyledButton-buttonStyle {
+  <style data-emotion-css=\\"y1jigk-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -180,8 +180,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-1j95mr8-StyledButton-buttonStyle:hover,
-    .css-1j95mr8-StyledButton-buttonStyle:focus {
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
       border: 2px solid rgba(32, 88, 143, 0);
@@ -189,12 +189,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       -ms-transform: translateY(1px) translateX(1px);
       transform: translateY(1px) translateX(1px);
     }
-    .css-1j95mr8-StyledButton-buttonStyle:active {
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:active {
       -webkit-transform: translateY(2px) translateX(2px);
       -ms-transform: translateY(2px) translateX(2px);
       transform: translateY(2px) translateX(2px);
     }
-    .css-1j95mr8-StyledButton-buttonStyle[disabled] {
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
@@ -203,12 +203,12 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       -ms-transform: translateY(0) translateX(0);
       transform: translateY(0) translateX(0);
     }
-    .css-1j95mr8-StyledButton-buttonStyle:focus {
+    .css-y1jigk-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
-    class=\\"c-factbox__button css-1j95mr8-StyledButton-buttonStyle e1ljv5qk0\\"
+    class=\\"c-factbox__button css-y1jigk-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>

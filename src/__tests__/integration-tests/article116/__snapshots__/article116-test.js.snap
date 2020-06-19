@@ -470,9 +470,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"1alwojy-StyledButton-buttonStyle-outlineStyle-outline\\"
+              data-emotion-css=\\"1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
             >
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -500,9 +500,14 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 border: 2px solid #20588f;
                 font-weight: 700;
                 box-shadow: none;
+                color: #20588f;
+                background-color: transparent;
+                border: 2px solid #20588f;
+                font-weight: 700;
+                box-shadow: none;
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid rgba(32, 88, 143, 0);
@@ -510,12 +515,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(1px) translateX(1px);
                 transform: translateY(1px) translateX(1px);
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:active {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:active {
                 -webkit-transform: translateY(2px) translateX(2px);
                 -ms-transform: translateY(2px) translateX(2px);
                 transform: translateY(2px) translateX(2px);
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline[disabled] {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
@@ -524,11 +529,11 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:hover,
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:focus {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
@@ -536,7 +541,25 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 -ms-transform: translateY(0) translateX(0);
                 transform: translateY(0) translateX(0);
               }
-              .css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline:disabled {
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                color: #777777;
+                border: 2px solid transparent;
+                background-color: #e6e6e6;
+                cursor: not-allowed;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                color: white;
+                background-color: #20588f;
+                border: 2px solid transparent;
+                -webkit-transform: translateY(0) translateX(0);
+                -ms-transform: translateY(0) translateX(0);
+                transform: translateY(0) translateX(0);
+              }
+              .css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -549,7 +572,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-SA-4.0 Regiss&#xF8;r: Wes Anderson\\"
-              class=\\"css-1alwojy-StyledButton-buttonStyle-outlineStyle-outline e1ljv5qk0\\"
+              class=\\"css-1ohw6ig-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse
             </button>

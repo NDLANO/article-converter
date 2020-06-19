@@ -51,6 +51,14 @@ export default function createH5pPlugin() {
     );
   };
 
+  const onError = (embed, locale) =>
+    render(
+      <figure className="c-figure">
+        <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
+        <figcaption>{t(locale, 'external.error')}</figcaption>
+      </figure>
+    );
+
   const getMetaData = embed => {
     if (embed?.embed?.h5p) {
       return embed.embed.h5p;
@@ -61,6 +69,7 @@ export default function createH5pPlugin() {
 
   return {
     resource: 'h5p',
+    onError,
     fetchResource,
     embedToHTML,
   };
