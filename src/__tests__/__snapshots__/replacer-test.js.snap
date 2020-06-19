@@ -3455,7 +3455,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </figcaption>
   </figure>
   <p>SomeText1</p>
-  <figure class=\\"c-figure\\">
+  <figure class=\\"c-figure c-figure--resize\\">
     <iframe src=\\"https://ndlah5p.joubel.com/h5p/embed/4\\"></iframe>
   </figure>
 </section>
