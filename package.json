@@ -57,7 +57,7 @@
     "@ndla/ui": "^0.27.29",
     "@ndla/util": "^0.3.6",
     "body-parser": "^1.18.3",
-    "bunyan": "^1.8.12",
+    "bunyan": "^1.8.13",
     "cheerio": "^1.0.0-rc.2",
     "classnames": "2.2.6",
     "compression": "^1.7.3",
