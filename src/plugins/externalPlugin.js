@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import parse from 'html-react-parser';
 import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
@@ -53,7 +52,7 @@ export default function createExternalPlugin() {
   const onError = (embed, locale) =>
     render(
       <figure className="c-figure">
-        {parse(errorSvgSrc)}
+        <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'external.error')}</figcaption>
       </figure>
     );

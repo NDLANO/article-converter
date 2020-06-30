@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import parse from 'html-react-parser';
 import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
@@ -55,7 +54,7 @@ export default function createH5pPlugin() {
   const onError = (embed, locale) =>
     render(
       <figure className="c-figure">
-        {parse(errorSvgSrc)}
+        <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'h5p.error')}</figcaption>
       </figure>
     );
