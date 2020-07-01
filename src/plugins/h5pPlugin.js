@@ -54,8 +54,8 @@ export default function createH5pPlugin() {
   const onError = (embed, locale) =>
     render(
       <figure className="c-figure">
-        <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
-        <figcaption>{t(locale, 'external.error')}</figcaption>
+        <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
+        <figcaption>{t(locale, 'h5p.error')}</figcaption>
       </figure>
     );
 
