@@ -1618,6 +1618,7 @@ exports[`replacer/replaceEmbedsInHtml replace commoncraft embeds 1`] = `
       allowfullscreen
       scrolling=\\"no\\"
       frameborder=\\"0\\"
+      loading=\\"lazy\\"
     ></iframe>
   </figure>
 </section>
@@ -1679,6 +1680,7 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
       allowfullscreen
       scrolling=\\"no\\"
       frameborder=\\"0\\"
+      loading=\\"lazy\\"
     ></iframe>
   </figure>
 </section>
@@ -2854,6 +2856,7 @@ exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
       allowfullscreen
       scrolling=\\"no\\"
       frameborder=\\"0\\"
+      loading=\\"lazy\\"
     ></iframe>
   </figure>
 </section>
@@ -2872,6 +2875,7 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
       allowfullscreen
       scrolling=\\"no\\"
       frameborder=\\"0\\"
+      loading=\\"lazy\\"
     ></iframe>
   </figure>
 </section>
