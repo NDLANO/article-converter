@@ -95,8 +95,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style data-emotion-css=\\"1j95mr8-StyledButton-buttonStyle\\">
-      .css-1j95mr8-StyledButton-buttonStyle {
+    <style data-emotion-css=\\"3g3woy-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-3g3woy-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -119,35 +119,24 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-1j95mr8-StyledButton-buttonStyle:hover,
-      .css-1j95mr8-StyledButton-buttonStyle:focus {
+      .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
-        border: 2px solid rgba(32, 88, 143, 0);
-        -webkit-transform: translateY(1px) translateX(1px);
-        -ms-transform: translateY(1px) translateX(1px);
-        transform: translateY(1px) translateX(1px);
+        border: 2px solid #184673;
       }
-      .css-1j95mr8-StyledButton-buttonStyle:active {
-        -webkit-transform: translateY(2px) translateX(2px);
-        -ms-transform: translateY(2px) translateX(2px);
-        transform: translateY(2px) translateX(2px);
-      }
-      .css-1j95mr8-StyledButton-buttonStyle[disabled] {
+      .css-3g3woy-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
         cursor: not-allowed;
-        -webkit-transform: translateY(0) translateX(0);
-        -ms-transform: translateY(0) translateX(0);
-        transform: translateY(0) translateX(0);
       }
-      .css-1j95mr8-StyledButton-buttonStyle:focus {
+      .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
-      class=\\"c-factbox__button css-1j95mr8-StyledButton-buttonStyle e1ljv5qk0\\"
+      class=\\"c-factbox__button css-3g3woy-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
     ></button>
   </aside>
 </section>
@@ -156,8 +145,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style data-emotion-css=\\"1j95mr8-StyledButton-buttonStyle\\">
-    .css-1j95mr8-StyledButton-buttonStyle {
+  <style data-emotion-css=\\"3g3woy-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-3g3woy-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -180,35 +169,24 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-1j95mr8-StyledButton-buttonStyle:hover,
-    .css-1j95mr8-StyledButton-buttonStyle:focus {
+    .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
-      border: 2px solid rgba(32, 88, 143, 0);
-      -webkit-transform: translateY(1px) translateX(1px);
-      -ms-transform: translateY(1px) translateX(1px);
-      transform: translateY(1px) translateX(1px);
+      border: 2px solid #184673;
     }
-    .css-1j95mr8-StyledButton-buttonStyle:active {
-      -webkit-transform: translateY(2px) translateX(2px);
-      -ms-transform: translateY(2px) translateX(2px);
-      transform: translateY(2px) translateX(2px);
-    }
-    .css-1j95mr8-StyledButton-buttonStyle[disabled] {
+    .css-3g3woy-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
       cursor: not-allowed;
-      -webkit-transform: translateY(0) translateX(0);
-      -ms-transform: translateY(0) translateX(0);
-      transform: translateY(0) translateX(0);
     }
-    .css-1j95mr8-StyledButton-buttonStyle:focus {
+    .css-3g3woy-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
-    class=\\"c-factbox__button css-1j95mr8-StyledButton-buttonStyle e1ljv5qk0\\"
+    class=\\"c-factbox__button css-3g3woy-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>
