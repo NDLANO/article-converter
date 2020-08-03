@@ -41,10 +41,6 @@ All dependencies are defined in `package.json` and are managed with yarn/npm. To
 initially install all dependencies and when the list dependency has changed,
 run `yarn`.
 
-```
-$ yarn
-```
-
 ### Start development server
 
 Start node server with hot reloading middleware listening on port 3000.
@@ -52,6 +48,14 @@ Start node server with hot reloading middleware listening on port 3000.
 `$ yarn start`
 
 To use a different api set the `NDLA_API_URL` environment variable.
+
+To use article-converter in local ndla-frontend you have to run graphql-api and ndla-frontend locally with special commands.
+
+In graphql-api:
+`yarn start-with-local-converter`
+
+In ndla-frontend:
+`yarn start-with-local-graphql-and-article-converter`
 
 #### Unit tests
 
@@ -67,37 +71,31 @@ Do you tdd?
 
 [Prettier](https://prettier.io/) is used for automatic code formatting.
 
-```
-$ yarn format
-```
+`yarn format`
 
-```
-$ yarn format-check
-```
+`yarn format-check`
 
 ### Linting
 
 Eslint is used for linting.
 
-```
-$ yarn lint-es
-```
+`yarn lint-es`
 
 Rules are configured in `./eslintrc` and extends [esling-config-ndla](https://github.com/NDLANO/frontend-packages/tree/master/packages/eslint-config-ndla).
 
 #### Other scripts
 
-```
+```sh
 # GTG? Checks code formating, linting and runs unit tests:
-$ yarn check-all
+yarn check-all
 ```
 
-```
+```sh
 # Run with NODE_ENV=production:
-$ npm yarn start-prod
+npm yarn start-prod
 ```
 
-```
+```sh
 # Docker stuff
-$ ./build.sh
+./build.sh
 ```
