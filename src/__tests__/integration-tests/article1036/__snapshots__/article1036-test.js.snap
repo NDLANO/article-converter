@@ -140,6 +140,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       target=\\"_blank\\"
       href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=10720\\"
       rel=\\"noopener noreferrer\\"
+      class=\\"\\"
       aria-label=\\"&#xC5;pne bilde i et nytt vindu\\"
       ><picture
         ><source
