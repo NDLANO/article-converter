@@ -95,7 +95,7 @@ function isSmall(size) {
   return size === 'xsmall' || size === 'small';
 }
 
-function ImageWrapper({ typeClass, src, crop, size, children }) {
+function ImageWrapper({ typeClass, src, crop, size, contentType, children }) {
   if (isSmall(size)) {
     return (
       <Trans>
@@ -125,6 +125,7 @@ function ImageWrapper({ typeClass, src, crop, size, children }) {
         <ImageLink
           src={src}
           crop={crop}
+          contentType={contentType}
           aria-label={t('license.images.itemImage.ariaLabel')}>
           {children}
         </ImageLink>
@@ -243,6 +244,7 @@ export default function createImagePlugin() {
               src={image.imageUrl}
               crop={crop}
               size={size}
+              contentType={image.contentType}
               typeClass={typeClass}>
               <Image
                 focalPoint={focalPoint}
