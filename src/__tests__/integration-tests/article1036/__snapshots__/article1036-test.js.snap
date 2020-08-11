@@ -136,11 +136,16 @@ Object {
 exports[`app/fetchAndTransformArticle 1036 2`] = `
 "<section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2357\\">
-    <a
+    <style data-emotion-css=\\"dsjxlq-StyledLink\\">
+      .css-dsjxlq-StyledLink {
+        box-shadow: inset 0 0;
+      }</style
+    ><a
       target=\\"_blank\\"
       href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=10720\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"&#xC5;pne bilde i et nytt vindu\\"
+      class=\\"css-dsjxlq-StyledLink envije90\\"
       ><picture
         ><source
           type=\\"image/jpeg\\"
@@ -671,9 +676,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+              data-emotion-css=\\"npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
             >
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -699,48 +704,46 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
-                font-weight: 700;
                 box-shadow: none;
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
-                font-weight: 700;
                 box-shadow: none;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -750,13 +753,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-NC-SA-4.0 Fotograf: Ingar Storfjell\\"
-              class=\\"css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+              class=\\"css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse</button
             ><style
-              data-emotion-css=\\"ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+              data-emotion-css=\\"xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
             >
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -782,31 +785,30 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
-                font-weight: 700;
                 box-shadow: none;
               }
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+              .css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -815,7 +817,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             ><a
               href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download=\\"\\"
-              class=\\"css-ljkbcf-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+              class=\\"css-xbx6dz-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
               >Last ned bildet</a
             >
           </div>
