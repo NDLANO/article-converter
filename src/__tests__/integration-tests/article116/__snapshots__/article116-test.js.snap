@@ -470,9 +470,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+              data-emotion-css=\\"npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
             >
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -498,48 +498,46 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
-                font-weight: 700;
                 box-shadow: none;
                 color: #20588f;
                 background-color: transparent;
                 border: 2px solid #20588f;
-                font-weight: 700;
                 box-shadow: none;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -549,7 +547,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"CC-BY-SA-4.0 Regiss&#xF8;r: Wes Anderson\\"
-              class=\\"css-19o1nzn-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+              class=\\"css-npaol7-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse
             </button>
