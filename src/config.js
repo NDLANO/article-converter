@@ -54,8 +54,8 @@ const getAuth0Hostname = () => {
 let H5P_HOST_URL = 'https://h5p.ndla.no'; // All environments uses prod except test.
 if (process.env.NDLA_ENVIRONMENT === 'test') {
   H5P_HOST_URL = 'https://h5p-test.ndla.no';
-} else if (process.env.NDLA_ENVIRONMENT === 'ff') {
-  H5P_HOST_URL = 'https://h5p-ff.ndla.no';
+} else if (process.env.NDLA_ENVIRONMENT === 'staging') {
+  H5P_HOST_URL = 'https://h5p-staging.ndla.no';
 }
 
 module.exports = Object.assign(

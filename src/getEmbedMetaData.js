@@ -14,7 +14,11 @@ export default function getEmbedMetaData(embeds) {
     const resourceMetaData = defined(ctx[key], []);
     const embedPlugin = embed.plugin;
 
-    if (embedPlugin && embed.status !== 'error' && embedPlugin.getMetaData) {
+    if (
+      embedPlugin &&
+      embed.status !== 'error' &&
+      embedPlugin.getMetaData?.(embed)
+    ) {
       const metaData = embedPlugin.getMetaData(embed);
       return {
         ...ctx,
