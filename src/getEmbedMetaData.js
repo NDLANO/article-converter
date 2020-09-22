@@ -12,14 +12,8 @@ export default function getEmbedMetaData(embeds) {
   return embeds.reduce((ctx, embed) => {
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);
-    const embedPlugin = embed.plugin;
-
-    if (
-      embedPlugin &&
-      embed.status !== 'error' &&
-      embedPlugin.getMetaData?.(embed)
-    ) {
-      const metaData = embedPlugin.getMetaData(embed);
+    const metaData = embed.plugin?.getMetaData?.(embed);
+    if (embed.status !== 'error' && metaData) {
       return {
         ...ctx,
         [key]: [...resourceMetaData, metaData],
