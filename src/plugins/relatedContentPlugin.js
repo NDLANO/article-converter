@@ -134,12 +134,24 @@ export default function createRelatedContentPlugin(options = {}) {
     return embed;
   }
 
+  const getEntryNumber = embed => {
+    const numSiblings = embed.embed.parent().children().length;
+    const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
+
+    // Reset counter if last embed in parent-div
+    if (numSiblings === relatedArticleEntryNum) {
+      embedToHTMLCounter.resetCount();
+    }
+
+    return relatedArticleEntryNum;
+  };
+
   const embedToHTML = (embed, lang) => {
     if (!embed.article && !embed.data.url) {
       return '';
     }
 
-    const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
+    const relatedArticleEntryNum = getEntryNumber(embed);
 
     // handle externalRelatedArticles
     if (embed.data && embed.data.url) {
