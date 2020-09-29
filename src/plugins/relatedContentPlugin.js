@@ -132,10 +132,11 @@ export default function createRelatedContentPlugin(options = {}) {
   }
 
   const getEntryNumber = embed => {
-    const siblings = embed.embed
-      .parent()
-      .children()
-      .toArray();
+    const siblings =
+      embed.embed
+        ?.parent()
+        ?.children()
+        ?.toArray() || [];
 
     const idx = siblings.findIndex(e => e.data === embed.data);
     return idx + 1;
