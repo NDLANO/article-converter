@@ -9,7 +9,9 @@ export async function transformArticle(
   options = {}
 ) {
   const articleContent = article.content.content
-    ? cheerio.load(article.content.content)
+    ? cheerio.load(article.content.content, {
+        recognizeSelfClosing: true,
+      })
     : undefined;
   const { html, embedMetaData } = articleContent
     ? await transform(

@@ -66,16 +66,16 @@ export const transformRelatedContent = (content, lang, options) => {
     const isRelatedContentGroup =
       div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
+      const divElement = content(div);
       if (!options.removeRelatedContent) {
+        const children = divElement.children();
         const relatedArticleList = createRelatedArticleList(
-          { locale: lang, articleCount: content(div).children().length },
-          content(div)
-            .children()
-            .toString()
+          { locale: lang, articleCount: children.length },
+          children.toString()
         );
-        content(div).before(relatedArticleList);
+        divElement.before(relatedArticleList);
       }
-      content(div).remove();
+      divElement.remove();
     }
   });
 };
