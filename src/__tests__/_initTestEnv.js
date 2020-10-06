@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+import 'regenerator-runtime/runtime';
 
 global.requestAnimationFrame = function raf(callback) {
   setTimeout(callback, 0);

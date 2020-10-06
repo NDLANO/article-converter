@@ -18,6 +18,7 @@ import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPluin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
+import codePlugin from './codePlugin';
 
 export {
   createNRKPlugin,
@@ -32,6 +33,7 @@ export {
   createFootnotePlugin,
   createConceptPluin,
   createRelatedContent,
+  codePlugin,
 };
 
 export default options => [
@@ -47,4 +49,5 @@ export default options => [
   createFootnotePlugin(),
   createConceptPluin(options),
   createRelatedContent(options),
+  codePlugin(),
 ];
