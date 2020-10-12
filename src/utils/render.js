@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { MissingRouterContext } from '@ndla/safelink';
 import { messagesNB, messagesEN, messagesNN } from '@ndla/ui';
 import IntlProvider, { formatNestedMessages } from '@ndla/i18n';
@@ -18,12 +18,20 @@ const messages = {
   en: formatNestedMessages(messagesEN),
 };
 
-export function render(component, locale = 'nb') {
-  return renderToStaticMarkup(
+function renderInternal(renderFunc, component, locale) {
+  return renderFunc(
     <IntlProvider messages={messages[locale] || messages.nb} locale={locale}>
       <MissingRouterContext.Provider value={true}>
         {component}
       </MissingRouterContext.Provider>
     </IntlProvider>
   );
+}
+
+export function render(component, locale = 'nb') {
+  return renderInternal(renderToStaticMarkup, component, locale);
+}
+
+export function renderString(component, locale = 'nb') {
+  return renderInternal(renderToString, component, locale);
 }

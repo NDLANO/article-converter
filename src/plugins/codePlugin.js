@@ -8,12 +8,12 @@
 
 import React from 'react';
 import { Codeblock } from '@ndla/ui';
-import { render } from '../utils/render';
+import { renderString } from '../utils/render';
 
 export default function createCodePlugin(options = {}) {
   const embedToHTML = embed => {
     const { codeContent, codeFormat } = embed.data;
-    return render(<Codeblock code={codeContent} format={codeFormat} />);
+    return renderString(<Codeblock code={codeContent} format={codeFormat} />);
   };
 
   return {
