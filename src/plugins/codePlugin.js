@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { Codeblock } from '@ndla/ui';
+import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
 
 export default function createCodePlugin(options = {}) {
