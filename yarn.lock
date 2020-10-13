@@ -264,6 +264,11 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
+"@babel/helper-validator-identifier@7.10.4":
+  version "7.10.4"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.4.tgz#a78c7a7251e01f616512d31b10adcf52ada5e0d2"
+  integrity sha512-3U9y+43hz7ZM+rzG24Qe2mufW5KhvFg/NhnNph+i9mgCtdTCtMJuI1TMkrIUiK7Ix4PYlRF9I5dhqaLYA/ADXw==
+
 "@babel/helper-wrap-function@^7.1.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-wrap-function/-/helper-wrap-function-7.2.0.tgz#c4e0012445769e2815b55296ead43a958549f6fa"
@@ -984,10 +989,10 @@
     "@ndla/core" "^0.6.30"
     react-swipeable "^5.0.1"
 
-"@ndla/code@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-0.1.0.tgz#084ca35585f8dc078ce958869f5bfbff509198a7"
-  integrity sha512-OwQWmksVf3hn+nvljOcVk4XCzVFsaQCRguImotp3YTWVNKPlTzBERvEC2tjWcBySdCeuT21GRl2Ls1dwoY+/jg==
+"@ndla/code@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-0.1.1.tgz#31f261c0d743369212da2f7e999613791c32f73e"
+  integrity sha512-/nAq6diAK3IS2t5pvpDviYWT9XXbWRtmuffqaRCyAKkNfPurbVfSCDY7aQ1XSciBeI+Pbek6ucCacQkX7ZPP/Q==
   dependencies:
     "@ndla/button" "^0.3.40"
     "@ndla/core" "^0.6.30"
