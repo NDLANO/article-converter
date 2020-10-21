@@ -16,8 +16,10 @@ test('wrapInFigure', () => {
 test('makeIframe', () => {
   expect(makeIframe('https://youtube.com', '400', '600')).toMatchSnapshot();
   expect(makeIframe('https://youtube.com', 400, 600)).toMatchSnapshot();
-  expect(makeIframe('https://youtube.com', '400px', '600px')).toMatchSnapshot();
   expect(
-    makeIframe('https://youtube.com', '400 px', '600 px')
+    makeIframe('https://youtube.com', '400px', '600px', 'https://youtube.com')
+  ).toMatchSnapshot();
+  expect(
+    makeIframe('https://youtube.com', '400 px', '600 px', 'Youtube')
   ).toMatchSnapshot();
 });
