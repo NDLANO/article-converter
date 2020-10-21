@@ -48,9 +48,9 @@ Object {
         },
         "cover": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
         "iframe": Object {
-          "height": 360,
+          "height": 1080,
           "src": "https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442",
-          "width": 640,
+          "width": 1920,
         },
         "src": "http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001",
         "title": "Offentlige debatter",
@@ -98,8 +98,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
       aria-label=\\"Video: Offentlige debatter\\"
       frameborder=\\"0\\"
       src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442\\"
-      height=\\"360\\"
-      width=\\"640\\"
+      height=\\"1080\\"
+      width=\\"1920\\"
       allowfullscreen
     ></iframe>
     <figcaption class=\\"c-figure__caption\\">
@@ -690,7 +690,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string='&lt;iframe title=\\"Offentlige debatter\\" aria-label=\\"Offentlige debatter\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442\\" width=\\"360\\" height=\\"640\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
+              data-copy-string='&lt;iframe title=\\"Offentlige debatter\\" aria-label=\\"Offentlige debatter\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442\\" width=\\"1080\\" height=\\"1920\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
               class=\\"css-k4w5ct-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Bygg inn
