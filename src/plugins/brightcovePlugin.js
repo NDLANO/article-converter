@@ -15,7 +15,7 @@ import {
   FigureLicenseDialog,
   FigureCaption,
 } from '@ndla/ui/lib/Figure';
-import Button from '@ndla/button';
+import Button, { StyledButton } from '@ndla/button';
 import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
@@ -23,8 +23,14 @@ import {
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
-import { getCopyString, getLicenenseCredits } from './pluginHelpers';
+import {
+  getCopyString,
+  getLicenenseCredits,
+  makeIframeString,
+} from './pluginHelpers';
 import { render } from '../utils/render';
+
+const Anchor = StyledButton.withComponent('a');
 
 export default function createBrightcovePlugin() {
   const fetchResource = embed => fetchVideoMeta(embed);
@@ -46,17 +52,18 @@ export default function createBrightcovePlugin() {
 
   const getMetaData = embed => {
     const { brightcove, data } = embed;
-
-    const mp4s = brightcove.sources
-      .filter(source => source.container === 'MP4' && source.src)
-      .sort((a, b) => b.size - a.size);
-    return {
-      title: brightcove.name,
-      copyright: brightcove.copyright,
-      cover: get('images.poster.src', brightcove),
-      src: mp4s[0] ? mp4s[0].src : undefined,
-      iframe: getIframeProps(data, brightcove.sources),
-    };
+    if (brightcove) {
+      const mp4s = brightcove.sources
+        .filter(source => source.container === 'MP4' && source.src)
+        .sort((a, b) => b.size - a.size);
+      return {
+        title: brightcove.name,
+        copyright: brightcove.copyright,
+        cover: get('images.poster.src', brightcove),
+        src: mp4s[0] ? mp4s[0].src : undefined,
+        iframe: getIframeProps(data, brightcove.sources),
+      };
+    }
   };
 
   const onError = (embed, locale) => {
@@ -95,6 +102,10 @@ export default function createBrightcovePlugin() {
       name: item.description,
       type: item.label,
     }));
+
+    const { src, height, width } = getIframeProps(data, brightcove.sources);
+
+    const { src: download } = getMetaData(embed);
 
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
 
@@ -141,6 +152,20 @@ export default function createBrightcovePlugin() {
             data-copied-title={t(locale, 'reference.copied')}
             data-copy-string={copyString}>
             {t(locale, 'reference.copy')}
+          </Button>
+          <Anchor key="download" href={download} appearance="outline" download>
+            {t(locale, 'video.download')}
+          </Anchor>
+          <Button
+            outline
+            data-copied-title={t(locale, 'embed.copied')}
+            data-copy-string={makeIframeString(
+              src,
+              height,
+              width,
+              brightcove.name
+            )}>
+            {t(locale, 'embed.copy')}
           </Button>
         </FigureLicenseDialog>
       </Figure>
