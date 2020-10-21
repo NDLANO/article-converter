@@ -11,7 +11,6 @@ import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
-import { RelatedArticleCounter } from '../utils/embedGroupHelpers';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { fetchArticleResource } from '../api/taxonomyApi';
@@ -110,8 +109,6 @@ export default function createRelatedContentPlugin(options = {}) {
     return { embedToHTML: () => '' };
   }
 
-  const embedToHTMLCounter = new RelatedArticleCounter();
-
   async function fetchResource(embed, accessToken, language) {
     if (!embed.data) return embed;
 
@@ -134,12 +131,23 @@ export default function createRelatedContentPlugin(options = {}) {
     return embed;
   }
 
+  const getEntryNumber = embed => {
+    const siblings =
+      embed.embed
+        ?.parent()
+        ?.children()
+        ?.toArray() || [];
+
+    const idx = siblings.findIndex(e => e.data === embed.data);
+    return idx + 1;
+  };
+
   const embedToHTML = (embed, lang) => {
     if (!embed.article && !embed.data.url) {
       return '';
     }
 
-    const relatedArticleEntryNum = embedToHTMLCounter.getNextCount();
+    const relatedArticleEntryNum = getEntryNumber(embed);
 
     // handle externalRelatedArticles
     if (embed.data && embed.data.url) {

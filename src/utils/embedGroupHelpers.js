@@ -10,15 +10,6 @@ import RelatedArticleList from '@ndla/ui/lib/RelatedArticleList';
 import { render } from './render';
 import t from '../locale/i18n';
 
-export function RelatedArticleCounter(initialCount = 0) {
-  this.count = initialCount;
-
-  RelatedArticleCounter.prototype.getNextCount = function getNextCount() {
-    this.count = this.count + 1;
-    return this.count;
-  };
-}
-
 export function createRelatedArticleList(props, children) {
   if (children && children.length > 0) {
     return render(
