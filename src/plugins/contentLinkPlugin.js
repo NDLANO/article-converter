@@ -23,8 +23,17 @@ export default function createContentLinkPlugin(options = {}) {
         language,
         contentType
       );
-      if (resource.path) {
-        path = `${language}/subjects${resource.path}`;
+      const resourcePath =
+        (resource.paths &&
+          resource.paths.find(
+            p =>
+              options.subject &&
+              p.split('/')[1] === options.subject.replace('urn:', '')
+          )) ||
+        resource.path;
+
+      if (resourcePath) {
+        path = `${language}/subjects${resourcePath}`;
         if (options.filters) {
           path = path + `?filters=${options.filters}`;
         }

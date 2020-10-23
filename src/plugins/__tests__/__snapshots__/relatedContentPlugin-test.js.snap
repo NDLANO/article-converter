@@ -17,6 +17,27 @@ Object {
 
 exports[`fetchResource for two related articles 1`] = `
 Object {
+  "article": Object {
+    "introduction": Object {
+      "introduction": "introduction1",
+    },
+    "resource": Object {
+      "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+      "paths": Array [
+        "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+      ],
+      "resourceTypes": Array [
+        Object {
+          "id": "urn:resourcetype:tasksAndActivities",
+          "name": "Oppgaver og aktiviteter",
+        },
+      ],
+    },
+    "title": Object {
+      "title": "title1",
+    },
+  },
   "data": Object {
     "articleId": "1",
   },
@@ -25,6 +46,27 @@ Object {
 
 exports[`fetchResource for two related articles 2`] = `
 Object {
+  "article": Object {
+    "introduction": Object {
+      "introduction": "introduction2",
+    },
+    "resource": Object {
+      "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+      "paths": Array [
+        "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+      ],
+      "resourceTypes": Array [
+        Object {
+          "id": "urn:resourcetype:tasksAndActivities",
+          "name": "Oppgaver og aktiviteter",
+        },
+      ],
+    },
+    "title": Object {
+      "title": "title2",
+    },
+  },
   "data": Object {
     "articleId": "2",
   },
@@ -33,6 +75,27 @@ Object {
 
 exports[`fetchResource for two related articles, where one could not be fetched from article-api 1`] = `
 Object {
+  "article": Object {
+    "introduction": Object {
+      "introduction": "introduction1",
+    },
+    "resource": Object {
+      "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+      "paths": Array [
+        "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+      ],
+      "resourceTypes": Array [
+        Object {
+          "id": "urn:resourcetype:tasksAndActivities",
+          "name": "Oppgaver og aktiviteter",
+        },
+      ],
+    },
+    "title": Object {
+      "title": "title1",
+    },
+  },
   "data": Object {
     "articleId": "1",
   },
@@ -49,6 +112,27 @@ Object {
 
 exports[`fetchResource for two related articles, where one could not be fetched from taxonomy-api 1`] = `
 Object {
+  "article": Object {
+    "introduction": Object {
+      "introduction": "introduction1",
+    },
+    "resource": Object {
+      "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+      "paths": Array [
+        "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+      ],
+      "resourceTypes": Array [
+        Object {
+          "id": "urn:resourcetype:tasksAndActivities",
+          "name": "Oppgaver og aktiviteter",
+        },
+      ],
+    },
+    "title": Object {
+      "title": "title1",
+    },
+  },
   "data": Object {
     "articleId": "1",
   },
