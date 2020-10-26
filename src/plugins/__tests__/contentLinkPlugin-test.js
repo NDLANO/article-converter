@@ -20,6 +20,10 @@ const articleResource = [
       },
     ],
     path: '/subject:12/topic:1:183846/topic:1:183935/resource:1:110269',
+    paths: [
+      '/subject:12/topic:1:183846/topic:1:183935/resource:1:110269',
+      '/subject:1/topic:1:183846/topic:1:183935/resource:1:110269',
+    ],
   },
 ];
 
@@ -28,6 +32,46 @@ test('fetchResource for content-link', async () => {
 
   nock('http://ndla-api')
     .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
+    .reply(200, articleResource);
+
+  const resource = await contentLinkPlugin.fetchResource(
+    {
+      data: { contentId: '1' },
+    },
+    'token',
+    'nb'
+  );
+
+  expect(resource).toMatchSnapshot();
+});
+
+test('fetchResource for content-link with subject12 gives correct path', async () => {
+  const contentLinkPlugin = createContentLinkPlugin({
+    subject: 'urn:subject:12',
+  });
+
+  nock('http://ndla-api')
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1&language=nb`)
+    .reply(200, articleResource);
+
+  const resource = await contentLinkPlugin.fetchResource(
+    {
+      data: { contentId: '1' },
+    },
+    'token',
+    'nb'
+  );
+
+  expect(resource).toMatchSnapshot();
+});
+
+test('fetchResource for content-link with subject1 gives correct path', async () => {
+  const contentLinkPlugin = createContentLinkPlugin({
+    subject: 'urn:subject:1',
+  });
+
+  nock('http://ndla-api')
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   const resource = await contentLinkPlugin.fetchResource(
