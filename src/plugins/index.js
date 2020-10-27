@@ -16,8 +16,9 @@ import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-import createConceptPluin from './conceptPlugin';
+import createConceptPlugin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
+import createCodePlugin from './codePlugin';
 
 export {
   createNRKPlugin,
@@ -30,8 +31,9 @@ export {
   createErrorPlugin,
   createIframePlugin,
   createFootnotePlugin,
-  createConceptPluin,
+  createConceptPlugin,
   createRelatedContent,
+  createCodePlugin,
 };
 
 export default options => [
@@ -45,6 +47,7 @@ export default options => [
   createErrorPlugin(),
   createIframePlugin(),
   createFootnotePlugin(),
-  createConceptPluin(options),
+  createConceptPlugin(options),
   createRelatedContent(options),
+  createCodePlugin(),
 ];
