@@ -13,7 +13,11 @@ import { renderString } from '../utils/render';
 export default function createCodePlugin(options = {}) {
   const embedToHTML = embed => {
     const { codeContent, codeFormat } = embed.data;
-    return renderString(<Codeblock code={codeContent} format={codeFormat} />);
+    return renderString(
+      <figure className="c-figure">
+        <Codeblock code={codeContent} format={codeFormat} />
+      </figure>
+    );
   };
 
   return {
