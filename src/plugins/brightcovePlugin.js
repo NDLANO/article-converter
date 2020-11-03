@@ -109,7 +109,7 @@ export default function createBrightcovePlugin() {
 
     const { src, height, width } = getIframeProps(data, brightcove.sources);
 
-    const { src: download } = getMetaData(embed);
+    const { download } = getMetaData(embed);
 
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
 

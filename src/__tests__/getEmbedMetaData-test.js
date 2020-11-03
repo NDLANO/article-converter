@@ -52,7 +52,9 @@ test('get meta data from embeds', async () => {
       data: { resource: 'brightcove', account: 'account', videoid: '1337' },
       brightcove: {
         name: 'video title',
+        description: 'video description',
         copyright: { license: 'CC-BY-SA-4.0' },
+        published_at: '2020-01-01T11:12:13.456Z',
         images: {
           poster: {
             src: 'https://image.no/123.jpg',
