@@ -56,12 +56,16 @@ export default function createBrightcovePlugin() {
       const mp4s = brightcove.sources
         .filter(source => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
+      const iframeProps = getIframeProps(data, brightcove.sources);
       return {
         title: brightcove.name,
+        description: brightcove.description,
         copyright: brightcove.copyright,
         cover: get('images.poster.src', brightcove),
-        src: mp4s[0] ? mp4s[0].src : undefined,
-        iframe: getIframeProps(data, brightcove.sources),
+        download: mp4s[0] ? mp4s[0].src : undefined,
+        src: iframeProps.src,
+        iframe: iframeProps,
+        uploadDate: brightcove.published_at,
       };
     }
   };
@@ -105,7 +109,7 @@ export default function createBrightcovePlugin() {
 
     const { src, height, width } = getIframeProps(data, brightcove.sources);
 
-    const { src: download } = getMetaData(embed);
+    const { download } = getMetaData(embed);
 
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
 
