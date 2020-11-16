@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
 
@@ -15,7 +16,7 @@ export default function createCodePlugin(options = {}) {
     const { codeContent, codeFormat } = embed.data;
     return renderString(
       <figure className="c-figure">
-        <Codeblock code={codeContent} format={codeFormat} />
+        <Codeblock code={he.decode(codeContent)} format={codeFormat} />
       </figure>
     );
   };
