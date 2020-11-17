@@ -23,6 +23,22 @@ export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
     fetchConcept(embed, accessToken, language, options);
 
+  const getIframeProps = concept => {
+    return {
+      src: `https://liste.ndla.no/concepts/${concept.id}`,
+    };
+  };
+
+  const getMetaData = embed => {
+    const { concept } = embed;
+    const iframeProps = getIframeProps(concept);
+    return {
+      title: concept.title.title,
+      copyright: concept.copyright,
+      src: iframeProps.src,
+    };
+  };
+
   const renderMarkdown = text => {
     const md = new Remarkable();
     md.inline.ruler.enable(['sub', 'sup']);
@@ -94,6 +110,7 @@ export default function createConceptPlugin(options = {}) {
 
   return {
     resource: 'concept',
+    getMetaData,
     onError,
     fetchResource,
     embedToHTML,
