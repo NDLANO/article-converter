@@ -18,24 +18,26 @@ import Notion, {
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import config from '../config';
 
 export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
     fetchConcept(embed, accessToken, language, options);
 
-  const getIframeProps = concept => {
-    return {
-      src: `https://liste.ndla.no/concepts/${concept.id}`,
-    };
-  };
+  const getEmbedSrc = concept =>
+    config.ndlaEnvironment === 'prod'
+      ? `https://liste.ndla.no/concepts/${concept.id}`
+      : `https://liste.${config.ndlaEnvironment}.ndla.no/concepts/${
+          concept.id
+        }`;
 
   const getMetaData = embed => {
     const { concept } = embed;
-    const iframeProps = getIframeProps(concept);
+    const embedSrc = getEmbedSrc(concept);
     return {
       title: concept.title.title,
       copyright: concept.copyright,
-      src: iframeProps.src,
+      src: embedSrc,
     };
   };
 
