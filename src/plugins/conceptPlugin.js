@@ -25,11 +25,7 @@ export default function createConceptPlugin(options = {}) {
     fetchConcept(embed, accessToken, language, options);
 
   const getEmbedSrc = concept =>
-    config.ndlaEnvironment === 'prod'
-      ? `https://liste.ndla.no/concepts/${concept.id}`
-      : `https://liste.${config.ndlaEnvironment}.ndla.no/concepts/${
-          concept.id
-        }`;
+    `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
   const getMetaData = embed => {
     const { concept } = embed;
