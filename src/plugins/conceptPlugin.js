@@ -18,10 +18,23 @@ import Notion, {
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import config from '../config';
 
 export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
     fetchConcept(embed, accessToken, language, options);
+
+  const getEmbedSrc = concept =>
+    `${config.listingFrontendDomain}/concepts/${concept.id}`;
+
+  const getMetaData = embed => {
+    const { concept } = embed;
+    return {
+      title: concept.title.title,
+      copyright: concept.copyright,
+      src: getEmbedSrc(concept),
+    };
+  };
 
   const renderMarkdown = text => {
     const md = new Remarkable();
@@ -94,6 +107,7 @@ export default function createConceptPlugin(options = {}) {
 
   return {
     resource: 'concept',
+    getMetaData,
     onError,
     fetchResource,
     embedToHTML,
