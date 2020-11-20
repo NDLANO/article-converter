@@ -29,11 +29,10 @@ export default function createConceptPlugin(options = {}) {
 
   const getMetaData = embed => {
     const { concept } = embed;
-    const embedSrc = getEmbedSrc(concept);
     return {
       title: concept.title.title,
       copyright: concept.copyright,
-      src: embedSrc,
+      src: getEmbedSrc(concept),
     };
   };
 

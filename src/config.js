@@ -53,12 +53,12 @@ const getAuth0Hostname = () => {
 
 const listeDomain = () => {
   switch (process.env.NDLA_ENVIRONMENT) {
+    case 'local':
+      return 'http://localhost:30020';
     case 'prod':
       return 'https://liste.ndla.no';
-    case 'staging':
-      return 'https://liste.staging.ndla.no';
     default:
-      return 'https://liste.test.ndla.no';
+      return `https://liste.${process.env.NDLA_ENVIRONMENT}.ndla.no`;
   }
 };
 
