@@ -31,7 +31,7 @@ test('fetchResource for content-link', async () => {
   const contentLinkPlugin = createContentLinkPlugin();
 
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResource);
 
   const resource = await contentLinkPlugin.fetchResource(
@@ -100,7 +100,7 @@ test('fetchResource with missing taxonomy data should fallback to path without t
   const contentLinkPlugin = createContentLinkPlugin();
 
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1&language=nb`)
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1&language=nb`)
     .reply(200, articleResourceWithoutPath);
 
   const resource = await contentLinkPlugin.fetchResource(
@@ -119,7 +119,7 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
 
   const contentLinkPlugin = createContentLinkPlugin();
   nock('http://ndla-api')
-    .get(`/taxonomy/v1/queries/resources?contentURI=urn:article:1`)
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1`)
     .reply(500, {});
 
   const resource = await contentLinkPlugin.fetchResource(

@@ -31,7 +31,7 @@ test('app/fetchAndTransformArticle 9206', async () => {
       .reply(200, article9206);
     nock('http://ndla-api')
       .get(
-        `/taxonomy/v1/queries/resources?contentURI=urn:article:${id}&language=nb`
+        `/taxonomy/v1/resources?contentURI=urn:article:${id}&language=nb`
       )
       .reply(200, resources[id]);
   });

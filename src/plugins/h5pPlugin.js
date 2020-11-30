@@ -14,8 +14,10 @@ import { render } from '../utils/render';
 import { fetchH5pLicenseInformation } from '../api/h5pApi';
 
 export default function createH5pPlugin() {
-  const fetchResource = (embed, accessToken) =>
+  const fetchResource = (embed, accessToken, locale) =>
     new Promise((resolve, reject) => {
+      const lang = locale === 'en' ? 'en-gb' : 'nb-no';
+      embed.data.url = `${embed.data.url}?locale=${lang}`;
       fetchOembed(embed, accessToken)
         .then(data => data)
         .then(data => {
