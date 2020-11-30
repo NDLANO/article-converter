@@ -88,7 +88,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -172,7 +172,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -227,7 +227,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -258,7 +258,7 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent.html();
 
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="94605"></div>');
@@ -325,7 +325,7 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -343,7 +343,7 @@ test('replacer/replaceEmbedsInHtml replace iframe embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -362,7 +362,7 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -381,7 +381,7 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -400,7 +400,7 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -432,7 +432,7 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
     },
   ];
 
-  replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb');
   const replaced = articleContent('body').html();
 
   expect(getEmbedMetaData(embeds)).toMatchSnapshot();
