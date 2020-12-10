@@ -30,9 +30,7 @@ test('app/fetchAndTransformArticle 9206', async () => {
       .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, article9206);
     nock('http://ndla-api')
-      .get(
-        `/taxonomy/v1/resources?contentURI=urn:article:${id}&language=nb`
-      )
+      .get(`/taxonomy/v1/resources?contentURI=urn:article:${id}&language=nb`)
       .reply(200, resources[id]);
   });
 

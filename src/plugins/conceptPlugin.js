@@ -8,16 +8,17 @@
 
 import React, { Fragment } from 'react';
 import defined from 'defined';
+import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import Notion, {
   NotionDialogContent,
   NotionDialogText,
-  NotionDialogImage,
   NotionDialogLicenses,
 } from '@ndla/notion';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import { transform } from '../transformers';
 import config from '../config';
 
 export default function createConceptPlugin(options = {}) {
@@ -67,18 +68,29 @@ export default function createConceptPlugin(options = {}) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = async (embed, locale) => {
     const {
       id,
       title: { title },
       content: { content },
-      metaImage,
     } = embed.concept;
 
+    const visualElement = defined(embed.concept.visualElement, {
+      visualElement: '',
+    });
     const copyright = defined(embed.concept.copyright, {});
     const authors = defined(copyright.creators, []).map(author => author.name);
     const license = defined(copyright.license, {}).license;
     const source = defined(embed.concept.source, '');
+
+    const transformed = await transform(
+      cheerio.load(`<body>${visualElement.visualElement}</body>`),
+      locale,
+      '',
+      undefined,
+      {}
+    );
+
     return render(
       <Notion
         id={`notion_id_${id}`}
@@ -87,8 +99,8 @@ export default function createConceptPlugin(options = {}) {
         content={
           <Fragment>
             <NotionDialogContent>
-              {metaImage?.url && (
-                <NotionDialogImage src={metaImage.url} alt={metaImage.alt} />
+              {transformed.html && (
+                <div dangerouslySetInnerHTML={{ __html: transformed.html }} />
               )}
               <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
             </NotionDialogContent>
