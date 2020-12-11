@@ -7,7 +7,7 @@ Object {
   "data": Object {
     "contentId": "1",
   },
-  "path": "nb/subjects/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+  "path": "nb/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
 }
 `;
 
@@ -16,7 +16,7 @@ Object {
   "data": Object {
     "contentId": "1",
   },
-  "path": "nb/subjects/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+  "path": "nb/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
 }
 `;
 
@@ -25,7 +25,7 @@ Object {
   "data": Object {
     "contentId": "1",
   },
-  "path": "nb/subjects/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+  "path": "nb/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
 }
 `;
 

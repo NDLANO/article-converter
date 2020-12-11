@@ -33,7 +33,7 @@ export default function createContentLinkPlugin(options = {}) {
         resource.path;
 
       if (resourcePath) {
-        path = `${language}/subjects${resourcePath}`;
+        path = `${language}${resourcePath}`;
         if (options.filters) {
           path = path + `?filters=${options.filters}`;
         }

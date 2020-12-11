@@ -89,7 +89,7 @@ const getRelatedArticleProps = (
       )) ||
     article.resource.path;
 
-  let to = `/subjects${path}`;
+  let to = path;
   if (filters) {
     to = to + `?filters=${filters}`;
   }
