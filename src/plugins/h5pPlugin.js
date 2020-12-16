@@ -13,7 +13,7 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { fetchH5pLicenseInformation } from '../api/h5pApi';
 
-export default function createH5pPlugin() {
+export default function createH5pPlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, locale) =>
     new Promise((resolve, reject) => {
       const lang = locale === 'en' ? 'en-gb' : 'nb-no';
@@ -44,18 +44,20 @@ export default function createH5pPlugin() {
 
   const embedToHTML = h5p => {
     if (h5p.oembed) {
-      return wrapInFigure(h5p.oembed.html);
+      return wrapInFigure(h5p.oembed.html, true, options.concept);
     }
     return wrapInFigure(
       `<iframe title="${h5p.data.url}" aria-label="${h5p.data.url}" src="${
         h5p.data.url
-      }"></iframe>`
+      }"></iframe>`,
+      true,
+      options.concept
     );
   };
 
   const onError = (embed, locale) =>
     render(
-      <figure className="c-figure">
+      <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'h5p.error')}</figcaption>
       </figure>

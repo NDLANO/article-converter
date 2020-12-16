@@ -10,10 +10,13 @@ import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
 
-export const wrapInFigure = (content, resize = true) => {
-  const embedClassnames = classnames('c-figure', {
-    'c-figure--resize': resize,
-  });
+export const wrapInFigure = (content, resize = true, concept = false) => {
+  const embedClassnames = classnames(
+    { 'c-figure': !concept },
+    {
+      'c-figure--resize': resize,
+    }
+  );
   return `<figure class="${embedClassnames}">${content}</figure>`;
 };
 

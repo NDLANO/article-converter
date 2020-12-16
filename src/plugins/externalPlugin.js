@@ -12,7 +12,7 @@ import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 
-export default function createExternalPlugin() {
+export default function createExternalPlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken) =>
     new Promise((resolve, reject) => {
       fetchOembed(embed, accessToken)
@@ -24,13 +24,14 @@ export default function createExternalPlugin() {
 
   const onError = (embed, locale) =>
     render(
-      <figure className="c-figure">
+      <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'external.error')}</figcaption>
       </figure>
     );
 
-  const embedToHTML = embed => wrapInFigure(embed.oembed.html);
+  const embedToHTML = embed =>
+    wrapInFigure(embed.oembed.html, true, options.concept);
 
   return {
     resource: 'external',

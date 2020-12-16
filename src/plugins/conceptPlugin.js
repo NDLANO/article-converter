@@ -88,7 +88,7 @@ export default function createConceptPlugin(options = {}) {
       locale,
       '',
       undefined,
-      {}
+      { concept: true }
     );
 
     return render(
