@@ -17,7 +17,9 @@ export const wrapInFigure = (content, resize = true, concept = false) => {
       'c-figure--resize': resize,
     }
   );
-  return `<figure class="${embedClassnames}">${content}</figure>`;
+  return `<figure class="${embedClassnames}" ${
+    resize ? 'resizeIframe' : ''
+  }>${content}</figure>`;
 };
 
 export const makeIframe = (url, width, height, title = '', resize = true) => {
