@@ -10,6 +10,7 @@ import React, { Fragment } from 'react';
 import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
+import styled from '@emotion/styled';
 import Notion, {
   NotionDialogContent,
   NotionDialogText,
@@ -20,6 +21,10 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { transform } from '../transformers';
 import config from '../config';
+
+const StyledDiv = styled.div`
+  width: 100%;
+`;
 
 export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
@@ -84,11 +89,11 @@ export default function createConceptPlugin(options = {}) {
     const source = defined(embed.concept.source, '');
 
     const transformed = await transform(
-      cheerio.load(`<body>${visualElement.visualElement}</body>`),
+      cheerio.load(visualElement.visualElement),
       locale,
       '',
       undefined,
-      {}
+      { concept: true }
     );
 
     return render(
@@ -100,7 +105,9 @@ export default function createConceptPlugin(options = {}) {
           <Fragment>
             <NotionDialogContent>
               {transformed.html && (
-                <div dangerouslySetInnerHTML={{ __html: transformed.html }} />
+                <StyledDiv
+                  dangerouslySetInnerHTML={{ __html: transformed.html }}
+                />
               )}
               <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
             </NotionDialogContent>

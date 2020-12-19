@@ -32,7 +32,7 @@ import { render } from '../utils/render';
 
 const Anchor = StyledButton.withComponent('a');
 
-export default function createBrightcovePlugin() {
+export default function createBrightcovePlugin(options = { concept: false }) {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const getIframeProps = (
@@ -75,7 +75,7 @@ export default function createBrightcovePlugin() {
     const { videoid } = data;
 
     return render(
-      <Figure resizeIframe>
+      <Figure type={options.concept ? 'full-column' : 'full'} resizeIframe>
         <iframe
           title={`Video: ${videoid || ''}`}
           aria-label={`Video: ${videoid || ''}`}
@@ -127,7 +127,10 @@ export default function createBrightcovePlugin() {
     const figureId = `figure-${id}`;
 
     return render(
-      <Figure id={figureId} resizeIframe>
+      <Figure
+        id={figureId}
+        type={options.concept ? 'full-column' : 'full'}
+        resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           aria-label={`Video: ${brightcove.name}`}

@@ -1870,7 +1870,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace commoncraft embeds 1`] = `
 "<section>
-  <figure class=\\"c-figure c-figure--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\" resizeiframe=\\"\\">
     <iframe
       title=\\"http://common.craft\\"
       aria-label=\\"http://common.craft\\"
@@ -1932,7 +1932,7 @@ exports[`replacer/replaceEmbedsInHtml replace footnote embeds 2`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 "<section>
-  <figure class=\\"c-figure c-figure--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\" resizeiframe=\\"\\">
     <iframe
       title=\\"http://prezi.com\\"
       aria-label=\\"http://prezi.com\\"
@@ -3078,7 +3078,7 @@ Kunstner: Kari Maler\\"
 
 exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
 "<section>
-  <figure class=\\"c-figure c-figure--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\" resizeiframe=\\"\\">
     <iframe
       title=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
       aria-label=\\"https://embed.kahoot.it/e577f7e9-59ff-4a80-89a1-c95acf04815d\\"
@@ -3097,7 +3097,7 @@ exports[`replacer/replaceEmbedsInHtml replace kahoot embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] = `
 "<section>
-  <figure class=\\"c-figure c-figure--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\" resizeiframe=\\"\\">
     <iframe
       title=\\"http://ndla.filmiundervisning.no/\\"
       aria-label=\\"http://ndla.filmiundervisning.no/\\"
@@ -3676,7 +3676,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
     </figcaption>
   </figure>
   <p>SomeText1</p>
-  <figure class=\\"c-figure c-figure--resize\\">
+  <figure class=\\"c-figure c-figure--resize\\" resizeiframe=\\"\\">
     <iframe src=\\"https://ndlah5p.joubel.com/h5p/embed/4\\"></iframe>
   </figure>
 </section>

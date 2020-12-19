@@ -164,7 +164,7 @@ ImageActionButtons.propTypes = {
   copyString: PropTypes.string.isRequired,
 };
 
-export default function createImagePlugin() {
+export default function createImagePlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, language) =>
     fetchImageResources(embed, accessToken, language);
 
@@ -236,7 +236,7 @@ export default function createImagePlugin() {
     const copyString = getCopyString(licenseAbbreviation, authors, locale);
     const figureId = `figure-${image.id}`;
     return render(
-      <Figure id={figureId} type={figureType}>
+      <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }) => (
           <>
             <ImageWrapper
