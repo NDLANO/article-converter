@@ -152,7 +152,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
 <section>
   <section class=\\"c-related-articles\\">
     <h1 class=\\"c-section-heading c-related-articles__component-title\\">
-      Relaterte artikler
+      Relatert innhold
     </h1>
     <div class=\\"c-related-articles__articles\\">
       <article
