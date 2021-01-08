@@ -20,7 +20,6 @@ export default function createH5pPlugin(options = { concept: false }) {
       const lang = locale === 'en' ? 'en-gb' : 'nb-no';
       const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
       embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
-      console.log('hei', embed.data.url);
       fetchOembed(embed, accessToken)
         .then(data => data)
         .then(data => {
