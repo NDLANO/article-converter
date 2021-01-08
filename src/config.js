@@ -62,6 +62,18 @@ const listeDomain = () => {
   }
 };
 
+const ndlaFrontendDomain = () => {
+  console.log('env,', process.env.NDLA_ENVIRONMENT);
+  switch (process.env.NDLA_ENVIRONMENT) {
+    case 'local':
+      return 'http://localhost:30017';
+    case 'prod':
+      return 'https://ndla.no';
+    default:
+      return `https://${process.env.NDLA_ENVIRONMENT}.ndla.no`;
+  }
+};
+
 let H5P_HOST_URL = 'https://h5p.ndla.no'; // All environments uses prod except test.
 if (process.env.NDLA_ENVIRONMENT === 'test') {
   H5P_HOST_URL = 'https://h5p-test.ndla.no';
@@ -76,6 +88,7 @@ module.exports = Object.assign(
     listingFrontendDomain: listeDomain(),
     ndlaApiUrl: process.env.NDLA_API_URL || domain(),
     ndlaApiKey: process.env.NDLA_API_KEY || 'ndlalearningpathfrontend',
+    ndlaFrontendDomain: ndlaFrontendDomain(),
     brightcoveClientId: process.env.BRIGHTCOVE_API_CLIENT_ID || '',
     brightcoveClientSecret: process.env.BRIGHTCOVE_API_CLIENT_SECRET || '',
     auth0Hostname: getAuth0Hostname(),
