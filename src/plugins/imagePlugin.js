@@ -21,7 +21,6 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import queryString from 'query-string';
-import { Trans } from '@ndla/i18n';
 import {
   errorSvgSrc,
   getCopyString,
@@ -95,41 +94,33 @@ function isSmall(size) {
   return size === 'xsmall' || size === 'small';
 }
 
-function ImageWrapper({ typeClass, src, crop, size, children }) {
+function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
   if (isSmall(size)) {
     return (
-      <Trans>
-        {({ t }) => (
           <>
             <FigureExpandButton
               typeClass={typeClass}
               messages={{
-                zoomImageButtonLabel: t(
+                zoomImageButtonLabel: t(locale,
                   'license.images.itemImage.zoomImageButtonLabel'
                 ),
-                zoomOutImageButtonLabel: t(
+                zoomOutImageButtonLabel: t(locale,
                   'license.images.itemImage.zoomOutImageButtonLabel'
                 ),
               }}
             />
             {children}
           </>
-        )}
-      </Trans>
     );
   }
 
   return (
-    <Trans>
-      {({ t }) => (
-        <ImageLink
-          src={src}
-          crop={crop}
-          aria-label={t('license.images.itemImage.ariaLabel')}>
-          {children}
-        </ImageLink>
-      )}
-    </Trans>
+    <ImageLink
+      src={src}
+      crop={crop}
+      aria-label={t(locale, 'license.images.itemImage.ariaLabel')}>
+      {children}
+    </ImageLink>
   );
 }
 
@@ -246,7 +237,8 @@ export default function createImagePlugin(options = { concept: false }) {
               src={image.imageUrl}
               crop={crop}
               size={size}
-              typeClass={typeClass}>
+              typeClass={typeClass}
+              locale={locale}>
               <Image
                 focalPoint={focalPoint}
                 contentType={image.contentType}
