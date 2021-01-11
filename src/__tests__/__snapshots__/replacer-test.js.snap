@@ -278,7 +278,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-audio-1\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av lydklipp
+              Regler for bruk av lydfilen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -943,7 +943,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -1403,7 +1403,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
+                  data-copied-title=\\"Kopierte innbyggingskode!\\"
                   data-copy-string='&lt;iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
                   class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
@@ -1645,7 +1645,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -2105,7 +2105,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
+                  data-copied-title=\\"Kopierte innbyggingskode!\\"
                   data-copy-string='&lt;iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
                   class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
@@ -2446,7 +2446,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -3032,7 +3032,7 @@ Kunstner: Kari Maler\\"
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -3657,7 +3657,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-1326\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -4232,7 +4232,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-46012\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -4693,7 +4693,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
+                  data-copied-title=\\"Kopierte innbyggingskode!\\"
                   data-copy-string='&lt;iframe title=\\"brightcove video\\" aria-label=\\"brightcove video\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
                   class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
