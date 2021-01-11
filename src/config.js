@@ -63,7 +63,6 @@ const listeDomain = () => {
 };
 
 const ndlaFrontendDomain = () => {
-  console.log('env,', process.env.NDLA_ENVIRONMENT);
   switch (process.env.NDLA_ENVIRONMENT) {
     case 'local':
       return 'http://localhost:30017';
