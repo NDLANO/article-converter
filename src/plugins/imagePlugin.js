@@ -149,9 +149,9 @@ const ImageActionButtons = ({ locale, src, copyString }) => [
   <Button
     key="copy"
     outline
-    data-copied-title={t(locale, 'reference.copied')}
+    data-copied-title={t('license.hasCopiedTitle')}
     data-copy-string={copyString}>
-    {t(locale, 'reference.copy')}
+    {t(locale, 'license.copyTitle')}
   </Button>,
   <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
     {t(locale, 'image.download')}
@@ -217,10 +217,13 @@ export default function createImagePlugin(options = { concept: false }) {
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
-      rulesForUse: t(locale, 'image.rulesForUse'),
-      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
+      rulesForUse: t(locale, 'license.images.rules'),
+      learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
-      zoomImageButtonLabel: t(locale, 'image.zoom'),
+      zoomImageButtonLabel: t(
+        locale,
+        'license.images.itemImage.zoomImageButtonLabel'
+      ),
     };
 
     const focalPoint = getFocalPoint(embed.data);

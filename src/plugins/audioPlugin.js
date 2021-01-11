@@ -68,9 +68,9 @@ export default function createAudioPlugin() {
     <Button
       key="copy"
       outline
-      data-copied-title={t(locale, 'reference.copied')}
+      data-copied-title={t(locale, 'license.hasCopiedTitle')}
       data-copy-string={copyString}>
-      {t(locale, 'reference.copy')}
+      {t(locale, 'license.copyTitle')}
     </Button>,
     <Anchor key="download" href={src} download appearance="outline">
       {t(locale, 'audio.download')}
@@ -113,8 +113,8 @@ export default function createAudioPlugin() {
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
-      rulesForUse: t(locale, 'audio.rulesForUse'),
-      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
+      rulesForUse: t(locale, 'license.audio.rules'),
+      learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
     };
 

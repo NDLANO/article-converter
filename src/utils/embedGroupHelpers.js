@@ -11,14 +11,15 @@ import { render } from './render';
 import t from '../locale/i18n';
 
 export function createRelatedArticleList(props, children) {
+const { locale } = props;
   if (children && children.length > 0) {
     return render(
       <RelatedArticleList
         {...props}
         messages={{
-          title: t(props.locale, 'related.title'),
-          showMore: t(props.locale, 'showMore'),
-          showLess: t(props.locale, 'showLess'),
+          title: t(locale, 'related.title'),
+          showMore: t(locale, 'related.showMore'),
+          showLess: t(locale, 'related.showLess'),
         }}
         dangerouslySetInnerHTML={{
           __html: children,

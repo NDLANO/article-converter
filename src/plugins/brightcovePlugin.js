@@ -116,8 +116,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
-      rulesForUse: t(locale, 'video.rulesForUse'),
-      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
+      rulesForUse: t(locale, 'license.video.rules'),
+      learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
     };
 
@@ -156,23 +156,23 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           messages={messages}>
           <Button
             outline
-            data-copied-title={t(locale, 'reference.copied')}
+            data-copied-title={t(locale, 'license.hasCopiedTitle')}
             data-copy-string={copyString}>
-            {t(locale, 'reference.copy')}
+            {t(locale, 'license.copyTitle')}
           </Button>
           <Anchor key="download" href={download} appearance="outline" download>
             {t(locale, 'video.download')}
           </Anchor>
           <Button
             outline
-            data-copied-title={t(locale, 'embed.copied')}
+            data-copied-title={t(locale, 'license.hasCopiedTitle')}
             data-copy-string={makeIframeString(
               src,
               height,
               width,
               brightcove.name
             )}>
-            {t(locale, 'embed.copy')}
+            {t(locale, 'license.embed')}
           </Button>
         </FigureLicenseDialog>
       </Figure>
