@@ -11,7 +11,7 @@ import { render } from './render';
 import t from '../locale/i18n';
 
 export function createRelatedArticleList(props, children) {
-const { locale } = props;
+  const { locale } = props;
   if (children && children.length > 0) {
     return render(
       <RelatedArticleList

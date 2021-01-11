@@ -97,20 +97,22 @@ function isSmall(size) {
 function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
   if (isSmall(size)) {
     return (
-          <>
-            <FigureExpandButton
-              typeClass={typeClass}
-              messages={{
-                zoomImageButtonLabel: t(locale,
-                  'license.images.itemImage.zoomImageButtonLabel'
-                ),
-                zoomOutImageButtonLabel: t(locale,
-                  'license.images.itemImage.zoomOutImageButtonLabel'
-                ),
-              }}
-            />
-            {children}
-          </>
+      <>
+        <FigureExpandButton
+          typeClass={typeClass}
+          messages={{
+            zoomImageButtonLabel: t(
+              locale,
+              'license.images.itemImage.zoomImageButtonLabel'
+            ),
+            zoomOutImageButtonLabel: t(
+              locale,
+              'license.images.itemImage.zoomOutImageButtonLabel'
+            ),
+          }}
+        />
+        {children}
+      </>
     );
   }
 
@@ -140,7 +142,7 @@ const ImageActionButtons = ({ locale, src, copyString }) => [
   <Button
     key="copy"
     outline
-    data-copied-title={t('license.hasCopiedTitle')}
+    data-copied-title={t(locale, 'license.hasCopiedTitle')}
     data-copy-string={copyString}>
     {t(locale, 'license.copyTitle')}
   </Button>,
