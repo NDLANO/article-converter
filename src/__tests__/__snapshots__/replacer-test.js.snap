@@ -260,7 +260,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\"
             >
-              <span>Bruk lydklipp</span>
+              <span>Bruk lydfil</span>
             </button>
           </div>
         </div>
@@ -669,7 +669,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   href=\\"http://audio.no/file/voof.mp3\\"
                   download=\\"\\"
                   class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
-                  >Last ned lydklipp</a
+                  >Last ned lydfil</a
                 >
               </div>
             </div>

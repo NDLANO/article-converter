@@ -1081,10 +1081,10 @@
   dependencies:
     "@ndla/core" "^0.6.32"
 
-"@ndla/ui@^0.30.2":
-  version "0.30.2"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.30.2.tgz#8d06b6c7d8ce0025676f7a27e057b8a621648d18"
-  integrity sha512-RBbA9htATX/8fkVm2+pTf3JEVJKSG8LRqUu7zhe9eYaNXkAFty8sNAgMUrllixRnIkoDYho1NO5aAYRZUw7D8w==
+"@ndla/ui@^0.30.3":
+  version "0.30.3"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.30.3.tgz#765ac532dd1c5cbbe9b0eb092fc344dc34805f3c"
+  integrity sha512-Es90R/bsa4LdFxGjxwYnP0CovGK3CUUxIU5Y6iGHXRz3SVDfOOYHjZEsfb9qGeioroOyxI6fuxnARq0ILFScng==
   dependencies:
     "@ndla/button" "^0.3.43"
     "@ndla/carousel" "^0.3.32"
