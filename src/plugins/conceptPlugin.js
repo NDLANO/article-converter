@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
@@ -15,6 +15,7 @@ import Notion, {
   NotionDialogText,
   NotionDialogLicenses,
 } from '@ndla/notion';
+import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -42,9 +43,9 @@ export default function createConceptPlugin(options = {}) {
     md.inline.ruler.enable(['sub', 'sup']);
     const rendered = md.render(text);
     return (
-      <Fragment>
+      <>
         <span dangerouslySetInnerHTML={{ __html: rendered }} />
-      </Fragment>
+      </>
     );
   };
 
@@ -90,14 +91,18 @@ export default function createConceptPlugin(options = {}) {
       undefined,
       {}
     );
-
     return render(
       <Notion
-        id={`notion_id_${id}`}
+        id={`notion_id_${id}_${locale}`}
         ariaLabel={t(locale, 'concept.showDescription')}
         title={title}
+        customCSS={css`
+          left: 0 !important;
+          margin-left: 0 !important;
+          width: 100% !important;
+        `}
         content={
-          <Fragment>
+          <>
             <NotionDialogContent>
               {transformed.html && (
                 <div dangerouslySetInnerHTML={{ __html: transformed.html }} />
@@ -109,7 +114,7 @@ export default function createConceptPlugin(options = {}) {
               source={source}
               authors={authors}
             />
-          </Fragment>
+          </>
         }>
         {embed.data.linkText}
       </Notion>,
