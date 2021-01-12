@@ -976,10 +976,10 @@
     "@ndla/core" "^0.6.32"
     react-swipeable "^5.0.1"
 
-"@ndla/code@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-0.1.7.tgz#1b4ba61d2d371c407aa55cc0fbae16d669d872c3"
-  integrity sha512-SB5Q8yKLqV5LbDMPb3TcX9YzA2tlSyX5r5YKr0sLHVbtVKz69P8osf69t5r6j+F7+ukUxN1vrz985WHN18xyPw==
+"@ndla/code@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-0.1.8.tgz#e018b686371f27754b0232416826ea3628f300b2"
+  integrity sha512-665GAO4zDZfRNPTuMZ11r7wXMW9rbECEa1iXASUCEEBBiYSV7iy0Cb3JC6jnEYbP4xGNxGsUc5tq4BOtVuiKVQ==
   dependencies:
     "@ndla/button" "^0.3.43"
     "@ndla/core" "^0.6.32"
@@ -3491,8 +3491,9 @@ inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.3:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
 ini@^1.3.4, ini@~1.3.0:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.7.tgz#a09363e1911972ea16d7a8851005d84cf09a9a84"
+  integrity sha512-iKpRpXP+CrP2jyrxvg1kMUpXDyRUFDWurxbnVT1vQPx+Wz9uCYsMIqYuSBLV+PAaZG/d7kRLKRFc9oDMsH+mFQ==
 
 inline-style-parser@0.1.1:
   version "0.1.1"
