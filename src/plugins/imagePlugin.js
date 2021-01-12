@@ -21,7 +21,6 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import queryString from 'query-string';
-import { Trans } from '@ndla/i18n';
 import {
   errorSvgSrc,
   getCopyString,
@@ -95,41 +94,35 @@ function isSmall(size) {
   return size === 'xsmall' || size === 'small';
 }
 
-function ImageWrapper({ typeClass, src, crop, size, children }) {
+function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
   if (isSmall(size)) {
     return (
-      <Trans>
-        {({ t }) => (
-          <>
-            <FigureExpandButton
-              typeClass={typeClass}
-              messages={{
-                zoomImageButtonLabel: t(
-                  'license.images.itemImage.zoomImageButtonLabel'
-                ),
-                zoomOutImageButtonLabel: t(
-                  'license.images.itemImage.zoomOutImageButtonLabel'
-                ),
-              }}
-            />
-            {children}
-          </>
-        )}
-      </Trans>
+      <>
+        <FigureExpandButton
+          typeClass={typeClass}
+          messages={{
+            zoomImageButtonLabel: t(
+              locale,
+              'license.images.itemImage.zoomImageButtonLabel'
+            ),
+            zoomOutImageButtonLabel: t(
+              locale,
+              'license.images.itemImage.zoomOutImageButtonLabel'
+            ),
+          }}
+        />
+        {children}
+      </>
     );
   }
 
   return (
-    <Trans>
-      {({ t }) => (
-        <ImageLink
-          src={src}
-          crop={crop}
-          aria-label={t('license.images.itemImage.ariaLabel')}>
-          {children}
-        </ImageLink>
-      )}
-    </Trans>
+    <ImageLink
+      src={src}
+      crop={crop}
+      aria-label={t(locale, 'license.images.itemImage.ariaLabel')}>
+      {children}
+    </ImageLink>
   );
 }
 
@@ -149,9 +142,9 @@ const ImageActionButtons = ({ locale, src, copyString }) => [
   <Button
     key="copy"
     outline
-    data-copied-title={t(locale, 'reference.copied')}
+    data-copied-title={t(locale, 'license.hasCopiedTitle')}
     data-copy-string={copyString}>
-    {t(locale, 'reference.copy')}
+    {t(locale, 'license.copyTitle')}
   </Button>,
   <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
     {t(locale, 'image.download')}
@@ -217,10 +210,13 @@ export default function createImagePlugin(options = { concept: false }) {
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
-      rulesForUse: t(locale, 'image.rulesForUse'),
-      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
+      rulesForUse: t(locale, 'license.images.rules'),
+      learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
-      zoomImageButtonLabel: t(locale, 'image.zoom'),
+      zoomImageButtonLabel: t(
+        locale,
+        'license.images.itemImage.zoomImageButtonLabel'
+      ),
     };
 
     const focalPoint = getFocalPoint(embed.data);
@@ -243,7 +239,8 @@ export default function createImagePlugin(options = { concept: false }) {
               src={image.imageUrl}
               crop={crop}
               size={size}
-              typeClass={typeClass}>
+              typeClass={typeClass}
+              locale={locale}>
               <Image
                 focalPoint={focalPoint}
                 contentType={image.contentType}

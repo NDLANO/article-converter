@@ -260,7 +260,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               data-dialog-source-id=\\"figure-1\\"
               class=\\"c-figure__captionbtn\\"
             >
-              <span>Bruk lydklipp</span>
+              <span>Bruk lydfil</span>
             </button>
           </div>
         </div>
@@ -278,7 +278,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-audio-1\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av lydklipp
+              Regler for bruk av lydfilen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -669,7 +669,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   href=\\"http://audio.no/file/voof.mp3\\"
                   download=\\"\\"
                   class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
-                  >Last ned lydklipp</a
+                  >Last ned lydfil</a
                 >
               </div>
             </div>
@@ -943,7 +943,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -1645,7 +1645,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
@@ -2446,7 +2446,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -3032,7 +3032,7 @@ Kunstner: Kari Maler\\"
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -3657,7 +3657,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                   <div class=\\"c-figure-license\\">
                     <h3 id=\\"heading-1326\\" class=\\"c-figure-license__title\\">
-                      Regler for bruk av bildet
+                      Regler for bruk av bildet:
                     </h3>
                     <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
                       <div>
@@ -4232,7 +4232,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
             <h3 id=\\"heading-46012\\" class=\\"c-figure-license__title\\">
-              Regler for bruk av videoen
+              Regler for bruk av videoen:
             </h3>
             <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
               .css-pdhd5n-StyledLicenseByline {
