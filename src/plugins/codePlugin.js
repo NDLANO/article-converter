@@ -16,7 +16,7 @@ export default function createCodePlugin(options = {}) {
     const { codeContent, codeFormat } = embed.data;
     return renderString(
       <figure className="c-figure">
-        <Codeblock code={he.decode(codeContent)} format={codeFormat} />
+        <Codeblock code={he.decode(codeContent)} format={codeFormat} showCopy />
       </figure>
     );
   };

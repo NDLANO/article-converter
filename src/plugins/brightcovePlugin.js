@@ -32,7 +32,7 @@ import { render } from '../utils/render';
 
 const Anchor = StyledButton.withComponent('a');
 
-export default function createBrightcovePlugin() {
+export default function createBrightcovePlugin(options = { concept: false }) {
   const fetchResource = embed => fetchVideoMeta(embed);
 
   const getIframeProps = (
@@ -75,7 +75,7 @@ export default function createBrightcovePlugin() {
     const { videoid } = data;
 
     return render(
-      <Figure resizeIframe>
+      <Figure type={options.concept ? 'full-column' : 'full'} resizeIframe>
         <iframe
           title={`Video: ${videoid || ''}`}
           aria-label={`Video: ${videoid || ''}`}
@@ -116,8 +116,8 @@ export default function createBrightcovePlugin() {
     const messages = {
       title: t(locale, 'title'),
       close: t(locale, 'close'),
-      rulesForUse: t(locale, 'video.rulesForUse'),
-      learnAboutLicenses: t(locale, 'learnAboutLicenses'),
+      rulesForUse: t(locale, 'license.video.rules'),
+      learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
     };
 
@@ -127,7 +127,10 @@ export default function createBrightcovePlugin() {
     const figureId = `figure-${id}`;
 
     return render(
-      <Figure id={figureId} resizeIframe>
+      <Figure
+        id={figureId}
+        type={options.concept ? 'full-column' : 'full'}
+        resizeIframe>
         <iframe
           title={`Video: ${brightcove.name}`}
           aria-label={`Video: ${brightcove.name}`}
@@ -153,23 +156,23 @@ export default function createBrightcovePlugin() {
           messages={messages}>
           <Button
             outline
-            data-copied-title={t(locale, 'reference.copied')}
+            data-copied-title={t(locale, 'license.hasCopiedTitle')}
             data-copy-string={copyString}>
-            {t(locale, 'reference.copy')}
+            {t(locale, 'license.copyTitle')}
           </Button>
           <Anchor key="download" href={download} appearance="outline" download>
             {t(locale, 'video.download')}
           </Anchor>
           <Button
             outline
-            data-copied-title={t(locale, 'embed.copied')}
+            data-copied-title={t(locale, 'license.hasCopiedTitle')}
             data-copy-string={makeIframeString(
               src,
               height,
               width,
               brightcove.name
             )}>
-            {t(locale, 'embed.copy')}
+            {t(locale, 'license.embed')}
           </Button>
         </FigureLicenseDialog>
       </Figure>

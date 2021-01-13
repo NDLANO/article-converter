@@ -10,11 +10,16 @@ import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
 
-export const wrapInFigure = (content, resize = true) => {
-  const embedClassnames = classnames('c-figure', {
-    'c-figure--resize': resize,
-  });
-  return `<figure class="${embedClassnames}">${content}</figure>`;
+export const wrapInFigure = (content, resize = true, concept = false) => {
+  const embedClassnames = classnames(
+    { 'c-figure': !concept },
+    {
+      'c-figure--resize': resize,
+    }
+  );
+  return `<figure class="${embedClassnames}" ${
+    resize ? 'resizeIframe' : ''
+  }>${content}</figure>`;
 };
 
 export const makeIframe = (url, width, height, title = '', resize = true) => {
