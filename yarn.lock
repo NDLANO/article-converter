@@ -1044,10 +1044,10 @@
     "@ndla/util" "^0.4.4"
     "@reach/dialog" "^0.2.9"
 
-"@ndla/notion@^0.2.62":
-  version "0.2.62"
-  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.2.62.tgz#67a47cad2c0759bdbe0281e261a93479b543804e"
-  integrity sha512-UKwkPPjq9Q79icDNo1oThYSxhik3wNzRImWOMcThluOl2/Y+6vIdx9Ber06pAmrjNMhyzbpW72rdQ+uIR/d+xA==
+"@ndla/notion@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.3.0.tgz#c1925f4f053faa8ae29db8136ed44dd265d861c1"
+  integrity sha512-JkowZldXhQx5QfJhNfY44aAa5/7SITGudCrW9qiswAZkSTCd1zmwRguC7pE2iyWwogxTLr6DjEHEp5s0/gb3Aw==
   dependencies:
     "@ndla/core" "^0.6.32"
     "@ndla/licenses" "^0.6.39"
