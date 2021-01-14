@@ -47,11 +47,7 @@ export default function createConceptPlugin(options = {}) {
     const md = new Remarkable();
     md.inline.ruler.enable(['sub', 'sup']);
     const rendered = md.render(text);
-    return (
-      <>
-        <span dangerouslySetInnerHTML={{ __html: rendered }} />
-      </>
-    );
+    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
   const onError = (embed, locale) => {
