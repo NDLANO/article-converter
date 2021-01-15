@@ -16,6 +16,8 @@ import Notion, {
   NotionDialogText,
   NotionDialogLicenses,
 } from '@ndla/notion';
+import { breakpoints, mq } from '@ndla/core';
+
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
@@ -25,6 +27,28 @@ import config from '../config';
 
 const StyledDiv = styled.div`
   width: 100%;
+`;
+
+const customNotionStyle = css`
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+
+  ${mq.range({ until: breakpoints.mobileWide })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  ${mq.range({ from: breakpoints.tablet })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  ${mq.range({ from: breakpoints.desktop })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
 export default function createConceptPlugin(options = {}) {
@@ -97,11 +121,7 @@ export default function createConceptPlugin(options = {}) {
         id={`notion_id_${id}_${locale}`}
         ariaLabel={t(locale, 'concept.showDescription')}
         title={title}
-        customCSS={css`
-          left: 0 !important;
-          margin-left: 0 !important;
-          width: 100% !important;
-        `}
+        customCSS={customNotionStyle}
         content={
           <>
             <NotionDialogContent>
