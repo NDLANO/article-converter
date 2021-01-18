@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
@@ -16,6 +16,8 @@ import Notion, {
   NotionDialogText,
   NotionDialogLicenses,
 } from '@ndla/notion';
+import { breakpoints, mq } from '@ndla/core';
+import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -24,6 +26,28 @@ import config from '../config';
 
 const StyledDiv = styled.div`
   width: 100%;
+`;
+
+const customNotionStyle = css`
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+
+  ${mq.range({ until: breakpoints.mobileWide })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  ${mq.range({ from: breakpoints.tablet })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  ${mq.range({ from: breakpoints.desktop })} {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
 export default function createConceptPlugin(options = {}) {
@@ -46,11 +70,7 @@ export default function createConceptPlugin(options = {}) {
     const md = new Remarkable();
     md.inline.ruler.enable(['sub', 'sup']);
     const rendered = md.render(text);
-    return (
-      <Fragment>
-        <span dangerouslySetInnerHTML={{ __html: rendered }} />
-      </Fragment>
-    );
+    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
   const onError = (embed, locale) => {
@@ -95,14 +115,14 @@ export default function createConceptPlugin(options = {}) {
       undefined,
       { concept: true }
     );
-
     return render(
       <Notion
-        id={`notion_id_${id}`}
+        id={`notion_id_${id}_${locale}`}
         ariaLabel={t(locale, 'concept.showDescription')}
         title={title}
+        customCSS={customNotionStyle}
         content={
-          <Fragment>
+          <>
             <NotionDialogContent>
               {transformed.html && (
                 <StyledDiv
@@ -116,7 +136,7 @@ export default function createConceptPlugin(options = {}) {
               source={source}
               authors={authors}
             />
-          </Fragment>
+          </>
         }>
         {embed.data.linkText}
       </Notion>,
