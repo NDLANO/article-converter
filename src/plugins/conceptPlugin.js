@@ -17,7 +17,6 @@ import Notion, {
   NotionDialogLicenses,
 } from '@ndla/notion';
 import { breakpoints, mq } from '@ndla/core';
-
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
