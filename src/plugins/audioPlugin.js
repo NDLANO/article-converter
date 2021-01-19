@@ -31,11 +31,13 @@ export default function createAudioPlugin() {
 
   const getMetaData = embed => {
     const { audio } = embed;
-    return {
-      title: audio.title.title,
-      copyright: audio.copyright,
-      src: audio.audioFile.url,
-    };
+    if (audio) {
+      return {
+        title: audio.title.title,
+        copyright: audio.copyright,
+        src: audio.audioFile.url,
+      };
+    }
   };
 
   const onError = ({ audio }, locale) => {
