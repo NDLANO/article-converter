@@ -163,12 +163,14 @@ export default function createImagePlugin(options = { concept: false }) {
 
   const getMetaData = embed => {
     const { image } = embed;
-    return {
-      title: image.title.title,
-      altText: image.alttext.alttext,
-      copyright: image.copyright,
-      src: image.imageUrl,
-    };
+    if (image) {
+      return {
+        title: image.title.title,
+        altText: image.alttext.alttext,
+        copyright: image.copyright,
+        src: image.imageUrl,
+      };
+    }
   };
 
   const onError = (embed, locale) => {
