@@ -11,6 +11,7 @@ import Aside from '@ndla/ui/lib/Aside';
 import Table from '@ndla/ui/lib/Table';
 import FactBox from '@ndla/ui/lib/FactBox';
 import FileList from '@ndla/ui/lib/FileList';
+import { Figure } from '@ndla/ui/lib/Figure';
 import t from '../locale/i18n';
 import { render } from './render';
 
@@ -36,9 +37,18 @@ export function createFactbox(props, children) {
   );
 }
 
-export function createFileList(props) {
+export function createFileSection(files, pdfs, heading) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
-  return render(<FileList {...props} id={id} />);
+  return render(
+    <div>
+      {files.length && <FileList files={files} heading={heading} id={id} />}
+      {pdfs.map(pdf => (
+        <Figure>
+          <iframe title={pdf.title} height="600" src={pdf.formats[0].url} />
+        </Figure>
+      ))}
+    </div>
+  );
 }
 
 export function createTable(props, children, lang) {
