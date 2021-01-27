@@ -15,7 +15,7 @@ import { render } from '../utils/render';
 export default function createExternalPlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken) =>
     new Promise((resolve, reject) => {
-      fetchOembed(embed, accessToken)
+      fetchOembed(embed, accessToken, options)
         .then(data => {
           return resolve(data);
         })

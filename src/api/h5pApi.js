@@ -7,9 +7,13 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import queryString from 'query-string';
 import { h5pHost } from '../config.js';
 
-import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
+import {
+  headerWithAccessToken,
+  resolveJsonOrRejectWithError,
+} from '../utils/apiHelpers';
 
 const getHeaders = () => ({
   headers: {
@@ -28,4 +32,20 @@ export const fetchH5pLicenseInformation = async id => {
   } catch (e) {
     return null;
   }
+};
+
+export const fetchPreviewOembed = async (embed, accessToken, options = {}) => {
+  const url = `${h5pHost}/oembed/preview?${queryString.stringify({
+    url: embed.data.url,
+  })}`;
+  const response = await fetch(url, {
+    method: 'GET',
+    ...headerWithAccessToken(accessToken),
+    ...getHeaders(),
+  });
+  const oembed = await resolveJsonOrRejectWithError(response);
+  return {
+    ...embed,
+    oembed,
+  };
 };

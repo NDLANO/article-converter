@@ -14,7 +14,7 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 
-export const fetchOembed = async (embed, accessToken) => {
+export const fetchOembed = async (embed, accessToken, options = {}) => {
   const response = await fetch(
     apiResourceUrl(
       `/oembed-proxy/v1/oembed?${queryString.stringify({
