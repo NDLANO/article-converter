@@ -39,15 +39,16 @@ export function createFactbox(props, children) {
 
 export function createFileSection(files, pdfs, heading) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
+  const id2 = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
-    <div>
+    <>
       {files.length && <FileList files={files} heading={heading} id={id} />}
-      {pdfs.map(pdf => (
-        <Figure>
+      {pdfs.map((pdf, index) => (
+        <Figure id={`${index}-${id2}`}>
           <iframe title={pdf.title} height="600" src={pdf.formats[0].url} />
         </Figure>
       ))}
-    </div>
+    </>
   );
 }
 

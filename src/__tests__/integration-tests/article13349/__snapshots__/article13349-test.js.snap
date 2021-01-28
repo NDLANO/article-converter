@@ -51,49 +51,47 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
 "<section>
   <aside class=\\"c-aside c-aside--wideScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <section class=\\"c-file-list\\">
-          <h1 class=\\"c-file-list__heading\\">Filer</h1>
-          <ul class=\\"c-file-list__files\\">
-            <li class=\\"c-file-list__item\\">
-              <a
-                href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
-                class=\\"c-file-list__link\\"
-                target=\\"_blank\\"
-                aria-label=\\"Gantt-diagram (PDF)\\"
-                aria-describedby=\\"testid_pdf\\"
-                ><svg
-                  fill=\\"currentColor\\"
-                  preserveAspectRatio=\\"xMidYMid meet\\"
-                  height=\\"1em\\"
-                  width=\\"1em\\"
-                  class=\\"c-icon\\"
-                  viewBox=\\"0 0 24 24\\"
-                  data-license=\\"Apache License 2.0\\"
-                  data-source=\\"Material Design\\"
-                  style=\\"vertical-align:middle\\"
-                >
-                  <title>Download</title>
-                  <g>
-                    <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-                    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
-                  </g></svg
-                ><span class=\\"c-file-list__link-text\\"
-                  ><span>Gantt-diagram (PDF)</span></span
-                ><span
-                  class=\\"c-file-list__tooltip\\"
-                  aria-hidden=\\"true\\"
-                  role=\\"tooltip\\"
-                  id=\\"testid_pdf\\"
-                  ><span class=\\"c-file-list__tooltip-text\\"
-                    >Last ned fil: Gant diagram.pdf</span
-                  ></span
-                ></a
+      <section class=\\"c-file-list\\">
+        <h1 class=\\"c-file-list__heading\\">Filer</h1>
+        <ul class=\\"c-file-list__files\\">
+          <li class=\\"c-file-list__item\\">
+            <a
+              href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
+              class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
+              aria-label=\\"Gantt-diagram (PDF)\\"
+              aria-describedby=\\"testid_pdf\\"
+              ><svg
+                fill=\\"currentColor\\"
+                preserveAspectRatio=\\"xMidYMid meet\\"
+                height=\\"1em\\"
+                width=\\"1em\\"
+                class=\\"c-icon\\"
+                viewBox=\\"0 0 24 24\\"
+                data-license=\\"Apache License 2.0\\"
+                data-source=\\"Material Design\\"
+                style=\\"vertical-align:middle\\"
               >
-            </li>
-          </ul>
-        </section>
-      </div>
+                <title>Download</title>
+                <g>
+                  <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
+                  <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+                </g></svg
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Gantt-diagram (PDF)</span></span
+              ><span
+                class=\\"c-file-list__tooltip\\"
+                aria-hidden=\\"true\\"
+                role=\\"tooltip\\"
+                id=\\"testid_pdf\\"
+                ><span class=\\"c-file-list__tooltip-text\\"
+                  >Last ned fil: Gant diagram.pdf</span
+                ></span
+              ></a
+            >
+          </li>
+        </ul>
+      </section>
       <p><strong>Lenke:</strong></p>
       <p>
         <a
@@ -157,49 +155,47 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
   </p>
   <aside class=\\"c-aside c-aside--narrowScreen\\">
     <div class=\\"c-aside__content\\">
-      <div>
-        <section class=\\"c-file-list\\">
-          <h1 class=\\"c-file-list__heading\\">Filer</h1>
-          <ul class=\\"c-file-list__files\\">
-            <li class=\\"c-file-list__item\\">
-              <a
-                href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
-                class=\\"c-file-list__link\\"
-                target=\\"_blank\\"
-                aria-label=\\"Gantt-diagram (PDF)\\"
-                aria-describedby=\\"testid_pdf\\"
-                ><svg
-                  fill=\\"currentColor\\"
-                  preserveAspectRatio=\\"xMidYMid meet\\"
-                  height=\\"1em\\"
-                  width=\\"1em\\"
-                  class=\\"c-icon\\"
-                  viewBox=\\"0 0 24 24\\"
-                  data-license=\\"Apache License 2.0\\"
-                  data-source=\\"Material Design\\"
-                  style=\\"vertical-align:middle\\"
-                >
-                  <title>Download</title>
-                  <g>
-                    <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-                    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
-                  </g></svg
-                ><span class=\\"c-file-list__link-text\\"
-                  ><span>Gantt-diagram (PDF)</span></span
-                ><span
-                  class=\\"c-file-list__tooltip\\"
-                  aria-hidden=\\"true\\"
-                  role=\\"tooltip\\"
-                  id=\\"testid_pdf\\"
-                  ><span class=\\"c-file-list__tooltip-text\\"
-                    >Last ned fil: Gant diagram.pdf</span
-                  ></span
-                ></a
+      <section class=\\"c-file-list\\">
+        <h1 class=\\"c-file-list__heading\\">Filer</h1>
+        <ul class=\\"c-file-list__files\\">
+          <li class=\\"c-file-list__item\\">
+            <a
+              href=\\"https://staging.api.ndla.no/files/82255/Gant diagram.pdf\\"
+              class=\\"c-file-list__link\\"
+              target=\\"_blank\\"
+              aria-label=\\"Gantt-diagram (PDF)\\"
+              aria-describedby=\\"testid_pdf\\"
+              ><svg
+                fill=\\"currentColor\\"
+                preserveAspectRatio=\\"xMidYMid meet\\"
+                height=\\"1em\\"
+                width=\\"1em\\"
+                class=\\"c-icon\\"
+                viewBox=\\"0 0 24 24\\"
+                data-license=\\"Apache License 2.0\\"
+                data-source=\\"Material Design\\"
+                style=\\"vertical-align:middle\\"
               >
-            </li>
-          </ul>
-        </section>
-      </div>
+                <title>Download</title>
+                <g>
+                  <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
+                  <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+                </g></svg
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Gantt-diagram (PDF)</span></span
+              ><span
+                class=\\"c-file-list__tooltip\\"
+                aria-hidden=\\"true\\"
+                role=\\"tooltip\\"
+                id=\\"testid_pdf\\"
+                ><span class=\\"c-file-list__tooltip-text\\"
+                  >Last ned fil: Gant diagram.pdf</span
+                ></span
+              ></a
+            >
+          </li>
+        </ul>
+      </section>
       <p><strong>Lenke:</strong></p>
       <p>
         <a
