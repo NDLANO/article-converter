@@ -44,7 +44,7 @@ export function createFileSection(files, pdfs, heading) {
     <>
       {files.length && <FileList files={files} heading={heading} id={id} />}
       {pdfs.map((pdf, index) => (
-        <Figure id={`${index}-${id2}`}>
+        <Figure key={`${index}-${id2}`} id={`${index}-${id2}`}>
           <iframe title={pdf.title} height="600" src={pdf.formats[0].url} />
         </Figure>
       ))}
