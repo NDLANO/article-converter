@@ -98,12 +98,12 @@ const makeTheListFromDiv = async (content, div, locale) => {
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
-      const { url, type, title, renderInline } = file.data;
+      const { url, type, title, display } = file.data;
       const fileExists = await checkIfFileExists(url);
       return {
         title,
         fileExists,
-        renderInline,
+        display,
         formats: [
           {
             url,
@@ -119,7 +119,7 @@ const makeTheListFromDiv = async (content, div, locale) => {
 
   const [pdfs, fileList] = partition(
     files,
-    f => f.formats[0].fileType === 'pdf' && f.renderInline
+    f => f.formats[0].fileType === 'pdf' && f.display === 'block'
   );
 
   return createFileSection(fileList.filter(f => f), pdfs, t(locale, 'files'));
