@@ -79,9 +79,13 @@ module.exports.setup = function routes(app) {
     const body = req.body;
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const draftConcept = defined(req.query.draftConcept, false);
+    const previewH5p = defined(req.query.previewH5p, false);
     const accessToken = req.headers.authorization;
     if (body && body.article) {
-      transformArticle(body.article, lang, accessToken, { draftConcept })
+      transformArticle(body.article, lang, accessToken, {
+        draftConcept,
+        previewH5p,
+      })
         .then(article => {
           res.json(article);
         })
