@@ -121,15 +121,14 @@ const makeTheListFromDiv = async (content, div, locale) => {
   });
 };
 
-export const resetOrderedLists = content => {
-  content('ol[start]').each((_, ol) => {
+const resetOrderedLists = content =>
+  content('ol').each((_, ol) => {
     const list = content(ol);
     const num = list.attr('start');
     if (num) {
       list.addClass(`ol-reset-${num}`);
     }
   });
-};
 
 export const transformTables = (content, lang) =>
   content('table').each((_, table) => {
