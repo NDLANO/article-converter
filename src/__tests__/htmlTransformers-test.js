@@ -21,7 +21,6 @@ test('htmlTransforms changes ol to accommodate frontend styling', () => {
     <ol data-type='letters'>
         <li>Lorem ipsum dolor sit amet...</li>
     </ol>
-  </section>
     <ol>
         <li>Lorem ipsum dolor sit amet...</li>
     </ol>
@@ -31,6 +30,28 @@ test('htmlTransforms changes ol to accommodate frontend styling', () => {
   const result = content.html();
 
   expect(result).toMatch('<ol class="ol-list--roman">');
+  expect(result).toMatch('<ol>');
+});
+
+test('htmlTransforms changes ol to accommodate listing resets', () => {
+  const content = cheerio.load(`
+  <section>
+    <ol data-type='letters' start='2'>
+        <li>Lorem ipsum dolor sit amet...</li>
+    </ol>
+    <ol start='3'>
+        <li>Lorem ipsum dolor sit amet...</li>
+    </ol>
+    <ol>
+        <li>Lorem ipsum dolor sit amet...</li>
+    </ol>
+  </section>`);
+
+  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  const result = content.html();
+
+  expect(result).toMatch('<ol start="2" class="ol-list--roman ol-reset-2">');
+  expect(result).toMatch('<ol start="3" class="ol-reset-3">');
   expect(result).toMatch('<ol>');
 });
 

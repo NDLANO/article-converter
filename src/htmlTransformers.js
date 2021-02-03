@@ -121,6 +121,16 @@ const makeTheListFromDiv = async (content, div, locale) => {
   });
 };
 
+export const resetOrderedLists = content => {
+  content('ol[start]').each((_, ol) => {
+    const list = content(ol);
+    const num = list.attr('start');
+    if (num) {
+      list.addClass(`ol-reset-${num}`);
+    }
+  });
+};
+
 export const transformTables = (content, lang) =>
   content('table').each((_, table) => {
     const newTable = createTable(
@@ -156,6 +166,7 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
+  resetOrderedLists,
   transformTables,
   transformFileList,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
