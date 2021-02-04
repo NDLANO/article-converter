@@ -128,7 +128,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
     </ul>
   </section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"0-testid\\">
-    <h2>Forslag til &#xE5;rsplan 1P (PDF)</h2>
+    <h2>Forslag til &#xE5;rsplan 1P</h2>
     <iframe
       title=\\"Forslag til &#xE5;rsplan 1P\\"
       height=\\"600\\"
