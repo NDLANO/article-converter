@@ -42,7 +42,7 @@ export function createFileSection(files, pdfs, heading) {
   const figureId = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
     <>
-      {files.length && (
+      {files.length > 0 && (
         <FileList files={files} heading={heading} id={filelistId} />
       )}
       {pdfs.map((pdf, index) => (
