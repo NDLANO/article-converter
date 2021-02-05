@@ -7,10 +7,11 @@
  */
 
 import cheerio from 'cheerio';
+import { partition } from 'lodash';
 import {
   createAside,
   createFactbox,
-  createFileList,
+  createFileSection,
   createTable,
 } from './utils/htmlTagHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
@@ -97,11 +98,12 @@ const makeTheListFromDiv = async (content, div, locale) => {
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
-      const { url, type, title } = file.data;
+      const { url, type, title, display } = file.data;
       const fileExists = await checkIfFileExists(url);
       return {
         title,
         fileExists,
+        display,
         formats: [
           {
             url,
@@ -115,10 +117,12 @@ const makeTheListFromDiv = async (content, div, locale) => {
 
   const files = await Promise.all(filesPromises);
 
-  return createFileList({
-    files: files.filter(f => f),
-    heading: t(locale, 'files'),
-  });
+  const [pdfs, fileList] = partition(
+    files,
+    f => f.formats[0].fileType === 'pdf' && f.display === 'block'
+  );
+
+  return createFileSection(fileList.filter(f => f), pdfs, t(locale, 'files'));
 };
 
 const resetOrderedLists = content =>

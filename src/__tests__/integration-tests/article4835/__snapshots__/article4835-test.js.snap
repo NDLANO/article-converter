@@ -125,44 +125,16 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           ></a
         >
       </li>
-      <li class=\\"c-file-list__item\\">
-        <a
-          href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
-          class=\\"c-file-list__link\\"
-          target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (PDF)\\"
-          aria-describedby=\\"testid_pdf\\"
-          ><svg
-            fill=\\"currentColor\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\"
-          >
-            <title>Download</title>
-            <g>
-              <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
-            </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (PDF)</span></span
-          ><span
-            class=\\"c-file-list__tooltip\\"
-            aria-hidden=\\"true\\"
-            role=\\"tooltip\\"
-            id=\\"testid_pdf\\"
-            ><span class=\\"c-file-list__tooltip-text\\"
-              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.pdf</span
-            ></span
-          ></a
-        >
-      </li>
     </ul>
   </section>
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"0-testid\\">
+    <h2>Forslag til &#xE5;rsplan 1P</h2>
+    <iframe
+      title=\\"Forslag til &#xE5;rsplan 1P\\"
+      height=\\"600\\"
+      src=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
+    ></iframe>
+  </figure>
 </section>
 "
 `;
