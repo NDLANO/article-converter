@@ -12,6 +12,7 @@ import Table from '@ndla/ui/lib/Table';
 import FactBox from '@ndla/ui/lib/FactBox';
 import FileList from '@ndla/ui/lib/FileList';
 import { Figure } from '@ndla/ui/lib/Figure';
+import { Download } from '@ndla/icons/common';
 import t from '../locale/i18n';
 import { render } from './render';
 
@@ -48,7 +49,11 @@ export function createFileSection(files, pdfs, heading) {
       {pdfs.map((pdf, index) => (
         <Figure key={`${index}-${figureId}`} id={`${index}-${figureId}`}>
           <h2>{pdf.title}</h2>
-          <iframe title={pdf.title} height="600" src={pdf.formats[0].url} />
+          <iframe
+            title={pdf.title}
+            height="600"
+            src={(pdf.formats[0].url += '#toolbar=0')}
+          />
         </Figure>
       ))}
     </>
