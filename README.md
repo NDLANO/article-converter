@@ -1,6 +1,6 @@
 # NDLA article-converter
 
-[![Build Status](https://travis-ci.org/NDLANO/article-converter.svg?branch=master)](https://travis-ci.org/NDLANO/article-converter)
+![CI](https://github.com/NDLANO/article-converter/workflows/CI/badge.svg)
 
 One of several apis powering [https://ndla.no](https://ndla.no).
 
