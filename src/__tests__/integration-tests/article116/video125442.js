@@ -1,4 +1,4 @@
-export default {
+const video = {
   id: '5388709430001',
   account_id: '4806596774001',
   ad_keys: null,
@@ -82,3 +82,4 @@ export default {
   text_tracks: [],
   updated_at: '2017-04-07T01:30:22.268Z',
 };
+export default video;

@@ -1,4 +1,4 @@
-export default [
+const resources = [
   {
     id: 'urn:resource:1:158547',
     name: 'Nettsider bygges med HTML-kode',
@@ -33,3 +33,4 @@ export default [
       '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110269',
   },
 ];
+export default resources;

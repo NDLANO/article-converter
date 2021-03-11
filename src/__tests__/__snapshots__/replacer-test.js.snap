@@ -7,63 +7,709 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
     class=\\"c-figure c-figure--full-column\\"
     id=\\"figure-1\\"
   >
-    <section class=\\"c-audio-player\\">
-      <h1 class=\\"c-audio-player__title\\">Tittel</h1>
+    <style data-emotion-css=\\"jkv5q-Heading\\">
+      .css-jkv5q-Heading {
+        font-size: 20px;
+        font-size: 1.1111111111111112rem;
+        line-height: 20px;
+        margin: 13px 0;
+      }
+    </style>
+    <h2 class=\\"css-jkv5q-Heading e1wmpntw0\\">Tittel</h2>
+    <div
+      data-audio-player=\\"1\\"
+      data-src=\\"http://audio.no/file/voof.mp3\\"
+      data-title=\\"Tittel\\"
+    >
       <audio
-        type=\\"audio/mpeg\\"
         src=\\"http://audio.no/file/voof.mp3\\"
         title=\\"Tittel\\"
         preload=\\"metadata\\"
-      ></audio>
-      <div class=\\"c-audio-player__controls\\">
-        <button type=\\"button\\" class=\\"c-audio-player__play\\">
-          <span class=\\"c-audio-player__play-icon\\"
+      ></audio
+      ><style data-emotion-css=\\"lsze20-ControlsWrapper\\">
+        .css-lsze20-ControlsWrapper {
+          border: 1px solid #deebf6;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          background: #ffffff;
+          font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+            KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+            sans-serif;
+          padding: 13px;
+        }
+        @media (max-width: 48em) {
+          .css-lsze20-ControlsWrapper {
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+          }
+        }
+        @media (min-width: 48em) {
+          .css-lsze20-ControlsWrapper {
+            padding: 13px 26px;
+          }
+        }
+      </style>
+      <div class=\\"css-lsze20-ControlsWrapper e1gaeajv0\\">
+        <style data-emotion-css=\\"1rw6j1h-PlayButton\\">
+          .css-1rw6j1h-PlayButton {
+            background: #deebf6;
+            border: none;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            padding: 0;
+            cursor: pointer;
+            color: #20588f;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            margin-right: 13px;
+          }
+          @media (max-width: 48em) {
+            .css-1rw6j1h-PlayButton {
+              -webkit-order: 4;
+              -ms-flex-order: 4;
+              order: 4;
+              margin-left: 13px;
+            }
+          }
+          .css-1rw6j1h-PlayButton:hover,
+          .css-1rw6j1h-PlayButton:active,
+          .css-1rw6j1h-PlayButton:focus {
+            background: #20588f;
+            color: #ffffff;
+          }
+          .css-1rw6j1h-PlayButton .c-icon {
+            width: 24px;
+            height: 24px;
+          }</style
+        ><button
+          type=\\"button\\"
+          title=\\"play\\"
+          aria-label=\\"play\\"
+          class=\\"css-1rw6j1h-PlayButton e1gaeajv1\\"
+        >
+          <span aria-hidden=\\"true\\"
             ><svg
               fill=\\"currentColor\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
               height=\\"1em\\"
               width=\\"1em\\"
               class=\\"c-icon\\"
+              role=\\"img\\"
               viewBox=\\"0 0 24 24\\"
               data-license=\\"Apache License 2.0\\"
               data-source=\\"Material Design\\"
-              role=\\"img\\"
               aria-label=\\"play\\"
               style=\\"vertical-align:middle\\"
             >
               <title>play</title>
               <g>
                 <path d=\\"M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z\\" />
-              </g></svg></span
-          ><span class=\\"c-audio-player__pause-icon\\"
-            ><svg
-              fill=\\"currentColor\\"
-              preserveAspectRatio=\\"xMidYMid meet\\"
-              height=\\"1em\\"
-              width=\\"1em\\"
-              class=\\"c-icon\\"
-              viewBox=\\"0 0 24 24\\"
-              data-license=\\"Apache License 2.0\\"
-              data-source=\\"Material Design\\"
-              role=\\"img\\"
-              aria-label=\\"pause\\"
-              style=\\"vertical-align:middle\\"
-            >
-              <title>play</title>
-              <g>
-                <path
-                  d=\\"M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z\\"
-                />
               </g></svg
-          ></span>
-        </button>
-        <div class=\\"c-audio-player__time\\">0:00</div>
-        <div class=\\"c-audio-player__progress\\" tabindex=\\"0\\">
-          <div class=\\"c-audio-player__progress-background\\"></div>
-          <div class=\\"c-audio-player__progress-played\\" data-value=\\"0\\"></div>
+          ></span></button
+        ><style
+          data-emotion-css=\\"6cz9bx-ForwardRewindButton-Forward15SecButton\\"
+        >
+          .css-6cz9bx-ForwardRewindButton-Forward15SecButton {
+            background-color: inherit;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 9px;
+            line-height: 23px;
+            color: #184673;
+            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+              SongTi, \\"宋体\\", sans-serif;
+            -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.8358 20.8769C17.7849 22.6711 15.1504 23.6564 12.4254 23.6482C9.70049 23.6401 7.07191 22.6391 5.03176 20.8326C2.99161 19.0262 1.67975 16.5381 1.34176 13.8342C1.00377 11.1303 1.66282 8.39585 3.19553 6.1428C4.72825 3.88975 7.02955 2.27253 9.66866 1.59387C12.3078 0.915214 15.1037 1.22165 17.5332 2.45581C19.9627 3.68998 21.8591 5.76726 22.8674 8.2988M23.5676 1.29649L23.5676 8.2988L16.5653 8.2988' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
+          }
+          .css-6cz9bx-ForwardRewindButton-Forward15SecButton:hover {
+            background-color: #eff0f2;
+          }
+          @media (max-width: 48em) {
+            .css-6cz9bx-ForwardRewindButton-Forward15SecButton {
+              -webkit-order: 3;
+              -ms-flex-order: 3;
+              order: 3;
+            }
+          }</style
+        ><button
+          title=\\"Spol 15 sekunder frem\\"
+          aria-label=\\"Spol 15 sekunder frem\\"
+          class=\\"css-6cz9bx-ForwardRewindButton-Forward15SecButton e1gaeajv3\\"
+        >
+          15</button
+        ><style data-emotion-css=\\"1ufz7h0-SpeedWrapper\\">
+          .css-1ufz7h0-SpeedWrapper {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+          }
+          @media (max-width: 48em) {
+            .css-1ufz7h0-SpeedWrapper {
+              -webkit-order: 2;
+              -ms-flex-order: 2;
+              order: 2;
+            }
+          }
+        </style>
+        <div class=\\"css-1ufz7h0-SpeedWrapper e1gaeajv5\\">
+          <style data-emotion-css=\\"iu0ioj-SpeedButton\\">
+            .css-iu0ioj-SpeedButton {
+              height: 32px;
+              border: 0;
+              background: none;
+              cursor: pointer;
+              font-weight: 600;
+              font-size: 12px;
+              text-align: center;
+              width: 52px;
+            }
+            .css-iu0ioj-SpeedButton:hover,
+            .css-iu0ioj-SpeedButton:active,
+            .css-iu0ioj-SpeedButton:focus,
+            .css-iu0ioj-SpeedButton[aria-expanded=\\"true\\"] {
+              background: #eff0f2;
+              border-radius: 27px;
+              color: #444;
+            }</style
+          ><button
+            aria-haspopup=\\"true\\"
+            aria-controls=\\"menu\\"
+            title=\\"Velg avspillingshastighet\\"
+            aria-label=\\"Velg avspillingshastighet\\"
+            class=\\"css-iu0ioj-SpeedButton e1gaeajv6\\"
+            data-reach-menu-button=\\"\\"
+            type=\\"button\\"
+          >
+            1x</button
+          ><style data-emotion-css=\\"7wda9g-SpeedMenu\\">
+            .css-7wda9g-SpeedMenu {
+              position: absolute;
+              bottom: 36px;
+              z-index: 99;
+            }
+          </style>
+          <div
+            data-reach-menu=\\"\\"
+            data-reach-menu-popover=\\"\\"
+            hidden
+            class=\\"css-7wda9g-SpeedMenu e1gaeajv7\\"
+          >
+            <div>
+              <style data-emotion-css=\\"19ennqv-SpeedList\\">
+                .css-19ennqv-SpeedList {
+                  background: #ffffff;
+                  border: 1px solid #deebf6;
+                  border-radius: 5px;
+                  padding: 5px 10px;
+                  display: -webkit-box;
+                  display: -webkit-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -webkit-flex-direction: column;
+                  -ms-flex-direction: column;
+                  flex-direction: column;
+                  -webkit-box-pack: center;
+                  -webkit-justify-content: center;
+                  -ms-flex-pack: center;
+                  justify-content: center;
+                  -webkit-align-items: stretch;
+                  -webkit-box-align: stretch;
+                  -ms-flex-align: stretch;
+                  align-items: stretch;
+                }
+              </style>
+              <div
+                role=\\"menu\\"
+                tabindex=\\"-1\\"
+                class=\\"css-19ennqv-SpeedList e1gaeajv8\\"
+                data-reach-menu-items=\\"\\"
+                id=\\"menu\\"
+              >
+                <style data-emotion-css=\\"oeeb75-SpeedValueButton\\">
+                  .css-oeeb75-SpeedValueButton {
+                    height: 28px;
+                    position: relative;
+                    background: none;
+                    border: 0;
+                    padding: 0 14px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: #757575;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-align-items: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                  }
+                  .css-oeeb75-SpeedValueButton:hover,
+                  .css-oeeb75-SpeedValueButton:active,
+                  .css-oeeb75-SpeedValueButton:focus,
+                  .css-oeeb75-SpeedValueButton[data-selected] {
+                    background: #eff0f2;
+                    border-radius: 5px;
+                    color: #444;
+                  }</style
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  0.5x</button
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  0.75x</button
+                ><style data-emotion-css=\\"1289j9r-SpeedValueButton\\">
+                  .css-1289j9r-SpeedValueButton {
+                    height: 28px;
+                    position: relative;
+                    background: none;
+                    border: 0;
+                    padding: 0 14px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: #757575;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-align-items: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    color: #444;
+                  }
+                  .css-1289j9r-SpeedValueButton:hover,
+                  .css-1289j9r-SpeedValueButton:active,
+                  .css-1289j9r-SpeedValueButton:focus,
+                  .css-1289j9r-SpeedValueButton[data-selected] {
+                    background: #eff0f2;
+                    border-radius: 5px;
+                    color: #444;
+                  }</style
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  selected
+                  class=\\"css-1289j9r-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  1x<style data-emotion-css=\\"1z02jk1-SpeedSelectedMark\\">
+                    .css-1z02jk1-SpeedSelectedMark {
+                      border-radius: 50%;
+                      background: #d1372e;
+                      width: 6px;
+                      height: 6px;
+                      display: inline-block;
+                      -webkit-align-self: flex-start;
+                      -ms-flex-item-align: start;
+                      align-self: flex-start;
+                      margin: 6px 0 0 2px;
+                    }</style
+                  ><span
+                    class=\\"css-1z02jk1-SpeedSelectedMark e1gaeajv10\\"
+                  ></span></button
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  1.25x</button
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  1.5x</button
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  1.75x</button
+                ><button
+                  role=\\"menuitem\\"
+                  tabindex=\\"-1\\"
+                  class=\\"css-oeeb75-SpeedValueButton e1gaeajv9\\"
+                  data-reach-menu-item=\\"\\"
+                  data-selected=\\"\\"
+                  data-valuetext=\\"\\"
+                >
+                  2x
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style data-emotion-css=\\"q7f9td-ForwardRewindButton-Back15SecButton\\">
+          .css-q7f9td-ForwardRewindButton-Back15SecButton {
+            background-color: inherit;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 9px;
+            line-height: 23px;
+            color: #184673;
+            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+              SongTi, \\"宋体\\", sans-serif;
+            -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.19004 21.3306C7.24095 23.1248 9.87547 24.11 12.6004 24.1019C15.3254 24.0937 17.954 23.0927 19.9941 21.2863C22.0343 19.4798 23.3461 16.9918 23.6841 14.2879C24.0221 11.5839 23.3631 8.84951 21.8303 6.59646C20.2976 4.3434 17.9963 2.72618 15.3572 2.04753C12.7181 1.36887 9.92213 1.67531 7.49267 2.90947C5.0632 4.14363 3.16681 6.22092 2.15848 8.75246M1.45825 1.75015L1.45825 8.75246L8.46057 8.75246' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
+          }
+          .css-q7f9td-ForwardRewindButton-Back15SecButton:hover {
+            background-color: #eff0f2;
+          }
+          @media (max-width: 48em) {
+            .css-q7f9td-ForwardRewindButton-Back15SecButton {
+              -webkit-order: 5;
+              -ms-flex-order: 5;
+              order: 5;
+            }
+          }</style
+        ><button
+          title=\\"Spol 15 sekunder tilbake\\"
+          aria-label=\\"Spol 15 sekunder tilbake\\"
+          class=\\"css-q7f9td-ForwardRewindButton-Back15SecButton e1gaeajv4\\"
+        >
+          15</button
+        ><style data-emotion-css=\\"1e6uvc9-ProgressWrapper\\">
+          .css-1e6uvc9-ProgressWrapper {
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 0 13px;
+          }
+          @media (max-width: 48em) {
+            .css-1e6uvc9-ProgressWrapper {
+              -webkit-order: 1;
+              -ms-flex-order: 1;
+              order: 1;
+              width: 100%;
+              margin: 0;
+              margin-bottom: 26px;
+            }
+          }
+        </style>
+        <div class=\\"css-1e6uvc9-ProgressWrapper e1gaeajv12\\">
+          <style data-emotion-css=\\"fmodx5-Time\\">
+            .css-fmodx5-Time {
+              font-size: 16px;
+            }
+          </style>
+          <div class=\\"css-fmodx5-Time e1gaeajv11\\">0:00</div>
+          <style data-emotion-css=\\"2ybb90-SliderWrapper\\">
+            .css-2ybb90-SliderWrapper {
+              cursor: pointer;
+              -webkit-flex: 1 1 auto;
+              -ms-flex: 1 1 auto;
+              flex: 1 1 auto;
+              margin: 0 13px;
+            }
+          </style>
+          <div class=\\"css-2ybb90-SliderWrapper e1gaeajv13\\">
+            <div
+              data-reach-slider-input=\\"\\"
+              data-orientation=\\"horizontal\\"
+              tabindex=\\"-1\\"
+            >
+              <style data-emotion-css=\\"bfw47q-ProgressBackground\\">
+                .css-bfw47q-ProgressBackground {
+                  height: 4px;
+                  width: 100%;
+                  background: #deebf6;
+                  border-radius: 7px;
+                }
+              </style>
+              <div
+                style=\\"position:relative\\"
+                class=\\"css-bfw47q-ProgressBackground e1gaeajv14\\"
+                data-reach-slider-track=\\"\\"
+                data-orientation=\\"horizontal\\"
+              >
+                <style data-emotion-css=\\"dfdpcr-ProgressPlayed\\">
+                  .css-dfdpcr-ProgressPlayed {
+                    height: 4px;
+                    background: #5cbc80;
+                    border-radius: 7px;
+                  }
+                </style>
+                <div
+                  style=\\"position:absolute;width:0%\\"
+                  class=\\"css-dfdpcr-ProgressPlayed e1gaeajv15\\"
+                  data-reach-slider-range=\\"\\"
+                  data-orientation=\\"horizontal\\"
+                ></div>
+                <style data-emotion-css=\\"s12xym-ProgressHandle\\">
+                  .css-s12xym-ProgressHandle {
+                    width: 20px;
+                    height: 20px;
+                    background: #5cbc80;
+                    border-radius: 50%;
+                    top: -8px;
+                  }
+                </style>
+                <div
+                  aria-orientation=\\"horizontal\\"
+                  aria-valuemax=\\"100\\"
+                  aria-valuemin=\\"0\\"
+                  aria-valuenow=\\"0\\"
+                  role=\\"slider\\"
+                  tabindex=\\"0\\"
+                  class=\\"css-s12xym-ProgressHandle e1gaeajv16\\"
+                  data-reach-slider-handle=\\"\\"
+                  style=\\"position:absolute;left:calc(0% - 0px / 2)\\"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class=\\"css-fmodx5-Time e1gaeajv11\\">-0:00</div>
+        </div>
+        <style data-emotion-css=\\"1ffz3xn-VolumeWrapper\\">
+          .css-1ffz3xn-VolumeWrapper {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+          }
+          @media (max-width: 48em) {
+            .css-1ffz3xn-VolumeWrapper {
+              -webkit-order: 6;
+              -ms-flex-order: 6;
+              order: 6;
+            }
+          }
+        </style>
+        <div class=\\"css-1ffz3xn-VolumeWrapper e1gaeajv17\\">
+          <style data-emotion-css=\\"183flrk-VolumeButton\\">
+            .css-183flrk-VolumeButton {
+              background-color: inherit;
+              background-image: url(\\"data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10.6667C20.828 11.2877 21.5 12.0929 21.9628 13.0186C22.4257 13.9443 22.6667 14.9651 22.6667 16C22.6667 17.035 22.4257 18.0557 21.9628 18.9814C21.5 19.9071 20.828 20.7124 20 21.3334' stroke='%23184673' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23.5999 6.66669C24.9918 7.79155 26.1145 9.21352 26.8858 10.8284C27.6571 12.4434 28.0574 14.2104 28.0574 16C28.0574 17.7897 27.6571 19.5567 26.8858 21.1716C26.1145 22.7865 24.9918 24.2085 23.5999 25.3334' stroke='%23184673' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 20H5.33333C4.97971 20 4.64057 19.8595 4.39052 19.6095C4.14048 19.3594 4 19.0203 4 18.6666V13.3333C4 12.9797 4.14048 12.6406 4.39052 12.3905C4.64057 12.1405 4.97971 12 5.33333 12H8L12.6667 5.99998C12.7832 5.77362 12.9769 5.59641 13.2127 5.50037C13.4484 5.40433 13.7108 5.3958 13.9523 5.47631C14.1939 5.55682 14.3986 5.72107 14.5296 5.93937C14.6607 6.15768 14.7093 6.41564 14.6667 6.66665V25.3333C14.7093 25.5843 14.6607 25.8423 14.5296 26.0606C14.3986 26.2789 14.1939 26.4431 13.9523 26.5237C13.7108 26.6042 13.4484 26.5956 13.2127 26.4996C12.9769 26.4036 12.7832 26.2263 12.6667 26L8 20Z' stroke='%23184673' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              border: 0;
+              background-position: center;
+              background-repeat: no-repeat;
+              cursor: pointer;
+            }
+            .css-183flrk-VolumeButton:hover,
+            .css-183flrk-VolumeButton:active,
+            .css-183flrk-VolumeButton:focus,
+            .css-183flrk-VolumeButton[aria-expanded=\\"true\\"] {
+              background-color: #eff0f2;
+            }</style
+          ><button
+            aria-haspopup=\\"true\\"
+            aria-controls=\\"menu\\"
+            title=\\"Endre volum\\"
+            aria-label=\\"Endre volum\\"
+            class=\\"css-183flrk-VolumeButton e1gaeajv18\\"
+            data-reach-menu-button=\\"\\"
+            type=\\"button\\"
+          ></button
+          ><style data-emotion-css=\\"lfwdze-VolumeMenu\\">
+            .css-lfwdze-VolumeMenu {
+              position: absolute;
+              bottom: 52px;
+              z-index: 99;
+            }
+          </style>
+          <div
+            data-reach-menu=\\"\\"
+            data-reach-menu-popover=\\"\\"
+            hidden
+            class=\\"css-lfwdze-VolumeMenu e1gaeajv19\\"
+          >
+            <style data-emotion-css=\\"z5k8gy-VolumeList\\">
+              .css-z5k8gy-VolumeList {
+                box-shadow: 0 14px 20px -5px rgba(32, 88, 143, 0.17);
+                border-radius: 60px;
+                background: #ffffff;
+                border: 1px solid #deebf6;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                width: 32px;
+                height: 128px;
+              }
+            </style>
+            <div class=\\"css-z5k8gy-VolumeList e1gaeajv20\\">
+              <style data-emotion-css=\\"12biwwv-VolumeSliderWrapper\\">
+                .css-12biwwv-VolumeSliderWrapper {
+                  cursor: pointer;
+                  -webkit-flex: 1 1 auto;
+                  -ms-flex: 1 1 auto;
+                  flex: 1 1 auto;
+                  display: -webkit-box;
+                  display: -webkit-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -webkit-box-pack: center;
+                  -webkit-justify-content: center;
+                  -ms-flex-pack: center;
+                  justify-content: center;
+                  padding: 16px 0;
+                }
+              </style>
+              <div class=\\"css-12biwwv-VolumeSliderWrapper e1gaeajv21\\">
+                <div
+                  data-reach-slider-input=\\"\\"
+                  data-orientation=\\"vertical\\"
+                  tabindex=\\"-1\\"
+                >
+                  <style data-emotion-css=\\"1wpoc9h-VolumeSliderBackground\\">
+                    .css-1wpoc9h-VolumeSliderBackground {
+                      height: 100%;
+                      width: 5px;
+                      background: #deebf6;
+                      border-radius: 7px;
+                    }
+                  </style>
+                  <div
+                    style=\\"position:relative\\"
+                    class=\\"css-1wpoc9h-VolumeSliderBackground e1gaeajv22\\"
+                    data-reach-slider-track=\\"\\"
+                    data-orientation=\\"vertical\\"
+                  >
+                    <style data-emotion-css=\\"1iljhn2-VolumeSliderSelected\\">
+                      .css-1iljhn2-VolumeSliderSelected {
+                        width: 5px;
+                        background: #507aa4;
+                        border-radius: 7px;
+                        bottom: 0;
+                      }
+                    </style>
+                    <div
+                      style=\\"position:absolute;height:100%\\"
+                      class=\\"css-1iljhn2-VolumeSliderSelected e1gaeajv23\\"
+                      data-reach-slider-range=\\"\\"
+                      data-orientation=\\"vertical\\"
+                    ></div>
+                    <style data-emotion-css=\\"1j086pj-VolumeSliderHandle\\">
+                      .css-1j086pj-VolumeSliderHandle {
+                        width: 20px;
+                        height: 20px;
+                        background: #20588f;
+                        border-radius: 50%;
+                        left: -8px;
+                      }
+                    </style>
+                    <div
+                      aria-orientation=\\"vertical\\"
+                      aria-valuemax=\\"100\\"
+                      aria-valuemin=\\"0\\"
+                      aria-valuenow=\\"100\\"
+                      role=\\"slider\\"
+                      tabindex=\\"0\\"
+                      class=\\"css-1j086pj-VolumeSliderHandle e1gaeajv24\\"
+                      data-reach-slider-handle=\\"\\"
+                      style=\\"position:absolute;bottom:calc(100% - 0px / 2)\\"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
     <figcaption class=\\"c-figure__caption\\">
       <div class=\\"c-figure__info\\">Caption 1</div>
       <footer class=\\"c-figure__byline\\">
@@ -86,7 +732,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -104,7 +750,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -143,7 +789,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -169,7 +815,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -195,8 +841,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -223,8 +869,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -298,10 +944,10 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 flex-wrap: wrap;
               }
             </style>
-            <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+            <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
               <div>
-                <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                  .css-wqchit-StyledList-StyledList {
+                <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                  .css-fng95w-StyledList-StyledList {
                     list-style: none;
                     padding: 0;
                     margin: 0;
@@ -316,16 +962,16 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     fill: black;
                     margin-right: 0;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type {
+                  .css-fng95w-StyledList-StyledList li:first-of-type {
                     margin-bottom: 13px;
                     border-bottom: 1px solid #a5bcd3;
                     padding-bottom: 13px;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type svg {
+                  .css-fng95w-StyledList-StyledList li:first-of-type svg {
                     fill: #20588f;
                   }
                 </style>
-                <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
+                <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
                   <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                     .css-bq143f-StyledLicenseIconItem {
                       display: -webkit-box;
@@ -364,7 +1010,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       min-width: 24px;
                     }
                   </style>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                       .css-49oex1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -391,7 +1037,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                         animation-duration: 200ms;
                       }</style
                     ><button
-                      class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -426,13 +1072,15 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                         margin-left: 13px;
                       }
                     </style>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                       innholdet p&#xE5; visse vilk&#xE5;r.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -464,12 +1112,14 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                         innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du m&#xE5; alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -501,7 +1151,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                         opprinnelige innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du kan bare dele innholdet med samme lisens som det
                       opprinnelige innholdet.
                     </div>
@@ -679,24 +1329,54 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       </div>
     </div>
   </figure>
-  <section class=\\"c-audio-player c-audio-player--speech\\">
+  <div
+    data-audio-player=\\"1\\"
+    data-speech=\\"1\\"
+    data-src=\\"http://audio.no/file/voof.mp3\\"
+    data-title=\\"Tittel\\"
+  >
     <audio
-      type=\\"audio/mpeg\\"
       src=\\"http://audio.no/file/voof.mp3\\"
       title=\\"Tittel\\"
       preload=\\"metadata\\"
     ></audio
-    ><button type=\\"button\\" class=\\"c-audio-player__play\\">
+    ><style data-emotion-css=\\"4a4sos-SpeechPlayButton\\">
+      .css-4a4sos-SpeechPlayButton {
+        background: none;
+        border: none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0;
+        cursor: pointer;
+        color: #20588f;
+        margin-right: 0;
+      }
+      .css-4a4sos-SpeechPlayButton:hover,
+      .css-4a4sos-SpeechPlayButton:active,
+      .css-4a4sos-SpeechPlayButton:focus {
+        color: #507aa4;
+      }
+      .css-4a4sos-SpeechPlayButton .c-icon {
+        width: 24px;
+        height: 24px;
+      }</style
+    ><button type=\\"button\\" class=\\"css-4a4sos-SpeechPlayButton em19mxr0\\">
       <svg
         fill=\\"currentColor\\"
         preserveAspectRatio=\\"xMidYMid meet\\"
         height=\\"1em\\"
         width=\\"1em\\"
         class=\\"c-icon\\"
+        role=\\"img\\"
         viewBox=\\"0 0 24 24\\"
         data-license=\\"Apache License 2.0\\"
         data-source=\\"Material Design\\"
-        role=\\"img\\"
         aria-label=\\"play\\"
         style=\\"vertical-align:middle\\"
       >
@@ -708,7 +1388,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         </g>
       </svg>
     </button>
-  </section>
+  </div>
 </section>
 "
 `;
@@ -751,7 +1431,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -769,7 +1449,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -808,7 +1488,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -834,7 +1514,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -860,8 +1540,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -888,8 +1568,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -963,10 +1643,10 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 flex-wrap: wrap;
               }
             </style>
-            <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+            <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
               <div>
-                <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                  .css-wqchit-StyledList-StyledList {
+                <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                  .css-fng95w-StyledList-StyledList {
                     list-style: none;
                     padding: 0;
                     margin: 0;
@@ -981,16 +1661,16 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     fill: black;
                     margin-right: 0;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type {
+                  .css-fng95w-StyledList-StyledList li:first-of-type {
                     margin-bottom: 13px;
                     border-bottom: 1px solid #a5bcd3;
                     padding-bottom: 13px;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type svg {
+                  .css-fng95w-StyledList-StyledList li:first-of-type svg {
                     fill: #20588f;
                   }
                 </style>
-                <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
+                <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
                   <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                     .css-bq143f-StyledLicenseIconItem {
                       display: -webkit-box;
@@ -1029,7 +1709,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       min-width: 24px;
                     }
                   </style>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                       .css-49oex1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -1056,7 +1736,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         animation-duration: 200ms;
                       }</style
                     ><button
-                      class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1091,13 +1771,15 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         margin-left: 13px;
                       }
                     </style>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                       innholdet p&#xE5; visse vilk&#xE5;r.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1129,12 +1811,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du m&#xE5; alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1166,7 +1850,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         opprinnelige innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du kan bare dele innholdet med samme lisens som det
                       opprinnelige innholdet.
                     </div>
@@ -1453,7 +2137,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -1471,7 +2155,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -1510,7 +2194,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -1536,7 +2220,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1562,8 +2246,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1590,8 +2274,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1665,10 +2349,10 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 flex-wrap: wrap;
               }
             </style>
-            <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+            <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
               <div>
-                <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                  .css-wqchit-StyledList-StyledList {
+                <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                  .css-fng95w-StyledList-StyledList {
                     list-style: none;
                     padding: 0;
                     margin: 0;
@@ -1683,16 +2367,16 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     fill: black;
                     margin-right: 0;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type {
+                  .css-fng95w-StyledList-StyledList li:first-of-type {
                     margin-bottom: 13px;
                     border-bottom: 1px solid #a5bcd3;
                     padding-bottom: 13px;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type svg {
+                  .css-fng95w-StyledList-StyledList li:first-of-type svg {
                     fill: #20588f;
                   }
                 </style>
-                <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
+                <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
                   <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                     .css-bq143f-StyledLicenseIconItem {
                       display: -webkit-box;
@@ -1731,7 +2415,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       min-width: 24px;
                     }
                   </style>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                       .css-49oex1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -1758,7 +2442,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         animation-duration: 200ms;
                       }</style
                     ><button
-                      class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1793,13 +2477,15 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         margin-left: 13px;
                       }
                     </style>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                       innholdet p&#xE5; visse vilk&#xE5;r.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1831,12 +2517,14 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du m&#xE5; alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -1868,7 +2556,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                         opprinnelige innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du kan bare dele innholdet med samme lisens som det
                       opprinnelige innholdet.
                     </div>
@@ -2258,7 +2946,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -2276,7 +2964,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -2315,7 +3003,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -2341,7 +3029,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -2367,8 +3055,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -2395,8 +3083,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -2448,10 +3136,10 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
                       Regler for bruk av bildet:
                     </h3>
-                    <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+                    <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
                       <div>
-                        <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                          .css-wqchit-StyledList-StyledList {
+                        <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                          .css-fng95w-StyledList-StyledList {
                             list-style: none;
                             padding: 0;
                             margin: 0;
@@ -2466,21 +3154,23 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             fill: black;
                             margin-right: 0;
                           }
-                          .css-wqchit-StyledList-StyledList li:first-of-type {
+                          .css-fng95w-StyledList-StyledList li:first-of-type {
                             margin-bottom: 13px;
                             border-bottom: 1px solid #a5bcd3;
                             padding-bottom: 13px;
                           }
-                          .css-wqchit-StyledList-StyledList
+                          .css-fng95w-StyledList-StyledList
                             li:first-of-type
                             svg {
                             fill: #20588f;
                           }
                         </style>
-                        <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                        <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -2518,16 +3208,16 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 margin-left: 13px;
                               }
                             </style>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Denne lisensen gir deg rett til &#xE5; dele og
                               bruke dette innholdet p&#xE5; visse vilk&#xE5;r.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -2560,16 +3250,16 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du m&#xE5; alltid oppgi hvem som har laget
                               innholdet.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -2602,9 +3292,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du kan ikke tjene penger p&#xE5; bruk av dette
                               innholdet.
                             </div>
@@ -2844,7 +3532,7 @@ Kunstner: Kari Maler\\"
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -2862,7 +3550,7 @@ Kunstner: Kari Maler\\"
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -2901,7 +3589,7 @@ Kunstner: Kari Maler\\"
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -2927,7 +3615,7 @@ Kunstner: Kari Maler\\"
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -2953,8 +3641,8 @@ Kunstner: Kari Maler\\"
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -2981,8 +3669,8 @@ Kunstner: Kari Maler\\"
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -3034,10 +3722,10 @@ Kunstner: Kari Maler\\"
                     <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
                       Regler for bruk av bildet:
                     </h3>
-                    <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+                    <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
                       <div>
-                        <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                          .css-wqchit-StyledList-StyledList {
+                        <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                          .css-fng95w-StyledList-StyledList {
                             list-style: none;
                             padding: 0;
                             margin: 0;
@@ -3052,21 +3740,23 @@ Kunstner: Kari Maler\\"
                             fill: black;
                             margin-right: 0;
                           }
-                          .css-wqchit-StyledList-StyledList li:first-of-type {
+                          .css-fng95w-StyledList-StyledList li:first-of-type {
                             margin-bottom: 13px;
                             border-bottom: 1px solid #a5bcd3;
                             padding-bottom: 13px;
                           }
-                          .css-wqchit-StyledList-StyledList
+                          .css-fng95w-StyledList-StyledList
                             li:first-of-type
                             svg {
                             fill: #20588f;
                           }
                         </style>
-                        <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                        <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3104,16 +3794,16 @@ Kunstner: Kari Maler\\"
                                 margin-left: 13px;
                               }
                             </style>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Denne lisensen gir deg rett til &#xE5; dele og
                               bruke dette innholdet p&#xE5; visse vilk&#xE5;r.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3146,16 +3836,16 @@ Kunstner: Kari Maler\\"
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du m&#xE5; alltid oppgi hvem som har laget
                               innholdet.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3188,9 +3878,7 @@ Kunstner: Kari Maler\\"
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du kan ikke tjene penger p&#xE5; bruk av dette
                               innholdet.
                             </div>
@@ -3469,7 +4157,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -3487,7 +4175,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -3526,7 +4214,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -3552,7 +4240,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -3578,8 +4266,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -3606,8 +4294,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -3659,10 +4347,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     <h3 id=\\"heading-1326\\" class=\\"c-figure-license__title\\">
                       Regler for bruk av bildet:
                     </h3>
-                    <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+                    <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
                       <div>
-                        <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                          .css-wqchit-StyledList-StyledList {
+                        <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                          .css-fng95w-StyledList-StyledList {
                             list-style: none;
                             padding: 0;
                             margin: 0;
@@ -3677,21 +4365,23 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             fill: black;
                             margin-right: 0;
                           }
-                          .css-wqchit-StyledList-StyledList li:first-of-type {
+                          .css-fng95w-StyledList-StyledList li:first-of-type {
                             margin-bottom: 13px;
                             border-bottom: 1px solid #a5bcd3;
                             padding-bottom: 13px;
                           }
-                          .css-wqchit-StyledList-StyledList
+                          .css-fng95w-StyledList-StyledList
                             li:first-of-type
                             svg {
                             fill: #20588f;
                           }
                         </style>
-                        <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                        <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3729,16 +4419,16 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                 margin-left: 13px;
                               }
                             </style>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Denne lisensen gir deg rett til &#xE5; dele og
                               bruke dette innholdet p&#xE5; visse vilk&#xE5;r.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3771,16 +4461,16 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du m&#xE5; alltid oppgi hvem som har laget
                               innholdet.
                             </div>
                           </li>
-                          <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                          <li
+                            class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\"
+                          >
                             <button
-                              class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                              class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                             >
                               <svg
                                 fill=\\"currentColor\\"
@@ -3813,9 +4503,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                 innholdet.</span
                               >
                             </button>
-                            <div
-                              class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\"
-                            >
+                            <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                               Du kan ikke tjene penger p&#xE5; bruk av dette
                               innholdet.
                             </div>
@@ -4040,7 +4728,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
             <style data-emotion-css=\\"mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -4058,7 +4746,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList eqew8rm0\\">
+            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
               <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                 .css-bq143f-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -4097,7 +4785,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   min-width: 24px;
                 }
               </style>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                   .css-49oex1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -4123,7 +4811,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -4149,8 +4837,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -4177,8 +4865,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+              <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -4252,10 +4940,10 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 flex-wrap: wrap;
               }
             </style>
-            <div class=\\"css-pdhd5n-StyledLicenseByline ek97w010\\">
+            <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
               <div>
-                <style data-emotion-css=\\"wqchit-StyledList-StyledList\\">
-                  .css-wqchit-StyledList-StyledList {
+                <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
+                  .css-fng95w-StyledList-StyledList {
                     list-style: none;
                     padding: 0;
                     margin: 0;
@@ -4270,16 +4958,16 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     fill: black;
                     margin-right: 0;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type {
+                  .css-fng95w-StyledList-StyledList li:first-of-type {
                     margin-bottom: 13px;
                     border-bottom: 1px solid #a5bcd3;
                     padding-bottom: 13px;
                   }
-                  .css-wqchit-StyledList-StyledList li:first-of-type svg {
+                  .css-fng95w-StyledList-StyledList li:first-of-type svg {
                     fill: #20588f;
                   }
                 </style>
-                <ul class=\\"css-wqchit-StyledList-StyledList eqew8rm0\\">
+                <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
                   <style data-emotion-css=\\"bq143f-StyledLicenseIconItem\\">
                     .css-bq143f-StyledLicenseIconItem {
                       display: -webkit-box;
@@ -4318,7 +5006,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       min-width: 24px;
                     }
                   </style>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"49oex1-StyledLicenseIconButton\\">
                       .css-49oex1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -4345,7 +5033,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         animation-duration: 200ms;
                       }</style
                     ><button
-                      class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\"
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -4380,13 +5068,15 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         margin-left: 13px;
                       }
                     </style>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Denne lisensen gir deg rett til &#xE5; dele og bruke dette
                       innholdet p&#xE5; visse vilk&#xE5;r.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -4418,12 +5108,14 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du m&#xE5; alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-bq143f-StyledLicenseIconItem eqi7kid0\\">
-                    <button class=\\"css-49oex1-StyledLicenseIconButton eqi7kid1\\">
+                  <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
+                    <button
+                      class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                    >
                       <svg
                         fill=\\"currentColor\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
@@ -4455,7 +5147,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         innholdet.</span
                       >
                     </button>
-                    <div class=\\"css-yfqdly-StyledLicenseLabel e13p0jgt0\\">
+                    <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
                       Du kan ikke tjene penger p&#xE5; bruk av dette innholdet.
                     </div>
                   </li>

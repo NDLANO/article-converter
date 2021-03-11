@@ -1,4 +1,4 @@
-export default [
+const videoSources = [
   {
     asset_id: '5389130491001',
     remote: false,
@@ -188,3 +188,4 @@ export default [
     codec: 'H264',
   },
 ];
+export default videoSources;

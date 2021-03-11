@@ -21,7 +21,7 @@ import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { transform } from '../transformers';
+import { transform } from '../transformers'; // eslint-disable-line import/no-cycle
 import config from '../config';
 
 const StyledDiv = styled.div`

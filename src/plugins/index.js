@@ -16,7 +16,7 @@ import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-import createConceptPlugin from './conceptPlugin';
+import createConceptPlugin from './conceptPlugin'; // eslint-disable-line import/no-cycle
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
 
@@ -36,7 +36,7 @@ export {
   createCodePlugin,
 };
 
-export default options => [
+const plugins = options => [
   createNRKPlugin(),
   createAudioPlugin(),
   createImagePlugin(options),
@@ -51,3 +51,4 @@ export default options => [
   createRelatedContent(options),
   createCodePlugin(),
 ];
+export default plugins;

@@ -1,4 +1,4 @@
-export default [
+const resources = [
   {
     id: 'urn:resource:1:110271',
     name: 'Aktivitet 2 - Rollespill med observatør',
@@ -50,3 +50,4 @@ export default [
     path: '/subject:1/topic:1:172733/topic:1:169379/resource:1:158387',
   },
 ];
+export default resources;

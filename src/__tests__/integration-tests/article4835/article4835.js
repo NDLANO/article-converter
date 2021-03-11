@@ -1,4 +1,4 @@
-export default {
+const article = {
   id: 4835,
   oldNdlaUrl: '//red.ndla.no/node/27264',
   revision: 1,
@@ -54,3 +54,4 @@ export default {
   articleType: 'standard',
   supportedLanguages: ['nb', 'nn'],
 };
+export default article;

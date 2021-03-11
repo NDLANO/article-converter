@@ -1,4 +1,4 @@
-export default {
+const image = {
   id: '2357',
   metaUrl: 'https://test.api.ndla.no/image-api/v2/images/2357',
   title: {
@@ -65,3 +65,4 @@ export default {
   },
   supportedLanguages: ['en', 'nb', 'nn', 'se', 'unknown'],
 };
+export default image;

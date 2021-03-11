@@ -8,7 +8,7 @@
 
 import { performance } from 'perf_hooks';
 import { replaceEmbedsInHtml } from './replacer';
-import { getEmbedsFromHtml } from './parser';
+import { getEmbedsFromHtml } from './parser'; // eslint-disable-line import/no-cycle
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
