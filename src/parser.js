@@ -6,7 +6,7 @@
  *
  */
 
-import createPlugins from './plugins'; // eslint-disable-line import/no-cycle
+import createPlugins from './plugins';
 
 export function getEmbedsFromHtml(html, options) {
   const plugins = createPlugins(options);

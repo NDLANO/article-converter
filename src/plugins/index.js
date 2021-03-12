@@ -16,7 +16,7 @@ import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-import createConceptPlugin from './conceptPlugin'; // eslint-disable-line import/no-cycle
+import createConceptPlugin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
 

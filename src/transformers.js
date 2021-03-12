@@ -8,7 +8,7 @@
 
 import { performance } from 'perf_hooks';
 import { replaceEmbedsInHtml } from './replacer';
-import { getEmbedsFromHtml } from './parser'; // eslint-disable-line import/no-cycle
+import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
@@ -45,7 +45,7 @@ export async function transform(
       `<section>${visualElement.visualElement}</section>`
     );
   }
-  const embeds = await getEmbedsFromHtml(content, options);
+  const embeds = await getEmbedsFromHtml(content, { transform, ...options });
   const embedsWithResources = await Promise.all(
     embeds.map(async embed => {
       const plugin = embed.plugin;

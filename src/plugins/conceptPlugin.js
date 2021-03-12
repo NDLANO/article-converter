@@ -21,7 +21,6 @@ import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { transform } from '../transformers'; // eslint-disable-line import/no-cycle
 import config from '../config';
 
 const StyledDiv = styled.div`
@@ -110,7 +109,7 @@ export default function createConceptPlugin(options = {}) {
     const license = defined(copyright.license, {}).license;
     const source = defined(embed.concept.source, '');
 
-    const transformed = await transform(
+    const transformed = await options.transform(
       cheerio.load(visualElement.visualElement),
       locale,
       '',
