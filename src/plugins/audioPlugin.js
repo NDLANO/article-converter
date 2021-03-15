@@ -125,7 +125,7 @@ export default function createAudioPlugin() {
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
         <Figure id={figureid} type="full-column">
-          <AudioPlayer type={mimeType} src={url} title={title} />
+          <AudioPlayer src={url} title={title} />
           <FigureCaption
             figureId={figureid}
             id={figureLicenseDialogId}

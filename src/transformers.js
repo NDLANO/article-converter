@@ -45,7 +45,7 @@ export async function transform(
       `<section>${visualElement.visualElement}</section>`
     );
   }
-  const embeds = await getEmbedsFromHtml(content, options);
+  const embeds = await getEmbedsFromHtml(content, { transform, ...options });
   const embedsWithResources = await Promise.all(
     embeds.map(async embed => {
       const plugin = embed.plugin;

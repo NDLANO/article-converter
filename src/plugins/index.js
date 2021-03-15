@@ -36,7 +36,7 @@ export {
   createCodePlugin,
 };
 
-export default options => [
+const plugins = options => [
   createNRKPlugin(),
   createAudioPlugin(),
   createImagePlugin(options),
@@ -51,3 +51,4 @@ export default options => [
   createRelatedContent(options),
   createCodePlugin(),
 ];
+export default plugins;

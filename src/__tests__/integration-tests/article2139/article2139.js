@@ -1,4 +1,4 @@
-export default {
+const article = {
   id: 2139,
   revision: 18,
   title: {
@@ -51,3 +51,4 @@ export default {
   articleType: 'standard',
   supportedLanguages: ['nb'],
 };
+export default article;
