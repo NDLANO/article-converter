@@ -27,12 +27,14 @@ module.exports.setup = function routes(app) {
     res.setHeader('Content-Type', 'application/json');
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const removeRelatedContent = defined(req.query.removeRelatedContent, false);
+    const isOembed = defined(req.query.isOembed, false);
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       removeRelatedContent,
+      isOembed,
       filters,
       subject,
     })

@@ -167,7 +167,6 @@ export default function createRelatedContentPlugin(options = {}) {
         />
       );
     }
-
     return render(
       <RelatedArticle
         key={embed.article.id}
@@ -177,6 +176,7 @@ export default function createRelatedContentPlugin(options = {}) {
             ? embed.article.metaDescription.metaDescription
             : ''
         }
+        inOembed={options.isOembed}
         {...getRelatedArticleProps(
           embed.article,
           relatedArticleEntryNum,
