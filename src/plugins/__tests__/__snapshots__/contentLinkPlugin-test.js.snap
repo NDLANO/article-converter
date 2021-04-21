@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`embedToHtml should return anchor tag with path 1`] = `"<a href=\\"/urn:test:1\\">text</a>"`;
+exports[`embedToHtml should return anchor tag with path 1`] = `"<a href=\\"/urn:test:1\\" target={options.isOembed ? '_blank' : null}>text</a>"`;
 
 exports[`fetchResource for content-link 1`] = `
 Object {

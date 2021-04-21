@@ -131,9 +131,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </g></svg
           ></span></button
         ><style
-          data-emotion-css=\\"6cz9bx-ForwardRewindButton-Forward15SecButton\\"
+          data-emotion-css=\\"makyh8-ForwardRewindButton-Forward15SecButton\\"
         >
-          .css-6cz9bx-ForwardRewindButton-Forward15SecButton {
+          .css-makyh8-ForwardRewindButton-Forward15SecButton {
             background-color: inherit;
             background-position: center;
             background-repeat: no-repeat;
@@ -153,11 +153,11 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
             background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.8358 20.8769C17.7849 22.6711 15.1504 23.6564 12.4254 23.6482C9.70049 23.6401 7.07191 22.6391 5.03176 20.8326C2.99161 19.0262 1.67975 16.5381 1.34176 13.8342C1.00377 11.1303 1.66282 8.39585 3.19553 6.1428C4.72825 3.88975 7.02955 2.27253 9.66866 1.59387C12.3078 0.915214 15.1037 1.22165 17.5332 2.45581C19.9627 3.68998 21.8591 5.76726 22.8674 8.2988M23.5676 1.29649L23.5676 8.2988L16.5653 8.2988' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
           }
-          .css-6cz9bx-ForwardRewindButton-Forward15SecButton:hover {
+          .css-makyh8-ForwardRewindButton-Forward15SecButton:hover {
             background-color: #eff0f2;
           }
           @media (max-width: 48em) {
-            .css-6cz9bx-ForwardRewindButton-Forward15SecButton {
+            .css-makyh8-ForwardRewindButton-Forward15SecButton {
               -webkit-order: 3;
               -ms-flex-order: 3;
               order: 3;
@@ -166,7 +166,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         ><button
           title=\\"Spol 15 sekunder frem\\"
           aria-label=\\"Spol 15 sekunder frem\\"
-          class=\\"css-6cz9bx-ForwardRewindButton-Forward15SecButton e1gaeajv3\\"
+          class=\\"css-makyh8-ForwardRewindButton-Forward15SecButton e1gaeajv3\\"
         >
           15</button
         ><style data-emotion-css=\\"1ufz7h0-SpeedWrapper\\">
@@ -411,8 +411,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             </div>
           </div>
         </div>
-        <style data-emotion-css=\\"q7f9td-ForwardRewindButton-Back15SecButton\\">
-          .css-q7f9td-ForwardRewindButton-Back15SecButton {
+        <style data-emotion-css=\\"8vharq-ForwardRewindButton-Back15SecButton\\">
+          .css-8vharq-ForwardRewindButton-Back15SecButton {
             background-color: inherit;
             background-position: center;
             background-repeat: no-repeat;
@@ -432,11 +432,11 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
             background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.19004 21.3306C7.24095 23.1248 9.87547 24.11 12.6004 24.1019C15.3254 24.0937 17.954 23.0927 19.9941 21.2863C22.0343 19.4798 23.3461 16.9918 23.6841 14.2879C24.0221 11.5839 23.3631 8.84951 21.8303 6.59646C20.2976 4.3434 17.9963 2.72618 15.3572 2.04753C12.7181 1.36887 9.92213 1.67531 7.49267 2.90947C5.0632 4.14363 3.16681 6.22092 2.15848 8.75246M1.45825 1.75015L1.45825 8.75246L8.46057 8.75246' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
           }
-          .css-q7f9td-ForwardRewindButton-Back15SecButton:hover {
+          .css-8vharq-ForwardRewindButton-Back15SecButton:hover {
             background-color: #eff0f2;
           }
           @media (max-width: 48em) {
-            .css-q7f9td-ForwardRewindButton-Back15SecButton {
+            .css-8vharq-ForwardRewindButton-Back15SecButton {
               -webkit-order: 5;
               -ms-flex-order: 5;
               order: 5;
@@ -445,7 +445,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         ><button
           title=\\"Spol 15 sekunder tilbake\\"
           aria-label=\\"Spol 15 sekunder tilbake\\"
-          class=\\"css-q7f9td-ForwardRewindButton-Back15SecButton e1gaeajv4\\"
+          class=\\"css-8vharq-ForwardRewindButton-Back15SecButton e1gaeajv4\\"
         >
           15</button
         ><style data-emotion-css=\\"1e6uvc9-ProgressWrapper\\">
@@ -1177,9 +1177,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1211,40 +1211,40 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -1254,13 +1254,13 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\"
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
                 ><style
-                  data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                  data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1288,28 +1288,28 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -1318,7 +1318,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 ><a
                   href=\\"http://audio.no/file/voof.mp3\\"
                   download=\\"\\"
-                  class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                   >Last ned lydfil</a
                 >
               </div>
@@ -1869,9 +1869,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1903,40 +1903,40 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -1946,13 +1946,13 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 \\"
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
                 ><style
-                  data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                  data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -1980,28 +1980,28 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -2009,12 +2009,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }</style
                 ><a
                   download=\\"\\"
-                  class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                   >Last ned video</a
                 ><style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -2046,40 +2046,40 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -2089,7 +2089,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string='&lt;iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Bygg inn
                 </button>
@@ -2575,9 +2575,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -2609,40 +2609,40 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -2652,13 +2652,13 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-SA-4.0 \\"
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
                 ><style
-                  data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                  data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -2686,28 +2686,28 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -2715,12 +2715,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }</style
                 ><a
                   download=\\"\\"
-                  class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                   >Last ned video</a
                 ><style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -2752,40 +2752,40 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -2795,7 +2795,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string='&lt;iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Bygg inn
                 </button>
@@ -3321,9 +3321,9 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                          data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                         >
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -3356,40 +3356,40 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -3400,13 +3400,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
 Kunstner: Kari Maler\\"
-                          class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                          data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                         >
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -3435,28 +3435,28 @@ Kunstner: Kari Maler\\"
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -3465,7 +3465,7 @@ Kunstner: Kari Maler\\"
                         ><a
                           href=\\"http://ndla.no/images/1.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -3901,9 +3901,9 @@ Kunstner: Kari Maler\\"
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                          data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                         >
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -3936,40 +3936,40 @@ Kunstner: Kari Maler\\"
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -3979,13 +3979,13 @@ Kunstner: Kari Maler\\"
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 \\"
-                          class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                          data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                         >
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -4014,28 +4014,28 @@ Kunstner: Kari Maler\\"
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -4044,7 +4044,7 @@ Kunstner: Kari Maler\\"
                         ><a
                           href=\\"http://ndla.no/images/2.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -4526,9 +4526,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       </ul>
                       <div class=\\"c-figure-license__cta-block\\">
                         <style
-                          data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                          data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                         >
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -4561,40 +4561,40 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
                             cursor: not-allowed;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                          .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -4604,13 +4604,13 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
                           data-copy-string=\\"CC-BY-NC-4.0 \\"
-                          class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
                         ><style
-                          data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                          data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                         >
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                             display: inline-block;
                             color: #ffffff;
                             background-color: #20588f;
@@ -4639,28 +4639,28 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             border: 2px solid #20588f;
                             box-shadow: none;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #184673;
                             border: 2px solid #184673;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                             color: #777777;
                             background-color: #e6e6e6;
                             border-color: transparent;
                             cursor: not-allowed;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             box-shadow: 0 0 2px #20588f;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                             color: white;
                             background-color: #20588f;
                             border: 2px solid transparent;
                           }
-                          .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                          .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                             color: #777777;
                             border: 2px solid transparent;
                             background-color: #e6e6e6;
@@ -4669,7 +4669,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         ><a
                           href=\\"http://api.test.ndla.no/images/1.jpg?download=true\\"
                           download=\\"\\"
-                          class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                          class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                           >Last ned bildet</a
                         >
                       </div>
@@ -5167,9 +5167,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -5201,40 +5201,40 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -5244,13 +5244,13 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string=\\"CC-BY-NC-4.0 \\"
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
                 ><style
-                  data-emotion-css=\\"1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+                  data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -5278,28 +5278,28 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+                  .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -5307,12 +5307,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   }</style
                 ><a
                   download=\\"\\"
-                  class=\\"css-1tngin9-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
                   >Last ned video</a
                 ><style
-                  data-emotion-css=\\"19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
                 >
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -5344,40 +5344,40 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     border: 2px solid #20588f;
                     box-shadow: none;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+                  .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
@@ -5387,7 +5387,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
                   data-copy-string='&lt;iframe title=\\"brightcove video\\" aria-label=\\"brightcove video\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"&gt;&lt;/iframe&gt;'
-                  class=\\"css-19mo1js-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+                  class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Bygg inn
                 </button>
