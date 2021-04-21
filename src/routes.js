@@ -55,8 +55,8 @@ module.exports.setup = function routes(app) {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const articleId = req.params.id;
     const isOembed =
-        defined(req.query.isOembed, false) ||
-        defined(req.query.removeRelatedContent, false);
+      defined(req.query.isOembed, false) ||
+      defined(req.query.removeRelatedContent, false);
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
