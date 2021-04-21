@@ -158,7 +158,7 @@ export default function createRelatedContentPlugin(options = {}) {
               /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
             )[1] || embed.data.url
           }`}
-          target={'_blank'}
+          target="_blank"
           to={embed.data.url}
           {...mapping(relatedArticleEntryNum)['external-learning-resources']}
         />

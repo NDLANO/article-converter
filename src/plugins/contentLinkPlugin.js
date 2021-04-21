@@ -56,7 +56,7 @@ export default function createContentLinkPlugin(options = {}) {
     }
     return `<a href="/${
       embed.path
-    }" target={options.isOembed ? "_blank" : null}>${embed.data.linkText}</a>`;
+    }" target={options.isOembed ? '_blank' : null}>${embed.data.linkText}</a>`;
   };
 
   return {
