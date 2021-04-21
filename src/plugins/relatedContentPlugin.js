@@ -105,10 +105,6 @@ const getRelatedArticleProps = (
 };
 
 export default function createRelatedContentPlugin(options = {}) {
-  if (options.removeRelatedContent) {
-    return { embedToHTML: () => '' };
-  }
-
   async function fetchResource(embed, accessToken, language) {
     if (!embed.data) return embed;
 
@@ -162,6 +158,7 @@ export default function createRelatedContentPlugin(options = {}) {
               /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
             )[1] || embed.data.url
           }`}
+          target={'_blank'}
           to={embed.data.url}
           {...mapping(relatedArticleEntryNum)['external-learning-resources']}
         />
@@ -176,7 +173,7 @@ export default function createRelatedContentPlugin(options = {}) {
             ? embed.article.metaDescription.metaDescription
             : ''
         }
-        inOembed={options.isOembed}
+        target={options.isOembed ? '_blank' : null}
         {...getRelatedArticleProps(
           embed.article,
           relatedArticleEntryNum,

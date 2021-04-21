@@ -62,20 +62,18 @@ export const transformAsides = content => {
   });
 };
 
-export const transformRelatedContent = (content, lang, options) => {
+export const transformRelatedContent = (content, lang) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
       div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
       const divElement = content(div);
-      if (!options.removeRelatedContent) {
-        const children = divElement.children();
-        const relatedArticleList = createRelatedArticleList(
-          { locale: lang, articleCount: children.length },
-          children.toString()
-        );
-        divElement.before(relatedArticleList);
-      }
+      const children = divElement.children();
+      const relatedArticleList = createRelatedArticleList(
+        { locale: lang, articleCount: children.length },
+        children.toString()
+      );
+      divElement.before(relatedArticleList);
       divElement.remove();
     }
   });

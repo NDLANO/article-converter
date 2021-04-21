@@ -26,14 +26,14 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/json/:lang/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const lang = getHtmlLang(defined(req.params.lang, ''));
-    const removeRelatedContent = defined(req.query.removeRelatedContent, false);
-    const isOembed = defined(req.query.isOembed, false);
+    const isOembed =
+      defined(req.query.isOembed, false) ||
+      defined(req.query.removeRelatedContent, false);
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
     fetchAndTransformArticle(articleId, lang, accessToken, {
-      removeRelatedContent,
       isOembed,
       filters,
       subject,
@@ -54,12 +54,14 @@ module.exports.setup = function routes(app) {
   app.get('/article-converter/html/:lang/:id', (req, res) => {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const articleId = req.params.id;
-    const removeRelatedContent = defined(req.query.removeRelatedContent, false);
+    const isOembed =
+        defined(req.query.isOembed, false) ||
+        defined(req.query.removeRelatedContent, false);
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
     fetchAndTransformArticle(articleId, lang, accessToken, {
-      removeRelatedContent,
+      isOembed,
       filters,
       subject,
     })
