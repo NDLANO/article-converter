@@ -151,3 +151,18 @@ test('embedToHtml should return anchor tag with path', async () => {
     )
   ).toMatchSnapshot();
 });
+
+test('embedToHtml should return anchor tag with path in target _blank if isOembed', async () => {
+  const contentLinkPlugin = createContentLinkPlugin({isOembed: true});
+
+  expect(
+    contentLinkPlugin.embedToHTML(
+      {
+        embed: {},
+        data: { linkText: 'text', contentId: '1' },
+        path: 'urn:test:1',
+      },
+      'nb'
+    )
+  ).toMatchSnapshot();
+});
