@@ -193,6 +193,20 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
 "
 `;
 
+exports[`transformLinksInOembed adds target blank to a if oembed 1`] = `
+"<html>
+  <head></head>
+  <body>
+    <section>
+      <a href=\\"https://external.com\\" target=\\"_blank\\"
+        >Lorem ipsum dolor sit amet...</a
+      >
+    </section>
+  </body>
+</html>
+"
+`;
+
 exports[`transformTables replaces table with <Table> 1`] = `
 "<div class=\\"c-table__wrapper\\">
   <div class=\\"c-table__content\\">

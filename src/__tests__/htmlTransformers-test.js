@@ -13,6 +13,7 @@ import {
   moveReactPortals,
   transformAsides,
   transformTables,
+  transformLinksInOembed,
 } from '../htmlTransformers';
 
 test('htmlTransforms changes ol to accommodate frontend styling', () => {
@@ -211,5 +212,18 @@ test('transformTables replaces table with <Table>', () => {
   transformTables(content);
 
   const result = content('body').html();
+  expect(prettify(result)).toMatchSnapshot();
+});
+
+test('transformLinksInOembed adds target blank to a if oembed', () => {
+  const content = cheerio.load(`
+  <section>
+  <a href='https://external.com'>Lorem ipsum dolor sit amet...</a>
+  </section>`);
+
+  transformLinksInOembed(content, 'nb', {isOembed: true})
+
+  const result = content.html();
+
   expect(prettify(result)).toMatchSnapshot();
 });

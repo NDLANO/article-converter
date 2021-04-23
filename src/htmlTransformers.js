@@ -145,6 +145,14 @@ export const transformTables = (content, lang) =>
     content(table).remove();
   });
 
+export const transformLinksInOembed = (content, lang, options) =>
+  content('a').each((_, a) => {
+    if (options.isOembed) {
+      console.log("replacing");
+      content(a).attr('target','_blank');
+    }
+  });
+
 export const htmlTransforms = [
   transformRelatedContent,
   content => {
@@ -170,5 +178,6 @@ export const htmlTransforms = [
   resetOrderedLists,
   transformTables,
   transformFileList,
+  transformLinksInOembed,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];
