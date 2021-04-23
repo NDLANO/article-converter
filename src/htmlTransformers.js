@@ -148,8 +148,7 @@ export const transformTables = (content, lang) =>
 export const transformLinksInOembed = (content, lang, options) =>
   content('a').each((_, a) => {
     if (options.isOembed) {
-      console.log("replacing");
-      content(a).attr('target','_blank');
+      content(a).attr('target', '_blank');
     }
   });
 

@@ -221,7 +221,7 @@ test('transformLinksInOembed adds target blank to a if oembed', () => {
   <a href='https://external.com'>Lorem ipsum dolor sit amet...</a>
   </section>`);
 
-  transformLinksInOembed(content, 'nb', {isOembed: true})
+  transformLinksInOembed(content, 'nb', { isOembed: true });
 
   const result = content.html();
 
