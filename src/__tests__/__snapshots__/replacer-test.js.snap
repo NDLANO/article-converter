@@ -2,11 +2,7 @@
 
 exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
 "<section>
-  <figure
-    data-sizetype=\\"full-column\\"
-    class=\\"c-figure c-figure--full-column\\"
-    id=\\"figure-1\\"
-  >
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1\\">
     <style data-emotion-css=\\"jkv5q-Heading\\">
       .css-jkv5q-Heading {
         font-size: 20px;

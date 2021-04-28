@@ -90,11 +90,17 @@ export default function createAudioPlugin() {
       id,
       title: { title },
       audioFile: { mimeType, url },
+      podcastMeta,
       copyright: {
         license: { license: licenseAbbreviation },
         origin,
       },
     } = audio;
+
+    const { introduction: description, manuscript: textVersion, coverPhoto } =
+      podcastMeta || {};
+
+    const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
     const caption = data.caption || title;
 
@@ -124,8 +130,14 @@ export default function createAudioPlugin() {
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
-        <Figure id={figureid} type="full-column">
-          <AudioPlayer src={url} title={title} />
+        <Figure id={figureid} type="full">
+          <AudioPlayer
+            description={description}
+            img={img}
+            src={url}
+            textVersion={textVersion}
+            title={title}
+          />
           <FigureCaption
             figureId={figureid}
             id={figureLicenseDialogId}
