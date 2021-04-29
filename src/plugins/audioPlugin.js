@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Remarkable } from 'remarkable';
 import {
   Figure,
   FigureLicenseDialog,
@@ -38,6 +39,12 @@ export default function createAudioPlugin() {
         src: audio.audioFile.url,
       };
     }
+  };
+
+  const renderMarkdown = text => {
+    const md = new Remarkable();
+    const rendered = md.render(text);
+    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
   const onError = ({ audio }, locale) => {
@@ -97,8 +104,10 @@ export default function createAudioPlugin() {
       },
     } = audio;
 
-    const { introduction: description, manuscript: textVersion, coverPhoto } =
-      podcastMeta || {};
+    const { introduction, manuscript, coverPhoto } = podcastMeta || {};
+
+    const textVersion = renderMarkdown(manuscript);
+    const description = renderMarkdown(introduction);
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
@@ -137,6 +146,7 @@ export default function createAudioPlugin() {
             src={url}
             textVersion={textVersion}
             title={title}
+            staticRenderId={`static-render-${id}`}
           />
           <FigureCaption
             figureId={figureid}
