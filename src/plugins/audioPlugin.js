@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Remarkable } from 'remarkable';
 import {
   Figure,
   FigureLicenseDialog,
@@ -38,6 +39,12 @@ export default function createAudioPlugin() {
         src: audio.audioFile.url,
       };
     }
+  };
+
+  const renderMarkdown = text => {
+    const md = new Remarkable();
+    const rendered = md.render(text);
+    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
   const onError = ({ audio }, locale) => {
@@ -90,11 +97,19 @@ export default function createAudioPlugin() {
       id,
       title: { title },
       audioFile: { mimeType, url },
+      podcastMeta,
       copyright: {
         license: { license: licenseAbbreviation },
         origin,
       },
     } = audio;
+
+    const { introduction, manuscript, coverPhoto } = podcastMeta || {};
+
+    const textVersion = renderMarkdown(manuscript);
+    const description = renderMarkdown(introduction);
+
+    const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
     const caption = data.caption || title;
 
@@ -124,8 +139,15 @@ export default function createAudioPlugin() {
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
       ) : (
-        <Figure id={figureid} type="full-column">
-          <AudioPlayer src={url} title={title} />
+        <Figure id={figureid} type="full">
+          <AudioPlayer
+            description={description}
+            img={img}
+            src={url}
+            textVersion={textVersion}
+            title={title}
+            staticRenderId={`static-render-${id}-${locale}`}
+          />
           <FigureCaption
             figureId={figureid}
             id={figureLicenseDialogId}
