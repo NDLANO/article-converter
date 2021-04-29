@@ -146,7 +146,7 @@ export default function createAudioPlugin() {
             src={url}
             textVersion={textVersion}
             title={title}
-            staticRenderId={`static-render-${id}`}
+            staticRenderId={`static-render-${id}-${locale}`}
           />
           <FigureCaption
             figureId={figureid}
