@@ -184,7 +184,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             }</style
           ><button
             type=\\"button\\"
-            data-audio-text-button-id=\\"static-render-1\\"
+            data-audio-text-button-id=\\"static-render-1-nb\\"
             class=\\"e1wmpntw10 css-f4yp6j-StyledButton-buttonStyle-strippedStyle-link-normal-ButtonStyles-LinkButton e1ljv5qk0\\"
           >
             Tekstversjon
@@ -913,7 +913,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       }
     </style>
     <div
-      id=\\"static-render-1\\"
+      id=\\"static-render-1-nb\\"
       hidden
       class=\\"css-dk8xs8-TextVersionWrapper e1wmpntw7\\"
     >
@@ -1063,7 +1063,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
           }</style
         ><button
           type=\\"button\\"
-          data-audio-text-button-id=\\"static-render-1\\"
+          data-audio-text-button-id=\\"static-render-1-nb\\"
           class=\\"e1wmpntw10 css-f4yp6j-StyledButton-buttonStyle-strippedStyle-link-normal-ButtonStyles-LinkButton e1ljv5qk0\\"
         >
           <svg
