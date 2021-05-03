@@ -106,7 +106,7 @@ export default function createAudioPlugin() {
 
     const { introduction, manuscript, coverPhoto } = podcastMeta || {};
 
-    const textVersion = renderMarkdown(manuscript);
+    const textVersion = manuscript && renderMarkdown(manuscript);
     const description = renderMarkdown(introduction);
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
