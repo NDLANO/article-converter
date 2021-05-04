@@ -73,23 +73,31 @@ export default function createAudioPlugin() {
     );
   };
 
-  const AudioActionButtons = ({ locale, src, copyString }) => [
-    <Button
-      key="copy"
-      outline
-      data-copied-title={t(locale, 'license.hasCopiedTitle')}
-      data-copy-string={copyString}>
-      {t(locale, 'license.copyTitle')}
-    </Button>,
-    <Anchor key="download" href={src} download appearance="outline">
-      {t(locale, 'audio.download')}
-    </Anchor>,
-  ];
+  const AudioActionButtons = ({ copyString, locale, license, src }) => {
+    const buttons = [
+      <Button
+        key="copy"
+        outline
+        data-copied-title={t(locale, 'license.hasCopiedTitle')}
+        data-copy-string={copyString}>
+        {t(locale, 'license.copyTitle')}
+      </Button>,
+    ];
+    if (license !== 'COPYRIGHTED') {
+      buttons.push(
+        <Anchor key="download" href={src} download appearance="outline">
+          {t(locale, 'audio.download')}
+        </Anchor>
+      );
+    }
+    return buttons;
+  };
 
   AudioActionButtons.propTypes = {
-    locale: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     copyString: PropTypes.string.isRequired,
+    locale: PropTypes.string.isRequired,
+    license: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
   };
 
   const embedToHTML = ({ audio, data }, locale) => {
@@ -166,8 +174,9 @@ export default function createAudioPlugin() {
             locale={locale}
             messages={messages}>
             <AudioActionButtons
-              locale={locale}
               copyString={getCopyString(licenseAbbreviation, authors, locale)}
+              locale={locale}
+              license={licenseAbbreviation}
               src={url}
             />
           </FigureLicenseDialog>

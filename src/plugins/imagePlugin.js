@@ -138,23 +138,35 @@ ImageWrapper.propTypes = {
   }),
 };
 
-const ImageActionButtons = ({ locale, src, copyString }) => [
-  <Button
-    key="copy"
-    outline
-    data-copied-title={t(locale, 'license.hasCopiedTitle')}
-    data-copy-string={copyString}>
-    {t(locale, 'license.copyTitle')}
-  </Button>,
-  <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
-    {t(locale, 'image.download')}
-  </Anchor>,
-];
+const ImageActionButtons = ({ copyString, locale, license, src }) => {
+  const buttons = [
+    <Button
+      key="copy"
+      outline
+      data-copied-title={t(locale, 'license.hasCopiedTitle')}
+      data-copy-string={copyString}>
+      {t(locale, 'license.copyTitle')}
+    </Button>,
+  ];
+  if (license !== 'COPYRIGHTED') {
+    buttons.push(
+      <Anchor
+        key="download"
+        href={downloadUrl(src)}
+        appearance="outline"
+        download>
+        {t(locale, 'image.download')}
+      </Anchor>
+    );
+  }
+  return buttons;
+};
 
 ImageActionButtons.propTypes = {
-  locale: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
   copyString: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired,
+  license: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
 };
 
 export default function createImagePlugin(options = { concept: false }) {
@@ -273,6 +285,7 @@ export default function createImagePlugin(options = { concept: false }) {
                   locale={locale}
                   copyString={copyString}
                   src={image.imageUrl}
+                  license={licenseAbbreviation}
                 />
               </FigureLicenseDialog>
             </FigureCaption>

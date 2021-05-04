@@ -160,9 +160,15 @@ export default function createBrightcovePlugin(options = { concept: false }) {
             data-copy-string={copyString}>
             {t(locale, 'license.copyTitle')}
           </Button>
-          <Anchor key="download" href={download} appearance="outline" download>
-            {t(locale, 'video.download')}
-          </Anchor>
+          {licenseAbbreviation !== 'COPYRIGHTED' && (
+            <Anchor
+              key="download"
+              href={download}
+              appearance="outline"
+              download>
+              {t(locale, 'video.download')}
+            </Anchor>
+          )}
           <Button
             outline
             data-copied-title={t(locale, 'license.hasCopiedTitle')}
