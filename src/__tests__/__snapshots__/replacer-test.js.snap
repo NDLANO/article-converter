@@ -1295,7 +1295,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 Forfatter: name\\"
+                  data-copy-string=\\"Forfatter: name. Tittel [Internett]. NO: Hentet fra: &lt;u&gt;http://audio.no/file/voof.mp3&lt;/u&gt; Lest: 05.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
@@ -1987,7 +1987,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 \\"
+                  data-copy-string=\\"undefined [Internett]. NO: Hentet fra: &lt;u&gt;https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1&lt;/u&gt; Lest: 05.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
@@ -2693,7 +2693,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-SA-4.0 \\"
+                  data-copy-string=\\"undefined [Internett]. NO: Hentet fra: &lt;u&gt;https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2&lt;/u&gt; Lest: 05.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
@@ -3440,8 +3440,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                         ><button
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
-                          data-copy-string=\\"CC-BY-NC-4.0 Forfatter: Ola Foton
-Kunstner: Kari Maler\\"
+                          data-copy-string=\\"Forfatter: Ola Foton, Kunstner: Kari Maler. image title 1 [Internett]. NO: Hentet fra: &lt;u&gt;http://ndla.no/images/1.jpg&lt;/u&gt; Lest: 05.05.2021\\"
                           class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
@@ -4020,7 +4019,7 @@ Kunstner: Kari Maler\\"
                         ><button
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
-                          data-copy-string=\\"CC-BY-NC-4.0 \\"
+                          data-copy-string=\\"image title 2 [Internett]. NO: Hentet fra: &lt;u&gt;http://ndla.no/images/2.jpg&lt;/u&gt; Lest: 05.05.2021\\"
                           class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
@@ -4645,7 +4644,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                         ><button
                           type=\\"button\\"
                           data-copied-title=\\"Kopiert!\\"
-                          data-copy-string=\\"CC-BY-NC-4.0 \\"
+                          data-copy-string=\\"image title [Internett]. NO: Hentet fra: &lt;u&gt;http://api.test.ndla.no/images/1.jpg&lt;/u&gt; Lest: 05.05.2021\\"
                           class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                         >
                           Kopier referanse</button
@@ -5285,7 +5284,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"CC-BY-NC-4.0 \\"
+                  data-copy-string=\\"brightcove video [Internett]. NO: Hentet fra: &lt;u&gt;https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012&lt;/u&gt; Lest: 05.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
