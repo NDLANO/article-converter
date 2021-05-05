@@ -174,7 +174,7 @@ export default function createAudioPlugin() {
             locale={locale}
             messages={messages}>
             <AudioActionButtons
-              copyString={getCopyString(licenseAbbreviation, authors, locale)}
+              copyString={getCopyString(title, url, authors, locale)}
               locale={locale}
               license={licenseAbbreviation}
               src={url}

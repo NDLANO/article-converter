@@ -111,7 +111,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const { download } = getMetaData(embed);
 
-    const copyString = getCopyString(licenseAbbreviation, authors, locale);
+    const copyString = getCopyString(brightcove.name, src, authors, locale);
 
     const messages = {
       title: t(locale, 'title'),

@@ -243,7 +243,13 @@ export default function createImagePlugin(options = { concept: false }) {
       name: item.description,
       type: item.label,
     }));
-    const copyString = getCopyString(licenseAbbreviation, authors, locale);
+
+    const copyString = getCopyString(
+      image.title.title,
+      image.imageUrl,
+      authors,
+      locale
+    );
     const figureId = `figure-${image.id}`;
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
