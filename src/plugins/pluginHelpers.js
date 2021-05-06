@@ -38,6 +38,9 @@ export const makeIframeString = (url, width, height, title = '') => {
 export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,%3Csvg fill='%238A8888' height='400' viewBox='0 0 24 12' width='100%25' xmlns='http://www.w3.org/2000/svg' style='background-color: %23EFF0F2'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath transform='scale(0.3) translate(28, 8.5)' d='M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E`;
 
 const makeCreditCopyString = (roles, locale) => {
+  if (!!roles.length) {
+    return '';
+  }
   return (
     roles
       .map(creator => {
@@ -46,6 +49,17 @@ const makeCreditCopyString = (roles, locale) => {
       })
       .join(', ') + '. '
   );
+};
+
+const filterCreatorList = (creators, types) => {
+  return creators.filter(creator => types.includes(creator.type.toLowerCase()));
+};
+
+const getValueOrFallback = (value, fallback, locale) => {
+  if (value === undefined) {
+    return t(locale, fallback);
+  }
+  return value;
 };
 
 export const getCopyString = (title, url, creators, locale) => {
@@ -59,31 +73,26 @@ export const getCopyString = (title, url, creators, locale) => {
     'illustrator',
     'artist',
   ];
-  const originators = creators.filter(creator =>
-    originatorTypes.includes(creator.type.toLowerCase())
-  );
-
+  const originators = filterCreatorList(creators, originatorTypes);
   const publisherTypes = ['publisher', 'rightsholder', 'supplier'];
-  const publishers = creators.filter(creator =>
-    publisherTypes.includes(creator.type.toLowerCase())
-  );
+  const publishers = filterCreatorList(creators, publisherTypes);
+  const originatorsCopyString = makeCreditCopyString(originators, locale);
+  const publishersCopyString = makeCreditCopyString(publishers, locale);
 
-  const originatorsCopyString = !!originators.length
-    ? makeCreditCopyString(originators, locale)
-    : '';
-  const publishersCopyString = !!publishers.length
-    ? makeCreditCopyString(publishers, locale)
-    : '';
-
-  var today = new Date();
+  let today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const yyyy = today.getFullYear();
   today = `${dd}.${mm}.${yyyy}`;
 
-  const copyStringInApa7 = `${originatorsCopyString}${title} [Internett]. ${publishersCopyString}NO: Hentet fra: <u>${url}</u> Lest: ${today}`;
+  const titleCopyString = getValueOrFallback(title, 'license.copyText.noTitle');
 
-  return copyStringInApa7;
+  return `${originatorsCopyString}${titleCopyString} [${t(
+    locale,
+    'license.copyText.internet'
+  )}]. 
+    ${publishersCopyString}NO: ${t(locale, 'license.copyText.downloadedFrom')}: 
+    <u>${url}</u> ${t(locale, 'license.copyText.readDate')}: ${today}`;
 };
 
 export const getLicenenseCredits = copyright => {
