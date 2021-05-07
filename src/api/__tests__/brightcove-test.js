@@ -8,7 +8,7 @@
 
 import { getContributorGroups } from '../brightcove';
 
-test('parses contributor string correctly', async () => {
+test('parses contributor string correctly', () => {
   const fields = {
     licenseinfo: 'Opphaver: Senter for nye medier, Høgskolen i Bergen',
     licenseinfo1: 'Opphaver:Adalia film & media',
