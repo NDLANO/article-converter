@@ -15,6 +15,11 @@ import {
 } from '../utils/apiHelpers';
 
 export const fetchOembed = async (embed, accessToken, options = {}) => {
+  const url = new URL(embed.data.url);
+  if (url.hostname.includes('youtu') && url.protocol === 'http:') {
+    url.protocol = 'https:';
+    embed.data.url = url.href;
+  }
   const response = await fetch(
     apiResourceUrl(
       `/oembed-proxy/v1/oembed?${queryString.stringify({
