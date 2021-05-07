@@ -1,6 +1,14 @@
+/**
+ * Copyright (c) 2018-present, NDLA.
+ *
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 import { getContributorGroups } from '../brightcove';
 
-test('parses contributor string correctly', () => {
+test('parses contributor string correctly', async () => {
   const fields = {
     licenseinfo: 'Opphaver: Senter for nye medier, Høgskolen i Bergen',
     licenseinfo1: 'Opphaver:Adalia film & media',
