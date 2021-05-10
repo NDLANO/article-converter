@@ -104,7 +104,7 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
       </p>
     </div>
   </aside>
-  <h2>I planleggingsdelen m&#xE5; du:</h2>
+  <h2 tabindex=\\"0\\">I planleggingsdelen m&#xE5; du:</h2>
   <p>
     <strong>1.</strong> Foreta en risikovurdering, der du vurderer risikoen ved
     jobben du skal gj&#xF8;re (HMS, vernetiltak, forskrifter), samt risikoen

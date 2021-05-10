@@ -938,7 +938,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -1298,7 +1298,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -1658,7 +1658,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-347\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-347\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
