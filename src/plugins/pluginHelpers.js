@@ -95,7 +95,7 @@ export const getCopyString = (title, url, creators, locale) => {
     <u>${url}</u> ${t(locale, 'license.copyText.readDate')}: ${today}`;
 };
 
-export const getLicenenseCredits = copyright => {
+export const getLicenseCredits = copyright => {
   if (copyright.creators && copyright.creators.length > 0) {
     return copyright.creators;
   }

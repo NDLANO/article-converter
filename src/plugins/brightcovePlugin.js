@@ -25,7 +25,7 @@ import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 import {
   getCopyString,
-  getLicenenseCredits,
+  getLicenseCredits,
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
@@ -97,7 +97,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
-    const authors = getLicenenseCredits(brightcove.copyright);
+    const authors = getLicenseCredits(brightcove.copyright);
 
     const contributors = getGroupedContributorDescriptionList(
       brightcove.copyright,

@@ -24,7 +24,7 @@ import queryString from 'query-string';
 import {
   errorSvgSrc,
   getCopyString,
-  getLicenenseCredits,
+  getLicenseCredits,
 } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
@@ -212,7 +212,7 @@ export default function createImagePlugin(options = { concept: false }) {
       license: { license: licenseAbbreviation },
     } = image.copyright;
 
-    const authors = getLicenenseCredits(image.copyright);
+    const authors = getLicenseCredits(image.copyright);
 
     const altText = embedAlttext || '';
     const caption = embedCaption || '';

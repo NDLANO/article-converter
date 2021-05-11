@@ -20,7 +20,7 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import t from '../locale/i18n';
-import { getCopyString, getLicenenseCredits } from './pluginHelpers';
+import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 
@@ -121,7 +121,7 @@ export default function createAudioPlugin() {
 
     const caption = data.caption || title;
 
-    const authors = getLicenenseCredits(audio.copyright);
+    const authors = getLicenseCredits(audio.copyright);
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
