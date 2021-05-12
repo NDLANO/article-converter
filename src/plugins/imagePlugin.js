@@ -199,7 +199,7 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = (embed, locale, path) => {
     const {
       image: {
         copyright,
@@ -209,7 +209,6 @@ export default function createImagePlugin(options = { concept: false }) {
         contentType,
       },
       data: { align, size, caption: embedCaption, alt: embedAlttext },
-      path,
     } = embed;
     const {
       license: { license: licenseAbbreviation },

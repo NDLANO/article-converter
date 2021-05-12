@@ -100,7 +100,7 @@ export default function createAudioPlugin() {
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio, data, path }, locale) => {
+  const embedToHTML = ({ audio, data }, locale, path) => {
     const {
       id,
       title: { title },

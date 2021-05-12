@@ -88,8 +88,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
-    const { brightcove, data, path } = embed;
+  const embedToHTML = (embed, locale, path) => {
+    const { brightcove, data } = embed;
     const { caption } = data;
     const {
       license: { license: licenseAbbreviation },
