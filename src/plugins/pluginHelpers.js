@@ -9,6 +9,7 @@
 import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
+import config from '../config';
 
 export const wrapInFigure = (content, resize = true, concept = false) => {
   const embedClassnames = classnames(
@@ -38,7 +39,7 @@ export const makeIframeString = (url, width, height, title = '') => {
 export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,%3Csvg fill='%238A8888' height='400' viewBox='0 0 24 12' width='100%25' xmlns='http://www.w3.org/2000/svg' style='background-color: %23EFF0F2'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath transform='scale(0.3) translate(28, 8.5)' d='M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E`;
 
 const makeCreditCopyString = (roles, locale) => {
-  if (!!roles.length) {
+  if (!roles?.length) {
     return '';
   }
   return (
@@ -51,59 +52,49 @@ const makeCreditCopyString = (roles, locale) => {
   );
 };
 
-const filterCreatorList = (creators, types) => {
-  return creators.filter(creator => types.includes(creator.type.toLowerCase()));
-};
-
-const getValueOrFallback = (value, fallback, locale) => {
+const getValueOrFallback = (value, fallback) => {
   if (value === undefined) {
-    return t(locale, fallback);
+    return fallback;
   }
   return value;
 };
 
-export const getCopyString = (title, url, creators, locale) => {
-  const originatorTypes = [
-    'originator',
-    'photographer',
-    'writer',
-    'composer',
-    'director',
-    'scriptwriter',
-    'illustrator',
-    'artist',
-  ];
-  const originators = filterCreatorList(creators, originatorTypes);
-  const publisherTypes = ['publisher', 'rightsholder', 'supplier'];
-  const publishers = filterCreatorList(creators, publisherTypes);
-  const originatorsCopyString = makeCreditCopyString(originators, locale);
-  const publishersCopyString = makeCreditCopyString(publishers, locale);
-
-  let today = new Date();
+const makeDateString = () => {
+  const today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const yyyy = today.getFullYear();
-  today = `${dd}.${mm}.${yyyy}`;
+  return `${dd}.${mm}.${yyyy}`;
+};
 
-  const titleCopyString = getValueOrFallback(title, 'license.copyText.noTitle');
+export const getCopyString = (title, src, path, credits, locale) => {
+  const creators = makeCreditCopyString(credits.creators, locale);
+  const processors = makeCreditCopyString(credits.processors, locale);
+  const rightsholders = makeCreditCopyString(credits.rightsholders, locale);
+  const titleString =
+    getValueOrFallback(title, t(locale, 'license.copyText.noTitle')) + ' ';
+  const url = path ? config.ndlaFrontendDomain + path : src;
+  const date = makeDateString();
 
-  return `${originatorsCopyString}${titleCopyString} [${t(
-    locale,
-    'license.copyText.internet'
-  )}]. 
-    ${publishersCopyString}NO: ${t(locale, 'license.copyText.downloadedFrom')}: 
-    <u>${url}</u> ${t(locale, 'license.copyText.readDate')}: ${today}`;
+  // Ex: Fotograf: Ola Nordmann. Tittel [Internett]. Opphaver: NTB. Hentet fra: www.ndla.no/urn:resource:123 Lest: 04.05.2021
+  return (
+    creators +
+    processors +
+    titleString +
+    t(locale, 'license.copyText.internet') +
+    rightsholders +
+    t(locale, 'license.copyText.downloadedFrom') +
+    url +
+    t(locale, 'license.copyText.readDate') +
+    date
+  );
 };
 
 export const getLicenseCredits = copyright => {
-  if (copyright.creators && copyright.creators.length > 0) {
-    return copyright.creators;
-  }
-  if (copyright.rightsholders && copyright.rightsholders.length > 0) {
-    return copyright.rightsholders;
-  }
-  if (copyright.processors && copyright.processors.length > 0) {
-    return copyright.processors;
-  }
-  return [];
+  return {
+    creators: copyright.creators?.length > 0 ? copyright.creators : [],
+    rightsholders:
+      copyright.rightsholders?.length > 0 ? copyright.rightsholders : [],
+    processors: copyright.processors?.length > 0 ? copyright.processors : [],
+  };
 };

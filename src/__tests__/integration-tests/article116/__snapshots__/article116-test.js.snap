@@ -632,7 +632,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Regiss&#xF8;r: Wes Anderson. Offentlige debatter [Internett]. NO: Hentet fra: &lt;u&gt;https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442&lt;/u&gt; Lest: 05.05.2021\\"
+              data-copy-string=\\"Regiss&#xF8;r: Wes Anderson. Redaksjonelt: Live Marie Toft Sundbye. Offentlige debatter license.copyText.internetLeverand&#xF8;r: Senter for nye medier, H&#xF8;gskolen i Bergen. license.copyText.downloadedFromhttps://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442license.copyText.readDate12.05.2021\\"
               class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse</button

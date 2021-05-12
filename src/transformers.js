@@ -73,7 +73,7 @@ export async function transform(
       return embed;
     })
   );
-  await replaceEmbedsInHtml(embedsWithResources, lang);
+  await replaceEmbedsInHtml({...embedsWithResources, path: options.path}, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
   await executeHtmlTransforms(content, lang, options);
 

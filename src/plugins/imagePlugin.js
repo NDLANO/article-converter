@@ -21,11 +21,7 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import queryString from 'query-string';
-import {
-  errorSvgSrc,
-  getCopyString,
-  getLicenseCredits,
-} from './pluginHelpers';
+import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -205,14 +201,22 @@ export default function createImagePlugin(options = { concept: false }) {
 
   const embedToHTML = (embed, locale) => {
     const {
-      image,
+      image: {
+        copyright,
+        imageUrl,
+        title: { title },
+        id,
+        contentType,
+      },
       data: { align, size, caption: embedCaption, alt: embedAlttext },
+      path,
     } = embed;
     const {
       license: { license: licenseAbbreviation },
-    } = image.copyright;
+      origin,
+    } = copyright;
 
-    const authors = getLicenseCredits(image.copyright);
+    const authors = getLicenseCredits(copyright);
 
     const altText = embedAlttext || '';
     const caption = embedCaption || '';
@@ -237,60 +241,57 @@ export default function createImagePlugin(options = { concept: false }) {
     const crop = getCrop(embed.data);
 
     const contributors = getGroupedContributorDescriptionList(
-      image.copyright,
+      copyright,
       locale
     ).map(item => ({
       name: item.description,
       type: item.label,
     }));
 
-    const copyString = getCopyString(
-      image.title.title,
-      image.imageUrl,
-      authors,
-      locale
-    );
-    const figureId = `figure-${image.id}`;
+    const copyString = getCopyString(title, imageUrl, path, authors, locale);
+    const figureId = `figure-${id}`;
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }) => (
           <>
             <ImageWrapper
-              src={image.imageUrl}
+              src={imageUrl}
               crop={crop}
               size={size}
               typeClass={typeClass}
               locale={locale}>
               <Image
                 focalPoint={focalPoint}
-                contentType={image.contentType}
+                contentType={contentType}
                 crop={crop}
                 sizes={sizes}
                 alt={altText}
-                src={image.imageUrl}
+                src={imageUrl}
               />
             </ImageWrapper>
             <FigureCaption
               hideFigcaption={isSmall(size)}
               figureId={figureId}
-              id={`${image.id}`}
+              id={`${id}`}
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={authors}
+              authors={
+                authors.creators || authors.rightsholders || authors.processors
+              }
               locale={locale}>
               <FigureLicenseDialog
-                id={`${image.id}`}
-                title={image.title.title}
+                id={`${id}`}
+                title={title}
                 license={license}
                 authors={contributors}
-                origin={image.copyright.origin}
+                origin={origin}
                 locale={locale}
                 messages={messages}>
                 <ImageActionButtons
                   locale={locale}
                   copyString={copyString}
-                  src={image.imageUrl}
+                  src={imageUrl}
                   license={licenseAbbreviation}
                 />
               </FigureLicenseDialog>

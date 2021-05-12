@@ -89,7 +89,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
   };
 
   const embedToHTML = (embed, locale) => {
-    const { brightcove, data } = embed;
+    const { brightcove, data, path } = embed;
     const { caption } = data;
     const {
       license: { license: licenseAbbreviation },
@@ -111,7 +111,13 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const { download } = getMetaData(embed);
 
-    const copyString = getCopyString(brightcove.name, src, authors, locale);
+    const copyString = getCopyString(
+      brightcove.name,
+      src,
+      path,
+      authors,
+      locale
+    );
 
     const messages = {
       title: t(locale, 'title'),
@@ -145,7 +151,9 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={authors}
+          authors={
+            authors.creators || authors.rightsholders || authors.processors
+          }
         />
         <FigureLicenseDialog
           id={id}

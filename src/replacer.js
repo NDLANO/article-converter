@@ -16,7 +16,7 @@ async function asyncForEach(array, callback) {
   }
 }
 
-export async function replaceEmbedsInHtml(embeds, lang) {
+export async function replaceEmbedsInHtml(embeds, lang, path) {
   return asyncForEach(embeds, async embed => {
     const plugin = embed.plugin;
     if (embed.status === 'error') {
@@ -25,7 +25,7 @@ export async function replaceEmbedsInHtml(embeds, lang) {
         : `<strong style="color: #FE5F55">${t.error}</strong>`;
       embed.embed.replaceWith(html);
     } else if (plugin) {
-      const html = await plugin.embedToHTML(embed, lang);
+      const html = await plugin.embedToHTML(embed, lang, path);
       embed.embed.replaceWith(html);
     } else if (embed.embed.attr('data-resource') === 'file') {
       // do nothing

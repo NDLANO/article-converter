@@ -33,10 +33,12 @@ module.exports.setup = function routes(app) {
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
+    const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       isOembed: isOembed === 'true',
       filters,
       subject,
+      path,
     })
       .then(article => {
         res.json(article);
@@ -60,10 +62,12 @@ module.exports.setup = function routes(app) {
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
+    const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       isOembed: isOembed === 'true',
       filters,
       subject,
+      path,
     })
       .then(article => {
         res.send(htmlTemplate(lang, article.title, article));
