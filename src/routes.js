@@ -19,6 +19,24 @@ import log from './utils/logger';
 
 // Sets up the routes.
 module.exports.setup = function routes(app) {
+  app.get('/article-converter/json/:lang/meta-data', (req, res) => {
+    const embed = req.query.embed;
+    const accessToken = req.headers.authorization;
+    const lang = getHtmlLang(defined(req.params.lang, ''));
+    fetchEmbedMetaData(embed, accessToken, lang)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(error => {
+        log.error(error);
+        const response = getAppropriateErrorResponse(
+          error,
+          config.isProduction
+        );
+        res.status(response.status).json(response);
+      });
+  });
+
   app.get('/article-converter/raw/:lang/:id', (req, res) => {
     const url = req.url.replace('raw', 'json');
     res.redirect(url);
@@ -77,24 +95,6 @@ module.exports.setup = function routes(app) {
           config.isProduction
         );
         res.status(response.status).send(htmlErrorTemplate(lang, response));
-      });
-  });
-
-  app.get('/article-converter/json/meta-data', (req, res) => {
-    const embed = req.query.embed;
-    const accessToken = req.headers.authorization;
-    const lang = getHtmlLang(defined(req.params.lang, ''));
-    fetchEmbedMetaData(embed, accessToken, lang)
-      .then(data => {
-        res.json(data);
-      })
-      .catch(error => {
-        log.error(error);
-        const response = getAppropriateErrorResponse(
-          error,
-          config.isProduction
-        );
-        res.status(response.status).json(response);
       });
   });
 

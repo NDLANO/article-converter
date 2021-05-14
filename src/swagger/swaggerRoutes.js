@@ -252,6 +252,180 @@ module.exports = {
       },
     },
   },
+  getMetaData: {
+    get: {
+      summary: 'Returns meta data of embeds',
+      produces: ['application/json'],
+      parameters: [
+        {
+          in: 'path',
+          name: 'language',
+          description: 'The ISO 639-1 language code describing language.',
+          required: true,
+          type: 'string',
+        },
+        {
+          $ref: '#/parameters/authorizationHeader',
+        },
+        {
+          in: 'query',
+          name: 'embed',
+          description: 'Embed tags to fetch meta data for',
+          required: true,
+          type: 'string',
+        },
+      ],
+      security: [
+        {
+          oauth2: [],
+        },
+      ],
+      responses: {
+        '200': {
+          description: 'OK',
+          schema: {
+            type: 'object',
+            properties: {
+              images: {
+                type: 'array',
+                description: 'Array of meta data images.',
+                items: {
+                  type: 'object',
+                  properties: {
+                    title: {
+                      type: 'string',
+                      description: 'Meta image title',
+                      example: 'Foo',
+                    },
+                    altText: {
+                      type: 'string',
+                      description: 'Meta image alt text',
+                      example: 'Bar',
+                    },
+                    copyright: {
+                      $ref: '#/definitions/copyright',
+                    },
+                    src: {
+                      type: 'string',
+                      description: 'Meta image src',
+                      example:
+                        'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                    },
+                  },
+                },
+              },
+              h5ps: {
+                type: 'array',
+                description: 'Array of meta data h5ps',
+                items: {
+                  type: 'object',
+                  description: 'H5P object',
+                  properties: {
+                    h5p: {
+                      $ref: '#/definitions/h5p',
+                    },
+                    assets: {
+                      type: 'array',
+                      description: 'Array of assets used in the h5p',
+                      items: {
+                        $ref: '#/definitions/h5p',
+                      },
+                    },
+                    h5pLibrary: {
+                      type: 'object',
+                      properties: {
+                        name: {
+                          type: 'string',
+                          description: 'H5P library name',
+                          example: 'Foo',
+                        },
+                        majorVersion: {
+                          type: 'integer',
+                          description: 'Major version',
+                          example: 1,
+                        },
+                        mainorVersion: {
+                          type: 'integer',
+                          description: 'Minor version',
+                          example: 7,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+              brightcoves: {
+                type: 'array',
+                description: 'Array of meta data brightcove videos',
+                items: {
+                  type: 'object',
+                  properties: {
+                    title: {
+                      type: 'string',
+                      description: 'Video title',
+                      example: 'Foo',
+                    },
+                    description: {
+                      type: 'string',
+                      description: 'Video description',
+                      example: 'Foo',
+                    },
+                    copyright: {
+                      $ref: '#/definitions/copyright',
+                    },
+                    cover: {
+                      type: 'string',
+                      description: 'Cover image url',
+                      example:
+                        'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                    },
+                    src: {
+                      type: 'string',
+                      description: 'Video source url',
+                      example:
+                        'https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=6206610074001',
+                    },
+                    iframe: {
+                      type: 'object',
+                      properties: {
+                        src: {
+                          type: 'string',
+                          description: 'Iframe source url',
+                          example:
+                            'https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=6206610074001',
+                        },
+                        height: {
+                          type: 'integer',
+                          description: 'Iframe height',
+                          example: 720,
+                        },
+                        width: {
+                          type: 'integer',
+                          description: 'Iframe width',
+                          example: 1280,
+                        },
+                      },
+                    },
+                    uploadDate: {
+                      type: 'string',
+                      description: 'Upload date',
+                      example: '2020-11-03T07:49:16.299Z',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        '401': {
+          description: 'Unauthorized',
+        },
+        '404': {
+          description: 'Not found',
+        },
+      },
+    },
+  },
   postJsonTransformArticle: {
     post: {
       summary:
