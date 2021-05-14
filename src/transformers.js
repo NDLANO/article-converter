@@ -33,20 +33,8 @@ async function executeHtmlTransforms(content, lang, options) {
   );
 }
 
-export async function transform(
-  content,
-  lang,
-  accessToken,
-  visualElement,
-  options
-) {
-  if (visualElement && visualElement.visualElement) {
-    content('body').prepend(
-      `<section>${visualElement.visualElement}</section>`
-    );
-  }
-  const embeds = await getEmbedsFromHtml(content, { transform, ...options });
-  const embedsWithResources = await Promise.all(
+export async function getEmbedsResources(embeds, accessToken, lang) {
+  return Promise.all(
     embeds.map(async embed => {
       const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
@@ -72,6 +60,26 @@ export async function transform(
       }
       return embed;
     })
+  );
+}
+
+export async function transform(
+  content,
+  lang,
+  accessToken,
+  visualElement,
+  options
+) {
+  if (visualElement && visualElement.visualElement) {
+    content('body').prepend(
+      `<section>${visualElement.visualElement}</section>`
+    );
+  }
+  const embeds = await getEmbedsFromHtml(content, { transform, ...options });
+  const embedsWithResources = await getEmbedsResources(
+    embeds,
+    accessToken,
+    lang
   );
   await replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);

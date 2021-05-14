@@ -10,6 +10,7 @@ import defined from 'defined';
 import fetchAndTransformArticle, {
   transformArticle,
 } from './fetchAndTransformArticle';
+import fetchEmbedMetaData from './fetchEmbedMetaData';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getHtmlLang } from './locale/configureLocale';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
@@ -76,6 +77,24 @@ module.exports.setup = function routes(app) {
           config.isProduction
         );
         res.status(response.status).send(htmlErrorTemplate(lang, response));
+      });
+  });
+
+  app.get('/article-converter/json/meta-data', (req, res) => {
+    const embed = req.query.embed;
+    const accessToken = req.headers.authorization;
+    const lang = getHtmlLang(defined(req.params.lang, ''));
+    fetchEmbedMetaData(embed, accessToken, lang)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(error => {
+        log.error(error);
+        const response = getAppropriateErrorResponse(
+          error,
+          config.isProduction
+        );
+        res.status(response.status).json(response);
       });
   });
 
