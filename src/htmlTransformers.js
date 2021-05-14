@@ -174,6 +174,8 @@ export const htmlTransforms = [
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
+  content => content('h2').attr('tabindex', '0'),
+  content => content('h3').attr('tabindex', '0'),
   resetOrderedLists,
   transformTables,
   transformFileList,
