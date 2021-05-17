@@ -25,7 +25,9 @@ module.exports.setup = function routes(app) {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     fetchEmbedMetaData(embed, accessToken, lang)
       .then(data => {
-        res.json(data);
+        res.json({
+          metaData: data,
+        });
       })
       .catch(error => {
         log.error(error);
