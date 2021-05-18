@@ -12,7 +12,7 @@ definitions:
     content:
       content: string
       language: string
-      exmaple: '<section>some text</section>'
+      example: '<section>some text</section>'
     title:
       title: string
       language: string
