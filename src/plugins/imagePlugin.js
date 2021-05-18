@@ -172,8 +172,19 @@ export default function createImagePlugin(options = { concept: false }) {
   const getMetaData = (embed, path, locale) => {
     const { image } = embed;
     if (image) {
-      const { title: {title}, alttext: {alttext}, copyright, imageUrl } = image;
-      const copyString = getCopyString(title, imageUrl, path, copyright, locale);
+      const {
+        title: { title },
+        alttext: { alttext },
+        copyright,
+        imageUrl,
+      } = image;
+      const copyString = getCopyString(
+        title,
+        imageUrl,
+        path,
+        copyright,
+        locale
+      );
       return {
         title: title,
         altText: alttext,

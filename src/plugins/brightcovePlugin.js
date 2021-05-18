@@ -57,8 +57,14 @@ export default function createBrightcovePlugin(options = { concept: false }) {
         .filter(source => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
       const iframeProps = getIframeProps(data, brightcove.sources);
-      const {name, description, copyright, published_at } = brightcove;
-      const copyString = getCopyString(name, iframeProps.src, path, copyright, locale);
+      const { name, description, copyright, published_at } = brightcove;
+      const copyString = getCopyString(
+        name,
+        iframeProps.src,
+        path,
+        copyright,
+        locale
+      );
       return {
         title: name,
         description: description,

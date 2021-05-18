@@ -24,7 +24,13 @@ export async function transformArticle(
         options
       )
     : {};
-  const copyText = getCopyString(article.title.title, config.ndlaFrontendDomain, options.path, article.copyright, lang);
+  const copyText = getCopyString(
+    article.title.title,
+    config.ndlaFrontendDomain,
+    options.path,
+    article.copyright,
+    lang
+  );
 
   return {
     ...article,

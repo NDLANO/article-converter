@@ -86,6 +86,7 @@ export const getCopyString = (title, src, path, copyright, locale) => {
     rightsholders +
     t(locale, 'license.copyText.downloadedFrom') +
     url +
+    ' ' +
     t(locale, 'license.copyText.readDate') +
     date
   );

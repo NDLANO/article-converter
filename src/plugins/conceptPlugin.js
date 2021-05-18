@@ -22,7 +22,7 @@ import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import {getCopyString} from "./pluginHelpers";
+import { getCopyString } from './pluginHelpers';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -60,7 +60,11 @@ export default function createConceptPlugin(options = {}) {
   const getMetaData = (embed, path, locale) => {
     const { concept } = embed;
     if (concept) {
-      const { title: {title},  copyright,  source } = concept;
+      const {
+        title: { title },
+        copyright,
+        source,
+      } = concept;
       const copyString = getCopyString(title, source, path, copyright, locale);
       return {
         title: concept.title.title,

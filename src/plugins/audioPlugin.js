@@ -33,7 +33,11 @@ export default function createAudioPlugin() {
   const getMetaData = (embed, path, locale) => {
     const { audio } = embed;
     if (audio) {
-      const { title: {title},  copyright,  audioFile: {url} } = audio;
+      const {
+        title: { title },
+        copyright,
+        audioFile: { url },
+      } = audio;
       const copyString = getCopyString(title, url, path, copyright, locale);
       return {
         title: audio.title.title,

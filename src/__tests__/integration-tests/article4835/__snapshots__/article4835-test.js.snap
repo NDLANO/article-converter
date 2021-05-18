@@ -22,7 +22,9 @@ Object {
   "created": "2018-06-07T08:44:29Z",
   "id": 4835,
   "introduction": "Forslag til årsplan for faget Matematikk Vg1P. Ligg vedlagt i ulike filformat slik at du kan endre og redigere.",
-  "metaData": Object {},
+  "metaData": Object {
+    "copyText": "Forfatter: Grete Larsen. Forslag til årsplan [Internett]. Hentet fra: https://test.ndla.no Lest: 18.05.2021",
+  },
   "metaDescription": "Forslag til årsplan for faget Matematikk Vg1P. Ligg vedlagt i ulike filformat slik at du kan endre og redigere.",
   "metaImage": Object {
     "alt": "Eit bilde",
