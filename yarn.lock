@@ -1319,10 +1319,10 @@
   resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-0.7.5.tgz#2a7ea0f304354b0ed5d389f6fe2f171033533bab"
   integrity sha512-+3+y5zskO1UWH7YQF6mhN5ko20JV7he2mAdiiDxJAKAkOug9c64gQMjO3d4CesLLRyw8qtF4YcKLSGf36/EZqQ==
 
-"@ndla/licenses@^0.6.47":
-  version "0.6.47"
-  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.6.47.tgz#c4211c438035fa62412ec82e74e60c85d1da6eca"
-  integrity sha512-VGOBUVaPplNOkoKo6mbWW1qorTTV/K3E0GSwGWCtNRWTuXJEPYFK6CaPn4TZn6uBVHep6FiqR4dg7CGIT6ZYLQ==
+"@ndla/licenses@^0.6.49":
+  version "0.6.49"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-0.6.49.tgz#70cfd5a64e5a37abd93c93e3179f5dfd60e8d80d"
+  integrity sha512-oQUn73UKKfVI2EDcTI/s3YrHqc1wK614Q4385N2BXGMFODEvdG1CfPZiUSAuLMFYln0TPSN/xYByuNSYg8yhug==
   dependencies:
     "@ndla/core" "^0.6.38"
     "@ndla/icons" "^0.7.5"
@@ -1339,13 +1339,13 @@
     "@ndla/util" "^0.4.5"
     "@reach/dialog" "^0.2.9"
 
-"@ndla/notion@^0.3.11":
-  version "0.3.11"
-  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.3.11.tgz#c762634c1614a62d36caa877169ba7d3b980a788"
-  integrity sha512-zUwBBFjoHbI03Otj0v81AQ0JCyqq9RMi71qTlleZANnMLgS/o2xbjPnUzpG8flDB/EbEPx4dBwMwaPCkUbmcPg==
+"@ndla/notion@^0.3.13":
+  version "0.3.13"
+  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-0.3.13.tgz#930bc5f83e7d7e3094f8c11f4c7baedc0786a9d6"
+  integrity sha512-vRmqi8/xo+RBm8l+JT1dnaU3L1REPvlHNlDMeVmlUa7TE59MCJS/Ew1G/fTaCfJqdJsyMFMXNCu9MyXWKenm7g==
   dependencies:
     "@ndla/core" "^0.6.38"
-    "@ndla/licenses" "^0.6.47"
+    "@ndla/licenses" "^0.6.49"
     "@ndla/modal" "^0.4.45"
 
 "@ndla/safelink@^0.0.8":
@@ -1376,10 +1376,10 @@
   dependencies:
     "@ndla/core" "^0.6.38"
 
-"@ndla/ui@^0.34.3":
-  version "0.34.3"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.34.3.tgz#4352ec3b7fd8165c8cd8837cd740b25e0a9caaac"
-  integrity sha512-/ZZE6oeLU+b1lx7u0cTe/326N0ikDqCuSzHPROyys/mD+LXcfFDbt7e7jWLNVxLlrk3x3ghgQi4h+XMzhWMtKg==
+"@ndla/ui@^0.34.7":
+  version "0.34.7"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-0.34.7.tgz#e23f61776b9b099135943e4364110d47ca0dc968"
+  integrity sha512-GPo5JT+tdaTze/zxM2QSS3skhwUlVxZtaZvzOyWJOzCevjVR+KX74HfH5dmHFC4x2+lwAdyz8b81SA2WKKQOdg==
   dependencies:
     "@ndla/button" "^0.3.54"
     "@ndla/carousel" "^0.3.40"
@@ -1387,7 +1387,7 @@
     "@ndla/hooks" "^0.1.19"
     "@ndla/i18n" "^0.5.2"
     "@ndla/icons" "^0.7.5"
-    "@ndla/licenses" "^0.6.47"
+    "@ndla/licenses" "^0.6.49"
     "@ndla/modal" "^0.4.45"
     "@ndla/safelink" "^0.0.8"
     "@ndla/switch" "^0.0.27"
