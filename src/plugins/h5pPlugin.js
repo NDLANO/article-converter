@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { fetchOembed } from '../api/oembedProxyApi';
-import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
+import { wrapInFigure, errorSvgSrc, getCopyString } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { fetchH5pLicenseInformation, fetchPreviewOembed } from '../api/h5pApi';

@@ -67,7 +67,8 @@ const makeDateString = () => {
   return `${dd}.${mm}.${yyyy}`;
 };
 
-export const getCopyString = (title, src, path, credits, locale) => {
+export const getCopyString = (title, src, path, copyright, locale) => {
+  const credits = getLicenseCredits(copyright);
   const creators = makeCreditCopyString(credits.creators, locale);
   const processors = makeCreditCopyString(credits.processors, locale);
   const rightsholders = makeCreditCopyString(credits.rightsholders, locale);

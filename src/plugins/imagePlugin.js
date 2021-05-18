@@ -169,14 +169,17 @@ export default function createImagePlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, language) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = embed => {
+  const getMetaData = (embed, path, locale) => {
     const { image } = embed;
     if (image) {
+      const { title: {title}, alttext: {alttext}, copyright, imageUrl } = image;
+      const copyString = getCopyString(title, imageUrl, path, copyright, locale);
       return {
-        title: image.title.title,
-        altText: image.alttext.alttext,
-        copyright: image.copyright,
-        src: image.imageUrl,
+        title: title,
+        altText: alttext,
+        copyright: copyright,
+        src: imageUrl,
+        copyText: copyString,
       };
     }
   };
@@ -199,7 +202,7 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale, path) => {
+  const embedToHTML = (embed, path, locale) => {
     const {
       image: {
         copyright,
@@ -247,7 +250,7 @@ export default function createImagePlugin(options = { concept: false }) {
       type: item.label,
     }));
 
-    const copyString = getCopyString(title, imageUrl, path, authors, locale);
+    const copyString = getCopyString(title, imageUrl, path, copyright, locale);
     const figureId = `figure-${id}`;
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
