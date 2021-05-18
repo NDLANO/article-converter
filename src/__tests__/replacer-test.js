@@ -20,7 +20,7 @@ import {
   createFootnotePlugin,
 } from '../plugins';
 
-Date.now = jest.fn(() => new Date(Date.UTC(2021, 4, 19).valueOf()))
+Date.now = jest.fn(() => new Date(Date.UTC(2021, 4, 19).valueOf()));
 
 test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => {
   const articleContent = cheerio.load(

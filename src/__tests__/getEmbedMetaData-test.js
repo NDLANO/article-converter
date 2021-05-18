@@ -16,7 +16,7 @@ const audioPlugin = createAudioPlugin();
 const brightcovePlugin = createBrightcovePlugin();
 
 test('get meta data from embeds', async () => {
-  Date.now = jest.fn(() => new Date(Date.UTC(2021, 4, 19).valueOf()))
+  Date.now = jest.fn(() => new Date(Date.UTC(2021, 4, 19).valueOf()));
 
   const embeds = [
     {
