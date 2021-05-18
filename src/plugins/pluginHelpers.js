@@ -60,7 +60,8 @@ const getValueOrFallback = (value, fallback) => {
 };
 
 const makeDateString = () => {
-  const today = new Date();
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const yyyy = today.getFullYear();

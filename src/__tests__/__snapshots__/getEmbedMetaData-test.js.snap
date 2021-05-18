@@ -4,7 +4,7 @@ exports[`get meta data from embeds 1`] = `
 Object {
   "audios": Array [
     Object {
-      "copyText": "Tittel [Internett]. Hentet fra: http://audio.no/file/voof.mp3 Lest: 18.05.2021",
+      "copyText": "Tittel [Internett]. Hentet fra: http://audio.no/file/voof.mp3 Lest: 19.05.2021",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
@@ -14,7 +14,7 @@ Object {
   ],
   "brightcoves": Array [
     Object {
-      "copyText": "video title [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=1337 Lest: 18.05.2021",
+      "copyText": "video title [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=1337 Lest: 19.05.2021",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
@@ -31,7 +31,7 @@ Object {
       "uploadDate": "2020-01-01T11:12:13.456Z",
     },
     Object {
-      "copyText": "Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=42 Lest: 18.05.2021",
+      "copyText": "Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=42 Lest: 19.05.2021",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
@@ -51,7 +51,7 @@ Object {
   "images": Array [
     Object {
       "altText": "alt",
-      "copyText": "title [Internett]. Hentet fra: http://example.no/1234.jpg Lest: 18.05.2021",
+      "copyText": "title [Internett]. Hentet fra: http://example.no/1234.jpg Lest: 19.05.2021",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },

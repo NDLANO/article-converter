@@ -1295,7 +1295,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Forfatter: name. Forlag: name. Tittel [Internett]. Bearbeider: name. Hentet fra: http://audio.no/file/voof.mp3 Lest: 18.05.2021\\"
+                  data-copy-string=\\"Forfatter: name. Forlag: name. Tittel [Internett]. Bearbeider: name. Hentet fra: http://audio.no/file/voof.mp3 Lest: 19.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
@@ -1987,7 +1987,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1 Lest: 18.05.2021\\"
+                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1 Lest: 19.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
@@ -2693,7 +2693,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2 Lest: 18.05.2021\\"
+                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2 Lest: 19.05.2021\\"
                   class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
                 >
                   Kopier referanse</button
