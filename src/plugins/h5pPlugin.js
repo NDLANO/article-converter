@@ -66,7 +66,32 @@ export default function createH5pPlugin(options = { concept: false }) {
       </figure>
     );
 
-  const getMetaData = embed => embed?.embed?.h5p || null;
+  const mapRole = role => {
+    const objRoles = {
+      Author: 'Writer',
+      Editor: 'Editorial',
+      Licensee: 'Rightsholder',
+    };
+    return objRoles[role] || role;
+  };
+
+  const getMetaData = (embed, path, locale) => {
+    const h5p = embed?.embed?.h5p;
+    if (h5p) {
+      const {
+        h5p: { title, authors },
+        url,
+      } = h5p;
+      const creators = authors.map(author => {
+        return { name: author.name, type: mapRole(author.role) };
+      });
+      const copyString = getCopyString(title, url, path, { creators }, locale);
+      return {
+        ...h5p,
+        copyText: copyString,
+      };
+    }
+  };
 
   return {
     resource: 'h5p',
