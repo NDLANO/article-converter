@@ -275,7 +275,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                ><button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -302,7 +305,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -330,7 +336,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -359,7 +368,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -402,7 +414,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       </footer>
     </figcaption>
   </figure>
-  <h2>Verdens beste land &#xE5; leve i?</h2>
+  <h2 tabindex=\\"0\\">Verdens beste land &#xE5; leve i?</h2>
   <p>
     Vi h&#xF8;rer ofte at Norge er et av verdens beste land &#xE5; leve i.
     LIkevel h&#xF8;rer vi like ofte at folk klager over prisniv&#xE5;et p&#xE5;
@@ -419,7 +431,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     p&#xE5; f&#xF8;rsteplass p&#xE5; FNs utviklingsindeks (Human Development
     Index, HDI). P&#xE5; de neste plassene ligger Australia og Sveits.
   </p>
-  <h2>Forventet levealder</h2>
+  <h2 tabindex=\\"0\\">Forventet levealder</h2>
   <p>
     Norge har h&#xF8;y forventet levealder, en viktig faktor i
     levek&#xE5;rsstatistikken, og den gjennomsnittlige levealderen har &#xF8;kt
@@ -438,7 +450,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     ligger lavt p&#xE5; indeksen som Etiopia har forventet levealder p&#xE5; 66
     &#xE5;r for kvinner og 62,2 &#xE5;r for menn. (alle tall fra 2014)
   </p>
-  <h2>Utdanning</h2>
+  <h2 tabindex=\\"0\\">Utdanning</h2>
   <p>
     N&#xE5;r det gjelder utdanning, ligger Norge p&#xE5; tredjeplass etter
     Australia og New Zealand (2013).<span id=\\"ref2\\" class=\\"c-footnotes__ref\\"
@@ -459,7 +471,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       ><sup><a href=\\"#note3\\" target=\\"_self\\">[3]</a></sup></span
     >
   </p>
-  <h2>Inntekt</h2>
+  <h2 tabindex=\\"0\\">Inntekt</h2>
   <p>
     Det er viktig &#xE5; forst&#xE5; at inntekt er et videre begrep enn
     l&#xF8;nn. Inntekt dekker b&#xE5;de l&#xF8;nn fra arbeid, inntekter fra
@@ -483,7 +495,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     er l&#xF8;nn f&#xF8;r skatt, og at prisene i Norge er forholdsvis h&#xF8;ye
     sammenliknet med andre land.
   </p>
-  <h2>Sysselsetting</h2>
+  <h2 tabindex=\\"0\\">Sysselsetting</h2>
   <p>
     I Norge har vi n&#xE5; liten arbeidsledighet. Ved utgangen av juni i 2017
     var arbeidsledigheten 4,6 prosent. I norsk sammenheng er dette h&#xF8;yt,
@@ -507,13 +519,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
-              .css-fng95w-StyledList-StyledList {
+            <style data-emotion-css=\\"jiv22l-StyledList-StyledList\\">
+              .css-jiv22l-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -528,16 +540,16 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type {
+              .css-jiv22l-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type svg {
+              .css-jiv22l-StyledList-StyledList li:first-of-type svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-jiv22l-StyledList-StyledList e1vg7nmp0\\">
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg

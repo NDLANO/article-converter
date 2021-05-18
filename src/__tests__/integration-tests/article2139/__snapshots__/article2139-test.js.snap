@@ -297,7 +297,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                ><button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -324,7 +327,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -352,7 +358,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -381,7 +390,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -574,7 +586,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                ><button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -601,7 +616,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -629,7 +647,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -658,7 +679,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -831,7 +855,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                     -webkit-animation-duration: 200ms;
                     animation-duration: 200ms;
                   }</style
-                ><button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                ><button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -858,7 +885,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -886,7 +916,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 </button>
               </li>
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
-                <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
+                <button
+                  type=\\"button\\"
+                  class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\"
+                >
                   <svg
                     fill=\\"currentColor\\"
                     preserveAspectRatio=\\"xMidYMid meet\\"
@@ -942,13 +975,13 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
-              .css-fng95w-StyledList-StyledList {
+            <style data-emotion-css=\\"jiv22l-StyledList-StyledList\\">
+              .css-jiv22l-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -963,16 +996,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type {
+              .css-jiv22l-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type svg {
+              .css-jiv22l-StyledList-StyledList li:first-of-type svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-jiv22l-StyledList-StyledList e1vg7nmp0\\">
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
@@ -1302,13 +1335,13 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
-              .css-fng95w-StyledList-StyledList {
+            <style data-emotion-css=\\"jiv22l-StyledList-StyledList\\">
+              .css-jiv22l-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -1323,16 +1356,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type {
+              .css-jiv22l-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type svg {
+              .css-jiv22l-StyledList-StyledList li:first-of-type svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-jiv22l-StyledList-StyledList e1vg7nmp0\\">
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
@@ -1662,13 +1695,13 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-347\\" class=\\"c-figure-license__title\\">
+        <h3 id=\\"heading-347\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"fng95w-StyledList-StyledList\\">
-              .css-fng95w-StyledList-StyledList {
+            <style data-emotion-css=\\"jiv22l-StyledList-StyledList\\">
+              .css-jiv22l-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -1683,16 +1716,16 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type {
+              .css-jiv22l-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-fng95w-StyledList-StyledList li:first-of-type svg {
+              .css-jiv22l-StyledList-StyledList li:first-of-type svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-fng95w-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-jiv22l-StyledList-StyledList e1vg7nmp0\\">
               <li class=\\"css-bq143f-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-49oex1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg

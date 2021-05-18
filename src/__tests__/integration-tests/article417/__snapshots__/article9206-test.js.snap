@@ -88,7 +88,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
       >Scratch p&#xE5; norsk</a
     >.
   </p>
-  <h2>Endre innhold</h2>
+  <h2 tabindex=\\"0\\">Endre innhold</h2>
   <p>
     Vi kan ha behov for &#xE5; endre innhold p&#xE5; nettsidene v&#xE5;re basert
     p&#xE5; hva brukeren gj&#xF8;r. For enkelhets skyld viser vi her skript
@@ -115,14 +115,14 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
     <em>getElementByTagName</em> en <strong>funksjon</strong>. En funksjon
     beregner eller gj&#xF8;r noe, mens en variabel lagrer eller husker for oss.
   </p>
-  <h2>Endre stiler</h2>
+  <h2 tabindex=\\"0\\">Endre stiler</h2>
   <p>&#xC5; endre layout, synlighet og design er enda mer vanlig:</p>
   <pre><code>&lt;h1 <strong>onclick</strong>=&quot;style=&apos;background:yellow&apos;&quot;&gt;Min overskrift&lt;/h1&gt;<br></code></pre>
   <p>
     Med denne koden f&#xE5;r overskriften gul bakgrunnsfarge. Med stiler kan vi
     endre b&#xE5;de synlighet, st&#xF8;rrelse, animasjon og annet.
   </p>
-  <h2>Validering</h2>
+  <h2 tabindex=\\"0\\">Validering</h2>
   <p>
     Mange nettsider har ulike skjema. Det kan v&#xE6;re for s&#xF8;k eller
     innsending av foresp&#xF8;rsler. Her kan det fort bli feiltasting siden
