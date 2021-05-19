@@ -75,7 +75,7 @@ export default function createH5pPlugin(options = { concept: false }) {
     return objRoles[role] || role;
   };
 
-  const getMetaData = (embed, locale, path) => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const h5p = embed?.embed?.h5p;
     if (h5p) {
       const {
@@ -85,7 +85,7 @@ export default function createH5pPlugin(options = { concept: false }) {
       const creators = authors.map(author => {
         return { name: author.name, type: mapRole(author.role) };
       });
-      const copyString = getCopyString(title, url, path, { creators }, locale);
+      const copyString = getCopyString(title, url, metaOptions.path, { creators }, locale);
       return {
         ...h5p,
         copyText: copyString,

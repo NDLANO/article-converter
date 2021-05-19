@@ -30,7 +30,7 @@ export default function createAudioPlugin() {
   const fetchResource = (embed, accessToken, language) =>
     fetchAudio(embed, accessToken, language);
 
-  const getMetaData = (embed, locale, path) => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -38,7 +38,7 @@ export default function createAudioPlugin() {
         copyright,
         audioFile: { url },
       } = audio;
-      const copyString = getCopyString(title, url, path, copyright, locale);
+      const copyString = getCopyString(title, url, metaOptions.path, copyright, locale);
       return {
         title: audio.title.title,
         copyright: audio.copyright,
@@ -107,7 +107,7 @@ export default function createAudioPlugin() {
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio, data }, locale, path) => {
+  const embedToHTML = ({ audio, data }, locale, htmlOptions) => {
     const {
       id,
       title: { title },
@@ -150,7 +150,7 @@ export default function createAudioPlugin() {
       source: t(locale, 'source'),
     };
 
-    const copyString = getCopyString(title, url, path, audio.copyright, locale);
+    const copyString = getCopyString(title, url, htmlOptions.path, audio.copyright, locale);
     return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />

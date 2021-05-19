@@ -50,7 +50,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     };
   };
 
-  const getMetaData = (embed, locale, path) => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources
@@ -61,7 +61,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       const copyString = getCopyString(
         name,
         iframeProps.src,
-        path,
+        metaOptions.path,
         copyright,
         locale
       );
@@ -97,7 +97,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale, path) => {
+  const embedToHTML = (embed, locale, htmlOptions) => {
     const { brightcove, data } = embed;
     const { caption } = data;
     const {
@@ -123,7 +123,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const copyString = getCopyString(
       brightcove.name,
       src,
-      path,
+      htmlOptions.path,
       brightcove.copyright,
       locale
     );
