@@ -26,11 +26,11 @@ import { render } from '../utils/render';
 
 const Anchor = StyledButton.withComponent('a');
 
-export default function createAudioPlugin() {
+export default function createAudioPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
     fetchAudio(embed, accessToken, language);
 
-  const getMetaData = (embed, locale, metaOptions) => {
+  const getMetaData = (embed, locale) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -41,7 +41,7 @@ export default function createAudioPlugin() {
       const copyString = getCopyString(
         title,
         url,
-        metaOptions?.path,
+        options.path,
         copyright,
         locale
       );
@@ -113,7 +113,7 @@ export default function createAudioPlugin() {
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio, data }, locale, htmlOptions) => {
+  const embedToHTML = ({ audio, data }, locale) => {
     const {
       id,
       title: { title },
@@ -159,7 +159,7 @@ export default function createAudioPlugin() {
     const copyString = getCopyString(
       title,
       url,
-      htmlOptions?.path,
+      options.path,
       audio.copyright,
       locale
     );

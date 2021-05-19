@@ -169,7 +169,7 @@ export default function createImagePlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, language) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = (embed, locale, metaOptions) => {
+  const getMetaData = (embed, locale) => {
     const { image } = embed;
     if (image) {
       const {
@@ -181,7 +181,7 @@ export default function createImagePlugin(options = { concept: false }) {
       const copyString = getCopyString(
         title,
         imageUrl,
-        metaOptions?.path,
+        options.path,
         copyright,
         locale
       );
@@ -213,7 +213,7 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale, htmlOptions) => {
+  const embedToHTML = (embed, locale) => {
     const {
       image: {
         copyright,
@@ -264,7 +264,7 @@ export default function createImagePlugin(options = { concept: false }) {
     const copyString = getCopyString(
       title,
       imageUrl,
-      htmlOptions?.path,
+      options.path,
       copyright,
       locale
     );

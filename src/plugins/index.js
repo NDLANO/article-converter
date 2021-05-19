@@ -38,7 +38,7 @@ export {
 
 const plugins = options => [
   createNRKPlugin(),
-  createAudioPlugin(),
+  createAudioPlugin(options),
   createImagePlugin(options),
   createBrightcovePlugin(options),
   createH5pPlugin(options),

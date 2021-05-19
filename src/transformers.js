@@ -81,8 +81,8 @@ export async function transform(
     accessToken,
     lang
   );
-  await replaceEmbedsInHtml(embedsWithResources, lang, options);
-  const embedMetaData = getEmbedMetaData(embedsWithResources, lang, options);
+  await replaceEmbedsInHtml(embedsWithResources, lang);
+  const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
   await executeHtmlTransforms(content, lang, options);
 
   return {
