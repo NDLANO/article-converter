@@ -38,7 +38,13 @@ export default function createAudioPlugin() {
         copyright,
         audioFile: { url },
       } = audio;
-      const copyString = getCopyString(title, url, metaOptions.path, copyright, locale);
+      const copyString = getCopyString(
+        title,
+        url,
+        metaOptions?.path,
+        copyright,
+        locale
+      );
       return {
         title: audio.title.title,
         copyright: audio.copyright,
@@ -150,7 +156,13 @@ export default function createAudioPlugin() {
       source: t(locale, 'source'),
     };
 
-    const copyString = getCopyString(title, url, htmlOptions.path, audio.copyright, locale);
+    const copyString = getCopyString(
+      title,
+      url,
+      htmlOptions?.path,
+      audio.copyright,
+      locale
+    );
     return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />

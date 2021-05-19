@@ -181,7 +181,7 @@ export default function createImagePlugin(options = { concept: false }) {
       const copyString = getCopyString(
         title,
         imageUrl,
-        metaOptions.path,
+        metaOptions?.path,
         copyright,
         locale
       );
@@ -261,7 +261,13 @@ export default function createImagePlugin(options = { concept: false }) {
       type: item.label,
     }));
 
-    const copyString = getCopyString(title, imageUrl, htmlOptions.path, copyright, locale);
+    const copyString = getCopyString(
+      title,
+      imageUrl,
+      htmlOptions?.path,
+      copyright,
+      locale
+    );
     const figureId = `figure-${id}`;
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>

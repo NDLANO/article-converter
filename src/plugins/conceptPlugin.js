@@ -65,7 +65,13 @@ export default function createConceptPlugin(options = {}) {
         copyright,
         source,
       } = concept;
-      const copyString = getCopyString(title, source, metaOptions.path, copyright, locale);
+      const copyString = getCopyString(
+        title,
+        source,
+        metaOptions?.path,
+        copyright,
+        locale
+      );
       return {
         title: concept.title.title,
         copyright: concept.copyright,

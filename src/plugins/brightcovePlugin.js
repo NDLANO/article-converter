@@ -61,7 +61,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       const copyString = getCopyString(
         name,
         iframeProps.src,
-        metaOptions.path,
+        metaOptions?.path,
         copyright,
         locale
       );
@@ -123,7 +123,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const copyString = getCopyString(
       brightcove.name,
       src,
-      htmlOptions.path,
+      htmlOptions?.path,
       brightcove.copyright,
       locale
     );
