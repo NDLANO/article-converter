@@ -69,7 +69,7 @@ const ndlaFrontendDomain = () => {
     case 'prod':
       return 'https://ndla.no';
     default:
-      return `https://${process.env.NDLA_ENVIRONMENT}.ndla.no`;
+      return `https://${process.env.NDLA_ENVIRONMENT || 'test'}.ndla.no`;
   }
 };
 

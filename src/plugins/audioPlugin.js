@@ -20,7 +20,7 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import t from '../locale/i18n';
-import { getCopyString, getLicenenseCredits } from './pluginHelpers';
+import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 
@@ -30,13 +30,26 @@ export default function createAudioPlugin() {
   const fetchResource = (embed, accessToken, language) =>
     fetchAudio(embed, accessToken, language);
 
-  const getMetaData = embed => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const { audio } = embed;
     if (audio) {
+      const {
+        title: { title },
+        copyright,
+        audioFile: { url },
+      } = audio;
+      const copyString = getCopyString(
+        title,
+        url,
+        metaOptions?.path,
+        copyright,
+        locale
+      );
       return {
         title: audio.title.title,
         copyright: audio.copyright,
         src: audio.audioFile.url,
+        copyText: copyString,
       };
     }
   };
@@ -100,7 +113,7 @@ export default function createAudioPlugin() {
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio, data }, locale) => {
+  const embedToHTML = ({ audio, data }, locale, htmlOptions) => {
     const {
       id,
       title: { title },
@@ -121,7 +134,7 @@ export default function createAudioPlugin() {
 
     const caption = data.caption || title;
 
-    const authors = getLicenenseCredits(audio.copyright);
+    const authors = getLicenseCredits(audio.copyright);
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
@@ -143,6 +156,13 @@ export default function createAudioPlugin() {
       source: t(locale, 'source'),
     };
 
+    const copyString = getCopyString(
+      title,
+      url,
+      htmlOptions?.path,
+      audio.copyright,
+      locale
+    );
     return render(
       data.type === 'minimal' ? (
         <AudioPlayer speech type={mimeType} src={url} title={title} />
@@ -162,7 +182,9 @@ export default function createAudioPlugin() {
             caption={caption}
             reuseLabel={t(locale, 'audio.reuse')}
             licenseRights={license.rights}
-            authors={authors}
+            authors={
+              authors.creators || authors.rightsholders || authors.processors
+            }
             locale={locale}
           />
           <FigureLicenseDialog
@@ -174,7 +196,7 @@ export default function createAudioPlugin() {
             locale={locale}
             messages={messages}>
             <AudioActionButtons
-              copyString={getCopyString(licenseAbbreviation, authors, locale)}
+              copyString={copyString}
               locale={locale}
               license={licenseAbbreviation}
               src={url}

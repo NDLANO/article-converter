@@ -21,11 +21,7 @@ import {
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
 import queryString from 'query-string';
-import {
-  errorSvgSrc,
-  getCopyString,
-  getLicenenseCredits,
-} from './pluginHelpers';
+import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -173,14 +169,28 @@ export default function createImagePlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, language) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = embed => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const { image } = embed;
     if (image) {
+      const {
+        title: { title },
+        alttext: { alttext },
+        copyright,
+        imageUrl,
+      } = image;
+      const copyString = getCopyString(
+        title,
+        imageUrl,
+        metaOptions?.path,
+        copyright,
+        locale
+      );
       return {
-        title: image.title.title,
-        altText: image.alttext.alttext,
-        copyright: image.copyright,
-        src: image.imageUrl,
+        title: title,
+        altText: alttext,
+        copyright: copyright,
+        src: imageUrl,
+        copyText: copyString,
       };
     }
   };
@@ -203,16 +213,23 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = (embed, locale, htmlOptions) => {
     const {
-      image,
+      image: {
+        copyright,
+        imageUrl,
+        title: { title },
+        id,
+        contentType,
+      },
       data: { align, size, caption: embedCaption, alt: embedAlttext },
     } = embed;
     const {
       license: { license: licenseAbbreviation },
-    } = image.copyright;
+      origin,
+    } = copyright;
 
-    const authors = getLicenenseCredits(image.copyright);
+    const authors = getLicenseCredits(copyright);
 
     const altText = embedAlttext || '';
     const caption = embedCaption || '';
@@ -237,54 +254,63 @@ export default function createImagePlugin(options = { concept: false }) {
     const crop = getCrop(embed.data);
 
     const contributors = getGroupedContributorDescriptionList(
-      image.copyright,
+      copyright,
       locale
     ).map(item => ({
       name: item.description,
       type: item.label,
     }));
-    const copyString = getCopyString(licenseAbbreviation, authors, locale);
-    const figureId = `figure-${image.id}`;
+
+    const copyString = getCopyString(
+      title,
+      imageUrl,
+      htmlOptions?.path,
+      copyright,
+      locale
+    );
+    const figureId = `figure-${id}`;
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }) => (
           <>
             <ImageWrapper
-              src={image.imageUrl}
+              src={imageUrl}
               crop={crop}
               size={size}
               typeClass={typeClass}
               locale={locale}>
               <Image
                 focalPoint={focalPoint}
-                contentType={image.contentType}
+                contentType={contentType}
                 crop={crop}
                 sizes={sizes}
                 alt={altText}
-                src={image.imageUrl}
+                src={imageUrl}
               />
             </ImageWrapper>
             <FigureCaption
               hideFigcaption={isSmall(size)}
               figureId={figureId}
-              id={`${image.id}`}
+              id={`${id}`}
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={authors}
+              authors={
+                authors.creators || authors.rightsholders || authors.processors
+              }
               locale={locale}>
               <FigureLicenseDialog
-                id={`${image.id}`}
-                title={image.title.title}
+                id={`${id}`}
+                title={title}
                 license={license}
                 authors={contributors}
-                origin={image.copyright.origin}
+                origin={origin}
                 locale={locale}
                 messages={messages}>
                 <ImageActionButtons
                   locale={locale}
                   copyString={copyString}
-                  src={image.imageUrl}
+                  src={imageUrl}
                   license={licenseAbbreviation}
                 />
               </FigureLicenseDialog>

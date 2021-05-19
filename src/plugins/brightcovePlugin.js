@@ -25,7 +25,7 @@ import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
 import {
   getCopyString,
-  getLicenenseCredits,
+  getLicenseCredits,
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
@@ -50,22 +50,31 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     };
   };
 
-  const getMetaData = embed => {
+  const getMetaData = (embed, locale, metaOptions) => {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources
         .filter(source => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
       const iframeProps = getIframeProps(data, brightcove.sources);
+      const { name, description, copyright, published_at } = brightcove;
+      const copyString = getCopyString(
+        name,
+        iframeProps.src,
+        metaOptions?.path,
+        copyright,
+        locale
+      );
       return {
-        title: brightcove.name,
-        description: brightcove.description,
-        copyright: brightcove.copyright,
+        title: name,
+        description: description,
+        copyright: copyright,
         cover: get('images.poster.src', brightcove),
         download: mp4s[0] ? mp4s[0].src : undefined,
         src: iframeProps.src,
         iframe: iframeProps,
-        uploadDate: brightcove.published_at,
+        uploadDate: published_at,
+        copyText: copyString,
       };
     }
   };
@@ -88,7 +97,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = (embed, locale, htmlOptions) => {
     const { brightcove, data } = embed;
     const { caption } = data;
     const {
@@ -97,7 +106,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
-    const authors = getLicenenseCredits(brightcove.copyright);
+    const authors = getLicenseCredits(brightcove.copyright);
 
     const contributors = getGroupedContributorDescriptionList(
       brightcove.copyright,
@@ -111,7 +120,13 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const { download } = getMetaData(embed);
 
-    const copyString = getCopyString(licenseAbbreviation, authors, locale);
+    const copyString = getCopyString(
+      brightcove.name,
+      src,
+      htmlOptions?.path,
+      brightcove.copyright,
+      locale
+    );
 
     const messages = {
       title: t(locale, 'title'),
@@ -145,7 +160,9 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={authors}
+          authors={
+            authors.creators || authors.rightsholders || authors.processors
+          }
         />
         <FigureLicenseDialog
           id={id}

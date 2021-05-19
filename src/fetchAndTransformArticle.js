@@ -1,6 +1,8 @@
 import cheerio from 'cheerio';
 import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
+import config from './config';
+import { getCopyString } from './plugins/pluginHelpers';
 
 export async function transformArticle(
   article,
@@ -22,11 +24,18 @@ export async function transformArticle(
         options
       )
     : {};
+  const copyText = getCopyString(
+    article.title.title,
+    config.ndlaFrontendDomain,
+    options.path,
+    article.copyright,
+    lang
+  );
 
   return {
     ...article,
     content: html || '',
-    metaData: embedMetaData || '',
+    metaData: { ...embedMetaData, copyText } || '',
     title: article.title.title || '',
     tags: article.tags ? article.tags.tags : [],
     introduction: article.introduction
