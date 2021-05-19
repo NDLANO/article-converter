@@ -29,6 +29,8 @@ swaggerSpec.paths['/article-converter/json/{language}/{article_id}:'] =
   swaggerRoutes.getJsonArticle;
 swaggerSpec.paths['/article-converter/html/{language}/{article_id}:'] =
   swaggerRoutes.getHtmlArticle;
+swaggerSpec.paths['/article-converter/json/{language}/meta-data'] =
+  swaggerRoutes.getMetaData;
 swaggerSpec.paths['/article-converter/json/{language}/transform-article:'] =
   swaggerRoutes.postJsonTransformArticle;
 
