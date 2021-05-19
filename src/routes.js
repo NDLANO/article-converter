@@ -10,6 +10,7 @@ import defined from 'defined';
 import fetchAndTransformArticle, {
   transformArticle,
 } from './fetchAndTransformArticle';
+import fetchEmbedMetaData from './fetchEmbedMetaData';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getHtmlLang } from './locale/configureLocale';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
@@ -18,6 +19,26 @@ import log from './utils/logger';
 
 // Sets up the routes.
 module.exports.setup = function routes(app) {
+  app.get('/article-converter/json/:lang/meta-data', (req, res) => {
+    const embed = req.query.embed;
+    const accessToken = req.headers.authorization;
+    const lang = getHtmlLang(defined(req.params.lang, ''));
+    fetchEmbedMetaData(embed, accessToken, lang)
+      .then(data => {
+        res.json({
+          metaData: data,
+        });
+      })
+      .catch(error => {
+        log.error(error);
+        const response = getAppropriateErrorResponse(
+          error,
+          config.isProduction
+        );
+        res.status(response.status).json(response);
+      });
+  });
+
   app.get('/article-converter/raw/:lang/:id', (req, res) => {
     const url = req.url.replace('raw', 'json');
     res.redirect(url);

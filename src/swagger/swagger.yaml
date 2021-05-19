@@ -12,7 +12,7 @@ definitions:
     content:
       content: string
       language: string
-      exmaple: "<section>some text</section>"
+      example: '<section>some text</section>'
     title:
       title: string
       language: string
@@ -90,3 +90,41 @@ definitions:
               type: string
               description: Rightholders name
               example: John Doe
+  h5p:
+    type: object
+    description: H5P attributes
+    properties:
+      title:
+        type: string
+        description: H5P title
+        example: Foo
+      license:
+        type: string
+        description: License short name
+        example: CC BY-SA
+      licenseVersion:
+        type: string
+        description: License version
+        example: 4.0
+      thumbnail:
+        type: string
+        description: Thumbnail URL
+        example: https://test.api.ndla.no/image-api/raw/tacf8f02.jpg
+      contentType:
+        type: string
+        description: Content type
+        example: Image
+      authors:
+        type: array
+        description: Authors
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Author name
+              example: John Doe
+            type:
+              type: string
+              description: Author type
+              example: Author
