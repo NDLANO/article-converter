@@ -8,11 +8,11 @@
 
 import defined from 'defined';
 
-export default function getEmbedMetaData(embeds, locale, options) {
+export default function getEmbedMetaData(embeds, locale) {
   return embeds.reduce((ctx, embed) => {
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);
-    const metaData = embed.plugin?.getMetaData?.(embed, locale, options);
+    const metaData = embed.plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
       return {
         ...ctx,
