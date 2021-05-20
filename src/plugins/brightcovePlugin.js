@@ -50,7 +50,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     };
   };
 
-  const getMetaData = (embed, path, locale) => {
+  const getMetaData = (embed, locale, path) => {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources

@@ -10,3 +10,5 @@ import 'regenerator-runtime/runtime';
 global.requestAnimationFrame = function raf(callback) {
   setTimeout(callback, 0);
 };
+
+Date.now = jest.fn(() => new Date(Date.UTC(2021, 4, 19).valueOf()));

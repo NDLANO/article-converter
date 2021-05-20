@@ -23,11 +23,11 @@ Object {
   "id": 2139,
   "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "metaData": Object {
-    "copyText": "Forfatter: Øyvind. H₂O 💦 [Internett]. Hentet fra: https://test.ndla.no Lest: 18.05.2021",
+    "copyText": "Forfatter: Øyvind. H₂O 💦 [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
     "images": Array [
       Object {
         "altText": "",
-        "copyText": "Fotograf: Ingar Storfjell. Bearbeider: Intel, Språklig: Google translate. Fottur på Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 18.05.2021",
+        "copyText": "Fotograf: Ingar Storfjell. Bearbeider: Intel, Språklig: Google translate. Fottur på Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 19.05.2021",
         "copyright": Object {
           "creators": Array [
             Object {
@@ -67,7 +67,7 @@ Object {
       },
       Object {
         "altText": "",
-        "copyText": "Fotograf: Ingar Storfjell. Bearbeider: Intel, Språklig: Google translate. Fottur på Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 18.05.2021",
+        "copyText": "Fotograf: Ingar Storfjell. Bearbeider: Intel, Språklig: Google translate. Fottur på Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 19.05.2021",
         "copyright": Object {
           "creators": Array [
             Object {
@@ -107,7 +107,7 @@ Object {
       },
       Object {
         "altText": "Rognkjeks som beveger seg i nettannonse. Animasjon.",
-        "copyText": "Fotograf: Oktan Orangeriet. Annonse i gif-format [Internett]. Hentet fra: https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif Lest: 18.05.2021",
+        "copyText": "Fotograf: Oktan Orangeriet. Annonse i gif-format [Internett]. Hentet fra: https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif Lest: 19.05.2021",
         "copyright": Object {
           "authors": Array [
             Object {
@@ -1249,7 +1249,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Fotograf: Ingar Storfjell. Bearbeider: Intel, Spr&#xE5;klig: Google translate. Fottur p&#xE5; Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 18.05.2021\\"
+              data-copy-string=\\"Fotograf: Ingar Storfjell. Bearbeider: Intel, Spr&#xE5;klig: Google translate. Fottur p&#xE5; Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 19.05.2021\\"
               class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse</button
@@ -1609,7 +1609,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Fotograf: Ingar Storfjell. Bearbeider: Intel, Spr&#xE5;klig: Google translate. Fottur p&#xE5; Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 18.05.2021\\"
+              data-copy-string=\\"Fotograf: Ingar Storfjell. Bearbeider: Intel, Spr&#xE5;klig: Google translate. Fottur p&#xE5; Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 19.05.2021\\"
               class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse</button
@@ -1920,7 +1920,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Fotograf: Oktan Orangeriet. Annonse i gif-format [Internett]. Hentet fra: https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif Lest: 18.05.2021\\"
+              data-copy-string=\\"Fotograf: Oktan Orangeriet. Annonse i gif-format [Internett]. Hentet fra: https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif Lest: 19.05.2021\\"
               class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
               Kopier referanse</button

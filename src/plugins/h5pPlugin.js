@@ -75,7 +75,7 @@ export default function createH5pPlugin(options = { concept: false }) {
     return objRoles[role] || role;
   };
 
-  const getMetaData = (embed, path, locale) => {
+  const getMetaData = (embed, locale, path) => {
     const h5p = embed?.embed?.h5p;
     if (h5p) {
       const {

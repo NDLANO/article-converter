@@ -169,7 +169,7 @@ export default function createImagePlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken, language) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = (embed, path, locale) => {
+  const getMetaData = (embed, locale, path) => {
     const { image } = embed;
     if (image) {
       const {
@@ -213,7 +213,7 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, path, locale) => {
+  const embedToHTML = (embed, locale, path) => {
     const {
       image: {
         copyright,

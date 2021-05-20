@@ -57,7 +57,7 @@ export default function createConceptPlugin(options = {}) {
   const getEmbedSrc = concept =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
-  const getMetaData = (embed, path, locale) => {
+  const getMetaData = (embed, locale, path) => {
     const { concept } = embed;
     if (concept) {
       const {

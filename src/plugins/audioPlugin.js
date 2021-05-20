@@ -30,7 +30,7 @@ export default function createAudioPlugin() {
   const fetchResource = (embed, accessToken, language) =>
     fetchAudio(embed, accessToken, language);
 
-  const getMetaData = (embed, path, locale) => {
+  const getMetaData = (embed, locale, path) => {
     const { audio } = embed;
     if (audio) {
       const {
