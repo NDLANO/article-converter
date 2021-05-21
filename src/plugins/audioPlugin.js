@@ -118,6 +118,7 @@ export default function createAudioPlugin(options = {}) {
       id,
       title: { title },
       audioFile: { mimeType, url },
+      manuscript,
       podcastMeta,
       copyright: {
         license: { license: licenseAbbreviation },
@@ -125,9 +126,10 @@ export default function createAudioPlugin(options = {}) {
       },
     } = audio;
 
-    const { introduction, manuscript, coverPhoto } = podcastMeta || {};
+    const { introduction, coverPhoto } = podcastMeta || {};
 
-    const textVersion = manuscript && renderMarkdown(manuscript);
+    const textVersion =
+      manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
     const description = renderMarkdown(introduction);
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
