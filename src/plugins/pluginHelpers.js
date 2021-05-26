@@ -45,7 +45,7 @@ const makeCreditCopyString = (roles, locale) => {
   return (
     roles
       .map(creator => {
-        const type = t(locale, `${creator.type.toLowerCase()}`);
+        const type = creator.type && t(locale, `${creator.type.toLowerCase()}`);
         return `${type}: ${creator.name.trim()}`;
       })
       .join(', ') + '. '

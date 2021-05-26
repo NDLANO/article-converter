@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getCopyString from brightcove with missing type due to typo 1`] = `": Video Kunstner. Title [Internett]. Forlag: Scanpix. Hentet fra: https://test.ndla.no/article/123 Lest: 19.05.2021"`;
+
+exports[`getCopyString from image with all properties 1`] = `"Fotograf: Foto Graf. Bearbeider: Bear Beider. Title [Internett]. Forlag: Scanpix. Hentet fra: http://api.ndla.no/image/raw/1 Lest: 19.05.2021"`;
+
 exports[`makeIframe 1`] = `"<figure class=\\"c-figure c-figure--resize\\" resizeIframe><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe></figure>"`;
 
 exports[`makeIframe 2`] = `"<figure class=\\"c-figure c-figure--resize\\" resizeIframe><iframe title=\\"https://youtube.com\\" aria-label=\\"https://youtube.com\\" src=\\"https://youtube.com\\" width=\\"400\\" height=\\"600\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe></figure>"`;
