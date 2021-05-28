@@ -13,6 +13,7 @@ import {
   FigureLicenseDialog,
   FigureCaption,
   FigureExpandButton,
+  FigureBylineExpandButton,
 } from '@ndla/ui/lib/Figure';
 import Button, { StyledButton } from '@ndla/button';
 import Image, { ImageLink } from '@ndla/ui/lib/Image';
@@ -90,6 +91,10 @@ function isSmall(size) {
   return size === 'xsmall' || size === 'small';
 }
 
+function hideByline(size) {
+  return size.endsWith('-skjul-byline');
+}
+
 function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
   if (isSmall(size)) {
     return (
@@ -104,6 +109,25 @@ function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
             zoomOutImageButtonLabel: t(
               locale,
               'license.images.itemImage.zoomOutImageButtonLabel'
+            ),
+          }}
+        />
+        {children}
+      </>
+    );
+  } else if (hideByline(size)) {
+    return (
+      <>
+        <FigureBylineExpandButton
+          typeClass={size}
+          messages={{
+            expandBylineButtonLabel: t(
+              locale,
+              'license.images.itemImage.expandByline'
+            ),
+            minimizeBylineButtonLabel: t(
+              locale,
+              'license.images.itemImage.minimizeByline'
             ),
           }}
         />
@@ -289,7 +313,7 @@ export default function createImagePlugin(options = { concept: false }) {
               />
             </ImageWrapper>
             <FigureCaption
-              hideFigcaption={isSmall(size)}
+              hideFigcaption={isSmall(size) || hideByline(size)}
               figureId={figureId}
               id={`${id}`}
               caption={caption}
