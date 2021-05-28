@@ -45,6 +45,10 @@ Object {
       "name": "Lucasfilm",
       "type": "",
     },
+    Object {
+      "name": "Feil Type",
+      "type": "",
+    },
   ],
   "processors": Array [],
   "rightsholders": Array [],

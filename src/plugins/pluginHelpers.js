@@ -45,7 +45,7 @@ const makeCreditCopyString = (roles, locale) => {
   return (
     roles
       .map(creator => {
-        const type = t(locale, `${creator.type.toLowerCase()}`);
+        const type = creator.type && t(locale, `${creator.type.toLowerCase()}`);
         return `${type}: ${creator.name.trim()}`;
       })
       .join(', ') + '. '
@@ -95,9 +95,9 @@ export const getCopyString = (title, src, path, copyright, locale) => {
 
 export const getLicenseCredits = copyright => {
   return {
-    creators: copyright.creators?.length > 0 ? copyright.creators : [],
+    creators: copyright?.creators?.length > 0 ? copyright.creators : [],
     rightsholders:
-      copyright.rightsholders?.length > 0 ? copyright.rightsholders : [],
-    processors: copyright.processors?.length > 0 ? copyright.processors : [],
+      copyright?.rightsholders?.length > 0 ? copyright.rightsholders : [],
+    processors: copyright?.processors?.length > 0 ? copyright.processors : [],
   };
 };

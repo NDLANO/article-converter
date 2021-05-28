@@ -28,6 +28,7 @@ test('uses fallback if contributor string could not be parsed', () => {
     licenseinfo1: 'Opphavsmann Adalia film & media',
     licenseinfo2: ' Opphavsmann: Adalia film & media',
     licenseinfo3: 'Produsent: Lucasfilm',
+    licenseinfo4: 'Ophavsmann: Feil Type',
     yt_privacy_status: 'private',
     license: 'Navngivelse-Del på samme vilkår',
   };
