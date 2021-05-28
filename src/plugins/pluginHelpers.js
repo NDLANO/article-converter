@@ -95,9 +95,9 @@ export const getCopyString = (title, src, path, copyright, locale) => {
 
 export const getLicenseCredits = copyright => {
   return {
-    creators: copyright.creators?.length > 0 ? copyright.creators : [],
+    creators: copyright?.creators?.length > 0 ? copyright.creators : [],
     rightsholders:
-      copyright.rightsholders?.length > 0 ? copyright.rightsholders : [],
-    processors: copyright.processors?.length > 0 ? copyright.processors : [],
+      copyright?.rightsholders?.length > 0 ? copyright.rightsholders : [],
+    processors: copyright?.processors?.length > 0 ? copyright.processors : [],
   };
 };
