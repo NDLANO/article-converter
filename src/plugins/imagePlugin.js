@@ -92,7 +92,7 @@ function isSmall(size) {
 }
 
 function hideByline(size) {
-  return size.endsWith('-skjul-byline');
+  return size.endsWith('-hide-byline');
 }
 
 function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
