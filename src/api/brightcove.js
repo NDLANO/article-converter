@@ -124,7 +124,7 @@ export const getContributorGroups = fields => {
       return { type: '', name: contributorFields[0] };
     const [type, name] = contributorFields;
     const contributorType = Object.keys(contributorTypes.nb).find(
-      key => contributorTypes.nb[key] === mapContributorType(type.trim())
+      key => contributorTypes.nb[key] === mapContributorType(type?.trim())
     );
     return { type: contributorType || '', name };
   };
