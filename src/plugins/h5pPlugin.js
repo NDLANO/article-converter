@@ -82,7 +82,7 @@ export default function createH5pPlugin(options = { concept: false }) {
         h5p: { title, authors },
         url,
       } = h5p;
-      const creators = authors.map(author => {
+      const creators = authors?.map(author => {
         return { name: author.name, type: mapRole(author.role) };
       });
       const copyString = getCopyString(
