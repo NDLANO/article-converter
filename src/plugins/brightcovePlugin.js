@@ -57,6 +57,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
         .filter(source => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
       const iframeProps = getIframeProps(data, brightcove.sources);
+
       const { name, description, copyright, published_at } = brightcove;
       const copyString = getCopyString(
         name,
@@ -146,13 +147,27 @@ export default function createBrightcovePlugin(options = { concept: false }) {
         id={figureId}
         type={options.concept ? 'full-column' : 'full'}
         resizeIframe>
-        <iframe
-          title={`Video: ${brightcove.name}`}
-          aria-label={`Video: ${brightcove.name}`}
-          frameBorder="0"
-          {...getIframeProps(data, brightcove.sources)}
-          allowFullScreen
-        />
+        <div className="brightcove-video">
+          <iframe
+            className="original"
+            title={`Video: ${brightcove.name}`}
+            aria-label={`Video: ${brightcove.name}`}
+            frameBorder="0"
+            {...getIframeProps(data, brightcove.sources)}
+            allowFullScreen
+          />
+          <iframe
+            className="synstolket hidden"
+            title={`Video: ${brightcove.name}`}
+            aria-label={`Video: ${brightcove.name}`}
+            frameBorder="0"
+            {...getIframeProps(
+              { ...data, videoid: '6226280526001' },
+              brightcove.sources
+            )}
+            allowFullScreen
+          />
+        </div>
         <FigureCaption
           figureId={figureId}
           id={id}
