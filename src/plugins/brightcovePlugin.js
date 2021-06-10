@@ -137,10 +137,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       source: t(locale, 'source'),
     };
 
-    const id = brightcove.reference_id
-      ? brightcove.reference_id
-      : brightcove.id;
-    const figureId = `figure-${id}`;
+    const figureId = `figure-${brightcove.id}`;
 
     return render(
       <Figure
@@ -170,7 +167,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
         </div>
         <FigureCaption
           figureId={figureId}
-          id={id}
+          id={brightcove.id}
           locale={locale}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
@@ -178,9 +175,10 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           authors={
             authors.creators || authors.rightsholders || authors.processors
           }
+          synstolketVideo
         />
         <FigureLicenseDialog
-          id={id}
+          id={brightcove.id}
           title={brightcove.name}
           locale={locale}
           license={license}
