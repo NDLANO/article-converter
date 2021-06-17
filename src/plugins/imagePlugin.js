@@ -248,7 +248,8 @@ export default function createImagePlugin(options = { concept: false }) {
      * to render properly. Superfluous whitespace must be escaped in order for
      * text within *italics* and *bold* to render properly.
      */
-    return markdown.render(caption.replaceAll(' ', '\\ ')).replaceAll('\\', '');
+    const escapedMarkdown = markdown.render(caption.split(' ').join('\\ '));
+    return escapedMarkdown.split('\\').join('');
   };
 
   const embedToHTML = (embed, locale) => {
