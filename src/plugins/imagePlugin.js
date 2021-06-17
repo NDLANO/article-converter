@@ -21,7 +21,9 @@ import {
   getLicenseByAbbreviation,
   getGroupedContributorDescriptionList,
 } from '@ndla/licenses';
+import parse from 'html-react-parser';
 import queryString from 'query-string';
+import { Remarkable } from 'remarkable';
 import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
@@ -237,6 +239,18 @@ export default function createImagePlugin(options = { concept: false }) {
     );
   };
 
+  const generateImageCaptionHtml = embeddedCaption => {
+    const markdown = new Remarkable({ breaks: true, html: true });
+    markdown.inline.ruler.enable(['sub', 'sup']);
+    const caption = embeddedCaption || '';
+    /**
+     * Whitespace must be escaped in order for ^superscript^ and ~subscript~
+     * to render properly. Superfluous whitespace must be escaped in order for
+     * text within *italics* and *bold* to render properly.
+     */
+    return markdown.render(caption.replaceAll(' ', '\\ ')).replaceAll('\\', '');
+  };
+
   const embedToHTML = (embed, locale) => {
     const {
       image: {
@@ -256,7 +270,7 @@ export default function createImagePlugin(options = { concept: false }) {
     const authors = getLicenseCredits(copyright);
 
     const altText = embedAlttext || '';
-    const caption = embedCaption || '';
+    const caption = parse(generateImageCaptionHtml(embedCaption));
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureType = getFigureType(size, align);
