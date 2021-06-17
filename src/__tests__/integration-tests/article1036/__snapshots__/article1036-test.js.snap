@@ -172,6 +172,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
+      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">

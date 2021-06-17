@@ -193,7 +193,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\">Vann</div>
+      <div class=\\"c-figure__info\\"><p>Vann</p></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
@@ -482,7 +482,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
           src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024&amp;focalX=65.08801679586563&amp;focalY=45.28137450199203\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\">Lorem ipsum</div>
+      <div class=\\"c-figure__info\\"><p>Lorem ipsum</p></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
@@ -751,7 +751,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
         src=\\"https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif\\"
     /></a>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\">Crop</div>
+      <div class=\\"c-figure__info\\"><p>Crop</p></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">

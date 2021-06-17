@@ -3004,6 +3004,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
         <img alt=\\"\\" src=\\"http://ndla.no/images/1.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
+      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
@@ -3598,6 +3599,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
         <img alt=\\"\\" src=\\"http://ndla.no/images/2.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
+      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
@@ -4232,6 +4234,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
           src=\\"http://api.test.ndla.no/images/1.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
+      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
