@@ -717,9 +717,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+              data-emotion-css=\\"40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
             >
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -751,40 +751,40 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -794,13 +794,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"Fotograf: Ingar Storfjell. Bearbeider: Intel, Spr&#xE5;klig: Google translate. Fottur p&#xE5; Kvamsfjellet [Internett]. Forlag: Aftenposten, Rettighetshaver: NTB scanpix. Hentet fra: https://test.api.ndla.no/image-api/raw/sxd08dab.jpg Lest: 19.05.2021\\"
-              class=\\"css-1j5z30m-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
+              class=\\"css-40auu1-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles e1ljv5qk0\\"
             >
-              Kopier referanse</button
+              Kildehenvisning</button
             ><style
-              data-emotion-css=\\"1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+              data-emotion-css=\\"kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
             >
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -828,28 +828,28 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+              .css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -858,7 +858,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             ><a
               href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download=\\"\\"
-              class=\\"css-1rfep60-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
+              class=\\"css-kalphs-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles e1ljv5qk0\\"
               >Last ned bildet</a
             >
           </div>

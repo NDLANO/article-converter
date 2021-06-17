@@ -95,8 +95,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style data-emotion-css=\\"1gbg9jj-StyledButton-buttonStyle-ButtonStyles\\">
-      .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles {
+    <style data-emotion-css=\\"1pajbdg-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -119,24 +119,24 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:hover,
-      .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:focus {
+      .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
         border: 2px solid #184673;
       }
-      .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles[disabled] {
+      .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
         cursor: not-allowed;
       }
-      .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:focus {
+      .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
-      class=\\"c-factbox__button css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
+      class=\\"c-factbox__button css-1pajbdg-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
     ></button>
   </aside>
 </section>
@@ -145,8 +145,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style data-emotion-css=\\"1gbg9jj-StyledButton-buttonStyle-ButtonStyles\\">
-    .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles {
+  <style data-emotion-css=\\"1pajbdg-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -169,24 +169,24 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:hover,
-    .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:focus {
+    .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
       border: 2px solid #184673;
     }
-    .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles[disabled] {
+    .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
       cursor: not-allowed;
     }
-    .css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles:focus {
+    .css-1pajbdg-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
-    class=\\"c-factbox__button css-1gbg9jj-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
+    class=\\"c-factbox__button css-1pajbdg-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>
