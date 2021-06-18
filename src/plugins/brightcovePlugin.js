@@ -105,6 +105,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
 
+    const linkedVideoId = brightcove.link?.text;
+
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const authors = getLicenseCredits(brightcove.copyright);
@@ -153,17 +155,19 @@ export default function createBrightcovePlugin(options = { concept: false }) {
             {...getIframeProps(data, brightcove.sources)}
             allowFullScreen
           />
-          <iframe
-            className="synstolket hidden"
-            title={`Video: ${brightcove.name}`}
-            aria-label={`Video: ${brightcove.name}`}
-            frameBorder="0"
-            {...getIframeProps(
-              { ...data, videoid: '6226280526001' },
-              brightcove.sources
-            )}
-            allowFullScreen
-          />
+          {linkedVideoId && (
+            <iframe
+              className="synstolket hidden"
+              title={`Video: ${brightcove.name}`}
+              aria-label={`Video: ${brightcove.name}`}
+              frameBorder="0"
+              {...getIframeProps(
+                { ...data, videoid: linkedVideoId },
+                brightcove.sources
+              )}
+              allowFullScreen
+            />
+          )}
         </div>
         <FigureCaption
           figureId={figureId}
@@ -175,7 +179,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           authors={
             authors.creators || authors.rightsholders || authors.processors
           }
-          synstolketVideo
+          synstolketVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog
           id={brightcove.id}
