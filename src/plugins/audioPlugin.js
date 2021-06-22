@@ -120,6 +120,7 @@ export default function createAudioPlugin(options = {}) {
       audioFile: { mimeType, url },
       manuscript,
       podcastMeta,
+      series,
       copyright: {
         license: { license: licenseAbbreviation },
         origin,
@@ -127,6 +128,7 @@ export default function createAudioPlugin(options = {}) {
     } = audio;
 
     const { introduction, coverPhoto } = podcastMeta || {};
+    const subtitle = series?.title;
 
     const textVersion =
       manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
@@ -176,6 +178,7 @@ export default function createAudioPlugin(options = {}) {
             src={url}
             textVersion={textVersion}
             title={title}
+            subtitle={subtitle}
             staticRenderId={`static-render-${id}-${locale}`}
           />
           <FigureCaption
