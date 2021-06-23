@@ -34,15 +34,16 @@ const Anchor = StyledButton.withComponent('a');
 
 export default function createBrightcovePlugin(options = { concept: false }) {
   const fetchResource = embed => fetchVideoMeta(embed);
-
+  
   const getIframeProps = (
     { account, videoid, player = 'default' },
     sources
   ) => {
     const source =
       sources
-        .filter(s => s.width && s.height)
-        .sort((a, b) => a.height < b.height)[0] || {};
+      .filter(s => s.width && s.height)
+      .sort((a, b) => b.height - a.height)[0] || {};
+      
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
       height: defined(source.height, '480'),
@@ -140,6 +141,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       ? brightcove.reference_id
       : brightcove.id;
     const figureId = `figure-${id}`;
+
 
     return render(
       <Figure
