@@ -180,7 +180,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           authors={
             authors.creators || authors.rightsholders || authors.processors
           }
-          synstolketVideo={!!linkedVideoId}
+          hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog
           id={brightcove.id}
