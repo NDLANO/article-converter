@@ -57,7 +57,6 @@ const video = {
   original_filename: 'download-original',
   projection: null,
   published_at: '2017-04-07T01:14:55.016Z',
-  reference_id: '125442',
   schedule: null,
   sharing: null,
   state: 'ACTIVE',
