@@ -42,7 +42,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const source =
       sources
         .filter(s => s.width && s.height)
-        .sort((a, b) => a.height < b.height)[0] || {};
+        .sort((a, b) => b.height - a.height)[0] || {};
+
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
       height: defined(source.height, '480'),

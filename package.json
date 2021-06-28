@@ -19,7 +19,7 @@
     "format": "node prettier.js write"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=14.16.0"
   },
   "repository": {
     "type": "git",
