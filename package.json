@@ -19,7 +19,7 @@
     "format": "node prettier.js write"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=14.16.0"
   },
   "repository": {
     "type": "git",
@@ -51,13 +51,14 @@
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@ndla/article-scripts": "^0.6.3",
-    "@ndla/button": "^0.3.55",
-    "@ndla/code": "^0.1.22",
+    "@ndla/button": "^0.3.56",
+    "@ndla/code": "^0.1.23",
     "@ndla/i18n": "^0.5.3",
-    "@ndla/licenses": "^0.6.50",
-    "@ndla/notion": "^0.3.15",
-    "@ndla/ui": "^0.35.0",
+    "@ndla/licenses": "^0.6.51",
+    "@ndla/notion": "^0.3.16",
+    "@ndla/ui": "^0.35.4",
     "@ndla/util": "^0.4.7",
+    "@ndla/safelink": "^0.0.13",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.13",
     "cheerio": "^1.0.0-rc.2",
