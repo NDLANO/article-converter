@@ -58,6 +58,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
         .filter(source => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
       const iframeProps = getIframeProps(data, brightcove.sources);
+
       const { name, description, copyright, published_at } = brightcove;
       const copyString = getCopyString(
         name,
@@ -105,6 +106,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
 
+    const linkedVideoId = brightcove.link?.text;
+
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const authors = getLicenseCredits(brightcove.copyright);
@@ -137,26 +140,39 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       source: t(locale, 'source'),
     };
 
-    const id = brightcove.reference_id
-      ? brightcove.reference_id
-      : brightcove.id;
-    const figureId = `figure-${id}`;
+    const figureId = `figure-${brightcove.id}`;
 
     return render(
       <Figure
         id={figureId}
         type={options.concept ? 'full-column' : 'full'}
         resizeIframe>
-        <iframe
-          title={`Video: ${brightcove.name}`}
-          aria-label={`Video: ${brightcove.name}`}
-          frameBorder="0"
-          {...getIframeProps(data, brightcove.sources)}
-          allowFullScreen
-        />
+        <div className="brightcove-video">
+          <iframe
+            className="original"
+            title={`Video: ${brightcove.name}`}
+            aria-label={`Video: ${brightcove.name}`}
+            frameBorder="0"
+            {...getIframeProps(data, brightcove.sources)}
+            allowFullScreen
+          />
+          {linkedVideoId && (
+            <iframe
+              className="synstolket hidden"
+              title={`Video: ${brightcove.name}`}
+              aria-label={`Video: ${brightcove.name}`}
+              frameBorder="0"
+              {...getIframeProps(
+                { ...data, videoid: linkedVideoId },
+                brightcove.sources
+              )}
+              allowFullScreen
+            />
+          )}
+        </div>
         <FigureCaption
           figureId={figureId}
-          id={id}
+          id={brightcove.id}
           locale={locale}
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
@@ -164,9 +180,10 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           authors={
             authors.creators || authors.rightsholders || authors.processors
           }
+          hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog
-          id={id}
+          id={brightcove.id}
           title={brightcove.name}
           locale={locale}
           license={license}

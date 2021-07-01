@@ -74,7 +74,7 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
       plugin: createBrightcovePlugin(),
       brightcove: {
         name: 'brightcove video',
-        reference_id: '46012',
+        id: '46012',
         copyright: {
           creators: [],
           rightsholders: [],
@@ -194,7 +194,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
         .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
-        reference_id: '1',
+        id: '1',
         copyright: {
           creators: [],
           rightsholders: [],
@@ -213,7 +213,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
         .data(),
       plugin: createBrightcovePlugin(),
       brightcove: {
-        reference_id: '2',
+        id: '2',
         copyright: {
           creators: [],
           rightsholders: [],
