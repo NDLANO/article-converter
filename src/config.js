@@ -43,8 +43,6 @@ const auth0Hostname = () => {
     switch (process.env.NDLA_ENVIRONMENT) {
       case 'prod':
         return 'ndla.eu.auth0.com';
-      case 'ff':
-        return 'ndla.eu.auth0.com';
       case 'staging':
         return 'ndla-staging.eu.auth0.com';
       default:
