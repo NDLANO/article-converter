@@ -33,7 +33,7 @@ const apiUrl = () => {
         )}.ndla.no`;
     }
   } else {
-    return apiUrl;
+    return `https://${apiUrl}`;
   }
 };
 
