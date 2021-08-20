@@ -10,24 +10,27 @@ import React from 'react';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { MissingRouterContext } from '@ndla/safelink';
-import { messagesNB, messagesEN, messagesNN } from '@ndla/ui';
-import IntlProvider, { formatNestedMessages } from '@ndla/i18n';
+import { i18nInstance } from '@ndla/ui';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 
-const messages = {
-  nb: formatNestedMessages(messagesNB),
-  nn: formatNestedMessages(messagesNN),
-  en: formatNestedMessages(messagesEN),
+const I18nWrapper = ({ locale, component }) => {
+  const { i18n } = useTranslation();
+  i18n.language = locale;
+  i18n.options.lng = locale;
+  return component;
 };
 
 function renderInternal(renderFunc, component, locale) {
   return renderFunc(
-    <IntlProvider messages={messages[locale] || messages.nb} locale={locale}>
+    <I18nextProvider i18n={i18nInstance}>
       <StaticRouter>
         <MissingRouterContext.Provider value={true}>
-          {component}
+          <I18nWrapper locale={locale} component={component}>
+            {component}
+          </I18nWrapper>
         </MissingRouterContext.Provider>
       </StaticRouter>
-    </IntlProvider>
+    </I18nextProvider>
   );
 }
 
