@@ -1428,10 +1428,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@ndla/article-scripts@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@ndla/article-scripts/-/article-scripts-0.6.3.tgz#8c47ebbd6eb11a3ebed7c2a47a01bbbe65fd1b1b"
-  integrity sha512-uLPC6ZVq4k1Ju43rI0PpLPwzgXV/O/n4W7PeTGU5BiF2gq74ZyzBUUjsNgui3xsUjyItKVwHZscfgM/6VnqTtw==
+"@ndla/article-scripts@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@ndla/article-scripts/-/article-scripts-0.6.4.tgz#df649a166ee8de3a01fce41470651f9f9d9fd027"
+  integrity sha512-VyVPKD+D88i1coJU6Fhf+C+L4NvYk5BJ5KdP7JZemQ0VSrfJAAu+MvCXp7zttdL/UpaUhKjba3bNYsFL34rktg==
   dependencies:
     "@ndla/util" "^0.4.7"
     focus-trap "^4.0.2"
