@@ -1463,16 +1463,15 @@
     "@ndla/icons" "^0.7.8"
     react-swipeable "^5.0.1"
 
-"@ndla/code@^0.1.23":
-  version "0.1.23"
-  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-0.1.23.tgz#29fec8b1863639297d6dcc85b62bb86e8f28d075"
-  integrity sha512-7p6AihZTgYLx8rv26ZKLLKYWE65uk7Y+43wjs2I2HpUwv1xDb1vCHnyvJaRjf6IMdcdIEeQsiO/Pv0fbga83ng==
+"@ndla/code@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ndla/code/-/code-1.0.0.tgz#4c99bbddf79affabe27a61af6acbb561220147c8"
+  integrity sha512-Tg+gAPdQwUoPJWMksh3R4rRb1FD1ORXTk3lP3hEixqVGYdyQBCWnY+PojRtm4TOhLhnSjOGQINrt1/2HK9OZ0w==
   dependencies:
-    "@ndla/button" "^0.3.56"
-    "@ndla/core" "^0.6.39"
-    "@ndla/i18n" "^0.5.3"
-    "@ndla/icons" "^0.7.7"
-    "@ndla/util" "^0.4.7"
+    "@ndla/button" "^0.3.58"
+    "@ndla/core" "^0.7.0"
+    "@ndla/icons" "^0.7.8"
+    "@ndla/util" "^0.4.8"
     "@types/react-syntax-highlighter" "^11.0.4"
     prismjs "^1.22.0"
     react-simple-code-editor "^0.11.0"
@@ -1507,17 +1506,6 @@
   dependencies:
     "@ndla/util" "^0.4.8"
     lodash "^4.17.20"
-
-"@ndla/i18n@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@ndla/i18n/-/i18n-0.5.3.tgz#087b9e54173314c3f090332e8b60a93c8d71e688"
-  integrity sha512-Ccefi+TErRji4fUFmnV/imwzw4KbXDQgwBRkTpl/mfGs8suynNqfnHKZuKJU1VlSqACzkGm/Ai+p93+vaiLN4Q==
-  dependencies:
-    "@types/hoist-non-react-statics" "^3.3.1"
-    hoist-non-react-statics "^3.3.0"
-    intl-format-cache "^4.3.1"
-    intl-messageformat "5.4.3"
-    invariant "^2.2.3"
 
 "@ndla/icons@^0.7.7":
   version "0.7.7"
@@ -1605,10 +1593,10 @@
   dependencies:
     "@ndla/core" "^0.7.0"
 
-"@ndla/ui@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-1.0.0.tgz#6b9ce2c91ef02eed07eab3f9ffaafdb9280045c8"
-  integrity sha512-AmNGm1KHmpdzThtxUFOIdqr2QghxKWYfGa02SN/jhYQvRpqo3C25gw1aYD+5gn1lBf7EZ2lqil3rHV6OmmzbAA==
+"@ndla/ui@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-1.0.1.tgz#6682fdd86790a5fb30095a7b9765e1a12904cce1"
+  integrity sha512-2iMFlbeHtn+FXjMInLnAANPJiE6xpr/bl6ncVnxum3fWhG1D+aNTDJe6UEAud9VH0kqcayKbpaLTD04rG7y7Yw==
   dependencies:
     "@ndla/button" "^0.3.58"
     "@ndla/carousel" "^0.3.44"

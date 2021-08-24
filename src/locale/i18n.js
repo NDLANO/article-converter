@@ -9,12 +9,12 @@
 import defined from 'defined';
 import IntlMessageFormat from 'intl-messageformat';
 import memoizeIntlConstructor from 'intl-format-cache';
-import { formatMessage } from '@ndla/i18n';
 import {
   messagesNB,
   messagesEN,
   messagesNN,
   formatNestedMessages,
+  formatMessage,
 } from '@ndla/ui';
 
 let getMessageFormat;
