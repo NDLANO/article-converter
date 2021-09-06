@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Remarkable } from 'remarkable';
+import { Translation } from 'react-i18next';
 import {
   Figure,
   FigureLicenseDialog,
@@ -167,48 +168,57 @@ export default function createAudioPlugin(options = {}) {
       audio.copyright,
       locale
     );
+
     return render(
-      data.type === 'minimal' ? (
-        <AudioPlayer speech type={mimeType} src={url} title={title} />
-      ) : (
-        <Figure id={figureid} type="full">
-          <AudioPlayer
-            description={description}
-            img={img}
-            src={url}
-            textVersion={textVersion}
-            title={title}
-            subtitle={subtitle}
-            staticRenderId={`static-render-${id}-${locale}`}
-          />
-          <FigureCaption
-            figureId={figureid}
-            id={figureLicenseDialogId}
-            caption={caption}
-            reuseLabel={t(locale, 'audio.reuse')}
-            licenseRights={license.rights}
-            authors={
-              authors.creators || authors.rightsholders || authors.processors
-            }
-            locale={locale}
-          />
-          <FigureLicenseDialog
-            id={figureLicenseDialogId}
-            title={title}
-            license={license}
-            authors={contributors}
-            origin={origin}
-            locale={locale}
-            messages={messages}>
-            <AudioActionButtons
-              copyString={copyString}
-              locale={locale}
-              license={licenseAbbreviation}
-              src={url}
-            />
-          </FigureLicenseDialog>
-        </Figure>
-      )
+      <Translation>
+        {(_, { i18n }) => {
+          i18n.changeLanguage(locale);
+          return data.type === 'minimal' ? (
+            <AudioPlayer speech type={mimeType} src={url} title={title} />
+          ) : (
+            <Figure id={figureid} type="full">
+              <AudioPlayer
+                description={description}
+                img={img}
+                src={url}
+                textVersion={textVersion}
+                title={title}
+                subtitle={subtitle}
+                staticRenderId={`static-render-${id}-${locale}`}
+              />
+              <FigureCaption
+                figureId={figureid}
+                id={figureLicenseDialogId}
+                caption={caption}
+                reuseLabel={t(locale, 'audio.reuse')}
+                licenseRights={license.rights}
+                authors={
+                  authors.creators ||
+                  authors.rightsholders ||
+                  authors.processors
+                }
+                locale={locale}
+              />
+              <FigureLicenseDialog
+                id={figureLicenseDialogId}
+                title={title}
+                license={license}
+                authors={contributors}
+                origin={origin}
+                locale={locale}
+                messages={messages}>
+                <AudioActionButtons
+                  copyString={copyString}
+                  locale={locale}
+                  license={licenseAbbreviation}
+                  src={url}
+                />
+              </FigureLicenseDialog>
+            </Figure>
+          );
+        }}
+      </Translation>,
+      locale
     );
   };
 
