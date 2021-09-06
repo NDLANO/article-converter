@@ -19,7 +19,7 @@ Object {
   },
   "created": "2013-08-07T10:34:45Z",
   "id": 116,
-  "introduction": "",
+  "introduction": undefined,
   "metaData": Object {
     "brightcoves": Array [
       Object {
@@ -85,8 +85,7 @@ Object {
     "twitter",
     "young politician",
   ],
-  "title": "<p>Offentlige debatter</p>
-",
+  "title": "Offentlige debatter",
   "updated": "2017-08-25T10:16:37Z",
   "updatedBy": "content-import-client",
 }
@@ -112,7 +111,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
       ></iframe>
     </div>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">

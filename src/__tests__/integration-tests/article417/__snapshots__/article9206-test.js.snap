@@ -21,13 +21,11 @@ Object {
   },
   "created": "2016-03-22T08:46:42Z",
   "id": 9206,
-  "introduction": "<p>Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.</p>
-",
+  "introduction": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "metaData": Object {
     "copyText": "Forfatter: Johannes Leiknes Nag. Skripting gjør sidene mer interaktive [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
   },
-  "metaDescription": "<p>Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.</p>
-",
+  "metaDescription": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "oldNdlaUrl": "//red.ndla.no/node/160589",
   "requiredLibraries": Array [],
   "revision": 1,
@@ -42,8 +40,7 @@ Object {
     "programmering",
     "tagger",
   ],
-  "title": "<p>Skripting gjør sidene mer interaktive</p>
-",
+  "title": "Skripting gjør sidene mer interaktive",
   "updated": "2017-03-07T17:16:47Z",
   "updatedBy": "content-import-client",
 }

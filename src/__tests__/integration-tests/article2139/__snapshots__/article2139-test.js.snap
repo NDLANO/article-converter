@@ -21,8 +21,7 @@ Object {
   },
   "created": "2017-10-23T10:16:50Z",
   "id": 2139,
-  "introduction": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-",
+  "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "metaData": Object {
     "copyText": "Forfatter: Øyvind. H₂O 💦 [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
     "images": Array [
@@ -136,8 +135,7 @@ Object {
       },
     ],
   },
-  "metaDescription": "<p>Meta</p>
-",
+  "metaDescription": "Meta",
   "requiredLibraries": Array [],
   "revision": 18,
   "supportedLanguages": Array [
@@ -148,8 +146,7 @@ Object {
     "vannlatingsmønster",
     "rent vann",
   ],
-  "title": "<p>H₂O 💦</p>
-",
+  "title": "H₂O 💦",
   "updated": "2017-11-15T07:33:50Z",
   "updatedBy": "xQ8mzUvTqBeT5xVXgrvhJ3WM.editorial.frontend",
   "visualElement": Object {
