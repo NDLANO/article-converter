@@ -256,7 +256,7 @@ export default function createImagePlugin(options = { concept: false }) {
     const authors = getLicenseCredits(copyright);
 
     const altText = embedAlttext || '';
-    const caption = embedCaption;
+    const caption = embedCaption || '';
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureType = getFigureType(size, align);

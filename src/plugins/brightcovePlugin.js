@@ -101,8 +101,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
   const embedToHTML = (embed, locale) => {
     const { brightcove, data } = embed;
-    const { caption: unparsedCaption } = data;
-    const caption = unparsedCaption;
+    const { caption } = data;
     const {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
