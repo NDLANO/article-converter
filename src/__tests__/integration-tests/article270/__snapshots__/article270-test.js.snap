@@ -27,11 +27,13 @@ Object {
   },
   "created": "2016-05-31T12:16:33Z",
   "id": 270,
-  "introduction": "Algebra brukes til å tolke og bruke formler som gjelder dagligliv og yrkesliv, vi bruker algebra til å til å forenkle uttrykk, regne med forhold, prosent, prosentpoeng og vekstfaktor, og når vi skal behandle proporsjonale og omvendt proporsjonale størrelser i praktiske sammenhenger.",
+  "introduction": "<p>Algebra brukes til å tolke og bruke formler som gjelder dagligliv og yrkesliv, vi bruker algebra til å til å forenkle uttrykk, regne med forhold, prosent, prosentpoeng og vekstfaktor, og når vi skal behandle proporsjonale og omvendt proporsjonale størrelser i praktiske sammenhenger.</p>
+",
   "metaData": Object {
     "copyText": "Tall og algebra [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
   },
-  "metaDescription": "Tall er grunnlaget for all matematikk. Det er derfor veldig viktig å ha god tallforståelse for å gjøre det bra i matematikk.",
+  "metaDescription": "<p>Tall er grunnlaget for all matematikk. Det er derfor veldig viktig å ha god tallforståelse for å gjøre det bra i matematikk.</p>
+",
   "oldNdlaUrl": "//red.ndla.no/node/165193",
   "requiredLibraries": Array [
     Object {
@@ -49,7 +51,8 @@ Object {
     "bokstavregning",
     "tall",
   ],
-  "title": "Tall og algebra",
+  "title": "<p>Tall og algebra</p>
+",
   "updated": "2017-09-15T06:42:10Z",
   "updatedBy": "content-import-client",
   "visualElement": Object {

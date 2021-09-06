@@ -19,7 +19,8 @@ Object {
   },
   "created": "2009-07-02T15:18:58Z",
   "id": 1036,
-  "introduction": "FNs utviklingsprogram (UNDP) har flere ganger rangert Norge som det beste landet å leve i. Her skal vi ta for oss noen av de faktorene som gjør at Norge kommer såpass høyt opp på listene, og vi skal se litt på hva som ligger bak tallene.",
+  "introduction": "<p>FNs utviklingsprogram (UNDP) har flere ganger rangert Norge som det beste landet å leve i. Her skal vi ta for oss noen av de faktorene som gjør at Norge kommer såpass høyt opp på listene, og vi skal se litt på hva som ligger bak tallene.</p>
+",
   "metaData": Object {
     "copyText": "Levekår i dagens Norge [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
     "footnotes": Array [
@@ -129,7 +130,8 @@ Object {
     "lønn",
     "utdannelse",
   ],
-  "title": "Levekår i dagens Norge",
+  "title": "<p>Levekår i dagens Norge</p>
+",
   "updated": "2017-07-07T14:57:22Z",
   "updatedBy": "content-import-client",
 }
@@ -172,6 +174,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024\\"/></picture
     ></a>
     <figcaption class=\\"c-figure__caption\\">
+      <div class=\\"c-figure__info\\"></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">

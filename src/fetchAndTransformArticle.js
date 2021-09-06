@@ -3,6 +3,7 @@ import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
 import { getCopyString } from './plugins/pluginHelpers';
+import { markdownToHtmlString } from './utils/remarkableHelpers';
 
 export async function transformArticle(
   article,
@@ -32,18 +33,24 @@ export async function transformArticle(
     lang
   );
 
+  const title = markdownToHtmlString(article.title.title ?? '');
+
+  const introduction = markdownToHtmlString(
+    article?.introduction?.introduction ?? ''
+  );
+
+  const metaDescription = markdownToHtmlString(
+    article?.metaDescription?.metaDescription ?? ''
+  );
+
   return {
     ...article,
     content: html || '',
     metaData: { ...embedMetaData, copyText } || '',
-    title: article.title.title || '',
+    title,
     tags: article.tags ? article.tags.tags : [],
-    introduction: article.introduction
-      ? article.introduction.introduction
-      : undefined,
-    metaDescription: article.metaDescription
-      ? article.metaDescription.metaDescription
-      : '',
+    introduction,
+    metaDescription,
   };
 }
 

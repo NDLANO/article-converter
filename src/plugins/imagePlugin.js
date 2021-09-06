@@ -26,6 +26,7 @@ import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import { parseMarkdown } from '../utils/remarkableHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -256,7 +257,7 @@ export default function createImagePlugin(options = { concept: false }) {
     const authors = getLicenseCredits(copyright);
 
     const altText = embedAlttext || '';
-    const caption = embedCaption || '';
+    const caption = parseMarkdown(embedCaption);
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
     const figureType = getFigureType(size, align);

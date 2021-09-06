@@ -24,6 +24,7 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+import { parseMarkdown } from '../utils/remarkableHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -137,7 +138,7 @@ export default function createAudioPlugin(options = {}) {
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
-    const caption = data.caption || title;
+    const caption = parseMarkdown(data.caption || title);
 
     const authors = getLicenseCredits(audio.copyright);
 

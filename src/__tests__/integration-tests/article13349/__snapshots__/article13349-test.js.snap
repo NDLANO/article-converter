@@ -21,11 +21,13 @@ Object {
   },
   "created": "2009-09-15T07:20:32Z",
   "id": 13349,
-  "introduction": "Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger. Du skal lære deg åpen og skjult installasjon. Samtidig skal du lære om standarder og forskrifter som finnes i boliginstallasjon",
+  "introduction": "<p>Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger. Du skal lære deg åpen og skjult installasjon. Samtidig skal du lære om standarder og forskrifter som finnes i boliginstallasjon</p>
+",
   "metaData": Object {
     "copyText": "Forfatter: Steinar Olsen. Planlegging [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
   },
-  "metaDescription": "Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger.",
+  "metaDescription": "<p>Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger.</p>
+",
   "metaImage": Object {
     "alt": "",
     "language": "nb",
@@ -43,7 +45,8 @@ Object {
     "lysstyring",
     "planlegging",
   ],
-  "title": "Planlegging",
+  "title": "<p>Planlegging</p>
+",
   "updated": "2018-02-20T14:58:39Z",
   "updatedBy": "r0gHb9Xg3li4yyXv0QSGQczV3bviakrT",
 }

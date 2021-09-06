@@ -29,6 +29,7 @@ import {
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
+import { parseMarkdown } from '../utils/remarkableHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -101,7 +102,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
   const embedToHTML = (embed, locale) => {
     const { brightcove, data } = embed;
-    const { caption } = data;
+    const { caption: unparsedCaption } = data;
+    const caption = parseMarkdown(unparsedCaption);
     const {
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
