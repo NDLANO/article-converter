@@ -16,13 +16,7 @@ export async function transformArticle(
       })
     : undefined;
   const { html, embedMetaData } = articleContent
-    ? await transform(
-        articleContent,
-        lang,
-        accessToken,
-        article.visualElement,
-        options
-      )
+    ? await transform(articleContent, lang, accessToken, options)
     : {};
   const copyText = getCopyString(
     article.title.title,
@@ -31,10 +25,11 @@ export async function transformArticle(
     article.copyright,
     lang
   );
+  const hasContent = cheerio.load(html).text() !== '';
 
   return {
     ...article,
-    content: html || '',
+    content: hasContent ? html : '',
     metaData: { ...embedMetaData, copyText } || '',
     title: article.title.title || '',
     tags: article.tags ? article.tags.tags : [],
