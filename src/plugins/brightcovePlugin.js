@@ -156,7 +156,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
             aria-label={`Video: ${brightcove.name}`}
             frameBorder="0"
             data-original-src={originalVideoProps.src}
-            data-synstolket-src={
+            data-alternative-src={
               linkedVideoId &&
               getIframeProps(
                 { ...data, videoid: linkedVideoId },
