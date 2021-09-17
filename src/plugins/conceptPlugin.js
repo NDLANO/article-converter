@@ -127,7 +127,6 @@ export default function createConceptPlugin(options = {}) {
       cheerio.load(visualElement.visualElement),
       locale,
       '',
-      undefined,
       { concept: true }
     );
     return render(

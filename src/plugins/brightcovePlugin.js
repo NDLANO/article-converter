@@ -142,6 +142,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const figureId = `figure-${brightcove.id}`;
 
+    const originalVideoProps = getIframeProps(data, brightcove.sources);
+
     return render(
       <Figure
         id={figureId}
@@ -153,22 +155,17 @@ export default function createBrightcovePlugin(options = { concept: false }) {
             title={`Video: ${brightcove.name}`}
             aria-label={`Video: ${brightcove.name}`}
             frameBorder="0"
-            {...getIframeProps(data, brightcove.sources)}
-            allowFullScreen
-          />
-          {linkedVideoId && (
-            <iframe
-              className="synstolket hidden"
-              title={`Video: ${brightcove.name}`}
-              aria-label={`Video: ${brightcove.name}`}
-              frameBorder="0"
-              {...getIframeProps(
+            data-original-src={originalVideoProps.src}
+            data-alternative-src={
+              linkedVideoId &&
+              getIframeProps(
                 { ...data, videoid: linkedVideoId },
                 brightcove.sources
-              )}
-              allowFullScreen
-            />
-          )}
+              ).src
+            }
+            {...originalVideoProps}
+            allowFullScreen
+          />
         </div>
         <FigureCaption
           figureId={figureId}
