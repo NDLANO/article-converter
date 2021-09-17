@@ -25,7 +25,8 @@ export async function transformArticle(
     article.copyright,
     lang
   );
-  const hasContent = article.articleType === 'standard' || cheerio.load(html).text() !== '';
+  const hasContent =
+    article.articleType === 'standard' || cheerio.load(html).text() !== '';
 
   return {
     ...article,
