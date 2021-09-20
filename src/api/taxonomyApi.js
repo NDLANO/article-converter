@@ -59,9 +59,11 @@ export async function fetchArticleResource(
     contentType
   );
 
-  if (topics[0]) {
+  const withPath = topics.filter(t => t.path !== null);
+
+  if (withPath[0]) {
     // Add resourceType so that content type is correct
-    return { ...topics[0], resourceTypes: [{ id: 'subject' }] };
+    return { ...withPath[0], resourceTypes: [{ id: 'subject' }] };
   }
   return undefined;
 }
