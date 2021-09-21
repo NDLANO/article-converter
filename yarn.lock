@@ -1604,18 +1604,18 @@
     react-transition-group "^2.5.3"
     shave "^2.5.10"
 
-"@ndla/util@^1.0.0", "@ndla/util@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@ndla/util/-/util-1.0.2.tgz#9c1a118ed73f33c7f75cc1e6f7d7002fa4995a6b"
-  integrity sha512-Ayy3FwlO2w8wJMQ7PNQUK/ivEifTktHdccJHoYI36vkMcx9ebjf/IGfa7HXynv/88diVEykOWUUWQV0e757c/w==
-  dependencies:
-    defined "1.0.0"
-    remarkable "^2.0.1"
-
 "@ndla/util@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@ndla/util/-/util-1.0.1.tgz#4e2818e61372c56be1439709c329929f2e63f921"
   integrity sha512-s6+alkB7bbUu8A0y8tRLlDPjzav1ditXBTxRnCjkJX4xY0d5AJvHHxQRyVZ+D8tdiBRGG2S3eVwFmcuYUu3rkA==
+  dependencies:
+    defined "1.0.0"
+    remarkable "^2.0.1"
+
+"@ndla/util@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ndla/util/-/util-1.0.2.tgz#9c1a118ed73f33c7f75cc1e6f7d7002fa4995a6b"
+  integrity sha512-Ayy3FwlO2w8wJMQ7PNQUK/ivEifTktHdccJHoYI36vkMcx9ebjf/IGfa7HXynv/88diVEykOWUUWQV0e757c/w==
   dependencies:
     defined "1.0.0"
     remarkable "^2.0.1"
