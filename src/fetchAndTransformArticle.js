@@ -16,7 +16,13 @@ export async function transformArticle(
       })
     : undefined;
   const { html, embedMetaData } = articleContent
-    ? await transform(articleContent, lang, accessToken, options)
+    ? await transform(
+        articleContent,
+        lang,
+        accessToken,
+        article.visualElement,
+        options
+      )
     : {};
   const copyText = getCopyString(
     article.title.title,
