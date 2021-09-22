@@ -51,6 +51,39 @@ module.exports = {
           format: 'int64',
         },
         {
+          in: 'query',
+          name: 'removeRelatedContent',
+          description: 'Makes links in article open in new window',
+          deprecated: true,
+        },
+        {
+          in: 'query',
+          name: 'isOembed',
+          description: 'Makes links in article open in new window',
+        },
+        {
+          in: 'query',
+          name: 'showVisualElement',
+          description: 'Renders visual element for topic article',
+        },
+        {
+          in: 'query',
+          name: 'filters',
+          description: 'Adds specified filters to internal links',
+          deprecated: true,
+        },
+        {
+          in: 'query',
+          name: 'subject',
+          description:
+            'Picks correct subject path for resource with multiple paths',
+        },
+        {
+          in: 'query',
+          name: 'path',
+          description: 'The page path, used to generate APA references',
+        },
+        {
           $ref: '#/parameters/authorizationHeader',
         },
       ],
@@ -263,7 +296,6 @@ module.exports = {
           name: 'path',
           description: 'The page path, used to generate APA references',
         },
-
         {
           $ref: '#/parameters/authorizationHeader',
         },
