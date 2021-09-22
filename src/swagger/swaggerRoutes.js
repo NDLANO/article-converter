@@ -514,6 +514,21 @@ module.exports = {
           },
         },
         {
+          in: 'query',
+          name: 'draftConcept',
+          description: 'Fetches unpublished concepts',
+        },
+        {
+          in: 'query',
+          name: 'previewH5p',
+          description: 'Uses h5p preview endpoint',
+        },
+        {
+          in: 'query',
+          name: 'showVisualElement',
+          description: 'Renders visual element for topic article',
+        },
+        {
           $ref: '#/parameters/authorizationHeader',
         },
       ],
