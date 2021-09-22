@@ -9,22 +9,24 @@ parameters:
 definitions:
   bodyArticle:
     type: object
-    content:
-      content: string
-      language: string
-      example: '<section>some text</section>'
-    title:
-      title: string
-      language: string
-      example: test
-    introduction:
-      introduction: string
-      language: nb
-      example: intro
-    metaDescription:
-      metaDescription: string
-      language: string
-      example: meta description here
+    description: Article body.
+    properties:
+      content:
+        type: string
+        description: The content of the article to transform.
+        example: <section>some text</section>
+      title:
+        type: string
+        description: Article title.
+        example: test
+      introduction:
+        type: string
+        description: Article introduction.
+        example: intro
+      metaDescription:
+        type: string
+        description: Meta description of the article contents.
+        example: meta description here
   copyright:
     type: object
     description: Copyright attributes.
