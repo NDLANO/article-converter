@@ -25,3 +25,22 @@ test('app/fetchAndTransformArticle 270', async () => {
   expect(rest).toMatchSnapshot();
   expect(prettify(content)).toMatchSnapshot();
 });
+
+test('app/fetchAndTransformArticle 270 with visualElement', async () => {
+  nock('http://ndla-api')
+    .get('/article-api/v2/articles/270?language=nb&fallback=true')
+    .reply(200, article270);
+  nock('http://ndla-api')
+    .get(uri => uri.includes('/oembed-proxy/v1/oembed'))
+    .reply(404);
+  const transformed = await fetchAndTransformArticle(
+    '270',
+    'nb',
+    'some_token',
+    { showVisualElement: true }
+  );
+  const { content, ...rest } = transformed;
+
+  expect(rest).toMatchSnapshot();
+  expect(prettify(content)).toMatchSnapshot();
+});

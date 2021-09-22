@@ -63,7 +63,18 @@ export async function getEmbedsResources(embeds, accessToken, lang) {
   );
 }
 
-export async function transform(content, lang, accessToken, options) {
+export async function transform(
+  content,
+  lang,
+  accessToken,
+  visualElement,
+  options
+) {
+  if (visualElement?.visualElement && options.showVisualElement) {
+    content('body').prepend(
+      `<section>${visualElement.visualElement}</section>`
+    );
+  }
   const embeds = await getEmbedsFromHtml(content, { transform, ...options });
   const embedsWithResources = await getEmbedsResources(
     embeds,
