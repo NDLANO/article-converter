@@ -6,19 +6,33 @@
  *
  */
 
+// @ts-ignore
 import createNRKPlugin from './nrkPlugin';
+// @ts-ignore
 import createAudioPlugin from './audioPlugin';
+// @ts-ignore
 import createImagePlugin from './imagePlugin';
+// @ts-ignore
 import createBrightcovePlugin from './brightcovePlugin';
+// @ts-ignore
 import createH5pPlugin from './h5pPlugin';
+// @ts-ignore
 import createExternalPlugin from './externalPlugin';
+// @ts-ignore
 import createContentLinkPlugin from './contentLinkPlugin';
+// @ts-ignore
 import createErrorPlugin from './errorPlugin';
+// @ts-ignore
 import createIframePlugin from './iframePlugin';
+// @ts-ignore
 import createFootnotePlugin from './footNotePlugin';
+// @ts-ignore
 import createConceptPlugin from './conceptPlugin';
+// @ts-ignore
 import createRelatedContent from './relatedContentPlugin';
+// @ts-ignore
 import createCodePlugin from './codePlugin';
+import { EmbedType, LocaleType } from '../interfaces';
 
 export {
   createNRKPlugin,
@@ -36,7 +50,30 @@ export {
   createCodePlugin,
 };
 
-const plugins = options => [
+interface PluginOptions {}
+
+export interface EmbedMetaData extends Record<string, unknown> {
+  ref?: number;
+  authors?: string[];
+  year?: string;
+  title?: string;
+  description?: string;
+}
+
+export interface Plugin {
+  resource: string;
+
+  fetchResource: (
+    embed: EmbedType,
+    accessToken?: string,
+    lang?: LocaleType
+  ) => EmbedType;
+  embedToHTML: (embed: EmbedType, lang: LocaleType) => string;
+  getMetaData?: (embed: EmbedType, lang: LocaleType) => EmbedMetaData;
+  onError?: (embed: EmbedType, lang: LocaleType) => string;
+}
+
+const plugins = (options: PluginOptions): Plugin[] => [
   createNRKPlugin(),
   createAudioPlugin(options),
   createImagePlugin(options),
@@ -51,4 +88,5 @@ const plugins = options => [
   createRelatedContent(options),
   createCodePlugin(),
 ];
+
 export default plugins;

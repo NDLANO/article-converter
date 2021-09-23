@@ -7,6 +7,7 @@
  */
 
 import defined from 'defined';
+import { Express } from 'express';
 import fetchAndTransformArticle, {
   transformArticle,
 } from './fetchAndTransformArticle';
@@ -17,11 +18,15 @@ import { getAppropriateErrorResponse } from './utils/errorHelpers';
 import config from './config';
 import log from './utils/logger';
 
+const getAsString = (value: any): string => {
+  return typeof value === 'string' ? value : '';
+};
+
 // Sets up the routes.
-module.exports.setup = function routes(app) {
+const setup = function routes(app: Express) {
   app.get('/article-converter/json/:lang/meta-data', (req, res) => {
-    const embed = req.query.embed;
-    const accessToken = req.headers.authorization;
+    const embed = getAsString(req.query.embed);
+    const accessToken = getAsString(req.headers.authorization);
     const lang = getHtmlLang(defined(req.params.lang, ''));
     fetchEmbedMetaData(embed, accessToken, lang)
       .then(data => {
@@ -52,7 +57,7 @@ module.exports.setup = function routes(app) {
       defined(req.query.removeRelatedContent, 'false');
     const showVisualElement = defined(req.query.showVisualElement, 'false');
     const articleId = req.params.id;
-    const accessToken = req.headers.authorization;
+    const accessToken = getAsString(req.headers.authorization);
     const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
@@ -83,7 +88,7 @@ module.exports.setup = function routes(app) {
       defined(req.query.isOembed, 'false') ||
       defined(req.query.removeRelatedContent, 'false');
     const showVisualElement = defined(req.query.showVisualElement, 'false');
-    const accessToken = req.headers.authorization;
+    const accessToken = getAsString(req.headers.authorization);
     const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
@@ -104,20 +109,22 @@ module.exports.setup = function routes(app) {
           error,
           config.isProduction
         );
-        res.status(response.status).send(htmlErrorTemplate(lang, response));
+        const rp = htmlErrorTemplate(lang, response);
+        res.status(response.status).send(rp);
       });
   });
 
   app.post('/article-converter/json/:lang/transform-article', (req, res) => {
     const body = req.body;
     const lang = getHtmlLang(defined(req.params.lang, ''));
-    const draftConcept = defined(req.query.draftConcept, false);
-    const previewH5p = defined(req.query.previewH5p, false);
-    const showVisualElement = defined(req.query.showVisualElement, 'false');
-    const accessToken = req.headers.authorization;
+    const draftConcept = req.query.draftConcept === 'true';
+    const previewH5p = req.query.previewH5p === 'true';
+    const showVisualElement = req.query.showVisualElement === 'true';
+
+    const accessToken = getAsString(req.headers.authorization);
     if (body && body.article) {
       transformArticle(body.article, lang, accessToken, {
-        showVisualElement: showVisualElement === 'true',
+        showVisualElement,
         draftConcept,
         previewH5p,
       })
@@ -144,3 +151,4 @@ module.exports.setup = function routes(app) {
     }
   });
 };
+export default setup;

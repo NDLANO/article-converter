@@ -6,12 +6,19 @@
  *
  */
 
-import createPlugins from './plugins';
+import { CheerioAPI } from 'cheerio';
 
-export function getEmbedsFromHtml(html, options) {
+// @ts-ignore
+import createPlugins from './plugins';
+import { EmbedType } from './interfaces';
+
+export function getEmbedsFromHtml(
+  html: CheerioAPI,
+  options?: any
+): Promise<EmbedType[]> {
   const plugins = createPlugins(options);
   return new Promise(resolve => {
-    const embeds = html('embed')
+    const embeds: EmbedType[] = html('embed')
       .map((_, embed) => ({
         embed: html(embed),
         data: html(embed).data(),
@@ -20,6 +27,7 @@ export function getEmbedsFromHtml(html, options) {
         ),
       }))
       .get();
+
     resolve(embeds);
   });
 }

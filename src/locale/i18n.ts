@@ -16,20 +16,25 @@ import {
   formatNestedMessages,
   formatMessage,
 } from '@ndla/ui';
+import { LocaleType } from '../interfaces';
 
-let getMessageFormat;
+let getMessageFormat: any; // TODO: Må denne fikses?
 
 if (!getMessageFormat) {
   getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
 }
 
-const messages = {
+interface FormattedMessages {
+  [key: string]: string;
+}
+
+const messages: Record<LocaleType, FormattedMessages> = {
   nb: formatNestedMessages(messagesNB),
   nn: formatNestedMessages(messagesNN),
   en: formatNestedMessages(messagesEN),
 };
 
-const t = (locale, id, value) => {
+const t = (locale: LocaleType, id: string, value?: { [key: string]: any }) => {
   const localeMessages = defined(messages[locale], messages.nb);
   return formatMessage(locale, localeMessages, getMessageFormat, id, value);
 };

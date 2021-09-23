@@ -20,17 +20,17 @@ const apiBaseUrl = (() => {
   return NDLA_API_URL;
 })();
 
-export function convertToInternalUrlIfPossible(url) {
+export function convertToInternalUrlIfPossible(url: string) {
   return url.replace(/^https:\/\/(?!www)(.*?)api(.+?)ndla\.no/g, apiBaseUrl);
 }
 
 export { apiBaseUrl };
 
-export function apiResourceUrl(path) {
+export function apiResourceUrl(path: string) {
   return apiBaseUrl + path;
 }
 
-export function rejectWithError(json, res) {
+export function rejectWithError(json: any, res: Response) {
   log.logAndReturnValue('warn', 'JSON response from failed api call: ', json);
   return createErrorPayload(
     res.status,
@@ -39,7 +39,7 @@ export function rejectWithError(json, res) {
   );
 }
 
-export async function resolveJsonOrRejectWithError(res) {
+export async function resolveJsonOrRejectWithError(res: Response) {
   if (res.ok) {
     return res.status === 204 ? undefined : res.json();
   }
@@ -53,7 +53,7 @@ export async function resolveJsonOrRejectWithError(res) {
   throw rejectWithError(json, res);
 }
 
-export function headerWithAccessToken(accessToken) {
+export function headerWithAccessToken(accessToken: string) {
   return {
     Authorization: accessToken,
   };

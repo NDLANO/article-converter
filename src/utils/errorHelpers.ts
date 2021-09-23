@@ -16,7 +16,10 @@ import defined from 'defined';
  * @param {bool} isProduction strip stacktrace if true
  * @returns {object} appropriate error resonse object
  */
-export const getAppropriateErrorResponse = (error, isProduction = true) => {
+export const getAppropriateErrorResponse = (
+  error: any,
+  isProduction = true
+) => {
   const status = defined(error.status, 500); // Default to 500 if no status is provided
   const { description } = defined(error.json, { description: '' });
   const message = error.message;
@@ -35,6 +38,10 @@ export const getAppropriateErrorResponse = (error, isProduction = true) => {
  * @param {object} json JSON response from failed api calls
  * @returns {object} Error object with additional info
  */
-export function createErrorPayload(status, message, json) {
+export function createErrorPayload(
+  status: number,
+  message: string,
+  json?: object
+) {
   return Object.assign(new Error(message), { status, json });
 }

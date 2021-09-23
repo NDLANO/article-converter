@@ -10,8 +10,10 @@ import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
 import config from '../config';
+import {LocaleType} from "../interfaces";
+import {ArticleApiCopyright, Author} from "../api/articleApi";
 
-export const wrapInFigure = (content, resize = true, concept = false) => {
+export const wrapInFigure = (content: string, resize: boolean = true, concept: boolean = false) => {
   const embedClassnames = classnames(
     { 'c-figure': !concept },
     {
@@ -23,11 +25,11 @@ export const wrapInFigure = (content, resize = true, concept = false) => {
   }>${content}</figure>`;
 };
 
-export const makeIframe = (url, width, height, title = '', resize = true) => {
+export const makeIframe = (url: string, width: string, height: string, title: string = '', resize: boolean = true) => {
   return wrapInFigure(makeIframeString(url, width, height, title), resize);
 };
 
-export const makeIframeString = (url, width, height, title = '') => {
+export const makeIframeString = (url: string, width: string, height: string, title: string = '') => {
   const strippedWidth = isNumber(width) ? width : width.replace(/\s*px/, '');
   const strippedHeight = isNumber(height)
     ? height
@@ -38,7 +40,7 @@ export const makeIframeString = (url, width, height, title = '') => {
 
 export const errorSvgSrc = `data:image/svg+xml;charset=UTF-8,%3Csvg fill='%238A8888' height='400' viewBox='0 0 24 12' width='100%25' xmlns='http://www.w3.org/2000/svg' style='background-color: %23EFF0F2'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath transform='scale(0.3) translate(28, 8.5)' d='M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E`;
 
-const makeCreditCopyString = (roles, locale) => {
+const makeCreditCopyString = (roles: Author[], locale: LocaleType) => {
   if (!roles?.length) {
     return '';
   }
@@ -52,7 +54,7 @@ const makeCreditCopyString = (roles, locale) => {
   );
 };
 
-const getValueOrFallback = (value, fallback) => {
+const getValueOrFallback = <T,>(value: T | undefined, fallback: T): T => {
   if (value === undefined) {
     return fallback;
   }
@@ -68,7 +70,7 @@ const makeDateString = () => {
   return `${dd}.${mm}.${yyyy}`;
 };
 
-export const getCopyString = (title, src, path, copyright, locale) => {
+export const getCopyString = (title: string, src: string, path: string | undefined, copyright: ArticleApiCopyright, locale: LocaleType): string => {
   const credits = getLicenseCredits(copyright);
   const creators = makeCreditCopyString(credits.creators, locale);
   const processors = makeCreditCopyString(credits.processors, locale);
@@ -93,7 +95,7 @@ export const getCopyString = (title, src, path, copyright, locale) => {
   );
 };
 
-export const getLicenseCredits = copyright => {
+export const getLicenseCredits = (copyright: ArticleApiCopyright) => {
   return {
     creators: copyright?.creators?.length > 0 ? copyright.creators : [],
     rightsholders:

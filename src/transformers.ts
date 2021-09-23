@@ -7,33 +7,36 @@
  */
 
 import { performance } from 'perf_hooks';
+import {CheerioAPI} from "cheerio";
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
+// @ts-ignore
 import { htmlTransforms } from './htmlTransformers';
+import {EmbedType, LocaleType, TransformOptions} from "./interfaces";
 
-function logIfLongTime(start, timeout, action, obj) {
-  const elapsedTime = (performance.now() - start).toFixed(2);
+function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
+  const elapsedTime = (performance.now() - start);
   if (elapsedTime > timeout) {
     console.warn(
-      `Action '${action}' took ${elapsedTime}ms, longer than time to warn of ${timeout}ms...`,
+      `Action '${action}' took ${elapsedTime.toFixed(2)}ms, longer than time to warn of ${timeout}ms...`,
       obj
     );
   }
 }
 
-async function executeHtmlTransforms(content, lang, options) {
+async function executeHtmlTransforms(content: CheerioAPI, lang: LocaleType, options: TransformOptions): Promise<void> {
   // We use this reduce trick so the transformations happen in sequence even if the function is asynchronous
   const starterPromise = Promise.resolve(null);
   await htmlTransforms.reduce(
-    (maybePromise, replacer) =>
+    (maybePromise: Promise<void>, replacer: (content: CheerioAPI, lang :LocaleType, options: TransformOptions) => void) =>
       maybePromise.then(() => replacer(content, lang, options)),
     starterPromise
   );
 }
 
-export async function getEmbedsResources(embeds, accessToken, lang) {
+export async function getEmbedsResources(embeds: EmbedType[], accessToken: string, lang: LocaleType) {
   return Promise.all(
     embeds.map(async embed => {
       const plugin = embed.plugin;
@@ -64,13 +67,13 @@ export async function getEmbedsResources(embeds, accessToken, lang) {
 }
 
 export async function transform(
-  content,
-  lang,
-  accessToken,
-  visualElement,
-  options
-) {
-  if (visualElement?.visualElement && options.showVisualElement) {
+  content: CheerioAPI,
+  lang: LocaleType,
+  accessToken: string,
+  visualElement: { visualElement: string } | undefined,
+  options: TransformOptions,
+): Promise<{ html: string | null; embedMetaData: any }> {
+  if (visualElement?.visualElement && options?.showVisualElement) {
     content('body').prepend(
       `<section>${visualElement.visualElement}</section>`
     );
@@ -81,6 +84,7 @@ export async function transform(
     accessToken,
     lang
   );
+
   await replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
   await executeHtmlTransforms(content, lang, options);

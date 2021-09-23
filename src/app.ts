@@ -11,11 +11,9 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import bodyParser from 'body-parser';
-// @ts-ignore
 import compression from 'compression';
 import cors from 'cors';
-// @ts-ignore
-import routes from './routes';
+import setup from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
 import swaggerRoutes from './swagger/swaggerRoutes';
 
@@ -55,7 +53,7 @@ app.use(
   })
 );
 
-routes.setup(app);
+setup(app);
 
 app.get('/article-converter/api-docs', (req, res) => {
   res.setHeader('Content-Type', 'application/json');

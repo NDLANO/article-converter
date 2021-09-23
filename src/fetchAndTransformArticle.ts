@@ -1,20 +1,23 @@
 import cheerio from 'cheerio';
-import { fetchArticle } from './api/articleApi';
+import { ArticleApiArticle, fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
+// @ts-ignore
 import { getCopyString } from './plugins/pluginHelpers';
+import { LocaleType, TransformedArticle, TransformOptions } from './interfaces';
 
 export async function transformArticle(
-  article,
-  lang,
-  accessToken,
-  options = {}
-) {
+  article: ArticleApiArticle,
+  lang: LocaleType,
+  accessToken: string,
+  options: TransformOptions = {}
+): Promise<TransformedArticle> {
   const articleContent = article.content.content
     ? cheerio.load(article.content.content, {
         recognizeSelfClosing: true,
       })
     : undefined;
+
   const { html, embedMetaData } = articleContent
     ? await transform(
         articleContent,
@@ -23,8 +26,11 @@ export async function transformArticle(
         article.visualElement,
         options
       )
-    : {};
-  const copyText = getCopyString(
+    : { html: undefined, embedMetaData: undefined };
+
+  const htmlString: string = html ?? '';
+
+  const copyText: string = getCopyString(
     article.title.title,
     config.ndlaFrontendDomain,
     options.path,
@@ -32,11 +38,12 @@ export async function transformArticle(
     lang
   );
   const hasContent =
-    article.articleType === 'standard' || cheerio.load(html).text() !== '';
+    article.articleType === 'standard' ||
+    cheerio.load(htmlString).text() !== '';
 
   return {
     ...article,
-    content: hasContent ? html : '',
+    content: hasContent ? htmlString : '',
     metaData: { ...embedMetaData, copyText } || '',
     title: article.title.title || '',
     tags: article.tags ? article.tags.tags : [],
@@ -50,17 +57,11 @@ export async function transformArticle(
 }
 
 export default async function fetchAndTransformArticle(
-  articleId,
-  lang,
-  accessToken,
+  articleId: string,
+  lang: LocaleType,
+  accessToken: string,
   options = {}
 ) {
   const article = await fetchArticle(articleId, accessToken, lang);
-  const transformedArticle = await transformArticle(
-    article,
-    lang,
-    accessToken,
-    options
-  );
-  return transformedArticle;
+  return await transformArticle(article, lang, accessToken, options);
 }

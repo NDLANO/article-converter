@@ -7,12 +7,9 @@
  */
 
 import { availableLocales } from './localeConstants';
+import { LocaleType } from '../interfaces';
 
-export const isValidLocale = localeAbbreviation =>
-  availableLocales.find(l => l.abbreviation === localeAbbreviation) !==
-  undefined;
-
-export const getHtmlLang = localeAbbreviation => {
+export const getHtmlLang = (localeAbbreviation: string): LocaleType => {
   const locale = availableLocales.find(
     l => l.abbreviation === localeAbbreviation
   );

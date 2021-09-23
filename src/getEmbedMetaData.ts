@@ -7,9 +7,10 @@
  */
 
 import defined from 'defined';
+import {EmbedType, LocaleType} from "./interfaces";
 
-export default function getEmbedMetaData(embeds, locale) {
-  return embeds.reduce((ctx, embed) => {
+export default function getEmbedMetaData(embeds: EmbedType[], locale: LocaleType) {
+  return embeds.reduce((ctx: Record<string, unknown[]>, embed) => {
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);
     const metaData = embed.plugin?.getMetaData?.(embed, locale);

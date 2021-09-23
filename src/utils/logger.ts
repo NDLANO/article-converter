@@ -1,14 +1,14 @@
 import bunyan from 'bunyan';
 
-let log;
+let log: any;
 
 if (!log) {
   log = bunyan.createLogger({ name: 'article-converter' });
 }
 
-log.logAndReturnValue = (level, msg, value) => {
+log.logAndReturnValue = (level: any, msg: any, value :any) => {
   log[level](msg, value);
   return value;
 };
 
-module.exports = log;
+export default log;
