@@ -13,7 +13,6 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import bodyParser from 'body-parser';
 // @ts-ignore
 import compression from 'compression';
-// @ts-ignore
 import cors from 'cors';
 // @ts-ignore
 import routes from './routes';
