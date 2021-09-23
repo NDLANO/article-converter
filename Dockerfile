@@ -14,7 +14,7 @@ COPY yarn.lock package.json $APP_PATH/
 WORKDIR $APP_PATH
 RUN yarn
 
-COPY babel.config.js $APP_PATH/
+COPY .babelrc tsconfig.json $APP_PATH/
 COPY src $APP_PATH/src
 
 ENV NODE_ENV=production
