@@ -106,3 +106,119 @@ exports[`app/fetchAndTransformArticle 270 2`] = `
 </section>
 "
 `;
+
+exports[`app/fetchAndTransformArticle 270 with visualElement 1`] = `
+Object {
+  "articleType": "topic-article",
+  "copyright": Object {
+    "authors": Array [
+      Object {
+        "name": "Olav Kristensen",
+        "type": "Forfatter",
+      },
+      Object {
+        "name": "Elisabet Romedal",
+        "type": "Forfatter",
+      },
+      Object {
+        "name": "Hilde Christine Mykland",
+        "type": "Forfatter",
+      },
+    ],
+    "license": Object {
+      "description": "Creative Commons Attribution-ShareAlike 2.0 Generic",
+      "license": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    },
+    "origin": "",
+  },
+  "created": "2016-05-31T12:16:33Z",
+  "id": 270,
+  "introduction": "Algebra brukes til å tolke og bruke formler som gjelder dagligliv og yrkesliv, vi bruker algebra til å til å forenkle uttrykk, regne med forhold, prosent, prosentpoeng og vekstfaktor, og når vi skal behandle proporsjonale og omvendt proporsjonale størrelser i praktiske sammenhenger.",
+  "metaData": Object {
+    "copyText": "Tall og algebra [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
+  },
+  "metaDescription": "Tall er grunnlaget for all matematikk. Det er derfor veldig viktig å ha god tallforståelse for å gjøre det bra i matematikk.",
+  "oldNdlaUrl": "//red.ndla.no/node/165193",
+  "requiredLibraries": Array [
+    Object {
+      "mediaType": "text/javascript",
+      "name": "H5P-Resizer",
+      "url": "//ndla.no/sites/all/modules/h5p/library/js/h5p-resizer.js",
+    },
+  ],
+  "revision": 1,
+  "supportedLanguages": Array [
+    "nb",
+  ],
+  "tags": Array [
+    "algebra",
+    "bokstavregning",
+    "tall",
+  ],
+  "title": "Tall og algebra",
+  "updated": "2017-09-15T06:42:10Z",
+  "updatedBy": "content-import-client",
+  "visualElement": Object {
+    "language": "nb",
+    "visualElement": "<embed data-resource=\\"h5p\\" data-url=\\"//ndla.no/h5p/embed/174974\\">",
+  },
+}
+`;
+
+exports[`app/fetchAndTransformArticle 270 with visualElement 2`] = `
+"<section>
+  <figure class=\\"c-figure\\">
+    <img
+      alt=\\"En feil oppstod ved lasting av H5P.\\"
+      src=\\"data:image/svg+xml;charset=UTF-8,%3Csvg fill='%238A8888' height='400' viewBox='0 0 24 12' width='100%25' xmlns='http://www.w3.org/2000/svg' style='background-color: %23EFF0F2'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath transform='scale(0.3) translate(28, 8.5)' d='M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E\\"
+    />
+    <figcaption>En feil oppstod ved lasting av H5P.</figcaption>
+  </figure>
+</section>
+<section>
+  <p>
+    <em
+      >Hovedomr&#xE5;det tall og algebra handler om &#xE5; utvikle
+      tallforst&#xE5;else og innsikt i hvordan tall og tallbehandling
+      inng&#xE5;r i systemer og m&#xF8;nster. Med tall kan man kvantifisere
+      mengder og st&#xF8;rrelser. Omr&#xE5;det tall omfatter b&#xE5;de hele
+      tall, br&#xF8;k, desimaltall og prosent. Algebra i skolen generaliserer
+      tallregning ved at bokstaver eller andre symboler representerer tall. Det
+      gi anledning til &#xE5; beskrive og analysere m&#xF8;nster og
+      sammenhenger. Algebra benyttes ogs&#xE5; i forbindelse med
+      hovedomr&#xE5;dene geometri og funksjoner. </em
+    >(Udir)
+  </p>
+  <p>
+    Vi lever i en verden full av tall! De ti enkle symbolene 0, 1, 2, 3, 4, 5,
+    6, 7, 8, og 9 som vi alle l&#xE6;rer tidlig i livet p&#xE5;virker livet
+    v&#xE5;rt mer enn vi kan forestille oss. Har du noen gang lurt p&#xE5;
+    hvordan livet ville ha v&#xE6;rt uten disse 10 sifrene og de uendelige andre
+    tallene de kan lage? Bursdager, alder, tid datoer, adresser,
+    kredittkortnummer, PIN-koder, priser og sportsresultater er bare noen
+    f&#xE5;r eksempler av en uendelig lang liste over hva vi bruker tallene til.
+  </p>
+  <p>
+    En viktig drivkraft i matematikk har v&#xE6;rt &#xE5; l&#xF8;se praktiske
+    problemer. Du vil kanskje vite hvor raskt du kan kaste en ball, men kan du
+    bruke dette tallet til &#xE5; finne ut hvor langt du kan kaste den? Dersom
+    du vet hvor mye du f&#xE5;r i l&#xF8;nn for &#xE5; male huset hjemme, kan du
+    bruke den summen til &#xE5; finne ut hvor mye du vil tjene per time p&#xE5;
+    jobben? Med algebra kan du f&#xE5; svar p&#xE5; slike sp&#xF8;rsm&#xE5;l.
+    Algebra handler om &#xE5; finne tall du ikke kan se. Da bruker du tall du
+    allerede kjenner for &#xE5; finne den ukjente verdien. I algebra regner man
+    med bokstaver og andre symboler, og regner matematikk p&#xE5; et mer
+    abstrakt plan.
+  </p>
+  <p>
+    Algebra er et viktig verkt&#xF8;y for &#xE5; utvikle evnen til &#xE5; tenke
+    logisk, finne m&#xF8;nstre og l&#xF8;se problemer som trenger en systematisk
+    tiln&#xE6;rming. Dersom du tenker &#xE5; studere matematikk videre er det
+    helt n&#xF8;dvendig &#xE5; l&#xE6;re algebra. Siden tall er grunnlaget for
+    all matematikk, er det viktig for deg &#xE5; f&#xE5; en god
+    tallforst&#xE5;else.
+  </p>
+</section>
+"
+`;

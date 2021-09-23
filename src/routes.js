@@ -50,6 +50,7 @@ module.exports.setup = function routes(app) {
     const isOembed =
       defined(req.query.isOembed, 'false') ||
       defined(req.query.removeRelatedContent, 'false');
+    const showVisualElement = defined(req.query.showVisualElement, 'false');
     const articleId = req.params.id;
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
@@ -57,6 +58,7 @@ module.exports.setup = function routes(app) {
     const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       isOembed: isOembed === 'true',
+      showVisualElement: showVisualElement === 'true',
       filters,
       subject,
       path,
@@ -80,12 +82,14 @@ module.exports.setup = function routes(app) {
     const isOembed =
       defined(req.query.isOembed, 'false') ||
       defined(req.query.removeRelatedContent, 'false');
+    const showVisualElement = defined(req.query.showVisualElement, 'false');
     const accessToken = req.headers.authorization;
     const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, {
       isOembed: isOembed === 'true',
+      showVisualElement: showVisualElement === 'true',
       filters,
       subject,
       path,
@@ -109,9 +113,11 @@ module.exports.setup = function routes(app) {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const draftConcept = defined(req.query.draftConcept, false);
     const previewH5p = defined(req.query.previewH5p, false);
+    const showVisualElement = defined(req.query.showVisualElement, 'false');
     const accessToken = req.headers.authorization;
     if (body && body.article) {
       transformArticle(body.article, lang, accessToken, {
+        showVisualElement: showVisualElement === 'true',
         draftConcept,
         previewH5p,
       })
