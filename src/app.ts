@@ -11,28 +11,34 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import bodyParser from 'body-parser';
+// @ts-ignore
 import compression from 'compression';
+// @ts-ignore
 import cors from 'cors';
+// @ts-ignore
 import routes from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
 import swaggerRoutes from './swagger/swaggerRoutes';
 
 // Swagger settings
 const swaggerOptions = {
-  swaggerDefinition,
+  swaggerDefinition: {
+    ...swaggerDefinition,
+    paths: {
+      '/article-converter/raw/{language}/{article_id}:':
+        swaggerRoutes.getRawArticle,
+      '/article-converter/json/{language}/{article_id}:':
+        swaggerRoutes.getJsonArticle,
+      '/article-converter/html/{language}/{article_id}:':
+        swaggerRoutes.getHtmlArticle,
+      '/article-converter/json/{language}/meta-data': swaggerRoutes.getMetaData,
+      '/article-converter/json/{language}/transform-article:':
+        swaggerRoutes.postJsonTransformArticle,
+    },
+  },
   apis: [`${__dirname}/routes.js`, `${__dirname}/swagger/swagger.yaml`],
 };
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
-swaggerSpec.paths['/article-converter/raw/{language}/{article_id}:'] =
-  swaggerRoutes.getRawArticle;
-swaggerSpec.paths['/article-converter/json/{language}/{article_id}:'] =
-  swaggerRoutes.getJsonArticle;
-swaggerSpec.paths['/article-converter/html/{language}/{article_id}:'] =
-  swaggerRoutes.getHtmlArticle;
-swaggerSpec.paths['/article-converter/json/{language}/meta-data'] =
-  swaggerRoutes.getMetaData;
-swaggerSpec.paths['/article-converter/json/{language}/transform-article:'] =
-  swaggerRoutes.postJsonTransformArticle;
 
 const app = express();
 app.use(bodyParser.json());

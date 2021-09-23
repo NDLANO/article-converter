@@ -8,7 +8,7 @@
 
 import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
-import { h5pHost } from '../config.js';
+import { h5pHost } from '../config';
 
 import {
   headerWithAccessToken,

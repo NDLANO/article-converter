@@ -10,7 +10,7 @@ import config from '../config';
 
 const host = `${config.host}:${config.port}`;
 
-module.exports = {
+const swaggerDefinition = {
   info: {
     title: 'NDLA Article converter',
     version: '0.0.1',
@@ -34,3 +34,5 @@ module.exports = {
     },
   },
 };
+
+export default swaggerDefinition;

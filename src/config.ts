@@ -99,7 +99,7 @@ const h5pHostUrl = () => {
   }
 };
 
-module.exports = Object.assign(
+const config = Object.assign(
   {
     host: process.env.ARTICLE_CONVERTER_HOST || 'localhost',
     port: process.env.ARTICLE_CONVERTER_PORT || '3100',
@@ -118,3 +118,6 @@ module.exports = Object.assign(
   },
   environment
 );
+
+module.exports = config;
+export default config;

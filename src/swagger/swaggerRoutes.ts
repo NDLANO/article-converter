@@ -1,4 +1,4 @@
-module.exports = {
+const swaggerRoutes = {
   getRawArticle: {
     get: {
       summary: 'Raw endpoint that redirects to the JSON endpoint',
@@ -689,3 +689,5 @@ module.exports = {
     },
   },
 };
+
+export default swaggerRoutes;
