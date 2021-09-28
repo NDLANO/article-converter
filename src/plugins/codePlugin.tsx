@@ -10,10 +10,11 @@ import React from 'react';
 import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
+import { EmbedType } from '../interfaces';
 
-export default function createCodePlugin(options = {}) {
-  const embedToHTML = (embed) => {
-    const { title, codeContent, codeFormat } = embed.data;
+export default function createCodePlugin() {
+  const embedToHTML = (embed: EmbedType) => {
+    const { title, codeContent, codeFormat } = embed.data as Record<string, string>;
     return renderString(
       <figure className="c-figure">
         <Codeblock title={title} code={he.decode(codeContent)} format={codeFormat} showCopy />

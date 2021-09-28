@@ -6,7 +6,6 @@
  *
  */
 
-// @ts-ignore
 import createNRKPlugin from './nrkPlugin';
 // @ts-ignore
 import createAudioPlugin from './audioPlugin';
@@ -21,7 +20,6 @@ import createExternalPlugin from './externalPlugin';
 // @ts-ignore
 import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
-// @ts-ignore
 import createIframePlugin from './iframePlugin';
 // @ts-ignore
 import createFootnotePlugin from './footNotePlugin';
@@ -29,7 +27,6 @@ import createFootnotePlugin from './footNotePlugin';
 import createConceptPlugin from './conceptPlugin';
 // @ts-ignore
 import createRelatedContent from './relatedContentPlugin';
-// @ts-ignore
 import createCodePlugin from './codePlugin';
 import { EmbedType, LocaleType } from '../interfaces';
 
@@ -49,7 +46,7 @@ export {
   createCodePlugin,
 };
 
-interface PluginOptions {}
+export interface PluginOptions {}
 
 export interface EmbedMetaData extends Record<string, unknown> {
   ref?: number;
