@@ -45,7 +45,10 @@ export {
 };
 
 export interface PluginOptions {
-  concept: boolean;
+  concept?: boolean;
+  isOembed?: boolean;
+  subject?: string;
+  filters?: string;
 }
 
 export interface EmbedMetaData extends Record<string, unknown> {
@@ -59,7 +62,7 @@ export interface EmbedMetaData extends Record<string, unknown> {
 export interface Plugin<ET = EmbedType> {
   resource: string;
   embedToHTML: (embed: ET, lang: LocaleType) => Promise<string>;
-  fetchResource?: (embed: EmbedType, accessToken: string, lang?: LocaleType) => Promise<ET>;
+  fetchResource?: (embed: EmbedType, accessToken: string, lang: LocaleType) => Promise<ET>;
   getMetaData?: (embed: ET, lang: LocaleType) => EmbedMetaData;
   onError?: (embed: ET, lang: LocaleType) => string;
 }

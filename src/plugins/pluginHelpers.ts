@@ -13,7 +13,11 @@ import config from '../config';
 import { LocaleType, Author } from '../interfaces';
 import { ArticleApiCopyright } from '../api/articleApi';
 
-export const wrapInFigure = (content: string | undefined, resize: boolean = true, concept: boolean = false) => {
+export const wrapInFigure = (
+  content: string | undefined,
+  resize: boolean = true,
+  concept: boolean = false,
+) => {
   const embedClassnames = classnames(
     { 'c-figure': !concept },
     {

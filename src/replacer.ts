@@ -17,10 +17,7 @@ async function asyncForEach<T, R>(array: T[], callback: (e: T, index: number, ar
   }
 }
 
-export async function replaceEmbedsInHtml(
-  embeds: EmbedType[],
-  lang: LocaleType,
-) {
+export async function replaceEmbedsInHtml(embeds: EmbedType[], lang: LocaleType) {
   return asyncForEach(embeds, async (embed) => {
     const plugin = embed.plugin;
     if (embed.status === 'error') {

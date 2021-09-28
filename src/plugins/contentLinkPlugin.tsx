@@ -8,27 +8,41 @@
 
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
+import { Plugin, PluginOptions } from './index';
+import { EmbedType, LocaleType } from '../interfaces';
 
-export default function createContentLinkPlugin(options = {}) {
-  async function fetchResource(embed, accessToken, language) {
-    const contentType = embed?.data?.contentType;
+interface ContentLinkEmbedType extends EmbedType {
+  path: string;
+}
+
+interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
+  resource: 'content-link';
+}
+
+export default function createContentLinkPlugin(options: PluginOptions = {}): ContentLinkPlugin {
+  async function fetchResource(
+    embed: EmbedType,
+    accessToken: string,
+    language: LocaleType,
+  ): Promise<ContentLinkEmbedType> {
+    const contentType = embed?.data?.contentType as string | undefined;
     let path = `${language}/${contentType === 'learningpath' ? 'learningpaths' : 'article'}/${
       embed.data.contentId
     }`;
 
     try {
       const resource = await fetchArticleResource(
-        embed.data.contentId,
+        embed.data.contentId as string,
         accessToken,
         language,
         contentType,
       );
       const resourcePath =
-        (resource.paths &&
+        (resource?.paths &&
           resource.paths.find(
             (p) => options.subject && p.split('/')[1] === options.subject.replace('urn:', ''),
           )) ||
-        resource.path;
+        resource?.path;
 
       if (resourcePath) {
         path = `${language}${resourcePath}`;
@@ -46,7 +60,7 @@ export default function createContentLinkPlugin(options = {}) {
     }
   }
 
-  const embedToHTML = (embed) => {
+  const embedToHTML = async (embed: ContentLinkEmbedType) => {
     if (embed.data.openIn === 'new-context') {
       return `<a href="/${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
     }

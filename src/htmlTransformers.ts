@@ -32,7 +32,7 @@ export const transformAsides = (content: CheerioAPI) => {
 
       const wideAside = createAside({ wideScreen: true }, content(aside).children().toString());
 
-      const parent = aside?.parent as (Element | undefined);
+      const parent = aside?.parent as Element | undefined;
       content(aside).after(wideAside);
       if (parent?.name === 'section' || parent?.tagName === 'section') {
         // Only append duplicate if we are in a section
@@ -53,7 +53,7 @@ export const transformRelatedContent = (content: CheerioAPI, lang: LocaleType) =
         { locale: lang, articleCount: children.length },
         children.toString(),
       );
-      if(relatedArticleList) divElement.before(relatedArticleList);
+      if (relatedArticleList) divElement.before(relatedArticleList);
       divElement.remove();
     }
   });

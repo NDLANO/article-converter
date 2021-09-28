@@ -12,7 +12,7 @@ import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { EmbedType, LocaleType } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, PluginOptions } from './index';
 
 export interface OembedEmbedType extends EmbedType {
   oembed: OembedProxyResponse;
@@ -22,7 +22,9 @@ interface OembedPlugin extends Plugin<OembedEmbedType> {
   resource: 'external';
 }
 
-export default function createExternalPlugin(options = { concept: false }): OembedPlugin {
+export default function createExternalPlugin(
+  options: PluginOptions = { concept: false },
+): OembedPlugin {
   const fetchResource = async (embed: EmbedType, accessToken: string): Promise<OembedEmbedType> => {
     return fetchOembed(embed, accessToken);
   };
