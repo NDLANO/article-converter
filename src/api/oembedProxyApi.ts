@@ -14,8 +14,9 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 import { EmbedType } from '../interfaces';
+import { OembedEmbedType } from '../plugins/externalPlugin';
 
-interface OembedProxyResponse {
+export interface OembedProxyResponse {
   type: string;
   version: string;
   title?: string;
@@ -36,7 +37,7 @@ interface OembedProxyResponse {
 export const fetchOembed = async (
   embed: EmbedType,
   accessToken: string,
-): Promise<EmbedType & { oembed: OembedProxyResponse }> => {
+): Promise<OembedEmbedType> => {
   const url = new URL(typeof embed.data.url === 'string' ? embed.data.url : '');
   if (url.hostname.includes('youtu') && url.protocol === 'http:') {
     url.protocol = 'https:';

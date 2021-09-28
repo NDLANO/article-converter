@@ -7,15 +7,23 @@
  */
 
 import React from 'react';
-import { fetchOembed } from '../api/oembedProxyApi';
+import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { EmbedType, LocaleType } from '../interfaces';
 import { Plugin } from './index';
 
-export default function createExternalPlugin(options = { concept: false }): Plugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string): Promise<EmbedType> => {
+export interface OembedEmbedType extends EmbedType {
+  oembed: OembedProxyResponse;
+}
+
+interface OembedPlugin extends Plugin<OembedEmbedType> {
+  resource: 'external';
+}
+
+export default function createExternalPlugin(options = { concept: false }): OembedPlugin {
+  const fetchResource = async (embed: EmbedType, accessToken: string): Promise<OembedEmbedType> => {
     return fetchOembed(embed, accessToken);
   };
 
@@ -27,7 +35,7 @@ export default function createExternalPlugin(options = { concept: false }): Plug
       </figure>,
     );
 
-  const embedToHTML = async (embed: EmbedType) =>
+  const embedToHTML = async (embed: OembedEmbedType) =>
     wrapInFigure(embed.oembed.html, true, options.concept);
 
   return {
