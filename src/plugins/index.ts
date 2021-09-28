@@ -20,7 +20,6 @@ import createH5pPlugin from './h5pPlugin';
 import createExternalPlugin from './externalPlugin';
 // @ts-ignore
 import createContentLinkPlugin from './contentLinkPlugin';
-// @ts-ignore
 import createErrorPlugin from './errorPlugin';
 // @ts-ignore
 import createIframePlugin from './iframePlugin';
@@ -63,7 +62,7 @@ export interface EmbedMetaData extends Record<string, unknown> {
 export interface Plugin {
   resource: string;
 
-  fetchResource: (embed: EmbedType, accessToken?: string, lang?: LocaleType) => EmbedType;
+  fetchResource?: (embed: EmbedType, accessToken?: string, lang?: LocaleType) => EmbedType;
   embedToHTML: (embed: EmbedType, lang: LocaleType) => string;
   getMetaData?: (embed: EmbedType, lang: LocaleType) => EmbedMetaData;
   onError?: (embed: EmbedType, lang: LocaleType) => string;

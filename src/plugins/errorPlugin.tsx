@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+import { EmbedType } from '../interfaces';
+import { Plugin } from './index';
 
-export default function createErrorPlugin() {
-  const embedToHTML = (embed) => `<div><strong>${embed.data.message}</strong></div>`;
+export default function createErrorPlugin(): Plugin {
+  const embedToHTML = (embed: EmbedType) => `<div><strong>${embed.data.message}</strong></div>`;
 
   return {
     resource: 'error',
