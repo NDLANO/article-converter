@@ -14,22 +14,25 @@ import {
   FigureCaption,
   FigureExpandButton,
   FigureBylineExpandButton,
+  // @ts-ignore
 } from '@ndla/ui/lib/Figure';
+// @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
+// @ts-ignore
 import Image, { ImageLink } from '@ndla/ui/lib/Image';
-import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
-} from '@ndla/licenses';
+import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import queryString from 'query-string';
+import { isNumber } from 'lodash';
 import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
-import { fetchImageResources } from '../api/imageApi';
+import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin } from './index';
 
 const Anchor = StyledButton.withComponent('a');
 
-const getFigureType = (size, align) => {
+const getFigureType = (size: string, align: string) => {
   if (isSmall(size) && align) {
     return `${size}-${align}`;
   }
@@ -42,7 +45,7 @@ const getFigureType = (size, align) => {
   return 'full';
 };
 
-const getSizes = (size, align) => {
+const getSizes = (size: string, align: string) => {
   if (align && size === 'full') {
     return '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw';
   }
@@ -55,19 +58,19 @@ const getSizes = (size, align) => {
   return '(min-width: 1024px) 1024px, 100vw';
 };
 
-const getFocalPoint = data => {
+const getFocalPoint = (data: Record<string, unknown>) => {
   if (data.focalX && data.focalY) {
     return { x: data.focalX, y: data.focalY };
   }
   return undefined;
 };
 
-const getCrop = data => {
+const getCrop = (data: Record<string, unknown>) => {
   if (
-    (data.lowerRightX &&
-      data.lowerRightY &&
-      data.upperLeftX &&
-      data.upperLeftY) !== undefined
+    isNumber(data.lowerRightX) &&
+    isNumber(data.lowerRightY) &&
+    isNumber(data.upperLeftX) &&
+    isNumber(data.upperLeftY)
   ) {
     return {
       startX: data.lowerRightX,
@@ -79,7 +82,7 @@ const getCrop = data => {
   return undefined;
 };
 
-const downloadUrl = imageSrc => {
+const downloadUrl = (imageSrc: string) => {
   const urlObject = queryString.parseUrl(imageSrc);
   return `${urlObject.url}?${queryString.stringify({
     ...urlObject.query,
@@ -87,24 +90,35 @@ const downloadUrl = imageSrc => {
   })}`;
 };
 
-function isSmall(size) {
+function isSmall(size: string): boolean {
   return size === 'xsmall' || size === 'small';
 }
 
-function hideByline(size) {
+function hideByline(size: string): boolean {
   return size.endsWith('-hide-byline');
 }
 
-function ImageWrapper({ src, crop, size, children, locale }) {
+interface ImageWrapperProps {
+  typeClass: string;
+  src: string;
+  children: React.ReactNode;
+  locale: LocaleType;
+  crop?: {
+    startX: number;
+    startY: number;
+    endX: number;
+    endY: number;
+  };
+  size: string;
+}
+
+function ImageWrapper({ src, crop, size, children, locale }: ImageWrapperProps) {
   if (isSmall(size) || hideByline(size)) {
     return <>{children}</>;
   }
 
   return (
-    <ImageLink
-      src={src}
-      crop={crop}
-      aria-label={t(locale, 'license.images.itemImage.ariaLabel')}>
+    <ImageLink src={src} crop={crop} aria-label={t(locale, 'license.images.itemImage.ariaLabel')}>
       {children}
     </ImageLink>
   );
@@ -121,28 +135,30 @@ ImageWrapper.propTypes = {
   }),
 };
 
-const ImageActionButtons = ({ copyString, locale, license, src }) => {
-  const buttons = [
-    <Button
-      key="copy"
-      outline
-      data-copied-title={t(locale, 'license.hasCopiedTitle')}
-      data-copy-string={copyString}>
-      {t(locale, 'license.copyTitle')}
-    </Button>,
-  ];
-  if (license !== 'COPYRIGHTED') {
-    buttons.push(
-      <Anchor
-        key="download"
-        href={downloadUrl(src)}
-        appearance="outline"
-        download>
-        {t(locale, 'image.download')}
-      </Anchor>
-    );
-  }
-  return buttons;
+interface ImageActionButtonsProps {
+  copyString: string;
+  locale: LocaleType;
+  license: string;
+  src: string;
+}
+
+const ImageActionButtons = ({ copyString, locale, license, src }: ImageActionButtonsProps) => {
+  return (
+    <>
+      <Button
+        key="copy"
+        outline
+        data-copied-title={t(locale, 'license.hasCopiedTitle')}
+        data-copy-string={copyString}>
+        {t(locale, 'license.copyTitle')}
+      </Button>
+      {license !== 'COPYRIGHTED' && (
+        <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
+          {t(locale, 'image.download')}
+        </Anchor>
+      )}
+    </>
+  );
 };
 
 ImageActionButtons.propTypes = {
@@ -152,11 +168,21 @@ ImageActionButtons.propTypes = {
   src: PropTypes.string.isRequired,
 };
 
-export default function createImagePlugin(options = { concept: false }) {
-  const fetchResource = (embed, accessToken, language) =>
+export interface ImageEmbedType extends EmbedType {
+  image: ImageApiType;
+}
+
+interface ImagePlugin extends Plugin<ImageEmbedType> {
+  resource: 'image';
+}
+
+export default function createImagePlugin(
+  options: TransformOptions = { concept: false },
+): ImagePlugin {
+  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = (embed, locale) => {
+  const getMetaData = (embed: ImageEmbedType, locale: LocaleType) => {
     const { image } = embed;
     if (image) {
       const {
@@ -165,13 +191,7 @@ export default function createImagePlugin(options = { concept: false }) {
         copyright,
         imageUrl,
       } = image;
-      const copyString = getCopyString(
-        title,
-        imageUrl,
-        options.path,
-        copyright,
-        locale
-      );
+      const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
       return {
         title: title,
         altText: alttext,
@@ -182,11 +202,9 @@ export default function createImagePlugin(options = { concept: false }) {
     }
   };
 
-  const onError = (embed, locale) => {
-    const {
-      image,
-      data: { align, size },
-    } = embed;
+  const onError = (embed: ImageEmbedType, locale: LocaleType) => {
+    const { image, data } = embed;
+    const { align, size } = data as Record<string, string>;
     const figureType = getFigureType(size, align);
     const src = image && image.imageUrl ? image.imageUrl : errorSvgSrc;
 
@@ -196,11 +214,11 @@ export default function createImagePlugin(options = { concept: false }) {
           <img alt={t(locale, 'image.error.url')} src={src} />
         </div>
         <figcaption>{t(locale, 'image.error.caption')}</figcaption>
-      </Figure>
+      </Figure>,
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = async (embed: ImageEmbedType, locale: LocaleType) => {
     const {
       image: {
         copyright,
@@ -209,12 +227,19 @@ export default function createImagePlugin(options = { concept: false }) {
         id,
         contentType,
       },
-      data: { align, size, caption: embedCaption, alt: embedAlttext },
+      data,
     } = embed;
     const {
       license: { license: licenseAbbreviation },
       origin,
     } = copyright;
+
+    const {
+      align,
+      size,
+      caption: embedCaption,
+      alt: embedAlttext,
+    } = data as Record<string, string>;
 
     const authors = getLicenseCredits(copyright);
 
@@ -231,45 +256,30 @@ export default function createImagePlugin(options = { concept: false }) {
       rulesForUse: t(locale, 'license.images.rules'),
       learnAboutLicenses: t(locale, 'license.learnMore'),
       source: t(locale, 'source'),
-      zoomImageButtonLabel: t(
-        locale,
-        'license.images.itemImage.zoomImageButtonLabel'
-      ),
+      zoomImageButtonLabel: t(locale, 'license.images.itemImage.zoomImageButtonLabel'),
     };
 
     const focalPoint = getFocalPoint(embed.data);
     const crop = getCrop(embed.data);
 
-    const contributors = getGroupedContributorDescriptionList(
-      copyright,
-      locale
-    ).map(item => ({
+    const contributors = getGroupedContributorDescriptionList(copyright, locale).map((item) => ({
       name: item.description,
       type: item.label,
     }));
 
-    const copyString = getCopyString(
-      title,
-      imageUrl,
-      options.path,
-      copyright,
-      locale
-    );
+    const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
     const figureId = `figure-${id}`;
 
-    const ExpandButton = ({ size, typeClass }) => {
+    const ExpandButton = ({ size, typeClass }: { size: string; typeClass: string }) => {
       if (isSmall(size)) {
         return (
           <FigureExpandButton
             typeClass={typeClass}
             messages={{
-              zoomImageButtonLabel: t(
-                locale,
-                'license.images.itemImage.zoomImageButtonLabel'
-              ),
+              zoomImageButtonLabel: t(locale, 'license.images.itemImage.zoomImageButtonLabel'),
               zoomOutImageButtonLabel: t(
                 locale,
-                'license.images.itemImage.zoomOutImageButtonLabel'
+                'license.images.itemImage.zoomOutImageButtonLabel',
               ),
             }}
           />
@@ -279,14 +289,8 @@ export default function createImagePlugin(options = { concept: false }) {
           <FigureBylineExpandButton
             typeClass={size}
             messages={{
-              expandBylineButtonLabel: t(
-                locale,
-                'license.images.itemImage.expandByline'
-              ),
-              minimizeBylineButtonLabel: t(
-                locale,
-                'license.images.itemImage.minimizeByline'
-              ),
+              expandBylineButtonLabel: t(locale, 'license.images.itemImage.expandByline'),
+              minimizeBylineButtonLabel: t(locale, 'license.images.itemImage.minimizeByline'),
             }}
           />
         );
@@ -295,13 +299,9 @@ export default function createImagePlugin(options = { concept: false }) {
     };
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
-        {({ typeClass }) => (
+        {({ typeClass }: { typeClass: string }) => (
           <>
-            <ImageWrapper
-              src={imageUrl}
-              crop={crop}
-              size={size}
-              locale={locale}>
+            <ImageWrapper src={imageUrl} crop={crop} size={size} locale={locale}>
               <Image
                 focalPoint={focalPoint}
                 contentType={contentType}
@@ -309,9 +309,7 @@ export default function createImagePlugin(options = { concept: false }) {
                 sizes={sizes}
                 alt={altText}
                 src={imageUrl}
-                expandButton={
-                  <ExpandButton size={size} typeClass={typeClass} />
-                }
+                expandButton={<ExpandButton size={size} typeClass={typeClass} />}
               />
             </ImageWrapper>
             <FigureCaption
@@ -321,9 +319,7 @@ export default function createImagePlugin(options = { concept: false }) {
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={
-                authors.creators || authors.rightsholders || authors.processors
-              }
+              authors={authors.creators || authors.rightsholders || authors.processors}
               locale={locale}>
               <FigureLicenseDialog
                 id={`${id}`}
@@ -343,7 +339,7 @@ export default function createImagePlugin(options = { concept: false }) {
             </FigureCaption>
           </>
         )}
-      </Figure>
+      </Figure>,
     );
   };
 

@@ -13,6 +13,7 @@ import {
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 import { Author, EmbedType, LocaleType } from '../interfaces';
+import { ImageEmbedType } from '../plugins/imagePlugin';
 
 interface ImageApiCopyright {
   license: {
@@ -29,7 +30,7 @@ interface ImageApiCopyright {
   validTo?: string;
 }
 
-interface ImageApiType {
+export interface ImageApiType {
   id: string;
   metaUrl: string;
   title: {
@@ -42,6 +43,7 @@ interface ImageApiType {
   };
   imageUrl: string;
   size: number;
+  contentType: string;
   copyright: ImageApiCopyright;
   tags: {
     tags: string[];
@@ -66,7 +68,7 @@ export const fetchImageResources = async (
   embed: EmbedType,
   accessToken: string,
   language: LocaleType,
-): Promise<EmbedType & { image: ImageApiType }> => {
+): Promise<ImageEmbedType> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
   const response = await fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
     headers: headerWithAccessToken(accessToken),
