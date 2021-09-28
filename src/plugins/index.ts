@@ -15,7 +15,6 @@ import createImagePlugin from './imagePlugin';
 import createBrightcovePlugin from './brightcovePlugin';
 // @ts-ignore
 import createH5pPlugin from './h5pPlugin';
-// @ts-ignore
 import createExternalPlugin from './externalPlugin';
 // @ts-ignore
 import createContentLinkPlugin from './contentLinkPlugin';
@@ -46,7 +45,9 @@ export {
   createCodePlugin,
 };
 
-export interface PluginOptions {}
+export interface PluginOptions {
+  concept: boolean;
+}
 
 export interface EmbedMetaData extends Record<string, unknown> {
   ref?: number;
@@ -58,9 +59,8 @@ export interface EmbedMetaData extends Record<string, unknown> {
 
 export interface Plugin {
   resource: string;
-
-  fetchResource?: (embed: EmbedType, accessToken?: string, lang?: LocaleType) => EmbedType;
-  embedToHTML: (embed: EmbedType, lang: LocaleType) => string;
+  embedToHTML: (embed: EmbedType, lang: LocaleType) => Promise<string>;
+  fetchResource?: (embed: EmbedType, accessToken: string, lang?: LocaleType) => Promise<EmbedType>;
   getMetaData?: (embed: EmbedType, lang: LocaleType) => EmbedMetaData;
   onError?: (embed: EmbedType, lang: LocaleType) => string;
 }

@@ -11,18 +11,15 @@ import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import { EmbedType, LocaleType } from '../interfaces';
+import { Plugin } from './index';
 
-export default function createExternalPlugin(options = { concept: false }) {
-  const fetchResource = (embed, accessToken) =>
-    new Promise((resolve, reject) => {
-      fetchOembed(embed, accessToken, options)
-        .then((data) => {
-          return resolve(data);
-        })
-        .catch(reject);
-    });
+export default function createExternalPlugin(options = { concept: false }): Plugin {
+  const fetchResource = async (embed: EmbedType, accessToken: string): Promise<EmbedType> => {
+    return fetchOembed(embed, accessToken);
+  };
 
-  const onError = (embed, locale) =>
+  const onError = (embed: EmbedType, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
@@ -30,7 +27,8 @@ export default function createExternalPlugin(options = { concept: false }) {
       </figure>,
     );
 
-  const embedToHTML = (embed) => wrapInFigure(embed.oembed.html, true, options.concept);
+  const embedToHTML = async (embed: EmbedType) =>
+    wrapInFigure(embed.oembed.html, true, options.concept);
 
   return {
     resource: 'external',

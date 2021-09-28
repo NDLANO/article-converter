@@ -13,13 +13,12 @@ import { ArticleApiArticle } from './api/articleApi';
 export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
 
-export interface EmbedType {
+export type EmbedType = {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
   plugin?: Plugin;
-  image?: any;
   status?: string;
-}
+};
 
 export interface TransformOptions {
   showVisualElement?: boolean;

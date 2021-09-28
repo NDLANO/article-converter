@@ -18,7 +18,7 @@ async function asyncForEach<T, R>(array: T[], callback: (e: T, index: number, ar
 }
 
 export async function replaceEmbedsInHtml(
-  embeds: (EmbedType & { status?: string })[],
+  embeds: EmbedType[],
   lang: LocaleType,
 ) {
   return asyncForEach(embeds, async (embed) => {

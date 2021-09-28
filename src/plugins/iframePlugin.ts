@@ -11,7 +11,7 @@ import { EmbedType } from '../interfaces';
 import { Plugin } from './index';
 
 export default function createIframePlugin(): Plugin {
-  const embedToHTML = (embed: EmbedType) => {
+  const embedToHTML = async (embed: EmbedType) => {
     const { url, width, height } = embed.data as Record<string, string>;
     return makeIframe(url, width, height);
   };
