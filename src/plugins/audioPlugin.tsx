@@ -19,8 +19,8 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
-import { Plugin, PluginOptions } from './index';
-import { EmbedType, LocaleType } from '../interfaces';
+import { Plugin } from './index';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -32,7 +32,7 @@ interface AudioPlugin extends Plugin<AudioEmbedType> {
   resource: 'audio';
 }
 
-export default function createAudioPlugin(options: PluginOptions = {}): AudioPlugin {
+export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
   const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchAudio(embed, accessToken, language);
 

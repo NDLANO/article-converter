@@ -9,6 +9,7 @@
 import { Cheerio, Element } from 'cheerio';
 import { Plugin } from './plugins';
 import { ArticleApiArticle } from './api/articleApi';
+import { TransformFunction } from './transformers';
 
 export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
@@ -21,12 +22,15 @@ export type EmbedType = {
 };
 
 export interface TransformOptions {
-  showVisualElement?: boolean;
   concept?: boolean;
-  path?: string;
   draftConcept?: boolean;
-  previewH5p?: boolean;
+  filters?: string;
   isOembed?: boolean;
+  path?: string;
+  previewH5p?: boolean;
+  showVisualElement?: boolean;
+  subject?: string;
+  transform?: TransformFunction;
 }
 
 type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';

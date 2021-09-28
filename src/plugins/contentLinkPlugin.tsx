@@ -8,8 +8,8 @@
 
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
-import { Plugin, PluginOptions } from './index';
-import { EmbedType, LocaleType } from '../interfaces';
+import { Plugin } from './index';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 interface ContentLinkEmbedType extends EmbedType {
   path: string;
@@ -19,7 +19,7 @@ interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
   resource: 'content-link';
 }
 
-export default function createContentLinkPlugin(options: PluginOptions = {}): ContentLinkPlugin {
+export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
     embed: EmbedType,
     accessToken: string,

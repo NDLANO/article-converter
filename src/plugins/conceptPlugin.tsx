@@ -20,8 +20,8 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
 import { getCopyString } from './pluginHelpers';
-import { EmbedType, LocaleType } from '../interfaces';
-import { Plugin, PluginOptions } from './index';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin } from './index';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -57,7 +57,7 @@ interface ConceptPlugin extends Plugin<ConceptEmbedType> {
   resource: 'concept';
 }
 
-export default function createConceptPlugin(options: PluginOptions = {}): ConceptPlugin {
+export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchConcept(embed, accessToken, language, options);
 

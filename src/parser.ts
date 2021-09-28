@@ -7,10 +7,13 @@
  */
 
 import { CheerioAPI } from 'cheerio';
-import createPlugins, { PluginOptions } from './plugins';
-import { EmbedType } from './interfaces';
+import createPlugins from './plugins';
+import { EmbedType, TransformOptions } from './interfaces';
 
-export function getEmbedsFromHtml(html: CheerioAPI, options?: PluginOptions): Promise<EmbedType[]> {
+export function getEmbedsFromHtml(
+  html: CheerioAPI,
+  options?: TransformOptions,
+): Promise<EmbedType[]> {
   const plugins = createPlugins(options ?? {});
   return new Promise((resolve) => {
     const embeds: EmbedType[] = html('embed')

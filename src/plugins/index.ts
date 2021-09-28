@@ -7,7 +7,6 @@
  */
 
 import createNRKPlugin from './nrkPlugin';
-// @ts-ignore
 import createAudioPlugin from './audioPlugin';
 // @ts-ignore
 import createImagePlugin from './imagePlugin';
@@ -24,8 +23,7 @@ import createConceptPlugin from './conceptPlugin';
 // @ts-ignore
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
-import { EmbedType, LocaleType } from '../interfaces';
-import { TransformFunction } from '../transformers';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 export {
   createNRKPlugin,
@@ -43,16 +41,6 @@ export {
   createCodePlugin,
 };
 
-export interface PluginOptions {
-  concept?: boolean;
-  isOembed?: boolean;
-  draftConcept?: boolean;
-  subject?: string;
-  filters?: string;
-  path?: string;
-  transform?: TransformFunction;
-}
-
 export interface EmbedMetaData extends Record<string, unknown> {
   ref?: number;
   authors?: string[];
@@ -69,7 +57,7 @@ export interface Plugin<ET = EmbedType> {
   onError?: (embed: ET, lang: LocaleType) => string;
 }
 
-const plugins = (options: PluginOptions): Plugin[] => [
+const plugins = (options: TransformOptions): Plugin[] => [
   createNRKPlugin(),
   createAudioPlugin(options),
   createImagePlugin(options),
