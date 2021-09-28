@@ -20,7 +20,6 @@ import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
 import createConceptPlugin from './conceptPlugin';
-// @ts-ignore
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
 import { EmbedType, LocaleType, TransformOptions } from '../interfaces';

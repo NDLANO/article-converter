@@ -48,7 +48,7 @@ interface TaxonomyTopicQuery {
 }
 
 async function queryResources(
-  contentId: string,
+  contentId: string | number,
   accessToken: string,
   language: LocaleType,
   contentType: string,
@@ -63,7 +63,7 @@ async function queryResources(
 }
 
 async function queryTopics(
-  contentId: string,
+  contentId: string | number,
   accessToken: string,
   language: LocaleType,
   contentType: string,
@@ -77,12 +77,16 @@ async function queryTopics(
   return resolveJsonOrRejectWithError<TaxonomyTopicQuery[]>(response);
 }
 
+export type ArticleResource =
+  | TaxonomyResourceQuery
+  | (TaxonomyTopicQuery & { resourceTypes: { id: string }[] });
+
 export async function fetchArticleResource(
-  contentId: string,
+  contentId: string | number,
   accessToken: string,
   language: LocaleType,
   contentType: string = 'article',
-) {
+): Promise<undefined | ArticleResource> {
   const resources = await queryResources(contentId, accessToken, language, contentType);
 
   if (resources[0]) {
@@ -97,5 +101,6 @@ export async function fetchArticleResource(
     // Add resourceType so that content type is correct
     return { ...withPath[0], resourceTypes: [{ id: 'subject' }] };
   }
+
   return undefined;
 }

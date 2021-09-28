@@ -7,48 +7,79 @@
  */
 
 import React from 'react';
+// @ts-ignore
 import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
+import cheerio, { Element, Node } from 'cheerio';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
 import log from '../utils/logger';
-import { fetchArticle } from '../api/articleApi';
-import { fetchArticleResource } from '../api/taxonomyApi';
+import { ArticleApiArticle, fetchArticle } from '../api/articleApi';
+import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin } from './index';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
 
-const mapping = (relatedArticleEntryNum) => {
+const mapping = (
+  relatedArticleEntryNum: number,
+): Record<
+  string,
+  {
+    icon: React.ReactNode;
+    modifier: string;
+  }
+> => {
   const hiddenModifier = relatedArticleEntryNum > 2 ? ' hidden' : '';
   return {
     [RESOURCE_TYPE_SUBJECT_MATERIAL]: {
-      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT_MATERIAL} />,
+      icon: (
+        <ContentTypeBadge background size="small" type={constants.contentTypes.SUBJECT_MATERIAL} />
+      ),
       modifier: `subject-material${hiddenModifier}`,
     },
     [RESOURCE_TYPE_TASKS_AND_ACTIVITIES]: {
-      icon: <ContentTypeBadge background type={constants.contentTypes.TASKS_AND_ACTIVITIES} />,
+      icon: (
+        <ContentTypeBadge
+          background
+          size="small"
+          type={constants.contentTypes.TASKS_AND_ACTIVITIES}
+        />
+      ),
       modifier: `tasks-and-activities${hiddenModifier}`,
     },
     'external-learning-resources': {
       icon: (
-        <ContentTypeBadge background type={constants.contentTypes.EXTERNAL_LEARNING_RESOURCES} />
+        <ContentTypeBadge
+          background
+          size="small"
+          type={constants.contentTypes.EXTERNAL_LEARNING_RESOURCES}
+        />
       ),
       modifier: `external-learning-resources${hiddenModifier}`,
     },
     subject: {
-      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT} />,
+      icon: <ContentTypeBadge background size="small" type={constants.contentTypes.SUBJECT} />,
       modifier: `subject${hiddenModifier}`,
     },
     default: {
-      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT_MATERIAL} />,
+      icon: (
+        <ContentTypeBadge background size="small" type={constants.contentTypes.SUBJECT_MATERIAL} />
+      ),
       modifier: `subject-material${hiddenModifier}`,
     },
   };
 };
 
-const getRelatedArticleProps = (article, relatedArticleEntryNum, filters, subject) => {
+const getRelatedArticleProps = (
+  article: RelatedArticleType,
+  relatedArticleEntryNum: number,
+  filters: string | undefined,
+  subject: string | undefined,
+) => {
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
@@ -78,15 +109,33 @@ const getRelatedArticleProps = (article, relatedArticleEntryNum, filters, subjec
   return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
-export default function createRelatedContentPlugin(options = {}) {
-  async function fetchResource(embed, accessToken, language) {
+type RelatedArticleType = ArticleApiArticle & { resource?: ArticleResource };
+
+interface RelatedContentEmbedType extends EmbedType {
+  article?: RelatedArticleType;
+}
+
+interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
+  resource: 'related-content';
+}
+
+export default function createRelatedContentPlugin(
+  options: TransformOptions = {},
+): RelatedContentPlugin {
+  async function fetchResource(
+    embed: EmbedType,
+    accessToken: string,
+    language: LocaleType,
+  ): Promise<RelatedContentEmbedType> {
     if (!embed.data) return embed;
 
-    if (embed.data.articleId) {
+    const articleId = embed.data.articleId;
+
+    if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
         const [article, resource] = await Promise.all([
-          fetchArticle(embed.data.articleId, accessToken, language),
-          fetchArticleResource(embed.data.articleId, accessToken, language),
+          fetchArticle(articleId, accessToken, language),
+          fetchArticleResource(articleId, accessToken, language),
         ]);
         return {
           ...embed,
@@ -101,14 +150,16 @@ export default function createRelatedContentPlugin(options = {}) {
     return embed;
   }
 
-  const getEntryNumber = (embed) => {
+  const getEntryNumber = (embed: EmbedType) => {
     const siblings = embed.embed?.parent()?.children()?.toArray() || [];
 
-    const idx = siblings.findIndex((e) => e.data === embed.data);
+    const idx = siblings.findIndex((e) => {
+      return cheerio(e).data() === embed.data;
+    });
     return idx + 1;
   };
 
-  const embedToHTML = (embed, lang) => {
+  const embedToHTML = async (embed: RelatedContentEmbedType, lang: LocaleType) => {
     if (!embed.article && !embed.data.url) {
       return '';
     }
@@ -116,7 +167,7 @@ export default function createRelatedContentPlugin(options = {}) {
     const relatedArticleEntryNum = getEntryNumber(embed);
 
     // handle externalRelatedArticles
-    if (embed.data && embed.data.url) {
+    if (embed.data && embed.data.url && typeof embed.data.url === 'string') {
       return render(
         <RelatedArticle
           key={`external-learning-resources-${relatedArticleEntryNum}`}
@@ -124,7 +175,7 @@ export default function createRelatedContentPlugin(options = {}) {
           introduction={embed.data.metaDescription || embed.data.url}
           linkInfo={`${t(lang, 'related.linkInfo')} ${
             // Get domain name only from url
-            embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)[1] ||
+            embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
             embed.data.url
           }`}
           target="_blank"
@@ -132,6 +183,9 @@ export default function createRelatedContentPlugin(options = {}) {
           {...mapping(relatedArticleEntryNum)['external-learning-resources']}
         />,
       );
+    }
+    if (!embed.article) {
+      return '';
     }
     return render(
       <RelatedArticle
