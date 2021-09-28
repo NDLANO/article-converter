@@ -182,7 +182,7 @@ export default function createImagePlugin(
   const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchImageResources(embed, accessToken, language);
 
-  const getMetaData = (embed: ImageEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ImageEmbedType, locale: LocaleType) => {
     const { image } = embed;
     if (image) {
       const {

@@ -11,41 +11,56 @@ import { fetchOembed } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc, getCopyString } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { fetchH5pLicenseInformation, fetchPreviewOembed } from '../api/h5pApi';
+import {
+  fetchH5pLicenseInformation,
+  fetchPreviewOembed,
+  H5PLicenseInformation,
+  H5POembedResponse,
+} from '../api/h5pApi';
 import config from '../config';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { EmbedMetaData, Plugin } from './index';
 
-export default function createH5pPlugin(options = { concept: false }) {
+export interface H5PEmbedType extends EmbedType {
+  oembed: H5POembedResponse;
+  h5pLicenseInformation?: H5PLicenseInformation;
+  h5pUrl?: string;
+}
+
+interface H5PPlugin extends Plugin<H5PEmbedType> {
+  resource: 'h5p';
+}
+
+export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
   const fetchH5pOembed = options.previewH5p ? fetchPreviewOembed : fetchOembed;
-  const fetchResource = (embed, accessToken, locale) =>
-    new Promise((resolve, reject) => {
-      const lang = locale === 'en' ? 'en-gb' : 'nb-no';
-      const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
-      embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
-      fetchH5pOembed(embed, accessToken, options)
-        .then((data) => data)
-        .then((data) => {
-          if (data?.embed?.data) {
-            const myData = data.embed.data();
-            const pathArr = myData.path?.split('/') || [];
-            const h5pID = pathArr[pathArr.length - 1];
+  const fetchResource = async (
+    embed: EmbedType,
+    accessToken: string,
+    locale: LocaleType,
+  ): Promise<H5PEmbedType> => {
+    const lang = locale === 'en' ? 'en-gb' : 'nb-no';
+    const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
+    embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
+    const data = await fetchH5pOembed(embed, accessToken);
+    if (data?.embed?.data) {
+      const myData = data.embed.data();
+      const pathArr = (myData as Record<string, string>).path?.split('/') || [];
+      const h5pID = pathArr[pathArr.length - 1];
 
-            if (h5pID) {
-              fetchH5pLicenseInformation(h5pID)
-                .then((h5pData) => {
-                  h5pData.url = myData.url;
-                  data.embed.h5p = h5pData;
-                  resolve(data);
-                })
-                .catch(() => resolve(data));
-            } else {
-              return resolve(data);
-            }
-          }
-        })
-        .catch(reject);
-    });
+      if (h5pID) {
+        const h5pLicenseInformation = await fetchH5pLicenseInformation(h5pID);
+        return {
+          ...data,
+          h5pLicenseInformation,
+          h5pUrl: myData.url as string,
+        };
+      }
+    }
 
-  const embedToHTML = (h5p) => {
+    return data;
+  };
+
+  const embedToHTML = async (h5p: H5PEmbedType): Promise<string> => {
     if (h5p.oembed) {
       return wrapInFigure(h5p.oembed.html, true, options.concept);
     }
@@ -56,7 +71,7 @@ export default function createH5pPlugin(options = { concept: false }) {
     );
   };
 
-  const onError = (embed, locale) =>
+  const onError = (embed: H5PEmbedType, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
@@ -64,26 +79,31 @@ export default function createH5pPlugin(options = { concept: false }) {
       </figure>,
     );
 
-  const mapRole = (role) => {
-    const objRoles = {
+  const mapRole = (role: string) => {
+    const objRoles: Record<string, string> = {
       Author: 'Writer',
       Editor: 'Editorial',
       Licensee: 'Rightsholder',
     };
-    return objRoles[role] || role;
+    return objRoles[role] ?? role;
   };
 
-  const getMetaData = (embed, locale) => {
-    const h5p = embed?.embed?.h5p;
+  const getMetaData = async (
+    embed: H5PEmbedType,
+    locale: LocaleType,
+  ): Promise<EmbedMetaData | undefined> => {
+    const h5p = embed?.h5pLicenseInformation;
     if (h5p) {
-      const {
-        h5p: { title, authors },
-        url,
-      } = h5p;
-      const creators = authors?.map((author) => {
+      const creators = h5p.h5p.authors?.map((author) => {
         return { name: author.name, type: mapRole(author.role) };
       });
-      const copyString = getCopyString(title, url, options.path, { creators }, locale);
+      const copyString = getCopyString(
+        h5p.h5p.title,
+        embed.h5pUrl,
+        options.path,
+        { creators },
+        locale,
+      );
       return {
         ...h5p,
         copyText: copyString,

@@ -12,6 +12,8 @@ import config from '../config';
 
 import { headerWithAccessToken, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { EmbedType } from '../interfaces';
+import { OembedProxyResponse } from './oembedProxyApi';
+import { H5PEmbedType } from '../plugins/h5pPlugin';
 
 const getHeaders = () => ({
   headers: {
@@ -19,20 +21,39 @@ const getHeaders = () => ({
   },
 });
 
-export const fetchH5pLicenseInformation = async (id: string) => {
+export interface H5POembedResponse {
+  html?: string;
+}
+
+export interface H5PLicenseInformation {
+  h5p: {
+    title: string;
+    authors: {
+      name: string;
+      role: string;
+    }[];
+  };
+}
+
+export const fetchH5pLicenseInformation = async (
+  id: string,
+): Promise<H5PLicenseInformation | undefined> => {
   const url = `${config.h5pHost}/v1/resource/${id}/copyright`;
   try {
     const response = await fetch(url, {
       method: 'GET',
       ...getHeaders(),
     });
-    return await resolveJsonOrRejectWithError(response);
+    return await resolveJsonOrRejectWithError<H5PLicenseInformation>(response);
   } catch (e) {
-    return null;
+    return undefined;
   }
 };
 
-export const fetchPreviewOembed = async (embed: EmbedType, accessToken: string) => {
+export const fetchPreviewOembed = async (
+  embed: EmbedType,
+  accessToken: string,
+): Promise<H5PEmbedType> => {
   const url = `${config.h5pHost}/oembed/preview?${queryString.stringify({
     url: embed.data.url,
   })}`;
@@ -41,7 +62,7 @@ export const fetchPreviewOembed = async (embed: EmbedType, accessToken: string) 
     ...headerWithAccessToken(accessToken),
     ...getHeaders(),
   });
-  const oembed = await resolveJsonOrRejectWithError(response);
+  const oembed = await resolveJsonOrRejectWithError<H5POembedResponse>(response);
   return {
     ...embed,
     oembed,

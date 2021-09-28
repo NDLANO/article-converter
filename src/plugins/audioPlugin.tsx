@@ -36,7 +36,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
   const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchAudio(embed, accessToken, language);
 
-  const getMetaData = (embed: AudioEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
     const { audio } = embed;
     if (audio) {
       const {

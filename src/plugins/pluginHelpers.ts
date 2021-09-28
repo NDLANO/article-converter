@@ -86,7 +86,13 @@ export const getCopyString = (
   title: string | undefined,
   src: string | undefined,
   path: string | undefined,
-  copyright: ArticleApiCopyright | ConceptCopyright | undefined,
+  copyright:
+    | {
+        creators?: Author[];
+        rightsholders?: Author[];
+        processors?: Author[];
+      }
+    | undefined,
   locale: LocaleType,
 ): string => {
   const credits = getLicenseCredits(copyright);
@@ -112,9 +118,11 @@ export const getCopyString = (
   );
 };
 
-export const getLicenseCredits = (
-  copyright: ArticleApiCopyright | ConceptCopyright | undefined,
-) => {
+export const getLicenseCredits = (copyright?: {
+  creators?: Author[];
+  rightsholders?: Author[];
+  processors?: Author[];
+}) => {
   return {
     creators: copyright?.creators ?? [],
     rightsholders: copyright?.rightsholders ?? [],

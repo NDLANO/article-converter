@@ -48,11 +48,11 @@ export interface EmbedMetaData extends Record<string, unknown> {
   description?: string;
 }
 
-export interface Plugin<ET = EmbedType> {
+export interface Plugin<ET extends EmbedType = EmbedType> {
   resource: string;
   embedToHTML: (embed: ET, lang: LocaleType) => Promise<string>;
   fetchResource?: (embed: EmbedType, accessToken: string, lang: LocaleType) => Promise<ET>;
-  getMetaData?: (embed: ET, lang: LocaleType) => EmbedMetaData | undefined;
+  getMetaData?: (embed: ET, lang: LocaleType) => Promise<EmbedMetaData | undefined>;
   onError?: (embed: ET, lang: LocaleType) => string;
 }
 

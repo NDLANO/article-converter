@@ -64,7 +64,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const getEmbedSrc = (concept: ConceptApiType) =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
-  const getMetaData = (embed: ConceptEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
       const { title, copyright, source } = concept;
