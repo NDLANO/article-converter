@@ -12,12 +12,7 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType } from '../interfaces';
-
-export interface Author {
-  name: string;
-  type: string;
-}
+import { Author, LocaleType } from '../interfaces';
 
 export interface ArticleApiCopyright {
   license: {

@@ -45,3 +45,8 @@ export interface TransformedArticle
   introduction?: string;
   metaDescription: string;
 }
+
+export interface Author {
+  name: string;
+  type: string;
+}

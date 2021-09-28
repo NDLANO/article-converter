@@ -39,7 +39,9 @@ export function rejectWithError(json: any, res: Response) {
   );
 }
 
-export async function resolveJsonOrRejectWithError<T>(res: Response): Promise<T> {
+export async function resolveJsonOrRejectWithError<T>(
+  res: Response
+): Promise<T> {
   if (res.ok) {
     return res.status === 204 ? undefined : res.json();
   }

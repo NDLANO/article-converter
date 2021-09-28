@@ -12,8 +12,7 @@ import {
   headerWithAccessToken,
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
-import { EmbedType, LocaleType } from '../interfaces';
-import { Author } from './articleApi';
+import { EmbedType, LocaleType, Author } from '../interfaces';
 
 interface AudioApiCopyright {
   license: {

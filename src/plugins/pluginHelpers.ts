@@ -10,8 +10,8 @@ import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
 import config from '../config';
-import {LocaleType} from "../interfaces";
-import {ArticleApiCopyright, Author} from "../api/articleApi";
+import {LocaleType, Author} from "../interfaces";
+import {ArticleApiCopyright } from "../api/articleApi";
 
 export const wrapInFigure = (content: string, resize: boolean = true, concept: boolean = false) => {
   const embedClassnames = classnames(

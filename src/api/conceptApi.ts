@@ -12,14 +12,70 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
+import { Author, EmbedType, LocaleType } from '../interfaces';
+
+interface ConceptCopyright {
+  license?: {
+    license: string;
+    description?: string;
+    url?: string;
+  };
+  origin?: string;
+  creators: Author[];
+  processors: Author[];
+  rightsholders: Author[];
+  agreementId?: number;
+  validFrom?: string;
+  validTo?: string;
+}
+
+interface ConceptApiType {
+  id: number;
+  revision: number;
+  title?: {
+    title: string;
+    language: string;
+  };
+  content?: {
+    content: string;
+    language: string;
+  };
+  copyright?: ConceptCopyright;
+  source?: string;
+  metaImage?: {
+    url: string;
+    alt: string;
+    language: string;
+  };
+  tags?: {
+    tags: string[];
+    language: string;
+  };
+  subjectIds?: string[];
+  created: string;
+  updated: string;
+  updatedBy?: string[];
+  supportedLanguages?: string;
+  articleIds: number[];
+  status: {
+    current: string;
+    other: string[];
+  };
+  visualElement?: {
+    visualElement: string;
+    language: string;
+  };
+}
 
 export const fetchConcept = async (
-  embed,
-  accessToken,
-  language,
-  options = {},
-  method = 'GET'
-) => {
+  embed: EmbedType,
+  accessToken: string,
+  language: LocaleType,
+  options: {
+    draftConcept?: boolean;
+  } = {},
+  method: string = 'GET'
+): Promise<EmbedType & { concept: ConceptApiType }> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
     `/concept-api/v1/${endpoint}/${
@@ -30,6 +86,7 @@ export const fetchConcept = async (
     method,
     headers: headerWithAccessToken(accessToken),
   });
-  const concept = await resolveJsonOrRejectWithError(response);
+
+  const concept = await resolveJsonOrRejectWithError<ConceptApiType>(response);
   return { ...embed, concept };
 };
