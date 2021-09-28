@@ -106,5 +106,5 @@ export async function fetchArticle(
       headers: headerWithAccessToken(accessToken),
     }
   );
-  return resolveJsonOrRejectWithError(response);
+  return resolveJsonOrRejectWithError<ArticleApiArticle>(response);
 }
