@@ -28,9 +28,9 @@ function logIfLongTime(start: number, timeout: number, action: string, obj: any)
 
 async function executeHtmlTransforms(content: CheerioAPI, lang: LocaleType, options: TransformOptions): Promise<void> {
   // We use this reduce trick so the transformations happen in sequence even if the function is asynchronous
-  const starterPromise = Promise.resolve(null);
+  const starterPromise = Promise.resolve();
   await htmlTransforms.reduce(
-    (maybePromise: Promise<void>, replacer: (content: CheerioAPI, lang :LocaleType, options: TransformOptions) => void) =>
+    (maybePromise: Promise<void>, replacer: (content: CheerioAPI, lang: LocaleType, options: TransformOptions) => void) =>
       maybePromise.then(() => replacer(content, lang, options)),
     starterPromise
   );

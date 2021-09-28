@@ -8,7 +8,7 @@
 
 import fetch from 'isomorphic-fetch';
 
-export async function checkIfFileExists(fileUrl) {
+export async function checkIfFileExists(fileUrl: string): Promise<boolean> {
   const response = await fetch(fileUrl, { method: 'HEAD' });
   return response.status === 200;
 }

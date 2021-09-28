@@ -27,6 +27,7 @@ export interface TransformOptions {
   path?: string;
   draftConcept?: boolean;
   previewH5p?: boolean;
+  isOembed?: boolean;
 }
 
 type TransformedFields =

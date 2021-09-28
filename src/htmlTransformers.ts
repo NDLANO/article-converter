@@ -6,25 +6,28 @@
  *
  */
 
-import cheerio from 'cheerio';
+import cheerio, { CheerioAPI, Element } from 'cheerio';
 import { partition } from 'lodash';
 import {
   createAside,
   createFactbox,
   createFileSection,
   createTable,
+  // @ts-ignore
 } from './utils/htmlTagHelpers';
+// @ts-ignore
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
 import { checkIfFileExists } from './api/filesApi';
+import {LocaleType, TransformOptions} from "./interfaces";
 
-export const moveReactPortals = content => {
+export const moveReactPortals = (content: CheerioAPI) => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
   content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
 };
 
-export const transformAsides = content => {
+export const transformAsides = (content: CheerioAPI) => {
   content('aside').each((_, aside) => {
     const isFactAside =
       aside.attribs && aside.attribs['data-type'] === 'factAside';
@@ -51,9 +54,10 @@ export const transformAsides = content => {
           .toString()
       );
 
-      const parent = aside.parent;
+      const parent = aside?.parent;
       content(aside).after(wideAside);
-      if (parent.name === 'section') {
+      // @ts-ignore TODO: Couldn't find the type for .name, figure out pls
+      if (parent?.name === 'section') {
         // Only append duplicate if we are in a section
         content(parent).append(narrowAside);
       }
@@ -62,7 +66,7 @@ export const transformAsides = content => {
   });
 };
 
-export const transformRelatedContent = (content, lang) => {
+export const transformRelatedContent = (content: CheerioAPI, lang: LocaleType) => {
   content('div').each((_, div) => {
     const isRelatedContentGroup =
       div.attribs && div.attribs['data-type'] === 'related-content';
@@ -79,7 +83,7 @@ export const transformRelatedContent = (content, lang) => {
   });
 };
 
-const transformFileList = async (content, locale) => {
+const transformFileList = async (content: CheerioAPI, locale: LocaleType) => {
   const promises = content('div').map(async (_, div) => {
     const isFileList = div.attribs && div.attribs['data-type'] === 'file';
     if (isFileList) {
@@ -92,10 +96,11 @@ const transformFileList = async (content, locale) => {
   await Promise.all(promises.get());
 };
 
-const makeTheListFromDiv = async (content, div, locale) => {
+const makeTheListFromDiv = async (content: CheerioAPI, div: Element, locale: LocaleType) => {
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
+      // @ts-ignore TODO: another cheerio ts thing
       const { url, type, title, display } = file.data;
       const fileExists = await checkIfFileExists(url);
       return {
@@ -123,7 +128,7 @@ const makeTheListFromDiv = async (content, div, locale) => {
   return createFileSection(fileList.filter(f => f), pdfs, t(locale, 'files'));
 };
 
-const resetOrderedLists = content =>
+const resetOrderedLists = ( content: CheerioAPI ) =>
   content('ol').each((_, ol) => {
     const list = content(ol);
     const num = list.attr('start');
@@ -132,7 +137,7 @@ const resetOrderedLists = content =>
     }
   });
 
-export const transformTables = (content, lang) =>
+export const transformTables = ( content: CheerioAPI , lang: LocaleType) =>
   content('table').each((_, table) => {
     const newTable = createTable(
       {},
@@ -145,37 +150,37 @@ export const transformTables = (content, lang) =>
     content(table).remove();
   });
 
-export const transformLinksInOembed = (content, lang, options) =>
+export const transformLinksInOembed = (content: CheerioAPI, lang: LocaleType, options: TransformOptions) =>
   content('a').each((_, a) => {
     if (options.isOembed) {
       content(a).attr('target', '_blank');
     }
   });
 
-export const htmlTransforms = [
+export const htmlTransforms: ((content: CheerioAPI, lang: LocaleType, options: TransformOptions) => void)[] = [
   transformRelatedContent,
-  content => {
+  ( content: CheerioAPI ) => {
     content('math').attr('display', 'block');
   },
-  content =>
+  ( content: CheerioAPI ) =>
     content('ol[data-type="letters"]')
       .removeAttr('data-type')
       .addClass('ol-list--roman'),
-  content =>
+  ( content: CheerioAPI ) =>
     content('ul[data-type="two-column"]')
       .removeAttr('data-type')
       .addClass('o-list--two-columns'),
-  content =>
+  ( content: CheerioAPI ) =>
     content('p[data-align="center"]')
       .removeAttr('data-align')
       .addClass('u-text-center'),
   moveReactPortals,
-  content =>
+  ( content: CheerioAPI ) =>
     content('span[data-size="large"]')
       .removeAttr('data-size')
       .addClass('u-large-body-text'),
-  content => content('h2').attr('tabindex', '0'),
-  content => content('h3').attr('tabindex', '0'),
+  ( content: CheerioAPI ) => content('h2').attr('tabindex', '0'),
+  ( content: CheerioAPI ) => content('h3').attr('tabindex', '0'),
   resetOrderedLists,
   transformTables,
   transformFileList,
