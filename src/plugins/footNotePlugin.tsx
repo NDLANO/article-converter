@@ -5,28 +5,35 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+import { EmbedType } from '../interfaces';
 
-function FootNoteCounter(initialCount = 0) {
-  this.count = initialCount;
+class FootNoteCounter {
+  private count: number;
+  constructor(initialCount: number = 0) {
+    this.count = initialCount;
+  }
 
-  FootNoteCounter.prototype.getNextCount = function getNextCount() {
+  getNextCount() {
     this.count = this.count + 1;
     return this.count;
-  };
+  }
 }
 
 export default function createFootnotePlugin() {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = (embed) => {
+  const getMetaData = (embed: EmbedType) => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
+
+    const authors = (embed.data.authors as string).split(';');
+    const year = (embed.data.year as number).toString();
 
     return {
       ...embed.data,
       ref: footNoteEntryNum,
-      authors: embed.data.authors.split(';'),
-      year: embed.data.year.toString(),
+      authors,
+      year,
     };
   };
 

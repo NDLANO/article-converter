@@ -20,7 +20,6 @@ import createExternalPlugin from './externalPlugin';
 import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
-// @ts-ignore
 import createFootnotePlugin from './footNotePlugin';
 // @ts-ignore
 import createConceptPlugin from './conceptPlugin';
