@@ -8,13 +8,7 @@
 
 import cheerio, { CheerioAPI, Element } from 'cheerio';
 import { partition } from 'lodash';
-import {
-  createAside,
-  createFactbox,
-  createFileSection,
-  createTable,
-  // @ts-ignore
-} from './utils/htmlTagHelpers';
+import { createAside, createFactbox, createFileSection, createTable } from './utils/htmlTagHelpers';
 // @ts-ignore
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
@@ -38,10 +32,9 @@ export const transformAsides = (content: CheerioAPI) => {
 
       const wideAside = createAside({ wideScreen: true }, content(aside).children().toString());
 
-      const parent = aside?.parent;
+      const parent = aside?.parent as (Element | undefined);
       content(aside).after(wideAside);
-      // @ts-ignore TODO: Couldn't find the type for .name, figure out pls
-      if (parent?.name === 'section') {
+      if (parent?.name === 'section' || parent?.tagName === 'section') {
         // Only append duplicate if we are in a section
         content(parent).append(narrowAside);
       }
@@ -83,7 +76,7 @@ const makeTheListFromDiv = async (content: CheerioAPI, div: Element, locale: Loc
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
-      // @ts-ignore TODO: another cheerio ts thing
+      // @ts-ignore TODO: Find better way (typesafe) to get data from embed
       const { url, type, title, display } = file.data;
       const fileExists = await checkIfFileExists(url);
       return {

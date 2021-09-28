@@ -91,7 +91,7 @@ export async function fetchArticleResource(
 
   const topics = await queryTopics(contentId, accessToken, language, contentType);
 
-  const withPath = topics.filter(t => t.path !== null);
+  const withPath = topics.filter((t) => t.path !== null);
 
   if (withPath[0]) {
     // Add resourceType so that content type is correct

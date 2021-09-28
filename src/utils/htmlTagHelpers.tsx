@@ -8,14 +8,26 @@
 import React from 'react';
 import { uuid } from '@ndla/util';
 import Aside from '@ndla/ui/lib/Aside';
+// @ts-ignore
 import Table from '@ndla/ui/lib/Table';
+// @ts-ignore
 import FactBox from '@ndla/ui/lib/FactBox';
+// @ts-ignore
 import FileList from '@ndla/ui/lib/FileList';
+// @ts-ignore
 import { Figure } from '@ndla/ui/lib/Figure';
 import t from '../locale/i18n';
 import { render } from './render';
+import { LocaleType } from '../interfaces';
 
-export function createAside(props, children) {
+export function createAside(
+  props: {
+    children?: React.ReactNode;
+    narrowScreen?: boolean;
+    wideScreen?: boolean;
+  },
+  children: string,
+) {
   return render(
     <Aside
       {...props}
@@ -26,7 +38,7 @@ export function createAside(props, children) {
   );
 }
 
-export function createFactbox(props, children) {
+export function createFactbox(props: {}, children: string) {
   return render(
     <FactBox
       {...props}
@@ -37,7 +49,11 @@ export function createFactbox(props, children) {
   );
 }
 
-export function createFileSection(files, pdfs, heading) {
+export function createFileSection(
+  files: { title: string; formats: { url: string; fileType: string; tooltip: string }[] }[],
+  pdfs: { title: string; formats: { url: string }[] }[],
+  heading: string,
+) {
   const filelistId = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   const figureId = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
@@ -53,7 +69,7 @@ export function createFileSection(files, pdfs, heading) {
   );
 }
 
-export function createTable(props, children, lang) {
+export function createTable(props: {}, children: string, lang: LocaleType) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
     <Table

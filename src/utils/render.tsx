@@ -14,31 +14,39 @@ import { i18nInstance } from '@ndla/ui';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import { LocaleType } from '../interfaces';
 
-const I18nWrapper = ({ locale, component }: { locale: LocaleType; component: React.ReactNode }) => {
+const I18nWrapper = ({
+  locale,
+  children,
+}: {
+  locale: LocaleType;
+  children: React.ReactElement;
+}) => {
   const { i18n } = useTranslation();
   i18n.language = locale;
   i18n.options.lng = locale;
-  return component;
+  return children;
 };
 
-function renderInternal(renderFunc, component, locale) {
+function renderInternal(
+  renderFunc: (n: React.ReactElement) => string,
+  component: React.ReactElement,
+  locale: LocaleType,
+) {
   return renderFunc(
     <I18nextProvider i18n={i18nInstance}>
       <StaticRouter>
         <MissingRouterContext.Provider value={true}>
-          <I18nWrapper locale={locale} component={component}>
-            {component}
-          </I18nWrapper>
+          <I18nWrapper locale={locale}>{component}</I18nWrapper>
         </MissingRouterContext.Provider>
       </StaticRouter>
     </I18nextProvider>,
   );
 }
 
-export function render(component, locale = 'nb') {
+export function render(component: React.ReactElement, locale: LocaleType = 'nb') {
   return renderInternal(renderToStaticMarkup, component, locale);
 }
 
-export function renderString(component, locale = 'nb') {
+export function renderString(component: React.ReactElement, locale: LocaleType = 'nb') {
   return renderInternal(renderToString, component, locale);
 }
