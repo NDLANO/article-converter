@@ -8,9 +8,10 @@
 
 import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
-import { h5pHost } from '../config';
+import config from '../config';
 
 import { headerWithAccessToken, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
+import { EmbedType } from '../interfaces';
 
 const getHeaders = () => ({
   headers: {
@@ -18,8 +19,8 @@ const getHeaders = () => ({
   },
 });
 
-export const fetchH5pLicenseInformation = async (id) => {
-  const url = `${h5pHost}/v1/resource/${id}/copyright`;
+export const fetchH5pLicenseInformation = async (id: string) => {
+  const url = `${config.h5pHost}/v1/resource/${id}/copyright`;
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -31,8 +32,8 @@ export const fetchH5pLicenseInformation = async (id) => {
   }
 };
 
-export const fetchPreviewOembed = async (embed, accessToken, options = {}) => {
-  const url = `${h5pHost}/oembed/preview?${queryString.stringify({
+export const fetchPreviewOembed = async (embed: EmbedType, accessToken: string) => {
+  const url = `${config.h5pHost}/oembed/preview?${queryString.stringify({
     url: embed.data.url,
   })}`;
   const response = await fetch(url, {
