@@ -12,12 +12,12 @@ import { EmbedType } from './interfaces';
 
 export function getEmbedsFromHtml(html: CheerioAPI, options?: PluginOptions): Promise<EmbedType[]> {
   const plugins = createPlugins(options ?? {});
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const embeds: EmbedType[] = html('embed')
       .map((_, embed) => ({
         embed: html(embed),
         data: html(embed).data(),
-        plugin: plugins.find(p => p && p.resource === embed.attribs['data-resource']),
+        plugin: plugins.find((p) => p && p.resource === embed.attribs['data-resource']),
       }))
       .get();
 

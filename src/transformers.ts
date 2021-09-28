@@ -78,7 +78,7 @@ export type TransformFunction = (
   lang: LocaleType,
   accessToken: string,
   visualElement: { visualElement: string } | undefined,
-  options: TransformOptions
+  options: TransformOptions,
 ) => Promise<{ html: string | null; embedMetaData: any }>;
 
 export const transform: TransformFunction = async (
@@ -102,4 +102,4 @@ export const transform: TransformFunction = async (
     html: content('body').html(),
     embedMetaData,
   };
-}
+};

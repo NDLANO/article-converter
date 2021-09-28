@@ -67,11 +67,7 @@ export default function createConceptPlugin(options: PluginOptions = {}): Concep
   const getMetaData = (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
-      const {
-        title,
-        copyright,
-        source,
-      } = concept;
+      const { title, copyright, source } = concept;
       const copyString = getCopyString(title?.title, source, options.path, copyright, locale);
       return {
         title: concept.title?.title,
@@ -100,7 +96,8 @@ export default function createConceptPlugin(options: PluginOptions = {}): Concep
           <NotionDialogContent>
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
-        }>
+        }
+      >
         {linkText}
       </Notion>,
       locale,
@@ -114,7 +111,7 @@ export default function createConceptPlugin(options: PluginOptions = {}): Concep
       visualElement: '',
     });
     const copyright = concept.copyright;
-    const authors = (copyright?.creators ?? []).map(author => author.name);
+    const authors = (copyright?.creators ?? []).map((author) => author.name);
     const license = copyright?.license?.license;
     const source = concept.source ?? '';
 
@@ -141,7 +138,8 @@ export default function createConceptPlugin(options: PluginOptions = {}): Concep
             </NotionDialogContent>
             <NotionDialogLicenses license={license} source={source} authors={authors} />
           </>
-        }>
+        }
+      >
         {embed.data.linkText}
       </Notion>,
       locale,

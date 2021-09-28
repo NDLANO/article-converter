@@ -12,7 +12,7 @@ import t from '../locale/i18n';
 import config from '../config';
 import { LocaleType, Author } from '../interfaces';
 import { ArticleApiCopyright } from '../api/articleApi';
-import {ConceptCopyright} from "../api/conceptApi";
+import { ConceptCopyright } from '../api/conceptApi';
 
 export const wrapInFigure = (
   content: string | undefined,
@@ -112,7 +112,9 @@ export const getCopyString = (
   );
 };
 
-export const getLicenseCredits = (copyright: ArticleApiCopyright | ConceptCopyright | undefined) => {
+export const getLicenseCredits = (
+  copyright: ArticleApiCopyright | ConceptCopyright | undefined,
+) => {
   return {
     creators: copyright?.creators ?? [],
     rightsholders: copyright?.rightsholders ?? [],

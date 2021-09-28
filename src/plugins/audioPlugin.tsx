@@ -9,21 +9,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Remarkable } from 'remarkable';
 import { Translation } from 'react-i18next';
+// @ts-ignore
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
+// @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
-import { fetchAudio } from '../api/audioApi';
+import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+import { Plugin, PluginOptions } from './index';
+import { EmbedType, LocaleType } from '../interfaces';
 
 const Anchor = StyledButton.withComponent('a');
 
-export default function createAudioPlugin(options = {}) {
-  const fetchResource = (embed, accessToken, language) => fetchAudio(embed, accessToken, language);
+export interface AudioEmbedType extends EmbedType {
+  audio: AudioApiType;
+}
 
-  const getMetaData = (embed, locale) => {
+interface AudioPlugin extends Plugin<AudioEmbedType> {
+  resource: 'audio';
+}
+
+export default function createAudioPlugin(options: PluginOptions = {}): AudioPlugin {
+  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) =>
+    fetchAudio(embed, accessToken, language);
+
+  const getMetaData = (embed: AudioEmbedType, locale: LocaleType) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -41,18 +54,18 @@ export default function createAudioPlugin(options = {}) {
     }
   };
 
-  const renderMarkdown = (text) => {
+  const renderMarkdown = (text: string) => {
     const md = new Remarkable();
     const rendered = md.render(text);
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = ({ audio }, locale) => {
-    const { audioFile: { mimeType, url } = {} } = audio || {};
+  const onError = (embed: AudioEmbedType, locale: LocaleType) => {
+    const audio = embed.audio;
     return render(
       <Figure>
         {audio ? (
-          <AudioPlayer type={mimeType} src={url} />
+          <AudioPlayer title={audio.title.title} src={audio.audioFile.url} />
         ) : (
           <svg
             fill="#8A8888"
@@ -60,7 +73,7 @@ export default function createAudioPlugin(options = {}) {
             viewBox="0 0 24 12"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ 'background-color': '#EFF0F2' }}
+            style={{ backgroundColor: '#EFF0F2' }}
           >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path
@@ -74,25 +87,34 @@ export default function createAudioPlugin(options = {}) {
     );
   };
 
-  const AudioActionButtons = ({ copyString, locale, license, src }) => {
-    const buttons = [
-      <Button
-        key="copy"
-        outline
-        data-copied-title={t(locale, 'license.hasCopiedTitle')}
-        data-copy-string={copyString}
-      >
-        {t(locale, 'license.copyTitle')}
-      </Button>,
-    ];
-    if (license !== 'COPYRIGHTED') {
-      buttons.push(
-        <Anchor key="download" href={src} download appearance="outline">
-          {t(locale, 'audio.download')}
-        </Anchor>,
-      );
-    }
-    return buttons;
+  const AudioActionButtons = ({
+    copyString,
+    locale,
+    license,
+    src,
+  }: {
+    copyString: string;
+    locale: LocaleType;
+    license: string;
+    src: string;
+  }) => {
+    return (
+      <>
+        <Button
+          key="copy"
+          outline
+          data-copied-title={t(locale, 'license.hasCopiedTitle')}
+          data-copy-string={copyString}
+        >
+          {t(locale, 'license.copyTitle')}
+        </Button>
+        {license !== 'COPYRIGHTED' && (
+          <Anchor key="download" href={src} download appearance="outline">
+            {t(locale, 'audio.download')}
+          </Anchor>
+        )}
+      </>
+    );
   };
 
   AudioActionButtons.propTypes = {
@@ -102,11 +124,11 @@ export default function createAudioPlugin(options = {}) {
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = ({ audio, data }, locale) => {
+  const embedToHTML = async ({ audio, data }: AudioEmbedType, locale: LocaleType) => {
     const {
       id,
       title: { title },
-      audioFile: { mimeType, url },
+      audioFile: { url },
       manuscript,
       podcastMeta,
       series,
@@ -120,7 +142,7 @@ export default function createAudioPlugin(options = {}) {
     const subtitle = series?.title;
 
     const textVersion = manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
-    const description = renderMarkdown(introduction);
+    const description = renderMarkdown(introduction ?? '');
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
@@ -154,7 +176,7 @@ export default function createAudioPlugin(options = {}) {
         {(_, { i18n }) => {
           i18n.changeLanguage(locale);
           return data.type === 'minimal' ? (
-            <AudioPlayer speech type={mimeType} src={url} title={title} />
+            <AudioPlayer speech src={url} title={title} />
           ) : (
             <Figure id={figureid} type="full">
               <AudioPlayer

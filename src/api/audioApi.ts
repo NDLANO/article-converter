@@ -13,6 +13,7 @@ import {
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
 import { EmbedType, LocaleType, Author } from '../interfaces';
+import { AudioEmbedType } from '../plugins/audioPlugin';
 
 interface AudioApiCopyright {
   license: {
@@ -29,7 +30,7 @@ interface AudioApiCopyright {
   validTo?: string;
 }
 
-interface AudioApiType {
+export interface AudioApiType {
   id: number;
   revision: number;
   title: {
@@ -89,7 +90,7 @@ export const fetchAudio = (
   embed: EmbedType,
   accessToken: string,
   language: LocaleType,
-): Promise<EmbedType & { audio: AudioApiType }> => {
+): Promise<AudioEmbedType> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
   return fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
     headers: headerWithAccessToken(accessToken),
