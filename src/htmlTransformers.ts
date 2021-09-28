@@ -53,7 +53,7 @@ export const transformRelatedContent = (content: CheerioAPI, lang: LocaleType) =
         { locale: lang, articleCount: children.length },
         children.toString(),
       );
-      divElement.before(relatedArticleList);
+      if(relatedArticleList) divElement.before(relatedArticleList);
       divElement.remove();
     }
   });

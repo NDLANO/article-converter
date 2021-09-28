@@ -6,11 +6,19 @@
  *
  */
 import React from 'react';
+// @ts-ignore
 import RelatedArticleList from '@ndla/ui/lib/RelatedArticleList';
 import { render } from './render';
 import t from '../locale/i18n';
+import { LocaleType } from '../interfaces';
 
-export function createRelatedArticleList(props, children) {
+export function createRelatedArticleList(
+  props: {
+    locale: LocaleType;
+    articleCount: number;
+  },
+  children: string,
+) {
   const { locale } = props;
   if (children && children.length > 0) {
     return render(
