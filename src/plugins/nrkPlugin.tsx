@@ -7,7 +7,7 @@
  */
 
 export default function createNRKPlugin() {
-  const embedToHTML = embed =>
+  const embedToHTML = (embed) =>
     `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`;
 
   return {

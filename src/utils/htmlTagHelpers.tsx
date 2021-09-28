@@ -22,7 +22,7 @@ export function createAside(props, children) {
       dangerouslySetInnerHTML={{
         __html: children,
       }}
-    />
+    />,
   );
 }
 
@@ -33,7 +33,7 @@ export function createFactbox(props, children) {
       dangerouslySetInnerHTML={{
         __html: children,
       }}
-    />
+    />,
   );
 }
 
@@ -42,16 +42,14 @@ export function createFileSection(files, pdfs, heading) {
   const figureId = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
     <>
-      {files.length > 0 && (
-        <FileList files={files} heading={heading} id={filelistId} />
-      )}
+      {files.length > 0 && <FileList files={files} heading={heading} id={filelistId} />}
       {pdfs.map((pdf, index) => (
         <Figure key={`${index}-${figureId}`} id={`${index}-${figureId}`}>
           <h2>{pdf.title}</h2>
           <iframe title={pdf.title} height="1050" src={pdf.formats[0].url} />
         </Figure>
       ))}
-    </>
+    </>,
   );
 }
 
@@ -68,6 +66,6 @@ export function createTable(props, children, lang) {
       dangerouslySetInnerHTML={{
         __html: children,
       }}
-    />
+    />,
   );
 }

@@ -90,16 +90,14 @@ export interface ArticleApiArticle {
 export async function fetchArticle(
   articleId: number | string,
   accessToken: string,
-  language: LocaleType
+  language: LocaleType,
 ): Promise<ArticleApiArticle> {
   const response = await fetch(
-    apiResourceUrl(
-      `/article-api/v2/articles/${articleId}?language=${language}&fallback=true`
-    ),
+    apiResourceUrl(`/article-api/v2/articles/${articleId}?language=${language}&fallback=true`),
     {
       method: 'GET',
       headers: headerWithAccessToken(accessToken),
-    }
+    },
   );
   return resolveJsonOrRejectWithError<ArticleApiArticle>(response);
 }

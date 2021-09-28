@@ -24,7 +24,7 @@ export function createRelatedArticleList(props, children) {
         dangerouslySetInnerHTML={{
           __html: children,
         }}
-      />
+      />,
     );
   }
 }

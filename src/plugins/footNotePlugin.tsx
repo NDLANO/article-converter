@@ -19,7 +19,7 @@ export default function createFootnotePlugin() {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = embed => {
+  const getMetaData = (embed) => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     return {

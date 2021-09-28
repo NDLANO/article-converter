@@ -11,11 +11,7 @@ import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
-import Notion, {
-  NotionDialogContent,
-  NotionDialogText,
-  NotionDialogLicenses,
-} from '@ndla/notion';
+import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { breakpoints, mq } from '@ndla/core';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
@@ -54,8 +50,7 @@ export default function createConceptPlugin(options = {}) {
   const fetchResource = (embed, accessToken, language) =>
     fetchConcept(embed, accessToken, language, options);
 
-  const getEmbedSrc = concept =>
-    `${config.listingFrontendDomain}/concepts/${concept.id}`;
+  const getEmbedSrc = (concept) => `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
   const getMetaData = (embed, locale) => {
     const { concept } = embed;
@@ -65,13 +60,7 @@ export default function createConceptPlugin(options = {}) {
         copyright,
         source,
       } = concept;
-      const copyString = getCopyString(
-        title,
-        source,
-        options.path,
-        copyright,
-        locale
-      );
+      const copyString = getCopyString(title, source, options.path, copyright, locale);
       return {
         title: concept.title.title,
         copyright: concept.copyright,
@@ -81,7 +70,7 @@ export default function createConceptPlugin(options = {}) {
     }
   };
 
-  const renderMarkdown = text => {
+  const renderMarkdown = (text) => {
     const md = new Remarkable();
     md.inline.ruler.enable(['sub', 'sup']);
     const rendered = md.render(text);
@@ -97,14 +86,13 @@ export default function createConceptPlugin(options = {}) {
         title={t(locale, 'concept.error.title')}
         content={
           <NotionDialogContent>
-            <NotionDialogText>
-              {t(locale, 'concept.error.content')}
-            </NotionDialogText>
+            <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
-        }>
+        }
+      >
         {linkText}
       </Notion>,
-      locale
+      locale,
     );
   };
 
@@ -119,7 +107,7 @@ export default function createConceptPlugin(options = {}) {
       visualElement: '',
     });
     const copyright = defined(embed.concept.copyright, {});
-    const authors = defined(copyright.creators, []).map(author => author.name);
+    const authors = defined(copyright.creators, []).map((author) => author.name);
     const license = defined(copyright.license, {}).license;
     const source = defined(embed.concept.source, '');
 
@@ -128,7 +116,7 @@ export default function createConceptPlugin(options = {}) {
       locale,
       '',
       undefined,
-      { concept: true }
+      { concept: true },
     );
     return render(
       <Notion
@@ -140,22 +128,17 @@ export default function createConceptPlugin(options = {}) {
           <>
             <NotionDialogContent>
               {transformed.html && (
-                <StyledDiv
-                  dangerouslySetInnerHTML={{ __html: transformed.html }}
-                />
+                <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
               )}
               <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
             </NotionDialogContent>
-            <NotionDialogLicenses
-              license={license}
-              source={source}
-              authors={authors}
-            />
+            <NotionDialogLicenses license={license} source={source} authors={authors} />
           </>
-        }>
+        }
+      >
         {embed.data.linkText}
       </Notion>,
-      locale
+      locale,
     );
   };
 

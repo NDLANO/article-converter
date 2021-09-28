@@ -24,11 +24,11 @@ export const fetchOembed = async (embed, accessToken, options = {}) => {
     apiResourceUrl(
       `/oembed-proxy/v1/oembed?${queryString.stringify({
         url: embed.data.url,
-      })}`
+      })}`,
     ),
     {
       headers: headerWithAccessToken(accessToken),
-    }
+    },
   );
   const oembed = await resolveJsonOrRejectWithError(response);
   return {

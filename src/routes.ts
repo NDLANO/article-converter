@@ -8,9 +8,7 @@
 
 import defined from 'defined';
 import { Express } from 'express';
-import fetchAndTransformArticle, {
-  transformArticle,
-} from './fetchAndTransformArticle';
+import fetchAndTransformArticle, { transformArticle } from './fetchAndTransformArticle';
 import fetchEmbedMetaData from './fetchEmbedMetaData';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getHtmlLang } from './locale/configureLocale';
@@ -29,17 +27,14 @@ const setup = function routes(app: Express) {
     const accessToken = getAsString(req.headers.authorization);
     const lang = getHtmlLang(defined(req.params.lang, ''));
     fetchEmbedMetaData(embed, accessToken, lang)
-      .then(data => {
+      .then((data) => {
         res.json({
           metaData: data,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         log.error(error);
-        const response = getAppropriateErrorResponse(
-          error,
-          config.isProduction
-        );
+        const response = getAppropriateErrorResponse(error, config.isProduction);
         res.status(response.status).json(response);
       });
   });
@@ -53,8 +48,7 @@ const setup = function routes(app: Express) {
     res.setHeader('Content-Type', 'application/json');
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const isOembed =
-      defined(req.query.isOembed, 'false') ||
-      defined(req.query.removeRelatedContent, 'false');
+      defined(req.query.isOembed, 'false') || defined(req.query.removeRelatedContent, 'false');
     const showVisualElement = defined(req.query.showVisualElement, 'false');
     const articleId = req.params.id;
     const accessToken = getAsString(req.headers.authorization);
@@ -68,15 +62,12 @@ const setup = function routes(app: Express) {
       subject,
       path,
     })
-      .then(article => {
+      .then((article) => {
         res.json(article);
       })
-      .catch(error => {
+      .catch((error) => {
         log.error(error);
-        const response = getAppropriateErrorResponse(
-          error,
-          config.isProduction
-        );
+        const response = getAppropriateErrorResponse(error, config.isProduction);
         res.status(response.status).json(response);
       });
   });
@@ -85,8 +76,7 @@ const setup = function routes(app: Express) {
     const lang = getHtmlLang(defined(req.params.lang, ''));
     const articleId = req.params.id;
     const isOembed =
-      defined(req.query.isOembed, 'false') ||
-      defined(req.query.removeRelatedContent, 'false');
+      defined(req.query.isOembed, 'false') || defined(req.query.removeRelatedContent, 'false');
     const showVisualElement = defined(req.query.showVisualElement, 'false');
     const accessToken = getAsString(req.headers.authorization);
     const filters = req.query.filters;
@@ -99,16 +89,13 @@ const setup = function routes(app: Express) {
       subject,
       path,
     })
-      .then(article => {
+      .then((article) => {
         res.send(htmlTemplate(lang, article.title, article));
         res.end();
       })
-      .catch(error => {
+      .catch((error) => {
         log.error(error);
-        const response = getAppropriateErrorResponse(
-          error,
-          config.isProduction
-        );
+        const response = getAppropriateErrorResponse(error, config.isProduction);
         const rp = htmlErrorTemplate(lang, response);
         res.status(response.status).send(rp);
       });
@@ -128,15 +115,12 @@ const setup = function routes(app: Express) {
         draftConcept,
         previewH5p,
       })
-        .then(article => {
+        .then((article) => {
           res.json(article);
         })
-        .catch(error => {
+        .catch((error) => {
           log.error(error);
-          const response = getAppropriateErrorResponse(
-            error,
-            config.isProduction
-          );
+          const response = getAppropriateErrorResponse(error, config.isProduction);
           res.status(response.status).json(response);
         });
     } else {
@@ -145,7 +129,7 @@ const setup = function routes(app: Express) {
         {
           message: 'Missing body with article.',
         },
-        config.isProduction
+        config.isProduction,
       );
       res.status(response.status).json(response);
     }

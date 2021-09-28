@@ -10,39 +10,23 @@
 
 import React from 'react';
 import defined from 'defined';
-import {
-  Figure,
-  FigureLicenseDialog,
-  FigureCaption,
-} from '@ndla/ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 import Button, { StyledButton } from '@ndla/button';
-import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
-} from '@ndla/licenses';
+import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import { get } from 'lodash/fp';
 import { fetchVideoMeta } from '../api/brightcove';
 import t from '../locale/i18n';
-import {
-  getCopyString,
-  getLicenseCredits,
-  makeIframeString,
-} from './pluginHelpers';
+import { getCopyString, getLicenseCredits, makeIframeString } from './pluginHelpers';
 import { render } from '../utils/render';
 
 const Anchor = StyledButton.withComponent('a');
 
 export default function createBrightcovePlugin(options = { concept: false }) {
-  const fetchResource = embed => fetchVideoMeta(embed);
+  const fetchResource = (embed) => fetchVideoMeta(embed);
 
-  const getIframeProps = (
-    { account, videoid, player = 'default' },
-    sources
-  ) => {
+  const getIframeProps = ({ account, videoid, player = 'default' }, sources) => {
     const source =
-      sources
-        .filter(s => s.width && s.height)
-        .sort((a, b) => b.height - a.height)[0] || {};
+      sources.filter((s) => s.width && s.height).sort((a, b) => b.height - a.height)[0] || {};
 
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
@@ -55,18 +39,12 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources
-        .filter(source => source.container === 'MP4' && source.src)
+        .filter((source) => source.container === 'MP4' && source.src)
         .sort((a, b) => b.size - a.size);
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
-      const copyString = getCopyString(
-        name,
-        iframeProps.src,
-        options.path,
-        copyright,
-        locale
-      );
+      const copyString = getCopyString(name, iframeProps.src, options.path, copyright, locale);
       return {
         title: name,
         description: description,
@@ -95,7 +73,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           allowFullScreen
         />
         <figcaption>{t(locale, 'video.error')}</figcaption>
-      </Figure>
+      </Figure>,
     );
   };
 
@@ -112,13 +90,12 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const authors = getLicenseCredits(brightcove.copyright);
 
-    const contributors = getGroupedContributorDescriptionList(
-      brightcove.copyright,
-      locale
-    ).map(item => ({
-      name: item.description,
-      type: item.label,
-    }));
+    const contributors = getGroupedContributorDescriptionList(brightcove.copyright, locale).map(
+      (item) => ({
+        name: item.description,
+        type: item.label,
+      }),
+    );
 
     const { src, height, width } = getIframeProps(data, brightcove.sources);
 
@@ -129,7 +106,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
       src,
       options.path,
       brightcove.copyright,
-      locale
+      locale,
     );
 
     const messages = {
@@ -145,10 +122,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     const originalVideoProps = getIframeProps(data, brightcove.sources);
 
     return render(
-      <Figure
-        id={figureId}
-        type={options.concept ? 'full-column' : 'full'}
-        resizeIframe>
+      <Figure id={figureId} type={options.concept ? 'full-column' : 'full'} resizeIframe>
         <div className="brightcove-video">
           <iframe
             className="original"
@@ -158,10 +132,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
             data-original-src={originalVideoProps.src}
             data-alternative-src={
               linkedVideoId &&
-              getIframeProps(
-                { ...data, videoid: linkedVideoId },
-                brightcove.sources
-              ).src
+              getIframeProps({ ...data, videoid: linkedVideoId }, brightcove.sources).src
             }
             {...originalVideoProps}
             allowFullScreen
@@ -174,9 +145,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={
-            authors.creators || authors.rightsholders || authors.processors
-          }
+          authors={authors.creators || authors.rightsholders || authors.processors}
           hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog
@@ -185,35 +154,29 @@ export default function createBrightcovePlugin(options = { concept: false }) {
           locale={locale}
           license={license}
           authors={contributors}
-          messages={messages}>
+          messages={messages}
+        >
           <Button
             outline
             data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={copyString}>
+            data-copy-string={copyString}
+          >
             {t(locale, 'license.copyTitle')}
           </Button>
           {licenseAbbreviation !== 'COPYRIGHTED' && (
-            <Anchor
-              key="download"
-              href={download}
-              appearance="outline"
-              download>
+            <Anchor key="download" href={download} appearance="outline" download>
               {t(locale, 'video.download')}
             </Anchor>
           )}
           <Button
             outline
             data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={makeIframeString(
-              src,
-              height,
-              width,
-              brightcove.name
-            )}>
+            data-copy-string={makeIframeString(src, height, width, brightcove.name)}
+          >
             {t(locale, 'license.embed')}
           </Button>
         </FigureLicenseDialog>
-      </Figure>
+      </Figure>,
     );
   };
 

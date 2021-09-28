@@ -32,25 +32,17 @@ export function apiResourceUrl(path: string) {
 
 export function rejectWithError(json: any, res: Response) {
   log.logAndReturnValue('warn', 'JSON response from failed api call: ', json);
-  return createErrorPayload(
-    res.status,
-    defined(json.message, res.statusText),
-    json
-  );
+  return createErrorPayload(res.status, defined(json.message, res.statusText), json);
 }
 
-export async function resolveJsonOrRejectWithError<T>(
-  res: Response
-): Promise<T> {
+export async function resolveJsonOrRejectWithError<T>(res: Response): Promise<T> {
   if (res.ok) {
     return res.status === 204 ? undefined : res.json();
   }
   if (res.status === 404) {
     throw createErrorPayload(res.status, res.statusText);
   }
-  log.warn(
-    `Api call to ${res.url} failed with status ${res.status} ${res.statusText}`
-  );
+  log.warn(`Api call to ${res.url} failed with status ${res.status} ${res.statusText}`);
   const json = await res.json();
   throw rejectWithError(json, res);
 }

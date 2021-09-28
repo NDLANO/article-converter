@@ -10,8 +10,6 @@ import { availableLocales } from './localeConstants';
 import { LocaleType } from '../interfaces';
 
 export const getHtmlLang = (localeAbbreviation: string): LocaleType => {
-  const locale = availableLocales.find(
-    l => l.abbreviation === localeAbbreviation
-  );
+  const locale = availableLocales.find((l) => l.abbreviation === localeAbbreviation);
   return locale ? locale.abbreviation : 'nb'; // Defaults to nb if not found
 };

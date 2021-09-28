@@ -9,7 +9,7 @@
 import { makeIframe } from './pluginHelpers';
 
 export default function createIframePlugin() {
-  const embedToHTML = embed => {
+  const embedToHTML = (embed) => {
     const { url, width, height } = embed.data;
     return makeIframe(url, width, height);
   };

@@ -18,63 +18,37 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
-const RESOURCE_TYPE_TASKS_AND_ACTIVITIES =
-  'urn:resourcetype:tasksAndActivities';
+const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
 
-const mapping = relatedArticleEntryNum => {
+const mapping = (relatedArticleEntryNum) => {
   const hiddenModifier = relatedArticleEntryNum > 2 ? ' hidden' : '';
   return {
     [RESOURCE_TYPE_SUBJECT_MATERIAL]: {
-      icon: (
-        <ContentTypeBadge
-          background
-          type={constants.contentTypes.SUBJECT_MATERIAL}
-        />
-      ),
+      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT_MATERIAL} />,
       modifier: `subject-material${hiddenModifier}`,
     },
     [RESOURCE_TYPE_TASKS_AND_ACTIVITIES]: {
-      icon: (
-        <ContentTypeBadge
-          background
-          type={constants.contentTypes.TASKS_AND_ACTIVITIES}
-        />
-      ),
+      icon: <ContentTypeBadge background type={constants.contentTypes.TASKS_AND_ACTIVITIES} />,
       modifier: `tasks-and-activities${hiddenModifier}`,
     },
     'external-learning-resources': {
       icon: (
-        <ContentTypeBadge
-          background
-          type={constants.contentTypes.EXTERNAL_LEARNING_RESOURCES}
-        />
+        <ContentTypeBadge background type={constants.contentTypes.EXTERNAL_LEARNING_RESOURCES} />
       ),
       modifier: `external-learning-resources${hiddenModifier}`,
     },
     subject: {
-      icon: (
-        <ContentTypeBadge background type={constants.contentTypes.SUBJECT} />
-      ),
+      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT} />,
       modifier: `subject${hiddenModifier}`,
     },
     default: {
-      icon: (
-        <ContentTypeBadge
-          background
-          type={constants.contentTypes.SUBJECT_MATERIAL}
-        />
-      ),
+      icon: <ContentTypeBadge background type={constants.contentTypes.SUBJECT_MATERIAL} />,
       modifier: `subject-material${hiddenModifier}`,
     },
   };
 };
 
-const getRelatedArticleProps = (
-  article,
-  relatedArticleEntryNum,
-  filters,
-  subject
-) => {
+const getRelatedArticleProps = (article, relatedArticleEntryNum, filters, subject) => {
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
@@ -85,7 +59,7 @@ const getRelatedArticleProps = (
   const path =
     (article.resource.paths &&
       article.resource.paths.find(
-        p => subject && p.split('/')[1] === subject.replace('urn:', '')
+        (p) => subject && p.split('/')[1] === subject.replace('urn:', ''),
       )) ||
     article.resource.path;
 
@@ -95,7 +69,7 @@ const getRelatedArticleProps = (
   }
 
   const resourceType = article.resource.resourceTypes.find(
-    type => mapping(relatedArticleEntryNum)[type.id]
+    (type) => mapping(relatedArticleEntryNum)[type.id],
   );
 
   if (resourceType) {
@@ -127,14 +101,10 @@ export default function createRelatedContentPlugin(options = {}) {
     return embed;
   }
 
-  const getEntryNumber = embed => {
-    const siblings =
-      embed.embed
-        ?.parent()
-        ?.children()
-        ?.toArray() || [];
+  const getEntryNumber = (embed) => {
+    const siblings = embed.embed?.parent()?.children()?.toArray() || [];
 
-    const idx = siblings.findIndex(e => e.data === embed.data);
+    const idx = siblings.findIndex((e) => e.data === embed.data);
     return idx + 1;
   };
 
@@ -154,14 +124,13 @@ export default function createRelatedContentPlugin(options = {}) {
           introduction={embed.data.metaDescription || embed.data.url}
           linkInfo={`${t(lang, 'related.linkInfo')} ${
             // Get domain name only from url
-            embed.data.url.match(
-              /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im
-            )[1] || embed.data.url
+            embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)[1] ||
+            embed.data.url
           }`}
           target="_blank"
           to={embed.data.url}
           {...mapping(relatedArticleEntryNum)['external-learning-resources']}
-        />
+        />,
       );
     }
     return render(
@@ -178,9 +147,9 @@ export default function createRelatedContentPlugin(options = {}) {
           embed.article,
           relatedArticleEntryNum,
           options.filters,
-          options.subject
+          options.subject,
         )}
-      />
+      />,
     );
   };
 

@@ -7,38 +7,50 @@
  */
 
 import { performance } from 'perf_hooks';
-import {CheerioAPI} from "cheerio";
+import { CheerioAPI } from 'cheerio';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 // @ts-ignore
 import { htmlTransforms } from './htmlTransformers';
-import {EmbedType, LocaleType, TransformOptions} from "./interfaces";
+import { EmbedType, LocaleType, TransformOptions } from './interfaces';
 
 function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
-  const elapsedTime = (performance.now() - start);
+  const elapsedTime = performance.now() - start;
   if (elapsedTime > timeout) {
     console.warn(
-      `Action '${action}' took ${elapsedTime.toFixed(2)}ms, longer than time to warn of ${timeout}ms...`,
-      obj
+      `Action '${action}' took ${elapsedTime.toFixed(
+        2,
+      )}ms, longer than time to warn of ${timeout}ms...`,
+      obj,
     );
   }
 }
 
-async function executeHtmlTransforms(content: CheerioAPI, lang: LocaleType, options: TransformOptions): Promise<void> {
+async function executeHtmlTransforms(
+  content: CheerioAPI,
+  lang: LocaleType,
+  options: TransformOptions,
+): Promise<void> {
   // We use this reduce trick so the transformations happen in sequence even if the function is asynchronous
   const starterPromise = Promise.resolve();
   await htmlTransforms.reduce(
-    (maybePromise: Promise<void>, replacer: (content: CheerioAPI, lang: LocaleType, options: TransformOptions) => void) =>
-      maybePromise.then(() => replacer(content, lang, options)),
-    starterPromise
+    (
+      maybePromise: Promise<void>,
+      replacer: (content: CheerioAPI, lang: LocaleType, options: TransformOptions) => void,
+    ) => maybePromise.then(() => replacer(content, lang, options)),
+    starterPromise,
   );
 }
 
-export async function getEmbedsResources(embeds: EmbedType[], accessToken: string, lang: LocaleType) {
+export async function getEmbedsResources(
+  embeds: EmbedType[],
+  accessToken: string,
+  lang: LocaleType,
+) {
   return Promise.all(
-    embeds.map(async embed => {
+    embeds.map(async (embed) => {
       const plugin = embed.plugin;
       if (plugin && plugin.fetchResource) {
         const startStamp = performance.now();
@@ -49,12 +61,7 @@ export async function getEmbedsResources(embeds: EmbedType[], accessToken: strin
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
-          logIfLongTime(
-            startStamp,
-            500,
-            `Failed fetching resource`,
-            embed.data
-          );
+          logIfLongTime(startStamp, 500, `Failed fetching resource`, embed.data);
           return {
             ...embed,
             status: 'error',
@@ -62,7 +69,7 @@ export async function getEmbedsResources(embeds: EmbedType[], accessToken: strin
         }
       }
       return embed;
-    })
+    }),
   );
 }
 
@@ -74,16 +81,10 @@ export async function transform(
   options: TransformOptions,
 ): Promise<{ html: string | null; embedMetaData: any }> {
   if (visualElement?.visualElement && options?.showVisualElement) {
-    content('body').prepend(
-      `<section>${visualElement.visualElement}</section>`
-    );
+    content('body').prepend(`<section>${visualElement.visualElement}</section>`);
   }
   const embeds = await getEmbedsFromHtml(content, { transform, ...options });
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    lang
-  );
+  const embedsWithResources = await getEmbedsResources(embeds, accessToken, lang);
 
   await replaceEmbedsInHtml(embedsWithResources, lang);
   const embedMetaData = getEmbedMetaData(embedsWithResources, lang);

@@ -7,7 +7,7 @@
  */
 
 import defined from 'defined';
-import {EmbedType, LocaleType} from "./interfaces";
+import { EmbedType, LocaleType } from './interfaces';
 
 export default function getEmbedMetaData(embeds: EmbedType[], locale: LocaleType) {
   return embeds.reduce((ctx: Record<string, unknown[]>, embed) => {

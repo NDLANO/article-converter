@@ -22,8 +22,8 @@ export default function createH5pPlugin(options = { concept: false }) {
       const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
       embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
       fetchH5pOembed(embed, accessToken, options)
-        .then(data => data)
-        .then(data => {
+        .then((data) => data)
+        .then((data) => {
           if (data?.embed?.data) {
             const myData = data.embed.data();
             const pathArr = myData.path?.split('/') || [];
@@ -31,7 +31,7 @@ export default function createH5pPlugin(options = { concept: false }) {
 
             if (h5pID) {
               fetchH5pLicenseInformation(h5pID)
-                .then(h5pData => {
+                .then((h5pData) => {
                   h5pData.url = myData.url;
                   data.embed.h5p = h5pData;
                   resolve(data);
@@ -45,16 +45,14 @@ export default function createH5pPlugin(options = { concept: false }) {
         .catch(reject);
     });
 
-  const embedToHTML = h5p => {
+  const embedToHTML = (h5p) => {
     if (h5p.oembed) {
       return wrapInFigure(h5p.oembed.html, true, options.concept);
     }
     return wrapInFigure(
-      `<iframe title="${h5p.data.url}" aria-label="${h5p.data.url}" src="${
-        h5p.data.url
-      }"></iframe>`,
+      `<iframe title="${h5p.data.url}" aria-label="${h5p.data.url}" src="${h5p.data.url}"></iframe>`,
       true,
-      options.concept
+      options.concept,
     );
   };
 
@@ -63,10 +61,10 @@ export default function createH5pPlugin(options = { concept: false }) {
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'h5p.error')}</figcaption>
-      </figure>
+      </figure>,
     );
 
-  const mapRole = role => {
+  const mapRole = (role) => {
     const objRoles = {
       Author: 'Writer',
       Editor: 'Editorial',
@@ -82,16 +80,10 @@ export default function createH5pPlugin(options = { concept: false }) {
         h5p: { title, authors },
         url,
       } = h5p;
-      const creators = authors?.map(author => {
+      const creators = authors?.map((author) => {
         return { name: author.name, type: mapRole(author.role) };
       });
-      const copyString = getCopyString(
-        title,
-        url,
-        options.path,
-        { creators },
-        locale
-      );
+      const copyString = getCopyString(title, url, options.path, { creators }, locale);
       return {
         ...h5p,
         copyText: copyString,

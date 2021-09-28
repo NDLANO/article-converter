@@ -27,10 +27,7 @@ const apiUrl = () => {
       case 'prod':
         return 'https://api.ndla.no';
       default:
-        return `https://api.${process.env.NDLA_ENVIRONMENT.replace(
-          '_',
-          '-'
-        )}.ndla.no`;
+        return `https://api.${process.env.NDLA_ENVIRONMENT.replace('_', '-')}.ndla.no`;
     }
   } else {
     return `http://${apiUrl}`;
@@ -116,7 +113,7 @@ const config = Object.assign(
       title: 'NDLA article converter',
     },
   },
-  environment
+  environment,
 );
 
 module.exports = config;

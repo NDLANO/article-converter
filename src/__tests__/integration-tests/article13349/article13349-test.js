@@ -18,11 +18,7 @@ test('app/fetchAndTransformArticle 13349', async () => {
     .get('/article-api/v2/articles/13349?language=nb&fallback=true')
     .reply(200, article13349);
 
-  const transformed = await fetchAndTransformArticle(
-    '13349',
-    'nb',
-    'some_token'
-  );
+  const transformed = await fetchAndTransformArticle('13349', 'nb', 'some_token');
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

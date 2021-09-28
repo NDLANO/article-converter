@@ -27,7 +27,7 @@ test('htmlTransforms changes ol to accommodate frontend styling', () => {
     </ol>
   </section>`);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch('<ol class="ol-list--roman">');
@@ -48,7 +48,7 @@ test('htmlTransforms changes ol to accommodate listing resets', () => {
     </ol>
   </section>`);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch('<ol start="2" class="ol-list--roman ol-reset-2">');
@@ -71,7 +71,7 @@ test('htmlTransforms changes ul to accommodate frontend styling', () => {
     </ul>
   </section>`);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch('<ul class="o-list--two-columns">');
@@ -92,7 +92,7 @@ test('htmlTransforms adds display block to math tags', () => {
   </section>
   `);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatchSnapshot();
@@ -104,7 +104,7 @@ test('htmlTransforms changes p to accommodate frontend styling', () => {
   <p data-align='center'>Lorem ipsum dolor sit amet...</p>
   </section>`);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
   expect(result).toMatch('<p class="u-text-center">');
@@ -116,12 +116,10 @@ test('htmlTransforms changes span with data-size to a span with font size', () =
   Lorem ipsum <span data-size="large">dolor</span> sit amet...
   </section>`);
 
-  htmlTransforms.forEach(tagReplacer => tagReplacer(content));
+  htmlTransforms.forEach((tagReplacer) => tagReplacer(content));
   const result = content.html();
 
-  expect(result).toMatch(
-    'Lorem ipsum <span class="u-large-body-text">dolor</span> sit amet'
-  );
+  expect(result).toMatch('Lorem ipsum <span class="u-large-body-text">dolor</span> sit amet');
 });
 
 test('move react portals to bottom', () => {

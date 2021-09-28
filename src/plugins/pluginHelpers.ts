@@ -10,30 +10,37 @@ import classnames from 'classnames';
 import isNumber from 'lodash/fp/isNumber';
 import t from '../locale/i18n';
 import config from '../config';
-import {LocaleType, Author} from "../interfaces";
-import {ArticleApiCopyright } from "../api/articleApi";
+import { LocaleType, Author } from '../interfaces';
+import { ArticleApiCopyright } from '../api/articleApi';
 
 export const wrapInFigure = (content: string, resize: boolean = true, concept: boolean = false) => {
   const embedClassnames = classnames(
     { 'c-figure': !concept },
     {
       'c-figure--resize': resize,
-    }
+    },
   );
-  return `<figure class="${embedClassnames}" ${
-    resize ? 'resizeIframe' : ''
-  }>${content}</figure>`;
+  return `<figure class="${embedClassnames}" ${resize ? 'resizeIframe' : ''}>${content}</figure>`;
 };
 
-export const makeIframe = (url: string, width: string, height: string, title: string = '', resize: boolean = true) => {
+export const makeIframe = (
+  url: string,
+  width: string,
+  height: string,
+  title: string = '',
+  resize: boolean = true,
+) => {
   return wrapInFigure(makeIframeString(url, width, height, title), resize);
 };
 
-export const makeIframeString = (url: string, width: string, height: string, title: string = '') => {
+export const makeIframeString = (
+  url: string,
+  width: string,
+  height: string,
+  title: string = '',
+) => {
   const strippedWidth = isNumber(width) ? width : width.replace(/\s*px/, '');
-  const strippedHeight = isNumber(height)
-    ? height
-    : height.replace(/\s*px/, '');
+  const strippedHeight = isNumber(height) ? height : height.replace(/\s*px/, '');
   const urlOrTitle = title || url;
   return `<iframe title="${urlOrTitle}" aria-label="${urlOrTitle}" src="${url}" width="${strippedWidth}" height="${strippedHeight}" allowfullscreen scrolling="no" frameborder="0" loading="lazy"></iframe>`;
 };
@@ -46,7 +53,7 @@ const makeCreditCopyString = (roles: Author[], locale: LocaleType) => {
   }
   return (
     roles
-      .map(creator => {
+      .map((creator) => {
         const type = creator.type && t(locale, `${creator.type.toLowerCase()}`);
         return `${type}: ${creator.name?.trim()}`;
       })
@@ -54,7 +61,7 @@ const makeCreditCopyString = (roles: Author[], locale: LocaleType) => {
   );
 };
 
-const getValueOrFallback = <T,>(value: T | undefined, fallback: T): T => {
+const getValueOrFallback = <T>(value: T | undefined, fallback: T): T => {
   if (value === undefined) {
     return fallback;
   }
@@ -70,13 +77,18 @@ const makeDateString = () => {
   return `${dd}.${mm}.${yyyy}`;
 };
 
-export const getCopyString = (title: string, src: string, path: string | undefined, copyright: ArticleApiCopyright, locale: LocaleType): string => {
+export const getCopyString = (
+  title: string,
+  src: string,
+  path: string | undefined,
+  copyright: ArticleApiCopyright,
+  locale: LocaleType,
+): string => {
   const credits = getLicenseCredits(copyright);
   const creators = makeCreditCopyString(credits.creators, locale);
   const processors = makeCreditCopyString(credits.processors, locale);
   const rightsholders = makeCreditCopyString(credits.rightsholders, locale);
-  const titleString =
-    getValueOrFallback(title, t(locale, 'license.copyText.noTitle')) + ' ';
+  const titleString = getValueOrFallback(title, t(locale, 'license.copyText.noTitle')) + ' ';
   const url = path ? config.ndlaFrontendDomain + path : src;
   const date = makeDateString();
 
@@ -98,8 +110,7 @@ export const getCopyString = (title: string, src: string, path: string | undefin
 export const getLicenseCredits = (copyright: ArticleApiCopyright) => {
   return {
     creators: copyright?.creators?.length > 0 ? copyright.creators : [],
-    rightsholders:
-      copyright?.rightsholders?.length > 0 ? copyright.rightsholders : [],
+    rightsholders: copyright?.rightsholders?.length > 0 ? copyright.rightsholders : [],
     processors: copyright?.processors?.length > 0 ? copyright.processors : [],
   };
 };

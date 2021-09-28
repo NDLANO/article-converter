@@ -16,14 +16,10 @@ import { LocaleType } from './interfaces';
 export default async function fetchEmbedMetaData(
   embedTag: string,
   accessToken: string,
-  language: LocaleType
+  language: LocaleType,
 ) {
   const c = cheerio.load(embedTag);
   const embeds = await getEmbedsFromHtml(c);
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    language
-  );
+  const embedsWithResources = await getEmbedsResources(embeds, accessToken, language);
   return getEmbedMetaData(embedsWithResources, language);
 }

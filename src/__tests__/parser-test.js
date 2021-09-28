@@ -10,16 +10,14 @@ import cheerio from 'cheerio';
 import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
 
-const getEmbedDetails = embeds =>
+const getEmbedDetails = (embeds) =>
   embeds.map(({ data, plugin }) => ({
     data,
     plugin: plugin.resource,
   }));
 
 it('parser getEmbedsFromHtml (with audio embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithAudioEmbed)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithAudioEmbed));
   expect(embeds.length).toBe(2);
 
   const embedDetails = getEmbedDetails(embeds);
@@ -44,9 +42,7 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithNRKEmbed)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithNRKEmbed));
   expect(embeds.length).toBe(2);
 
   const emebedDetails = getEmbedDetails(embeds);
@@ -73,9 +69,7 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithContentLink)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithContentLink));
   expect(embeds.length).toBe(2);
 
   const embedDetails = getEmbedDetails(embeds);
@@ -103,9 +97,7 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithBrightcoveEmbed)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithBrightcoveEmbed));
   expect(embeds.length).toBe(2);
 
   const embedDetails = getEmbedDetails(embeds);
@@ -136,9 +128,7 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with external embeds)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithExternalEmbed)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithExternalEmbed));
   expect(embeds.length).toBe(2);
 
   const embedDetails = getEmbedDetails(embeds);
@@ -163,9 +153,7 @@ it('parser getEmbedsFromHtml (with external embeds)', async () => {
 });
 
 it('parser getEmbedsFromHtml (with multiple resources)', async () => {
-  const embeds = await getEmbedsFromHtml(
-    cheerio.load(articles.articleWithMultipleResources)
-  );
+  const embeds = await getEmbedsFromHtml(cheerio.load(articles.articleWithMultipleResources));
   expect(embeds.length).toBe(6);
 
   const embedDetails = getEmbedDetails(embeds);

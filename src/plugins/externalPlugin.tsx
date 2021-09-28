@@ -16,7 +16,7 @@ export default function createExternalPlugin(options = { concept: false }) {
   const fetchResource = (embed, accessToken) =>
     new Promise((resolve, reject) => {
       fetchOembed(embed, accessToken, options)
-        .then(data => {
+        .then((data) => {
           return resolve(data);
         })
         .catch(reject);
@@ -27,11 +27,10 @@ export default function createExternalPlugin(options = { concept: false }) {
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
         <figcaption>{t(locale, 'external.error')}</figcaption>
-      </figure>
+      </figure>,
     );
 
-  const embedToHTML = embed =>
-    wrapInFigure(embed.oembed.html, true, options.concept);
+  const embedToHTML = (embed) => wrapInFigure(embed.oembed.html, true, options.concept);
 
   return {
     resource: 'external',

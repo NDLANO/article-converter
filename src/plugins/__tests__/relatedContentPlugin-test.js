@@ -36,7 +36,7 @@ test('fetchResource when no article ids is provided', async () => {
 test('fetchResource for two related articles', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  ['1', '2'].forEach(id => {
+  ['1', '2'].forEach((id) => {
     nock('http://ndla-api')
       .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, {
@@ -53,7 +53,7 @@ test('fetchResource for two related articles', async () => {
       data: { articleId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource1).toMatchSnapshot();
 
@@ -62,7 +62,7 @@ test('fetchResource for two related articles', async () => {
       data: { articleId: '2' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource2).toMatchSnapshot();
 });
@@ -76,12 +76,11 @@ test('fetchResource for an external article', async () => {
     {
       data: {
         title: 'Helsedirektoratet om reklame for alkohol',
-        url:
-          'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
+        url: 'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
       },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(externalResource).toMatchSnapshot();
 
@@ -112,7 +111,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       data: { articleId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource1).toMatchSnapshot();
 
@@ -121,7 +120,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       data: { articleId: '2' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource2).toMatchSnapshot();
 
@@ -157,7 +156,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       data: { articleId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource1).toMatchSnapshot();
 
@@ -166,7 +165,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
       data: { articleId: '2' },
     },
     'token',
-    'nb'
+    'nb',
   );
   expect(resource2).toMatchSnapshot();
 
@@ -176,13 +175,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
 test('embedToHtml should return empty string if no related articles is provided', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  expect(
-    relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })
-  ).toBe('');
+  expect(relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })).toBe('');
   expect(
     relatedContentPlugin.embedToHTML({
       data: { resource: 'related-content' },
-    })
+    }),
   ).toBe('');
 });
 
@@ -224,8 +221,7 @@ test('embedToHtml should return an external article if url is set', async () => 
     data: {
       resource: 'related-content',
       title: 'Om lov om forbud mot diskriminering',
-      url:
-        'https://www.regjeringen.no/no/dokumenter/otprp-nr-44-2007-2008-/id505404/',
+      url: 'https://www.regjeringen.no/no/dokumenter/otprp-nr-44-2007-2008-/id505404/',
     },
   };
 

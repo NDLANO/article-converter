@@ -74,13 +74,11 @@ export const fetchConcept = async (
   options: {
     draftConcept?: boolean;
   } = {},
-  method: string = 'GET'
+  method: string = 'GET',
 ): Promise<EmbedType & { concept: ConceptApiType }> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
-    `/concept-api/v1/${endpoint}/${
-      embed.data.contentId
-    }?language=${language}&fallback=true`
+    `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${language}&fallback=true`,
   );
   const response = await fetch(url, {
     method,

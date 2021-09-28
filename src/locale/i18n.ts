@@ -9,13 +9,7 @@
 import defined from 'defined';
 import IntlMessageFormat from 'intl-messageformat';
 import memoizeIntlConstructor from 'intl-format-cache';
-import {
-  messagesNB,
-  messagesEN,
-  messagesNN,
-  formatNestedMessages,
-  formatMessage,
-} from '@ndla/ui';
+import { messagesNB, messagesEN, messagesNN, formatNestedMessages, formatMessage } from '@ndla/ui';
 import { LocaleType } from '../interfaces';
 
 let getMessageFormat: any; // TODO: Må denne fikses?

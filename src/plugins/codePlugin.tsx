@@ -12,17 +12,12 @@ import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
 
 export default function createCodePlugin(options = {}) {
-  const embedToHTML = embed => {
+  const embedToHTML = (embed) => {
     const { title, codeContent, codeFormat } = embed.data;
     return renderString(
       <figure className="c-figure">
-        <Codeblock
-          title={title}
-          code={he.decode(codeContent)}
-          format={codeFormat}
-          showCopy
-        />
-      </figure>
+        <Codeblock title={title} code={he.decode(codeContent)} format={codeFormat} showCopy />
+      </figure>,
     );
   };
 

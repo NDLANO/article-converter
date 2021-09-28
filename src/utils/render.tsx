@@ -31,7 +31,7 @@ function renderInternal(renderFunc, component, locale) {
           </I18nWrapper>
         </MissingRouterContext.Provider>
       </StaticRouter>
-    </I18nextProvider>
+    </I18nextProvider>,
   );
 }
 

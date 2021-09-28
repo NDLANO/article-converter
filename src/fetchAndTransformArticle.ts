@@ -10,7 +10,7 @@ export async function transformArticle(
   article: ArticleApiArticle,
   lang: LocaleType,
   accessToken: string,
-  options: TransformOptions = {}
+  options: TransformOptions = {},
 ): Promise<TransformedArticle> {
   const articleContent = article.content.content
     ? cheerio.load(article.content.content, {
@@ -19,13 +19,7 @@ export async function transformArticle(
     : undefined;
 
   const { html, embedMetaData } = articleContent
-    ? await transform(
-        articleContent,
-        lang,
-        accessToken,
-        article.visualElement,
-        options
-      )
+    ? await transform(articleContent, lang, accessToken, article.visualElement, options)
     : { html: undefined, embedMetaData: undefined };
 
   const htmlString: string = html ?? '';
@@ -35,11 +29,9 @@ export async function transformArticle(
     config.ndlaFrontendDomain,
     options.path,
     article.copyright,
-    lang
+    lang,
   );
-  const hasContent =
-    article.articleType === 'standard' ||
-    cheerio.load(htmlString).text() !== '';
+  const hasContent = article.articleType === 'standard' || cheerio.load(htmlString).text() !== '';
 
   return {
     ...article,
@@ -47,12 +39,8 @@ export async function transformArticle(
     metaData: { ...embedMetaData, copyText } || '',
     title: article.title.title || '',
     tags: article.tags ? article.tags.tags : [],
-    introduction: article.introduction
-      ? article.introduction.introduction
-      : undefined,
-    metaDescription: article.metaDescription
-      ? article.metaDescription.metaDescription
-      : '',
+    introduction: article.introduction ? article.introduction.introduction : undefined,
+    metaDescription: article.metaDescription ? article.metaDescription.metaDescription : '',
   };
 }
 
@@ -60,7 +48,7 @@ export default async function fetchAndTransformArticle(
   articleId: string,
   lang: LocaleType,
   accessToken: string,
-  options = {}
+  options = {},
 ) {
   const article = await fetchArticle(articleId, accessToken, lang);
   return await transformArticle(article, lang, accessToken, options);

@@ -88,12 +88,12 @@ interface AudioApiType {
 export const fetchAudio = (
   embed: EmbedType,
   accessToken: string,
-  language: LocaleType
+  language: LocaleType,
 ): Promise<EmbedType & { audio: AudioApiType }> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
   return fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
     headers: headerWithAccessToken(accessToken),
   })
-    .then(res => resolveJsonOrRejectWithError<AudioApiType>(res))
-    .then(audio => ({ ...embed, audio }));
+    .then((res) => resolveJsonOrRejectWithError<AudioApiType>(res))
+    .then((audio) => ({ ...embed, audio }));
 };

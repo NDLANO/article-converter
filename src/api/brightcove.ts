@@ -11,7 +11,7 @@ import { contributorTypes, contributorGroups } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { brightcoveClientId, brightcoveClientSecret } from '../config';
 
-const getHeaders = accessToken => ({
+const getHeaders = (accessToken) => ({
   headers: {
     'content-type': 'Content-Type: application/json',
     Authorization: `Bearer ${accessToken.access_token}`,
@@ -40,18 +40,17 @@ async function fetchVideo(videoId, accountId, accessToken) {
   return resolveJsonOrRejectWithError(response);
 }
 
-const expiresIn = accessToken => accessToken.expires_in - 10;
+const expiresIn = (accessToken) => accessToken.expires_in - 10;
 
-const storeAccessToken = accessToken => {
+const storeAccessToken = (accessToken) => {
   const expiresAt = expiresIn(accessToken) * 1000 + new Date().getTime();
   global.access_token = accessToken;
   global.access_token_expires_at = expiresAt;
 };
 
 async function fetchAccessToken() {
-  const base64Encode = str => Buffer.from(str).toString('base64');
-  const url =
-    'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
+  const base64Encode = (str) => Buffer.from(str).toString('base64');
+  const url = 'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
   const clientIdSecret = `${brightcoveClientId}:${brightcoveClientSecret}`;
 
   const response = await fetch(url, {
@@ -68,17 +67,14 @@ async function fetchAccessToken() {
 }
 
 const getAccessToken = async () => {
-  if (
-    global.access_token &&
-    new Date().getTime() < global.access_token_expires_at
-  ) {
+  if (global.access_token && new Date().getTime() < global.access_token_expires_at) {
     return global.access_token;
   }
   return fetchAccessToken();
 };
 
 // tmp solution for wrong contributorType in brightcove
-const mapContributorType = type => {
+const mapContributorType = (type) => {
   switch (type) {
     case 'Manus':
       return 'Manusforfatter';
@@ -91,7 +87,7 @@ const mapContributorType = type => {
   }
 };
 
-const getLicenseByNBTitle = title => {
+const getLicenseByNBTitle = (title) => {
   switch (title.replace(/\s/g, '').toLowerCase()) {
     case 'navngivelse-ikkekommersiell-ingenbearbeidelse':
       return 'CC-BY-NC-ND-4.0';
@@ -120,30 +116,25 @@ const getLicenseByNBTitle = title => {
   }
 };
 
-export const getContributorGroups = fields => {
-  const parseContributorsString = contributorString => {
+export const getContributorGroups = (fields) => {
+  const parseContributorsString = (contributorString) => {
     const contributorFields = contributorString.split(/: */);
-    if (contributorFields.length !== 2)
-      return { type: '', name: contributorFields[0] };
+    if (contributorFields.length !== 2) return { type: '', name: contributorFields[0] };
     const [type, name] = contributorFields;
     const contributorType = Object.keys(contributorTypes.nb).find(
-      key => contributorTypes.nb[key] === mapContributorType(type?.trim())
+      (key) => contributorTypes.nb[key] === mapContributorType(type?.trim()),
     );
     return { type: contributorType || '', name };
   };
 
-  const licenseInfoKeys = Object.keys(fields).filter(key =>
-    key.startsWith('licenseinfo')
-  );
+  const licenseInfoKeys = Object.keys(fields).filter((key) => key.startsWith('licenseinfo'));
 
-  const contributors = licenseInfoKeys.map(key =>
-    parseContributorsString(fields[key])
-  );
+  const contributors = licenseInfoKeys.map((key) => parseContributorsString(fields[key]));
 
   return contributors.reduce(
     (groups, contributor) => {
-      const group = Object.keys(contributorGroups).find(key =>
-        contributorGroups[key].find(type => type === contributor.type)
+      const group = Object.keys(contributorGroups).find((key) =>
+        contributorGroups[key].find((type) => type === contributor.type),
       );
       if (group) {
         return { ...groups, [group]: [...groups[group], contributor] };
@@ -154,11 +145,11 @@ export const getContributorGroups = fields => {
       creators: [],
       processors: [],
       rightsholders: [],
-    }
+    },
   );
 };
 
-export const fetchVideoMeta = async embed => {
+export const fetchVideoMeta = async (embed) => {
   const { videoid, account } = embed.data;
   const accessToken = await getAccessToken();
   const [video, sources] = await Promise.all([

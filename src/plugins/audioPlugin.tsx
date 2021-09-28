@@ -9,17 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Remarkable } from 'remarkable';
 import { Translation } from 'react-i18next';
-import {
-  Figure,
-  FigureLicenseDialog,
-  FigureCaption,
-} from '@ndla/ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 import Button, { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
-import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
-} from '@ndla/licenses';
+import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
@@ -28,8 +21,7 @@ import { render } from '../utils/render';
 const Anchor = StyledButton.withComponent('a');
 
 export default function createAudioPlugin(options = {}) {
-  const fetchResource = (embed, accessToken, language) =>
-    fetchAudio(embed, accessToken, language);
+  const fetchResource = (embed, accessToken, language) => fetchAudio(embed, accessToken, language);
 
   const getMetaData = (embed, locale) => {
     const { audio } = embed;
@@ -39,13 +31,7 @@ export default function createAudioPlugin(options = {}) {
         copyright,
         audioFile: { url },
       } = audio;
-      const copyString = getCopyString(
-        title,
-        url,
-        options.path,
-        copyright,
-        locale
-      );
+      const copyString = getCopyString(title, url, options.path, copyright, locale);
       return {
         title: audio.title.title,
         copyright: audio.copyright,
@@ -55,7 +41,7 @@ export default function createAudioPlugin(options = {}) {
     }
   };
 
-  const renderMarkdown = text => {
+  const renderMarkdown = (text) => {
     const md = new Remarkable();
     const rendered = md.render(text);
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
@@ -74,7 +60,8 @@ export default function createAudioPlugin(options = {}) {
             viewBox="0 0 24 12"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ 'background-color': '#EFF0F2' }}>
+            style={{ 'background-color': '#EFF0F2' }}
+          >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path
               transform="scale(0.3) translate(28, 8.5)"
@@ -83,7 +70,7 @@ export default function createAudioPlugin(options = {}) {
           </svg>
         )}
         <figcaption>{t(locale, 'audio.error.caption')}</figcaption>
-      </Figure>
+      </Figure>,
     );
   };
 
@@ -93,7 +80,8 @@ export default function createAudioPlugin(options = {}) {
         key="copy"
         outline
         data-copied-title={t(locale, 'license.hasCopiedTitle')}
-        data-copy-string={copyString}>
+        data-copy-string={copyString}
+      >
         {t(locale, 'license.copyTitle')}
       </Button>,
     ];
@@ -101,7 +89,7 @@ export default function createAudioPlugin(options = {}) {
       buttons.push(
         <Anchor key="download" href={src} download appearance="outline">
           {t(locale, 'audio.download')}
-        </Anchor>
+        </Anchor>,
       );
     }
     return buttons;
@@ -131,8 +119,7 @@ export default function createAudioPlugin(options = {}) {
     const { introduction, coverPhoto } = podcastMeta || {};
     const subtitle = series?.title;
 
-    const textVersion =
-      manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
+    const textVersion = manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
     const description = renderMarkdown(introduction);
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
@@ -143,13 +130,12 @@ export default function createAudioPlugin(options = {}) {
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
-    const contributors = getGroupedContributorDescriptionList(
-      audio.copyright,
-      locale
-    ).map(item => ({
-      name: item.description,
-      type: item.label,
-    }));
+    const contributors = getGroupedContributorDescriptionList(audio.copyright, locale).map(
+      (item) => ({
+        name: item.description,
+        type: item.label,
+      }),
+    );
 
     const figureLicenseDialogId = `audio-${id}`;
     const figureid = `figure-${id}`;
@@ -161,13 +147,7 @@ export default function createAudioPlugin(options = {}) {
       source: t(locale, 'source'),
     };
 
-    const copyString = getCopyString(
-      title,
-      url,
-      options.path,
-      audio.copyright,
-      locale
-    );
+    const copyString = getCopyString(title, url, options.path, audio.copyright, locale);
 
     return render(
       <Translation>
@@ -192,11 +172,7 @@ export default function createAudioPlugin(options = {}) {
                 caption={caption}
                 reuseLabel={t(locale, 'audio.reuse')}
                 licenseRights={license.rights}
-                authors={
-                  authors.creators ||
-                  authors.rightsholders ||
-                  authors.processors
-                }
+                authors={authors.creators || authors.rightsholders || authors.processors}
                 locale={locale}
               />
               <FigureLicenseDialog
@@ -206,7 +182,8 @@ export default function createAudioPlugin(options = {}) {
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages}>
+                messages={messages}
+              >
                 <AudioActionButtons
                   copyString={copyString}
                   locale={locale}
@@ -218,7 +195,7 @@ export default function createAudioPlugin(options = {}) {
           );
         }}
       </Translation>,
-      locale
+      locale,
     );
   };
 

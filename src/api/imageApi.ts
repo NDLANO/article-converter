@@ -18,7 +18,7 @@ export const fetchImageResources = async (embed, accessToken, language) => {
     `${convertToInternalUrlIfPossible(embed.data.url)}?language=${language}`,
     {
       headers: headerWithAccessToken(accessToken),
-    }
+    },
   );
   const image = await resolveJsonOrRejectWithError(response);
   return { ...embed, image };

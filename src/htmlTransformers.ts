@@ -19,7 +19,7 @@ import {
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
 import { checkIfFileExists } from './api/filesApi';
-import {LocaleType, TransformOptions} from "./interfaces";
+import { LocaleType, TransformOptions } from './interfaces';
 
 export const moveReactPortals = (content: CheerioAPI) => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
@@ -29,30 +29,14 @@ export const moveReactPortals = (content: CheerioAPI) => {
 
 export const transformAsides = (content: CheerioAPI) => {
   content('aside').each((_, aside) => {
-    const isFactAside =
-      aside.attribs && aside.attribs['data-type'] === 'factAside';
+    const isFactAside = aside.attribs && aside.attribs['data-type'] === 'factAside';
     if (isFactAside) {
-      const factbox = createFactbox(
-        {},
-        content(aside)
-          .children()
-          .toString()
-      );
+      const factbox = createFactbox({}, content(aside).children().toString());
       content(aside).after(factbox);
     } else {
-      const narrowAside = createAside(
-        { narrowScreen: true },
-        content(aside)
-          .children()
-          .toString()
-      );
+      const narrowAside = createAside({ narrowScreen: true }, content(aside).children().toString());
 
-      const wideAside = createAside(
-        { wideScreen: true },
-        content(aside)
-          .children()
-          .toString()
-      );
+      const wideAside = createAside({ wideScreen: true }, content(aside).children().toString());
 
       const parent = aside?.parent;
       content(aside).after(wideAside);
@@ -68,14 +52,13 @@ export const transformAsides = (content: CheerioAPI) => {
 
 export const transformRelatedContent = (content: CheerioAPI, lang: LocaleType) => {
   content('div').each((_, div) => {
-    const isRelatedContentGroup =
-      div.attribs && div.attribs['data-type'] === 'related-content';
+    const isRelatedContentGroup = div.attribs && div.attribs['data-type'] === 'related-content';
     if (isRelatedContentGroup) {
       const divElement = content(div);
       const children = divElement.children();
       const relatedArticleList = createRelatedArticleList(
         { locale: lang, articleCount: children.length },
-        children.toString()
+        children.toString(),
       );
       divElement.before(relatedArticleList);
       divElement.remove();
@@ -122,13 +105,17 @@ const makeTheListFromDiv = async (content: CheerioAPI, div: Element, locale: Loc
 
   const [pdfs, fileList] = partition(
     files,
-    f => f.formats[0].fileType === 'pdf' && f.display === 'block'
+    (f) => f.formats[0].fileType === 'pdf' && f.display === 'block',
   );
 
-  return createFileSection(fileList.filter(f => f), pdfs, t(locale, 'files'));
+  return createFileSection(
+    fileList.filter((f) => f),
+    pdfs,
+    t(locale, 'files'),
+  );
 };
 
-const resetOrderedLists = ( content: CheerioAPI ) =>
+const resetOrderedLists = (content: CheerioAPI) =>
   content('ol').each((_, ol) => {
     const list = content(ol);
     const num = list.attr('start');
@@ -137,50 +124,44 @@ const resetOrderedLists = ( content: CheerioAPI ) =>
     }
   });
 
-export const transformTables = ( content: CheerioAPI , lang: LocaleType) =>
+export const transformTables = (content: CheerioAPI, lang: LocaleType) =>
   content('table').each((_, table) => {
-    const newTable = createTable(
-      {},
-      content(table)
-        .children()
-        .toString(),
-      lang
-    );
+    const newTable = createTable({}, content(table).children().toString(), lang);
     content(table).before(newTable);
     content(table).remove();
   });
 
-export const transformLinksInOembed = (content: CheerioAPI, lang: LocaleType, options: TransformOptions) =>
+export const transformLinksInOembed = (
+  content: CheerioAPI,
+  lang: LocaleType,
+  options: TransformOptions,
+) =>
   content('a').each((_, a) => {
     if (options.isOembed) {
       content(a).attr('target', '_blank');
     }
   });
 
-export const htmlTransforms: ((content: CheerioAPI, lang: LocaleType, options: TransformOptions) => void)[] = [
+export const htmlTransforms: ((
+  content: CheerioAPI,
+  lang: LocaleType,
+  options: TransformOptions,
+) => void)[] = [
   transformRelatedContent,
-  ( content: CheerioAPI ) => {
+  (content: CheerioAPI) => {
     content('math').attr('display', 'block');
   },
-  ( content: CheerioAPI ) =>
-    content('ol[data-type="letters"]')
-      .removeAttr('data-type')
-      .addClass('ol-list--roman'),
-  ( content: CheerioAPI ) =>
-    content('ul[data-type="two-column"]')
-      .removeAttr('data-type')
-      .addClass('o-list--two-columns'),
-  ( content: CheerioAPI ) =>
-    content('p[data-align="center"]')
-      .removeAttr('data-align')
-      .addClass('u-text-center'),
+  (content: CheerioAPI) =>
+    content('ol[data-type="letters"]').removeAttr('data-type').addClass('ol-list--roman'),
+  (content: CheerioAPI) =>
+    content('ul[data-type="two-column"]').removeAttr('data-type').addClass('o-list--two-columns'),
+  (content: CheerioAPI) =>
+    content('p[data-align="center"]').removeAttr('data-align').addClass('u-text-center'),
   moveReactPortals,
-  ( content: CheerioAPI ) =>
-    content('span[data-size="large"]')
-      .removeAttr('data-size')
-      .addClass('u-large-body-text'),
-  ( content: CheerioAPI ) => content('h2').attr('tabindex', '0'),
-  ( content: CheerioAPI ) => content('h3').attr('tabindex', '0'),
+  (content: CheerioAPI) =>
+    content('span[data-size="large"]').removeAttr('data-size').addClass('u-large-body-text'),
+  (content: CheerioAPI) => content('h2').attr('tabindex', '0'),
+  (content: CheerioAPI) => content('h3').attr('tabindex', '0'),
   resetOrderedLists,
   transformTables,
   transformFileList,

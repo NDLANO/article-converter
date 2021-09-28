@@ -30,14 +30,8 @@ export interface TransformOptions {
   isOembed?: boolean;
 }
 
-type TransformedFields =
-  | 'title'
-  | 'content'
-  | 'tags'
-  | 'introduction'
-  | 'metaDescription';
-export interface TransformedArticle
-  extends Omit<ArticleApiArticle, TransformedFields> {
+type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';
+export interface TransformedArticle extends Omit<ArticleApiArticle, TransformedFields> {
   title: string;
   content: string;
   metaData: { copyText: string };

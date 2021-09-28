@@ -17,11 +17,9 @@ test('makeIframe', () => {
   expect(makeIframe('https://youtube.com', '400', '600')).toMatchSnapshot();
   expect(makeIframe('https://youtube.com', 400, 600)).toMatchSnapshot();
   expect(
-    makeIframe('https://youtube.com', '400px', '600px', 'https://youtube.com')
+    makeIframe('https://youtube.com', '400px', '600px', 'https://youtube.com'),
   ).toMatchSnapshot();
-  expect(
-    makeIframe('https://youtube.com', '400 px', '600 px', 'Youtube')
-  ).toMatchSnapshot();
+  expect(makeIframe('https://youtube.com', '400 px', '600 px', 'Youtube')).toMatchSnapshot();
 });
 
 test('getCopyString from image with all properties', () => {
@@ -32,13 +30,7 @@ test('getCopyString from image with all properties', () => {
     processors: [{ type: 'processor', name: 'Bear Beider' }],
   };
   expect(
-    getCopyString(
-      'Title',
-      'http://api.ndla.no/image/raw/1',
-      undefined,
-      copyright,
-      'nb'
-    )
+    getCopyString('Title', 'http://api.ndla.no/image/raw/1', undefined, copyright, 'nb'),
   ).toMatchSnapshot();
 });
 
@@ -48,7 +40,5 @@ test('getCopyString from brightcove with missing type due to typo', () => {
     creators: [{ type: '', name: 'Video Kunstner' }],
     rightsholders: [{ type: 'publisher', name: 'Scanpix' }],
   };
-  expect(
-    getCopyString('Title', undefined, '/article/123', copyright, 'nb')
-  ).toMatchSnapshot();
+  expect(getCopyString('Title', undefined, '/article/123', copyright, 'nb')).toMatchSnapshot();
 });

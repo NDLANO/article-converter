@@ -9,22 +9,13 @@
 import httpStatus from 'http-status';
 import { TransformedArticle } from '../interfaces';
 
-export const htmlTemplate = (
-  lang: string,
-  title: string,
-  article: TransformedArticle
-) => {
+export const htmlTemplate = (lang: string, title: string, article: TransformedArticle) => {
   const scripts = article.requiredLibraries
-    .map(
-      library =>
-        `<script type="${library.mediaType}" src="${library.url}"></script>`
-    )
+    .map((library) => `<script type="${library.mediaType}" src="${library.url}"></script>`)
     .join();
 
   const introduction =
-    article.introduction !== undefined
-      ? `<section>${article.introduction}</section>`
-      : '';
+    article.introduction !== undefined ? `<section>${article.introduction}</section>` : '';
 
   return `<!doctype html>\n<html lang=${lang} >
     <head>
@@ -47,7 +38,7 @@ export const htmlErrorTemplate = (
     message,
     description,
     stacktrace,
-  }: { status: any; message: string; description: string; stacktrace: string }
+  }: { status: any; message: string; description: string; stacktrace: string },
 ) => {
   // @ts-ignore // TODO: Fiks dette
   const statusMsg = httpStatus[status];

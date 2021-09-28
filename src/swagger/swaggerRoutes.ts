@@ -22,8 +22,7 @@ const swaggerRoutes = {
       ],
       responses: {
         '302': {
-          description:
-            '302 Found. Redirecting to /article-converter/json/{language}/{article_id}',
+          description: '302 Found. Redirecting to /article-converter/json/{language}/{article_id}',
         },
       },
     },
@@ -75,8 +74,7 @@ const swaggerRoutes = {
         {
           in: 'query',
           name: 'subject',
-          description:
-            'Picks correct subject path for resource with multiple paths',
+          description: 'Picks correct subject path for resource with multiple paths',
         },
         {
           in: 'query',
@@ -221,8 +219,7 @@ const swaggerRoutes = {
                         src: {
                           type: 'string',
                           description: 'Meta image src',
-                          example:
-                            'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                          example: 'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
                         },
                       },
                     },
@@ -288,8 +285,7 @@ const swaggerRoutes = {
         {
           in: 'query',
           name: 'subject',
-          description:
-            'Picks correct subject path for resource with multiple paths',
+          description: 'Picks correct subject path for resource with multiple paths',
         },
         {
           in: 'query',
@@ -374,8 +370,7 @@ const swaggerRoutes = {
                     src: {
                       type: 'string',
                       description: 'Meta image src',
-                      example:
-                        'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                      example: 'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
                     },
                   },
                 },
@@ -442,8 +437,7 @@ const swaggerRoutes = {
                     cover: {
                       type: 'string',
                       description: 'Cover image url',
-                      example:
-                        'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                      example: 'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
                     },
                     src: {
                       type: 'string',
@@ -671,8 +665,7 @@ const swaggerRoutes = {
                         src: {
                           type: 'string',
                           description: 'Meta image src',
-                          example:
-                            'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
+                          example: 'https://test.api.ndla.no/image-api/raw/tacf8f02.jpg',
                         },
                       },
                     },

@@ -7,8 +7,7 @@
  */
 
 export default function createErrorPlugin() {
-  const embedToHTML = embed =>
-    `<div><strong>${embed.data.message}</strong></div>`;
+  const embedToHTML = (embed) => `<div><strong>${embed.data.message}</strong></div>`;
 
   return {
     resource: 'error',

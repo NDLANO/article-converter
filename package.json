@@ -60,7 +60,7 @@
     "ts-jest": "^27.0.5",
     "nock": "^11.9.0",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4",
+    "prettier": "^2.4.1",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.3",
     "swagger-ui-express": "^4.1.6",

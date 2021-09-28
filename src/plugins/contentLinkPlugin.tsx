@@ -12,23 +12,21 @@ import log from '../utils/logger';
 export default function createContentLinkPlugin(options = {}) {
   async function fetchResource(embed, accessToken, language) {
     const contentType = embed?.data?.contentType;
-    let path = `${language}/${
-      contentType === 'learningpath' ? 'learningpaths' : 'article'
-    }/${embed.data.contentId}`;
+    let path = `${language}/${contentType === 'learningpath' ? 'learningpaths' : 'article'}/${
+      embed.data.contentId
+    }`;
 
     try {
       const resource = await fetchArticleResource(
         embed.data.contentId,
         accessToken,
         language,
-        contentType
+        contentType,
       );
       const resourcePath =
         (resource.paths &&
           resource.paths.find(
-            p =>
-              options.subject &&
-              p.split('/')[1] === options.subject.replace('urn:', '')
+            (p) => options.subject && p.split('/')[1] === options.subject.replace('urn:', ''),
           )) ||
         resource.path;
 
@@ -48,15 +46,13 @@ export default function createContentLinkPlugin(options = {}) {
     }
   }
 
-  const embedToHTML = embed => {
+  const embedToHTML = (embed) => {
     if (embed.data.openIn === 'new-context') {
-      return `<a href="/${
-        embed.path
-      }" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
+      return `<a href="/${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
     }
-    return `<a href="/${embed.path}" ${
-      options.isOembed ? 'target="_blank"' : ''
-    }>${embed.data.linkText}</a>`;
+    return `<a href="/${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
+      embed.data.linkText
+    }</a>`;
   };
 
   return {
