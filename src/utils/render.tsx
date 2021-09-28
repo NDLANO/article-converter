@@ -12,8 +12,9 @@ import { StaticRouter } from 'react-router';
 import { MissingRouterContext } from '@ndla/safelink';
 import { i18nInstance } from '@ndla/ui';
 import { I18nextProvider, useTranslation } from 'react-i18next';
+import { LocaleType } from '../interfaces';
 
-const I18nWrapper = ({ locale, component }) => {
+const I18nWrapper = ({ locale, component }: { locale: LocaleType; component: React.ReactNode }) => {
   const { i18n } = useTranslation();
   i18n.language = locale;
   i18n.options.lng = locale;
