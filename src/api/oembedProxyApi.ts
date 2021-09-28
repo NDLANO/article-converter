@@ -13,9 +13,31 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
+import { EmbedType } from '../interfaces';
 
-export const fetchOembed = async (embed, accessToken, options = {}) => {
-  const url = new URL(embed.data.url);
+interface OembedProxyResponse {
+  type: string;
+  version: string;
+  title?: string;
+  description?: string;
+  authorName?: string;
+  authorUrl?: string;
+  providerName?: string;
+  providerUrl?: string;
+  cacheAge?: number;
+  thumbnailUrl?: string;
+  thumbnailWidth?: number;
+  thumbnailHeight?: number;
+  width?: number;
+  height?: number;
+  html?: string;
+}
+
+export const fetchOembed = async (
+  embed: EmbedType,
+  accessToken: string,
+): Promise<EmbedType & { oembed: OembedProxyResponse }> => {
+  const url = new URL(typeof embed.data.url === 'string' ? embed.data.url : '');
   if (url.hostname.includes('youtu') && url.protocol === 'http:') {
     url.protocol = 'https:';
     embed.data.url = url.href;
@@ -30,7 +52,7 @@ export const fetchOembed = async (embed, accessToken, options = {}) => {
       headers: headerWithAccessToken(accessToken),
     },
   );
-  const oembed = await resolveJsonOrRejectWithError(response);
+  const oembed = await resolveJsonOrRejectWithError<OembedProxyResponse>(response);
   return {
     ...embed,
     oembed,
