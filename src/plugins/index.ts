@@ -16,17 +16,16 @@ import createBrightcovePlugin from './brightcovePlugin';
 // @ts-ignore
 import createH5pPlugin from './h5pPlugin';
 import createExternalPlugin from './externalPlugin';
-// @ts-ignore
 import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-// @ts-ignore
 import createConceptPlugin from './conceptPlugin';
 // @ts-ignore
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
 import { EmbedType, LocaleType } from '../interfaces';
+import { TransformFunction } from '../transformers';
 
 export {
   createNRKPlugin,
@@ -47,8 +46,11 @@ export {
 export interface PluginOptions {
   concept?: boolean;
   isOembed?: boolean;
+  draftConcept?: boolean;
   subject?: string;
   filters?: string;
+  path?: string;
+  transform?: TransformFunction;
 }
 
 export interface EmbedMetaData extends Record<string, unknown> {
@@ -63,7 +65,7 @@ export interface Plugin<ET = EmbedType> {
   resource: string;
   embedToHTML: (embed: ET, lang: LocaleType) => Promise<string>;
   fetchResource?: (embed: EmbedType, accessToken: string, lang: LocaleType) => Promise<ET>;
-  getMetaData?: (embed: ET, lang: LocaleType) => EmbedMetaData;
+  getMetaData?: (embed: ET, lang: LocaleType) => EmbedMetaData | undefined;
   onError?: (embed: ET, lang: LocaleType) => string;
 }
 

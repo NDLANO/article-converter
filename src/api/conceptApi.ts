@@ -13,8 +13,9 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 import { Author, EmbedType, LocaleType } from '../interfaces';
+import { ConceptEmbedType } from '../plugins/conceptPlugin';
 
-interface ConceptCopyright {
+export interface ConceptCopyright {
   license?: {
     license: string;
     description?: string;
@@ -29,7 +30,7 @@ interface ConceptCopyright {
   validTo?: string;
 }
 
-interface ConceptApiType {
+export interface ConceptApiType {
   id: number;
   revision: number;
   title?: {
@@ -75,7 +76,7 @@ export const fetchConcept = async (
     draftConcept?: boolean;
   } = {},
   method: string = 'GET',
-): Promise<EmbedType & { concept: ConceptApiType }> => {
+): Promise<ConceptEmbedType> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
     `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${language}&fallback=true`,

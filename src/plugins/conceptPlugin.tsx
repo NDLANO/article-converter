@@ -11,14 +11,17 @@ import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
+// @ts-ignore
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { breakpoints, mq } from '@ndla/core';
 import { css } from '@emotion/core';
-import { fetchConcept } from '../api/conceptApi';
+import { ConceptApiType, fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
 import { getCopyString } from './pluginHelpers';
+import { EmbedType, LocaleType } from '../interfaces';
+import { Plugin, PluginOptions } from './index';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -46,23 +49,32 @@ const customNotionStyle = css`
   }
 `;
 
-export default function createConceptPlugin(options = {}) {
-  const fetchResource = (embed, accessToken, language) =>
+export interface ConceptEmbedType extends EmbedType {
+  concept: ConceptApiType;
+}
+
+interface ConceptPlugin extends Plugin<ConceptEmbedType> {
+  resource: 'concept';
+}
+
+export default function createConceptPlugin(options: PluginOptions = {}): ConceptPlugin {
+  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchConcept(embed, accessToken, language, options);
 
-  const getEmbedSrc = (concept) => `${config.listingFrontendDomain}/concepts/${concept.id}`;
+  const getEmbedSrc = (concept: ConceptApiType) =>
+    `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
-  const getMetaData = (embed, locale) => {
+  const getMetaData = (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
       const {
-        title: { title },
+        title,
         copyright,
         source,
       } = concept;
-      const copyString = getCopyString(title, source, options.path, copyright, locale);
+      const copyString = getCopyString(title?.title, source, options.path, copyright, locale);
       return {
-        title: concept.title.title,
+        title: concept.title?.title,
         copyright: concept.copyright,
         src: getEmbedSrc(concept),
         copyText: copyString,
@@ -70,14 +82,14 @@ export default function createConceptPlugin(options = {}) {
     }
   };
 
-  const renderMarkdown = (text) => {
+  const renderMarkdown = (text: string) => {
     const md = new Remarkable();
     md.inline.ruler.enable(['sub', 'sup']);
     const rendered = md.render(text);
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = (embed, locale) => {
+  const onError = (embed: EmbedType, locale: LocaleType) => {
     const { contentId, linkText } = embed.data;
     return render(
       <Notion
@@ -88,30 +100,25 @@ export default function createConceptPlugin(options = {}) {
           <NotionDialogContent>
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
-        }
-      >
+        }>
         {linkText}
       </Notion>,
       locale,
     );
   };
 
-  const embedToHTML = async (embed, locale) => {
-    const {
-      id,
-      title: { title },
-      content: { content },
-    } = embed.concept;
+  const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
+    const concept = embed.concept;
 
     const visualElement = defined(embed.concept.visualElement, {
       visualElement: '',
     });
-    const copyright = defined(embed.concept.copyright, {});
-    const authors = defined(copyright.creators, []).map((author) => author.name);
-    const license = defined(copyright.license, {}).license;
-    const source = defined(embed.concept.source, '');
+    const copyright = concept.copyright;
+    const authors = (copyright?.creators ?? []).map(author => author.name);
+    const license = copyright?.license?.license;
+    const source = concept.source ?? '';
 
-    const transformed = await options.transform(
+    const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
       locale,
       '',
@@ -120,22 +127,21 @@ export default function createConceptPlugin(options = {}) {
     );
     return render(
       <Notion
-        id={`notion_id_${id}_${locale}`}
+        id={`notion_id_${concept.id}_${locale}`}
         ariaLabel={t(locale, 'concept.showDescription')}
-        title={title}
+        title={concept.title?.title}
         customCSS={customNotionStyle}
         content={
           <>
             <NotionDialogContent>
-              {transformed.html && (
+              {transformed?.html && (
                 <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
               )}
-              <NotionDialogText>{renderMarkdown(content)}</NotionDialogText>
+              <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
             </NotionDialogContent>
             <NotionDialogLicenses license={license} source={source} authors={authors} />
           </>
-        }
-      >
+        }>
         {embed.data.linkText}
       </Notion>,
       locale,

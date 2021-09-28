@@ -12,6 +12,7 @@ import t from '../locale/i18n';
 import config from '../config';
 import { LocaleType, Author } from '../interfaces';
 import { ArticleApiCopyright } from '../api/articleApi';
+import {ConceptCopyright} from "../api/conceptApi";
 
 export const wrapInFigure = (
   content: string | undefined,
@@ -82,10 +83,10 @@ const makeDateString = () => {
 };
 
 export const getCopyString = (
-  title: string,
-  src: string,
+  title: string | undefined,
+  src: string | undefined,
   path: string | undefined,
-  copyright: ArticleApiCopyright,
+  copyright: ArticleApiCopyright | ConceptCopyright | undefined,
   locale: LocaleType,
 ): string => {
   const credits = getLicenseCredits(copyright);
@@ -111,10 +112,10 @@ export const getCopyString = (
   );
 };
 
-export const getLicenseCredits = (copyright: ArticleApiCopyright) => {
+export const getLicenseCredits = (copyright: ArticleApiCopyright | ConceptCopyright | undefined) => {
   return {
-    creators: copyright?.creators?.length > 0 ? copyright.creators : [],
-    rightsholders: copyright?.rightsholders?.length > 0 ? copyright.rightsholders : [],
-    processors: copyright?.processors?.length > 0 ? copyright.processors : [],
+    creators: copyright?.creators ?? [],
+    rightsholders: copyright?.rightsholders ?? [],
+    processors: copyright?.processors ?? [],
   };
 };

@@ -73,13 +73,21 @@ export async function getEmbedsResources(
   );
 }
 
-export async function transform(
+export type TransformFunction = (
   content: CheerioAPI,
   lang: LocaleType,
   accessToken: string,
   visualElement: { visualElement: string } | undefined,
-  options: TransformOptions,
-): Promise<{ html: string | null; embedMetaData: any }> {
+  options: TransformOptions
+) => Promise<{ html: string | null; embedMetaData: any }>;
+
+export const transform: TransformFunction = async (
+  content,
+  lang,
+  accessToken,
+  visualElement,
+  options,
+) => {
   if (visualElement?.visualElement && options?.showVisualElement) {
     content('body').prepend(`<section>${visualElement.visualElement}</section>`);
   }
