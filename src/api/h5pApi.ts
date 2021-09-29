@@ -12,7 +12,6 @@ import config from '../config';
 
 import { headerWithAccessToken, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { EmbedType } from '../interfaces';
-import { OembedProxyResponse } from './oembedProxyApi';
 import { H5PEmbedType } from '../plugins/h5pPlugin';
 
 const getHeaders = () => ({

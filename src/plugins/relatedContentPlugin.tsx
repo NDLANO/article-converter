@@ -9,7 +9,7 @@
 import React from 'react';
 // @ts-ignore
 import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
-import cheerio, { Element, Node } from 'cheerio';
+import cheerio from 'cheerio';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';

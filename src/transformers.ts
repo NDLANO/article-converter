@@ -9,12 +9,13 @@
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
 import { replaceEmbedsInHtml } from './replacer';
-import { findPlugin, getEmbedsFromHtml } from './parser';
+import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import createPlugins from './plugins';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import { PluginUnion, EmbedType, LocaleType, TransformOptions } from './interfaces';
+import { findPlugin } from './utils/findPlugin';
 
 function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;

@@ -8,7 +8,7 @@
 
 import defined from 'defined';
 import { EmbedType, LocaleType, PluginUnion } from './interfaces';
-import { findPlugin } from './parser';
+import { findPlugin } from './utils/findPlugin';
 
 export default function getEmbedMetaData(
   embeds: EmbedType[],

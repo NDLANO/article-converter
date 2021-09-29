@@ -38,9 +38,8 @@ export const htmlErrorTemplate = (
     message,
     description,
     stacktrace,
-  }: { status: any; message: string; description: string; stacktrace: string },
+  }: { status: keyof typeof httpStatus; message: string; description: string; stacktrace: string },
 ) => {
-  // @ts-ignore // TODO: Fiks dette
   const statusMsg = httpStatus[status];
   return `<!doctype html>\n<html lang=${lang} >
     <head>

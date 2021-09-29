@@ -8,7 +8,7 @@
 import log from './utils/logger';
 import t from './locale/i18n';
 import { EmbedType, LocaleType, PluginUnion } from './interfaces';
-import { findPlugin } from './parser';
+import { findPlugin } from './utils/findPlugin';
 
 // Fetched from https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
 // because normal forEach does not care about async/await

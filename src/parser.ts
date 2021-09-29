@@ -6,19 +6,8 @@
  *
  */
 
-import cheerio, { CheerioAPI, Element } from 'cheerio';
-import { EmbedType, PluginUnion, TransformOptions, Plugin } from './interfaces';
-
-export const findPlugin = <T extends EmbedType>(
-  plugins: PluginUnion[],
-  embed: T,
-): Plugin<T> | undefined => {
-  const plugin = plugins.find((p) => {
-    return p.resource === embed.embed.data().resource;
-  });
-
-  return plugin as Plugin<T>;
-};
+import { CheerioAPI } from 'cheerio';
+import { EmbedType } from './interfaces';
 
 export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedType[]> {
   return html('embed')

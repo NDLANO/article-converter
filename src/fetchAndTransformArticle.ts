@@ -2,7 +2,6 @@ import cheerio from 'cheerio';
 import { ArticleApiArticle, fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
-// @ts-ignore
 import { getCopyString } from './plugins/pluginHelpers';
 import { LocaleType, TransformedArticle, TransformOptions } from './interfaces';
 
