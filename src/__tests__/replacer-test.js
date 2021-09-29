@@ -40,7 +40,6 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     {
       embed: articleContent('embed[data-resource="h5p"]'),
       data: articleContent('embed[data-resource="h5p"]').data(),
-      plugin: createH5pPlugin(),
       oembed: {
         html: '<iframe src="https://ndlah5p.joubel.com/h5p/embed/4"></iframe>',
       },
@@ -48,7 +47,6 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     {
       embed: articleContent('embed[data-resource="image"]'),
       data: articleContent('embed[data-resource="image"]').data(),
-      plugin: createImagePlugin(),
       image: {
         id: '1326',
         title: {
@@ -71,7 +69,6 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     {
       embed: articleContent('embed[data-resource="brightcove"]'),
       data: articleContent('embed[data-resource="brightcove"]').data(),
-      plugin: createBrightcovePlugin(),
       brightcove: {
         name: 'brightcove video',
         id: '46012',
@@ -88,7 +85,11 @@ test('replacer/replaceEmbedsInHtml replace various emdeds in html', async () => 
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [
+    createH5pPlugin(),
+    createImagePlugin(),
+    createBrightcovePlugin(),
+  ]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -106,7 +107,6 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     {
       embed: articleContent('embed[data-resource="image"]').first(),
       data: articleContent('embed[data-resource="image"]').first().data(),
-      plugin: createImagePlugin(),
       resource: 'image',
       align: '',
       image: {
@@ -145,7 +145,6 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     {
       embed: articleContent('embed[data-resource="image"]').last(),
       data: articleContent('embed[data-resource="image"]').last().data(),
-      plugin: createImagePlugin(),
       resource: 'image',
       align: 'left',
       image: {
@@ -168,7 +167,7 @@ test('replacer/replaceEmbedsInHtml replace image embeds', async () => {
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createImagePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -186,7 +185,6 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     {
       embed: articleContent('embed[data-resource="brightcove"]').first(),
       data: articleContent('embed[data-resource="brightcove"]').first().data(),
-      plugin: createBrightcovePlugin(),
       brightcove: {
         id: '1',
         copyright: {
@@ -203,7 +201,6 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     {
       embed: articleContent('embed[data-resource="brightcove"]').last(),
       data: articleContent('embed[data-resource="brightcove"]').last().data(),
-      plugin: createBrightcovePlugin(),
       brightcove: {
         id: '2',
         copyright: {
@@ -219,7 +216,7 @@ test('replacer/replaceEmbedsInHtml replace brightcove embeds', async () => {
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createBrightcovePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -237,16 +234,14 @@ test('replacer/replaceEmbedsInHtml replace nrk embeds', async () => {
     {
       embed: articleContent('embed[data-resource="nrk"]').first(),
       data: articleContent('embed[data-resource="nrk"]').first().data(),
-      plugin: createNRKPlugin(),
     },
     {
       embed: articleContent('embed[data-resource="nrk"]').last(),
       data: articleContent('embed[data-resource="nrk"]').last().data(),
-      plugin: createNRKPlugin(),
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createNRKPlugin()]);
   const replaced = articleContent.html();
 
   expect(replaced).toMatch('<div class="nrk-video" data-nrk-id="94605"></div>');
@@ -264,7 +259,6 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
     {
       embed: articleContent('embed[data-resource="audio"]').first(),
       data: articleContent('embed[data-resource="audio"]').first().data(),
-      plugin: createAudioPlugin(),
       audio: {
         id: 1,
         title: { title: 'Tittel', language: 'Unknown' },
@@ -287,7 +281,6 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
     {
       embed: articleContent('embed[data-resource="audio"]').last(),
       data: articleContent('embed[data-resource="audio"]').last().data(),
-      plugin: createAudioPlugin(),
       audio: {
         id: 2,
         title: { title: 'Tittel', language: 'Unknown' },
@@ -309,7 +302,9 @@ test('replacer/replaceEmbedsInHtml replace audio embeds', async () => {
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  const plugins = [createAudioPlugin()];
+
+  await replaceEmbedsInHtml(embeds, 'nb', plugins);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -323,11 +318,10 @@ test('replacer/replaceEmbedsInHtml replace iframe embeds', async () => {
     {
       embed: articleContent('embed[data-resource="iframe"]'),
       data: articleContent('embed[data-resource="iframe"]').data(),
-      plugin: createIframePlugin(),
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createIframePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -342,11 +336,10 @@ test('replacer/replaceEmbedsInHtml replace commoncraft embeds', async () => {
     {
       embed: articleContent('embed[data-resource="iframe"]'),
       data: articleContent('embed[data-resource="iframe"]').data(),
-      plugin: createIframePlugin(),
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createIframePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -361,11 +354,10 @@ test('replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds', async
     {
       embed: articleContent('embed[data-resource="iframe"]'),
       data: articleContent('embed[data-resource="iframe"]').data(),
-      plugin: createIframePlugin(),
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createIframePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
@@ -380,11 +372,10 @@ test('replacer/replaceEmbedsInHtml replace kahoot embeds', async () => {
     {
       embed: articleContent('embed[data-resource="iframe"]'),
       data: articleContent('embed[data-resource="iframe"]').data(),
-      plugin: createIframePlugin(),
     },
   ];
 
-  await replaceEmbedsInHtml(embeds, 'nb');
+  await replaceEmbedsInHtml(embeds, 'nb', [createIframePlugin()]);
   const replaced = articleContent('body').html();
 
   expect(prettify(replaced)).toMatchSnapshot();
