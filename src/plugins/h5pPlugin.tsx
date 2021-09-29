@@ -105,6 +105,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       );
       return {
         ...h5p,
+        url: embed.h5pUrl,
         copyText: copyString,
       };
     }
