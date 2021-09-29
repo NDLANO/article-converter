@@ -9,16 +9,51 @@
 import fetch from 'isomorphic-fetch';
 import { contributorTypes, contributorGroups } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
-import { brightcoveClientId, brightcoveClientSecret } from '../config';
+import config from '../config';
+import { Author, EmbedType } from '../interfaces';
+import { BrightcoveEmbedType } from '../plugins/brightcovePlugin';
 
-const getHeaders = (accessToken) => ({
+export interface BrightcoveVideo {
+  id: string;
+  custom_fields: Record<string, string>;
+  name: string;
+  published_at: string;
+  description: string;
+  link?: {
+    text: string;
+    url: string;
+  };
+}
+
+export interface BrightcoveVideoSource {
+  container?: string;
+  size?: number;
+  width?: number;
+  height?: number;
+  src: string;
+}
+
+export interface BrightcoveCopyright {
+  license: {
+    license: string;
+  };
+  creators: Author[];
+  processors: Author[];
+  rightsholders: Author[];
+}
+
+const getHeaders = (accessToken: AccessToken) => ({
   headers: {
     'content-type': 'Content-Type: application/json',
     Authorization: `Bearer ${accessToken.access_token}`,
   },
 });
 
-async function fetchVideoSources(videoId, accountId, accessToken) {
+async function fetchVideoSources(
+  videoId: string,
+  accountId: string,
+  accessToken: AccessToken,
+): Promise<BrightcoveVideoSource[]> {
   const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${
     `${videoId}`.split('&t=')[0]
   }/sources`;
@@ -26,10 +61,14 @@ async function fetchVideoSources(videoId, accountId, accessToken) {
     method: 'GET',
     ...getHeaders(accessToken),
   });
-  return resolveJsonOrRejectWithError(response);
+  return resolveJsonOrRejectWithError<BrightcoveVideoSource[]>(response);
 }
 
-async function fetchVideo(videoId, accountId, accessToken) {
+async function fetchVideo(
+  videoId: string,
+  accountId: string,
+  accessToken: AccessToken,
+): Promise<BrightcoveVideo> {
   const url = `https://cms.api.brightcove.com/v1/accounts/${accountId}/videos/${
     `${videoId}`.split('&t=')[0]
   }`;
@@ -37,21 +76,21 @@ async function fetchVideo(videoId, accountId, accessToken) {
     method: 'GET',
     ...getHeaders(accessToken),
   });
-  return resolveJsonOrRejectWithError(response);
+  return resolveJsonOrRejectWithError<BrightcoveVideo>(response);
 }
 
-const expiresIn = (accessToken) => accessToken.expires_in - 10;
+const expiresIn = (accessToken: AccessToken) => accessToken.expires_in - 10;
 
-const storeAccessToken = (accessToken) => {
+const storeAccessToken = (accessToken: AccessToken) => {
   const expiresAt = expiresIn(accessToken) * 1000 + new Date().getTime();
   global.access_token = accessToken;
   global.access_token_expires_at = expiresAt;
 };
 
-async function fetchAccessToken() {
-  const base64Encode = (str) => Buffer.from(str).toString('base64');
+async function fetchAccessToken(): Promise<AccessToken> {
+  const base64Encode = (str: string) => Buffer.from(str).toString('base64');
   const url = 'https://oauth.brightcove.com/v4/access_token?grant_type=client_credentials';
-  const clientIdSecret = `${brightcoveClientId}:${brightcoveClientSecret}`;
+  const clientIdSecret = `${config.brightcoveClientId}:${config.brightcoveClientSecret}`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -60,7 +99,7 @@ async function fetchAccessToken() {
       Authorization: `Basic ${base64Encode(clientIdSecret)}`,
     },
   });
-  const accessToken = await resolveJsonOrRejectWithError(response);
+  const accessToken = await resolveJsonOrRejectWithError<AccessToken>(response);
 
   storeAccessToken(accessToken);
   return accessToken;
@@ -74,7 +113,7 @@ const getAccessToken = async () => {
 };
 
 // tmp solution for wrong contributorType in brightcove
-const mapContributorType = (type) => {
+const mapContributorType = (type: string) => {
   switch (type) {
     case 'Manus':
       return 'Manusforfatter';
@@ -87,7 +126,7 @@ const mapContributorType = (type) => {
   }
 };
 
-const getLicenseByNBTitle = (title) => {
+const getLicenseByNBTitle = (title: string) => {
   switch (title.replace(/\s/g, '').toLowerCase()) {
     case 'navngivelse-ikkekommersiell-ingenbearbeidelse':
       return 'CC-BY-NC-ND-4.0';
@@ -116,8 +155,8 @@ const getLicenseByNBTitle = (title) => {
   }
 };
 
-export const getContributorGroups = (fields) => {
-  const parseContributorsString = (contributorString) => {
+export const getContributorGroups = (fields: Record<string, string>) => {
+  const parseContributorsString = (contributorString: string) => {
     const contributorFields = contributorString.split(/: */);
     if (contributorFields.length !== 2) return { type: '', name: contributorFields[0] };
     const [type, name] = contributorFields;
@@ -132,10 +171,14 @@ export const getContributorGroups = (fields) => {
   const contributors = licenseInfoKeys.map((key) => parseContributorsString(fields[key]));
 
   return contributors.reduce(
-    (groups, contributor) => {
-      const group = Object.keys(contributorGroups).find((key) =>
-        contributorGroups[key].find((type) => type === contributor.type),
-      );
+    (
+      groups: { creators: Author[]; processors: Author[]; rightsholders: Author[] },
+      contributor,
+    ) => {
+      const objectKeys = Object.keys(contributorGroups) as Array<keyof typeof contributorGroups>;
+      const group = objectKeys.find((key) => {
+        return contributorGroups[key].find((type) => type === contributor.type);
+      });
       if (group) {
         return { ...groups, [group]: [...groups[group], contributor] };
       }
@@ -149,15 +192,15 @@ export const getContributorGroups = (fields) => {
   );
 };
 
-export const fetchVideoMeta = async (embed) => {
-  const { videoid, account } = embed.data;
+export const fetchVideoMeta = async (embed: EmbedType): Promise<BrightcoveEmbedType> => {
+  const { videoid, account } = embed.data as Record<string, string>;
   const accessToken = await getAccessToken();
   const [video, sources] = await Promise.all([
     fetchVideo(videoid, account, accessToken),
     fetchVideoSources(videoid, account, accessToken),
   ]);
 
-  const copyright = {
+  const copyright: BrightcoveCopyright = {
     license: {
       license: getLicenseByNBTitle(video.custom_fields.license),
     },

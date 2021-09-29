@@ -10,23 +10,49 @@
 
 import React from 'react';
 import defined from 'defined';
+// @ts-ignore
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
+// @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import { get } from 'lodash/fp';
-import { fetchVideoMeta } from '../api/brightcove';
+import {
+  BrightcoveCopyright,
+  BrightcoveVideo,
+  BrightcoveVideoSource,
+  fetchVideoMeta,
+} from '../api/brightcove';
 import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits, makeIframeString } from './pluginHelpers';
 import { render } from '../utils/render';
+import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin } from './index';
+
+export interface BrightcoveEmbedType extends EmbedType {
+  brightcove: BrightcoveVideo & {
+    copyright: BrightcoveCopyright;
+    sources: BrightcoveVideoSource[];
+  };
+}
+
+export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
+  resource: 'brightcove';
+}
 
 const Anchor = StyledButton.withComponent('a');
 
-export default function createBrightcovePlugin(options = { concept: false }) {
-  const fetchResource = (embed) => fetchVideoMeta(embed);
+export default function createBrightcovePlugin(
+  options: TransformOptions = { concept: false },
+): BrightcovePlugin {
+  const fetchResource = (embed: EmbedType) => fetchVideoMeta(embed);
 
-  const getIframeProps = ({ account, videoid, player = 'default' }, sources) => {
+  const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
+    const { account, videoid, player = 'default' } = data as Record<string, string | undefined>;
+
     const source =
-      sources.filter((s) => s.width && s.height).sort((a, b) => b.height - a.height)[0] || {};
+      sources
+        .filter((s) => s.width && s.height)
+        .sort((a, b) => (b.height ?? 0) - (a.height ?? 0))[0] || {};
 
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
@@ -35,12 +61,12 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     };
   };
 
-  const getMetaData = (embed, locale) => {
+  const getMetaData = async (embed: BrightcoveEmbedType, locale: LocaleType) => {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources
         .filter((source) => source.container === 'MP4' && source.src)
-        .sort((a, b) => b.size - a.size);
+        .sort((a, b) => (b.size ?? 0) - (a.size ?? 0));
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
@@ -59,9 +85,9 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     }
   };
 
-  const onError = (embed, locale) => {
+  const onError = (embed: BrightcoveEmbedType, locale: LocaleType) => {
     const { data } = embed;
-    const { videoid } = data;
+    const videoid = typeof data.videoid === 'string' ? data.videoid : undefined;
 
     return render(
       <Figure type={options.concept ? 'full-column' : 'full'} resizeIframe>
@@ -77,7 +103,7 @@ export default function createBrightcovePlugin(options = { concept: false }) {
     );
   };
 
-  const embedToHTML = (embed, locale) => {
+  const embedToHTML = async (embed: BrightcoveEmbedType, locale: LocaleType) => {
     const { brightcove, data } = embed;
     const { caption } = data;
     const {
@@ -99,7 +125,8 @@ export default function createBrightcovePlugin(options = { concept: false }) {
 
     const { src, height, width } = getIframeProps(data, brightcove.sources);
 
-    const { download } = getMetaData(embed);
+    const metadata = await getMetaData(embed, locale);
+    const download = metadata?.download;
 
     const copyString = getCopyString(
       brightcove.name,

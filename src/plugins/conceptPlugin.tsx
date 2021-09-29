@@ -53,7 +53,7 @@ export interface ConceptEmbedType extends EmbedType {
   concept: ConceptApiType;
 }
 
-interface ConceptPlugin extends Plugin<ConceptEmbedType> {
+export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
   resource: 'concept';
 }
 

@@ -115,7 +115,7 @@ interface RelatedContentEmbedType extends EmbedType {
   article?: RelatedArticleType;
 }
 
-interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
+export interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
   resource: 'related-content';
 }
 

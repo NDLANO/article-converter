@@ -15,7 +15,7 @@ interface ContentLinkEmbedType extends EmbedType {
   path: string;
 }
 
-interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
+export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
   resource: 'content-link';
 }
 

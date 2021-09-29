@@ -28,7 +28,7 @@ export interface AudioEmbedType extends EmbedType {
   audio: AudioApiType;
 }
 
-interface AudioPlugin extends Plugin<AudioEmbedType> {
+export interface AudioPlugin extends Plugin<AudioEmbedType> {
   resource: 'audio';
 }
 

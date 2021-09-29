@@ -7,20 +7,17 @@
  */
 
 import createNRKPlugin from './nrkPlugin';
-import createAudioPlugin from './audioPlugin';
-// @ts-ignore
-import createImagePlugin from './imagePlugin';
-// @ts-ignore
-import createBrightcovePlugin from './brightcovePlugin';
-// @ts-ignore
-import createH5pPlugin from './h5pPlugin';
-import createExternalPlugin from './externalPlugin';
-import createContentLinkPlugin from './contentLinkPlugin';
+import createAudioPlugin, { AudioPlugin } from './audioPlugin';
+import createImagePlugin, { ImagePlugin } from './imagePlugin';
+import createBrightcovePlugin, { BrightcovePlugin } from './brightcovePlugin';
+import createH5pPlugin, { H5PPlugin } from './h5pPlugin';
+import createExternalPlugin, { OembedPlugin } from './externalPlugin';
+import createContentLinkPlugin, { ContentLinkPlugin } from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-import createConceptPlugin from './conceptPlugin';
-import createRelatedContent from './relatedContentPlugin';
+import createConceptPlugin, { ConceptPlugin } from './conceptPlugin';
+import createRelatedContent, { RelatedContentPlugin } from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
 import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
@@ -56,7 +53,18 @@ export interface Plugin<ET extends EmbedType = EmbedType> {
   onError?: (embed: ET, lang: LocaleType) => string;
 }
 
-const plugins = (options: TransformOptions): Plugin[] => [
+export type PluginUnion =
+  | Plugin
+  | AudioPlugin
+  | BrightcovePlugin
+  | ContentLinkPlugin
+  | OembedPlugin
+  | H5PPlugin
+  | ImagePlugin
+  | RelatedContentPlugin
+  | ConceptPlugin;
+
+const plugins = (options: TransformOptions): PluginUnion[] => [
   createNRKPlugin(),
   createAudioPlugin(options),
   createImagePlugin(options),

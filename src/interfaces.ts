@@ -7,7 +7,7 @@
  */
 
 import { Cheerio, Element } from 'cheerio';
-import { Plugin } from './plugins';
+import { PluginUnion } from './plugins';
 import { ArticleApiArticle } from './api/articleApi';
 import { TransformFunction } from './transformers';
 
@@ -17,7 +17,7 @@ export type LocaleType = typeof LOCALE_VALUES[number];
 export type EmbedType = {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
-  plugin?: Plugin;
+  plugin?: PluginUnion;
   status?: string;
 };
 

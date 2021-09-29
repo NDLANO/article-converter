@@ -27,7 +27,7 @@ export interface H5PEmbedType extends EmbedType {
   h5pUrl?: string;
 }
 
-interface H5PPlugin extends Plugin<H5PEmbedType> {
+export interface H5PPlugin extends Plugin<H5PEmbedType> {
   resource: 'h5p';
 }
 

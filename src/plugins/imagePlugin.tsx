@@ -172,7 +172,7 @@ export interface ImageEmbedType extends EmbedType {
   image: ImageApiType;
 }
 
-interface ImagePlugin extends Plugin<ImageEmbedType> {
+export interface ImagePlugin extends Plugin<ImageEmbedType> {
   resource: 'image';
 }
 

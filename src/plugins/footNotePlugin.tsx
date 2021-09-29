@@ -6,6 +6,7 @@
  *
  */
 import { EmbedType } from '../interfaces';
+import { Plugin } from './index';
 
 class FootNoteCounter {
   private count: number;
@@ -19,11 +20,11 @@ class FootNoteCounter {
   }
 }
 
-export default function createFootnotePlugin() {
+export default function createFootnotePlugin(): Plugin {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = (embed: EmbedType) => {
+  const getMetaData = async (embed: EmbedType) => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     const authors = (embed.data.authors as string).split(';');
@@ -37,7 +38,7 @@ export default function createFootnotePlugin() {
     };
   };
 
-  const embedToHTML = () => {
+  const embedToHTML = async () => {
     const footNoteEntryNum = embedToHTMLCounter.getNextCount();
     return `<span id="ref${footNoteEntryNum}" class="c-footnotes__ref"><sup><a href="#note${footNoteEntryNum}" target="_self">[${footNoteEntryNum}]</a></sup></span>`;
   };

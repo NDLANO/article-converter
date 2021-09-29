@@ -18,7 +18,7 @@ export interface OembedEmbedType extends EmbedType {
   oembed: OembedProxyResponse;
 }
 
-interface OembedPlugin extends Plugin<OembedEmbedType> {
+export interface OembedPlugin extends Plugin<OembedEmbedType> {
   resource: 'external';
 }
 

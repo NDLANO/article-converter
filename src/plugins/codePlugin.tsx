@@ -11,9 +11,10 @@ import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
 import { EmbedType } from '../interfaces';
+import { Plugin } from './index';
 
-export default function createCodePlugin() {
-  const embedToHTML = (embed: EmbedType) => {
+export default function createCodePlugin(): Plugin {
+  const embedToHTML = async (embed: EmbedType) => {
     const { title, codeContent, codeFormat } = embed.data as Record<string, string>;
     return renderString(
       <figure className="c-figure">
