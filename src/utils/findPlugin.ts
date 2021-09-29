@@ -13,7 +13,7 @@ export const findPlugin = <T extends EmbedType>(
   embed: T,
 ): Plugin<T> | undefined => {
   const plugin = plugins.find((p) => {
-    return p.resource === embed.embed.data().resource;
+    return p.resource === (embed.data.resource ?? embed.embed.data().resource);
   });
 
   return plugin as Plugin<T>;

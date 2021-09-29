@@ -139,7 +139,7 @@ test('embedToHtml should return anchor tag with path', async () => {
   const contentLinkPlugin = createContentLinkPlugin();
 
   expect(
-    contentLinkPlugin.embedToHTML(
+    await contentLinkPlugin.embedToHTML(
       {
         embed: {},
         data: { linkText: 'text', contentId: '1' },
@@ -154,7 +154,7 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
   const contentLinkPlugin = createContentLinkPlugin({ isOembed: true });
 
   expect(
-    contentLinkPlugin.embedToHTML(
+    await contentLinkPlugin.embedToHTML(
       {
         embed: {},
         data: { linkText: 'text', contentId: '1' },

@@ -100,7 +100,7 @@ export const transform: TransformFunction = async (
   const embedsWithResources = await getEmbedsResources(embeds, accessToken, lang, plugins);
 
   await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
-  const embedMetaData = getEmbedMetaData(embedsWithResources, lang, plugins);
+  const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
   await executeHtmlTransforms(content, lang, options);
 
   return {

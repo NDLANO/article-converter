@@ -22,5 +22,5 @@ export default async function fetchEmbedMetaData(
   const plugins = createPlugins({});
   const embeds = await getEmbedsFromHtml(c);
   const embedsWithResources = await getEmbedsResources(embeds, accessToken, language, plugins);
-  return getEmbedMetaData(embedsWithResources, language, plugins);
+  return await getEmbedMetaData(embedsWithResources, language, plugins);
 }

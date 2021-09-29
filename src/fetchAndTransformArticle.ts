@@ -48,7 +48,7 @@ export default async function fetchAndTransformArticle(
   lang: LocaleType,
   accessToken: string,
   options = {},
-) {
+): Promise<TransformedArticle> {
   const article = await fetchArticle(articleId, accessToken, lang);
   return await transformArticle(article, lang, accessToken, options);
 }

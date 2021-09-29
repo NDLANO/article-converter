@@ -11,9 +11,8 @@ import * as articles from './_articleHtmlTestData';
 import { getEmbedsFromHtml } from '../parser';
 
 const getEmbedDetails = (embeds) =>
-  embeds.map(({ data, plugin }) => ({
+  embeds.map(({ data }) => ({
     data,
-    plugin: plugin.resource,
   }));
 
 it('parser getEmbedsFromHtml (with audio embeds)', async () => {
@@ -23,7 +22,6 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
   const embedDetails = getEmbedDetails(embeds);
   expect(embedDetails).toEqual([
     {
-      plugin: 'audio',
       data: {
         id: 1,
         resource: 'audio',
@@ -31,7 +29,6 @@ it('parser getEmbedsFromHtml (with audio embeds)', async () => {
       },
     },
     {
-      plugin: 'audio',
       data: {
         id: 2,
         resource: 'audio',
@@ -48,7 +45,6 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
   const emebedDetails = getEmbedDetails(embeds);
   expect(emebedDetails).toEqual([
     {
-      plugin: 'nrk',
       data: {
         id: 1,
         resource: 'nrk',
@@ -57,7 +53,6 @@ it('parser getEmbedsFromHtml (with NRK embeds)', async () => {
       },
     },
     {
-      plugin: 'nrk',
       data: {
         id: 2,
         resource: 'nrk',
@@ -75,7 +70,6 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
   const embedDetails = getEmbedDetails(embeds);
   expect(embedDetails).toEqual([
     {
-      plugin: 'content-link',
       data: {
         id: 1,
         resource: 'content-link',
@@ -84,7 +78,6 @@ it('parser getEmbedsFromHtml (with content-link embeds)', async () => {
       },
     },
     {
-      plugin: 'content-link',
       data: {
         id: 2,
         resource: 'content-link',
@@ -103,7 +96,6 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
   const embedDetails = getEmbedDetails(embeds);
   expect(embedDetails).toEqual([
     {
-      plugin: 'brightcove',
       data: {
         id: 1,
         resource: 'brightcove',
@@ -114,7 +106,6 @@ it('parser getEmbedsFromHtml (with brightcove embeds)', async () => {
       },
     },
     {
-      plugin: 'brightcove',
       data: {
         id: 2,
         resource: 'brightcove',
@@ -134,7 +125,6 @@ it('parser getEmbedsFromHtml (with external embeds)', async () => {
   const embedDetails = getEmbedDetails(embeds);
   expect(embedDetails).toEqual([
     {
-      plugin: 'external',
       data: {
         id: 1,
         resource: 'external',
@@ -142,7 +132,6 @@ it('parser getEmbedsFromHtml (with external embeds)', async () => {
       },
     },
     {
-      plugin: 'external',
       data: {
         id: 2,
         resource: 'external',
@@ -159,7 +148,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
   const embedDetails = getEmbedDetails(embeds);
   expect(embedDetails).toEqual([
     {
-      plugin: 'h5p',
       data: {
         id: 8,
         resource: 'h5p',
@@ -167,7 +155,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
       },
     },
     {
-      plugin: 'image',
       data: {
         id: 7,
         resource: 'image',
@@ -177,7 +164,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
       },
     },
     {
-      plugin: 'image',
       data: {
         id: 6,
         resource: 'image',
@@ -187,7 +173,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
       },
     },
     {
-      plugin: 'image',
       data: {
         id: 4,
         resource: 'image',
@@ -198,7 +183,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
       },
     },
     {
-      plugin: 'brightcove',
       data: {
         id: 2,
         resource: 'brightcove',
@@ -209,7 +193,6 @@ it('parser getEmbedsFromHtml (with multiple resources)', async () => {
       },
     },
     {
-      plugin: 'external',
       data: {
         id: 1,
         resource: 'external',

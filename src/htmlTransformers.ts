@@ -75,7 +75,8 @@ const makeTheListFromDiv = async (content: CheerioAPI, div: Element, locale: Loc
   const filesPromises = content(div)
     .children()
     .map(async (_, file) => {
-      const { url, type, title, display } = cheerio(file).data() as Record<string, string>;
+      // @ts-ignore TODO: Fix
+      const { url, type, title, display } = file.data;
       const fileExists = await checkIfFileExists(url);
       return {
         title,

@@ -10,16 +10,17 @@ import defined from 'defined';
 import { EmbedType, LocaleType, PluginUnion } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
-export default function getEmbedMetaData(
+export default async function getEmbedMetaData(
   embeds: EmbedType[],
   locale: LocaleType,
   plugins: PluginUnion[],
 ) {
-  return embeds.reduce((ctx: Record<string, unknown[]>, embed) => {
+  return embeds.reduce(async (pctx: Promise<Record<string, unknown[]>>, embed) => {
+    const ctx = await pctx;
     const plugin = findPlugin(plugins, embed);
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);
-    const metaData = plugin?.getMetaData?.(embed, locale);
+    const metaData = await plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
       return {
         ...ctx,
@@ -28,5 +29,5 @@ export default function getEmbedMetaData(
     } else {
       return ctx;
     }
-  }, {});
+  }, Promise.resolve({}));
 }
