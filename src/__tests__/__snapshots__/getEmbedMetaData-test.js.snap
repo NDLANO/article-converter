@@ -58,6 +58,15 @@ Object {
       "src": "http://example.no/1234.jpg",
       "title": "title",
     },
+    Object {
+      "altText": "alt 2",
+      "copyText": "title 2 [Internett]. Hentet fra: http://example.no/4123.jpg Lest: 19.05.2021",
+      "copyright": Object {
+        "license": "CC-BY-SA-4.0",
+      },
+      "src": "http://example.no/4123.jpg",
+      "title": "title 2",
+    },
   ],
 }
 `;
