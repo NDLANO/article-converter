@@ -7,17 +7,19 @@
  */
 
 import defined from 'defined';
-import { EmbedTypeWithPlugin, LocaleType } from './interfaces';
-import { PluginUnion } from './plugins';
+import { EmbedType, LocaleType, PluginUnion } from './interfaces';
+import { findPlugin } from './parser';
 
 export default function getEmbedMetaData(
-  embeds: EmbedTypeWithPlugin<PluginUnion>[],
+  embeds: EmbedType[],
   locale: LocaleType,
+  plugins: PluginUnion[],
 ) {
   return embeds.reduce((ctx: Record<string, unknown[]>, embed) => {
+    const plugin = findPlugin(plugins, embed);
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);
-    const metaData = embed.plugin?.getMetaData?.(embed, locale);
+    const metaData = plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
       return {
         ...ctx,

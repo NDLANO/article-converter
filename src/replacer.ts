@@ -7,13 +7,8 @@
  */
 import log from './utils/logger';
 import t from './locale/i18n';
-import {
-  EmbedType,
-  EmbedTypeWithPlugin,
-  LocaleType,
-  EmbedTypeUnion,
-  PluginUnion,
-} from './interfaces';
+import { EmbedType, LocaleType, PluginUnion } from './interfaces';
+import { findPlugin } from './parser';
 
 // Fetched from https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
 // because normal forEach does not care about async/await
@@ -24,11 +19,12 @@ async function asyncForEach<T, R>(array: T[], callback: (e: T, index: number, ar
 }
 
 export async function replaceEmbedsInHtml(
-  embeds: EmbedTypeWithPlugin<EmbedTypeUnion>[],
+  embeds: EmbedType[],
   lang: LocaleType,
+  plugins: PluginUnion[],
 ) {
   return asyncForEach(embeds, async (embed) => {
-    const plugin = embed.plugin;
+    const plugin = findPlugin(plugins, embed);
     if (embed.status === 'error') {
       const html = plugin?.onError
         ? plugin.onError(embed, lang)

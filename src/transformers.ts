@@ -9,19 +9,12 @@
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
 import { replaceEmbedsInHtml } from './replacer';
-import { getEmbedsFromHtml } from './parser';
+import { findPlugin, getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
+import createPlugins from './plugins';
 import log from './utils/logger';
-// @ts-ignore
 import { htmlTransforms } from './htmlTransformers';
-import {
-  EmbedTypeUnion,
-  PluginUnion,
-  EmbedType,
-  EmbedTypeWithPlugin,
-  LocaleType,
-  TransformOptions,
-} from './interfaces';
+import { PluginUnion, EmbedType, LocaleType, TransformOptions } from './interfaces';
 
 function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;
@@ -52,13 +45,14 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedTypeWithPlugin<EmbedTypeUnion>[],
+  embeds: EmbedType[],
   accessToken: string,
   lang: LocaleType,
+  plugins: PluginUnion[],
 ) {
   return Promise.all(
     embeds.map(async (embed) => {
-      const plugin = embed.plugin;
+      const plugin = findPlugin(plugins, embed);
       if (plugin && plugin.fetchResource) {
         const startStamp = performance.now();
         try {
@@ -98,11 +92,14 @@ export const transform: TransformFunction = async (
   if (visualElement?.visualElement && options?.showVisualElement) {
     content('body').prepend(`<section>${visualElement.visualElement}</section>`);
   }
-  const embeds = await getEmbedsFromHtml(content, { transform, ...options });
-  const embedsWithResources = await getEmbedsResources(embeds, accessToken, lang);
 
-  await replaceEmbedsInHtml(embedsWithResources, lang);
-  const embedMetaData = getEmbedMetaData(embedsWithResources, lang);
+  const transformOptions = { transform, ...options };
+  const plugins = createPlugins(transformOptions);
+  const embeds = await getEmbedsFromHtml(content);
+  const embedsWithResources = await getEmbedsResources(embeds, accessToken, lang, plugins);
+
+  await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+  const embedMetaData = getEmbedMetaData(embedsWithResources, lang, plugins);
   await executeHtmlTransforms(content, lang, options);
 
   return {

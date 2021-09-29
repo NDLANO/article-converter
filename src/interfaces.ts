@@ -43,10 +43,6 @@ export interface EmbedType {
   status?: string;
 }
 
-export interface EmbedTypeWithPlugin<E extends EmbedType> extends EmbedType {
-  plugin: Plugin<E>;
-}
-
 export type PluginUnion =
   | Plugin<EmbedType>
   | AudioPlugin
@@ -57,17 +53,6 @@ export type PluginUnion =
   | ImagePlugin
   | RelatedContentPlugin
   | ConceptPlugin;
-
-export type EmbedTypeUnion =
-  | EmbedType
-  | AudioEmbedType
-  | BrightcoveEmbedType
-  | ContentLinkEmbedType
-  | OembedEmbedType
-  | H5PEmbedType
-  | ImageEmbedType
-  | RelatedContentEmbedType
-  | ConceptEmbedType;
 
 export interface TransformOptions {
   concept?: boolean;

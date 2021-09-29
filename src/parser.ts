@@ -6,28 +6,25 @@
  *
  */
 
-import { CheerioAPI } from 'cheerio';
-import createPlugins from './plugins';
-import {
-  EmbedTypeUnion,
-  PluginUnion,
-  EmbedType,
-  EmbedTypeWithPlugin,
-  TransformOptions,
-} from './interfaces';
+import cheerio, { CheerioAPI, Element } from 'cheerio';
+import { EmbedType, PluginUnion, TransformOptions, Plugin } from './interfaces';
 
-export async function getEmbedsFromHtml(
-  html: CheerioAPI,
-  options?: TransformOptions,
-): Promise<EmbedTypeWithPlugin<EmbedTypeUnion>[]> {
-  const plugins = createPlugins(options ?? {});
-  const embeds = html('embed')
-    .map((_, embed) => ({
+export const findPlugin = <T extends EmbedType>(
+  plugins: PluginUnion[],
+  embed: T,
+): Plugin<T> | undefined => {
+  const plugin = plugins.find((p) => {
+    return p.resource === embed.embed.data().resource;
+  });
+
+  return plugin as Plugin<T>;
+};
+
+export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedType[]> {
+  return html('embed')
+    .toArray()
+    .map((embed) => ({
       embed: html(embed),
       data: html(embed).data(),
-      plugin: plugins.find((p) => p && p.resource === embed.attribs['data-resource'])!,
-    }))
-    .get();
-
-  return embeds;
+    }));
 }

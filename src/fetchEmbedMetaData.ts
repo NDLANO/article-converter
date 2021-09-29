@@ -8,10 +8,10 @@
 
 import cheerio from 'cheerio';
 import { getEmbedsFromHtml } from './parser';
-// @ts-ignore
 import { getEmbedsResources } from './transformers';
 import getEmbedMetaData from './getEmbedMetaData';
 import { LocaleType } from './interfaces';
+import createPlugins from './plugins';
 
 export default async function fetchEmbedMetaData(
   embedTag: string,
@@ -19,7 +19,8 @@ export default async function fetchEmbedMetaData(
   language: LocaleType,
 ) {
   const c = cheerio.load(embedTag);
+  const plugins = createPlugins({});
   const embeds = await getEmbedsFromHtml(c);
-  const embedsWithResources = await getEmbedsResources(embeds, accessToken, language);
-  return getEmbedMetaData(embedsWithResources, language);
+  const embedsWithResources = await getEmbedsResources(embeds, accessToken, language, plugins);
+  return getEmbedMetaData(embedsWithResources, language, plugins);
 }
