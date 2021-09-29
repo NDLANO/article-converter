@@ -20,8 +20,7 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
 import { getCopyString } from './pluginHelpers';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { Plugin } from './index';
+import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -85,7 +84,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = (embed: EmbedType, locale: LocaleType) => {
+  const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
     const { contentId, linkText } = embed.data;
     return render(
       <Notion

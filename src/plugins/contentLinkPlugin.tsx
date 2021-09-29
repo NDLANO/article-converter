@@ -8,10 +8,9 @@
 
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
-import { Plugin } from './index';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
-interface ContentLinkEmbedType extends EmbedType {
+export interface ContentLinkEmbedType extends EmbedType {
   path: string;
 }
 

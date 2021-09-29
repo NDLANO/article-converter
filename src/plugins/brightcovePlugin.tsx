@@ -25,8 +25,7 @@ import {
 import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits, makeIframeString } from './pluginHelpers';
 import { render } from '../utils/render';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { Plugin } from './index';
+import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
 export interface BrightcoveEmbedType extends EmbedType {
   brightcove: BrightcoveVideo & {

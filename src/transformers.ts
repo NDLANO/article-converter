@@ -14,7 +14,14 @@ import getEmbedMetaData from './getEmbedMetaData';
 import log from './utils/logger';
 // @ts-ignore
 import { htmlTransforms } from './htmlTransformers';
-import { EmbedType, LocaleType, TransformOptions } from './interfaces';
+import {
+  EmbedTypeUnion,
+  PluginUnion,
+  EmbedType,
+  EmbedTypeWithPlugin,
+  LocaleType,
+  TransformOptions,
+} from './interfaces';
 
 function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;
@@ -45,7 +52,7 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedType[],
+  embeds: EmbedTypeWithPlugin<EmbedTypeUnion>[],
   accessToken: string,
   lang: LocaleType,
 ) {

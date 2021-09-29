@@ -18,8 +18,7 @@ import {
   H5POembedResponse,
 } from '../api/h5pApi';
 import config from '../config';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { EmbedMetaData, Plugin } from './index';
+import { EmbedMetaData, Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 export interface H5PEmbedType extends EmbedType {
   oembed: H5POembedResponse;

@@ -7,10 +7,9 @@
  */
 
 import { makeIframe } from './pluginHelpers';
-import { EmbedType } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, EmbedType } from '../interfaces';
 
-export default function createIframePlugin(): Plugin {
+export default function createIframePlugin(): Plugin<EmbedType> {
   const embedToHTML = async (embed: EmbedType) => {
     const { url, width, height } = embed.data as Record<string, string>;
     return makeIframe(url, width, height);

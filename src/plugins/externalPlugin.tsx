@@ -11,8 +11,7 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 export interface OembedEmbedType extends EmbedType {
   oembed: OembedProxyResponse;
@@ -29,7 +28,7 @@ export default function createExternalPlugin(
     return fetchOembed(embed, accessToken);
   };
 
-  const onError = (embed: EmbedType, locale: LocaleType) =>
+  const onError = (embed: OembedEmbedType, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />

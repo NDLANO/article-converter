@@ -27,8 +27,7 @@ import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 const Anchor = StyledButton.withComponent('a');
 

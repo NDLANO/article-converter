@@ -18,8 +18,7 @@ import { ArticleApiArticle, fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
@@ -111,7 +110,7 @@ const getRelatedArticleProps = (
 
 type RelatedArticleType = ArticleApiArticle & { resource?: ArticleResource };
 
-interface RelatedContentEmbedType extends EmbedType {
+export interface RelatedContentEmbedType extends EmbedType {
   article?: RelatedArticleType;
 }
 

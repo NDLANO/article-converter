@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { Plugin } from './index';
-import { EmbedType } from '../interfaces';
+import { Plugin, EmbedType } from '../interfaces';
 
-export default function createNRKPlugin(): Plugin {
+export default function createNRKPlugin(): Plugin<EmbedType> {
   const embedToHTML = async (embed: EmbedType) =>
     `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`;
 

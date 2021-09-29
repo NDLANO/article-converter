@@ -7,9 +7,13 @@
  */
 
 import defined from 'defined';
-import { EmbedType, LocaleType } from './interfaces';
+import { EmbedTypeWithPlugin, LocaleType } from './interfaces';
+import { PluginUnion } from './plugins';
 
-export default function getEmbedMetaData(embeds: EmbedType[], locale: LocaleType) {
+export default function getEmbedMetaData(
+  embeds: EmbedTypeWithPlugin<PluginUnion>[],
+  locale: LocaleType,
+) {
   return embeds.reduce((ctx: Record<string, unknown[]>, embed) => {
     const key = `${embed.data.resource}s`;
     const resourceMetaData = defined(ctx[key], []);

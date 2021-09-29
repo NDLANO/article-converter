@@ -7,19 +7,19 @@
  */
 
 import createNRKPlugin from './nrkPlugin';
-import createAudioPlugin, { AudioPlugin } from './audioPlugin';
-import createImagePlugin, { ImagePlugin } from './imagePlugin';
-import createBrightcovePlugin, { BrightcovePlugin } from './brightcovePlugin';
-import createH5pPlugin, { H5PPlugin } from './h5pPlugin';
-import createExternalPlugin, { OembedPlugin } from './externalPlugin';
-import createContentLinkPlugin, { ContentLinkPlugin } from './contentLinkPlugin';
+import createAudioPlugin from './audioPlugin';
+import createImagePlugin from './imagePlugin';
+import createBrightcovePlugin from './brightcovePlugin';
+import createH5pPlugin from './h5pPlugin';
+import createExternalPlugin from './externalPlugin';
+import createContentLinkPlugin from './contentLinkPlugin';
 import createErrorPlugin from './errorPlugin';
 import createIframePlugin from './iframePlugin';
 import createFootnotePlugin from './footNotePlugin';
-import createConceptPlugin, { ConceptPlugin } from './conceptPlugin';
-import createRelatedContent, { RelatedContentPlugin } from './relatedContentPlugin';
+import createConceptPlugin from './conceptPlugin';
+import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { TransformOptions, PluginUnion } from '../interfaces';
 
 export {
   createNRKPlugin,
@@ -36,33 +36,6 @@ export {
   createRelatedContent,
   createCodePlugin,
 };
-
-export interface EmbedMetaData extends Record<string, unknown> {
-  ref?: number;
-  authors?: string[];
-  year?: string;
-  title?: string;
-  description?: string;
-}
-
-export interface Plugin<ET extends EmbedType = EmbedType> {
-  resource: string;
-  embedToHTML: (embed: ET, lang: LocaleType) => Promise<string>;
-  fetchResource?: (embed: EmbedType, accessToken: string, lang: LocaleType) => Promise<ET>;
-  getMetaData?: (embed: ET, lang: LocaleType) => Promise<EmbedMetaData | undefined>;
-  onError?: (embed: ET, lang: LocaleType) => string;
-}
-
-export type PluginUnion =
-  | Plugin
-  | AudioPlugin
-  | BrightcovePlugin
-  | ContentLinkPlugin
-  | OembedPlugin
-  | H5PPlugin
-  | ImagePlugin
-  | RelatedContentPlugin
-  | ConceptPlugin;
 
 const plugins = (options: TransformOptions): PluginUnion[] => [
   createNRKPlugin(),

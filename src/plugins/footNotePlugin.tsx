@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { EmbedType } from '../interfaces';
-import { Plugin } from './index';
+import { EmbedType, Plugin } from '../interfaces';
 
 class FootNoteCounter {
   private count: number;
@@ -20,7 +19,7 @@ class FootNoteCounter {
   }
 }
 
-export default function createFootnotePlugin(): Plugin {
+export default function createFootnotePlugin(): Plugin<EmbedType> {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 

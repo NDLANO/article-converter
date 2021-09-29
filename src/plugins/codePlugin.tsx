@@ -10,10 +10,9 @@ import React from 'react';
 import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
-import { EmbedType } from '../interfaces';
-import { Plugin } from './index';
+import { Plugin, EmbedType } from '../interfaces';
 
-export default function createCodePlugin(): Plugin {
+export default function createCodePlugin(): Plugin<EmbedType> {
   const embedToHTML = async (embed: EmbedType) => {
     const { title, codeContent, codeFormat } = embed.data as Record<string, string>;
     return renderString(

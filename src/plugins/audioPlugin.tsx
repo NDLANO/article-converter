@@ -19,8 +19,7 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
-import { Plugin } from './index';
-import { EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 const Anchor = StyledButton.withComponent('a');
 
