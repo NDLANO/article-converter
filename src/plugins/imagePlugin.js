@@ -95,45 +95,9 @@ function hideByline(size) {
   return size.endsWith('-hide-byline');
 }
 
-function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
-  if (isSmall(size)) {
-    return (
-      <>
-        <FigureExpandButton
-          typeClass={typeClass}
-          messages={{
-            zoomImageButtonLabel: t(
-              locale,
-              'license.images.itemImage.zoomImageButtonLabel'
-            ),
-            zoomOutImageButtonLabel: t(
-              locale,
-              'license.images.itemImage.zoomOutImageButtonLabel'
-            ),
-          }}
-        />
-        {children}
-      </>
-    );
-  } else if (hideByline(size)) {
-    return (
-      <>
-        <FigureBylineExpandButton
-          typeClass={size}
-          messages={{
-            expandBylineButtonLabel: t(
-              locale,
-              'license.images.itemImage.expandByline'
-            ),
-            minimizeBylineButtonLabel: t(
-              locale,
-              'license.images.itemImage.minimizeByline'
-            ),
-          }}
-        />
-        {children}
-      </>
-    );
+function ImageWrapper({ src, crop, size, children, locale }) {
+  if (isSmall(size) || hideByline(size)) {
+    return <>{children}</>;
   }
 
   return (
@@ -148,7 +112,6 @@ function ImageWrapper({ typeClass, src, crop, size, children, locale }) {
 
 ImageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  typeClass: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   crop: PropTypes.shape({
     startX: PropTypes.number.isRequired,
@@ -293,6 +256,43 @@ export default function createImagePlugin(options = { concept: false }) {
       locale
     );
     const figureId = `figure-${id}`;
+
+    const ExpandButton = ({ size, typeClass }) => {
+      if (isSmall(size)) {
+        return (
+          <FigureExpandButton
+            typeClass={typeClass}
+            messages={{
+              zoomImageButtonLabel: t(
+                locale,
+                'license.images.itemImage.zoomImageButtonLabel'
+              ),
+              zoomOutImageButtonLabel: t(
+                locale,
+                'license.images.itemImage.zoomOutImageButtonLabel'
+              ),
+            }}
+          />
+        );
+      } else if (hideByline(size)) {
+        return (
+          <FigureBylineExpandButton
+            typeClass={size}
+            messages={{
+              expandBylineButtonLabel: t(
+                locale,
+                'license.images.itemImage.expandByline'
+              ),
+              minimizeBylineButtonLabel: t(
+                locale,
+                'license.images.itemImage.minimizeByline'
+              ),
+            }}
+          />
+        );
+      }
+      return null;
+    };
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }) => (
@@ -301,7 +301,6 @@ export default function createImagePlugin(options = { concept: false }) {
               src={imageUrl}
               crop={crop}
               size={size}
-              typeClass={typeClass}
               locale={locale}>
               <Image
                 focalPoint={focalPoint}
@@ -310,6 +309,9 @@ export default function createImagePlugin(options = { concept: false }) {
                 sizes={sizes}
                 alt={altText}
                 src={imageUrl}
+                expandButton={
+                  <ExpandButton size={size} typeClass={typeClass} />
+                }
               />
             </ImageWrapper>
             <FigureCaption

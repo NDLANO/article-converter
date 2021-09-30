@@ -29,7 +29,7 @@ module.exports = {
     oauth2: {
       type: 'oauth2',
       description: '',
-      flow: 'client credentials',
+      flow: 'implicit',
       authorizationUrl: `https://${config.auth0Hostname}/authorize`,
     },
   },
