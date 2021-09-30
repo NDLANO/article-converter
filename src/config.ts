@@ -27,7 +27,7 @@ const apiUrl = () => {
       case 'prod':
         return 'https://api.ndla.no';
       default:
-        return `https://api.${process.env.NDLA_ENVIRONMENT.replace('_', '-')}.ndla.no`;
+        return `https://api.${process.env.NDLA_ENVIRONMENT ?? 'test'}.ndla.no`;
     }
   } else {
     return `http://${apiUrl}`;
@@ -59,7 +59,7 @@ const listingFrontendDomain = () => {
       case 'prod':
         return 'https://liste.ndla.no';
       default:
-        return `https://liste.${process.env.NDLA_ENVIRONMENT}.ndla.no`;
+        return `https://liste.${process.env.NDLA_ENVIRONMENT ?? 'test'}.ndla.no`;
     }
   } else {
     return listingDomain;
