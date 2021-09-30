@@ -9,22 +9,207 @@ parameters:
 definitions:
   bodyArticle:
     type: object
-    content:
-      content: string
-      language: string
-      example: '<section>some text</section>'
-    title:
-      title: string
-      language: string
-      example: test
-    introduction:
-      introduction: string
-      language: nb
-      example: intro
-    metaDescription:
-      metaDescription: string
-      language: string
-      example: meta description here
+    properties:
+      article:
+        type: object
+        description: Article body.
+        properties: 
+          id:
+            type: integer
+            description: The unique id of the article
+            example: 1
+          oldNdlaUrl:
+            type: string
+            description: Link to article on old platform
+            example: red.ndla.no/123
+          revision:
+            type: integer
+            description: The revision number for the article
+            example: 1
+          status:
+            type: object
+            properties:
+              current:
+                type: string
+                description: The current status of the article.
+                example: DRAFT
+              other:
+                type: array
+                description: Previous statuses this article has been in
+                items:
+                  type: string
+                  example: [DRAFT, PUBLISHED]
+          content:
+            type: object
+            properties:
+              content:
+                type: string
+                description: The html content.
+                example: <section>some text</section>
+              language:
+                type: string
+                description: ISO 639-1 code that represents the language used in the content
+                example: nb
+          copyright:
+              $ref: '#/definitions/copyright'
+          tags:
+            type: object
+            properties:
+              tags: 
+                type: array
+                items:
+                  type: string
+                  description: The searchable tag.
+              language: 
+                type: string
+                description: ISO 639-1 code that represents the language used in tag
+                example: nb
+          requiredLibraries:
+            type: array
+            description: Required libraries in order to render the article
+            items:
+              type: object
+              properies:
+                mediaType:
+                  type: string
+                name:
+                  type: string
+                url: 
+                  type: string
+          visualElement: 
+            type: object
+            properties:
+              visualElement:
+                type: string
+                description: Html containing the visual element. May contain any legal html element, including the embed-tag
+              language:
+                type: string
+                description: The ISO 639-1 language code describing which article translation this visual element belongs to
+          title:
+            type: object
+            properties:
+              title:
+                type: string
+                description: The freetext title of the article
+                example: test
+              language:
+                type: string
+                description: ISO 639-1 code that represents the language used in title
+                example: nb
+          introduction:
+            type: object
+            properties:
+              introduction:
+                type: string
+                description: The introduction content
+              language: 
+                type: string
+                description: The ISO 639-1 language code describing which article translation this introduction belongs to
+          metaDescription:
+            type: object
+            properties:
+              metaDescription:
+                type: string
+                description: The meta description
+                example: meta description here
+              language:
+                type: string
+                description: The ISO 639-1 language code describing which article translation this meta description belongs to
+          metaImage:
+            type: object
+            properties:
+              url:
+                type: string
+                description: The meta image
+              alt:
+                type: string
+                description: The meta image alt text
+              language:
+                type: string
+                description: The ISO 639-1 language code describing which article translation this meta image belongs to
+          created:
+            type: string
+            format: date-time
+            description: When the article was created
+          updated:
+            type: string
+            format: date-time
+            description: When the article was last updated
+          updatedBy:
+            type: string
+            description: By whom the article was last updated
+          published:
+            type: string
+            description: When the article was last published
+          articleType:
+            type: string
+            description: The type of article this is. Possible values are topic-article,standard
+          supportedLanguages:
+            type: array
+            description: The languages this article supports
+            items:
+              type: string
+          notes: 
+            type: array
+            description: The notes for this article draft
+            items:
+              type: object
+              properties:
+                note:
+                  type: string
+                  description: Editorial note
+                user:
+                  type: string
+                  description: User which saved the note
+                status:
+                  type: object
+                  properties:
+                    current:
+                      type: string
+                      description: The current status of the article.
+                      example: DRAFT
+                    other:
+                      type: array
+                      description: Previous statuses this article has been in
+                      items:
+                        type: string
+                        example: [DRAFT, PUBLISHED]
+                      timestamp:
+                        type: string
+                timestamp:
+                  type: string
+                  format: date-time
+                  description: Timestamp of when note was saved
+          editorLabels:
+            type: array
+            description: The labels attached to this article; meant for editors.
+            items:
+              type: string
+          grepCodes:
+            type: array
+            description: A list of codes from GREP API connected to the article
+            items:
+              type: string
+          conceptIds:
+            type: array
+            description: A list of conceptIds connected to the article
+            items:
+              type: integer
+          availability:
+            type: string
+            description: 'Value that dictates who gets to see the article. Possible values are: everyone/student/teacher'
+          relatedContent:
+            type: array
+            description: A list of content related to the article
+            items:
+              oneOf:
+                - type: number
+                - type: object
+                  properties:
+                    title:
+                      type: string
+                      url: string
+                
   copyright:
     type: object
     description: Copyright attributes.
