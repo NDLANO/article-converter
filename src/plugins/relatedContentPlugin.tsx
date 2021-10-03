@@ -14,7 +14,7 @@ import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
 import log from '../utils/logger';
-import { ArticleApiArticle, fetchArticle } from '../api/articleApi';
+import { ArticleApiType, fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -108,7 +108,7 @@ const getRelatedArticleProps = (
   return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
-type RelatedArticleType = ArticleApiArticle & { resource?: ArticleResource };
+type RelatedArticleType = ArticleApiType & { resource?: ArticleResource };
 
 export interface RelatedContentEmbedType extends EmbedType {
   article?: RelatedArticleType;

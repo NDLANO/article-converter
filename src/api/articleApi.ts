@@ -36,7 +36,7 @@ type RelatedContent =
       url: string;
     };
 
-export interface ArticleApiArticle {
+export interface ArticleApiType {
   id: number;
   oldNdlaUrl?: string;
   revision: number;
@@ -91,7 +91,7 @@ export async function fetchArticle(
   articleId: number | string,
   accessToken: string,
   language: LocaleType,
-): Promise<ArticleApiArticle> {
+): Promise<ArticleApiType> {
   const response = await fetch(
     apiResourceUrl(`/article-api/v2/articles/${articleId}?language=${language}&fallback=true`),
     {
@@ -99,5 +99,5 @@ export async function fetchArticle(
       headers: headerWithAccessToken(accessToken),
     },
   );
-  return resolveJsonOrRejectWithError<ArticleApiArticle>(response);
+  return resolveJsonOrRejectWithError<ArticleApiType>(response);
 }

@@ -1,12 +1,12 @@
 import cheerio from 'cheerio';
-import { ArticleApiArticle, fetchArticle } from './api/articleApi';
+import { ArticleApiType, fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
 import { getCopyString } from './plugins/pluginHelpers';
 import { LocaleType, TransformedArticle, TransformOptions } from './interfaces';
 
 export async function transformArticle(
-  article: ArticleApiArticle,
+  article: ArticleApiType,
   lang: LocaleType,
   accessToken: string,
   options: TransformOptions = {},
