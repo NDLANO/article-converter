@@ -12,7 +12,7 @@ import memoizeIntlConstructor from 'intl-format-cache';
 import { messagesNB, messagesEN, messagesNN, formatNestedMessages, formatMessage } from '@ndla/ui';
 import { LocaleType } from '../interfaces';
 
-let getMessageFormat: any; // TODO: Må denne fikses?
+let getMessageFormat: any;
 
 if (!getMessageFormat) {
   getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
