@@ -7,8 +7,9 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { convertToInternalUrlIfPossible } from '../utils/apiHelpers';
 
 export async function checkIfFileExists(fileUrl: string): Promise<boolean> {
-  const response = await fetch(fileUrl, { method: 'HEAD' });
+  const response = await fetch(convertToInternalUrlIfPossible(fileUrl), { method: 'HEAD' });
   return response.status === 200;
 }
