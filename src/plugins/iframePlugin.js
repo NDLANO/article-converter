@@ -11,7 +11,8 @@ import { makeIframe } from './pluginHelpers';
 export default function createIframePlugin() {
   const embedToHTML = embed => {
     const { url, width, height } = embed.data;
-    return makeIframe(url, width, height);
+    const resize = url.includes('trinket.io') ? false : true;
+    return makeIframe(url, width, height, '', resize);
   };
 
   return {
