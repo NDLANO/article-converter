@@ -413,7 +413,7 @@ test('replacer/replaceEmbedsInHtml replace trinket embeds without resize', async
   const plugin = createIframePlugin();
   const plugins = [plugin];
   const articleContent = cheerio.load(
-    '<section><embed data-resource="iframe" data-url="https://trinket.io/python/asdfesafadc" data-width="777" data-height="700"/></section>'
+    '<section><embed data-resource="iframe" data-url="https://trinket.io/python/asdfesafadc" data-width="777" data-height="700"/></section>',
   );
 
   const embeds = [
