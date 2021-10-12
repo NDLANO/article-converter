@@ -438,3 +438,22 @@ test('replacer/replaceEmbedsInHtml replace footnote embeds', async () => {
   expect(getEmbedMetaData(embeds)).toMatchSnapshot();
   expect(prettify(replaced)).toMatchSnapshot();
 });
+
+test('replacer/replaceEmbedsInHtml replace trinket embeds without resize', async () => {
+  const articleContent = cheerio.load(
+    '<section><embed data-resource="iframe" data-url="https://trinket.io/python/asdfesafadc" data-width="777" data-height="700"/></section>'
+  );
+
+  const embeds = [
+    {
+      embed: articleContent('embed[data-resource="iframe"]'),
+      data: articleContent('embed[data-resource="iframe"]').data(),
+      plugin: createIframePlugin(),
+    },
+  ];
+
+  await replaceEmbedsInHtml(embeds, 'nb');
+  const replaced = articleContent('body').html();
+
+  expect(prettify(replaced)).toMatchSnapshot();
+});
