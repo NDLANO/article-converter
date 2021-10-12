@@ -5019,6 +5019,25 @@ exports[`replacer/replaceEmbedsInHtml replace ndla-filmiundervisning embeds 1`] 
 "
 `;
 
+exports[`replacer/replaceEmbedsInHtml replace trinket embeds without resize 1`] = `
+"<section>
+  <figure class=\\"c-figure\\">
+    <iframe
+      title=\\"https://trinket.io/python/asdfesafadc\\"
+      aria-label=\\"https://trinket.io/python/asdfesafadc\\"
+      src=\\"https://trinket.io/python/asdfesafadc\\"
+      width=\\"777\\"
+      height=\\"700\\"
+      allowfullscreen=\\"\\"
+      scrolling=\\"no\\"
+      frameborder=\\"0\\"
+      loading=\\"lazy\\"
+    ></iframe>
+  </figure>
+</section>
+"
+`;
+
 exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "<section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1326\\">

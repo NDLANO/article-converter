@@ -12,7 +12,8 @@ import { Plugin, EmbedType } from '../interfaces';
 export default function createIframePlugin(): Plugin<EmbedType> {
   const embedToHTML = async (embed: EmbedType) => {
     const { url, width, height } = embed.data as Record<string, string>;
-    return makeIframe(url, width, height);
+    const resize = url.includes('trinket.io') ? false : true;
+    return makeIframe(url, width, height, '', resize);
   };
 
   return {
