@@ -19,13 +19,16 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
-import { ImageActionButtons } from './imagePlugin';
+import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { apiResourceUrl } from '../utils/apiHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
 export interface AudioEmbedType extends EmbedType {
   audio: AudioApiType;
+  imageMeta?: ImageEmbedType;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbedType> {
@@ -33,8 +36,29 @@ export interface AudioPlugin extends Plugin<AudioEmbedType> {
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchAudio(embed, accessToken, language);
+  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
+    const result = await fetchAudio(embed, accessToken, language);
+
+    if (result.audio.podcastMeta) {
+      const imageMeta = await fetchImageResources(
+        {
+          ...embed,
+          data: {
+            url: apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
+          },
+        },
+        accessToken,
+        language,
+      );
+
+      return {
+        ...result,
+        imageMeta,
+      };
+    }
+
+    return result;
+  };
 
   const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
     const { audio } = embed;
@@ -73,8 +97,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             viewBox="0 0 24 12"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ backgroundColor: '#EFF0F2' }}
-          >
+            style={{ backgroundColor: '#EFF0F2' }}>
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path
               transform="scale(0.3) translate(28, 8.5)"
@@ -104,8 +127,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
           key="copy"
           outline
           data-copied-title={t(locale, 'license.hasCopiedTitle')}
-          data-copy-string={copyString}
-        >
+          data-copy-string={copyString}>
           {t(locale, 'license.copyTitle')}
         </Button>
         {license !== 'COPYRIGHTED' && (
@@ -124,7 +146,64 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = async ({ audio, data }: AudioEmbedType, locale: LocaleType) => {
+  const ImageLicense = ({
+    image,
+    locale,
+    figureid,
+  }: {
+    locale: LocaleType;
+    image: ImageApiType;
+    figureid: string;
+  }) => {
+    const {
+      copyright,
+      imageUrl,
+      title: { title },
+      id,
+    } = image;
+    const {
+      license: { license: licenseAbbreviation },
+      origin,
+    } = copyright;
+    const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+    const authors = getLicenseCredits(copyright);
+
+    const contributors = getGroupedContributorDescriptionList(copyright, locale).map((item) => ({
+      name: item.description,
+      type: item.label,
+    }));
+
+    return (
+      <>
+        <FigureCaption
+          figureId={figureid}
+          id={`${id}`}
+          reuseLabel={t(locale, 'image.reuse')}
+          licenseRights={license.rights}
+          authors={authors.creators || authors.rightsholders || authors.processors}
+          locale={locale}>
+          <FigureLicenseDialog
+            id={`${id}`}
+            title={title}
+            license={license}
+            authors={contributors}
+            origin={origin}
+            locale={locale}
+            messages={messages(locale)}>
+            <ImageActionButtons
+              locale={locale}
+              copyString={copyString}
+              src={imageUrl}
+              license={licenseAbbreviation}
+            />
+          </FigureLicenseDialog>
+        </FigureCaption>
+      </>
+    );
+  };
+
+  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbedType, locale: LocaleType) => {
     const {
       id,
       title: { title },
@@ -137,6 +216,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         origin,
       },
     } = audio;
+
+    const { image } = imageMeta || {};
 
     const { introduction, coverPhoto } = podcastMeta || {};
     const subtitle = series?.title;
@@ -201,8 +282,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages}
-              >
+                messages={messages}>
                 <AudioActionButtons
                   copyString={copyString}
                   locale={locale}
@@ -210,38 +290,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                   src={url}
                 />
               </FigureLicenseDialog>
-              {coverPhoto && (
-                <>
-                  <FigureCaption
-                    figureId={`figure-${coverPhoto.id}`}
-                    id={`image-${coverPhoto.id}`}
-                    reuseLabel={t(locale, 'image.reuse')}
-                    licenseRights={license.rights} // Denne kan ikke være riktig?
-                    authors={
-                      // Denne kan ikke være riktig?
-                      authors.creators ||
-                      authors.rightsholders ||
-                      authors.processors
-                    }
-                    locale={locale}
-                  />
-                  <FigureLicenseDialog
-                    id={`image-${coverPhoto.id}`}
-                    title={title}
-                    license={license}
-                    authors={contributors}
-                    origin={origin}
-                    locale={locale}
-                    messages={messages}>
-                    <ImageActionButtons
-                      copyString={copyString}
-                      locale={locale}
-                      license={licenseAbbreviation}
-                      src={coverPhoto.url}
-                    />
-                  </FigureLicenseDialog>
-                </>
-              )}
+              {image && <ImageLicense image={image} locale={locale} figureid={figureid} />}
             </Figure>
           );
         }}

@@ -179,6 +179,15 @@ export interface ImagePlugin extends Plugin<ImageEmbedType> {
   resource: 'image';
 }
 
+export const messages = (locale: LocaleType) => ({
+  title: t(locale, 'title'),
+  close: t(locale, 'close'),
+  rulesForUse: t(locale, 'license.images.rules'),
+  learnAboutLicenses: t(locale, 'license.learnMore'),
+  source: t(locale, 'source'),
+  zoomImageButtonLabel: t(locale, 'license.images.itemImage.zoomImageButtonLabel'),
+});
+
 export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
@@ -237,10 +246,12 @@ export default function createImagePlugin(
       origin,
     } = copyright;
 
-    const { align, size, caption: embedCaption, alt: embedAlttext } = data as Record<
-      string,
-      string
-    >;
+    const {
+      align,
+      size,
+      caption: embedCaption,
+      alt: embedAlttext,
+    } = data as Record<string, string>;
 
     const authors = getLicenseCredits(copyright);
 
@@ -251,19 +262,10 @@ export default function createImagePlugin(
     const figureType = getFigureType(size, align);
     const sizes = getSizes(size, align);
 
-    const messages = {
-      title: t(locale, 'title'),
-      close: t(locale, 'close'),
-      rulesForUse: t(locale, 'license.images.rules'),
-      learnAboutLicenses: t(locale, 'license.learnMore'),
-      source: t(locale, 'source'),
-      zoomImageButtonLabel: t(locale, 'license.images.itemImage.zoomImageButtonLabel'),
-    };
-
     const focalPoint = getFocalPoint(embed.data);
     const crop = getCrop(embed.data);
 
-    const contributors = getGroupedContributorDescriptionList(copyright, locale).map(item => ({
+    const contributors = getGroupedContributorDescriptionList(copyright, locale).map((item) => ({
       name: item.description,
       type: item.label,
     }));
@@ -329,7 +331,7 @@ export default function createImagePlugin(
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages}>
+                messages={messages(locale)}>
                 <ImageActionButtons
                   locale={locale}
                   copyString={copyString}
