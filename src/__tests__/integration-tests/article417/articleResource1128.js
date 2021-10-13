@@ -13,8 +13,7 @@ const resources = [
       },
     ],
     contentUri: 'urn:article:1128',
-    path:
-      '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110271',
+    path: '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110271',
   },
   {
     id: 'urn:resource:1:110266',
@@ -30,8 +29,7 @@ const resources = [
       },
     ],
     contentUri: 'urn:article:1129',
-    path:
-      '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110266',
+    path: '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110266',
   },
   {
     id: 'urn:resource:1:158387',

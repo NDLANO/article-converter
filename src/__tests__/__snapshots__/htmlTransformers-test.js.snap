@@ -3,9 +3,9 @@
 exports[`htmlTransforms adds display block to math tags 1`] = `
 "<html><head></head><body><section>
     <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
-      <mi>f</mi><mo>&apos;</mo>
+      <mi>f</mi><mo>'</mo>
       <mfenced><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow></mfenced>
-      <mo>=</mo><mn>2</mn><mo>&#xB7;</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>1</mn>
+      <mo>=</mo><mn>2</mn><mo>·</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>1</mn>
     </math>
     <math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\">
       <mn>0</mn><mo>,</mo><mn>5</mn>
@@ -136,7 +136,11 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       }</style
     ><button
       type=\\"button\\"
-      class=\\"c-factbox__button css-c98yp5-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
+      class=\\"
+        c-factbox__button
+        css-c98yp5-StyledButton-buttonStyle-ButtonStyles
+        e1ljv5qk0
+      \\"
     ></button>
   </aside>
 </section>
@@ -186,7 +190,11 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     }</style
   ><button
     type=\\"button\\"
-    class=\\"c-factbox__button css-c98yp5-StyledButton-buttonStyle-ButtonStyles e1ljv5qk0\\"
+    class=\\"
+      c-factbox__button
+      css-c98yp5-StyledButton-buttonStyle-ButtonStyles
+      e1ljv5qk0
+    \\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>
@@ -254,15 +262,15 @@ exports[`transformTables replaces table with <Table> 1`] = `
         viewBox=\\"0 0 24 24\\"
         data-license=\\"Apache License 2.0\\"
         data-source=\\"Material Design\\"
-        style=\\"vertical-align:middle\\"
+        style=\\"vertical-align: middle\\"
       >
         <title>ZoomOutMap</title>
         <g>
           <path
             d=\\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\\"
             clip-path=\\"url(#b)\\"
-          />
-          <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" clip-path=\\"url(#b)\\" />
+          ></path>
+          <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" clip-path=\\"url(#b)\\"></path>
         </g>
       </svg>
     </button>

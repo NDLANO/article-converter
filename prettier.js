@@ -33,7 +33,7 @@ const args = Object.keys(options)
   .map(key => `--${key}=${options[key]}`)
   .concat(
     `--${shouldWrite ? 'write' : 'l'}`,
-    '"src/**/*(*.js|*.jsx)"'
+    '"src/**/*(*.js|*.jsx|*.ts|*.tsx)"'
   );
 
 try {
@@ -43,10 +43,10 @@ try {
     // prettier-ignore
     console.log(
       `${chalk.red(`\nThis project uses prettier to format all JavaScript code.\n`) +
-        chalk.dim(`Please run `) +
-        chalk.reset('yarn prettier') +
-        chalk.dim(` and add changes to files listed above to your commit.`)
-       }\n`
+      chalk.dim(`Please run `) +
+      chalk.reset('yarn prettier') +
+      chalk.dim(` and add changes to files listed above to your commit.`)
+      }\n`
     );
     process.exitCode = 1;
   }

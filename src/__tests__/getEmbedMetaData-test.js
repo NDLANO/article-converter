@@ -16,6 +16,7 @@ const audioPlugin = createAudioPlugin();
 const brightcovePlugin = createBrightcovePlugin();
 
 test('get meta data from embeds', async () => {
+  const plugins = [imagePlugin, audioPlugin, brightcovePlugin];
   const embeds = [
     {
       data: { resource: 'image' },
@@ -25,7 +26,6 @@ test('get meta data from embeds', async () => {
         copyright: { license: 'CC-BY-SA-4.0' },
         imageUrl: 'http://example.no/1234.jpg',
       },
-      plugin: imagePlugin,
     },
     {
       data: { resource: 'image' },
@@ -46,7 +46,6 @@ test('get meta data from embeds', async () => {
         },
         copyright: { license: 'CC-BY-SA-4.0' },
       },
-      plugin: audioPlugin,
     },
     {
       data: { resource: 'brightcove', account: 'account', videoid: '1337' },
@@ -75,7 +74,6 @@ test('get meta data from embeds', async () => {
           },
         ],
       },
-      plugin: brightcovePlugin,
     },
     {
       data: { resource: 'brightcove', account: 'account', videoid: '42' },
@@ -94,11 +92,9 @@ test('get meta data from embeds', async () => {
           },
         ],
       },
-      plugin: brightcovePlugin,
     },
   ];
 
-  const copyrights = getEmbedMetaData(embeds);
-
+  const copyrights = await getEmbedMetaData(embeds, 'nb', plugins);
   expect(copyrights).toMatchSnapshot();
 });

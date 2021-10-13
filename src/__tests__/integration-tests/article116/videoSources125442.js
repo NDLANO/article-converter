@@ -17,8 +17,7 @@ const videoSources = [
   {
     asset_id: '5389130491001',
     remote: false,
-    src:
-      'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389130491001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389130491001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 989000,
@@ -31,8 +30,7 @@ const videoSources = [
   {
     asset_id: '5389130491001',
     remote: false,
-    src:
-      'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389130491001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389130491001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 989000,
@@ -60,8 +58,7 @@ const videoSources = [
   {
     asset_id: '5389132013001',
     remote: false,
-    src:
-      'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132013001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132013001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 506000,
@@ -74,8 +71,7 @@ const videoSources = [
   {
     asset_id: '5389132013001',
     remote: false,
-    src:
-      'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389132013001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389132013001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 506000,
@@ -103,8 +99,7 @@ const videoSources = [
   {
     asset_id: '5389132024001',
     remote: false,
-    src:
-      'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 4620000,
@@ -117,8 +112,7 @@ const videoSources = [
   {
     asset_id: '5389132024001',
     remote: false,
-    src:
-      'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 4620000,
@@ -146,8 +140,7 @@ const videoSources = [
   {
     asset_id: '5389134202001',
     remote: false,
-    src:
-      'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389134202001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389134202001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 1823000,
@@ -160,8 +153,7 @@ const videoSources = [
   {
     asset_id: '5389134202001',
     remote: false,
-    src:
-      'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389134202001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
+    src: 'https://udso-a.akamaihd.net/4806596774001/4806596774001_5389134202001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001',
     codec: 'H264',
     container: 'MP4',
     encoding_rate: 1823000,
@@ -172,16 +164,14 @@ const videoSources = [
     uploaded_at: '2017-04-07T07:33:03.077Z',
   },
   {
-    src:
-      'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5389107579001&pubId=4806596774001',
+    src: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5389107579001&pubId=4806596774001',
     type: 'application/x-mpegURL',
     container: 'M2TS',
     uploaded_at: '2017-04-07T07:33:12.652Z',
     codec: 'H264',
   },
   {
-    src:
-      'https://secure.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5389107579001&pubId=4806596774001&secure=true',
+    src: 'https://secure.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5389107579001&pubId=4806596774001&secure=true',
     type: 'application/x-mpegURL',
     container: 'M2TS',
     uploaded_at: '2017-04-07T07:33:12.652Z',

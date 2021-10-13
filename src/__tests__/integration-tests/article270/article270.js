@@ -45,8 +45,7 @@ const article = {
     },
   ],
   visualElement: {
-    visualElement:
-      '<embed data-resource="h5p" data-url="//ndla.no/h5p/embed/174974">',
+    visualElement: '<embed data-resource="h5p" data-url="//ndla.no/h5p/embed/174974">',
     language: 'nb',
   },
   introduction: {

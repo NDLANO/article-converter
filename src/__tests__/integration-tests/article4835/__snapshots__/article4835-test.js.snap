@@ -51,7 +51,7 @@ Object {
 
 exports[`app/fetchAndTransformArticle 4835 2`] = `
 "<section>
-  <p>Forslag til &#xE5;rsplan 1P</p>
+  <p>Forslag til årsplan 1P</p>
   <section class=\\"c-file-list\\">
     <h1 class=\\"c-file-list__heading\\">Filer</h1>
     <ul class=\\"c-file-list__files\\">
@@ -60,7 +60,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
           class=\\"c-file-list__link\\"
           target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (DOC)\\"
+          aria-label=\\"Forslag til årsplan 1P (DOC)\\"
           aria-describedby=\\"testid_doc\\"
           ><svg
             fill=\\"currentColor\\"
@@ -71,15 +71,15 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             viewBox=\\"0 0 24 24\\"
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\"
+            style=\\"vertical-align: middle\\"
           >
             <title>Download</title>
             <g>
-              <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+              <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
             </g></svg
           ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (DOC)</span></span
+            ><span>Forslag til årsplan 1P (DOC)</span></span
           ><span
             class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
@@ -96,7 +96,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
           class=\\"c-file-list__link\\"
           target=\\"_blank\\"
-          aria-label=\\"Forslag til &#xE5;rsplan 1P (ODT)\\"
+          aria-label=\\"Forslag til årsplan 1P (ODT)\\"
           aria-describedby=\\"testid_odt\\"
           ><svg
             fill=\\"currentColor\\"
@@ -107,15 +107,15 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             viewBox=\\"0 0 24 24\\"
             data-license=\\"Apache License 2.0\\"
             data-source=\\"Material Design\\"
-            style=\\"vertical-align:middle\\"
+            style=\\"vertical-align: middle\\"
           >
             <title>Download</title>
             <g>
-              <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\" />
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+              <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
             </g></svg
           ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til &#xE5;rsplan 1P (ODT)</span></span
+            ><span>Forslag til årsplan 1P (ODT)</span></span
           ><span
             class=\\"c-file-list__tooltip\\"
             aria-hidden=\\"true\\"
@@ -130,9 +130,9 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
     </ul>
   </section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"0-testid\\">
-    <h2>Forslag til &#xE5;rsplan 1P</h2>
+    <h2>Forslag til årsplan 1P</h2>
     <iframe
-      title=\\"Forslag til &#xE5;rsplan 1P\\"
+      title=\\"Forslag til årsplan 1P\\"
       height=\\"1050\\"
       src=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf\\"
     ></iframe>

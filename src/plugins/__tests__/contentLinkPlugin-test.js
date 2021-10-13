@@ -39,7 +39,7 @@ test('fetchResource for content-link', async () => {
       data: { contentId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
 
   expect(resource).toMatchSnapshot();
@@ -59,7 +59,7 @@ test('fetchResource for content-link with subject12 gives correct path', async (
       data: { contentId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
 
   expect(resource).toMatchSnapshot();
@@ -79,7 +79,7 @@ test('fetchResource for content-link with subject1 gives correct path', async ()
       data: { contentId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
 
   expect(resource).toMatchSnapshot();
@@ -108,7 +108,7 @@ test('fetchResource with missing taxonomy data should fallback to path without t
       data: { contentId: '1' },
     },
     'token',
-    'nb'
+    'nb',
   );
 
   expect(resource).toMatchSnapshot();
@@ -118,16 +118,14 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const contentLinkPlugin = createContentLinkPlugin();
-  nock('http://ndla-api')
-    .get(`/taxonomy/v1/resources?contentURI=urn:article:1`)
-    .reply(500, {});
+  nock('http://ndla-api').get(`/taxonomy/v1/resources?contentURI=urn:article:1`).reply(500, {});
 
   const resource = await contentLinkPlugin.fetchResource(
     {
       data: { contentId: '1' },
     },
     '',
-    'nb'
+    'nb',
   );
 
   expect(resource).toEqual({
@@ -141,14 +139,14 @@ test('embedToHtml should return anchor tag with path', async () => {
   const contentLinkPlugin = createContentLinkPlugin();
 
   expect(
-    contentLinkPlugin.embedToHTML(
+    await contentLinkPlugin.embedToHTML(
       {
         embed: {},
         data: { linkText: 'text', contentId: '1' },
         path: 'urn:test:1',
       },
-      'nb'
-    )
+      'nb',
+    ),
   ).toMatchSnapshot();
 });
 
@@ -156,13 +154,13 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
   const contentLinkPlugin = createContentLinkPlugin({ isOembed: true });
 
   expect(
-    contentLinkPlugin.embedToHTML(
+    await contentLinkPlugin.embedToHTML(
       {
         embed: {},
         data: { linkText: 'text', contentId: '1' },
         path: 'urn:test:1',
       },
-      'nb'
-    )
+      'nb',
+    ),
   ).toMatchSnapshot();
 });

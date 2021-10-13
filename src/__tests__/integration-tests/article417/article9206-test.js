@@ -16,16 +16,16 @@ import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 import log from '../../../utils/logger';
 
 const resources = {
-  '1128': articleResource1128,
-  '9202': articleResource9202,
-  '1129': articleResource1128,
+  1128: articleResource1128,
+  9202: articleResource9202,
+  1129: articleResource1128,
 };
 
 test('app/fetchAndTransformArticle 9206', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/9206?language=nb&fallback=true')
     .reply(200, article9206);
-  ['1128', '9202', '1129'].forEach(id => {
+  ['1128', '9202', '1129'].forEach((id) => {
     nock('http://ndla-api')
       .get(`/article-api/v2/articles/${id}?language=nb&fallback=true`)
       .reply(200, article9206);
@@ -36,11 +36,7 @@ test('app/fetchAndTransformArticle 9206', async () => {
 
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
-  const transformed = await fetchAndTransformArticle(
-    '9206',
-    'nb',
-    'some_token'
-  );
+  const transformed = await fetchAndTransformArticle('9206', 'nb', 'some_token');
   const { content, ...rest } = transformed;
 
   log.level(bunyan.INFO);
