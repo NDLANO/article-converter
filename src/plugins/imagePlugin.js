@@ -121,7 +121,7 @@ ImageWrapper.propTypes = {
   }),
 };
 
-const ImageActionButtons = ({ copyString, locale, license, src }) => {
+export const ImageActionButtons = ({ copyString, locale, license, src }) => {
   const buttons = [
     <Button
       key="copy"

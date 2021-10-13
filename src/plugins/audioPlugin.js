@@ -24,6 +24,7 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+import { ImageActionButtons } from './imagePlugin';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -137,8 +138,6 @@ export default function createAudioPlugin(options = {}) {
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
 
-    const caption = data.caption || title;
-
     const authors = getLicenseCredits(audio.copyright);
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
@@ -189,7 +188,6 @@ export default function createAudioPlugin(options = {}) {
               <FigureCaption
                 figureId={figureid}
                 id={figureLicenseDialogId}
-                caption={caption}
                 reuseLabel={t(locale, 'audio.reuse')}
                 licenseRights={license.rights}
                 authors={
@@ -214,6 +212,38 @@ export default function createAudioPlugin(options = {}) {
                   src={url}
                 />
               </FigureLicenseDialog>
+              {coverPhoto && (
+                <>
+                  <FigureCaption
+                    figureId={`figure-${coverPhoto.id}`}
+                    id={`image-${coverPhoto.id}`}
+                    reuseLabel={t(locale, 'image.reuse')}
+                    licenseRights={license.rights} // Denne kan ikke være riktig?
+                    authors={
+                      // Denne kan ikke være riktig?
+                      authors.creators ||
+                      authors.rightsholders ||
+                      authors.processors
+                    }
+                    locale={locale}
+                  />
+                  <FigureLicenseDialog
+                    id={`image-${coverPhoto.id}`}
+                    title={title}
+                    license={license}
+                    authors={contributors}
+                    origin={origin}
+                    locale={locale}
+                    messages={messages}>
+                    <ImageActionButtons
+                      copyString={copyString}
+                      locale={locale}
+                      license={licenseAbbreviation}
+                      src={coverPhoto.url}
+                    />
+                  </FigureLicenseDialog>
+                </>
+              )}
             </Figure>
           );
         }}
