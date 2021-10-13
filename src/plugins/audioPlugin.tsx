@@ -97,7 +97,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             viewBox="0 0 24 12"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ backgroundColor: '#EFF0F2' }}>
+            style={{ backgroundColor: '#EFF0F2' }}
+          >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path
               transform="scale(0.3) translate(28, 8.5)"
@@ -127,7 +128,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
           key="copy"
           outline
           data-copied-title={t(locale, 'license.hasCopiedTitle')}
-          data-copy-string={copyString}>
+          data-copy-string={copyString}
+        >
           {t(locale, 'license.copyTitle')}
         </Button>
         {license !== 'COPYRIGHTED' && (
@@ -182,7 +184,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
           reuseLabel={t(locale, 'image.reuse')}
           licenseRights={license.rights}
           authors={authors.creators || authors.rightsholders || authors.processors}
-          locale={locale}>
+          locale={locale}
+        >
           <FigureLicenseDialog
             id={`${id}`}
             title={title}
@@ -190,7 +193,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             authors={contributors}
             origin={origin}
             locale={locale}
-            messages={messages(locale)}>
+            messages={messages(locale)}
+          >
             <ImageActionButtons
               locale={locale}
               copyString={copyString}
@@ -282,7 +286,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages}>
+                messages={messages}
+              >
                 <AudioActionButtons
                   copyString={copyString}
                   locale={locale}
