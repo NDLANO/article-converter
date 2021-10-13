@@ -42,8 +42,7 @@ const article = {
     {
       mediaType: 'text/javascript',
       name: 'Brightcove video',
-      url:
-        '//players.brightcove.net/4806596774001/BkLm8fT_default/index.min.js',
+      url: '//players.brightcove.net/4806596774001/BkLm8fT_default/index.min.js',
     },
   ],
   metaDescription: {

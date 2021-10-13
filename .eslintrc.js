@@ -1,3 +1,3 @@
 module.exports = {
-  extends: 'ndla',
+  extends: ['eslint-config-ndla'],
 };

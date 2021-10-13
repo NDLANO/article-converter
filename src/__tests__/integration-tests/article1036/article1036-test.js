@@ -18,15 +18,9 @@ test('app/fetchAndTransformArticle 1036', async () => {
     .get('/article-api/v2/articles/1036?language=nb&fallback=true')
     .reply(200, article1036);
 
-  nock('http://ndla-api')
-    .get('/image-api/v2/images/2357?language=nb')
-    .reply(200, image2357);
+  nock('http://ndla-api').get('/image-api/v2/images/2357?language=nb').reply(200, image2357);
 
-  const transformed = await fetchAndTransformArticle(
-    '1036',
-    'nb',
-    'some_token'
-  );
+  const transformed = await fetchAndTransformArticle('1036', 'nb', 'some_token');
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

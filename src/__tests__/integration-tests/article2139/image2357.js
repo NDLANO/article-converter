@@ -15,8 +15,7 @@ const image = {
   copyright: {
     license: {
       license: 'CC-BY-NC-SA-4.0',
-      description:
-        'Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic',
+      description: 'Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic',
       url: 'https://creativecommons.org/licenses/by-nc-sa/2.0/',
     },
     origin: 'http://www.scanpix.no',
@@ -48,15 +47,7 @@ const image = {
     ],
   },
   tags: {
-    tags: [
-      'barn',
-      'fjelltur',
-      'fottur',
-      'gudbrandsdalen',
-      'kvamsfjellet',
-      'natur',
-      'fjellet',
-    ],
+    tags: ['barn', 'fjelltur', 'fottur', 'gudbrandsdalen', 'kvamsfjellet', 'natur', 'fjellet'],
     language: 'nb',
   },
   caption: {

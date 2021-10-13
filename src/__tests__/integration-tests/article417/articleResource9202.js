@@ -29,8 +29,7 @@ const resources = [
       },
     ],
     contentUri: 'urn:article:4771',
-    path:
-      '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110269',
+    path: '/subject:12/topic:1:183846/topic:1:183935/topic:1:110265/resource:1:110269',
   },
 ];
 export default resources;

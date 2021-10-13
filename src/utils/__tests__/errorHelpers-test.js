@@ -6,10 +6,7 @@
  *
  */
 
-import {
-  getAppropriateErrorResponse,
-  createErrorPayload,
-} from '../errorHelpers';
+import { getAppropriateErrorResponse, createErrorPayload } from '../errorHelpers';
 
 it('errorHelpers getAppropriateErrorResponse for simple error', () => {
   const response = getAppropriateErrorResponse(new Error('hello error'));

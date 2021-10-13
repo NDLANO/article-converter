@@ -25,12 +25,10 @@ const video = {
     thumbnail: {
       asset_id: '5388718190001',
       remote: false,
-      src:
-        'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388718190001_5388709430001-th.jpg?pubId=4806596774001&videoId=5388709430001',
+      src: 'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388718190001_5388709430001-th.jpg?pubId=4806596774001&videoId=5388709430001',
       sources: [
         {
-          src:
-            'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388718190001_5388709430001-th.jpg?pubId=4806596774001&videoId=5388709430001',
+          src: 'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388718190001_5388709430001-th.jpg?pubId=4806596774001&videoId=5388709430001',
           height: 90,
           width: 160,
         },
@@ -39,12 +37,10 @@ const video = {
     poster: {
       asset_id: '5388720291001',
       remote: false,
-      src:
-        'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001',
+      src: 'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001',
       sources: [
         {
-          src:
-            'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001',
+          src: 'https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001',
           height: 720,
           width: 1280,
         },
