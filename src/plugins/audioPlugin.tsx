@@ -39,7 +39,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
   const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
     const result = await fetchAudio(embed, accessToken, language);
 
-    if (result.audio.podcastMeta) {
+    if (result.audio.podcastMeta?.coverPhoto?.id) {
       const imageMeta = await fetchImageResources(
         {
           ...embed,
