@@ -775,7 +775,6 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
       </div>
     </div>
     <figcaption class=\\"c-figure__caption\\">
-      <div class=\\"c-figure__info\\"><p>Caption 1</p></div>
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
           <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">

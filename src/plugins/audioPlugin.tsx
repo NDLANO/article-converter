@@ -19,12 +19,16 @@ import t from '../locale/i18n';
 import { getCopyString, getLicenseCredits } from './pluginHelpers';
 import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
+import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { apiResourceUrl } from '../utils/apiHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
 export interface AudioEmbedType extends EmbedType {
   audio: AudioApiType;
+  imageMeta?: ImageEmbedType;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbedType> {
@@ -32,8 +36,29 @@ export interface AudioPlugin extends Plugin<AudioEmbedType> {
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchAudio(embed, accessToken, language);
+  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
+    const result = await fetchAudio(embed, accessToken, language);
+
+    if (result.audio.podcastMeta?.coverPhoto?.id) {
+      const imageMeta = await fetchImageResources(
+        {
+          ...embed,
+          data: {
+            url: apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
+          },
+        },
+        accessToken,
+        language,
+      );
+
+      return {
+        ...result,
+        imageMeta,
+      };
+    }
+
+    return result;
+  };
 
   const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
     const { audio } = embed;
@@ -123,7 +148,66 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     src: PropTypes.string.isRequired,
   };
 
-  const embedToHTML = async ({ audio, data }: AudioEmbedType, locale: LocaleType) => {
+  const ImageLicense = ({
+    image,
+    locale,
+    figureid,
+  }: {
+    locale: LocaleType;
+    image: ImageApiType;
+    figureid: string;
+  }) => {
+    const {
+      copyright,
+      imageUrl,
+      title: { title },
+      id,
+    } = image;
+    const {
+      license: { license: licenseAbbreviation },
+      origin,
+    } = copyright;
+    const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
+    const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
+    const authors = getLicenseCredits(copyright);
+
+    const contributors = getGroupedContributorDescriptionList(copyright, locale).map((item) => ({
+      name: item.description,
+      type: item.label,
+    }));
+
+    return (
+      <>
+        <FigureCaption
+          figureId={figureid}
+          id={`${id}`}
+          reuseLabel={t(locale, 'image.reuse')}
+          licenseRights={license.rights}
+          authors={authors.creators || authors.rightsholders || authors.processors}
+          locale={locale}
+        >
+          <FigureLicenseDialog
+            id={`${id}`}
+            title={title}
+            license={license}
+            authors={contributors}
+            origin={origin}
+            locale={locale}
+            messages={messages(locale)}
+          >
+            <ImageActionButtons
+              locale={locale}
+              copyString={copyString}
+              src={imageUrl}
+              license={licenseAbbreviation}
+            />
+          </FigureLicenseDialog>
+        </FigureCaption>
+      </>
+    );
+  };
+
+  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbedType, locale: LocaleType) => {
     const {
       id,
       title: { title },
@@ -137,6 +221,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       },
     } = audio;
 
+    const { image } = imageMeta || {};
+
     const { introduction, coverPhoto } = podcastMeta || {};
     const subtitle = series?.title;
 
@@ -144,8 +230,6 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     const description = renderMarkdown(introduction ?? '');
 
     const img = coverPhoto && { url: coverPhoto.url, alt: coverPhoto.altText };
-
-    const caption = data.caption || title;
 
     const authors = getLicenseCredits(audio.copyright);
 
@@ -190,7 +274,6 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
               <FigureCaption
                 figureId={figureid}
                 id={figureLicenseDialogId}
-                caption={caption}
                 reuseLabel={t(locale, 'audio.reuse')}
                 licenseRights={license.rights}
                 authors={authors.creators || authors.rightsholders || authors.processors}
@@ -212,6 +295,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                   src={url}
                 />
               </FigureLicenseDialog>
+              {image && <ImageLicense image={image} locale={locale} figureid={figureid} />}
             </Figure>
           );
         }}
