@@ -144,7 +144,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       }</style
     ><a
       target=\\"_blank\\"
-      href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=10720\\"
+      href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
       class=\\"css-c121an-StyledLink envije90\\"
