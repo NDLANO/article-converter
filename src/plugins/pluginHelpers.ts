@@ -26,6 +26,12 @@ export const wrapInFigure = (
   return `<figure class="${embedClassnames}" ${resize ? 'resizeIframe' : ''}>${content}</figure>`;
 };
 
+export const getFirstNonEmptyLicenseCredits = (authors: {
+  creators: Author[];
+  rightsholders: Author[];
+  processors: Author[];
+}) => Object.values(authors).find((i) => i.length > 0) ?? [];
+
 export const makeIframe = (
   url: string,
   width: string,

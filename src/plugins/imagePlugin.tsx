@@ -23,7 +23,12 @@ import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import queryString from 'query-string';
 import { isNumber } from 'lodash';
-import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
+import {
+  errorSvgSrc,
+  getCopyString,
+  getFirstNonEmptyLicenseCredits,
+  getLicenseCredits,
+} from './pluginHelpers';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -152,8 +157,7 @@ export const ImageActionButtons = ({
         key="copy"
         outline
         data-copied-title={t(locale, 'license.hasCopiedTitle')}
-        data-copy-string={copyString}
-      >
+        data-copy-string={copyString}>
         {t(locale, 'license.copyTitle')}
       </Button>
       {license !== 'COPYRIGHTED' && (
@@ -301,7 +305,7 @@ export default function createImagePlugin(
       }
       return null;
     };
-    const captionAuthors = Object.values(authors).find((i) => i.length > 0) ?? [];
+    const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
@@ -326,8 +330,7 @@ export default function createImagePlugin(
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
               authors={captionAuthors}
-              locale={locale}
-            >
+              locale={locale}>
               <FigureLicenseDialog
                 id={`${id}`}
                 title={title}
@@ -335,8 +338,7 @@ export default function createImagePlugin(
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages(locale)}
-              >
+                messages={messages(locale)}>
                 <ImageActionButtons
                   locale={locale}
                   copyString={copyString}
