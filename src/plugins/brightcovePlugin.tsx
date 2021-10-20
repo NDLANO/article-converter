@@ -171,7 +171,7 @@ export default function createBrightcovePlugin(
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={authors.creators || authors.rightsholders || authors.processors}
+          authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
           hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog
@@ -180,13 +180,11 @@ export default function createBrightcovePlugin(
           locale={locale}
           license={license}
           authors={contributors}
-          messages={messages}
-        >
+          messages={messages}>
           <Button
             outline
             data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={copyString}
-          >
+            data-copy-string={copyString}>
             {t(locale, 'license.copyTitle')}
           </Button>
           {licenseAbbreviation !== 'COPYRIGHTED' && (
@@ -197,8 +195,7 @@ export default function createBrightcovePlugin(
           <Button
             outline
             data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={makeIframeString(src, height, width, brightcove.name)}
-          >
+            data-copy-string={makeIframeString(src, height, width, brightcove.name)}>
             {t(locale, 'license.embed')}
           </Button>
         </FigureLicenseDialog>

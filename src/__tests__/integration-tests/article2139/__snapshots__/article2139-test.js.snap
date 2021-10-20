@@ -418,7 +418,10 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               </li>
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
-              <span class=\\"c-figure__byline-authors\\">Ingar Storfjell</span>
+              <span class=\\"c-figure__byline-authors\\"
+                >Ingar Storfjell, Aftenposten, NTB scanpix, Intel, Google
+                translate</span
+              >
               <div>
                 <style
                   data-emotion-css=\\"1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"

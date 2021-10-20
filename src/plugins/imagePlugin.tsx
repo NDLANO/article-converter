@@ -152,8 +152,7 @@ export const ImageActionButtons = ({
         key="copy"
         outline
         data-copied-title={t(locale, 'license.hasCopiedTitle')}
-        data-copy-string={copyString}
-      >
+        data-copy-string={copyString}>
         {t(locale, 'license.copyTitle')}
       </Button>
       {license !== 'COPYRIGHTED' && (
@@ -323,9 +322,8 @@ export default function createImagePlugin(
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={authors.creators || authors.rightsholders || authors.processors}
-              locale={locale}
-            >
+              authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
+              locale={locale}>
               <FigureLicenseDialog
                 id={`${id}`}
                 title={title}
@@ -333,8 +331,7 @@ export default function createImagePlugin(
                 authors={contributors}
                 origin={origin}
                 locale={locale}
-                messages={messages(locale)}
-              >
+                messages={messages(locale)}>
                 <ImageActionButtons
                   locale={locale}
                   copyString={copyString}
