@@ -187,45 +187,68 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 ></path>
               </g></svg
           ></span></button
-        ><style data-emotion-css=\\"yss1y2-ForwardRewindButton-Back15SecButton\\">
-          .css-yss1y2-ForwardRewindButton-Back15SecButton {
-            background-color: inherit;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 42px;
-            height: 42px;
-            border: 0;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 9px;
-            line-height: 23px;
-            color: #184673;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-            transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-            background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.19004 21.3306C7.24095 23.1248 9.87547 24.11 12.6004 24.1019C15.3254 24.0937 17.954 23.0927 19.9941 21.2863C22.0343 19.4798 23.3461 16.9918 23.6841 14.2879C24.0221 11.5839 23.3631 8.84951 21.8303 6.59646C20.2976 4.3434 17.9963 2.72618 15.3572 2.04753C12.7181 1.36887 9.92213 1.67531 7.49267 2.90947C5.0632 4.14363 3.16681 6.22092 2.15848 8.75246M1.45825 1.75015L1.45825 8.75246L8.46057 8.75246' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
-          }
-          .css-yss1y2-ForwardRewindButton-Back15SecButton:hover {
-            background-color: #eff0f2;
+        ><style data-emotion-css=\\"1gvqwiv-WardButtonWrapper\\">
+          .css-1gvqwiv-WardButtonWrapper {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
           }
           @media (max-width: 48em) {
-            .css-yss1y2-ForwardRewindButton-Back15SecButton {
-              -webkit-order: 5;
-              -ms-flex-order: 5;
-              order: 5;
+            .css-1gvqwiv-WardButtonWrapper {
+              -webkit-order: 3;
+              -ms-flex-order: 3;
+              order: 3;
             }
-          }</style
-        ><button
-          type=\\"button\\"
-          title=\\"Spol 15 sekunder tilbake\\"
-          aria-label=\\"Spol 15 sekunder tilbake\\"
-          class=\\"css-yss1y2-ForwardRewindButton-Back15SecButton e1gaeajv4\\"
-        >
-          15</button
-        ><style data-emotion-css=\\"1ufz7h0-SpeedWrapper\\">
+          }
+        </style>
+        <div order=\\"3\\" class=\\"css-1gvqwiv-WardButtonWrapper e1gaeajv18\\">
+          <style data-emotion-css=\\"1wwpdp8-ForwardRewindButton-Back15SecButton\\">
+            .css-1wwpdp8-ForwardRewindButton-Back15SecButton {
+              background-color: inherit;
+              background-position: center;
+              background-repeat: no-repeat;
+              width: 42px;
+              height: 42px;
+              border: 0;
+              border-radius: 50%;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 9px;
+              line-height: 23px;
+              color: #184673;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+              transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+              background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.19004 21.3306C7.24095 23.1248 9.87547 24.11 12.6004 24.1019C15.3254 24.0937 17.954 23.0927 19.9941 21.2863C22.0343 19.4798 23.3461 16.9918 23.6841 14.2879C24.0221 11.5839 23.3631 8.84951 21.8303 6.59646C20.2976 4.3434 17.9963 2.72618 15.3572 2.04753C12.7181 1.36887 9.92213 1.67531 7.49267 2.90947C5.0632 4.14363 3.16681 6.22092 2.15848 8.75246M1.45825 1.75015L1.45825 8.75246L8.46057 8.75246' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
+            }
+            .css-1wwpdp8-ForwardRewindButton-Back15SecButton:hover {
+              background-color: #eff0f2;
+            }
+            @media (max-width: 48em) {
+              .css-1wwpdp8-ForwardRewindButton-Back15SecButton {
+                -webkit-order: 5;
+                -ms-flex-order: 5;
+                order: 5;
+              }
+            }</style
+          ><button
+            type=\\"button\\"
+            title=\\"Spol 15 sekunder tilbake\\"
+            aria-label=\\"Spol 15 sekunder tilbake\\"
+            class=\\"css-1wwpdp8-ForwardRewindButton-Back15SecButton e1gaeajv4\\"
+          >
+            15
+          </button>
+        </div>
+        <style data-emotion-css=\\"1ufz7h0-SpeedWrapper\\">
           .css-1ufz7h0-SpeedWrapper {
             position: relative;
             display: -webkit-box;
@@ -474,45 +497,70 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             </div>
           </div>
         </div>
-        <style data-emotion-css=\\"w6jska-ForwardRewindButton-Forward15SecButton\\">
-          .css-w6jska-ForwardRewindButton-Forward15SecButton {
-            background-color: inherit;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 42px;
-            height: 42px;
-            border: 0;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 9px;
-            line-height: 23px;
-            color: #184673;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-            transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-            background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.8358 20.8769C17.7849 22.6711 15.1504 23.6564 12.4254 23.6482C9.70049 23.6401 7.07191 22.6391 5.03176 20.8326C2.99161 19.0262 1.67975 16.5381 1.34176 13.8342C1.00377 11.1303 1.66282 8.39585 3.19553 6.1428C4.72825 3.88975 7.02955 2.27253 9.66866 1.59387C12.3078 0.915214 15.1037 1.22165 17.5332 2.45581C19.9627 3.68998 21.8591 5.76726 22.8674 8.2988M23.5676 1.29649L23.5676 8.2988L16.5653 8.2988' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
-          }
-          .css-w6jska-ForwardRewindButton-Forward15SecButton:hover {
-            background-color: #eff0f2;
+        <style data-emotion-css=\\"jbp4tx-WardButtonWrapper\\">
+          .css-jbp4tx-WardButtonWrapper {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
           }
           @media (max-width: 48em) {
-            .css-w6jska-ForwardRewindButton-Forward15SecButton {
-              -webkit-order: 3;
-              -ms-flex-order: 3;
-              order: 3;
+            .css-jbp4tx-WardButtonWrapper {
+              -webkit-order: 5;
+              -ms-flex-order: 5;
+              order: 5;
             }
-          }</style
-        ><button
-          type=\\"button\\"
-          title=\\"Spol 15 sekunder frem\\"
-          aria-label=\\"Spol 15 sekunder frem\\"
-          class=\\"css-w6jska-ForwardRewindButton-Forward15SecButton e1gaeajv3\\"
-        >
-          15</button
-        ><style data-emotion-css=\\"1e6uvc9-ProgressWrapper\\">
+          }
+        </style>
+        <div order=\\"5\\" class=\\"css-jbp4tx-WardButtonWrapper e1gaeajv18\\">
+          <style
+            data-emotion-css=\\"y3f1gb-ForwardRewindButton-Forward15SecButton\\"
+          >
+            .css-y3f1gb-ForwardRewindButton-Forward15SecButton {
+              background-color: inherit;
+              background-position: center;
+              background-repeat: no-repeat;
+              width: 42px;
+              height: 42px;
+              border: 0;
+              border-radius: 50%;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 9px;
+              line-height: 23px;
+              color: #184673;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              -webkit-transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+              transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+              background-image: url(\\"data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.8358 20.8769C17.7849 22.6711 15.1504 23.6564 12.4254 23.6482C9.70049 23.6401 7.07191 22.6391 5.03176 20.8326C2.99161 19.0262 1.67975 16.5381 1.34176 13.8342C1.00377 11.1303 1.66282 8.39585 3.19553 6.1428C4.72825 3.88975 7.02955 2.27253 9.66866 1.59387C12.3078 0.915214 15.1037 1.22165 17.5332 2.45581C19.9627 3.68998 21.8591 5.76726 22.8674 8.2988M23.5676 1.29649L23.5676 8.2988L16.5653 8.2988' stroke='%23184673' stroke-width='1.52778' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");
+            }
+            .css-y3f1gb-ForwardRewindButton-Forward15SecButton:hover {
+              background-color: #eff0f2;
+            }
+            @media (max-width: 48em) {
+              .css-y3f1gb-ForwardRewindButton-Forward15SecButton {
+                -webkit-order: 3;
+                -ms-flex-order: 3;
+                order: 3;
+              }
+            }</style
+          ><button
+            type=\\"button\\"
+            title=\\"Spol 15 sekunder frem\\"
+            aria-label=\\"Spol 15 sekunder frem\\"
+            class=\\"css-y3f1gb-ForwardRewindButton-Forward15SecButton e1gaeajv3\\"
+          >
+            15
+          </button>
+        </div>
+        <style data-emotion-css=\\"1e6uvc9-ProgressWrapper\\">
           .css-1e6uvc9-ProgressWrapper {
             -webkit-flex: 1 1 auto;
             -ms-flex: 1 1 auto;
@@ -657,7 +705,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             type=\\"button\\"
             title=\\"Endre volum\\"
             aria-label=\\"Endre volum\\"
-            class=\\"css-183flrk-VolumeButton e1gaeajv18\\"
+            class=\\"css-183flrk-VolumeButton e1gaeajv19\\"
             data-reach-menu-button=\\"\\"
           ></button
           ><style data-emotion-css=\\"lfwdze-VolumeMenu\\">
@@ -671,7 +719,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
             data-reach-menu=\\"\\"
             data-reach-menu-popover=\\"\\"
             hidden=\\"\\"
-            class=\\"css-lfwdze-VolumeMenu e1gaeajv19\\"
+            class=\\"css-lfwdze-VolumeMenu e1gaeajv20\\"
           >
             <style data-emotion-css=\\"z5k8gy-VolumeList\\">
               .css-z5k8gy-VolumeList {
@@ -694,7 +742,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                 height: 128px;
               }
             </style>
-            <div class=\\"css-z5k8gy-VolumeList e1gaeajv20\\">
+            <div class=\\"css-z5k8gy-VolumeList e1gaeajv21\\">
               <style data-emotion-css=\\"12biwwv-VolumeSliderWrapper\\">
                 .css-12biwwv-VolumeSliderWrapper {
                   cursor: pointer;
@@ -712,7 +760,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   padding: 16px 0;
                 }
               </style>
-              <div class=\\"css-12biwwv-VolumeSliderWrapper e1gaeajv21\\">
+              <div class=\\"css-12biwwv-VolumeSliderWrapper e1gaeajv22\\">
                 <div
                   data-reach-slider-input=\\"\\"
                   data-orientation=\\"vertical\\"
@@ -728,7 +776,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   </style>
                   <div
                     style=\\"position: relative\\"
-                    class=\\"css-1wpoc9h-VolumeSliderBackground e1gaeajv22\\"
+                    class=\\"css-1wpoc9h-VolumeSliderBackground e1gaeajv23\\"
                     data-reach-slider-track=\\"\\"
                     data-orientation=\\"vertical\\"
                   >
@@ -742,7 +790,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     </style>
                     <div
                       style=\\"position: absolute; height: 100%\\"
-                      class=\\"css-1iljhn2-VolumeSliderSelected e1gaeajv23\\"
+                      class=\\"css-1iljhn2-VolumeSliderSelected e1gaeajv24\\"
                       data-reach-slider-range=\\"\\"
                       data-orientation=\\"vertical\\"
                     ></div>
@@ -762,7 +810,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       aria-valuenow=\\"100\\"
                       role=\\"slider\\"
                       tabindex=\\"0\\"
-                      class=\\"css-1j086pj-VolumeSliderHandle e1gaeajv24\\"
+                      class=\\"css-1j086pj-VolumeSliderHandle e1gaeajv25\\"
                       data-reach-slider-handle=\\"\\"
                       style=\\"position: absolute; bottom: calc(100% - 0px / 2)\\"
                     ></div>
@@ -3395,7 +3443,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       }</style
     ><a
       target=\\"_blank\\"
-      href=\\"http://ndla.no/images/1.jpg?width=10720\\"
+      href=\\"http://ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
       class=\\"css-c121an-StyledLink envije90\\"
@@ -4193,7 +4241,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       }</style
     ><a
       target=\\"_blank\\"
-      href=\\"http://ndla.no/images/2.jpg?width=10720\\"
+      href=\\"http://ndla.no/images/2.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
       class=\\"css-c121an-StyledLink envije90\\"
@@ -5046,7 +5094,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       }</style
     ><a
       target=\\"_blank\\"
-      href=\\"http://api.test.ndla.no/images/1.jpg?width=10720\\"
+      href=\\"http://api.test.ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
       class=\\"css-c121an-StyledLink envije90\\"
