@@ -41,6 +41,10 @@ All dependencies are defined in `package.json` and are managed with yarn/npm. To
 initially install all dependencies and when the list dependency has changed,
 run `yarn`.
 
+If you are using a Mac, you might encounter problems with chokidar. The install
+will spit out several warnings and error messages, and `yarn start` will fail when
+calling `fsevents`. To avoid this, ignore optional dependencies with `yarn --ignore-optional`.
+
 ### Start development server
 
 Start node server with hot reloading middleware listening on port 3000.
