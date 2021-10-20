@@ -301,6 +301,8 @@ export default function createImagePlugin(
       }
       return null;
     };
+    const captionAuthors = Object.values(authors).find((i) => i.length > 0) ?? [];
+
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }: { typeClass: string }) => (
@@ -323,7 +325,7 @@ export default function createImagePlugin(
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
+              authors={captionAuthors}
               locale={locale}
             >
               <FigureLicenseDialog

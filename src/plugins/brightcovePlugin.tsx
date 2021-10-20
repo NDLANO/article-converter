@@ -146,6 +146,7 @@ export default function createBrightcovePlugin(
     const figureId = `figure-${brightcove.id}`;
 
     const originalVideoProps = getIframeProps(data, brightcove.sources);
+    const captionAuthors = Object.values(authors).find((i) => i.length > 0) ?? [];
 
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : 'full'} resizeIframe>
@@ -171,7 +172,7 @@ export default function createBrightcovePlugin(
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
+          authors={captionAuthors}
           hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog

@@ -176,6 +176,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       type: item.label,
     }));
 
+    const captionAuthors = Object.values(authors).find((i) => i.length > 0) ?? [];
+
     return (
       <>
         <FigureCaption
@@ -183,7 +185,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
           id={`${id}`}
           reuseLabel={t(locale, 'image.reuse')}
           licenseRights={license.rights}
-          authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
+          authors={captionAuthors}
           locale={locale}
         >
           <FigureLicenseDialog
@@ -253,6 +255,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     };
 
     const copyString = getCopyString(title, url, options.path, audio.copyright, locale);
+    const captionAuthors = Object.values(authors).find((i) => i.length > 0) ?? [];
 
     return render(
       <Translation>
@@ -276,7 +279,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                 id={figureLicenseDialogId}
                 reuseLabel={t(locale, 'audio.reuse')}
                 licenseRights={license.rights}
-                authors={[...authors.creators, ...authors.rightsholders, ...authors.processors]}
+                authors={captionAuthors}
                 locale={locale}
               />
               <FigureLicenseDialog

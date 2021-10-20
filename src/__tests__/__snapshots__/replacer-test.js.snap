@@ -1034,7 +1034,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </li>
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
-              <span class=\\"c-figure__byline-authors\\">name, name, name</span>
+              <span class=\\"c-figure__byline-authors\\">name</span>
               <div>
                 <style
                   data-emotion-css=\\"1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
@@ -3689,7 +3689,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
               <span class=\\"c-figure__byline-authors\\"
-                >Ola Foton, Kari Maler, Scanpix</span
+                >Ola Foton, Kari Maler</span
               >
               <div>
                 <style

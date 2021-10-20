@@ -323,10 +323,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               </li>
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
-              <span class=\\"c-figure__byline-authors\\"
-                >Wes Anderson, Senter for nye medier, Høgskolen i Bergen, Live
-                Marie Toft Sundbye</span
-              >
+              <span class=\\"c-figure__byline-authors\\">Wes Anderson</span>
               <div>
                 <style
                   data-emotion-css=\\"1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
