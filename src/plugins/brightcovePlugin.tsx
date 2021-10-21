@@ -23,7 +23,12 @@ import {
   fetchVideoMeta,
 } from '../api/brightcove';
 import t from '../locale/i18n';
-import { getCopyString, getLicenseCredits, makeIframeString } from './pluginHelpers';
+import {
+  getCopyString,
+  getFirstNonEmptyLicenseCredits,
+  getLicenseCredits,
+  makeIframeString,
+} from './pluginHelpers';
 import { render } from '../utils/render';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
@@ -146,6 +151,7 @@ export default function createBrightcovePlugin(
     const figureId = `figure-${brightcove.id}`;
 
     const originalVideoProps = getIframeProps(data, brightcove.sources);
+    const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : 'full'} resizeIframe>
@@ -171,7 +177,7 @@ export default function createBrightcovePlugin(
           caption={caption}
           reuseLabel={t(locale, 'video.reuse')}
           licenseRights={license.rights}
-          authors={authors.creators || authors.rightsholders || authors.processors}
+          authors={captionAuthors}
           hasLinkedVideo={!!linkedVideoId}
         />
         <FigureLicenseDialog

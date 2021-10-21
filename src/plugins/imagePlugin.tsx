@@ -23,7 +23,12 @@ import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import queryString from 'query-string';
 import { isNumber } from 'lodash';
-import { errorSvgSrc, getCopyString, getLicenseCredits } from './pluginHelpers';
+import {
+  errorSvgSrc,
+  getCopyString,
+  getFirstNonEmptyLicenseCredits,
+  getLicenseCredits,
+} from './pluginHelpers';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -301,6 +306,8 @@ export default function createImagePlugin(
       }
       return null;
     };
+    const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
+
     return render(
       <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
         {({ typeClass }: { typeClass: string }) => (
@@ -323,7 +330,7 @@ export default function createImagePlugin(
               caption={caption}
               reuseLabel={t(locale, 'image.reuse')}
               licenseRights={license.rights}
-              authors={authors.creators || authors.rightsholders || authors.processors}
+              authors={captionAuthors}
               locale={locale}
             >
               <FigureLicenseDialog

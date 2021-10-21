@@ -6,7 +6,12 @@
  *
  */
 
-import { getCopyString, makeIframe, wrapInFigure } from '../pluginHelpers';
+import {
+  getCopyString,
+  getFirstNonEmptyLicenseCredits,
+  makeIframe,
+  wrapInFigure,
+} from '../pluginHelpers';
 
 test('wrapInFigure', () => {
   expect(wrapInFigure('<div></div>')).toMatchSnapshot();
@@ -41,4 +46,26 @@ test('getCopyString from brightcove with missing type due to typo', () => {
     rightsholders: [{ type: 'publisher', name: 'Scanpix' }],
   };
   expect(getCopyString('Title', undefined, '/article/123', copyright, 'nb')).toMatchSnapshot();
+});
+
+test('getFirstNonEmptyLicenseCredits returns an empty array if no values exist', () => {
+  const emptyLicense = { creators: [], rightsholders: [], processors: [] };
+  expect(getFirstNonEmptyLicenseCredits(emptyLicense)).toEqual([]);
+});
+
+test('getFirstNonEmptyLicenseCredits returns the first non-empty array in a license object', () => {
+  const creator1 = { name: 'crea tor', type: 'creator' };
+  const creator2 = { name: 'crea tor too', type: 'creator' };
+  const rightsholder = { name: 'Right holder', type: 'rightsholder' };
+  const processor = { name: 'test2', type: 'processor' };
+  const licenseWithFirst = { creators: [creator1], rightsholders: [], processors: [] };
+  const licenseWithLast = { creators: [], rightsholders: [], processors: [processor] };
+  const licenseWithAll = {
+    creators: [creator1, creator2],
+    rightsholders: [rightsholder],
+    processors: [processor],
+  };
+  expect(getFirstNonEmptyLicenseCredits(licenseWithFirst)).toEqual([creator1]);
+  expect(getFirstNonEmptyLicenseCredits(licenseWithLast)).toEqual([processor]);
+  expect(getFirstNonEmptyLicenseCredits(licenseWithAll)).toEqual([creator1, creator2]);
 });
