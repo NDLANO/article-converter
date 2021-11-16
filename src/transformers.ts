@@ -48,6 +48,7 @@ async function executeHtmlTransforms(
 export async function getEmbedsResources(
   embeds: EmbedType[],
   accessToken: string,
+  feideToken: string,
   lang: LocaleType,
   plugins: PluginUnion[],
 ) {
@@ -57,7 +58,7 @@ export async function getEmbedsResources(
       if (plugin && plugin.fetchResource) {
         const startStamp = performance.now();
         try {
-          const resource = await plugin.fetchResource(embed, accessToken, lang);
+          const resource = await plugin.fetchResource(embed, accessToken, lang, feideToken);
           logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
@@ -79,6 +80,7 @@ export type TransformFunction = (
   content: CheerioAPI,
   lang: LocaleType,
   accessToken: string,
+  feideToken: string,
   visualElement: { visualElement: string } | undefined,
   options: TransformOptions,
 ) => Promise<{ html: string | null; embedMetaData: any }>;
@@ -87,6 +89,7 @@ export const transform: TransformFunction = async (
   content,
   lang,
   accessToken,
+  feideToken,
   visualElement,
   options,
 ) => {
@@ -97,7 +100,13 @@ export const transform: TransformFunction = async (
   const transformOptions = { transform, ...options };
   const plugins = createPlugins(transformOptions);
   const embeds = await getEmbedsFromHtml(content);
-  const embedsWithResources = await getEmbedsResources(embeds, accessToken, lang, plugins);
+  const embedsWithResources = await getEmbedsResources(
+    embeds,
+    accessToken,
+    feideToken,
+    lang,
+    plugins,
+  );
 
   await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);

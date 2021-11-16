@@ -28,7 +28,7 @@ test('app/fetchAndTransformArticle 116', async () => {
     .get('/v1/accounts/4806596774001/videos/ref:125442/sources')
     .reply(200, videoSources125442);
 
-  const transformed = await fetchAndTransformArticle('116', 'nb', 'some_token');
+  const transformed = await fetchAndTransformArticle('116', 'nb', 'some_token', 'some_other_token');
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

@@ -125,6 +125,7 @@ export default function createRelatedContentPlugin(
     embed: EmbedType,
     accessToken: string,
     language: LocaleType,
+    feideToken: string,
   ): Promise<RelatedContentEmbedType> {
     if (!embed.data) return embed;
 
@@ -133,7 +134,7 @@ export default function createRelatedContentPlugin(
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
         const [article, resource] = await Promise.all([
-          fetchArticle(articleId, accessToken, language),
+          fetchArticle(articleId, accessToken, feideToken, language),
           fetchArticleResource(articleId, accessToken, language),
         ]);
         return {

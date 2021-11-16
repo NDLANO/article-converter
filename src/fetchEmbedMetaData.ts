@@ -17,10 +17,17 @@ export default async function fetchEmbedMetaData(
   embedTag: string,
   accessToken: string,
   language: LocaleType,
+  feideToken: string,
 ) {
   const c = cheerio.load(embedTag);
   const plugins = createPlugins({});
   const embeds = await getEmbedsFromHtml(c);
-  const embedsWithResources = await getEmbedsResources(embeds, accessToken, language, plugins);
+  const embedsWithResources = await getEmbedsResources(
+    embeds,
+    accessToken,
+    feideToken,
+    language,
+    plugins,
+  );
   return await getEmbedMetaData(embedsWithResources, language, plugins);
 }
