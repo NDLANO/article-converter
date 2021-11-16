@@ -25,8 +25,9 @@ const setup = function routes(app: Express) {
   app.get('/article-converter/json/:lang/meta-data', (req, res) => {
     const embed = getAsString(req.query.embed);
     const accessToken = getAsString(req.headers.authorization);
+    const feideToken = getAsString(req.headers.feideAuthorization);
     const lang = getHtmlLang(defined(req.params.lang, ''));
-    fetchEmbedMetaData(embed, accessToken, lang)
+    fetchEmbedMetaData(embed, accessToken, lang, feideToken)
       .then((data) => {
         res.json({
           metaData: data,

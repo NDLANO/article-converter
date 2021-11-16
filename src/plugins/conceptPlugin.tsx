@@ -118,6 +118,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       cheerio.load(visualElement.visualElement),
       locale,
       '',
+      '',
       undefined,
       { concept: true },
     );
