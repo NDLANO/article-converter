@@ -25,7 +25,7 @@ const setup = function routes(app: Express) {
   app.get('/article-converter/json/:lang/meta-data', (req, res) => {
     const embed = getAsString(req.query.embed);
     const accessToken = getAsString(req.headers.authorization);
-    const feideToken = getAsString(req.headers.feideAuthorization);
+    const feideToken = getAsString(req.headers['feideauthorization']);
     const lang = getHtmlLang(defined(req.params.lang, ''));
     fetchEmbedMetaData(embed, accessToken, lang, feideToken)
       .then((data) => {
@@ -53,7 +53,7 @@ const setup = function routes(app: Express) {
     const showVisualElement = defined(req.query.showVisualElement, 'false');
     const articleId = req.params.id;
     const accessToken = getAsString(req.headers.authorization);
-    const feideToken = getAsString(req.headers.feideAuthorization);
+    const feideToken = getAsString(req.headers['feideauthorization']);
     const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
@@ -81,7 +81,7 @@ const setup = function routes(app: Express) {
       defined(req.query.isOembed, 'false') || defined(req.query.removeRelatedContent, 'false');
     const showVisualElement = defined(req.query.showVisualElement, 'false');
     const accessToken = getAsString(req.headers.authorization);
-    const feideToken = getAsString(req.headers.feideAuthorization);
+    const feideToken = getAsString(req.headers['feideauthorization']);
     const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
@@ -112,7 +112,7 @@ const setup = function routes(app: Express) {
     const showVisualElement = req.query.showVisualElement === 'true';
 
     const accessToken = getAsString(req.headers.authorization);
-    const feideToken = getAsString(req.headers.feideAuthorization);
+    const feideToken = getAsString(req.headers['feideauthorization']);
     if (body && body.article) {
       transformArticle(body.article, lang, accessToken, feideToken, {
         showVisualElement,
