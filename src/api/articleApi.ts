@@ -90,13 +90,16 @@ export interface ArticleApiType {
 export async function fetchArticle(
   articleId: number | string,
   accessToken: string,
+  feideToken: string,
   language: LocaleType,
 ): Promise<ArticleApiType> {
+  const feideHeader = feideToken ? { FeideAuthorization: feideToken } : null;
+  const headers = { ...headerWithAccessToken(accessToken), ...feideHeader };
   const response = await fetch(
     apiResourceUrl(`/article-api/v2/articles/${articleId}?language=${language}&fallback=true`),
     {
       method: 'GET',
-      headers: headerWithAccessToken(accessToken),
+      headers,
     },
   );
   return resolveJsonOrRejectWithError<ArticleApiType>(response);

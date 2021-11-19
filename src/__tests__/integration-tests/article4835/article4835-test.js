@@ -20,7 +20,12 @@ test('app/fetchAndTransformArticle 4835', async () => {
   nock('http://ndla-api').head('/files/103066/1p_arsplan_2013-2014_nynorsk.odt').reply(200);
   nock('http://ndla-api').head('/files/103066/1p_arsplan_2013-2014_nynorsk.pdf').reply(200);
 
-  const transformed = await fetchAndTransformArticle('4835', 'nb', 'some_token');
+  const transformed = await fetchAndTransformArticle(
+    '4835',
+    'nb',
+    'some_token',
+    'some_other_token',
+  );
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();
