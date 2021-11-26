@@ -29,6 +29,8 @@ export interface EmbedMetaData extends Record<string, unknown> {
   description?: string;
 }
 
+export type ResponseHeaders = Record<string, string>;
+
 export interface Plugin<E extends EmbedType> {
   resource: string;
   embedToHTML: (embed: E, lang: LocaleType) => Promise<string>;
@@ -46,6 +48,7 @@ export interface EmbedType {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
   status?: string;
+  responseHeaders?: ResponseHeaders;
 }
 
 export type PluginUnion =
@@ -79,6 +82,7 @@ export interface TransformedArticle extends Omit<IArticleV2, TransformedFields> 
   tags: string[];
   introduction?: string;
   metaDescription: string;
+  headerData: Record<string, string>;
 }
 
 export interface Author {

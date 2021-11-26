@@ -134,12 +134,13 @@ export default function createRelatedContentPlugin(
 
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
-        const [article, resource] = await Promise.all([
+        const [[article, articleResponseHeaders], resource] = await Promise.all([
           fetchArticle(articleId, accessToken, feideToken, language),
           fetchArticleResource(articleId, accessToken, language),
         ]);
         return {
           ...embed,
+          responseHeaders: articleResponseHeaders,
           article: article ? { ...article, resource } : undefined,
         };
       } catch (error) {

@@ -4,10 +4,11 @@ import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
 import { getCopyString } from './plugins/pluginHelpers';
-import { LocaleType, TransformedArticle, TransformOptions } from './interfaces';
+import { LocaleType, ResponseHeaders, TransformedArticle, TransformOptions } from './interfaces';
 
 export async function transformArticle(
   article: IArticleV2,
+  headers: ResponseHeaders,
   lang: LocaleType,
   accessToken: string,
   feideToken: string,
@@ -19,9 +20,17 @@ export async function transformArticle(
       })
     : undefined;
 
-  const { html, embedMetaData } = articleContent
-    ? await transform(articleContent, lang, accessToken, feideToken, article.visualElement, options)
-    : { html: undefined, embedMetaData: undefined };
+  const { html, embedMetaData, responseHeaders } = articleContent
+    ? await transform(
+        articleContent,
+        headers,
+        lang,
+        accessToken,
+        feideToken,
+        article.visualElement,
+        options,
+      )
+    : { html: undefined, embedMetaData: undefined, responseHeaders: undefined };
 
   const htmlString: string = html ?? '';
 
@@ -42,6 +51,7 @@ export async function transformArticle(
     tags: article.tags ? article.tags.tags : [],
     introduction: article.introduction ? article.introduction.introduction : undefined,
     metaDescription: article.metaDescription ? article.metaDescription.metaDescription : '',
+    headerData: responseHeaders ?? {},
   };
 }
 
@@ -52,6 +62,6 @@ export default async function fetchAndTransformArticle(
   feideToken: string,
   options = {},
 ): Promise<TransformedArticle> {
-  const article = await fetchArticle(articleId, accessToken, feideToken, lang);
-  return await transformArticle(article, lang, accessToken, feideToken, options);
+  const [article, headers] = await fetchArticle(articleId, accessToken, feideToken, lang);
+  return await transformArticle(article, headers, lang, accessToken, feideToken, options);
 }

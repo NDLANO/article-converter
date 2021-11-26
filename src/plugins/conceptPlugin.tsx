@@ -95,8 +95,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
           <NotionDialogContent>
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
-        }
-      >
+        }>
         {linkText}
       </Notion>,
       locale,
@@ -116,6 +115,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
+      {}, // TODO: This might need to be returned as well?
       locale,
       '',
       '',
@@ -138,8 +138,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
             </NotionDialogContent>
             <NotionDialogLicenses license={license} source={source} authors={authors} />
           </>
-        }
-      >
+        }>
         {embed.data.linkText}
       </Notion>,
       locale,

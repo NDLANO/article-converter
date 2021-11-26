@@ -13,14 +13,14 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType } from '../interfaces';
+import { LocaleType, ResponseHeaders } from '../interfaces';
 
 export async function fetchArticle(
   articleId: number | string,
   accessToken: string,
   feideToken: string,
   language: LocaleType,
-): Promise<IArticleV2> {
+): Promise<[IArticleV2, ResponseHeaders]> {
   const feideHeader = feideToken ? { FeideAuthorization: feideToken } : null;
   const headers = { ...headerWithAccessToken(accessToken), ...feideHeader };
   const response = await fetch(
@@ -30,5 +30,12 @@ export async function fetchArticle(
       headers,
     },
   );
-  return resolveJsonOrRejectWithError<IArticleV2>(response);
+
+  const cacheControlResponse = response.headers.get('cache-control');
+  const responseHeaders: Record<string, string> = cacheControlResponse
+    ? { 'cache-control': cacheControlResponse }
+    : {};
+
+  const article = resolveJsonOrRejectWithError<IArticleV2>(response);
+  return article.then((art) => [art, responseHeaders]);
 }
