@@ -1869,6 +1869,11 @@
   dependencies:
     "@ndla/core" "^0.7.2"
 
+"@ndla/types-article-api@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ndla/types-article-api/-/types-article-api-0.0.3.tgz#45033502074fbf2a667be7b5631823eb26fb1212"
+  integrity sha512-gZ1SAORu8bjP63nqyPusi5ucE2VoFvYu7SnTkdH9KcbriIZEcq4vja/ZPznUtfKiQ9/lu3chCKbdxAT+QDHXRw==
+
 "@ndla/ui@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-3.0.4.tgz#ef8d8c4230806ec6265af217f7081b3a23092e9b"

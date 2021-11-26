@@ -13,8 +13,9 @@ import cheerio from 'cheerio';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
+import { IArticleV2 } from '@ndla/types-article-api';
 import log from '../utils/logger';
-import { ArticleApiType, fetchArticle } from '../api/articleApi';
+import { fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -108,7 +109,7 @@ const getRelatedArticleProps = (
   return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
-type RelatedArticleType = ArticleApiType & { resource?: ArticleResource };
+type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
 
 export interface RelatedContentEmbedType extends EmbedType {
   article?: RelatedArticleType;

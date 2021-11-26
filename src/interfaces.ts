@@ -7,7 +7,7 @@
  */
 
 import { Cheerio, Element } from 'cheerio';
-import { ArticleApiType } from './api/articleApi';
+import { IArticleV2 } from '@ndla/types-article-api';
 import { TransformFunction } from './transformers';
 import { AudioPlugin } from './plugins/audioPlugin';
 import { ContentLinkPlugin } from './plugins/contentLinkPlugin';
@@ -72,7 +72,7 @@ export interface TransformOptions {
 }
 
 type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';
-export interface TransformedArticle extends Omit<ArticleApiType, TransformedFields> {
+export interface TransformedArticle extends Omit<IArticleV2, TransformedFields> {
   title: string;
   content: string;
   metaData: { copyText: string };

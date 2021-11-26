@@ -1,12 +1,13 @@
 import cheerio from 'cheerio';
-import { ArticleApiType, fetchArticle } from './api/articleApi';
+import { IArticleV2 } from '@ndla/types-article-api';
+import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
 import { getCopyString } from './plugins/pluginHelpers';
 import { LocaleType, TransformedArticle, TransformOptions } from './interfaces';
 
 export async function transformArticle(
-  article: ArticleApiType,
+  article: IArticleV2,
   lang: LocaleType,
   accessToken: string,
   feideToken: string,
