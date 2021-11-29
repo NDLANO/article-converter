@@ -8,8 +8,9 @@
 import { Plugin, EmbedType } from '../interfaces';
 
 export default function createNRKPlugin(): Plugin<EmbedType> {
-  const embedToHTML = async (embed: EmbedType) =>
-    `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`;
+  const embedToHTML = async (embed: EmbedType) => ({
+    html: `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`,
+  });
 
   return {
     resource: 'nrk',

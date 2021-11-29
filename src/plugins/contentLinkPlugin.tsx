@@ -61,11 +61,15 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
 
   const embedToHTML = async (embed: ContentLinkEmbedType) => {
     if (embed.data.openIn === 'new-context') {
-      return `<a href="/${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`;
+      return {
+        html: `<a href="/${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,
+      };
     }
-    return `<a href="/${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
-      embed.data.linkText
-    }</a>`;
+    return {
+      html: `<a href="/${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
+        embed.data.linkText
+      }</a>`,
+    };
   };
 
   return {

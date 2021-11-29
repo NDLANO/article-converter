@@ -83,6 +83,10 @@ export async function getEmbedsResources(
   );
 }
 
+function isNonNullUndefined<T>(x: T | undefined | null): x is T {
+  return !!x;
+}
+
 export type TransformFunction = (
   content: CheerioAPI,
   headers: Record<string, string>,
@@ -117,11 +121,14 @@ export const transform: TransformFunction = async (
     plugins,
   );
 
-  await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
-  const allResponseHeaders = [...embedsWithResources.map((x) => x.responseHeaders), headers].filter(
-    (x: ResponseHeaders | undefined): x is ResponseHeaders => !!x,
-  );
+
+  const fetchedResourceHeaders = embedsWithResources
+    .map((x) => x.responseHeaders)
+    .filter(isNonNullUndefined);
+
+  const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);
   await executeHtmlTransforms(content, lang, options);
 

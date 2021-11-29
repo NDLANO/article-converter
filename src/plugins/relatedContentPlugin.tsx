@@ -163,50 +163,54 @@ export default function createRelatedContentPlugin(
 
   const embedToHTML = async (embed: RelatedContentEmbedType, lang: LocaleType) => {
     if (!embed.article && !embed.data.url) {
-      return '';
+      return { html: '' };
     }
 
     const relatedArticleEntryNum = getEntryNumber(embed);
 
     // handle externalRelatedArticles
     if (embed.data && embed.data.url && typeof embed.data.url === 'string') {
-      return render(
-        <RelatedArticle
-          key={`external-learning-resources-${relatedArticleEntryNum}`}
-          title={embed.data.title}
-          introduction={embed.data.metaDescription || embed.data.url}
-          linkInfo={`${t(lang, 'related.linkInfo')} ${
-            // Get domain name only from url
-            embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
-            embed.data.url
-          }`}
-          target="_blank"
-          to={embed.data.url}
-          {...mapping(relatedArticleEntryNum)['external-learning-resources']}
-        />,
-      );
+      return {
+        html: render(
+          <RelatedArticle
+            key={`external-learning-resources-${relatedArticleEntryNum}`}
+            title={embed.data.title}
+            introduction={embed.data.metaDescription || embed.data.url}
+            linkInfo={`${t(lang, 'related.linkInfo')} ${
+              // Get domain name only from url
+              embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
+              embed.data.url
+            }`}
+            target="_blank"
+            to={embed.data.url}
+            {...mapping(relatedArticleEntryNum)['external-learning-resources']}
+          />,
+        ),
+      };
     }
     if (!embed.article) {
-      return '';
+      return { html: '' };
     }
-    return render(
-      <RelatedArticle
-        key={embed.article.id}
-        title={isObject(embed.article.title) ? embed.article.title.title : ''}
-        introduction={
-          isObject(embed.article.metaDescription)
-            ? embed.article.metaDescription.metaDescription
-            : ''
-        }
-        target={options.isOembed ? '_blank' : null}
-        {...getRelatedArticleProps(
-          embed.article,
-          relatedArticleEntryNum,
-          options.filters,
-          options.subject,
-        )}
-      />,
-    );
+    return {
+      html: render(
+        <RelatedArticle
+          key={embed.article.id}
+          title={isObject(embed.article.title) ? embed.article.title.title : ''}
+          introduction={
+            isObject(embed.article.metaDescription)
+              ? embed.article.metaDescription.metaDescription
+              : ''
+          }
+          target={options.isOembed ? '_blank' : null}
+          {...getRelatedArticleProps(
+            embed.article,
+            relatedArticleEntryNum,
+            options.filters,
+            options.subject,
+          )}
+        />,
+      ),
+    };
   };
 
   return {

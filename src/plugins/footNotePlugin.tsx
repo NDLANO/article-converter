@@ -39,7 +39,9 @@ export default function createFootnotePlugin(): Plugin<EmbedType> {
 
   const embedToHTML = async () => {
     const footNoteEntryNum = embedToHTMLCounter.getNextCount();
-    return `<span id="ref${footNoteEntryNum}" class="c-footnotes__ref"><sup><a href="#note${footNoteEntryNum}" target="_self">[${footNoteEntryNum}]</a></sup></span>`;
+    return {
+      html: `<span id="ref${footNoteEntryNum}" class="c-footnotes__ref"><sup><a href="#note${footNoteEntryNum}" target="_self">[${footNoteEntryNum}]</a></sup></span>`,
+    };
   };
 
   return {

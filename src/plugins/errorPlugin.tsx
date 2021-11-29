@@ -8,8 +8,9 @@
 import { Plugin, EmbedType } from '../interfaces';
 
 export default function createErrorPlugin(): Plugin<EmbedType> {
-  const embedToHTML = async (embed: EmbedType) =>
-    `<div><strong>${embed.data.message}</strong></div>`;
+  const embedToHTML = async (embed: EmbedType) => ({
+    html: `<div><strong>${embed.data.message}</strong></div>`,
+  });
 
   return {
     resource: 'error',

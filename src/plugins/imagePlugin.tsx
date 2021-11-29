@@ -32,7 +32,13 @@ import {
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import {
+  Plugin,
+  EmbedType,
+  LocaleType,
+  TransformOptions,
+  EmbedToHTMLReturnObj,
+} from '../interfaces';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -236,7 +242,10 @@ export default function createImagePlugin(
     );
   };
 
-  const embedToHTML = async (embed: ImageEmbedType, locale: LocaleType) => {
+  const embedToHTML = async (
+    embed: ImageEmbedType,
+    locale: LocaleType,
+  ): Promise<EmbedToHTMLReturnObj> => {
     const {
       image: {
         copyright,
@@ -308,52 +317,54 @@ export default function createImagePlugin(
     };
     const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
-    return render(
-      <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
-        {({ typeClass }: { typeClass: string }) => (
-          <>
-            <ImageWrapper src={imageUrl} crop={crop} size={size} locale={locale}>
-              <Image
-                focalPoint={focalPoint}
-                contentType={contentType}
-                crop={crop}
-                sizes={sizes}
-                alt={altText}
-                src={imageUrl}
-                expandButton={<ExpandButton size={size} typeClass={typeClass} />}
-              />
-            </ImageWrapper>
-            <FigureCaption
-              hideFigcaption={isSmall(size) || hideByline(size)}
-              figureId={figureId}
-              id={`${id}`}
-              caption={caption}
-              reuseLabel={t(locale, 'image.reuse')}
-              licenseRights={license.rights}
-              authors={captionAuthors}
-              locale={locale}
-            >
-              <FigureLicenseDialog
-                id={`${id}`}
-                title={title}
-                license={license}
-                authors={contributors}
-                origin={origin}
-                locale={locale}
-                messages={messages(locale)}
-              >
-                <ImageActionButtons
-                  locale={locale}
-                  copyString={copyString}
+    return {
+      html: render(
+        <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
+          {({ typeClass }: { typeClass: string }) => (
+            <>
+              <ImageWrapper src={imageUrl} crop={crop} size={size} locale={locale}>
+                <Image
+                  focalPoint={focalPoint}
+                  contentType={contentType}
+                  crop={crop}
+                  sizes={sizes}
+                  alt={altText}
                   src={imageUrl}
-                  license={licenseAbbreviation}
+                  expandButton={<ExpandButton size={size} typeClass={typeClass} />}
                 />
-              </FigureLicenseDialog>
-            </FigureCaption>
-          </>
-        )}
-      </Figure>,
-    );
+              </ImageWrapper>
+              <FigureCaption
+                hideFigcaption={isSmall(size) || hideByline(size)}
+                figureId={figureId}
+                id={`${id}`}
+                caption={caption}
+                reuseLabel={t(locale, 'image.reuse')}
+                licenseRights={license.rights}
+                authors={captionAuthors}
+                locale={locale}
+              >
+                <FigureLicenseDialog
+                  id={`${id}`}
+                  title={title}
+                  license={license}
+                  authors={contributors}
+                  origin={origin}
+                  locale={locale}
+                  messages={messages(locale)}
+                >
+                  <ImageActionButtons
+                    locale={locale}
+                    copyString={copyString}
+                    src={imageUrl}
+                    license={licenseAbbreviation}
+                  />
+                </FigureLicenseDialog>
+              </FigureCaption>
+            </>
+          )}
+        </Figure>,
+      ),
+    };
   };
 
   return {

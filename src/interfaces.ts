@@ -30,10 +30,14 @@ export interface EmbedMetaData extends Record<string, unknown> {
 }
 
 export type ResponseHeaders = Record<string, string>;
+export type EmbedToHTMLReturnObj = {
+  html: string;
+  responseHeaders?: ResponseHeaders[];
+};
 
 export interface Plugin<E extends EmbedType> {
   resource: string;
-  embedToHTML: (embed: E, lang: LocaleType) => Promise<string>;
+  embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
   fetchResource?: (
     embed: EmbedType,
     accessToken: string,

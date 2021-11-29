@@ -175,14 +175,16 @@ test('fetchResource for two related articles, where one could not be fetched fro
 test('embedToHtml should return empty string if no related articles is provided', async () => {
   const relatedContentPlugin = createRelatedContentPlugin();
 
-  expect(await relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })).toBe(
-    '',
+  expect(await relatedContentPlugin.embedToHTML({ data: { resource: 'related-content' } })).toEqual(
+    {
+      html: '',
+    },
   );
   expect(
     await relatedContentPlugin.embedToHTML({
       data: { resource: 'related-content' },
     }),
-  ).toBe('');
+  ).toEqual({ html: '' });
 });
 
 test('embedToHtml should return fallback url if no resource was found', async () => {
@@ -196,7 +198,7 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       metaDescription: { metaDescription: 'm1' },
     },
   };
-  expect(await relatedContentPlugin.embedToHTML(embed1)).toMatchSnapshot();
+  expect((await relatedContentPlugin.embedToHTML(embed1)).html).toMatchSnapshot();
 
   const embed2 = {
     data: { articleId: '1145', resource: 'related-content' },
@@ -213,7 +215,7 @@ test('embedToHtml should return fallback url if no resource was found', async ()
       },
     },
   };
-  expect(await relatedContentPlugin.embedToHTML(embed2)).toMatchSnapshot();
+  expect((await relatedContentPlugin.embedToHTML(embed2)).html).toMatchSnapshot();
 });
 
 test('embedToHtml should return an external article if url is set', async () => {
@@ -227,5 +229,5 @@ test('embedToHtml should return an external article if url is set', async () => 
     },
   };
 
-  expect(await relatedContentPlugin.embedToHTML(embed)).toMatchSnapshot();
+  expect((await relatedContentPlugin.embedToHTML(embed)).html).toMatchSnapshot();
 });
