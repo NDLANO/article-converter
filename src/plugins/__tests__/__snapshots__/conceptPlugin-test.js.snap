@@ -13,6 +13,7 @@ Object {
   "data": Object {
     "contentId": "1",
   },
+  "responseHeaders": Object {},
 }
 `;
 
@@ -29,6 +30,7 @@ Object {
   "data": Object {
     "contentId": "2",
   },
+  "responseHeaders": Object {},
 }
 `;
 
@@ -45,5 +47,6 @@ Object {
   "data": Object {
     "contentId": "3",
   },
+  "responseHeaders": Object {},
 }
 `;
