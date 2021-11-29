@@ -7,66 +7,14 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { IConcept } from '@ndla/types-concept-api';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { Author, EmbedType, LocaleType } from '../interfaces';
+import { EmbedType, LocaleType } from '../interfaces';
 import { ConceptEmbedType } from '../plugins/conceptPlugin';
-
-export interface ConceptCopyright {
-  license?: {
-    license: string;
-    description?: string;
-    url?: string;
-  };
-  origin?: string;
-  creators: Author[];
-  processors: Author[];
-  rightsholders: Author[];
-  agreementId?: number;
-  validFrom?: string;
-  validTo?: string;
-}
-
-export interface ConceptApiType {
-  id: number;
-  revision: number;
-  title?: {
-    title: string;
-    language: string;
-  };
-  content?: {
-    content: string;
-    language: string;
-  };
-  copyright?: ConceptCopyright;
-  source?: string;
-  metaImage?: {
-    url: string;
-    alt: string;
-    language: string;
-  };
-  tags?: {
-    tags: string[];
-    language: string;
-  };
-  subjectIds?: string[];
-  created: string;
-  updated: string;
-  updatedBy?: string[];
-  supportedLanguages: string[];
-  articleIds: number[];
-  status: {
-    current: string;
-    other: string[];
-  };
-  visualElement?: {
-    visualElement: string;
-    language: string;
-  };
-}
 
 export const fetchConcept = async (
   embed: EmbedType,
@@ -86,6 +34,11 @@ export const fetchConcept = async (
     headers: headerWithAccessToken(accessToken),
   });
 
-  const concept = await resolveJsonOrRejectWithError<ConceptApiType>(response);
-  return { ...embed, concept };
+  const cacheControlResponse = response.headers.get('cache-control');
+  const responseHeaders: Record<string, string> = cacheControlResponse
+    ? { 'cache-control': cacheControlResponse }
+    : {};
+
+  const concept = await resolveJsonOrRejectWithError<IConcept>(response);
+  return { ...embed, concept, responseHeaders };
 };

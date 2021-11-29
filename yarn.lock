@@ -1874,6 +1874,11 @@
   resolved "https://registry.yarnpkg.com/@ndla/types-article-api/-/types-article-api-0.0.3.tgz#45033502074fbf2a667be7b5631823eb26fb1212"
   integrity sha512-gZ1SAORu8bjP63nqyPusi5ucE2VoFvYu7SnTkdH9KcbriIZEcq4vja/ZPznUtfKiQ9/lu3chCKbdxAT+QDHXRw==
 
+"@ndla/types-concept-api@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@ndla/types-concept-api/-/types-concept-api-0.0.4.tgz#5a9d76fd8b05a3e1597795fc414171437b936acf"
+  integrity sha512-d9AREreCkySq6OCYzHCvWxIOl9uLHw9YskAAd+cuYUJl4KsuKAPpvvzk7GqDL8aT7ee2JernNUNOs57ANkyYfQ==
+
 "@ndla/ui@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-3.0.4.tgz#ef8d8c4230806ec6265af217f7081b3a23092e9b"
