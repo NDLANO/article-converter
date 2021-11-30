@@ -20,7 +20,7 @@ export async function fetchArticle(
   accessToken: string,
   feideToken: string,
   language: LocaleType,
-): Promise<[IArticleV2, ResponseHeaders]> {
+): Promise<{ article: IArticleV2; responseHeaders: ResponseHeaders }> {
   const feideHeader = feideToken ? { FeideAuthorization: feideToken } : null;
   const headers = { ...headerWithAccessToken(accessToken), ...feideHeader };
   const response = await fetch(
@@ -37,5 +37,5 @@ export async function fetchArticle(
     : {};
 
   const article = resolveJsonOrRejectWithError<IArticleV2>(response);
-  return article.then((art) => [art, responseHeaders]);
+  return article.then((article) => ({ article, responseHeaders }));
 }

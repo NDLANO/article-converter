@@ -62,6 +62,6 @@ export default async function fetchAndTransformArticle(
   feideToken: string,
   options = {},
 ): Promise<TransformedArticle> {
-  const [article, headers] = await fetchArticle(articleId, accessToken, feideToken, lang);
-  return await transformArticle(article, headers, lang, accessToken, feideToken, options);
+  const { article, responseHeaders } = await fetchArticle(articleId, accessToken, feideToken, lang);
+  return await transformArticle(article, responseHeaders, lang, accessToken, feideToken, options);
 }

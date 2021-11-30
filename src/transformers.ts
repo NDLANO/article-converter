@@ -8,6 +8,7 @@
 
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
+import { compact } from 'lodash';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
@@ -83,10 +84,6 @@ export async function getEmbedsResources(
   );
 }
 
-function isNonNullUndefined<T>(x: T | undefined | null): x is T {
-  return !!x;
-}
-
 export type TransformFunction = (
   content: CheerioAPI,
   headers: Record<string, string>,
@@ -124,9 +121,7 @@ export const transform: TransformFunction = async (
   const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
 
-  const fetchedResourceHeaders = embedsWithResources
-    .map((x) => x.responseHeaders)
-    .filter(isNonNullUndefined);
+  const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
 
   const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);
