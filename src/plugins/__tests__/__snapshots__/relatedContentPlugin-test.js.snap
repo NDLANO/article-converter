@@ -41,6 +41,7 @@ Object {
   "data": Object {
     "articleId": "1",
   },
+  "responseHeaders": Object {},
 }
 `;
 
@@ -70,6 +71,7 @@ Object {
   "data": Object {
     "articleId": "2",
   },
+  "responseHeaders": Object {},
 }
 `;
 
@@ -99,6 +101,7 @@ Object {
   "data": Object {
     "articleId": "1",
   },
+  "responseHeaders": Object {},
 }
 `;
 
@@ -136,6 +139,7 @@ Object {
   "data": Object {
     "articleId": "1",
   },
+  "responseHeaders": Object {},
 }
 `;
 

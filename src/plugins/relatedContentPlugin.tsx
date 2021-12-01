@@ -13,8 +13,9 @@ import cheerio from 'cheerio';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
 import { isObject } from 'lodash/fp';
+import { IArticleV2 } from '@ndla/types-article-api';
 import log from '../utils/logger';
-import { ArticleApiType, fetchArticle } from '../api/articleApi';
+import { fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -108,7 +109,7 @@ const getRelatedArticleProps = (
   return { ...mapping(relatedArticleEntryNum).default, to };
 };
 
-type RelatedArticleType = ArticleApiType & { resource?: ArticleResource };
+type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
 
 export interface RelatedContentEmbedType extends EmbedType {
   article?: RelatedArticleType;
@@ -133,12 +134,13 @@ export default function createRelatedContentPlugin(
 
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
-        const [article, resource] = await Promise.all([
+        const [{ article, responseHeaders }, resource] = await Promise.all([
           fetchArticle(articleId, accessToken, feideToken, language),
           fetchArticleResource(articleId, accessToken, language),
         ]);
         return {
           ...embed,
+          responseHeaders,
           article: article ? { ...article, resource } : undefined,
         };
       } catch (error) {
@@ -161,50 +163,54 @@ export default function createRelatedContentPlugin(
 
   const embedToHTML = async (embed: RelatedContentEmbedType, lang: LocaleType) => {
     if (!embed.article && !embed.data.url) {
-      return '';
+      return { html: '' };
     }
 
     const relatedArticleEntryNum = getEntryNumber(embed);
 
     // handle externalRelatedArticles
     if (embed.data && embed.data.url && typeof embed.data.url === 'string') {
-      return render(
-        <RelatedArticle
-          key={`external-learning-resources-${relatedArticleEntryNum}`}
-          title={embed.data.title}
-          introduction={embed.data.metaDescription || embed.data.url}
-          linkInfo={`${t(lang, 'related.linkInfo')} ${
-            // Get domain name only from url
-            embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
-            embed.data.url
-          }`}
-          target="_blank"
-          to={embed.data.url}
-          {...mapping(relatedArticleEntryNum)['external-learning-resources']}
-        />,
-      );
+      return {
+        html: render(
+          <RelatedArticle
+            key={`external-learning-resources-${relatedArticleEntryNum}`}
+            title={embed.data.title}
+            introduction={embed.data.metaDescription || embed.data.url}
+            linkInfo={`${t(lang, 'related.linkInfo')} ${
+              // Get domain name only from url
+              embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
+              embed.data.url
+            }`}
+            target="_blank"
+            to={embed.data.url}
+            {...mapping(relatedArticleEntryNum)['external-learning-resources']}
+          />,
+        ),
+      };
     }
     if (!embed.article) {
-      return '';
+      return { html: '' };
     }
-    return render(
-      <RelatedArticle
-        key={embed.article.id}
-        title={isObject(embed.article.title) ? embed.article.title.title : ''}
-        introduction={
-          isObject(embed.article.metaDescription)
-            ? embed.article.metaDescription.metaDescription
-            : ''
-        }
-        target={options.isOembed ? '_blank' : null}
-        {...getRelatedArticleProps(
-          embed.article,
-          relatedArticleEntryNum,
-          options.filters,
-          options.subject,
-        )}
-      />,
-    );
+    return {
+      html: render(
+        <RelatedArticle
+          key={embed.article.id}
+          title={isObject(embed.article.title) ? embed.article.title.title : ''}
+          introduction={
+            isObject(embed.article.metaDescription)
+              ? embed.article.metaDescription.metaDescription
+              : ''
+          }
+          target={options.isOembed ? '_blank' : null}
+          {...getRelatedArticleProps(
+            embed.article,
+            relatedArticleEntryNum,
+            options.filters,
+            options.subject,
+          )}
+        />,
+      ),
+    };
   };
 
   return {

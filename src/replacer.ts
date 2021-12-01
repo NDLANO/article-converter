@@ -7,7 +7,7 @@
  */
 import log from './utils/logger';
 import t from './locale/i18n';
-import { EmbedType, LocaleType, PluginUnion } from './interfaces';
+import { EmbedType, LocaleType, PluginUnion, ResponseHeaders } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 // Fetched from https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
@@ -22,8 +22,10 @@ export async function replaceEmbedsInHtml(
   embeds: EmbedType[],
   lang: LocaleType,
   plugins: PluginUnion[],
-) {
-  return asyncForEach(embeds, async (embed) => {
+): Promise<ResponseHeaders[]> {
+  let headers: ResponseHeaders[] = [];
+
+  await asyncForEach(embeds, async (embed) => {
     const plugin = findPlugin(plugins, embed);
     if (embed.status === 'error') {
       const html = plugin?.onError
@@ -32,7 +34,8 @@ export async function replaceEmbedsInHtml(
           `<strong style="color: #FE5F55">${t.error}</strong>`;
       embed.embed.replaceWith(html);
     } else if (plugin) {
-      const html = await plugin.embedToHTML(embed, lang);
+      const { html, responseHeaders } = await plugin.embedToHTML(embed, lang);
+      if (responseHeaders) headers.push(...responseHeaders);
       embed.embed.replaceWith(html);
     } else if (embed.embed.attr('data-resource') === 'file') {
       // do nothing
@@ -40,4 +43,6 @@ export async function replaceEmbedsInHtml(
       log.warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
     }
   });
+
+  return headers;
 }

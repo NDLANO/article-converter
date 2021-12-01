@@ -15,11 +15,13 @@ import { Plugin, EmbedType } from '../interfaces';
 export default function createCodePlugin(): Plugin<EmbedType> {
   const embedToHTML = async (embed: EmbedType) => {
     const { title, codeContent, codeFormat } = embed.data as Record<string, string>;
-    return renderString(
-      <figure className="c-figure">
-        <Codeblock title={title} code={he.decode(codeContent)} format={codeFormat} showCopy />
-      </figure>,
-    );
+    return {
+      html: renderString(
+        <figure className="c-figure">
+          <Codeblock title={title} code={he.decode(codeContent)} format={codeFormat} showCopy />
+        </figure>,
+      ),
+    };
   };
 
   return { resource: 'code-block', embedToHTML };

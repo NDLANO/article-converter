@@ -36,8 +36,9 @@ export default function createExternalPlugin(
       </figure>,
     );
 
-  const embedToHTML = async (embed: OembedEmbedType) =>
-    wrapInFigure(embed.oembed.html, true, options.concept);
+  const embedToHTML = async (embed: OembedEmbedType) => ({
+    html: wrapInFigure(embed.oembed.html, true, options.concept),
+  });
 
   return {
     resource: 'external',

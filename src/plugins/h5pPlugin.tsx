@@ -18,7 +18,14 @@ import {
   H5POembedResponse,
 } from '../api/h5pApi';
 import config from '../config';
-import { EmbedMetaData, Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import {
+  EmbedMetaData,
+  Plugin,
+  EmbedType,
+  LocaleType,
+  TransformOptions,
+  EmbedToHTMLReturnObj,
+} from '../interfaces';
 
 export interface H5PEmbedType extends EmbedType {
   oembed: H5POembedResponse;
@@ -59,15 +66,17 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     return data;
   };
 
-  const embedToHTML = async (h5p: H5PEmbedType): Promise<string> => {
+  const embedToHTML = async (h5p: H5PEmbedType): Promise<EmbedToHTMLReturnObj> => {
     if (h5p.oembed) {
-      return wrapInFigure(h5p.oembed.html, true, options.concept);
+      return { html: wrapInFigure(h5p.oembed.html, true, options.concept) };
     }
-    return wrapInFigure(
-      `<iframe title="${h5p.data.url}" aria-label="${h5p.data.url}" src="${h5p.data.url}"></iframe>`,
-      true,
-      options.concept,
-    );
+    return {
+      html: wrapInFigure(
+        `<iframe title="${h5p.data.url}" aria-label="${h5p.data.url}" src="${h5p.data.url}"></iframe>`,
+        true,
+        options.concept,
+      ),
+    };
   };
 
   const onError = (embed: H5PEmbedType, locale: LocaleType) =>

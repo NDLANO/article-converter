@@ -8,14 +8,22 @@
 
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
+import { compact } from 'lodash';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import createPlugins from './plugins';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
-import { PluginUnion, EmbedType, LocaleType, TransformOptions } from './interfaces';
+import {
+  PluginUnion,
+  EmbedType,
+  LocaleType,
+  TransformOptions,
+  ResponseHeaders,
+} from './interfaces';
 import { findPlugin } from './utils/findPlugin';
+import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
 
 function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;
@@ -51,7 +59,7 @@ export async function getEmbedsResources(
   feideToken: string,
   lang: LocaleType,
   plugins: PluginUnion[],
-) {
+): Promise<EmbedType[]> {
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);
@@ -78,15 +86,17 @@ export async function getEmbedsResources(
 
 export type TransformFunction = (
   content: CheerioAPI,
+  headers: Record<string, string>,
   lang: LocaleType,
   accessToken: string,
   feideToken: string,
   visualElement: { visualElement: string } | undefined,
   options: TransformOptions,
-) => Promise<{ html: string | null; embedMetaData: any }>;
+) => Promise<{ html: string | null; embedMetaData: any; responseHeaders?: ResponseHeaders }>;
 
 export const transform: TransformFunction = async (
   content,
+  headers,
   lang,
   accessToken,
   feideToken,
@@ -108,12 +118,18 @@ export const transform: TransformFunction = async (
     plugins,
   );
 
-  await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
+
+  const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
+
+  const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
+  const responseHeaders = mergeResponseHeaders(allResponseHeaders);
   await executeHtmlTransforms(content, lang, options);
 
   return {
     html: content('body').html(),
     embedMetaData,
+    responseHeaders,
   };
 };

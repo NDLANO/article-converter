@@ -13,9 +13,10 @@ import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 // @ts-ignore
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
+import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
 import { css } from '@emotion/core';
-import { ConceptApiType, fetchConcept } from '../api/conceptApi';
+import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
@@ -49,7 +50,7 @@ const customNotionStyle = css`
 `;
 
 export interface ConceptEmbedType extends EmbedType {
-  concept: ConceptApiType;
+  concept: IConcept;
 }
 
 export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
@@ -60,7 +61,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
     fetchConcept(embed, accessToken, language, options);
 
-  const getEmbedSrc = (concept: ConceptApiType) =>
+  const getEmbedSrc = (concept: IConcept) =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
   const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
@@ -95,8 +96,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
           <NotionDialogContent>
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
-        }
-      >
+        }>
         {linkText}
       </Notion>,
       locale,
@@ -116,34 +116,42 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
+      {},
       locale,
       '',
       '',
       undefined,
       { concept: true },
     );
-    return render(
-      <Notion
-        id={`notion_id_${concept.id}_${locale}`}
-        ariaLabel={t(locale, 'concept.showDescription')}
-        title={concept.title?.title}
-        customCSS={customNotionStyle}
-        content={
-          <>
-            <NotionDialogContent>
-              {transformed?.html && (
-                <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
-              )}
-              <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
-            </NotionDialogContent>
-            <NotionDialogLicenses license={license} source={source} authors={authors} />
-          </>
-        }
-      >
-        {embed.data.linkText}
-      </Notion>,
-      locale,
-    );
+
+    const responseHeaders = transformed?.responseHeaders ? [transformed.responseHeaders] : [];
+
+    return {
+      responseHeaders,
+      html: render(
+        <Notion
+          id={`notion_id_${concept.id}_${locale}`}
+          ariaLabel={t(locale, 'concept.showDescription')}
+          title={concept.title?.title}
+          customCSS={customNotionStyle}
+          content={
+            <>
+              <NotionDialogContent>
+                {transformed?.html && (
+                  <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
+                )}
+                <NotionDialogText>
+                  {renderMarkdown(concept.content?.content ?? '')}
+                </NotionDialogText>
+              </NotionDialogContent>
+              <NotionDialogLicenses license={license} source={source} authors={authors} />
+            </>
+          }>
+          {embed.data.linkText}
+        </Notion>,
+        locale,
+      ),
+    };
   };
 
   return {

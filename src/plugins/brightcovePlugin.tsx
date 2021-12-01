@@ -153,63 +153,62 @@ export default function createBrightcovePlugin(
     const originalVideoProps = getIframeProps(data, brightcove.sources);
     const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
-    return render(
-      <Figure id={figureId} type={options.concept ? 'full-column' : 'full'} resizeIframe>
-        <div className="brightcove-video">
-          <iframe
-            className="original"
-            title={`Video: ${brightcove.name}`}
-            aria-label={`Video: ${brightcove.name}`}
-            frameBorder="0"
-            data-original-src={originalVideoProps.src}
-            data-alternative-src={
-              linkedVideoId &&
-              getIframeProps({ ...data, videoid: linkedVideoId }, brightcove.sources).src
-            }
-            {...originalVideoProps}
-            allowFullScreen
+    return {
+      html: render(
+        <Figure id={figureId} type={options.concept ? 'full-column' : 'full'} resizeIframe>
+          <div className="brightcove-video">
+            <iframe
+              className="original"
+              title={`Video: ${brightcove.name}`}
+              aria-label={`Video: ${brightcove.name}`}
+              frameBorder="0"
+              data-original-src={originalVideoProps.src}
+              data-alternative-src={
+                linkedVideoId &&
+                getIframeProps({ ...data, videoid: linkedVideoId }, brightcove.sources).src
+              }
+              {...originalVideoProps}
+              allowFullScreen
+            />
+          </div>
+          <FigureCaption
+            figureId={figureId}
+            id={brightcove.id}
+            locale={locale}
+            caption={caption}
+            reuseLabel={t(locale, 'video.reuse')}
+            licenseRights={license.rights}
+            authors={captionAuthors}
+            hasLinkedVideo={!!linkedVideoId}
           />
-        </div>
-        <FigureCaption
-          figureId={figureId}
-          id={brightcove.id}
-          locale={locale}
-          caption={caption}
-          reuseLabel={t(locale, 'video.reuse')}
-          licenseRights={license.rights}
-          authors={captionAuthors}
-          hasLinkedVideo={!!linkedVideoId}
-        />
-        <FigureLicenseDialog
-          id={brightcove.id}
-          title={brightcove.name}
-          locale={locale}
-          license={license}
-          authors={contributors}
-          messages={messages}
-        >
-          <Button
-            outline
-            data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={copyString}
-          >
-            {t(locale, 'license.copyTitle')}
-          </Button>
-          {licenseAbbreviation !== 'COPYRIGHTED' && (
-            <Anchor key="download" href={download} appearance="outline" download>
-              {t(locale, 'video.download')}
-            </Anchor>
-          )}
-          <Button
-            outline
-            data-copied-title={t(locale, 'license.hasCopiedTitle')}
-            data-copy-string={makeIframeString(src, height, width, brightcove.name)}
-          >
-            {t(locale, 'license.embed')}
-          </Button>
-        </FigureLicenseDialog>
-      </Figure>,
-    );
+          <FigureLicenseDialog
+            id={brightcove.id}
+            title={brightcove.name}
+            locale={locale}
+            license={license}
+            authors={contributors}
+            messages={messages}>
+            <Button
+              outline
+              data-copied-title={t(locale, 'license.hasCopiedTitle')}
+              data-copy-string={copyString}>
+              {t(locale, 'license.copyTitle')}
+            </Button>
+            {licenseAbbreviation !== 'COPYRIGHTED' && (
+              <Anchor key="download" href={download} appearance="outline" download>
+                {t(locale, 'video.download')}
+              </Anchor>
+            )}
+            <Button
+              outline
+              data-copied-title={t(locale, 'license.hasCopiedTitle')}
+              data-copy-string={makeIframeString(src, height, width, brightcove.name)}>
+              {t(locale, 'license.embed')}
+            </Button>
+          </FigureLicenseDialog>
+        </Figure>,
+      ),
+    };
   };
 
   return {

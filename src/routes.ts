@@ -7,7 +7,7 @@
  */
 
 import defined from 'defined';
-import { Express } from 'express';
+import { Express, Response } from 'express';
 import fetchAndTransformArticle, { transformArticle } from './fetchAndTransformArticle';
 import fetchEmbedMetaData from './fetchEmbedMetaData';
 import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
@@ -15,9 +15,16 @@ import { getHtmlLang } from './locale/configureLocale';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 import config from './config';
 import log from './utils/logger';
+import { ResponseHeaders } from './interfaces';
 
 const getAsString = (value: any): string => {
   return typeof value === 'string' ? value : '';
+};
+
+const setHeaders = (res: Response, headers: ResponseHeaders): void => {
+  Object.entries(headers).forEach(([key, value]) => {
+    res.setHeader(key, value);
+  });
 };
 
 // Sets up the routes.
@@ -65,6 +72,7 @@ const setup = function routes(app: Express) {
       path,
     })
       .then((article) => {
+        setHeaders(res, article.headerData);
         res.json(article);
       })
       .catch((error) => {
@@ -93,6 +101,7 @@ const setup = function routes(app: Express) {
       path,
     })
       .then((article) => {
+        setHeaders(res, article.headerData);
         res.send(htmlTemplate(lang, article.title, article));
         res.end();
       })
@@ -114,12 +123,13 @@ const setup = function routes(app: Express) {
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
     if (body && body.article) {
-      transformArticle(body.article, lang, accessToken, feideToken, {
+      transformArticle(body.article, {}, lang, accessToken, feideToken, {
         showVisualElement,
         draftConcept,
         previewH5p,
       })
         .then((article) => {
+          setHeaders(res, article.headerData);
           res.json(article);
         })
         .catch((error) => {

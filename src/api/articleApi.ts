@@ -7,92 +7,20 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { IArticleV2 } from '@ndla/types-article-api';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { Author, LocaleType } from '../interfaces';
-
-export interface ArticleApiCopyright {
-  license: {
-    license: string;
-    description?: string;
-    url?: string;
-  };
-  origin: string;
-  creators: Author[];
-  processors: Author[];
-  rightsholders: Author[];
-  agreementId?: number;
-  validFrom?: string;
-  validTo?: string;
-}
-
-type RelatedContent =
-  | number
-  | {
-      title: string;
-      url: string;
-    };
-
-export interface ArticleApiType {
-  id: number;
-  oldNdlaUrl?: string;
-  revision: number;
-  title: {
-    title: string;
-    language: string;
-  };
-  content: {
-    content: string;
-    language: string;
-  };
-  copyright: ArticleApiCopyright;
-  tags: {
-    tags: string[];
-    language: string;
-  };
-  requiredLibraries: {
-    mediaType: string;
-    name: string;
-    url: string;
-  }[];
-  visualElement?: {
-    visualElement: string;
-    language: string;
-  };
-  metaImage?: {
-    url: string;
-    alt: string;
-    language: string;
-  };
-  introduction?: {
-    introduction: string;
-    language: string;
-  };
-  metaDescription: {
-    metaDescription: string;
-    language: string;
-  };
-  created: string;
-  updated: string;
-  updatedBy: string;
-  published: string;
-  articleType: string;
-  supportedLanguages: string[];
-  grepCodes: string[];
-  conceptIds: number[];
-  availability: string;
-  relatedContent: RelatedContent[];
-}
+import { LocaleType, ResponseHeaders } from '../interfaces';
 
 export async function fetchArticle(
   articleId: number | string,
   accessToken: string,
   feideToken: string,
   language: LocaleType,
-): Promise<ArticleApiType> {
+): Promise<{ article: IArticleV2; responseHeaders: ResponseHeaders }> {
   const feideHeader = feideToken ? { FeideAuthorization: feideToken } : null;
   const headers = { ...headerWithAccessToken(accessToken), ...feideHeader };
   const response = await fetch(
@@ -102,5 +30,12 @@ export async function fetchArticle(
       headers,
     },
   );
-  return resolveJsonOrRejectWithError<ArticleApiType>(response);
+
+  const cacheControlResponse = response.headers.get('cache-control');
+  const responseHeaders: Record<string, string> = cacheControlResponse
+    ? { 'cache-control': cacheControlResponse }
+    : {};
+
+  const article = resolveJsonOrRejectWithError<IArticleV2>(response);
+  return article.then((article) => ({ article, responseHeaders }));
 }

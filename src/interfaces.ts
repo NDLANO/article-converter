@@ -7,7 +7,7 @@
  */
 
 import { Cheerio, Element } from 'cheerio';
-import { ArticleApiType } from './api/articleApi';
+import { IArticleV2 } from '@ndla/types-article-api';
 import { TransformFunction } from './transformers';
 import { AudioPlugin } from './plugins/audioPlugin';
 import { ContentLinkPlugin } from './plugins/contentLinkPlugin';
@@ -29,9 +29,15 @@ export interface EmbedMetaData extends Record<string, unknown> {
   description?: string;
 }
 
+export type ResponseHeaders = Record<string, string>;
+export type EmbedToHTMLReturnObj = {
+  html: string;
+  responseHeaders?: ResponseHeaders[];
+};
+
 export interface Plugin<E extends EmbedType> {
   resource: string;
-  embedToHTML: (embed: E, lang: LocaleType) => Promise<string>;
+  embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
   fetchResource?: (
     embed: EmbedType,
     accessToken: string,
@@ -46,6 +52,7 @@ export interface EmbedType {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
   status?: string;
+  responseHeaders?: ResponseHeaders;
 }
 
 export type PluginUnion =
@@ -72,13 +79,14 @@ export interface TransformOptions {
 }
 
 type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';
-export interface TransformedArticle extends Omit<ArticleApiType, TransformedFields> {
+export interface TransformedArticle extends Omit<IArticleV2, TransformedFields> {
   title: string;
   content: string;
   metaData: { copyText: string };
   tags: string[];
   introduction?: string;
   metaDescription: string;
+  headerData: Record<string, string>;
 }
 
 export interface Author {

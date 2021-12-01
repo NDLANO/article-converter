@@ -20,6 +20,7 @@ Object {
     "rightsholders": Array [],
   },
   "created": "2016-03-22T08:46:42Z",
+  "headerData": Object {},
   "id": 9206,
   "introduction": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "metaData": Object {

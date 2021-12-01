@@ -139,14 +139,16 @@ test('embedToHtml should return anchor tag with path', async () => {
   const contentLinkPlugin = createContentLinkPlugin();
 
   expect(
-    await contentLinkPlugin.embedToHTML(
-      {
-        embed: {},
-        data: { linkText: 'text', contentId: '1' },
-        path: 'urn:test:1',
-      },
-      'nb',
-    ),
+    (
+      await contentLinkPlugin.embedToHTML(
+        {
+          embed: {},
+          data: { linkText: 'text', contentId: '1' },
+          path: 'urn:test:1',
+        },
+        'nb',
+      )
+    ).html,
   ).toMatchSnapshot();
 });
 
@@ -154,13 +156,15 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
   const contentLinkPlugin = createContentLinkPlugin({ isOembed: true });
 
   expect(
-    await contentLinkPlugin.embedToHTML(
-      {
-        embed: {},
-        data: { linkText: 'text', contentId: '1' },
-        path: 'urn:test:1',
-      },
-      'nb',
-    ),
+    (
+      await contentLinkPlugin.embedToHTML(
+        {
+          embed: {},
+          data: { linkText: 'text', contentId: '1' },
+          path: 'urn:test:1',
+        },
+        'nb',
+      )
+    ).html,
   ).toMatchSnapshot();
 });
