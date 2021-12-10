@@ -107,7 +107,130 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
       </p>
     </div>
   </aside>
-  <h2 tabindex=\\"0\\">I planleggingsdelen må du:</h2>
+  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
+    .css-1ly2gtx-ContainerDiv:hover button {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .css-1ly2gtx-ContainerDiv h2 {
+      position: relative;
+      left: -2em;
+    }
+  </style>
+  <div
+    data-header-copy-container=\\"true\\"
+    data-title=\\"I planleggingsdelen må du:\\"
+    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+  >
+    <style data-emotion-css=\\"sq9n0o-IconButton\\">
+      .css-sq9n0o-IconButton {
+        float: left;
+        position: relative;
+        left: -3em;
+        top: 0.1em;
+        background: none;
+        border: 0;
+        z-index: 1;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+        opacity: 0;
+      }
+      .css-sq9n0o-IconButton svg {
+        width: 30px;
+        height: 30px;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }</style
+    ><button
+      data-title=\\"I-planleggingsdelen-m%C3%A5-du%3A\\"
+      class=\\"css-sq9n0o-IconButton e18czas70\\"
+    >
+      <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
+        .css-1twu449-TooltipWrapper {
+          position: relative;
+        }
+      </style>
+      <div class=\\"css-1twu449-TooltipWrapper exsy4zb0\\">
+        <style data-emotion-css=\\"1gms6h4-Fade\\">
+          .css-1gms6h4-Fade {
+            opacity: 0;
+            position: absolute;
+            z-index: 9999;
+            pointer-events: none;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-delay: 0ms;
+            animation-delay: 0ms;
+            -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+          }
+          @-webkit-keyframes fadeInTooltip {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          @keyframes fadeInTooltip {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          @-webkit-keyframes fadeOutTooltip {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          @keyframes fadeOutTooltip {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+        </style>
+        <div class=\\"css-1gms6h4-Fade exsy4zb1\\">
+          <style data-emotion-css=\\"aztq0g-tooltipCss\\">
+            .css-aztq0g-tooltipCss{display:block;color:#fff;background:#444;border-radius:2px;padding:6.5px 13px;font-family:'Source Sans Pro',Helvetica,Arial,STKaiti,'华文楷体',KaiTi,SimKai,'楷体',KaiU,DFKai-SB,'標楷體',SongTi,'宋体',sans-serif;font-size:14;font-size:0.7777777777777778rem;line-height:1.2 font-weight:400;text-align:center;white-space:nowrap;max-width:calc(100vw - #{26px});}</style
+          ><span role=\\"tooltip\\" class=\\"css-aztq0g-tooltipCss\\"
+            >Kopier lenke til overskriften</span
+          >
+        </div>
+        <div aria-label=\\"Kopier lenke til overskriften\\" class=\\"\\">
+          <svg
+            fill=\\"currentColor\\"
+            preserveAspectRatio=\\"xMidYMid meet\\"
+            height=\\"1em\\"
+            width=\\"1em\\"
+            class=\\"c-icon\\"
+            viewBox=\\"0 0 24 24\\"
+            data-license=\\"Apache License 2.0\\"
+            data-source=\\"Material Design\\"
+            style=\\"vertical-align: middle\\"
+          >
+            <g>
+              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+              <path
+                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </button>
+    <h2 id=\\"I-planleggingsdelen-m%C3%A5-du%3A\\" tabindex=\\"0\\">
+      I planleggingsdelen må du:
+    </h2>
+  </div>
   <p>
     <strong>1.</strong> Foreta en risikovurdering, der du vurderer risikoen ved
     jobben du skal gjøre (HMS, vernetiltak, forskrifter), samt risikoen når

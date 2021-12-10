@@ -139,14 +139,14 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
       class=\\"css-c121an-StyledLink envije90\\"
-      ><picture
-        ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
-          .css-iraaey-StyledImageWrapper {
-            position: relative;
-          }
-        </style>
-        <div class=\\"css-iraaey-StyledImageWrapper e1jwn5tq0\\">
-          <source
+      ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
+        .css-iraaey-StyledImageWrapper {
+          position: relative;
+        }
+      </style>
+      <div class=\\"css-iraaey-StyledImageWrapper e1jwn5tq0\\">
+        <picture
+          ><source
             type=\\"image/jpeg\\"
             srcset=\\"
               https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=2720&amp;focalX=65.08801679586563&amp;focalY=45.28137450199203 2720w,
@@ -163,12 +163,11 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
               https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=240&amp;focalX=65.08801679586563&amp;focalY=45.28137450199203   240w,
               https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=180&amp;focalX=65.08801679586563&amp;focalY=45.28137450199203   180w
             \\"
-            sizes=\\"(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw\\"
-          />
+            sizes=\\"(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw\\" />
           <img
             alt=\\"Ipsum\\"
             src=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?width=1024&amp;focalX=65.08801679586563&amp;focalY=45.28137450199203\\"
-          /></div></picture
+        /></picture></div
     ></a>
     <figcaption class=\\"c-figure__caption\\">
       <div class=\\"c-figure__info\\"><p>Lorem ipsum</p></div>
