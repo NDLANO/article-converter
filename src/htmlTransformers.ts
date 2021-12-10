@@ -8,7 +8,13 @@
 
 import cheerio, { CheerioAPI, Element } from 'cheerio';
 import { partition } from 'lodash';
-import { createAside, createFactbox, createFileSection, createTable } from './utils/htmlTagHelpers';
+import {
+  createAside,
+  createFactbox,
+  createFileSection,
+  createTable,
+  renderLinkButton,
+} from './utils/htmlTagHelpers';
 import { createRelatedArticleList } from './utils/embedGroupHelpers';
 import t from './locale/i18n';
 import { checkIfFileExists } from './api/filesApi';
@@ -133,6 +139,17 @@ export const transformLinksInOembed = (
     }
   });
 
+export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
+  content('h2').each((idx, h2) => {
+    const titleElem = cheerio(h2);
+    const title = titleElem.html();
+    if (title) {
+      const container = renderLinkButton(title);
+      if (container) titleElem.replaceWith(container);
+    }
+  });
+};
+
 export const htmlTransforms: ((
   content: CheerioAPI,
   lang: LocaleType,
@@ -151,8 +168,8 @@ export const htmlTransforms: ((
   moveReactPortals,
   (content: CheerioAPI) =>
     content('span[data-size="large"]').removeAttr('data-size').addClass('u-large-body-text'),
-  (content: CheerioAPI) => content('h2').attr('tabindex', '0'),
   (content: CheerioAPI) => content('h3').attr('tabindex', '0'),
+  addHeaderCopyLinkButtons,
   resetOrderedLists,
   transformTables,
   transformFileList,
