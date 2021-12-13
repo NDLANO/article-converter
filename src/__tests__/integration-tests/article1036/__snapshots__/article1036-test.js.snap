@@ -567,8 +567,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     data-title=\\"Verdens beste land å leve i?\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -580,16 +580,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
     ><button
       data-title=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\"
-      class=\\"css-sq9n0o-IconButton e18czas70\\"
+      class=\\"css-1palhdc-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
@@ -706,8 +703,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     data-title=\\"Forventet levealder\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -719,16 +716,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
     ><button
       data-title=\\"Forventet-levealder\\"
-      class=\\"css-sq9n0o-IconButton e18czas70\\"
+      class=\\"css-1palhdc-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
@@ -844,8 +838,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     data-title=\\"Utdanning\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -857,14 +851,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
-    ><button data-title=\\"Utdanning\\" class=\\"css-sq9n0o-IconButton e18czas70\\">
+    ><button data-title=\\"Utdanning\\" class=\\"css-1palhdc-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
@@ -981,8 +972,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     data-title=\\"Inntekt\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -994,14 +985,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
-    ><button data-title=\\"Inntekt\\" class=\\"css-sq9n0o-IconButton e18czas70\\">
+    ><button data-title=\\"Inntekt\\" class=\\"css-1palhdc-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
@@ -1122,8 +1110,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     data-title=\\"Sysselsetting\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -1135,14 +1123,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
-    ><button data-title=\\"Sysselsetting\\" class=\\"css-sq9n0o-IconButton e18czas70\\">
+    ><button
+      data-title=\\"Sysselsetting\\"
+      class=\\"css-1palhdc-IconButton e18czas70\\"
+    >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;

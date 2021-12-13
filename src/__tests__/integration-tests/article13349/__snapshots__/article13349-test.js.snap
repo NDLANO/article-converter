@@ -122,8 +122,8 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
     data-title=\\"I planleggingsdelen må du:\\"
     class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"sq9n0o-IconButton\\">
-      .css-sq9n0o-IconButton {
+    <style data-emotion-css=\\"1palhdc-IconButton\\">
+      .css-1palhdc-IconButton {
         float: left;
         position: relative;
         left: -3em;
@@ -135,16 +135,13 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-sq9n0o-IconButton svg {
+      .css-1palhdc-IconButton svg {
         width: 30px;
         height: 30px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
       }</style
     ><button
       data-title=\\"I-planleggingsdelen-m%C3%A5-du%3A\\"
-      class=\\"css-sq9n0o-IconButton e18czas70\\"
+      class=\\"css-1palhdc-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
