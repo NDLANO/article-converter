@@ -48,7 +48,8 @@ const Anchor = StyledButton.withComponent('a');
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (embed: EmbedType) => fetchVideoMeta(embed);
+  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
+    fetchVideoMeta(embed, language);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
     const { account, videoid, player = 'default' } = data as Record<string, string | undefined>;

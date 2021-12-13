@@ -7,10 +7,10 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { contributorTypes, contributorGroups } from '@ndla/licenses';
+import { contributorTypes, contributorGroups, getLicenseByAbbreviation } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import config from '../config';
-import { Author, EmbedType } from '../interfaces';
+import { Author, EmbedType, LocaleType } from '../interfaces';
 import { BrightcoveEmbedType } from '../plugins/brightcovePlugin';
 
 export interface BrightcoveVideo {
@@ -36,6 +36,8 @@ export interface BrightcoveVideoSource {
 export interface BrightcoveCopyright {
   license: {
     license: string;
+    description?: string;
+    url?: string;
   };
   creators: Author[];
   processors: Author[];
@@ -192,17 +194,24 @@ export const getContributorGroups = (fields: Record<string, string>) => {
   );
 };
 
-export const fetchVideoMeta = async (embed: EmbedType): Promise<BrightcoveEmbedType> => {
+export const fetchVideoMeta = async (
+  embed: EmbedType,
+  locale: LocaleType,
+): Promise<BrightcoveEmbedType> => {
   const { videoid, account } = embed.data as Record<string, string>;
   const accessToken = await getAccessToken();
   const [video, sources] = await Promise.all([
     fetchVideo(videoid, account, accessToken),
     fetchVideoSources(videoid, account, accessToken),
   ]);
+  const licenseCode = getLicenseByNBTitle(video.custom_fields.license);
+  const license = getLicenseByAbbreviation(licenseCode, locale);
 
   const copyright: BrightcoveCopyright = {
     license: {
-      license: getLicenseByNBTitle(video.custom_fields.license),
+      license: licenseCode,
+      description: license?.description,
+      url: license?.url,
     },
     ...getContributorGroups(video.custom_fields),
   };
