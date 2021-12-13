@@ -7,15 +7,9 @@
  */
 import React from 'react';
 import { uuid } from '@ndla/util';
-import Aside from '@ndla/ui/lib/Aside';
 // @ts-ignore
-import Table from '@ndla/ui/lib/Table';
-// @ts-ignore
-import FactBox from '@ndla/ui/lib/FactBox';
-// @ts-ignore
-import FileList from '@ndla/ui/lib/FileList';
-// @ts-ignore
-import { Figure } from '@ndla/ui/lib/Figure';
+import { Figure, Table, FactBox, FileList } from '@ndla/ui';
+import { CopyParagraphButton, Aside } from '@ndla/ui';
 import t from '../locale/i18n';
 import { render } from './render';
 import { LocaleType } from '../interfaces';
@@ -84,4 +78,8 @@ export function createTable(props: {}, children: string, lang: LocaleType) {
       }}
     />,
   );
+}
+
+export function renderLinkButton(title: string): string {
+  return render(<CopyParagraphButton title={title} />);
 }
