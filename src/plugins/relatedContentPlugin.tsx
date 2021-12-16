@@ -175,7 +175,7 @@ export default function createRelatedContentPlugin(
           <RelatedArticle
             key={`external-learning-resources-${relatedArticleEntryNum}`}
             title={embed.data.title}
-            introduction={embed.data.metaDescription || embed.data.url}
+            introduction={embed.data.metaDescription || ''}
             linkInfo={`${t(lang, 'related.linkInfo')} ${
               // Get domain name only from url
               embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
