@@ -33,7 +33,9 @@ Object {
             },
           ],
           "license": Object {
+            "description": "Fri gjenbruk ved navngivelse. Navngivelse vil si at du oppgir navnet til opphavspersonen(e). Hvis du deler, må andre også få lov til å dele videre på samme vilkår. Dette sikrer videre gjenbruk og bidrar til delingskultur.",
             "license": "CC-BY-SA-4.0",
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.no",
           },
           "processors": Array [
             Object {

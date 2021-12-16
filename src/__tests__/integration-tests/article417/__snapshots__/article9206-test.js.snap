@@ -562,9 +562,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
             ></span
           >
         </h1>
-        <p class=\\"c-related-articles__description\\">
-          https://www.codecademy.com/learn/introduction-to-javascript
-        </p>
+        <p class=\\"c-related-articles__description\\"></p>
         <p class=\\"c-related-articles__link-info\\">Nettside hos codecademy.com</p>
       </article>
     </div>
