@@ -43,6 +43,10 @@ export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
   resource: 'brightcove';
 }
 
+
+// https://stackoverflow.com/a/1830844
+export const isNumeric = (value: any) => !Number.isNaN(value - parseFloat(value));
+
 const Anchor = StyledButton.withComponent('a');
 
 export default function createBrightcovePlugin(
@@ -115,7 +119,7 @@ export default function createBrightcovePlugin(
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
 
-    const linkedVideoId = brightcove.link?.text;
+    const linkedVideoId = isNumeric(brightcove.link?.text) ? brightcove.link?.text : undefined;
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
