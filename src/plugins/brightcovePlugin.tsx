@@ -43,7 +43,6 @@ export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
   resource: 'brightcove';
 }
 
-
 // https://stackoverflow.com/a/1830844
 export const isNumeric = (value: any) => !Number.isNaN(value - parseFloat(value));
 
