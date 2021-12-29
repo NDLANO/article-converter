@@ -80,6 +80,6 @@ export function createTable(props: {}, children: string, lang: LocaleType) {
   );
 }
 
-export function renderLinkButton(title: string): string {
-  return render(<CopyParagraphButton title={title} />);
+export function renderLinkButton(title: string, content?: string | null): string {
+  return render(<CopyParagraphButton title={title} content={content} />);
 }

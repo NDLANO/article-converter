@@ -144,7 +144,8 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
     const titleElem = cheerio(h2);
     const title = titleElem.html();
     if (title) {
-      const container = renderLinkButton(title);
+      const htmlContent = titleElem.html();
+      const container = renderLinkButton(title, htmlContent);
       if (container) titleElem.replaceWith(container);
     }
   });
