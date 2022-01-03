@@ -141,12 +141,11 @@ export const transformLinksInOembed = (
 
 export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
   content('h2').each((idx, h2) => {
-    const titleElem = cheerio(h2);
-    const title = titleElem.html();
-    if (title) {
-      const htmlContent = titleElem.html();
-      const container = renderLinkButton(title, htmlContent);
-      if (container) titleElem.replaceWith(container);
+    const headerElement = cheerio(h2);
+    const innerHTML = headerElement.html();
+    if (innerHTML) {
+      const container = renderLinkButton(innerHTML, innerHTML);
+      if (container) headerElement.replaceWith(container);
     }
   });
 };
