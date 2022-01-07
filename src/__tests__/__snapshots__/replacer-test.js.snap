@@ -3446,13 +3446,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       href=\\"http://ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-c121an-StyledLink envije90\\"
+      class=\\"css-c121an-StyledLink eo3pjlm0\\"
       ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
         .css-iraaey-StyledImageWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-iraaey-StyledImageWrapper e1jwn5tq0\\">
+      <div class=\\"css-iraaey-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
@@ -4241,13 +4241,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       href=\\"http://ndla.no/images/2.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-c121an-StyledLink envije90\\"
+      class=\\"css-c121an-StyledLink eo3pjlm0\\"
       ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
         .css-iraaey-StyledImageWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-iraaey-StyledImageWrapper e1jwn5tq0\\">
+      <div class=\\"css-iraaey-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
@@ -5091,13 +5091,13 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       href=\\"http://api.test.ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-c121an-StyledLink envije90\\"
+      class=\\"css-c121an-StyledLink eo3pjlm0\\"
       ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
         .css-iraaey-StyledImageWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-iraaey-StyledImageWrapper e1jwn5tq0\\">
+      <div class=\\"css-iraaey-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
