@@ -14,7 +14,7 @@ import {
   FigureCaption,
   FigureExpandButton,
   FigureBylineExpandButton,
-  // @ts-ignore
+  FigureType,
 } from '@ndla/ui/lib/Figure';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
@@ -42,14 +42,14 @@ import {
 
 const Anchor = StyledButton.withComponent('a');
 
-const getFigureType = (size: string, align: string) => {
-  if (isSmall(size) && align) {
+const getFigureType = (size: string, align: string): FigureType => {
+  if (isSmall(size) && isAlign(align)) {
     return `${size}-${align}`;
   }
   if (isSmall(size) && !align) {
-    return size;
+    return size as FigureType;
   }
-  if (align) {
+  if (isAlign(align)) {
     return align;
   }
   return 'full';
@@ -69,7 +69,7 @@ const getSizes = (size: string, align: string) => {
 };
 
 const getFocalPoint = (data: Record<string, unknown>) => {
-  if (data.focalX && data.focalY) {
+  if (isNumber(data.focalX) && isNumber(data.focalY)) {
     return { x: data.focalX, y: data.focalY };
   }
   return undefined;
@@ -100,8 +100,12 @@ const downloadUrl = (imageSrc: string) => {
   })}`;
 };
 
-function isSmall(size: string): boolean {
+function isSmall(size: string): size is 'xsmall' | 'small' {
   return size === 'xsmall' || size === 'small';
+}
+
+function isAlign(align: string): align is 'left' | 'right' {
+  return align === 'left' || align === 'right';
 }
 
 function hideByline(size: string): boolean {

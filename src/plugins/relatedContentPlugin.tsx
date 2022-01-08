@@ -29,7 +29,7 @@ const mapping = (
 ): Record<
   string,
   {
-    icon: React.ReactNode;
+    icon: React.ReactElement;
     modifier: string;
   }
 > => {
@@ -94,7 +94,7 @@ const getRelatedArticleProps = (
       )) ||
     article.resource.path;
 
-  let to = path;
+  let to = path || '';
   if (filters) {
     to = to + `?filters=${filters}`;
   }
@@ -174,8 +174,8 @@ export default function createRelatedContentPlugin(
         html: render(
           <RelatedArticle
             key={`external-learning-resources-${relatedArticleEntryNum}`}
-            title={embed.data.title}
-            introduction={embed.data.metaDescription || ''}
+            title={embed.data.title as string}
+            introduction={(embed.data.metaDescription as string) || ''}
             linkInfo={`${t(lang, 'related.linkInfo')} ${
               // Get domain name only from url
               embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
@@ -201,7 +201,7 @@ export default function createRelatedContentPlugin(
               ? embed.article.metaDescription.metaDescription
               : ''
           }
-          target={options.isOembed ? '_blank' : null}
+          target={options.isOembed ? '_blank' : undefined}
           {...getRelatedArticleProps(
             embed.article,
             relatedArticleEntryNum,
