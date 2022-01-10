@@ -179,7 +179,7 @@ export default function createBrightcovePlugin(
             figureId={figureId}
             id={brightcove.id}
             locale={locale}
-            caption={caption}
+            caption={typeof caption === 'string' ? caption : ''}
             reuseLabel={t(locale, 'video.reuse')}
             licenseRights={license.rights}
             authors={captionAuthors}

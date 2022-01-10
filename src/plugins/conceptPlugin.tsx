@@ -87,6 +87,8 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
   const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
     const { contentId, linkText } = embed.data;
+
+    const children = typeof linkText === 'string' ? linkText : undefined;
     return render(
       <Notion
         id={`notion_id_${contentId}`}
@@ -97,15 +99,19 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
         }>
-        {linkText}
+        {children}
       </Notion>,
       locale,
     );
   };
 
   const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
-    const concept = embed.concept;
+    const {
+      data: { linkText },
+      concept,
+    } = embed;
 
+    const children = typeof linkText === 'string' ? linkText : undefined;
     const visualElement = defined(embed.concept.visualElement, {
       visualElement: '',
     });
@@ -132,7 +138,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         <Notion
           id={`notion_id_${concept.id}_${locale}`}
           ariaLabel={t(locale, 'concept.showDescription')}
-          title={concept.title?.title}
+          title={concept.title?.title ?? ''}
           customCSS={customNotionStyle}
           content={
             <>
@@ -147,7 +153,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
               <NotionDialogLicenses license={license} source={source} authors={authors} />
             </>
           }>
-          {embed.data.linkText}
+          {children}
         </Notion>,
         locale,
       ),
