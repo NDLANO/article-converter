@@ -201,7 +201,7 @@ export default function createRelatedContentPlugin(
               ? embed.article.metaDescription.metaDescription
               : ''
           }
-          target={options.isOembed ? '_blank' : undefined}
+          target={options.isOembed ? '_blank' : ''}
           {...getRelatedArticleProps(
             embed.article,
             relatedArticleEntryNum,
