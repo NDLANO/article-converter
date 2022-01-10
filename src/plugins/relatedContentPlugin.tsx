@@ -94,7 +94,7 @@ const getRelatedArticleProps = (
       )) ||
     article.resource.path;
 
-  let to = path || '';
+  let to = path ?? '';
   if (filters) {
     to = to + `?filters=${filters}`;
   }
