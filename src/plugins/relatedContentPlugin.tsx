@@ -94,7 +94,7 @@ const getRelatedArticleProps = (
       )) ||
     article.resource.path;
 
-  let to = path ?? '';
+  let to = path;
   if (filters) {
     to = to + `?filters=${filters}`;
   }
@@ -201,7 +201,7 @@ export default function createRelatedContentPlugin(
               ? embed.article.metaDescription.metaDescription
               : ''
           }
-          target={options.isOembed ? '_blank' : ''}
+          target={options.isOembed ? '_blank' : null}
           {...getRelatedArticleProps(
             embed.article,
             relatedArticleEntryNum,
