@@ -7,11 +7,13 @@
  */
 
 import fetch from 'isomorphic-fetch';
+import { isNumber } from 'lodash';
 import {
   headerWithAccessToken,
   resolveJsonOrRejectWithError,
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
+import { createErrorPayload } from '../utils/errorHelpers';
 import { Author, EmbedType, LocaleType } from '../interfaces';
 import { ImageEmbedType } from '../plugins/imagePlugin';
 
@@ -70,6 +72,10 @@ export const fetchImageResources = async (
   language: LocaleType,
 ): Promise<ImageEmbedType> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
+  const lastElement = url.split('/').pop();
+  if (!isNumber(lastElement)) {
+    throw createErrorPayload(400, 'invalid image url');
+  }
   const response = await fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
     headers: headerWithAccessToken(accessToken),
   });
