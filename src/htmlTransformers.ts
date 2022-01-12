@@ -140,14 +140,18 @@ export const transformLinksInOembed = (
   });
 
 export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
-  content('h2').each((idx, h2) => {
-    const headerElement = cheerio(h2);
-    const innerHTML = headerElement.html();
-    if (innerHTML) {
-      const container = renderLinkButton(innerHTML, innerHTML);
-      if (container) headerElement.replaceWith(container);
-    }
-  });
+  content('h2')
+    .filter((i, el) => {
+      return cheerio(el).parents('figure').length === 0;
+    })
+    .each((idx, h2) => {
+      const headerElement = cheerio(h2);
+      const innerHTML = headerElement.html();
+      if (innerHTML) {
+        const container = renderLinkButton(innerHTML, innerHTML);
+        if (container) headerElement.replaceWith(container);
+      }
+    });
 };
 
 export const htmlTransforms: ((
