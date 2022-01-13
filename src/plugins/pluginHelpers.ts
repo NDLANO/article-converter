@@ -44,8 +44,8 @@ export const makeIframe = (
 
 export const makeIframeString = (
   url: string,
-  width: string,
-  height: string,
+  width: string | number,
+  height: string | number,
   title: string = '',
 ) => {
   const strippedWidth = isNumber(width) ? width : width.replace(/\s*px/, '');
