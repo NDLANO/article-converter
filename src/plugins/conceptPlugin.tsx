@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
@@ -113,9 +112,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
     const children = typeof linkText === 'string' ? linkText : undefined;
 
-    const visualElement = defined(embed.concept.visualElement, {
+    const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
-    });
+    };
     const copyright = concept.copyright;
     const authors = (copyright?.creators ?? []).map((author) => author.name);
     const license = copyright?.license?.license;

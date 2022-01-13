@@ -6,7 +6,6 @@
  *
  */
 
-import defined from 'defined';
 import IntlMessageFormat from 'intl-messageformat';
 import memoizeIntlConstructor from 'intl-format-cache';
 import { messagesNB, messagesEN, messagesNN, formatNestedMessages, formatMessage } from '@ndla/ui';
@@ -29,7 +28,7 @@ const messages: Record<LocaleType, FormattedMessages> = {
 };
 
 const t = (locale: LocaleType, id: string, value?: { [key: string]: any }) => {
-  const localeMessages = defined(messages[locale], messages.nb);
+  const localeMessages = messages[locale] ?? messages.nb;
   return formatMessage(locale, localeMessages, getMessageFormat, id, value);
 };
 

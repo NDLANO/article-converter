@@ -9,7 +9,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React from 'react';
-import defined from 'defined';
 // @ts-ignore
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 // @ts-ignore
@@ -64,8 +63,8 @@ export default function createBrightcovePlugin(
 
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
-      height: defined(source.height, '480'),
-      width: defined(source.width, '640'),
+      height: source.height ?? '480',
+      width: source.width ?? '640',
     };
   };
 
