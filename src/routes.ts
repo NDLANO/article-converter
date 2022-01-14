@@ -119,6 +119,7 @@ const setup = function routes(app: Express) {
     const draftConcept = req.query.draftConcept === 'true';
     const previewH5p = req.query.previewH5p === 'true';
     const showVisualElement = req.query.showVisualElement === 'true';
+    const absoluteUrl = req.query.absoluteUrl === 'true';
 
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
@@ -127,6 +128,7 @@ const setup = function routes(app: Express) {
         showVisualElement,
         draftConcept,
         previewH5p,
+        absoluteUrl,
       })
         .then((article) => {
           setHeaders(res, article.headerData);

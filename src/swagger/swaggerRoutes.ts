@@ -523,6 +523,11 @@ const swaggerRoutes = {
           description: 'Renders visual element for topic article',
         },
         {
+          in: 'query',
+          name: 'absoluteUrl',
+          description: 'Renders internal links as absolute urls to ndla-frontpage',
+        },
+        {
           $ref: '#/parameters/authorizationHeader',
         },
       ],
