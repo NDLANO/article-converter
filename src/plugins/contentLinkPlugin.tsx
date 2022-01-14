@@ -8,6 +8,7 @@
 
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
+import config from '../config';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
 export interface ContentLinkEmbedType extends EmbedType {
@@ -25,9 +26,10 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
     language: LocaleType,
   ): Promise<ContentLinkEmbedType> {
     const contentType = embed?.data?.contentType as string | undefined;
-    let path = `${language}/${contentType === 'learningpath' ? 'learningpaths' : 'article'}/${
-      embed.data.contentId
-    }`;
+    const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
+    let path = `${host}/${language}/${
+      contentType === 'learningpath' ? 'learningpaths' : 'article'
+    }/${embed.data.contentId}`;
 
     try {
       const resource = await fetchArticleResource(
@@ -44,7 +46,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
         resource?.path;
 
       if (resourcePath) {
-        path = `${language}${resourcePath}`;
+        path = `${host}/${language}${resourcePath}`;
         if (options.filters) {
           path = path + `?filters=${options.filters}`;
         }
@@ -62,11 +64,11 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
   const embedToHTML = async (embed: ContentLinkEmbedType) => {
     if (embed.data.openIn === 'new-context') {
       return {
-        html: `<a href="/${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,
+        html: `<a href="${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,
       };
     }
     return {
-      html: `<a href="/${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
+      html: `<a href="${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
         embed.data.linkText
       }</a>`,
     };

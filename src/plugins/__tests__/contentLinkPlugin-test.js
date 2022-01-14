@@ -130,7 +130,7 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
 
   expect(resource).toEqual({
     data: { contentId: '1' },
-    path: `nb/article/1`,
+    path: `/nb/article/1`,
   });
   log.level(bunyan.INFO);
 });

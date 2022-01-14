@@ -67,6 +67,7 @@ export type PluginUnion =
   | ConceptPlugin;
 
 export interface TransformOptions {
+  absoluteUrl?: boolean;
   concept?: boolean;
   draftConcept?: boolean;
   filters?: string;
