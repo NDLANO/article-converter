@@ -14,6 +14,7 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
+import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
@@ -110,6 +111,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       concept,
     } = embed;
 
+    const id = uniqueId();
     const children = typeof linkText === 'string' ? linkText : undefined;
 
     const visualElement = embed.concept.visualElement ?? {
@@ -136,7 +138,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       responseHeaders,
       html: render(
         <Notion
-          id={`notion_id_${concept.id}_${locale}`}
+          id={`notion_id_${id}_${locale}`}
           ariaLabel={t(locale, 'concept.showDescription')}
           title={concept.title?.title ?? ''}
           customCSS={customNotionStyle}
