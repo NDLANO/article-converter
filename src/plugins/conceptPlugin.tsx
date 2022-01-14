@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
@@ -15,6 +14,7 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
+import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
@@ -111,11 +111,12 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       concept,
     } = embed;
 
+    const id = uniqueId();
     const children = typeof linkText === 'string' ? linkText : undefined;
 
-    const visualElement = defined(embed.concept.visualElement, {
+    const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
-    });
+    };
     const copyright = concept.copyright;
     const authors = (copyright?.creators ?? []).map((author) => author.name);
     const license = copyright?.license?.license;
@@ -137,7 +138,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       responseHeaders,
       html: render(
         <Notion
-          id={`notion_id_${concept.id}_${locale}`}
+          id={`notion_id_${id}_${locale}`}
           ariaLabel={t(locale, 'concept.showDescription')}
           title={concept.title?.title ?? ''}
           customCSS={customNotionStyle}

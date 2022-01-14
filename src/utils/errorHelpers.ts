@@ -6,8 +6,6 @@
  *
  */
 
-import defined from 'defined';
-
 /**
  * Get appropriate error object with correct status. Defaults to
  * striping stacktrace.
@@ -17,8 +15,8 @@ import defined from 'defined';
  * @returns {object} appropriate error resonse object
  */
 export const getAppropriateErrorResponse = (error: any, isProduction = true) => {
-  const status = defined(error.status, 500); // Default to 500 if no status is provided
-  const { description } = defined(error.json, { description: '' });
+  const status = error.status ?? 500; // Default to 500 if no status is provided
+  const { description } = error.json ?? { description: '' };
   const message = error.message;
 
   if (isProduction) {
