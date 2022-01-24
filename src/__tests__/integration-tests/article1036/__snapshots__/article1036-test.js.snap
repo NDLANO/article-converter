@@ -552,25 +552,23 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       </footer>
     </figcaption>
   </figure>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Verdens beste land å leve i?\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -580,13 +578,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
     ><button
       data-title=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\"
-      class=\\"css-1palhdc-IconButton e18czas70\\"
+      class=\\"css-kgto6a-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
@@ -688,25 +686,23 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     på FNs utviklingsindeks (Human Development Index, HDI). På de neste plassene
     ligger Australia og Sveits.
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Forventet levealder\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -716,13 +712,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
     ><button
       data-title=\\"Forventet-levealder\\"
-      class=\\"css-1palhdc-IconButton e18czas70\\"
+      class=\\"css-kgto6a-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
@@ -823,25 +819,23 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     forventet levealder på 66 år for kvinner og 62,2 år for menn. (alle tall fra
     2014)
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Utdanning\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -851,11 +845,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button data-title=\\"Utdanning\\" class=\\"css-1palhdc-IconButton e18czas70\\">
+    ><button data-title=\\"Utdanning\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
@@ -957,25 +951,23 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       ><sup><a href=\\"#note3\\" target=\\"_self\\">[3]</a></sup></span
     >
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Inntekt\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -985,11 +977,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button data-title=\\"Inntekt\\" class=\\"css-1palhdc-IconButton e18czas70\\">
+    ><button data-title=\\"Inntekt\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
@@ -1095,25 +1087,23 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     dette er lønn før skatt, og at prisene i Norge er forholdsvis høye
     sammenliknet med andre land.
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Sysselsetting\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -1123,14 +1113,11 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button
-      data-title=\\"Sysselsetting\\"
-      class=\\"css-1palhdc-IconButton e18czas70\\"
-    >
+    ><button data-title=\\"Sysselsetting\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
