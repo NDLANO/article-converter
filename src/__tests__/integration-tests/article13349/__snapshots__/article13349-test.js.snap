@@ -107,25 +107,23 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
       </p>
     </div>
   </aside>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"I planleggingsdelen må du:\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -135,13 +133,13 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
     ><button
       data-title=\\"I-planleggingsdelen-m%C3%A5-du%3A\\"
-      class=\\"css-1palhdc-IconButton e18czas70\\"
+      class=\\"css-kgto6a-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
