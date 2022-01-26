@@ -144,6 +144,15 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
     .filter((i, el) => {
       return cheerio(el).parents('figure').length === 0;
     })
+    .filter((i, el) => {
+      return cheerio(el).parents('details').length === 0;
+    })
+    .filter((i, el) => {
+      return cheerio(el).parents('aside').length === 0;
+    })
+    .filter((i, el) => {
+      return cheerio(el).parents('div[class=c-bodybox]').length === 0;
+    })
     .each((idx, h2) => {
       const headerElement = cheerio(h2);
       const innerHTML = headerElement.html();
