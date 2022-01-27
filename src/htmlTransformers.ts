@@ -142,16 +142,7 @@ export const transformLinksInOembed = (
 export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
   content('h2')
     .filter((i, el) => {
-      return cheerio(el).parents('figure').length === 0;
-    })
-    .filter((i, el) => {
-      return cheerio(el).parents('details').length === 0;
-    })
-    .filter((i, el) => {
-      return cheerio(el).parents('aside').length === 0;
-    })
-    .filter((i, el) => {
-      return cheerio(el).parents('div[class=c-bodybox]').length === 0;
+      return cheerio(el).parents('figure, details, aside, div[class=c-bodybox]').length === 0;
     })
     .each((idx, h2) => {
       const headerElement = cheerio(h2);
