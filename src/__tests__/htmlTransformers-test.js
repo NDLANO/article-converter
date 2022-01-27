@@ -14,6 +14,7 @@ import {
   transformAsides,
   transformTables,
   transformLinksInOembed,
+  addHeaderCopyLinkButtons,
 } from '../htmlTransformers';
 
 test('htmlTransforms changes ol to accommodate frontend styling', () => {
@@ -223,5 +224,29 @@ test('transformLinksInOembed adds target blank to a if oembed', () => {
 
   const result = content.html();
 
+  expect(prettify(result)).toMatchSnapshot();
+});
+
+test('addHeaderCopyLinkButtons only transforms h2 on root level', () => {
+  const content = cheerio.load(`
+  <section>
+    <figure>
+      <h2>this header is not changed since placed in figure</h2>
+    </figure>
+    <aside><h2>neither does this in an aside</h2><div>Stuff</div></aside>
+    <h2>this one is changed to copylinkbutton</h2>
+    <details>
+      <summary>Lorem ipsum dolor sit amet...</summary>
+      <div data-react-universal-portal="true"><h2>this is in a details so no change here</h2><div>Stuff</div></div>
+    </details>
+    <div class="c-bodybox">
+      <h2>header in bodybox is not changed either</h2>
+    </div>
+    <p>sdfjljklsdfjlsdf</p>
+  </section>`);
+
+  addHeaderCopyLinkButtons(content);
+
+  const result = content('body').html();
   expect(prettify(result)).toMatchSnapshot();
 });
