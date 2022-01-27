@@ -3,10 +3,10 @@
 exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
 "<section>
   <figure>
-    <h2>Lorem ipsum dolor sit amet...</h2>
+    <h2>this header is not changed since placed in figure</h2>
   </figure>
   <aside>
-    <h2>Test1</h2>
+    <h2>neither does this in an aside</h2>
     <div>Stuff</div>
   </aside>
   <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
@@ -20,7 +20,7 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
   </style>
   <div
     data-header-copy-container=\\"true\\"
-    data-title=\\"sdfjljklsdfjlsdf\\"
+    data-title=\\"this one is changed to copylinkbutton\\"
     class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
     <style data-emotion-css=\\"kgto6a-IconButton\\">
@@ -40,7 +40,7 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
         height: 30px;
       }</style
     ><button
-      data-title=\\"sdfjljklsdfjlsdf\\"
+      data-title=\\"this-one-is-changed-to-copylinkbutton\\"
       class=\\"css-kgto6a-IconButton e18czas70\\"
     >
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
@@ -124,17 +124,19 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
         </div>
       </div>
     </button>
-    <h2 id=\\"sdfjljklsdfjlsdf\\" tabindex=\\"0\\">sdfjljklsdfjlsdf</h2>
+    <h2 id=\\"this-one-is-changed-to-copylinkbutton\\" tabindex=\\"0\\">
+      this one is changed to copylinkbutton
+    </h2>
   </div>
   <details>
     <summary>Lorem ipsum dolor sit amet...</summary>
     <div data-react-universal-portal=\\"true\\">
-      <h2>Modal dialog</h2>
+      <h2>this is in a details so no change here</h2>
       <div>Stuff</div>
     </div>
   </details>
   <div class=\\"c-bodybox\\">
-    <h2>sdfjljklsdfjlsdf</h2>
+    <h2>header in bodybox is not changed either</h2>
   </div>
   <p>sdfjljklsdfjlsdf</p>
 </section>
