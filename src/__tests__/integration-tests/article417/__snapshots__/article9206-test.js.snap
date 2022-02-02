@@ -520,9 +520,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
               data-source=\\"Material Design\\"
               style=\\"vertical-align: middle\\"
             >
-              <title>ExternalLearningResource</title>
               <g>
-                <title>Eksterne ressurser</title>
                 <g
                   stroke=\\"none\\"
                   fill=\\"none\\"

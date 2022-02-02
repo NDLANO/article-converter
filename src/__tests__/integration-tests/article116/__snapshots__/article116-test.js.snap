@@ -233,7 +233,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>Cc</title>
                     <g>
                       <circle
                         fill=\\"none\\"
@@ -268,7 +267,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>By</title>
                     <g>
                       <circle
                         fill=\\"none\\"
@@ -304,7 +302,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>Sa</title>
                     <g>
                       <circle
                         fill=\\"none\\"
@@ -592,7 +589,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>Cc</title>
                     <g>
                       <circle
                         fill=\\"none\\"
@@ -632,7 +628,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>By</title>
                     <g>
                       <circle
                         fill=\\"none\\"
@@ -668,7 +663,6 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     aria-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
                     style=\\"vertical-align: middle\\"
                   >
-                    <title>Sa</title>
                     <g>
                       <circle
                         fill=\\"none\\"

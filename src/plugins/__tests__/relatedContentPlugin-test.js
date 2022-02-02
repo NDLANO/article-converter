@@ -231,3 +231,34 @@ test('embedToHtml should return an external article if url is set', async () => 
 
   expect((await relatedContentPlugin.embedToHTML(embed)).html).toMatchSnapshot();
 });
+
+test('embedToHtml should return absolute url if provided in options', async () => {
+  const relatedContentPlugin = createRelatedContentPlugin({absoluteUrl: true});
+
+  const embed1 = {
+    data: { articleId: '1231', resource: 'related-content' },
+    article: {
+      id: 1231,
+      title: { title: 't1' },
+      metaDescription: { metaDescription: 'm1' },
+    },
+  };
+  expect((await relatedContentPlugin.embedToHTML(embed1)).html).toMatchSnapshot();
+
+  const embed2 = {
+    data: { articleId: '1145', resource: 'related-content' },
+    article: {
+      id: 1145,
+      title: { title: 't2' },
+      metaDescription: { metaDescription: 'm2' },
+      resource: {
+        path: '/subject:4/topic:1:172816/topic:1:178048/resource:1:74420',
+        resourceTypes: [
+          { id: 'urn:resourcetype:academicArticle', name: 'Fagartikkel' },
+          { id: 'urn:resourcetype:subjectMaterial', name: 'Fagstoff' },
+        ],
+      },
+    },
+  };
+  expect((await relatedContentPlugin.embedToHTML(embed2)).html).toMatchSnapshot();
+});
