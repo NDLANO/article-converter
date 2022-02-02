@@ -233,7 +233,7 @@ test('embedToHtml should return an external article if url is set', async () => 
 });
 
 test('embedToHtml should return absolute url if provided in options', async () => {
-  const relatedContentPlugin = createRelatedContentPlugin({absoluteUrl: true});
+  const relatedContentPlugin = createRelatedContentPlugin({ absoluteUrl: true });
 
   const embed1 = {
     data: { articleId: '1231', resource: 'related-content' },
