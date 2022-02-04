@@ -47,9 +47,6 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
 
       if (resourcePath) {
         path = `${host}/${language}${resourcePath}`;
-        if (options.filters) {
-          path = path + `?filters=${options.filters}`;
-        }
       }
       return { ...embed, path };
     } catch (error) {

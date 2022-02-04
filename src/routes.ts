@@ -59,13 +59,11 @@ const setup = function routes(app: Express) {
     const articleId = req.params.id;
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
-    const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
-      filters,
       subject,
       path,
     })
@@ -87,13 +85,11 @@ const setup = function routes(app: Express) {
     const showVisualElement = req.query.showVisualElement ?? 'false';
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
-    const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
-      filters,
       subject,
       path,
     })

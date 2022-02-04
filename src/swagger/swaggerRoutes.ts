@@ -67,12 +67,6 @@ const swaggerRoutes = {
         },
         {
           in: 'query',
-          name: 'filters',
-          description: 'Adds specified filters to internal links',
-          deprecated: true,
-        },
-        {
-          in: 'query',
           name: 'subject',
           description: 'Picks correct subject path for resource with multiple paths',
         },
@@ -275,12 +269,6 @@ const swaggerRoutes = {
           in: 'query',
           name: 'showVisualElement',
           description: 'Renders visual element for topic article',
-        },
-        {
-          in: 'query',
-          name: 'filters',
-          description: 'Adds specified filters to internal links',
-          deprecated: true,
         },
         {
           in: 'query',

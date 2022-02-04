@@ -75,7 +75,6 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
                 data-source=\\"Material Design\\"
                 style=\\"vertical-align: middle\\"
               >
-                <title>Download</title>
                 <g>
                   <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
                   <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
@@ -292,7 +291,6 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
                 data-source=\\"Material Design\\"
                 style=\\"vertical-align: middle\\"
               >
-                <title>Download</title>
                 <g>
                   <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
                   <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
