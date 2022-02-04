@@ -80,10 +80,7 @@ const getRelatedArticleProps = (
   relatedArticleEntryNum: number,
   options: TransformOptions,
 ) => {
-  let host = '';
-  if (options.absoluteUrl) {
-    host = config.ndlaFrontendDomain;
-  }
+  const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
 
   if (!article.resource) {
     return {
@@ -99,7 +96,7 @@ const getRelatedArticleProps = (
       )) ||
     article.resource.path;
 
-  let to = path ?? '';
+  const to = path ?? '';
 
   const resourceType = article.resource.resourceTypes.find(
     (type) => mapping(relatedArticleEntryNum)[type.id],
