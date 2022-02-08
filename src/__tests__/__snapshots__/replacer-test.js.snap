@@ -3418,7 +3418,7 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "<section>
-  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-1\\">
+  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-2-1\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -3775,8 +3775,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"1\\"
-                  data-dialog-source-id=\\"figure-1\\"
+                  data-dialog-trigger-id=\\"figure-2-1\\"
+                  data-dialog-source-id=\\"figure-2-1\\"
                   class=\\"
                     css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ljv5qk0
@@ -3788,15 +3788,18 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"1\\"
+                  data-dialog-id=\\"figure-2-1\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-1\\"
+                  aria-labelledby=\\"heading-figure-2-1\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-2-1\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -4207,7 +4210,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       </footer>
     </figcaption>
   </figure>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-3-2\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -4562,8 +4565,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"2\\"
-                  data-dialog-source-id=\\"figure-2\\"
+                  data-dialog-trigger-id=\\"figure-3-2\\"
+                  data-dialog-source-id=\\"figure-3-2\\"
                   class=\\"
                     css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ljv5qk0
@@ -4575,15 +4578,18 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"2\\"
+                  data-dialog-id=\\"figure-3-2\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-2\\"
+                  aria-labelledby=\\"heading-figure-3-2\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-3-2\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -5051,7 +5057,7 @@ exports[`replacer/replaceEmbedsInHtml replace trinket embeds without resize 1`] 
 
 exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "<section>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1326\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1-1326\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -5406,8 +5412,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"1326\\"
-                  data-dialog-source-id=\\"figure-1326\\"
+                  data-dialog-trigger-id=\\"figure-1-1326\\"
+                  data-dialog-source-id=\\"figure-1-1326\\"
                   class=\\"
                     css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ljv5qk0
@@ -5419,15 +5425,18 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"1326\\"
+                  data-dialog-id=\\"figure-1-1326\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-1326\\"
+                  aria-labelledby=\\"heading-figure-1-1326\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-1326\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-1-1326\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">

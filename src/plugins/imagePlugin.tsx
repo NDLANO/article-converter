@@ -8,6 +8,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { uniqueId } from 'lodash';
 import {
   Figure,
   FigureLicenseDialog,
@@ -289,7 +290,8 @@ export default function createImagePlugin(
     }));
 
     const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
-    const figureId = `figure-${id}`;
+    const unique = uniqueId();
+    const figureId = `figure-${unique}-${id}`;
 
     const ExpandButton = ({ size, typeClass }: { size: string; typeClass: string }) => {
       if (isSmall(size)) {
@@ -339,14 +341,14 @@ export default function createImagePlugin(
               <FigureCaption
                 hideFigcaption={isSmall(size) || hideByline(size)}
                 figureId={figureId}
-                id={`${id}`}
+                id={figureId}
                 caption={caption}
                 reuseLabel={t(locale, 'image.reuse')}
                 licenseRights={license.rights}
                 authors={captionAuthors}
                 locale={locale}>
                 <FigureLicenseDialog
-                  id={`${id}`}
+                  id={figureId}
                   title={title}
                   license={license}
                   authors={contributors}

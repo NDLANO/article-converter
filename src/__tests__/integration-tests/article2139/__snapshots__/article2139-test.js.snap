@@ -128,7 +128,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-2357\\">
+  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-1-2357\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -523,8 +523,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"2357\\"
-                  data-dialog-source-id=\\"figure-2357\\"
+                  data-dialog-trigger-id=\\"figure-1-2357\\"
+                  data-dialog-source-id=\\"figure-1-2357\\"
                   class=\\"
                     css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ljv5qk0
@@ -549,7 +549,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-347\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2-347\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -890,8 +890,8 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"347\\"
-                  data-dialog-source-id=\\"figure-347\\"
+                  data-dialog-trigger-id=\\"figure-2-347\\"
+                  data-dialog-source-id=\\"figure-2-347\\"
                   class=\\"
                     css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ljv5qk0
@@ -911,15 +911,19 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 <div data-react-universal-portal=\\"true\\">
   <div
     class=\\"c-dialog\\"
-    data-dialog-id=\\"2357\\"
+    data-dialog-id=\\"figure-1-2357\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
-    aria-labelledby=\\"heading-2357\\"
+    aria-labelledby=\\"heading-figure-1-2357\\"
   >
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-2357\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
+        <h3
+          id=\\"heading-figure-1-2357\\"
+          class=\\"c-figure-license__title\\"
+          tabindex=\\"0\\"
+        >
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -1329,15 +1333,19 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
 <div data-react-universal-portal=\\"true\\">
   <div
     class=\\"c-dialog\\"
-    data-dialog-id=\\"347\\"
+    data-dialog-id=\\"figure-2-347\\"
     role=\\"dialog\\"
     aria-hidden=\\"true\\"
-    aria-labelledby=\\"heading-347\\"
+    aria-labelledby=\\"heading-figure-2-347\\"
   >
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3 id=\\"heading-347\\" class=\\"c-figure-license__title\\" tabindex=\\"0\\">
+        <h3
+          id=\\"heading-figure-2-347\\"
+          class=\\"c-figure-license__title\\"
+          tabindex=\\"0\\"
+        >
           Regler for bruk av bildet:
         </h3>
         <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
