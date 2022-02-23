@@ -152,7 +152,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
                   {renderMarkdown(concept.content?.content ?? '')}
                 </NotionDialogText>
               </NotionDialogContent>
-              <NotionDialogLicenses license={license} source={source} authors={authors} />
+              <NotionDialogLicenses
+                license={license}
+                source={renderMarkdown(source)}
+                authors={authors}
+              />
             </>
           }>
           {children}
