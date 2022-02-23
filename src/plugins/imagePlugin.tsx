@@ -21,15 +21,14 @@ import {
 import Button, { StyledButton } from '@ndla/button';
 // @ts-ignore
 import Image, { ImageLink } from '@ndla/ui/lib/Image';
-import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+  figureApa7CopyString,
+} from '@ndla/licenses';
 import queryString from 'query-string';
 import { isNumber } from 'lodash';
-import {
-  errorSvgSrc,
-  getCopyString,
-  getFirstNonEmptyLicenseCredits,
-  getLicenseCredits,
-} from './pluginHelpers';
+import { errorSvgSrc, getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -40,6 +39,7 @@ import {
   TransformOptions,
   EmbedToHTMLReturnObj,
 } from '../interfaces';
+import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -219,7 +219,16 @@ export default function createImagePlugin(
         copyright,
         imageUrl,
       } = image;
-      const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
+      const copyString = figureApa7CopyString(
+        title,
+        undefined,
+        imageUrl,
+        options.path,
+        copyright,
+        locale,
+        config.ndlaFrontendDomain,
+        (id: string) => t(locale, id),
+      );
       return {
         title: title,
         altText: alttext,
@@ -289,7 +298,16 @@ export default function createImagePlugin(
       type: item.label,
     }));
 
-    const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
+    const copyString = figureApa7CopyString(
+      title,
+      undefined,
+      imageUrl,
+      options.path,
+      copyright,
+      locale,
+      config.ndlaFrontendDomain,
+      (id: string) => t(locale, id),
+    );
     const unique = uniqueId();
     const figureId = `figure-${unique}-${id}`;
 

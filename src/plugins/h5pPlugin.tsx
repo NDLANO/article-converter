@@ -7,8 +7,9 @@
  */
 
 import React from 'react';
+import { figureApa7CopyString } from '@ndla/licenses';
 import { fetchOembed } from '../api/oembedProxyApi';
-import { wrapInFigure, errorSvgSrc, getCopyString } from './pluginHelpers';
+import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import {
@@ -105,12 +106,16 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       const creators = h5p.h5p.authors?.map((author) => {
         return { name: author.name, type: mapRole(author.role) };
       });
-      const copyString = getCopyString(
+
+      const copyString = figureApa7CopyString(
         h5p.h5p.title,
+        undefined,
         embed.h5pUrl,
         options.path,
         { creators },
         locale,
+        config.ndlaFrontendDomain,
+        (id: string) => t(locale, id),
       );
       return {
         ...h5p,

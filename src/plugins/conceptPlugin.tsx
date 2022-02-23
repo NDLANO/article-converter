@@ -14,13 +14,13 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
+import { figureApa7CopyString } from '@ndla/licenses';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { getCopyString } from './pluginHelpers';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
 const StyledDiv = styled.div`
@@ -68,7 +68,16 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     const { concept } = embed;
     if (concept) {
       const { title, copyright, source } = concept;
-      const copyString = getCopyString(title?.title, source, options.path, copyright, locale);
+      const copyString = figureApa7CopyString(
+        title?.title,
+        undefined,
+        source,
+        options.path,
+        copyright,
+        locale,
+        config.ndlaFrontendDomain,
+        (id: string) => t(locale, id),
+      );
       return {
         title: concept.title?.title,
         copyright: concept.copyright,

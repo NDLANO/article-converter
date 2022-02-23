@@ -1,9 +1,10 @@
 import cheerio from 'cheerio';
 import { IArticleV2 } from '@ndla/types-article-api';
+import { webpageReferenceApa7CopyString } from '@ndla/licenses';
 import { fetchArticle } from './api/articleApi';
 import { transform } from './transformers';
 import config from './config';
-import { getCopyString } from './plugins/pluginHelpers';
+import t from './locale/i18n';
 import { LocaleType, ResponseHeaders, TransformedArticle, TransformOptions } from './interfaces';
 
 export async function transformArticle(
@@ -34,12 +35,15 @@ export async function transformArticle(
 
   const htmlString: string = html ?? '';
 
-  const copyText: string = getCopyString(
+  const copyText: string = webpageReferenceApa7CopyString(
     article.title.title,
     config.ndlaFrontendDomain,
+    article.updated,
     options.path,
     article.copyright,
+    config.ndlaFrontendDomain,
     lang,
+    (id: string) => t(lang, id),
   );
   const hasContent = article.articleType === 'standard' || cheerio.load(htmlString).text() !== '';
 

@@ -1810,6 +1810,11 @@
   resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-1.4.1.tgz#23700b388526ec88360462186aa1d24ceff3b5d4"
   integrity sha512-vV7wDdNjQedLk+RDnoV7UERlZyPSMzjFK5vpP/jDA+vQ15YKQ2q99cXFeaMsbMQsioZTMcz27m2DKz8/4h6VsA==
 
+"@ndla/icons@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-1.5.0.tgz#706cf478dd071b02f139b471e3dcfd5c58c826b7"
+  integrity sha512-60fybq2yA3I5GBhBv8j2PjZ2LrJFqwQuJSjzk8IZ/xrmpDgRSn2OK4ZOHCiSMh7uDNo6dEZzNMQb9Zv5W3or9Q==
+
 "@ndla/licenses@^1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-1.1.7.tgz#8dfb17c57a98d9eec91c793d51c31b657763dee8"
@@ -1817,6 +1822,15 @@
   dependencies:
     "@ndla/core" "^0.7.3"
     "@ndla/icons" "^1.4.1"
+    react-bem-helper "1.4.1"
+
+"@ndla/licenses@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-1.2.0.tgz#cc2279c8ebcc03e8b79c8af2d858a59e40a85300"
+  integrity sha512-R0rvMTsVoLEYSWBC8dnrogs816uOGLqVDslo/M9uoGqhVCW9QRoCRh8w6APSwkDF7f7cBAOtDes1GIxt66VjOw==
+  dependencies:
+    "@ndla/core" "^0.7.3"
+    "@ndla/icons" "^1.5.0"
     react-bem-helper "1.4.1"
 
 "@ndla/modal@^1.1.20":

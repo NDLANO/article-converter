@@ -80,7 +80,7 @@
     "@ndla/article-scripts": "^2.0.6",
     "@ndla/button": "^1.1.5",
     "@ndla/code": "^1.0.20",
-    "@ndla/licenses": "^1.1.7",
+    "@ndla/licenses": "^1.2.0",
     "@ndla/notion": "^1.1.10",
     "@ndla/safelink": "^1.0.9",
     "@ndla/ui": "^3.3.15",

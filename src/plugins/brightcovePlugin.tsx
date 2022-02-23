@@ -13,7 +13,11 @@ import React from 'react';
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
-import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+  figureApa7CopyString,
+} from '@ndla/licenses';
 import { get } from 'lodash/fp';
 import {
   BrightcoveCopyright,
@@ -23,13 +27,13 @@ import {
 } from '../api/brightcove';
 import t from '../locale/i18n';
 import {
-  getCopyString,
   getFirstNonEmptyLicenseCredits,
   getLicenseCredits,
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
+import config from '../config';
 
 export interface BrightcoveEmbedType extends EmbedType {
   brightcove: BrightcoveVideo & {
@@ -77,7 +81,16 @@ export default function createBrightcovePlugin(
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
-      const copyString = getCopyString(name, iframeProps.src, options.path, copyright, locale);
+      const copyString = figureApa7CopyString(
+        name,
+        undefined,
+        iframeProps.src,
+        options.path,
+        copyright,
+        locale,
+        config.ndlaFrontendDomain,
+        (id: string) => t(locale, id),
+      );
       return {
         title: name,
         description: description,
@@ -135,12 +148,15 @@ export default function createBrightcovePlugin(
     const metadata = await getMetaData(embed, locale);
     const download = metadata?.download;
 
-    const copyString = getCopyString(
+    const copyString = figureApa7CopyString(
       brightcove.name,
+      undefined,
       src,
       options.path,
       brightcove.copyright,
       locale,
+      config.ndlaFrontendDomain,
+      (id: string) => t(locale, id),
     );
 
     const messages = {
