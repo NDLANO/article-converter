@@ -74,7 +74,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         source,
         options.path,
         copyright,
-        locale,
+        copyright?.license?.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
       );

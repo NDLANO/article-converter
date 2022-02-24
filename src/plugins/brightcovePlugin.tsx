@@ -87,7 +87,7 @@ export default function createBrightcovePlugin(
         iframeProps.src,
         options.path,
         copyright,
-        locale,
+        copyright.license.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
       );
@@ -154,7 +154,7 @@ export default function createBrightcovePlugin(
       src,
       options.path,
       brightcove.copyright,
-      locale,
+      brightcove.copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
     );

@@ -225,7 +225,7 @@ export default function createImagePlugin(
         imageUrl,
         options.path,
         copyright,
-        locale,
+        copyright.license.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
       );
@@ -304,7 +304,7 @@ export default function createImagePlugin(
       imageUrl,
       options.path,
       copyright,
-      locale,
+      copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
     );

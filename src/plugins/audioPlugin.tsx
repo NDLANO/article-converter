@@ -79,7 +79,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         url,
         options.path,
         copyright,
-        locale,
+
+        audio.copyright.license.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
       );
@@ -185,7 +186,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       imageUrl,
       options.path,
       copyright,
-      locale,
+      image.copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
     );
@@ -279,7 +280,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       url,
       options.path,
       audio.copyright,
-      locale,
+      audio.copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
     );

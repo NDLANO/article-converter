@@ -113,7 +113,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
         embed.h5pUrl,
         options.path,
         { creators },
-        locale,
+        undefined,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
       );
