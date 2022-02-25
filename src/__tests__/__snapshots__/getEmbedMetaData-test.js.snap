@@ -4,7 +4,7 @@ exports[`get meta data from embeds 1`] = `
 Object {
   "audios": Array [
     Object {
-      "copyText": "Tittel, NDLA. (http://audio.no/file/voof.mp3). ",
+      "copyText": undefined,
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
@@ -14,7 +14,6 @@ Object {
   ],
   "brightcoves": Array [
     Object {
-      "copyText": "video title, NDLA. (https://players.brightcove.net/account/default_default/index.html?videoId=1337). ",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
@@ -31,7 +30,6 @@ Object {
       "uploadDate": "2020-01-01T11:12:13.456Z",
     },
     Object {
-      "copyText": "Uten tittel, NDLA. (https://players.brightcove.net/account/default_default/index.html?videoId=42). ",
       "copyright": Object {
         "license": "CC-BY-SA-4.0",
       },
