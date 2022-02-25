@@ -12,7 +12,7 @@ import { Translation } from 'react-i18next';
 // @ts-ignore
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 // @ts-ignore
-import Button, { StyledButton } from '@ndla/button';
+import { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
   getLicenseByAbbreviation,
@@ -126,25 +126,16 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
   };
 
   const AudioActionButtons = ({
-    copyString,
     locale,
     license,
     src,
   }: {
-    copyString: string;
     locale: LocaleType;
     license: string;
     src: string;
   }) => {
     return (
       <>
-        <Button
-          key="copy"
-          outline
-          data-copied-title={t(locale, 'license.hasCopiedTitle')}
-          data-copy-string={copyString}>
-          {t(locale, 'license.copyTitle')}
-        </Button>
         {license !== 'COPYRIGHTED' && (
           <Anchor key="download" href={src} download appearance="outline">
             {t(locale, 'audio.download')}
@@ -155,7 +146,6 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
   };
 
   AudioActionButtons.propTypes = {
-    copyString: PropTypes.string.isRequired,
     locale: PropTypes.string.isRequired,
     license: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
@@ -274,16 +264,6 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       source: t(locale, 'source'),
     };
 
-    const copyString = figureApa7CopyString(
-      title,
-      undefined,
-      url,
-      options.path,
-      audio.copyright,
-      audio.copyright.license.license,
-      config.ndlaFrontendDomain,
-      (id: string) => t(locale, id),
-    );
     const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
     return {
@@ -320,12 +300,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
                   origin={origin}
                   locale={locale}
                   messages={messages}>
-                  <AudioActionButtons
-                    copyString={copyString}
-                    locale={locale}
-                    license={licenseAbbreviation}
-                    src={url}
-                  />
+                  <AudioActionButtons locale={locale} license={licenseAbbreviation} src={url} />
                 </FigureLicenseDialog>
                 {image && <ImageLicense image={image} locale={locale} figureid={figureid} />}
               </Figure>

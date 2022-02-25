@@ -13,11 +13,7 @@ import React from 'react';
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
-import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
-  figureApa7CopyString,
-} from '@ndla/licenses';
+import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
 import { get } from 'lodash/fp';
 import {
   BrightcoveCopyright,
@@ -33,7 +29,6 @@ import {
 } from './pluginHelpers';
 import { render } from '../utils/render';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
-import config from '../config';
 
 export interface BrightcoveEmbedType extends EmbedType {
   brightcove: BrightcoveVideo & {
@@ -81,16 +76,7 @@ export default function createBrightcovePlugin(
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
-      const copyString = figureApa7CopyString(
-        name,
-        undefined,
-        iframeProps.src,
-        options.path,
-        copyright,
-        copyright.license.license,
-        config.ndlaFrontendDomain,
-        (id: string) => t(locale, id),
-      );
+
       return {
         title: name,
         description: description,
@@ -100,7 +86,6 @@ export default function createBrightcovePlugin(
         src: iframeProps.src,
         iframe: iframeProps,
         uploadDate: published_at,
-        copyText: copyString,
       };
     }
   };
@@ -147,17 +132,6 @@ export default function createBrightcovePlugin(
 
     const metadata = await getMetaData(embed, locale);
     const download = metadata?.download;
-
-    const copyString = figureApa7CopyString(
-      brightcove.name,
-      undefined,
-      src,
-      options.path,
-      brightcove.copyright,
-      brightcove.copyright.license.license,
-      config.ndlaFrontendDomain,
-      (id: string) => t(locale, id),
-    );
 
     const messages = {
       title: t(locale, 'title'),
@@ -207,12 +181,6 @@ export default function createBrightcovePlugin(
             license={license}
             authors={contributors}
             messages={messages}>
-            <Button
-              outline
-              data-copied-title={t(locale, 'license.hasCopiedTitle')}
-              data-copy-string={copyString}>
-              {t(locale, 'license.copyTitle')}
-            </Button>
             {licenseAbbreviation !== 'COPYRIGHTED' && (
               <Anchor key="download" href={download} appearance="outline" download>
                 {t(locale, 'video.download')}

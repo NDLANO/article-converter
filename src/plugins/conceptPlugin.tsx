@@ -14,7 +14,6 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
-import { figureApa7CopyString } from '@ndla/licenses';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
@@ -67,22 +66,10 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
-      const { title, copyright, source } = concept;
-      const copyString = figureApa7CopyString(
-        title?.title,
-        undefined,
-        source,
-        options.path,
-        copyright,
-        copyright?.license?.license,
-        config.ndlaFrontendDomain,
-        (id: string) => t(locale, id),
-      );
       return {
         title: concept.title?.title,
         copyright: concept.copyright,
         src: getEmbedSrc(concept),
-        copyText: copyString,
       };
     }
   };
