@@ -28,7 +28,7 @@ import {
 } from '@ndla/licenses';
 import queryString from 'query-string';
 import { isNumber } from 'lodash';
-import { errorSvgSrc, getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
+import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -338,7 +338,10 @@ export default function createImagePlugin(
       }
       return null;
     };
-    const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
+
+    const { creators, rightsholders, processors } = authors;
+    const captionAuthors =
+      creators.length || rightsholders.length ? [...rightsholders, ...creators] : processors;
 
     return {
       html: render(
