@@ -341,7 +341,7 @@ export default function createImagePlugin(
 
     const { creators, rightsholders, processors } = authors;
     const captionAuthors =
-      creators.length || rightsholders.length ? [...rightsholders, ...creators] : processors;
+      creators.length || rightsholders.length ? [...creators, ...rightsholders] : processors;
 
     return {
       html: render(

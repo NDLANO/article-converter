@@ -3413,7 +3413,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
               <span class=\\"c-figure__byline-authors\\"
-                >Scanpix, Ola Foton, Kari Maler</span
+                >Ola Foton, Kari Maler, Scanpix</span
               >
               <div>
                 <style
