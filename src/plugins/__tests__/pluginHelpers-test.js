@@ -6,12 +6,7 @@
  *
  */
 
-import {
-  getCopyString,
-  getFirstNonEmptyLicenseCredits,
-  makeIframe,
-  wrapInFigure,
-} from '../pluginHelpers';
+import { getFirstNonEmptyLicenseCredits, makeIframe, wrapInFigure } from '../pluginHelpers';
 
 test('wrapInFigure', () => {
   expect(wrapInFigure('<div></div>')).toMatchSnapshot();
@@ -25,27 +20,6 @@ test('makeIframe', () => {
     makeIframe('https://youtube.com', '400px', '600px', 'https://youtube.com'),
   ).toMatchSnapshot();
   expect(makeIframe('https://youtube.com', '400 px', '600 px', 'Youtube')).toMatchSnapshot();
-});
-
-test('getCopyString from image with all properties', () => {
-  const copyright = {
-    license: 'CC-BY-SA-4.0',
-    creators: [{ type: 'photographer', name: 'Foto Graf' }],
-    rightsholders: [{ type: 'publisher', name: 'Scanpix' }],
-    processors: [{ type: 'processor', name: 'Bear Beider' }],
-  };
-  expect(
-    getCopyString('Title', 'http://api.ndla.no/image/raw/1', undefined, copyright, 'nb'),
-  ).toMatchSnapshot();
-});
-
-test('getCopyString from brightcove with missing type due to typo', () => {
-  const copyright = {
-    license: 'CC-BY-SA-4.0',
-    creators: [{ type: '', name: 'Video Kunstner' }],
-    rightsholders: [{ type: 'publisher', name: 'Scanpix' }],
-  };
-  expect(getCopyString('Title', undefined, '/article/123', copyright, 'nb')).toMatchSnapshot();
 });
 
 test('getFirstNonEmptyLicenseCredits returns an empty array if no values exist', () => {

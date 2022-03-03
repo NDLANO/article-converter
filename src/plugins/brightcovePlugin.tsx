@@ -23,7 +23,6 @@ import {
 } from '../api/brightcove';
 import t from '../locale/i18n';
 import {
-  getCopyString,
   getFirstNonEmptyLicenseCredits,
   getLicenseCredits,
   makeIframeString,
@@ -77,7 +76,7 @@ export default function createBrightcovePlugin(
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
-      const copyString = getCopyString(name, iframeProps.src, options.path, copyright, locale);
+
       return {
         title: name,
         description: description,
@@ -87,7 +86,6 @@ export default function createBrightcovePlugin(
         src: iframeProps.src,
         iframe: iframeProps,
         uploadDate: published_at,
-        copyText: copyString,
       };
     }
   };
@@ -134,14 +132,6 @@ export default function createBrightcovePlugin(
 
     const metadata = await getMetaData(embed, locale);
     const download = metadata?.download;
-
-    const copyString = getCopyString(
-      brightcove.name,
-      src,
-      options.path,
-      brightcove.copyright,
-      locale,
-    );
 
     const messages = {
       title: t(locale, 'title'),
@@ -191,12 +181,6 @@ export default function createBrightcovePlugin(
             license={license}
             authors={contributors}
             messages={messages}>
-            <Button
-              outline
-              data-copied-title={t(locale, 'license.hasCopiedTitle')}
-              data-copy-string={copyString}>
-              {t(locale, 'license.copyTitle')}
-            </Button>
             {licenseAbbreviation !== 'COPYRIGHTED' && (
               <Anchor key="download" href={download} appearance="outline" download>
                 {t(locale, 'video.download')}
