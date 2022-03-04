@@ -4,9 +4,21 @@ exports[`get meta data from embeds 1`] = `
 Object {
   "audios": Array [
     Object {
-      "copyText": "Tittel [Internett]. Hentet fra: http://audio.no/file/voof.mp3 Lest: 19.05.2021",
+      "copyText": undefined,
       "copyright": Object {
-        "license": "CC-BY-SA-4.0",
+        "creators": Array [
+          Object {
+            "name": "Langt Etternavn",
+            "type": "writer",
+          },
+          Object {
+            "name": "Navn Navnesen",
+            "type": "writer",
+          },
+        ],
+        "license": Object {
+          "license": "CC-BY-SA-4.0",
+        },
       },
       "src": "http://audio.no/file/voof.mp3",
       "title": "Tittel",
@@ -14,9 +26,20 @@ Object {
   ],
   "brightcoves": Array [
     Object {
-      "copyText": "video title [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=1337 Lest: 19.05.2021",
       "copyright": Object {
-        "license": "CC-BY-SA-4.0",
+        "creators": Array [
+          Object {
+            "name": "Langt Etternavn",
+            "type": "writer",
+          },
+          Object {
+            "name": "Navn Navnesen",
+            "type": "writer",
+          },
+        ],
+        "license": Object {
+          "license": "CC-BY-SA-4.0",
+        },
       },
       "cover": "https://image.no/123.jpg",
       "description": "video description",
@@ -31,9 +54,20 @@ Object {
       "uploadDate": "2020-01-01T11:12:13.456Z",
     },
     Object {
-      "copyText": "Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/account/default_default/index.html?videoId=42 Lest: 19.05.2021",
       "copyright": Object {
-        "license": "CC-BY-SA-4.0",
+        "creators": Array [
+          Object {
+            "name": "Langt Etternavn",
+            "type": "writer",
+          },
+          Object {
+            "name": "Navn Navnesen",
+            "type": "writer",
+          },
+        ],
+        "license": Object {
+          "license": "CC-BY-SA-4.0",
+        },
       },
       "cover": undefined,
       "description": undefined,
@@ -51,18 +85,42 @@ Object {
   "images": Array [
     Object {
       "altText": "alt",
-      "copyText": "title [Internett]. Hentet fra: http://example.no/1234.jpg Lest: 19.05.2021",
+      "copyText": "title, av Etternavn, L. & Navnesen, N. NDLA. (http://example.no/1234.jpg). CC-BY-SA-4.0.",
       "copyright": Object {
-        "license": "CC-BY-SA-4.0",
+        "creators": Array [
+          Object {
+            "name": "Langt Etternavn",
+            "type": "writer",
+          },
+          Object {
+            "name": "Navn Navnesen",
+            "type": "writer",
+          },
+        ],
+        "license": Object {
+          "license": "CC-BY-SA-4.0",
+        },
       },
       "src": "http://example.no/1234.jpg",
       "title": "title",
     },
     Object {
       "altText": "alt 2",
-      "copyText": "title 2 [Internett]. Hentet fra: http://example.no/4123.jpg Lest: 19.05.2021",
+      "copyText": "title 2, av Etternavn, L. & Navnesen, N. NDLA. (http://example.no/4123.jpg). CC-BY-SA-4.0.",
       "copyright": Object {
-        "license": "CC-BY-SA-4.0",
+        "creators": Array [
+          Object {
+            "name": "Langt Etternavn",
+            "type": "writer",
+          },
+          Object {
+            "name": "Navn Navnesen",
+            "type": "writer",
+          },
+        ],
+        "license": Object {
+          "license": "CC-BY-SA-4.0",
+        },
       },
       "src": "http://example.no/4123.jpg",
       "title": "title 2",

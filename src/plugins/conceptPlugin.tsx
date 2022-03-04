@@ -20,7 +20,6 @@ import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { getCopyString } from './pluginHelpers';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
 const StyledDiv = styled.div`
@@ -67,13 +66,10 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
-      const { title, copyright, source } = concept;
-      const copyString = getCopyString(title?.title, source, options.path, copyright, locale);
       return {
         title: concept.title?.title,
         copyright: concept.copyright,
         src: getEmbedSrc(concept),
-        copyText: copyString,
       };
     }
   };
