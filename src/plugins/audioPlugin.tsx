@@ -14,15 +14,20 @@ import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure'
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
-import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
+import {
+  getLicenseByAbbreviation,
+  getGroupedContributorDescriptionList,
+  figureApa7CopyString,
+} from '@ndla/licenses';
 import t from '../locale/i18n';
-import { getCopyString, getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
+import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
 import { AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
+import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -68,7 +73,19 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         copyright,
         audioFile: { url },
       } = audio;
-      const copyString = getCopyString(title, url, options.path, copyright, locale);
+      const copyString =
+        audio.audioType === 'podcast'
+          ? figureApa7CopyString(
+              title,
+              undefined,
+              url,
+              options.path,
+              copyright,
+              copyright.license.license,
+              config.ndlaFrontendDomain,
+              (id: string) => t(locale, id),
+            )
+          : undefined;
       return {
         title: audio.title.title,
         copyright: audio.copyright,
@@ -116,20 +133,22 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     license,
     src,
   }: {
-    copyString: string;
+    copyString?: string;
     locale: LocaleType;
     license: string;
     src: string;
   }) => {
     return (
       <>
-        <Button
-          key="copy"
-          outline
-          data-copied-title={t(locale, 'license.hasCopiedTitle')}
-          data-copy-string={copyString}>
-          {t(locale, 'license.copyTitle')}
-        </Button>
+        {copyString && (
+          <Button
+            key="copy"
+            outline
+            data-copied-title={t(locale, 'license.hasCopiedTitle')}
+            data-copy-string={copyString}>
+            {t(locale, 'license.copyTitle')}
+          </Button>
+        )}
         {license !== 'COPYRIGHTED' && (
           <Anchor key="download" href={src} download appearance="outline">
             {t(locale, 'audio.download')}
@@ -165,7 +184,16 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       license: { license: licenseAbbreviation },
       origin,
     } = copyright;
-    const copyString = getCopyString(title, imageUrl, options.path, copyright, locale);
+    const copyString = figureApa7CopyString(
+      title,
+      undefined,
+      imageUrl,
+      options.path,
+      copyright,
+      copyright.license.license,
+      config.ndlaFrontendDomain,
+      (id: string) => t(locale, id),
+    );
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
     const authors = getLicenseCredits(copyright);
 
@@ -250,7 +278,19 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       source: t(locale, 'source'),
     };
 
-    const copyString = getCopyString(title, url, options.path, audio.copyright, locale);
+    const copyString =
+      audio.audioType === 'podcast'
+        ? figureApa7CopyString(
+            title,
+            undefined,
+            url,
+            options.path,
+            audio.copyright,
+            audio.copyright.license.license,
+            config.ndlaFrontendDomain,
+            (id: string) => t(locale, id),
+          )
+        : undefined;
     const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
 
     return {

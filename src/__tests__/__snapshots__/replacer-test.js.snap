@@ -1416,90 +1416,6 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
-                >
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
-                    display: inline-block;
-                    color: #ffffff;
-                    background-color: #20588f;
-                    border: 2px solid #20588f;
-                    border-radius: 4px;
-                    padding: 4px 13px;
-                    outline-width: 0;
-                    cursor: pointer;
-                    -webkit-text-decoration: none;
-                    text-decoration: none;
-                    font-size: 16px;
-                    font-size: 0.8888888888888888rem;
-                    line-height: 1.625;
-                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
-                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
-                    font-weight: 700;
-                    -webkit-transition: all 0.2s
-                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    box-shadow: none;
-                    text-align: center;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #184673;
-                    border: 2px solid #184673;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
-                    color: #777777;
-                    background-color: #e6e6e6;
-                    border-color: transparent;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    box-shadow: 0 0 2px #20588f;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }</style
-                ><button
-                  type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Forfatter: name. Forlag: name. Tittel [Internett]. Bearbeider: name. Hentet fra: http://audio.no/file/voof.mp3 Lest: 19.05.2021\\"
-                  class=\\"
-                    css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
-                    e1ww3yc20
-                  \\"
-                >
-                  Kildehenvisning</button
-                ><style
                   data-emotion-css=\\"hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
                   .css-hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
@@ -2245,90 +2161,6 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
-                >
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
-                    display: inline-block;
-                    color: #ffffff;
-                    background-color: #20588f;
-                    border: 2px solid #20588f;
-                    border-radius: 4px;
-                    padding: 4px 13px;
-                    outline-width: 0;
-                    cursor: pointer;
-                    -webkit-text-decoration: none;
-                    text-decoration: none;
-                    font-size: 16px;
-                    font-size: 0.8888888888888888rem;
-                    line-height: 1.625;
-                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
-                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
-                    font-weight: 700;
-                    -webkit-transition: all 0.2s
-                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    box-shadow: none;
-                    text-align: center;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #184673;
-                    border: 2px solid #184673;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
-                    color: #777777;
-                    background-color: #e6e6e6;
-                    border-color: transparent;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    box-shadow: 0 0 2px #20588f;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }</style
-                ><button
-                  type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1 Lest: 19.05.2021\\"
-                  class=\\"
-                    css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
-                    e1ww3yc20
-                  \\"
-                >
-                  Kildehenvisning</button
-                ><style
                   data-emotion-css=\\"hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
                   .css-hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
@@ -3091,90 +2923,6 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               <ul class=\\"c-figure-license__list\\"></ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
-                >
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
-                    display: inline-block;
-                    color: #ffffff;
-                    background-color: #20588f;
-                    border: 2px solid #20588f;
-                    border-radius: 4px;
-                    padding: 4px 13px;
-                    outline-width: 0;
-                    cursor: pointer;
-                    -webkit-text-decoration: none;
-                    text-decoration: none;
-                    font-size: 16px;
-                    font-size: 0.8888888888888888rem;
-                    line-height: 1.625;
-                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
-                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
-                    font-weight: 700;
-                    -webkit-transition: all 0.2s
-                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    box-shadow: none;
-                    text-align: center;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #184673;
-                    border: 2px solid #184673;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
-                    color: #777777;
-                    background-color: #e6e6e6;
-                    border-color: transparent;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    box-shadow: 0 0 2px #20588f;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }</style
-                ><button
-                  type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"Uten tittel [Internett]. Hentet fra: https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2 Lest: 19.05.2021\\"
-                  class=\\"
-                    css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
-                    e1ww3yc20
-                  \\"
-                >
-                  Kildehenvisning</button
-                ><style
                   data-emotion-css=\\"hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
                   .css-hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
@@ -3419,7 +3167,7 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 
 exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "<section>
-  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-1\\">
+  <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-2-1\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -3666,7 +3414,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
             </ul>
             <div class=\\"c-figure__byline-author-buttons\\">
               <span class=\\"c-figure__byline-authors\\"
-                >Ola Foton, Kari Maler</span
+                >Ola Foton, Kari Maler, Scanpix</span
               >
               <div>
                 <style
@@ -3776,8 +3524,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"1\\"
-                  data-dialog-source-id=\\"figure-1\\"
+                  data-dialog-trigger-id=\\"figure-2-1\\"
+                  data-dialog-source-id=\\"figure-2-1\\"
                   class=\\"
                     css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ww3yc20
@@ -3789,15 +3537,18 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"1\\"
+                  data-dialog-id=\\"figure-2-1\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-1\\"
+                  aria-labelledby=\\"heading-figure-2-1\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-2-1\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -4120,7 +3871,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"Forfatter: Ola Foton, Kunstner: Kari Maler. image title 1 [Internett]. Leverandør: Scanpix. Hentet fra: http://ndla.no/images/1.jpg Lest: 19.05.2021\\"
+                            data-copy-string=\\"image title 1, av Foton, O. &amp; Maler, K. NDLA. (http://ndla.no/images/1.jpg). CC-BY-NC-4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20
@@ -4208,7 +3959,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       </footer>
     </figcaption>
   </figure>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-2\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-3-2\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -4563,8 +4314,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"2\\"
-                  data-dialog-source-id=\\"figure-2\\"
+                  data-dialog-trigger-id=\\"figure-3-2\\"
+                  data-dialog-source-id=\\"figure-3-2\\"
                   class=\\"
                     css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ww3yc20
@@ -4576,15 +4327,18 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"2\\"
+                  data-dialog-id=\\"figure-3-2\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-2\\"
+                  aria-labelledby=\\"heading-figure-3-2\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-3-2\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -4901,7 +4655,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"image title 2 [Internett]. Hentet fra: http://ndla.no/images/2.jpg Lest: 19.05.2021\\"
+                            data-copy-string=\\"image title 2, NDLA. (http://ndla.no/images/2.jpg). CC-BY-NC-4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20
@@ -5052,7 +4806,7 @@ exports[`replacer/replaceEmbedsInHtml replace trinket embeds without resize 1`] 
 
 exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "<section>
-  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1326\\">
+  <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1-1326\\">
     <style data-emotion-css=\\"c121an-StyledLink\\">
       .css-c121an-StyledLink {
         box-shadow: inset 0 0;
@@ -5407,8 +5161,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   }</style
                 ><button
                   type=\\"button\\"
-                  data-dialog-trigger-id=\\"1326\\"
-                  data-dialog-source-id=\\"figure-1326\\"
+                  data-dialog-trigger-id=\\"figure-1-1326\\"
+                  data-dialog-source-id=\\"figure-1-1326\\"
                   class=\\"
                     css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
                     e1ww3yc20
@@ -5420,15 +5174,18 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               <div data-react-universal-portal=\\"true\\">
                 <div
                   class=\\"c-dialog\\"
-                  data-dialog-id=\\"1326\\"
+                  data-dialog-id=\\"figure-1-1326\\"
                   role=\\"dialog\\"
                   aria-hidden=\\"true\\"
-                  aria-labelledby=\\"heading-1326\\"
+                  aria-labelledby=\\"heading-figure-1-1326\\"
                 >
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3 id=\\"heading-1326\\" class=\\"c-figure-license__title\\">
+                      <h3
+                        id=\\"heading-figure-1-1326\\"
+                        class=\\"c-figure-license__title\\"
+                      >
                         Regler for bruk av bildet:
                       </h3>
                       <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
@@ -5745,7 +5502,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"image title [Internett]. Hentet fra: http://api.test.ndla.no/images/1.jpg Lest: 19.05.2021\\"
+                            data-copy-string=\\"image title, NDLA. (http://api.test.ndla.no/images/1.jpg). CC-BY-NC-4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20
@@ -6446,90 +6203,6 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               </ul>
               <div class=\\"c-figure-license__cta-block\\">
                 <style
-                  data-emotion-css=\\"1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
-                >
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
-                    display: inline-block;
-                    color: #ffffff;
-                    background-color: #20588f;
-                    border: 2px solid #20588f;
-                    border-radius: 4px;
-                    padding: 4px 13px;
-                    outline-width: 0;
-                    cursor: pointer;
-                    -webkit-text-decoration: none;
-                    text-decoration: none;
-                    font-size: 16px;
-                    font-size: 0.8888888888888888rem;
-                    line-height: 1.625;
-                    font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-                      \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB,
-                      \\"標楷體\\", SongTi, \\"宋体\\", sans-serif;
-                    font-weight: 700;
-                    -webkit-transition: all 0.2s
-                      cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    transition: all 0.2s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-                    box-shadow: none;
-                    text-align: center;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                    color: #20588f;
-                    background-color: transparent;
-                    border: 2px solid #20588f;
-                    box-shadow: none;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #184673;
-                    border: 2px solid #184673;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
-                    color: #777777;
-                    background-color: #e6e6e6;
-                    border-color: transparent;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    box-shadow: 0 0 2px #20588f;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
-                    color: white;
-                    background-color: #20588f;
-                    border: 2px solid transparent;
-                  }
-                  .css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
-                    color: #777777;
-                    border: 2px solid transparent;
-                    background-color: #e6e6e6;
-                    cursor: not-allowed;
-                  }</style
-                ><button
-                  type=\\"button\\"
-                  data-copied-title=\\"Kopiert!\\"
-                  data-copy-string=\\"brightcove video [Internett]. Hentet fra: https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012 Lest: 19.05.2021\\"
-                  class=\\"
-                    css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
-                    e1ww3yc20
-                  \\"
-                >
-                  Kildehenvisning</button
-                ><style
                   data-emotion-css=\\"hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
                 >
                   .css-hx3dpk-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
