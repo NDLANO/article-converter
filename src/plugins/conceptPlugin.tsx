@@ -11,9 +11,14 @@ import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 // @ts-ignore
-import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
+import Notion, {
+  NotionDialogContent,
+  NotionDialogText,
+  NotionDialogLicenses,
+  NotionHeaderWithoutExitButton,
+} from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
-import { breakpoints, mq } from '@ndla/core';
+import { breakpoints, mq, spacing } from '@ndla/core';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
@@ -48,6 +53,12 @@ const customNotionStyle = css`
   }
 `;
 
+const StyledNotionHeaderWrapper = styled.div`
+  div {
+    margin: ${spacing.normal} 0 ${spacing.small};
+  }
+`;
+
 export interface ConceptEmbedType extends EmbedType {
   concept: IConcept;
 }
@@ -55,6 +66,77 @@ export interface ConceptEmbedType extends EmbedType {
 export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
   resource: 'concept';
 }
+
+const renderMarkdown = (text: string) => {
+  const md = new Remarkable();
+  md.inline.ruler.enable(['sub', 'sup']);
+  const rendered = md.render(text);
+  return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
+};
+
+const renderInline = (
+  embed: ConceptEmbedType,
+  transformedHTML: string | null | undefined,
+  locale: LocaleType,
+) => {
+  const {
+    data: { linkText },
+    concept,
+  } = embed;
+
+  const id = uniqueId();
+  const children = typeof linkText === 'string' ? linkText : undefined;
+
+  const copyright = concept.copyright;
+  const authors = (copyright?.creators ?? []).map((author) => author.name);
+  const license = copyright?.license?.license;
+  const source = concept.source ?? '';
+  return render(
+    <Notion
+      id={`notion_id_${id}_${locale}`}
+      ariaLabel={t(locale, 'concept.showDescription')}
+      title={concept.title?.title ?? ''}
+      customCSS={customNotionStyle}
+      content={
+        <>
+          <NotionDialogContent>
+            {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
+            <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
+          </NotionDialogContent>
+          <NotionDialogLicenses license={license} source={source} authors={authors} />
+        </>
+      }>
+      {children}
+    </Notion>,
+    locale,
+  );
+};
+
+const renderBlock = (
+  embed: ConceptEmbedType,
+  transformedHTML: string | null | undefined,
+  locale: LocaleType,
+) => {
+  const { concept } = embed;
+
+  const copyright = concept.copyright;
+  const authors = (copyright?.creators ?? []).map((author) => author.name);
+  const license = copyright?.license?.license;
+  const source = concept.source ?? '';
+  return render(
+    <div>
+      <StyledNotionHeaderWrapper>
+        <NotionHeaderWithoutExitButton title={concept.title?.title ?? ''} />
+      </StyledNotionHeaderWrapper>
+      <NotionDialogContent>
+        {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
+        <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
+      </NotionDialogContent>
+      <NotionDialogLicenses license={license} source={source} authors={authors} />
+    </div>,
+    locale,
+  );
+};
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
@@ -72,13 +154,6 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         src: getEmbedSrc(concept),
       };
     }
-  };
-
-  const renderMarkdown = (text: string) => {
-    const md = new Remarkable();
-    md.inline.ruler.enable(['sub', 'sup']);
-    const rendered = md.render(text);
-    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
   const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
@@ -102,21 +177,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   };
 
   const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
-    const {
-      data: { linkText },
-      concept,
-    } = embed;
-
-    const id = uniqueId();
-    const children = typeof linkText === 'string' ? linkText : undefined;
-
     const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
     };
-    const copyright = concept.copyright;
-    const authors = (copyright?.creators ?? []).map((author) => author.name);
-    const license = copyright?.license?.license;
-    const source = concept.source ?? '';
 
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
@@ -130,31 +193,16 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
     const responseHeaders = transformed?.responseHeaders ? [transformed.responseHeaders] : [];
 
+    if (embed.data.type === 'block') {
+      return {
+        responseHeaders,
+        html: renderBlock(embed, transformed?.html, locale),
+      };
+    }
+
     return {
       responseHeaders,
-      html: render(
-        <Notion
-          id={`notion_id_${id}_${locale}`}
-          ariaLabel={t(locale, 'concept.showDescription')}
-          title={concept.title?.title ?? ''}
-          customCSS={customNotionStyle}
-          content={
-            <>
-              <NotionDialogContent>
-                {transformed?.html && (
-                  <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
-                )}
-                <NotionDialogText>
-                  {renderMarkdown(concept.content?.content ?? '')}
-                </NotionDialogText>
-              </NotionDialogContent>
-              <NotionDialogLicenses license={license} source={source} authors={authors} />
-            </>
-          }>
-          {children}
-        </Notion>,
-        locale,
-      ),
+      html: renderInline(embed, transformed?.html, locale),
     };
   };
 

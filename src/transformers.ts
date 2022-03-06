@@ -67,6 +67,7 @@ export async function getEmbedsResources(
         const startStamp = performance.now();
         try {
           const resource = await plugin.fetchResource(embed, accessToken, lang, feideToken);
+
           logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
@@ -119,6 +120,7 @@ export const transform: TransformFunction = async (
   );
 
   const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
 
   const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
