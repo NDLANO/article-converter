@@ -103,7 +103,11 @@ const renderInline = (
             {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
             <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
           </NotionDialogContent>
-          <NotionDialogLicenses license={license} source={source} authors={authors} />
+          <NotionDialogLicenses
+            license={license}
+            source={renderMarkdown(source)}
+            authors={authors}
+          />
         </>
       }>
       {children}
@@ -132,7 +136,7 @@ const renderBlock = (
         {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
         <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
       </NotionDialogContent>
-      <NotionDialogLicenses license={license} source={source} authors={authors} />
+      <NotionDialogLicenses license={license} source={renderMarkdown(source)} authors={authors} />
     </div>,
     locale,
   );
