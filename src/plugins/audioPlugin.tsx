@@ -84,6 +84,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
               copyright.license.license,
               config.ndlaFrontendDomain,
               (id: string) => t(locale, id),
+              locale,
             )
           : undefined;
       return {
@@ -193,6 +194,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
+      locale,
     );
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
     const authors = getLicenseCredits(copyright);
@@ -289,6 +291,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             audio.copyright.license.license,
             config.ndlaFrontendDomain,
             (id: string) => t(locale, id),
+            locale,
           )
         : undefined;
     const captionAuthors = getFirstNonEmptyLicenseCredits(authors);
