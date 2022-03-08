@@ -39,7 +39,7 @@ export async function transformArticle(
     article.title.title,
     undefined,
     article.updated,
-    `/articles/${article.id}`,
+    `/article/${article.id}`,
     article.copyright,
     lang,
     config.ndlaFrontendDomain,
