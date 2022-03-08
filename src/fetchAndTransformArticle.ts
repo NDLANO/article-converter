@@ -46,7 +46,6 @@ export async function transformArticle(
     (id: string) => t(lang, id),
   );
 
-  console.log(copyText);
   const hasContent = article.articleType === 'standard' || cheerio.load(htmlString).text() !== '';
 
   return {
