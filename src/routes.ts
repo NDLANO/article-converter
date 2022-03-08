@@ -61,11 +61,13 @@ const setup = function routes(app: Express) {
     const feideToken = getAsString(req.headers['feideauthorization']);
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
@@ -87,11 +89,13 @@ const setup = function routes(app: Express) {
     const feideToken = getAsString(req.headers['feideauthorization']);
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
