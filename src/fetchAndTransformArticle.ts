@@ -37,14 +37,16 @@ export async function transformArticle(
 
   const copyText: string = webpageReferenceApa7CopyString(
     article.title.title,
-    config.ndlaFrontendDomain,
+    undefined,
     article.updated,
-    options.path,
+    `/articles/${article.id}`,
     article.copyright,
-    config.ndlaFrontendDomain,
     lang,
+    config.ndlaFrontendDomain,
     (id: string) => t(lang, id),
   );
+
+  console.log(copyText);
   const hasContent = article.articleType === 'standard' || cheerio.load(htmlString).text() !== '';
 
   return {
