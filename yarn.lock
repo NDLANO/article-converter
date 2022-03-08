@@ -1797,6 +1797,15 @@
     polished "^4.1.3"
     sass-mq "^5.0.1"
 
+"@ndla/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ndla/core/-/core-1.0.0.tgz#e210ae2ddf7ec2b898b0c378d364e2b9ae790e3d"
+  integrity sha512-X6x/ZAYXluWrKAVh+ZOHvs1bDBIBqO98l4LE4siqokSY3Y1kS1+gV0WZ/KmYGiqMCg+LHKLGEGaVUTyXYf1RDg==
+  dependencies:
+    inuitcss "6.0.0"
+    polished "^4.1.3"
+    sass-mq "^5.0.1"
+
 "@ndla/hooks@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@ndla/hooks/-/hooks-1.0.8.tgz#361631aca9f818eac8b9e53e09ba84a5c635d836"
@@ -1810,6 +1819,11 @@
   resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-1.5.0.tgz#706cf478dd071b02f139b471e3dcfd5c58c826b7"
   integrity sha512-60fybq2yA3I5GBhBv8j2PjZ2LrJFqwQuJSjzk8IZ/xrmpDgRSn2OK4ZOHCiSMh7uDNo6dEZzNMQb9Zv5W3or9Q==
 
+"@ndla/icons@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@ndla/icons/-/icons-1.6.0.tgz#0711535f7361e5476dba2afb1211821a22c14bed"
+  integrity sha512-eYeBhaGvbLTylUsiXEKKmPFQ+VKzLus32yrXwWE6bq6zDhbmTvu/mDDkOYEE2lg7Lro7EdstBLqkE/MW+mneeg==
+
 "@ndla/licenses@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-2.1.0.tgz#5a4cfb42d715f8eac66210158c2b5c507674e666"
@@ -1818,6 +1832,14 @@
     "@ndla/core" "^0.7.3"
     "@ndla/icons" "^1.5.0"
     react-bem-helper "1.4.1"
+
+"@ndla/licenses@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ndla/licenses/-/licenses-3.0.0.tgz#8156fcfc73328a142ebd3dc6399894a12d9043a8"
+  integrity sha512-eOdo6i62oNxbBnFzlNDJu26jtIF50sHcCE1Z7qPxawPHR2Y0eDv7HRl+dFDjL80sXcwXsRKWIZ+FD0zFMjENvQ==
+  dependencies:
+    "@ndla/core" "^1.0.0"
+    "@ndla/icons" "^1.6.0"
 
 "@ndla/modal@^1.1.25":
   version "1.1.25"

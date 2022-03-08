@@ -228,6 +228,7 @@ export default function createImagePlugin(
         copyright.license.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
+        locale,
       );
       return {
         title: title,
@@ -307,6 +308,7 @@ export default function createImagePlugin(
       copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
+      locale,
     );
     const unique = uniqueId();
     const figureId = `figure-${unique}-${id}`;

@@ -85,7 +85,7 @@ Object {
   "images": Array [
     Object {
       "altText": "alt",
-      "copyText": "title, av Etternavn, L. & Navnesen, N. NDLA. (http://example.no/1234.jpg). CC-BY-SA-4.0.",
+      "copyText": "title, av Etternavn, L., Navnesen, N. (http://example.no/1234.jpg). CC BY-SA 4.0.",
       "copyright": Object {
         "creators": Array [
           Object {
@@ -106,7 +106,7 @@ Object {
     },
     Object {
       "altText": "alt 2",
-      "copyText": "title 2, av Etternavn, L. & Navnesen, N. NDLA. (http://example.no/4123.jpg). CC-BY-SA-4.0.",
+      "copyText": "title 2, av Etternavn, L., Navnesen, N. (http://example.no/4123.jpg). CC BY-SA 4.0.",
       "copyright": Object {
         "creators": Array [
           Object {
