@@ -24,7 +24,7 @@ Object {
   "id": 9206,
   "introduction": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "metaData": Object {
-    "copyText": "Forfatter: Johannes Leiknes Nag. Skripting gjør sidene mer interaktive [Internett]. Hentet fra: https://test.ndla.no Lest: 19.05.2021",
+    "copyText": "Nag, J. L. (2017, 7. mars). Skripting gjør sidene mer interaktive. NDLA. https://test.ndla.no/article/9206",
   },
   "metaDescription": "Vi bruker skript for å tilføre funksjonalitet og interaktivitet på nettsider utover det vi kan lage med markeringsspråk og stilark. Det kan være alt fra små justeringer i design til hele spillkonsept.",
   "oldNdlaUrl": "//red.ndla.no/node/160589",
@@ -88,25 +88,23 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
       >Scratch på norsk</a
     >.
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Endre innhold\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -116,20 +114,17 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button
-      data-title=\\"Endre-innhold\\"
-      class=\\"css-1palhdc-IconButton e18czas70\\"
-    >
+    ><button data-title=\\"Endre-innhold\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-1twu449-TooltipWrapper exsy4zb0\\">
+      <div class=\\"css-1twu449-TooltipWrapper e13n7z1f0\\">
         <style data-emotion-css=\\"1gms6h4-Fade\\">
           .css-1gms6h4-Fade {
             opacity: 0;
@@ -176,7 +171,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
             }
           }
         </style>
-        <div class=\\"css-1gms6h4-Fade exsy4zb1\\">
+        <div class=\\"css-1gms6h4-Fade e13n7z1f1\\">
           <style data-emotion-css=\\"aztq0g-tooltipCss\\">
             .css-aztq0g-tooltipCss{display:block;color:#fff;background:#444;border-radius:2px;padding:6.5px 13px;font-family:'Source Sans Pro',Helvetica,Arial,STKaiti,'华文楷体',KaiTi,SimKai,'楷体',KaiU,DFKai-SB,'標楷體',SongTi,'宋体',sans-serif;font-size:14;font-size:0.7777777777777778rem;line-height:1.2 font-weight:400;text-align:center;white-space:nowrap;max-width:calc(100vw - #{26px});}</style
           ><span role=\\"tooltip\\" class=\\"css-aztq0g-tooltipCss\\"
@@ -231,25 +226,23 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
     <em>getElementByTagName</em> en <strong>funksjon</strong>. En funksjon
     beregner eller gjør noe, mens en variabel lagrer eller husker for oss.
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Endre stiler\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -259,17 +252,17 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button data-title=\\"Endre-stiler\\" class=\\"css-1palhdc-IconButton e18czas70\\">
+    ><button data-title=\\"Endre-stiler\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-1twu449-TooltipWrapper exsy4zb0\\">
+      <div class=\\"css-1twu449-TooltipWrapper e13n7z1f0\\">
         <style data-emotion-css=\\"1gms6h4-Fade\\">
           .css-1gms6h4-Fade {
             opacity: 0;
@@ -316,7 +309,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
             }
           }
         </style>
-        <div class=\\"css-1gms6h4-Fade exsy4zb1\\">
+        <div class=\\"css-1gms6h4-Fade e13n7z1f1\\">
           <style data-emotion-css=\\"aztq0g-tooltipCss\\">
             .css-aztq0g-tooltipCss{display:block;color:#fff;background:#444;border-radius:2px;padding:6.5px 13px;font-family:'Source Sans Pro',Helvetica,Arial,STKaiti,'华文楷体',KaiTi,SimKai,'楷体',KaiU,DFKai-SB,'標楷體',SongTi,'宋体',sans-serif;font-size:14;font-size:0.7777777777777778rem;line-height:1.2 font-weight:400;text-align:center;white-space:nowrap;max-width:calc(100vw - #{26px});}</style
           ><span role=\\"tooltip\\" class=\\"css-aztq0g-tooltipCss\\"
@@ -353,25 +346,23 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
     Med denne koden får overskriften gul bakgrunnsfarge. Med stiler kan vi endre
     både synlighet, størrelse, animasjon og annet.
   </p>
-  <style data-emotion-css=\\"1ly2gtx-ContainerDiv\\">
-    .css-1ly2gtx-ContainerDiv:hover button {
+  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
+      position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
       cursor: pointer;
       opacity: 0.5;
-    }
-    .css-1ly2gtx-ContainerDiv h2 {
-      position: relative;
-      left: -2em;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Validering\\"
-    class=\\"css-1ly2gtx-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
   >
-    <style data-emotion-css=\\"1palhdc-IconButton\\">
-      .css-1palhdc-IconButton {
-        float: left;
-        position: relative;
+    <style data-emotion-css=\\"kgto6a-IconButton\\">
+      .css-kgto6a-IconButton {
+        position: absolute;
         left: -3em;
         top: 0.1em;
         background: none;
@@ -381,17 +372,17 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
         transition: 0.2s;
         opacity: 0;
       }
-      .css-1palhdc-IconButton svg {
+      .css-kgto6a-IconButton svg {
         width: 30px;
         height: 30px;
       }</style
-    ><button data-title=\\"Validering\\" class=\\"css-1palhdc-IconButton e18czas70\\">
+    ><button data-title=\\"Validering\\" class=\\"css-kgto6a-IconButton e18czas70\\">
       <style data-emotion-css=\\"1twu449-TooltipWrapper\\">
         .css-1twu449-TooltipWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-1twu449-TooltipWrapper exsy4zb0\\">
+      <div class=\\"css-1twu449-TooltipWrapper e13n7z1f0\\">
         <style data-emotion-css=\\"1gms6h4-Fade\\">
           .css-1gms6h4-Fade {
             opacity: 0;
@@ -438,7 +429,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
             }
           }
         </style>
-        <div class=\\"css-1gms6h4-Fade exsy4zb1\\">
+        <div class=\\"css-1gms6h4-Fade e13n7z1f1\\">
           <style data-emotion-css=\\"aztq0g-tooltipCss\\">
             .css-aztq0g-tooltipCss{display:block;color:#fff;background:#444;border-radius:2px;padding:6.5px 13px;font-family:'Source Sans Pro',Helvetica,Arial,STKaiti,'华文楷体',KaiTi,SimKai,'楷体',KaiU,DFKai-SB,'標楷體',SongTi,'宋体',sans-serif;font-size:14;font-size:0.7777777777777778rem;line-height:1.2 font-weight:400;text-align:center;white-space:nowrap;max-width:calc(100vw - #{26px});}</style
           ><span role=\\"tooltip\\" class=\\"css-aztq0g-tooltipCss\\"
@@ -529,9 +520,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
               data-source=\\"Material Design\\"
               style=\\"vertical-align: middle\\"
             >
-              <title>ExternalLearningResource</title>
               <g>
-                <title>Eksterne ressurser</title>
                 <g
                   stroke=\\"none\\"
                   fill=\\"none\\"
@@ -562,9 +551,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
             ></span
           >
         </h1>
-        <p class=\\"c-related-articles__description\\">
-          https://www.codecademy.com/learn/introduction-to-javascript
-        </p>
+        <p class=\\"c-related-articles__description\\"></p>
         <p class=\\"c-related-articles__link-info\\">Nettside hos codecademy.com</p>
       </article>
     </div>

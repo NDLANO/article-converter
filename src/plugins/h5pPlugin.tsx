@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { fetchOembed } from '../api/oembedProxyApi';
-import { wrapInFigure, errorSvgSrc, getCopyString } from './pluginHelpers';
+import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import {
@@ -87,35 +87,15 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       </figure>,
     );
 
-  const mapRole = (role: string) => {
-    const objRoles: Record<string, string> = {
-      Author: 'Writer',
-      Editor: 'Editorial',
-      Licensee: 'Rightsholder',
-    };
-    return objRoles[role] ?? role;
-  };
-
   const getMetaData = async (
     embed: H5PEmbedType,
     locale: LocaleType,
   ): Promise<EmbedMetaData | undefined> => {
     const h5p = embed?.h5pLicenseInformation;
     if (h5p) {
-      const creators = h5p.h5p.authors?.map((author) => {
-        return { name: author.name, type: mapRole(author.role) };
-      });
-      const copyString = getCopyString(
-        h5p.h5p.title,
-        embed.h5pUrl,
-        options.path,
-        { creators },
-        locale,
-      );
       return {
         ...h5p,
         url: embed.h5pUrl,
-        copyText: copyString,
       };
     }
   };

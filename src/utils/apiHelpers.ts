@@ -6,7 +6,6 @@
  *
  */
 
-import defined from 'defined';
 import config from '../config';
 import { createErrorPayload } from './errorHelpers';
 import log from './logger';
@@ -32,7 +31,7 @@ export function apiResourceUrl(path: string) {
 
 export function rejectWithError(json: any, res: Response) {
   log.logAndReturnValue('warn', 'JSON response from failed api call: ', json);
-  return createErrorPayload(res.status, defined(json.message, res.statusText), json);
+  return createErrorPayload(res.status, json.message ?? res.statusText, json);
 }
 
 export async function resolveJsonOrRejectWithError<T>(res: Response): Promise<T> {

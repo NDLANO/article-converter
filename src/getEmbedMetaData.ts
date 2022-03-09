@@ -6,7 +6,6 @@
  *
  */
 
-import defined from 'defined';
 import { EmbedType, LocaleType, PluginUnion } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
@@ -19,7 +18,7 @@ export default async function getEmbedMetaData(
     const ctx = await pctx;
     const plugin = findPlugin(plugins, embed);
     const key = `${embed.data.resource}s`;
-    const resourceMetaData = defined(ctx[key], []);
+    const resourceMetaData = ctx[key] ?? [];
     const metaData = await plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
       return {

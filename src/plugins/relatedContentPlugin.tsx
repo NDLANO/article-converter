@@ -17,6 +17,7 @@ import { IArticleV2 } from '@ndla/types-article-api';
 import log from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
+import config from '../config';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
@@ -29,7 +30,7 @@ const mapping = (
 ): Record<
   string,
   {
-    icon: React.ReactNode;
+    icon: React.ReactElement;
     modifier: string;
   }
 > => {
@@ -77,36 +78,34 @@ const mapping = (
 const getRelatedArticleProps = (
   article: RelatedArticleType,
   relatedArticleEntryNum: number,
-  filters: string | undefined,
-  subject: string | undefined,
+  options: TransformOptions,
 ) => {
+  const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
+
   if (!article.resource) {
     return {
       ...mapping(relatedArticleEntryNum).default,
-      to: `/article/${article.id}`,
+      to: `${host}/article/${article.id}`,
     };
   }
 
   const path =
     (article.resource.paths &&
       article.resource.paths.find(
-        (p) => subject && p.split('/')[1] === subject.replace('urn:', ''),
+        (p) => options.subject && p.split('/')[1] === options.subject.replace('urn:', ''),
       )) ||
     article.resource.path;
 
-  let to = path;
-  if (filters) {
-    to = to + `?filters=${filters}`;
-  }
+  const to = path ?? '';
 
   const resourceType = article.resource.resourceTypes.find(
     (type) => mapping(relatedArticleEntryNum)[type.id],
   );
 
   if (resourceType) {
-    return { ...mapping(relatedArticleEntryNum)[resourceType.id], to };
+    return { ...mapping(relatedArticleEntryNum)[resourceType.id], to: `${host}${to}` };
   }
-  return { ...mapping(relatedArticleEntryNum).default, to };
+  return { ...mapping(relatedArticleEntryNum).default, to: `${host}${to}` };
 };
 
 type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
@@ -174,8 +173,8 @@ export default function createRelatedContentPlugin(
         html: render(
           <RelatedArticle
             key={`external-learning-resources-${relatedArticleEntryNum}`}
-            title={embed.data.title}
-            introduction={embed.data.metaDescription || embed.data.url}
+            title={embed.data.title as string}
+            introduction={(embed.data.metaDescription as string) || ''}
             linkInfo={`${t(lang, 'related.linkInfo')} ${
               // Get domain name only from url
               embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||
@@ -201,13 +200,8 @@ export default function createRelatedContentPlugin(
               ? embed.article.metaDescription.metaDescription
               : ''
           }
-          target={options.isOembed ? '_blank' : null}
-          {...getRelatedArticleProps(
-            embed.article,
-            relatedArticleEntryNum,
-            options.filters,
-            options.subject,
-          )}
+          target={options.isOembed ? '_blank' : undefined}
+          {...getRelatedArticleProps(embed.article, relatedArticleEntryNum, options)}
         />,
       ),
     };

@@ -6,7 +6,6 @@
  *
  */
 
-import defined from 'defined';
 import { Express, Response } from 'express';
 import fetchAndTransformArticle, { transformArticle } from './fetchAndTransformArticle';
 import fetchEmbedMetaData from './fetchEmbedMetaData';
@@ -33,7 +32,7 @@ const setup = function routes(app: Express) {
     const embed = getAsString(req.query.embed);
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
-    const lang = getHtmlLang(defined(req.params.lang, ''));
+    const lang = getHtmlLang(req.params.lang ?? '');
     fetchEmbedMetaData(embed, accessToken, lang, feideToken)
       .then((data) => {
         res.json({
@@ -54,22 +53,21 @@ const setup = function routes(app: Express) {
 
   app.get('/article-converter/json/:lang/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    const lang = getHtmlLang(defined(req.params.lang, ''));
-    const isOembed =
-      defined(req.query.isOembed, 'false') || defined(req.query.removeRelatedContent, 'false');
-    const showVisualElement = defined(req.query.showVisualElement, 'false');
+    const lang = getHtmlLang(req.params.lang ?? '');
+    const isOembed = req.query.isOembed ?? req.query.removeRelatedContent ?? 'false';
+    const showVisualElement = req.query.showVisualElement ?? 'false';
     const articleId = req.params.id;
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
-    const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
-      filters,
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
@@ -83,22 +81,21 @@ const setup = function routes(app: Express) {
   });
 
   app.get('/article-converter/html/:lang/:id', (req, res) => {
-    const lang = getHtmlLang(defined(req.params.lang, ''));
+    const lang = getHtmlLang(req.params.lang ?? '');
     const articleId = req.params.id;
-    const isOembed =
-      defined(req.query.isOembed, 'false') || defined(req.query.removeRelatedContent, 'false');
-    const showVisualElement = defined(req.query.showVisualElement, 'false');
+    const isOembed = req.query.isOembed ?? req.query.removeRelatedContent ?? 'false';
+    const showVisualElement = req.query.showVisualElement ?? 'false';
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
-    const filters = req.query.filters;
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
-      filters,
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
@@ -115,10 +112,11 @@ const setup = function routes(app: Express) {
 
   app.post('/article-converter/json/:lang/transform-article', (req, res) => {
     const body = req.body;
-    const lang = getHtmlLang(defined(req.params.lang, ''));
+    const lang = getHtmlLang(req.params.lang ?? '');
     const draftConcept = req.query.draftConcept === 'true';
     const previewH5p = req.query.previewH5p === 'true';
     const showVisualElement = req.query.showVisualElement === 'true';
+    const absoluteUrl = req.query.absoluteUrl === 'true';
 
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
@@ -127,6 +125,7 @@ const setup = function routes(app: Express) {
         showVisualElement,
         draftConcept,
         previewH5p,
+        absoluteUrl,
       })
         .then((article) => {
           setHeaders(res, article.headerData);

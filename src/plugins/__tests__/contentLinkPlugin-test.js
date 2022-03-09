@@ -130,7 +130,7 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
 
   expect(resource).toEqual({
     data: { contentId: '1' },
-    path: `nb/article/1`,
+    path: `/nb/article/1`,
   });
   log.level(bunyan.INFO);
 });
@@ -144,7 +144,7 @@ test('embedToHtml should return anchor tag with path', async () => {
         {
           embed: {},
           data: { linkText: 'text', contentId: '1' },
-          path: 'urn:test:1',
+          path: '/urn:test:1',
         },
         'nb',
       )
@@ -161,7 +161,7 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
         {
           embed: {},
           data: { linkText: 'text', contentId: '1' },
-          path: 'urn:test:1',
+          path: '/urn:test:1',
         },
         'nb',
       )

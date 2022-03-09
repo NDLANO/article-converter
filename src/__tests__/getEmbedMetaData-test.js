@@ -23,7 +23,13 @@ test('get meta data from embeds', async () => {
       image: {
         title: { title: 'title' },
         alttext: { alttext: 'alt' },
-        copyright: { license: 'CC-BY-SA-4.0' },
+        copyright: {
+          license: { license: 'CC-BY-SA-4.0' },
+          creators: [
+            { name: 'Langt Etternavn', type: 'writer' },
+            { name: 'Navn Navnesen', type: 'writer' },
+          ],
+        },
         imageUrl: 'http://example.no/1234.jpg',
       },
     },
@@ -32,7 +38,13 @@ test('get meta data from embeds', async () => {
       image: {
         title: { title: 'title 2' },
         alttext: { alttext: 'alt 2' },
-        copyright: { license: 'CC-BY-SA-4.0' },
+        copyright: {
+          license: { license: 'CC-BY-SA-4.0' },
+          creators: [
+            { name: 'Langt Etternavn', type: 'writer' },
+            { name: 'Navn Navnesen', type: 'writer' },
+          ],
+        },
         imageUrl: 'http://example.no/4123.jpg',
       },
     },
@@ -44,7 +56,13 @@ test('get meta data from embeds', async () => {
         audioFile: {
           url: 'http://audio.no/file/voof.mp3',
         },
-        copyright: { license: 'CC-BY-SA-4.0' },
+        copyright: {
+          license: { license: 'CC-BY-SA-4.0' },
+          creators: [
+            { name: 'Langt Etternavn', type: 'writer' },
+            { name: 'Navn Navnesen', type: 'writer' },
+          ],
+        },
       },
     },
     {
@@ -52,7 +70,13 @@ test('get meta data from embeds', async () => {
       brightcove: {
         name: 'video title',
         description: 'video description',
-        copyright: { license: 'CC-BY-SA-4.0' },
+        copyright: {
+          license: { license: 'CC-BY-SA-4.0' },
+          creators: [
+            { name: 'Langt Etternavn', type: 'writer' },
+            { name: 'Navn Navnesen', type: 'writer' },
+          ],
+        },
         published_at: '2020-01-01T11:12:13.456Z',
         images: {
           poster: {
@@ -78,7 +102,13 @@ test('get meta data from embeds', async () => {
     {
       data: { resource: 'brightcove', account: 'account', videoid: '42' },
       brightcove: {
-        copyright: { license: 'CC-BY-SA-4.0' },
+        copyright: {
+          license: { license: 'CC-BY-SA-4.0' },
+          creators: [
+            { name: 'Langt Etternavn', type: 'writer' },
+            { name: 'Navn Navnesen', type: 'writer' },
+          ],
+        },
         sources: [
           {
             src: 'test3.mp4',

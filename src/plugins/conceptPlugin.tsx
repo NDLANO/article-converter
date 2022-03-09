@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import defined from 'defined';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
@@ -15,12 +14,12 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { IConcept } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
+import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { getCopyString } from './pluginHelpers';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
 const StyledDiv = styled.div`
@@ -67,13 +66,10 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
-      const { title, copyright, source } = concept;
-      const copyString = getCopyString(title?.title, source, options.path, copyright, locale);
       return {
         title: concept.title?.title,
         copyright: concept.copyright,
         src: getEmbedSrc(concept),
-        copyText: copyString,
       };
     }
   };
@@ -87,6 +83,8 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
   const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
     const { contentId, linkText } = embed.data;
+
+    const children = typeof linkText === 'string' ? linkText : undefined;
     return render(
       <Notion
         id={`notion_id_${contentId}`}
@@ -97,18 +95,24 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
             <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
           </NotionDialogContent>
         }>
-        {linkText}
+        {children}
       </Notion>,
       locale,
     );
   };
 
   const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
-    const concept = embed.concept;
+    const {
+      data: { linkText },
+      concept,
+    } = embed;
 
-    const visualElement = defined(embed.concept.visualElement, {
+    const id = uniqueId();
+    const children = typeof linkText === 'string' ? linkText : undefined;
+
+    const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
-    });
+    };
     const copyright = concept.copyright;
     const authors = (copyright?.creators ?? []).map((author) => author.name);
     const license = copyright?.license?.license;
@@ -130,9 +134,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       responseHeaders,
       html: render(
         <Notion
-          id={`notion_id_${concept.id}_${locale}`}
+          id={`notion_id_${id}_${locale}`}
           ariaLabel={t(locale, 'concept.showDescription')}
-          title={concept.title?.title}
+          title={concept.title?.title ?? ''}
           customCSS={customNotionStyle}
           content={
             <>
@@ -144,10 +148,14 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
                   {renderMarkdown(concept.content?.content ?? '')}
                 </NotionDialogText>
               </NotionDialogContent>
-              <NotionDialogLicenses license={license} source={source} authors={authors} />
+              <NotionDialogLicenses
+                license={license}
+                source={renderMarkdown(source)}
+                authors={authors}
+              />
             </>
           }>
-          {embed.data.linkText}
+          {children}
         </Notion>,
         locale,
       ),

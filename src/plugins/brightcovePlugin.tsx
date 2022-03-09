@@ -9,7 +9,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React from 'react';
-import defined from 'defined';
 // @ts-ignore
 import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
 // @ts-ignore
@@ -24,7 +23,6 @@ import {
 } from '../api/brightcove';
 import t from '../locale/i18n';
 import {
-  getCopyString,
   getFirstNonEmptyLicenseCredits,
   getLicenseCredits,
   makeIframeString,
@@ -43,12 +41,16 @@ export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
   resource: 'brightcove';
 }
 
+// https://stackoverflow.com/a/1830844
+export const isNumeric = (value: any) => !Number.isNaN(value - parseFloat(value));
+
 const Anchor = StyledButton.withComponent('a');
 
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (embed: EmbedType) => fetchVideoMeta(embed);
+  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
+    fetchVideoMeta(embed, language);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
     const { account, videoid, player = 'default' } = data as Record<string, string | undefined>;
@@ -60,8 +62,8 @@ export default function createBrightcovePlugin(
 
     return {
       src: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
-      height: defined(source.height, '480'),
-      width: defined(source.width, '640'),
+      height: source.height ?? '480',
+      width: source.width ?? '640',
     };
   };
 
@@ -74,7 +76,7 @@ export default function createBrightcovePlugin(
       const iframeProps = getIframeProps(data, brightcove.sources);
 
       const { name, description, copyright, published_at } = brightcove;
-      const copyString = getCopyString(name, iframeProps.src, options.path, copyright, locale);
+
       return {
         title: name,
         description: description,
@@ -84,7 +86,6 @@ export default function createBrightcovePlugin(
         src: iframeProps.src,
         iframe: iframeProps,
         uploadDate: published_at,
-        copyText: copyString,
       };
     }
   };
@@ -114,7 +115,7 @@ export default function createBrightcovePlugin(
       license: { license: licenseAbbreviation },
     } = brightcove.copyright;
 
-    const linkedVideoId = brightcove.link?.text;
+    const linkedVideoId = isNumeric(brightcove.link?.text) ? brightcove.link?.text : undefined;
 
     const license = getLicenseByAbbreviation(licenseAbbreviation, locale);
 
@@ -131,14 +132,6 @@ export default function createBrightcovePlugin(
 
     const metadata = await getMetaData(embed, locale);
     const download = metadata?.download;
-
-    const copyString = getCopyString(
-      brightcove.name,
-      src,
-      options.path,
-      brightcove.copyright,
-      locale,
-    );
 
     const messages = {
       title: t(locale, 'title'),
@@ -175,7 +168,7 @@ export default function createBrightcovePlugin(
             figureId={figureId}
             id={brightcove.id}
             locale={locale}
-            caption={caption}
+            caption={typeof caption === 'string' ? caption : ''}
             reuseLabel={t(locale, 'video.reuse')}
             licenseRights={license.rights}
             authors={captionAuthors}
@@ -188,12 +181,6 @@ export default function createBrightcovePlugin(
             license={license}
             authors={contributors}
             messages={messages}>
-            <Button
-              outline
-              data-copied-title={t(locale, 'license.hasCopiedTitle')}
-              data-copy-string={copyString}>
-              {t(locale, 'license.copyTitle')}
-            </Button>
             {licenseAbbreviation !== 'COPYRIGHTED' && (
               <Anchor key="download" href={download} appearance="outline" download>
                 {t(locale, 'video.download')}
