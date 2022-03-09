@@ -41,6 +41,7 @@ const article = {
   },
   created: '2009-07-02T15:18:58Z',
   updated: '2017-07-07T14:57:22Z',
+  published: '2017-07-07T14:57:22Z',
   updatedBy: 'content-import-client',
   articleType: 'standard',
   supportedLanguages: ['nb', 'nn'],

@@ -38,7 +38,7 @@ export async function transformArticle(
   const copyText: string = webpageReferenceApa7CopyString(
     article.title.title,
     undefined,
-    article.updated,
+    article.published,
     `/article/${article.id}`,
     article.copyright,
     lang,

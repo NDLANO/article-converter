@@ -33,6 +33,7 @@ Object {
     "url": "https://staging.api.ndla.no/image-api/raw/id/3948",
   },
   "oldNdlaUrl": "//red.ndla.no/node/4901",
+  "published": "2018-02-20T14:58:39Z",
   "requiredLibraries": Array [],
   "revision": 1,
   "supportedLanguages": Array [
