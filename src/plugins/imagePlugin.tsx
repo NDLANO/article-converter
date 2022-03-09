@@ -9,6 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { uniqueId } from 'lodash';
+import styled from '@emotion/styled';
 import {
   Figure,
   FigureLicenseDialog,
@@ -42,6 +43,11 @@ import {
 import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
+
+const StyledSpan = styled.span`
+  font-style: italic;
+  color: grey;
+`;
 
 const getFigureType = (size: string, align: string): FigureType => {
   if (isSmall(size) && isAlign(align)) {
@@ -345,6 +351,10 @@ export default function createImagePlugin(
     const captionAuthors =
       creators.length || rightsholders.length ? [...creators, ...rightsholders] : processors;
 
+    const altTextSpan = options.previewAlt ? (
+      <StyledSpan>{`Alt: ${altText}`}</StyledSpan>
+    ) : undefined;
+
     return {
       html: render(
         <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
@@ -360,6 +370,7 @@ export default function createImagePlugin(
                   src={imageUrl}
                   expandButton={<ExpandButton size={size} typeClass={typeClass} />}
                 />
+                {altTextSpan}
               </ImageWrapper>
               <FigureCaption
                 hideFigcaption={isSmall(size) || hideByline(size)}

@@ -74,6 +74,7 @@ export interface TransformOptions {
   path?: string;
   shortPath?: string;
   previewH5p?: boolean;
+  previewAlt?: boolean;
   showVisualElement?: boolean;
   subject?: string;
   transform?: TransformFunction;
