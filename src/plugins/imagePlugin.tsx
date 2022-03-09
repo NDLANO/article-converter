@@ -370,8 +370,8 @@ export default function createImagePlugin(
                   src={imageUrl}
                   expandButton={<ExpandButton size={size} typeClass={typeClass} />}
                 />
-                {altTextSpan}
               </ImageWrapper>
+              {altTextSpan}
               <FigureCaption
                 hideFigcaption={isSmall(size) || hideByline(size)}
                 figureId={figureId}
