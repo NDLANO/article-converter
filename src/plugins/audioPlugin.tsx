@@ -139,6 +139,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     license: string;
     src: string;
   }) => {
+    if (license === 'COPYRIGHTED') {
+      return null;
+    }
     return (
       <>
         {copyString && (
@@ -150,11 +153,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             {t(locale, 'license.copyTitle')}
           </Button>
         )}
-        {license !== 'COPYRIGHTED' && (
-          <Anchor key="download" href={src} download appearance="outline">
-            {t(locale, 'audio.download')}
-          </Anchor>
-        )}
+        <Anchor key="download" href={src} download appearance="outline">
+          {t(locale, 'audio.download')}
+        </Anchor>
       </>
     );
   };

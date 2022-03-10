@@ -168,6 +168,9 @@ export const ImageActionButtons = ({
   license,
   src,
 }: ImageActionButtonsProps) => {
+  if (license === 'COPYRIGHTED') {
+    return null;
+  }
   return (
     <>
       <Button
@@ -177,11 +180,9 @@ export const ImageActionButtons = ({
         data-copy-string={copyString}>
         {t(locale, 'license.copyTitle')}
       </Button>
-      {license !== 'COPYRIGHTED' && (
-        <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
-          {t(locale, 'image.download')}
-        </Anchor>
-      )}
+      <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
+        {t(locale, 'image.download')}
+      </Anchor>
     </>
   );
 };
