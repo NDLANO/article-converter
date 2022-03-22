@@ -238,8 +238,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style data-emotion-css=\\"fd7jgy-StyledButton-buttonStyle-ButtonStyles\\">
-      .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles {
+    <style data-emotion-css=\\"c98yp5-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-c98yp5-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -262,28 +262,29 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:hover,
-      .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:focus {
+      .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
         border: 2px solid #184673;
       }
-      .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles[disabled] {
+      .css-c98yp5-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
         cursor: not-allowed;
       }
-      .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:focus {
+      .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
       class=\\"
         c-factbox__button
-        css-fd7jgy-StyledButton-buttonStyle-ButtonStyles
-        e1ww3yc20
+        css-c98yp5-StyledButton-buttonStyle-ButtonStyles
+        e1ljv5qk0
       \\"
+      title=\\"Åpne faktaboks\\"
     ></button>
   </aside>
 </section>
@@ -292,8 +293,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style data-emotion-css=\\"fd7jgy-StyledButton-buttonStyle-ButtonStyles\\">
-    .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles {
+  <style data-emotion-css=\\"c98yp5-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-c98yp5-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -316,28 +317,29 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:hover,
-    .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:focus {
+    .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
       border: 2px solid #184673;
     }
-    .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles[disabled] {
+    .css-c98yp5-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
       cursor: not-allowed;
     }
-    .css-fd7jgy-StyledButton-buttonStyle-ButtonStyles:focus {
+    .css-c98yp5-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
     class=\\"
       c-factbox__button
-      css-fd7jgy-StyledButton-buttonStyle-ButtonStyles
-      e1ww3yc20
+      css-c98yp5-StyledButton-buttonStyle-ButtonStyles
+      e1ljv5qk0
     \\"
+    title=\\"Åpne faktaboks\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>
