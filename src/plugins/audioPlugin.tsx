@@ -79,7 +79,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
               title,
               undefined,
               url,
-              options.path,
+              options.shortPath || options.path,
               copyright,
               copyright.license.license,
               config.ndlaFrontendDomain,
@@ -139,6 +139,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     license: string;
     src: string;
   }) => {
+    if (license === 'COPYRIGHTED') {
+      return null;
+    }
     return (
       <>
         {copyString && (
@@ -150,11 +153,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             {t(locale, 'license.copyTitle')}
           </Button>
         )}
-        {license !== 'COPYRIGHTED' && (
-          <Anchor key="download" href={src} download appearance="outline">
-            {t(locale, 'audio.download')}
-          </Anchor>
-        )}
+        <Anchor key="download" href={src} download appearance="outline">
+          {t(locale, 'audio.download')}
+        </Anchor>
       </>
     );
   };
@@ -189,7 +190,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       title,
       undefined,
       imageUrl,
-      options.path,
+      options.shortPath || options.path,
       copyright,
       copyright.license.license,
       config.ndlaFrontendDomain,
@@ -286,7 +287,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             title,
             undefined,
             url,
-            options.path,
+            options.shortPath || options.path,
             audio.copyright,
             audio.copyright.license.license,
             config.ndlaFrontendDomain,

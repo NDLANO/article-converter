@@ -22,7 +22,7 @@ Object {
   "id": 1036,
   "introduction": "FNs utviklingsprogram (UNDP) har flere ganger rangert Norge som det beste landet å leve i. Her skal vi ta for oss noen av de faktorene som gjør at Norge kommer såpass høyt opp på listene, og vi skal se litt på hva som ligger bak tallene.",
   "metaData": Object {
-    "copyText": "(2017, 7. juli). Levekår i dagens Norge. NDLA. https://test.ndla.no",
+    "copyText": "(2017, 7. juli). Levekår i dagens Norge. NDLA. https://test.ndla.no/article/1036",
     "footnotes": Array [
       Object {
         "authors": Array [
@@ -76,7 +76,7 @@ Object {
     "images": Array [
       Object {
         "altText": "",
-        "copyText": "Fottur på Kvamsfjellet, av Storfjell, I. NDLA. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC-BY-NC-SA-4.0.",
+        "copyText": "Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.",
         "copyright": Object {
           "creators": Array [
             Object {
@@ -118,6 +118,7 @@ Object {
   },
   "metaDescription": "",
   "oldNdlaUrl": "//red.ndla.no/node/2390",
+  "published": "2017-07-07T14:57:22Z",
   "requiredLibraries": Array [],
   "revision": 1,
   "supportedLanguages": Array [
@@ -1552,7 +1553,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I. NDLA. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC-BY-NC-SA-4.0.\\"
+              data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.\\"
               class=\\"
                 css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                 e1ww3yc20

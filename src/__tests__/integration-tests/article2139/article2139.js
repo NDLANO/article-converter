@@ -47,6 +47,7 @@ const article = {
   },
   created: '2017-10-23T10:16:50Z',
   updated: '2017-11-15T07:33:50Z',
+  published: '2017-11-15T07:33:50Z',
   updatedBy: 'xQ8mzUvTqBeT5xVXgrvhJ3WM.editorial.frontend',
   articleType: 'standard',
   supportedLanguages: ['nb'],
