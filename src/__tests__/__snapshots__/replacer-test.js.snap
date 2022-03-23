@@ -3871,7 +3871,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"image title 1, av Foton, O. &amp; Maler, K. NDLA. (http://ndla.no/images/1.jpg). CC-BY-NC-4.0.\\"
+                            data-copy-string=\\"image title 1, av Foton, O., Maler, K., Scanpix. (http://ndla.no/images/1.jpg). CC BY-NC 4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20
@@ -4655,7 +4655,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"image title 2, NDLA. (http://ndla.no/images/2.jpg). CC-BY-NC-4.0.\\"
+                            data-copy-string=\\"image title 2, (http://ndla.no/images/2.jpg). CC BY-NC 4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20
@@ -5502,7 +5502,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           ><button
                             type=\\"button\\"
                             data-copied-title=\\"Kopiert!\\"
-                            data-copy-string=\\"image title, NDLA. (http://api.test.ndla.no/images/1.jpg). CC-BY-NC-4.0.\\"
+                            data-copy-string=\\"image title, (http://api.test.ndla.no/images/1.jpg). CC BY-NC 4.0.\\"
                             class=\\"
                               css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                               e1ww3yc20

@@ -284,6 +284,7 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         css-fd7jgy-StyledButton-buttonStyle-ButtonStyles
         e1ww3yc20
       \\"
+      title=\\"Åpne faktaboks\\"
     ></button>
   </aside>
 </section>
@@ -338,6 +339,7 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       css-fd7jgy-StyledButton-buttonStyle-ButtonStyles
       e1ww3yc20
     \\"
+    title=\\"Åpne faktaboks\\"
   ></button>
 </aside>
 <p>Lorem ipsum dolor sit amet...</p>

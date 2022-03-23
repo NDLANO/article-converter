@@ -28,7 +28,7 @@ Object {
     "images": Array [
       Object {
         "altText": "",
-        "copyText": "Fottur på Kvamsfjellet, av Storfjell, I. NDLA. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC-BY-NC-SA-4.0.",
+        "copyText": "Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.",
         "copyright": Object {
           "creators": Array [
             Object {
@@ -68,7 +68,7 @@ Object {
       },
       Object {
         "altText": "Rognkjeks som beveger seg i nettannonse. Animasjon.",
-        "copyText": "Annonse i gif-format, av Orangeriet, O. NDLA. (https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif). CC-BY-SA-4.0.",
+        "copyText": "Annonse i gif-format, av Orangeriet, O. (https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif). CC BY-SA 4.0.",
         "copyright": Object {
           "authors": Array [
             Object {
@@ -1251,7 +1251,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I. NDLA. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC-BY-NC-SA-4.0.\\"
+              data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.\\"
               class=\\"
                 css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                 e1ww3yc20
@@ -1621,7 +1621,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
             ><button
               type=\\"button\\"
               data-copied-title=\\"Kopiert!\\"
-              data-copy-string=\\"Annonse i gif-format, av Orangeriet, O. NDLA. (https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif). CC-BY-SA-4.0.\\"
+              data-copy-string=\\"Annonse i gif-format, av Orangeriet, O. (https://staging.api.ndla.no/image-api/raw/akvariet_rognkjeks.gif). CC BY-SA 4.0.\\"
               class=\\"
                 css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                 e1ww3yc20
