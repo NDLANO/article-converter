@@ -24,7 +24,7 @@ Object {
   "id": 13349,
   "introduction": "Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger. Du skal lære deg åpen og skjult installasjon. Samtidig skal du lære om standarder og forskrifter som finnes i boliginstallasjon",
   "metaData": Object {
-    "copyText": "Olsen, S. (2018, 20. februar). Planlegging. NDLA. https://test.ndla.no",
+    "copyText": "Olsen, S. (2018, 20. februar). Planlegging. NDLA. https://test.ndla.no/article/13349",
   },
   "metaDescription": "Her skal du installere og lære om forskjellige lyskilder styrt av de mest vanlige lysbryterne som blir brukt i boliger.",
   "metaImage": Object {
@@ -33,6 +33,7 @@ Object {
     "url": "https://staging.api.ndla.no/image-api/raw/id/3948",
   },
   "oldNdlaUrl": "//red.ndla.no/node/4901",
+  "published": "2018-02-20T14:58:39Z",
   "requiredLibraries": Array [],
   "revision": 1,
   "supportedLanguages": Array [

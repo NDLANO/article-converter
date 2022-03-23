@@ -24,7 +24,7 @@ Object {
   "id": 2139,
   "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "metaData": Object {
-    "copyText": "Øyvind. (2017, 15. november). H₂O 💦. NDLA. https://test.ndla.no",
+    "copyText": "Øyvind. (2017, 15. november). H₂O 💦. NDLA. https://test.ndla.no/article/2139",
     "images": Array [
       Object {
         "altText": "",
@@ -97,6 +97,7 @@ Object {
     ],
   },
   "metaDescription": "Meta",
+  "published": "2017-11-15T07:33:50Z",
   "requiredLibraries": Array [],
   "revision": 18,
   "supportedLanguages": Array [

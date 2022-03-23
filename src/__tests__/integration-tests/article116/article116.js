@@ -51,6 +51,7 @@ const article = {
   },
   created: '2013-08-07T10:34:45Z',
   updated: '2017-08-25T10:16:37Z',
+  published: '2017-08-25T10:16:37Z',
   updatedBy: 'content-import-client',
   articleType: 'standard',
   supportedLanguages: ['unknown'],

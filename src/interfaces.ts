@@ -72,7 +72,9 @@ export interface TransformOptions {
   draftConcept?: boolean;
   isOembed?: boolean;
   path?: string;
+  shortPath?: string;
   previewH5p?: boolean;
+  previewAlt?: boolean;
   showVisualElement?: boolean;
   subject?: string;
   transform?: TransformFunction;

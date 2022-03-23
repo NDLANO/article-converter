@@ -9,6 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { uniqueId } from 'lodash';
+import styled from '@emotion/styled';
 import {
   Figure,
   FigureLicenseDialog,
@@ -42,6 +43,11 @@ import {
 import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
+
+const StyledSpan = styled.span`
+  font-style: italic;
+  color: grey;
+`;
 
 const getFigureType = (size: string, align: string): FigureType => {
   if (isSmall(size) && isAlign(align)) {
@@ -162,6 +168,9 @@ export const ImageActionButtons = ({
   license,
   src,
 }: ImageActionButtonsProps) => {
+  if (license === 'COPYRIGHTED') {
+    return null;
+  }
   return (
     <>
       <Button
@@ -171,11 +180,9 @@ export const ImageActionButtons = ({
         data-copy-string={copyString}>
         {t(locale, 'license.copyTitle')}
       </Button>
-      {license !== 'COPYRIGHTED' && (
-        <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
-          {t(locale, 'image.download')}
-        </Anchor>
-      )}
+      <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
+        {t(locale, 'image.download')}
+      </Anchor>
     </>
   );
 };
@@ -223,11 +230,12 @@ export default function createImagePlugin(
         title,
         undefined,
         imageUrl,
-        options.path,
+        options.shortPath || options.path,
         copyright,
         copyright.license.license,
         config.ndlaFrontendDomain,
         (id: string) => t(locale, id),
+        locale,
       );
       return {
         title: title,
@@ -302,11 +310,12 @@ export default function createImagePlugin(
       title,
       undefined,
       imageUrl,
-      options.path,
+      options.shortPath || options.path,
       copyright,
       copyright.license.license,
       config.ndlaFrontendDomain,
       (id: string) => t(locale, id),
+      locale,
     );
     const unique = uniqueId();
     const figureId = `figure-${unique}-${id}`;
@@ -343,6 +352,10 @@ export default function createImagePlugin(
     const captionAuthors =
       creators.length || rightsholders.length ? [...creators, ...rightsholders] : processors;
 
+    const altTextSpan = options.previewAlt ? (
+      <StyledSpan>{`Alt: ${altText}`}</StyledSpan>
+    ) : undefined;
+
     return {
       html: render(
         <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
@@ -359,6 +372,7 @@ export default function createImagePlugin(
                   expandButton={<ExpandButton size={size} typeClass={typeClass} />}
                 />
               </ImageWrapper>
+              {altTextSpan}
               <FigureCaption
                 hideFigcaption={isSmall(size) || hideByline(size)}
                 figureId={figureId}

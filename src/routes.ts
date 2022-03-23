@@ -61,11 +61,13 @@ const setup = function routes(app: Express) {
     const feideToken = getAsString(req.headers['feideauthorization']);
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
@@ -87,11 +89,13 @@ const setup = function routes(app: Express) {
     const feideToken = getAsString(req.headers['feideauthorization']);
     const subject = req.query.subject;
     const path = req.query.path;
+    const shortPath = `/article/${articleId}`;
     fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
       isOembed: isOembed === 'true',
       showVisualElement: showVisualElement === 'true',
       subject,
       path,
+      shortPath,
     })
       .then((article) => {
         setHeaders(res, article.headerData);
@@ -111,6 +115,7 @@ const setup = function routes(app: Express) {
     const lang = getHtmlLang(req.params.lang ?? '');
     const draftConcept = req.query.draftConcept === 'true';
     const previewH5p = req.query.previewH5p === 'true';
+    const previewAlt = req.query.previewAlt === 'true';
     const showVisualElement = req.query.showVisualElement === 'true';
     const absoluteUrl = req.query.absoluteUrl === 'true';
 
@@ -121,6 +126,7 @@ const setup = function routes(app: Express) {
         showVisualElement,
         draftConcept,
         previewH5p,
+        previewAlt,
         absoluteUrl,
       })
         .then((article) => {

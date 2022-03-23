@@ -49,6 +49,7 @@ const article = {
   },
   created: '2018-06-07T08:44:29Z',
   updated: '2018-06-07T08:44:31Z',
+  published: '2018-06-07T08:44:31Z',
   updatedBy: 'r0gHb9Xg3li4yyXv0QSGQczV3bviakrT',
   articleType: 'standard',
   supportedLanguages: ['nb', 'nn'],
