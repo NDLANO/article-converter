@@ -490,9 +490,9 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
 </section>
 <section>
   <section class=\\"c-related-articles\\">
-    <h1 class=\\"c-section-heading c-related-articles__component-title\\">
+    <h2 class=\\"c-section-heading c-related-articles__component-title\\">
       Relatert innhold
-    </h1>
+    </h2>
     <div class=\\"c-related-articles__articles\\">
       <article
         class=\\"
@@ -500,7 +500,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
           c-related-articles__item--external-learning-resources
         \\"
       >
-        <h1 class=\\"c-related-articles__title\\">
+        <h3 class=\\"c-related-articles__title\\" tabindex=\\"0\\">
           <div
             class=\\"
               c-content-type-badge
@@ -551,7 +551,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
               >Introduction To JavaScript | Codecademy</a
             ></span
           >
-        </h1>
+        </h3>
         <p class=\\"c-related-articles__description\\"></p>
         <p class=\\"c-related-articles__link-info\\">Nettside hos codecademy.com</p>
       </article>
