@@ -38,7 +38,7 @@ export type EmbedToHTMLReturnObj = {
   responseHeaders?: ResponseHeaders[];
 };
 
-export interface Plugin<E extends EmbedType> {
+export interface Plugin<E extends EmbedType, M = EmbedMetaData> {
   resource: string;
   embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
   fetchResource?: (
@@ -47,11 +47,17 @@ export interface Plugin<E extends EmbedType> {
     lang: LocaleType,
     feideToken: string,
   ) => Promise<E>;
-  getMetaData?: (embed: E, lang: LocaleType) => Promise<EmbedMetaData | undefined>;
+  getMetaData?: (embed: E, lang: LocaleType) => Promise<M | undefined>;
   onError?: (embed: E, lang: LocaleType) => string;
 }
 
 export interface EmbedType {
+  embed: Cheerio<Element>;
+  status?: string;
+  responseHeaders?: ResponseHeaders;
+}
+
+export interface GenericEmbedType {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
   status?: string;
@@ -66,7 +72,8 @@ export type EmbedUnion =
   | H5PEmbedType
   | ImageEmbedType
   | RelatedContentEmbedType
-  | ConceptEmbedType;
+  | ConceptEmbedType
+  | GenericEmbedType;
 
 export type PluginUnion =
   | Plugin<EmbedType>

@@ -35,6 +35,18 @@ export interface BrightcoveEmbedType extends EmbedType {
     copyright: BrightcoveCopyright;
     sources: BrightcoveVideoSource[];
   };
+  data: BrightcoveEmbedData;
+}
+
+export interface BrightcoveEmbedData {
+  resource: 'brightcove' | 'video';
+  videoid: string;
+  caption: string;
+  url?: string;
+  account: string;
+  player: string;
+  title: string;
+  metaData?: any;
 }
 
 export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {

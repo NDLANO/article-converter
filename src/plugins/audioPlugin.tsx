@@ -33,11 +33,19 @@ const Anchor = StyledButton.withComponent('a');
 
 export interface AudioEmbedType extends EmbedType {
   audio: AudioApiType;
+  data: AudioEmbedData;
   imageMeta?: ImageEmbedType;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbedType> {
   resource: 'audio';
+}
+
+export interface AudioEmbedData {
+  resource: 'audio';
+  resource_id: string;
+  type: string;
+  url: string;
 }
 
 export interface AudioMetaData {

@@ -24,7 +24,6 @@ import config from '../config';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import { getEmbedsResources } from '../transformers';
-import { findPlugin } from '../utils/findPlugin';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -54,6 +53,12 @@ const customNotionStyle = css`
 
 export interface ConceptEmbedType extends EmbedType {
   concept: IConcept;
+  data: {
+    resource: 'concept';
+    contentId: string;
+    type: 'block' | 'inline';
+    linkText: string;
+  };
 }
 
 export interface TransformedConceptEmbedType extends ConceptEmbedType {
@@ -164,14 +169,28 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         plugins,
       );
       const embed = embedsWithResources[0];
-      const plugin = findPlugin(plugins, embed);
-      const metadata = plugin?.getMetaData && (await plugin.getMetaData(embed, language));
-      const transformedVisualElement = {
-        resource: embed.data.resource,
-        title: metadata?.title,
-        url: metadata?.src,
-        copyright: metadata?.copyright,
-      };
+      let transformedVisualElement;
+      if ('image' in embed) {
+        const { image } = embed;
+        transformedVisualElement = {
+          resource: 'image',
+          title: image.title.title,
+          url: image.metaUrl,
+          copyright: image.copyright,
+          image: {
+            src: image.imageUrl,
+            alt: image.alttext.alttext,
+          },
+        };
+      }
+      if ('brightcove' in embed) {
+        const { brightcove } = embed;
+        transformedVisualElement = {
+          resource: 'brightcove',
+          url: brightcove.link?.url,
+          title: brightcove.name,
+        };
+      }
       return { ...concept, transformedVisualElement };
     }
     return concept;

@@ -34,6 +34,14 @@ export interface H5PEmbedType extends EmbedType {
 
 export interface H5PPlugin extends Plugin<H5PEmbedType> {
   resource: 'h5p';
+  data: H5pEmbedData;
+}
+
+export interface H5pEmbedData {
+  resource: 'h5p';
+  path: string;
+  url?: string;
+  title?: string;
 }
 
 export interface H5PMetaData {

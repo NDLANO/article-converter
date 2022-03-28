@@ -49,20 +49,20 @@ const StyledSpan = styled.span`
   color: grey;
 `;
 
-const getFigureType = (size: string, align: string): FigureType => {
-  if (isSmall(size) && isAlign(align)) {
+const getFigureType = (size?: string, align?: string): FigureType => {
+  if (size && isSmall(size) && align && isAlign(align)) {
     return `${size}-${align}`;
   }
-  if (isSmall(size) && !align) {
+  if (size && isSmall(size) && !align) {
     return size as FigureType;
   }
-  if (isAlign(align)) {
+  if (align && isAlign(align)) {
     return align;
   }
   return 'full';
 };
 
-const getSizes = (size: string, align: string) => {
+const getSizes = (size?: string, align?: string) => {
   if (align && size === 'full') {
     return '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw';
   }
@@ -75,14 +75,14 @@ const getSizes = (size: string, align: string) => {
   return '(min-width: 1024px) 1024px, 100vw';
 };
 
-const getFocalPoint = (data: Record<string, unknown>) => {
+const getFocalPoint = (data: ImageEmbedData) => {
   if (isNumber(data.focalX) && isNumber(data.focalY)) {
     return { x: data.focalX, y: data.focalY };
   }
   return undefined;
 };
 
-const getCrop = (data: Record<string, unknown>) => {
+const getCrop = (data: ImageEmbedData) => {
   if (
     isNumber(data.lowerRightX) &&
     isNumber(data.lowerRightY) &&
@@ -107,16 +107,16 @@ const downloadUrl = (imageSrc: string) => {
   })}`;
 };
 
-function isSmall(size: string): size is 'xsmall' | 'small' {
+function isSmall(size?: string): size is 'xsmall' | 'small' {
   return size === 'xsmall' || size === 'small';
 }
 
-function isAlign(align: string): align is 'left' | 'right' {
+function isAlign(align?: string): align is 'left' | 'right' {
   return align === 'left' || align === 'right';
 }
 
-function hideByline(size: string): boolean {
-  return size.endsWith('-hide-byline');
+function hideByline(size?: string): boolean {
+  return !!size && size.endsWith('-hide-byline');
 }
 
 interface ImageWrapperProps {
@@ -129,7 +129,7 @@ interface ImageWrapperProps {
     endX: number;
     endY: number;
   };
-  size: string;
+  size?: string;
 }
 
 function ImageWrapper({ src, crop, size, children, locale }: ImageWrapperProps) {
@@ -196,6 +196,24 @@ ImageActionButtons.propTypes = {
 
 export interface ImageEmbedType extends EmbedType {
   image: ImageApiType;
+  data: ImageEmbedData;
+}
+
+export interface ImageEmbedData {
+  resource: 'image';
+  resourceId: string;
+  size?: string;
+  align?: string;
+  alt: string;
+  caption?: string;
+  url?: string;
+  focalX?: string;
+  focalY?: string;
+  lowerRightY?: string;
+  lowerRightX?: string;
+  upperLeftY?: string;
+  upperLeftX?: string;
+  metaData?: any;
 }
 
 export interface ImagePlugin extends Plugin<ImageEmbedType> {
@@ -257,7 +275,7 @@ export default function createImagePlugin(
 
   const onError = (embed: ImageEmbedType, locale: LocaleType) => {
     const { image, data } = embed;
-    const { align, size } = data as Record<string, string>;
+    const { align, size } = data;
     const figureType = getFigureType(size, align);
     const src = image && image.imageUrl ? image.imageUrl : errorSvgSrc;
 
@@ -290,12 +308,7 @@ export default function createImagePlugin(
       origin,
     } = copyright;
 
-    const {
-      align,
-      size,
-      caption: embedCaption,
-      alt: embedAlttext,
-    } = data as Record<string, string>;
+    const { align, size, caption: embedCaption, alt: embedAlttext } = data;
 
     const authors = getLicenseCredits(copyright);
 
@@ -328,7 +341,7 @@ export default function createImagePlugin(
     const unique = uniqueId();
     const figureId = `figure-${unique}-${id}`;
 
-    const ExpandButton = ({ size, typeClass }: { size: string; typeClass: string }) => {
+    const ExpandButton = ({ size, typeClass }: { size?: string; typeClass: string }) => {
       if (isSmall(size)) {
         return (
           <FigureExpandButton
@@ -345,7 +358,7 @@ export default function createImagePlugin(
       } else if (hideByline(size)) {
         return (
           <FigureBylineExpandButton
-            typeClass={size}
+            typeClass={size ?? ''}
             messages={{
               expandBylineButtonLabel: t(locale, 'license.images.itemImage.expandByline'),
               minimizeBylineButtonLabel: t(locale, 'license.images.itemImage.minimizeByline'),
