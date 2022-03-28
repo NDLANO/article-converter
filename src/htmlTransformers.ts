@@ -21,6 +21,9 @@ import { checkIfFileExists } from './api/filesApi';
 import { LocaleType, TransformOptions } from './interfaces';
 
 export const moveReactPortals = (content: CheerioAPI) => {
+  content(`[data-react-universal-portal='true']`).each((_, el) => {
+    content(el).attr('data-from-article-converter', 'true');
+  });
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
   content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
@@ -142,7 +145,11 @@ export const transformLinksInOembed = (
 export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
   content('h2')
     .filter((i, el) => {
-      return cheerio(el).parents('figure, details, aside, div[class=c-bodybox]').length === 0;
+      return (
+        cheerio(el).parents(
+          'figure, details, aside, div[class=c-bodybox], section[class=c-related-articles]',
+        ).length === 0
+      );
     })
     .each((idx, h2) => {
       const headerElement = cheerio(h2);

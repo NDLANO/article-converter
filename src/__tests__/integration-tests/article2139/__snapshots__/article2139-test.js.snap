@@ -911,7 +911,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
   </figure>
   <p></p>
 </section>
-<div data-react-universal-portal=\\"true\\">
+<div data-react-universal-portal=\\"true\\" data-from-article-converter=\\"true\\">
   <div
     class=\\"c-dialog\\"
     data-dialog-id=\\"figure-1-2357\\"
@@ -1333,7 +1333,7 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"o-backdrop\\"></div>
   </div>
 </div>
-<div data-react-universal-portal=\\"true\\">
+<div data-react-universal-portal=\\"true\\" data-from-article-converter=\\"true\\">
   <div
     class=\\"c-dialog\\"
     data-dialog-id=\\"figure-2-347\\"
