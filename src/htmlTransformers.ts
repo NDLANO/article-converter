@@ -21,6 +21,9 @@ import { checkIfFileExists } from './api/filesApi';
 import { LocaleType, TransformOptions } from './interfaces';
 
 export const moveReactPortals = (content: CheerioAPI) => {
+  content(`[data-react-universal-portal='true']`).each((_, el) => {
+    content(el).attr('data-from-article-converter', 'true');
+  });
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
   content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
