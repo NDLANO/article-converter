@@ -199,7 +199,7 @@ export interface ImageEmbedType extends EmbedType {
   data: ImageEmbedData;
 }
 
-export interface ImageEmbedData {
+export type ImageEmbedData = {
   resource: 'image';
   resourceId: string;
   size?: string;
@@ -214,7 +214,7 @@ export interface ImageEmbedData {
   upperLeftY?: string;
   upperLeftX?: string;
   metaData?: any;
-}
+};
 
 export interface ImagePlugin extends Plugin<ImageEmbedType> {
   resource: 'image';

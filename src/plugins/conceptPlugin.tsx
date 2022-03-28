@@ -53,13 +53,15 @@ const customNotionStyle = css`
 
 export interface ConceptEmbedType extends EmbedType {
   concept: IConcept;
-  data: {
-    resource: 'concept';
-    contentId: string;
-    type: 'block' | 'inline';
-    linkText: string;
-  };
+  data: ConceptEmbedData;
 }
+
+export type ConceptEmbedData = {
+  resource: 'concept';
+  contentId: string;
+  type: 'block' | 'inline';
+  linkText: string;
+};
 
 export interface TransformedConceptEmbedType extends ConceptEmbedType {
   transformedVisualElement?: any; // Kjeft på Henrik om denne ligger her fortsatt

@@ -41,12 +41,12 @@ export interface AudioPlugin extends Plugin<AudioEmbedType> {
   resource: 'audio';
 }
 
-export interface AudioEmbedData {
+export type AudioEmbedData = {
   resource: 'audio';
   resource_id: string;
   type: string;
   url: string;
-}
+};
 
 export interface AudioMetaData {
   title: string;

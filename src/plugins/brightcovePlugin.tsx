@@ -38,7 +38,7 @@ export interface BrightcoveEmbedType extends EmbedType {
   data: BrightcoveEmbedData;
 }
 
-export interface BrightcoveEmbedData {
+export type BrightcoveEmbedData = {
   resource: 'brightcove' | 'video';
   videoid: string;
   caption: string;
@@ -47,7 +47,7 @@ export interface BrightcoveEmbedData {
   player: string;
   title: string;
   metaData?: any;
-}
+};
 
 export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
   resource: 'brightcove';

@@ -51,13 +51,13 @@ export interface Plugin<E extends EmbedType, M = EmbedMetaData> {
   onError?: (embed: E, lang: LocaleType) => string;
 }
 
-export interface EmbedType {
+export interface BaseEmbedType {
   embed: Cheerio<Element>;
   status?: string;
   responseHeaders?: ResponseHeaders;
 }
 
-export interface GenericEmbedType {
+export interface EmbedType {
   embed: Cheerio<Element>;
   data: Record<string, unknown>;
   status?: string;
@@ -73,7 +73,7 @@ export type EmbedUnion =
   | ImageEmbedType
   | RelatedContentEmbedType
   | ConceptEmbedType
-  | GenericEmbedType;
+  | EmbedType;
 
 export type PluginUnion =
   | Plugin<EmbedType>
