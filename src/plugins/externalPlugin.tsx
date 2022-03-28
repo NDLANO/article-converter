@@ -11,11 +11,10 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, LocaleType, TransformOptions, EmbedType } from '../interfaces';
-import { H5PEmbedType } from './h5pPlugin';
+import { Plugin, LocaleType, TransformOptions, EmbedType, SimpleEmbedType } from '../interfaces';
 
 export interface OembedEmbedType extends EmbedType<OembedEmbedData> {
-  oembed: OembedProxyResponse;
+  oembed?: OembedProxyResponse;
 }
 
 export interface OembedEmbedData {
@@ -28,7 +27,7 @@ export interface OembedEmbedData {
   height?: string;
 }
 
-export interface OembedPlugin extends Plugin<OembedEmbedType> {
+export interface OembedPlugin extends Plugin<OembedEmbedType, OembedEmbedData> {
   resource: 'external';
 }
 
@@ -36,10 +35,22 @@ export default function createExternalPlugin(
   options: TransformOptions = { concept: false },
 ): OembedPlugin {
   const fetchResource = async (
-    embed: OembedEmbedType | H5PEmbedType,
+    embed: SimpleEmbedType<OembedEmbedData>,
     accessToken: string,
-  ): Promise<OembedEmbedType | H5PEmbedType> => {
-    return fetchOembed(embed, accessToken);
+  ): Promise<OembedEmbedType> => {
+    const resolve = async () => {
+      const oembedData = await fetchOembed(embed, accessToken);
+      return {
+        ...embed,
+        data: {
+          ...embed.data,
+          url: oembedData.url || embed.data.url,
+        },
+        oembed: oembedData.oembed,
+      };
+    };
+
+    return resolve();
   };
 
   const onError = (embed: OembedEmbedType, locale: LocaleType) =>
@@ -51,7 +62,7 @@ export default function createExternalPlugin(
     );
 
   const embedToHTML = async (embed: OembedEmbedType) => ({
-    html: wrapInFigure(embed.oembed.html, true, options.concept),
+    html: wrapInFigure(embed.oembed?.html, true, options.concept),
   });
 
   return {

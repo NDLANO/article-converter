@@ -13,11 +13,11 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType } from '../interfaces';
-import { ConceptEmbedType } from '../plugins/conceptPlugin';
+import { LocaleType, SimpleEmbedType } from '../interfaces';
+import { ConceptEmbedData, ConceptEmbedType } from '../plugins/conceptPlugin';
 
 export const fetchConcept = async (
-  embed: ConceptEmbedType,
+  embed: SimpleEmbedType<ConceptEmbedData>,
   accessToken: string,
   language: LocaleType,
   options: {

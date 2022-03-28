@@ -7,9 +7,9 @@
  */
 
 import { CheerioAPI } from 'cheerio';
-import { EmbedUnion } from './interfaces';
+import { EmbedData, SimpleEmbedType } from './interfaces';
 
-export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedUnion[]> {
+export async function getEmbedsFromHtml(html: CheerioAPI): Promise<SimpleEmbedType<EmbedData>[]> {
   return html('embed')
     .toArray()
     .map(
@@ -17,6 +17,6 @@ export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedUnion[]>
         ({
           embed: html(embed),
           data: html(embed).data(),
-        } as EmbedUnion),
+        } as SimpleEmbedType<EmbedData>),
     );
 }

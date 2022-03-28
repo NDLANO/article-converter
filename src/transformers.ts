@@ -21,6 +21,8 @@ import {
   TransformOptions,
   ResponseHeaders,
   EmbedUnion,
+  SimpleEmbedType,
+  EmbedData,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
@@ -54,7 +56,7 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedUnion[],
+  embeds: SimpleEmbedType<EmbedData>[],
   accessToken: string,
   feideToken: string,
   lang: LocaleType,
@@ -123,7 +125,9 @@ export const transform: TransformFunction = async (
 
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
 
-  const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
+  const fetchedResourceHeaders = compact(
+    embedsWithResources.map((x) => 'responseHeaders' in x && x.responseHeaders),
+  );
 
   const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);

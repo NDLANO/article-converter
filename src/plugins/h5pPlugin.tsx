@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { fetchOembed } from '../api/oembedProxyApi';
+import { fetchOembed, OembedProxyData, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -16,6 +16,7 @@ import {
   fetchPreviewOembed,
   H5PLicenseInformation,
   H5POembedResponse,
+  OembedPreviewData,
 } from '../api/h5pApi';
 import config from '../config';
 import {
@@ -24,16 +25,16 @@ import {
   LocaleType,
   TransformOptions,
   EmbedToHTMLReturnObj,
+  SimpleEmbedType,
 } from '../interfaces';
-import { OembedEmbedType } from './externalPlugin';
 
 export interface H5PEmbedType extends EmbedType<H5pEmbedData> {
-  oembed: H5POembedResponse;
+  oembed?: H5POembedResponse | OembedProxyResponse;
   h5pLicenseInformation?: H5PLicenseInformation;
   h5pUrl?: string;
 }
 
-export interface H5PPlugin extends Plugin<H5PEmbedType> {
+export interface H5PPlugin extends Plugin<H5PEmbedType, H5pEmbedData> {
   resource: 'h5p';
 }
 
@@ -56,32 +57,44 @@ export interface H5PMetaData {
 }
 
 export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
-  const fetchH5pOembed = options.previewH5p ? fetchPreviewOembed : fetchOembed;
+  const fetchH5pOembed: (
+    embed: SimpleEmbedType<H5pEmbedData>,
+    accessToken: string,
+  ) => Promise<OembedProxyData | OembedPreviewData> = options.previewH5p
+    ? fetchPreviewOembed
+    : fetchOembed;
+
   const fetchResource = async (
-    embed: H5PEmbedType,
+    embed: SimpleEmbedType<H5pEmbedData>,
     accessToken: string,
     locale: LocaleType,
-  ): Promise<H5PEmbedType | OembedEmbedType> => {
+  ): Promise<H5PEmbedType> => {
     const lang = locale === 'en' ? 'en-gb' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
-    const data = await fetchH5pOembed(embed, accessToken);
-    if (data?.embed?.data) {
-      const myData = data.embed.data();
-      const pathArr = (myData as Record<string, string>).path?.split('/') || [];
+    const oembedData = await fetchH5pOembed(embed, accessToken);
+    if (embed?.data) {
+      const myData = embed.data;
+      const pathArr = myData.path?.split('/') || [];
       const h5pID = pathArr[pathArr.length - 1];
+      const url = 'url' in oembedData && oembedData.url;
 
       if (h5pID) {
         const h5pLicenseInformation = await fetchH5pLicenseInformation(h5pID);
         return {
-          ...data,
+          ...embed,
+          data: {
+            ...embed.data,
+            url: url || embed.data.url,
+          },
           h5pLicenseInformation,
           h5pUrl: myData.url as string,
+          oembed: oembedData.oembed,
         };
       }
     }
 
-    return data;
+    return embed;
   };
 
   const embedToHTML = async (h5p: H5PEmbedType): Promise<EmbedToHTMLReturnObj> => {

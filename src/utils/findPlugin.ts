@@ -6,15 +6,15 @@
  *
  */
 
-import { PluginUnion, Plugin, EmbedUnion } from '../interfaces';
+import { PluginUnion, Plugin, EmbedUnion, EmbedData } from '../interfaces';
 
 export const findPlugin = <T extends EmbedUnion>(
   plugins: PluginUnion[],
   embed: T,
-): Plugin<T> | undefined => {
+): Plugin<T, EmbedData> | undefined => {
   const plugin = plugins.find((p) => {
     return p.resource === (embed.data.resource ?? embed.embed.data().resource);
   });
 
-  return plugin as Plugin<T>;
+  return plugin as Plugin<T, EmbedData>;
 };

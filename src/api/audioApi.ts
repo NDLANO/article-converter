@@ -12,8 +12,8 @@ import {
   headerWithAccessToken,
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
-import { LocaleType, Author } from '../interfaces';
-import { AudioEmbedType } from '../plugins/audioPlugin';
+import { LocaleType, Author, SimpleEmbedType } from '../interfaces';
+import { AudioEmbedData, AudioEmbedType } from '../plugins/audioPlugin';
 
 export interface AudioApiCopyright {
   license: {
@@ -87,7 +87,7 @@ export interface AudioApiType {
 }
 
 export const fetchAudio = (
-  embed: AudioEmbedType,
+  embed: SimpleEmbedType<AudioEmbedData>,
   accessToken: string,
   language: LocaleType,
 ): Promise<AudioEmbedType> => {

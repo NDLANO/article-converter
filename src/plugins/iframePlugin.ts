@@ -11,9 +11,9 @@ import { Plugin, EmbedType } from '../interfaces';
 
 export interface IframeEmbedType extends EmbedType<IframeEmbedData> {}
 
-export interface IframePlugin extends Plugin<IframeEmbedType> {}
+export interface IframePlugin extends Plugin<IframeEmbedType, IframeEmbedData> {}
 
-interface IframeEmbedData {
+export interface IframeEmbedData {
   resource: 'iframe';
   type: string;
   url: string;
@@ -24,7 +24,7 @@ interface IframeEmbedData {
   imageId?: string;
 }
 
-export default function createIframePlugin(): Plugin<IframeEmbedType> {
+export default function createIframePlugin(): IframePlugin {
   const embedToHTML = async (embed: IframeEmbedType) => {
     const { url, width, height } = embed.data;
     const resize = !url.includes('trinket.io');

@@ -21,14 +21,15 @@ class FootNoteCounter {
 
 export interface FootnoteEmbedType extends EmbedType<FootnoteEmbedData> {}
 
-export interface FootnotePlugin extends Plugin<FootnoteEmbedType, FootnoteMetaData> {}
+export interface FootnotePlugin
+  extends Plugin<FootnoteEmbedType, FootnoteEmbedData, FootnoteMetaData> {}
 
 export interface FootnoteMetaData extends Omit<FootnoteEmbedData, 'authors'> {
   ref: number;
   authors: string[];
 }
 
-interface FootnoteEmbedData {
+export interface FootnoteEmbedData {
   resource: 'footnote';
   title: string;
   type: string;

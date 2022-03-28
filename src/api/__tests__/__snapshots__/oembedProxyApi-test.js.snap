@@ -2,22 +2,18 @@
 
 exports[`Converts youtube http-url to https 1`] = `
 Object {
-  "data": Object {
-    "url": "https://youtube.com/videoid",
-  },
   "oembed": Object {
     "html": "<iframe src=\\"https://youtube.com/videoid\\"></iframe>",
   },
+  "url": "https://youtube.com/videoid",
 }
 `;
 
 exports[`Leaves youtube https-url be 1`] = `
 Object {
-  "data": Object {
-    "url": "https://youtube.com/anotherid",
-  },
   "oembed": Object {
     "html": "<iframe src=\\"https://youtube.com/anotherid\\"></iframe>",
   },
+  "url": undefined,
 }
 `;

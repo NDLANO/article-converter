@@ -9,9 +9,9 @@ import { Plugin, EmbedType } from '../interfaces';
 
 export interface ErrorEmbedType extends EmbedType<ErrorEmbedData> {}
 
-export interface ErrorPlugin extends Plugin<ErrorEmbedType> {}
+export interface ErrorPlugin extends Plugin<ErrorEmbedType, ErrorEmbedData> {}
 
-interface ErrorEmbedData {
+export interface ErrorEmbedData {
   resource: 'error';
   message: string;
 }

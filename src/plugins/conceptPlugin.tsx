@@ -21,7 +21,7 @@ import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
+import { EmbedType, LocaleType, TransformOptions, Plugin, SimpleEmbedType } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import { getEmbedsResources } from '../transformers';
 
@@ -66,7 +66,7 @@ export interface TransformedConceptEmbedType extends ConceptEmbedType {
   transformedVisualElement?: any; // TODO: Any må bort
 }
 
-export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType> {
+export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType, ConceptEmbedData> {
   resource: 'concept';
 }
 
@@ -151,7 +151,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const getAndResolveConcept = async (
-    embed: ConceptEmbedType,
+    embed: SimpleEmbedType<ConceptEmbedData>,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
@@ -200,7 +200,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   };
 
   const fetchResource = (
-    embed: ConceptEmbedType,
+    embed: SimpleEmbedType<ConceptEmbedData>,
     accessToken: string,
     language: LocaleType,
     feideToken: string,

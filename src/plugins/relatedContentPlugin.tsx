@@ -115,14 +115,15 @@ export interface RelatedContentEmbedType extends EmbedType<RelatedContentEmbedDa
   article?: RelatedArticleType;
 }
 
-interface RelatedContentEmbedData {
+export interface RelatedContentEmbedData {
   resource: 'related-content';
   articleId?: string;
   url?: string;
   title?: string;
 }
 
-export interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
+export interface RelatedContentPlugin
+  extends Plugin<RelatedContentEmbedType, RelatedContentEmbedData> {
   resource: 'related-content';
 }
 

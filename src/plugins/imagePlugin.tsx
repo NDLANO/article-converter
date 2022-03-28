@@ -39,6 +39,7 @@ import {
   LocaleType,
   TransformOptions,
   EmbedToHTMLReturnObj,
+  SimpleEmbedType,
 } from '../interfaces';
 import config from '../config';
 
@@ -215,7 +216,7 @@ export interface ImageEmbedData {
   metaData?: any;
 }
 
-export interface ImagePlugin extends Plugin<ImageEmbedType> {
+export interface ImagePlugin extends Plugin<ImageEmbedType, ImageEmbedData> {
   resource: 'image';
 }
 
@@ -239,7 +240,11 @@ export const messages = (locale: LocaleType) => ({
 export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
-  const fetchResource = (embed: ImageEmbedType, accessToken: string, language: LocaleType) => {
+  const fetchResource = (
+    embed: SimpleEmbedType<ImageEmbedData>,
+    accessToken: string,
+    language: LocaleType,
+  ) => {
     const resolve = async () => {
       const image = await fetchImageResources(embed.data.url || '', accessToken, language);
       return {

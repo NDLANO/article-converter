@@ -13,8 +13,9 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { OembedEmbedType } from '../plugins/externalPlugin';
-import { H5PEmbedType } from '../plugins/h5pPlugin';
+import { OembedEmbedData } from '../plugins/externalPlugin';
+import { H5pEmbedData } from '../plugins/h5pPlugin';
+import { SimpleEmbedType } from '../interfaces';
 
 export interface OembedProxyResponse {
   type: string;
@@ -34,19 +35,25 @@ export interface OembedProxyResponse {
   html?: string;
 }
 
+export interface OembedProxyData {
+  oembed: OembedProxyResponse;
+  url?: string;
+}
+
 export const fetchOembed = async (
-  embed: OembedEmbedType | H5PEmbedType,
+  embed: SimpleEmbedType<H5pEmbedData | OembedEmbedData>,
   accessToken: string,
-): Promise<OembedEmbedType | H5PEmbedType> => {
+): Promise<OembedProxyData> => {
   const url = new URL(typeof embed.data.url === 'string' ? embed.data.url : '');
+  let newUrl;
   if (url.hostname.includes('youtu') && url.protocol === 'http:') {
     url.protocol = 'https:';
-    embed.data.url = url.href;
+    newUrl = url.href;
   }
   const response = await fetch(
     apiResourceUrl(
       `/oembed-proxy/v1/oembed?${queryString.stringify({
-        url: embed.data.url,
+        url: newUrl || embed.data.url,
       })}`,
     ),
     {
@@ -55,7 +62,7 @@ export const fetchOembed = async (
   );
   const oembed = await resolveJsonOrRejectWithError<OembedProxyResponse>(response);
   return {
-    ...embed,
     oembed,
+    url: newUrl,
   };
 };

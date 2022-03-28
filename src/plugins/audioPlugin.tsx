@@ -24,7 +24,14 @@ import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpe
 import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 import { ImageActionButtons, messages } from './imagePlugin';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import {
+  Plugin,
+  EmbedType,
+  LocaleType,
+  TransformOptions,
+  EmbedMetaData,
+  SimpleEmbedType,
+} from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
 import config from '../config';
@@ -36,7 +43,7 @@ export interface AudioEmbedType extends EmbedType<AudioEmbedData> {
   imageMeta?: ImageApiType;
 }
 
-export interface AudioPlugin extends Plugin<AudioEmbedType> {
+export interface AudioPlugin extends Plugin<AudioEmbedType, AudioEmbedData, EmbedMetaData> {
   resource: 'audio';
 }
 
@@ -56,7 +63,7 @@ export interface AudioMetaData {
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
   const fetchResource = async (
-    embed: AudioEmbedType,
+    embed: SimpleEmbedType<AudioEmbedData>,
     accessToken: string,
     language: LocaleType,
   ) => {

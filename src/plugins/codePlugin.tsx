@@ -14,9 +14,9 @@ import { Plugin, EmbedType } from '../interfaces';
 
 export interface CodeEmbedType extends EmbedType<CodeEmbedData> {}
 
-export interface CodePlugin extends Plugin<CodeEmbedType> {}
+export interface CodePlugin extends Plugin<CodeEmbedType, CodeEmbedData> {}
 
-interface CodeEmbedData {
+export interface CodeEmbedData {
   resource: 'code-block';
   codeFormat: string;
   codeContent: string;

@@ -9,13 +9,13 @@
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 import config from '../config';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, EmbedType, LocaleType, TransformOptions, SimpleEmbedType } from '../interfaces';
 
 export interface ContentLinkEmbedType extends EmbedType<ContentLinkEmbedData> {
   path: string;
 }
 
-interface ContentLinkEmbedData {
+export interface ContentLinkEmbedData {
   resource: string;
   contentId: string;
   linkText: string;
@@ -23,13 +23,13 @@ interface ContentLinkEmbedData {
   contentType?: string;
 }
 
-export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
+export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType, ContentLinkEmbedData> {
   resource: 'content-link';
 }
 
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
-    embed: ContentLinkEmbedType,
+    embed: SimpleEmbedType<ContentLinkEmbedData>,
     accessToken: string,
     language: LocaleType,
   ): Promise<ContentLinkEmbedType> {
