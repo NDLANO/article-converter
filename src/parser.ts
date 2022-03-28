@@ -7,13 +7,16 @@
  */
 
 import { CheerioAPI } from 'cheerio';
-import { EmbedType } from './interfaces';
+import { EmbedUnion } from './interfaces';
 
-export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedType[]> {
+export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedUnion[]> {
   return html('embed')
     .toArray()
-    .map((embed) => ({
-      embed: html(embed),
-      data: html(embed).data(),
-    }));
+    .map(
+      (embed) =>
+        ({
+          embed: html(embed),
+          data: html(embed).data(),
+        } as EmbedUnion), // TODO: Denne burde fikses.
+    );
 }

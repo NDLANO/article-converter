@@ -19,15 +19,34 @@ class FootNoteCounter {
   }
 }
 
-export default function createFootnotePlugin(): Plugin<EmbedType> {
+export interface FootnoteEmbedType extends EmbedType<FootnoteEmbedData> {}
+
+export interface FootnotePlugin extends Plugin<FootnoteEmbedType, FootnoteMetaData> {}
+
+export interface FootnoteMetaData extends Omit<FootnoteEmbedData, 'authors'> {
+  ref: number;
+  authors: string[];
+}
+
+interface FootnoteEmbedData {
+  resource: 'footnote';
+  title: string;
+  type: string;
+  year: string;
+  edition: string;
+  publisher: string;
+  authors: string;
+}
+
+export default function createFootnotePlugin(): FootnotePlugin {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = async (embed: EmbedType) => {
+  const getMetaData = async (embed: FootnoteEmbedType) => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     const authors = (embed.data.authors as string).split(';');
-    const year = (embed.data.year as number).toString();
+    const year = embed.data.year.toString();
 
     return {
       ...embed.data,

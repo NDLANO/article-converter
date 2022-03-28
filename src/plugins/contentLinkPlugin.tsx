@@ -11,8 +11,16 @@ import log from '../utils/logger';
 import config from '../config';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 
-export interface ContentLinkEmbedType extends EmbedType {
+export interface ContentLinkEmbedType extends EmbedType<ContentLinkEmbedData> {
   path: string;
+}
+
+interface ContentLinkEmbedData {
+  resource: string;
+  contentId: string;
+  linkText: string;
+  openIn?: string;
+  contentType?: string;
 }
 
 export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
@@ -21,11 +29,11 @@ export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
 
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
-    embed: EmbedType,
+    embed: ContentLinkEmbedType,
     accessToken: string,
     language: LocaleType,
   ): Promise<ContentLinkEmbedType> {
-    const contentType = embed?.data?.contentType as string | undefined;
+    const contentType = embed?.data?.contentType;
     const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
     let path = `${host}/${language}/${
       contentType === 'learningpath' ? 'learningpaths' : 'article'
@@ -33,7 +41,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
 
     try {
       const resource = await fetchArticleResource(
-        embed.data.contentId as string,
+        embed.data.contentId,
         accessToken,
         language,
         contentType,

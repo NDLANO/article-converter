@@ -25,8 +25,9 @@ import {
   TransformOptions,
   EmbedToHTMLReturnObj,
 } from '../interfaces';
+import { OembedEmbedType } from './externalPlugin';
 
-export interface H5PEmbedType extends EmbedType {
+export interface H5PEmbedType extends EmbedType<H5pEmbedData> {
   oembed: H5POembedResponse;
   h5pLicenseInformation?: H5PLicenseInformation;
   h5pUrl?: string;
@@ -57,10 +58,10 @@ export interface H5PMetaData {
 export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
   const fetchH5pOembed = options.previewH5p ? fetchPreviewOembed : fetchOembed;
   const fetchResource = async (
-    embed: EmbedType,
+    embed: H5PEmbedType,
     accessToken: string,
     locale: LocaleType,
-  ): Promise<H5PEmbedType> => {
+  ): Promise<H5PEmbedType | OembedEmbedType> => {
     const lang = locale === 'en' ? 'en-gb' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;

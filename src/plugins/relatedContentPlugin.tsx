@@ -9,6 +9,7 @@
 import React from 'react';
 // @ts-ignore
 import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
+import { isEqual } from 'lodash';
 import cheerio from 'cheerio';
 import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
 import constants from '@ndla/ui/lib/model';
@@ -110,8 +111,15 @@ const getRelatedArticleProps = (
 
 type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
 
-export interface RelatedContentEmbedType extends EmbedType {
+export interface RelatedContentEmbedType extends EmbedType<RelatedContentEmbedData> {
   article?: RelatedArticleType;
+}
+
+interface RelatedContentEmbedData {
+  resource: 'related-content';
+  articleId?: string;
+  url?: string;
+  title?: string;
 }
 
 export interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
@@ -122,12 +130,12 @@ export default function createRelatedContentPlugin(
   options: TransformOptions = {},
 ): RelatedContentPlugin {
   async function fetchResource(
-    embed: EmbedType,
+    embed: RelatedContentEmbedType,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
   ): Promise<RelatedContentEmbedType> {
-    if (!embed.data) return embed;
+    if (embed.data.resource !== 'related-content') return embed;
 
     const articleId = embed.data.articleId;
 
@@ -151,11 +159,11 @@ export default function createRelatedContentPlugin(
     return embed;
   }
 
-  const getEntryNumber = (embed: EmbedType) => {
+  const getEntryNumber = (embed: RelatedContentEmbedType) => {
     const siblings = embed.embed?.parent()?.children()?.toArray() || [];
 
     const idx = siblings.findIndex((e) => {
-      return cheerio(e).data() === embed.data;
+      return isEqual(cheerio(e).data(), embed.data);
     });
     return idx + 1;
   };
@@ -174,7 +182,7 @@ export default function createRelatedContentPlugin(
           <RelatedArticle
             key={`external-learning-resources-${relatedArticleEntryNum}`}
             title={embed.data.title as string}
-            introduction={(embed.data.metaDescription as string) || ''}
+            introduction=""
             linkInfo={`${t(lang, 'related.linkInfo')} ${
               // Get domain name only from url
               embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||

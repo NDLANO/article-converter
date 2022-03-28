@@ -30,12 +30,11 @@ import {
 import { render } from '../utils/render';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
 
-export interface BrightcoveEmbedType extends EmbedType {
+export interface BrightcoveEmbedType extends EmbedType<BrightcoveEmbedData> {
   brightcove: BrightcoveVideo & {
     copyright: BrightcoveCopyright;
     sources: BrightcoveVideoSource[];
   };
-  data: BrightcoveEmbedData;
 }
 
 export type BrightcoveEmbedData = {
@@ -76,7 +75,7 @@ const Anchor = StyledButton.withComponent('a');
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
+  const fetchResource = (embed: BrightcoveEmbedType, accessToken: string, language: LocaleType) =>
     fetchVideoMeta(embed, language);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {

@@ -194,12 +194,11 @@ ImageActionButtons.propTypes = {
   src: PropTypes.string.isRequired,
 };
 
-export interface ImageEmbedType extends EmbedType {
+export interface ImageEmbedType extends EmbedType<ImageEmbedData> {
   image: ImageApiType;
-  data: ImageEmbedData;
 }
 
-export type ImageEmbedData = {
+export interface ImageEmbedData {
   resource: 'image';
   resourceId: string;
   size?: string;
@@ -214,7 +213,7 @@ export type ImageEmbedData = {
   upperLeftY?: string;
   upperLeftX?: string;
   metaData?: any;
-};
+}
 
 export interface ImagePlugin extends Plugin<ImageEmbedType> {
   resource: 'image';
@@ -240,8 +239,16 @@ export const messages = (locale: LocaleType) => ({
 export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchImageResources(embed, accessToken, language);
+  const fetchResource = (embed: ImageEmbedType, accessToken: string, language: LocaleType) => {
+    const resolve = async () => {
+      const image = await fetchImageResources(embed.data.url || '', accessToken, language);
+      return {
+        ...embed,
+        image,
+      };
+    };
+    return resolve();
+  };
 
   const getMetaData = async (embed: ImageEmbedType, locale: LocaleType) => {
     const { image } = embed;

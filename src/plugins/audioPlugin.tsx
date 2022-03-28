@@ -23,7 +23,7 @@ import t from '../locale/i18n';
 import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
 import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
-import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
+import { ImageActionButtons, messages } from './imagePlugin';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
@@ -31,10 +31,9 @@ import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
 
-export interface AudioEmbedType extends EmbedType {
+export interface AudioEmbedType extends EmbedType<AudioEmbedData> {
   audio: AudioApiType;
-  data: AudioEmbedData;
-  imageMeta?: ImageEmbedType;
+  imageMeta?: ImageApiType;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbedType> {
@@ -56,17 +55,16 @@ export interface AudioMetaData {
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
+  const fetchResource = async (
+    embed: AudioEmbedType,
+    accessToken: string,
+    language: LocaleType,
+  ) => {
     const result = await fetchAudio(embed, accessToken, language);
 
     if (result.audio.podcastMeta?.coverPhoto?.id) {
       const imageMeta = await fetchImageResources(
-        {
-          ...embed,
-          data: {
-            url: apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
-          },
-        },
+        apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
         accessToken,
         language,
       );
@@ -265,7 +263,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       },
     } = audio;
 
-    const { image } = imageMeta || {};
+    const image = imageMeta;
 
     const { introduction, coverPhoto } = podcastMeta || {};
     const subtitle = series?.title;

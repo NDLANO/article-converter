@@ -7,8 +7,17 @@
  */
 import { Plugin, EmbedType } from '../interfaces';
 
-export default function createErrorPlugin(): Plugin<EmbedType> {
-  const embedToHTML = async (embed: EmbedType) => ({
+export interface ErrorEmbedType extends EmbedType<ErrorEmbedData> {}
+
+export interface ErrorPlugin extends Plugin<ErrorEmbedType> {}
+
+interface ErrorEmbedData {
+  resource: 'error';
+  message: string;
+}
+
+export default function createErrorPlugin(): ErrorPlugin {
+  const embedToHTML = async (embed: ErrorEmbedType) => ({
     html: `<div><strong>${embed.data.message}</strong></div>`,
   });
 

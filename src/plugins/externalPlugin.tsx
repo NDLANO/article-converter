@@ -11,10 +11,21 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, LocaleType, TransformOptions, EmbedType } from '../interfaces';
+import { H5PEmbedType } from './h5pPlugin';
 
-export interface OembedEmbedType extends EmbedType {
+export interface OembedEmbedType extends EmbedType<OembedEmbedData> {
   oembed: OembedProxyResponse;
+}
+
+export interface OembedEmbedData {
+  resource: 'external' | 'iframe';
+  url: string;
+  type?: string;
+  metaData?: any;
+  caption?: string;
+  title?: string;
+  height?: string;
 }
 
 export interface OembedPlugin extends Plugin<OembedEmbedType> {
@@ -24,7 +35,10 @@ export interface OembedPlugin extends Plugin<OembedEmbedType> {
 export default function createExternalPlugin(
   options: TransformOptions = { concept: false },
 ): OembedPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string): Promise<OembedEmbedType> => {
+  const fetchResource = async (
+    embed: OembedEmbedType | H5PEmbedType,
+    accessToken: string,
+  ): Promise<OembedEmbedType | H5PEmbedType> => {
     return fetchOembed(embed, accessToken);
   };
 

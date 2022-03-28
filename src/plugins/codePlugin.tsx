@@ -12,9 +12,20 @@ import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
 import { Plugin, EmbedType } from '../interfaces';
 
-export default function createCodePlugin(): Plugin<EmbedType> {
-  const embedToHTML = async (embed: EmbedType) => {
-    const { title, codeContent, codeFormat } = embed.data as Record<string, string>;
+export interface CodeEmbedType extends EmbedType<CodeEmbedData> {}
+
+export interface CodePlugin extends Plugin<CodeEmbedType> {}
+
+interface CodeEmbedData {
+  resource: 'code-block';
+  codeFormat: string;
+  codeContent: string;
+  title?: string;
+}
+
+export default function createCodePlugin(): CodePlugin {
+  const embedToHTML = async (embed: CodeEmbedType) => {
+    const { title, codeContent, codeFormat } = embed.data;
     return {
       html: renderString(
         <figure className="c-figure">

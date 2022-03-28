@@ -17,7 +17,6 @@ import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
   PluginUnion,
-  EmbedType,
   LocaleType,
   TransformOptions,
   ResponseHeaders,
@@ -55,7 +54,7 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedType[],
+  embeds: EmbedUnion[],
   accessToken: string,
   feideToken: string,
   lang: LocaleType,

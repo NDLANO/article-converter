@@ -6,9 +6,9 @@
  *
  */
 
-import { EmbedType, PluginUnion, Plugin } from '../interfaces';
+import { PluginUnion, Plugin, EmbedUnion } from '../interfaces';
 
-export const findPlugin = <T extends EmbedType>(
+export const findPlugin = <T extends EmbedUnion>(
   plugins: PluginUnion[],
   embed: T,
 ): Plugin<T> | undefined => {

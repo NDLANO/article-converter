@@ -6,11 +6,11 @@
  *
  */
 
-import { EmbedType, LocaleType, PluginUnion } from './interfaces';
+import { EmbedUnion, LocaleType, PluginUnion } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 export default async function getEmbedMetaData(
-  embeds: EmbedType[],
+  embeds: EmbedUnion[],
   locale: LocaleType,
   plugins: PluginUnion[],
 ) {

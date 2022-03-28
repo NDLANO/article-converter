@@ -13,8 +13,8 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { EmbedType } from '../interfaces';
 import { OembedEmbedType } from '../plugins/externalPlugin';
+import { H5PEmbedType } from '../plugins/h5pPlugin';
 
 export interface OembedProxyResponse {
   type: string;
@@ -35,9 +35,9 @@ export interface OembedProxyResponse {
 }
 
 export const fetchOembed = async (
-  embed: EmbedType,
+  embed: OembedEmbedType | H5PEmbedType,
   accessToken: string,
-): Promise<OembedEmbedType> => {
+): Promise<OembedEmbedType | H5PEmbedType> => {
   const url = new URL(typeof embed.data.url === 'string' ? embed.data.url : '');
   if (url.hostname.includes('youtu') && url.protocol === 'http:') {
     url.protocol = 'https:';

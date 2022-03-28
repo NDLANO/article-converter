@@ -21,6 +21,11 @@ import { H5PEmbedType, H5PMetaData, H5PPlugin } from './plugins/h5pPlugin';
 import { ImageEmbedType, ImageMetaData, ImagePlugin } from './plugins/imagePlugin';
 import { RelatedContentEmbedType, RelatedContentPlugin } from './plugins/relatedContentPlugin';
 import { ConceptEmbedType, ConceptMetaData, ConceptPlugin } from './plugins/conceptPlugin';
+import { NRKEmbedType, NRKPlugin } from './plugins/nrkPlugin';
+import { IframeEmbedType, IframePlugin } from './plugins/iframePlugin';
+import { FootnoteMetaData, FootnotePlugin } from './plugins/footNotePlugin';
+import { ErrorEmbedType, ErrorPlugin } from './plugins/errorPlugin';
+import { CodeEmbedType, CodePlugin } from './plugins/codePlugin';
 
 export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
@@ -30,7 +35,8 @@ export type EmbedMetaData =
   | BrightcoveMetaData
   | ConceptMetaData
   | H5PMetaData
-  | ImageMetaData;
+  | ImageMetaData
+  | FootnoteMetaData;
 
 export type ResponseHeaders = Record<string, string>;
 export type EmbedToHTMLReturnObj = {
@@ -38,30 +44,25 @@ export type EmbedToHTMLReturnObj = {
   responseHeaders?: ResponseHeaders[];
 };
 
-export interface Plugin<E extends EmbedType, M = EmbedMetaData> {
+// TODO: M burde fjernes
+export interface Plugin<E, M = EmbedMetaData> {
   resource: string;
   embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
   fetchResource?: (
-    embed: EmbedType,
+    embed: E,
     accessToken: string,
     lang: LocaleType,
     feideToken: string,
-  ) => Promise<E>;
+  ) => Promise<EmbedUnion>;
   getMetaData?: (embed: E, lang: LocaleType) => Promise<M | undefined>;
   onError?: (embed: E, lang: LocaleType) => string;
 }
 
-export interface BaseEmbedType {
+export interface EmbedType<T> {
   embed: Cheerio<Element>;
   status?: string;
   responseHeaders?: ResponseHeaders;
-}
-
-export interface EmbedType {
-  embed: Cheerio<Element>;
-  data: Record<string, unknown>;
-  status?: string;
-  responseHeaders?: ResponseHeaders;
+  data: T;
 }
 
 export type EmbedUnion =
@@ -73,10 +74,12 @@ export type EmbedUnion =
   | ImageEmbedType
   | RelatedContentEmbedType
   | ConceptEmbedType
-  | EmbedType;
+  | NRKEmbedType
+  | IframeEmbedType
+  | ErrorEmbedType
+  | CodeEmbedType;
 
 export type PluginUnion =
-  | Plugin<EmbedType>
   | AudioPlugin
   | BrightcovePlugin
   | ContentLinkPlugin
@@ -84,7 +87,12 @@ export type PluginUnion =
   | H5PPlugin
   | ImagePlugin
   | RelatedContentPlugin
-  | ConceptPlugin;
+  | ConceptPlugin
+  | NRKPlugin
+  | IframePlugin
+  | FootnotePlugin
+  | ErrorPlugin
+  | CodePlugin;
 
 export interface TransformOptions {
   absoluteUrl?: boolean;

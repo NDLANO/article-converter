@@ -7,8 +7,18 @@
  */
 import { Plugin, EmbedType } from '../interfaces';
 
-export default function createNRKPlugin(): Plugin<EmbedType> {
-  const embedToHTML = async (embed: EmbedType) => ({
+export interface NRKEmbedType extends EmbedType<NRKEmbedData> {}
+
+export interface NRKPlugin extends Plugin<NRKEmbedType> {}
+
+interface NRKEmbedData {
+  resource: 'nrk';
+  nrkVideoId: string;
+  url: string;
+}
+
+export default function createNRKPlugin(): NRKPlugin {
+  const embedToHTML = async (embed: NRKEmbedType) => ({
     html: `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`,
   });
 

@@ -51,9 +51,8 @@ const customNotionStyle = css`
   }
 `;
 
-export interface ConceptEmbedType extends EmbedType {
+export interface ConceptEmbedType extends EmbedType<ConceptEmbedData> {
   concept: IConcept;
-  data: ConceptEmbedData;
 }
 
 export type ConceptEmbedData = {
@@ -64,7 +63,7 @@ export type ConceptEmbedData = {
 };
 
 export interface TransformedConceptEmbedType extends ConceptEmbedType {
-  transformedVisualElement?: any; // Kjeft på Henrik om denne ligger her fortsatt
+  transformedVisualElement?: any; // TODO: Any må bort
 }
 
 export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType> {
@@ -152,7 +151,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const getAndResolveConcept = async (
-    embed: EmbedType,
+    embed: ConceptEmbedType,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
@@ -172,34 +171,36 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       );
       const embed = embedsWithResources[0];
       let transformedVisualElement;
-      if ('image' in embed) {
-        const { image } = embed;
-        transformedVisualElement = {
-          resource: 'image',
-          title: image.title.title,
-          url: image.metaUrl,
-          copyright: image.copyright,
-          image: {
-            src: image.imageUrl,
-            alt: image.alttext.alttext,
-          },
-        };
-      }
-      if ('brightcove' in embed) {
-        const { brightcove } = embed;
-        transformedVisualElement = {
-          resource: 'brightcove',
-          url: brightcove.link?.url,
-          title: brightcove.name,
-        };
-      }
-      return { ...concept, transformedVisualElement };
+      const { data } = embed;
+
+      // if ('image' in embed) {
+      //   const { image } = embed;
+      //   transformedVisualElement = {
+      //     resource: 'image',
+      //     title: image.title.title,
+      //     url: image.metaUrl,
+      //     copyright: image.copyright,
+      //     image: {
+      //       src: image.imageUrl,
+      //       alt: image.alttext.alttext,
+      //     },
+      //   };
+      // }
+      // if ('brightcove' in embed) {
+      //   const { brightcove } = embed;
+      //   transformedVisualElement = {
+      //     resource: 'brightcove',
+      //     url: brightcove.link?.url,
+      //     title: brightcove.name,
+      //   };
+      // }
+      // return { ...concept, transformedVisualElement };
     }
     return concept;
   };
 
   const fetchResource = (
-    embed: EmbedType,
+    embed: ConceptEmbedType,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
