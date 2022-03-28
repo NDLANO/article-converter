@@ -163,7 +163,7 @@ exports[`move react portals to bottom 1`] = `
       <p>Lorem ipsum dolor sit amet...</p>
       
     </figure>
-  </section><div data-react-universal-portal=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
+  </section><div data-react-universal-portal=\\"true\\" data-from-article-converter=\\"true\\"><h2>Modal dialog</h2><div>Stuff</div></div></body></html>"
 `;
 
 exports[`transformAsides duplicates right column aside for better narrowscreen experience 1`] = `

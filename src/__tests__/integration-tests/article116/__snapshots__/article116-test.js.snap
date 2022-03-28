@@ -449,7 +449,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     </figcaption>
   </figure>
 </section>
-<div data-react-universal-portal=\\"true\\">
+<div data-react-universal-portal=\\"true\\" data-from-article-converter=\\"true\\">
   <div
     class=\\"c-dialog\\"
     data-dialog-id=\\"5388709430001\\"
