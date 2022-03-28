@@ -135,7 +135,7 @@ export default function createRelatedContentPlugin(
     language: LocaleType,
     feideToken: string,
   ): Promise<RelatedContentEmbedType> {
-    if (embed.data.resource !== 'related-content') return embed;
+    if (!embed.data) return embed;
 
     const articleId = embed.data.articleId;
 
