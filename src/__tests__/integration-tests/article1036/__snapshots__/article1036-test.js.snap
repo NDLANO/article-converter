@@ -429,9 +429,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               >
               <div>
                 <style
-                  data-emotion-css=\\"1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
+                  data-emotion-css=\\"1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
                 >
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -489,48 +489,48 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     padding-left: 13px;
                     padding-right: 13px;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles[disabled] {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus,
-                  .css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus,
+                  .css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
                     border-width: 1px;
                   }</style
                 ><button
@@ -538,8 +538,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-dialog-trigger-id=\\"figure-1-2357\\"
                   data-dialog-source-id=\\"figure-1-2357\\"
                   class=\\"
-                    css-1t921fa-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
-                    e1ljv5qk0
+                    css-1d7eluq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
+                    e1ww3yc20
                   \\"
                 >
                   Bruk bildet
