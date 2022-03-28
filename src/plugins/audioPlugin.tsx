@@ -21,7 +21,7 @@ import {
 } from '@ndla/licenses';
 import t from '../locale/i18n';
 import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
-import { AudioApiType, fetchAudio } from '../api/audioApi';
+import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
 import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
@@ -38,6 +38,13 @@ export interface AudioEmbedType extends EmbedType {
 
 export interface AudioPlugin extends Plugin<AudioEmbedType> {
   resource: 'audio';
+}
+
+export interface AudioMetaData {
+  title: string;
+  copyright: AudioApiCopyright;
+  src: string;
+  copyText: string | undefined;
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {

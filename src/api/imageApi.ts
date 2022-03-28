@@ -15,7 +15,7 @@ import {
 import { Author, EmbedType, LocaleType } from '../interfaces';
 import { ImageEmbedType } from '../plugins/imagePlugin';
 
-interface ImageApiCopyright {
+export interface ImageApiCopyright {
   license: {
     license: string;
     description: string;

@@ -21,6 +21,7 @@ import {
   LocaleType,
   TransformOptions,
   ResponseHeaders,
+  EmbedUnion,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
@@ -59,7 +60,7 @@ export async function getEmbedsResources(
   feideToken: string,
   lang: LocaleType,
   plugins: PluginUnion[],
-): Promise<EmbedType[]> {
+): Promise<EmbedUnion[]> {
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);

@@ -41,6 +41,21 @@ export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
   resource: 'brightcove';
 }
 
+export interface BrightcoveMetaData {
+  title: string;
+  description: string;
+  copyright: BrightcoveCopyright;
+  cover: any;
+  download: string | undefined;
+  src: string;
+  iframe: {
+    src: string;
+    height: string | number;
+    width: string | number;
+  };
+  uploadDate: string;
+}
+
 // https://stackoverflow.com/a/1830844
 export const isNumeric = (value: any) => !Number.isNaN(value - parseFloat(value));
 

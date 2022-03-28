@@ -10,9 +10,8 @@ import React from 'react';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
-// @ts-ignore
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
-import { IConcept } from '@ndla/types-concept-api';
+import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
@@ -54,6 +53,12 @@ export interface ConceptEmbedType extends EmbedType {
 
 export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
   resource: 'concept';
+}
+
+export interface ConceptMetaData {
+  title: string | undefined;
+  copyright: ICopyright | undefined;
+  src: string;
 }
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
