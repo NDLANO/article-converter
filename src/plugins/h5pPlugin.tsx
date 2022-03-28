@@ -19,7 +19,6 @@ import {
 } from '../api/h5pApi';
 import config from '../config';
 import {
-  EmbedMetaData,
   Plugin,
   EmbedType,
   LocaleType,
@@ -35,6 +34,17 @@ export interface H5PEmbedType extends EmbedType {
 
 export interface H5PPlugin extends Plugin<H5PEmbedType> {
   resource: 'h5p';
+}
+
+export interface H5PMetaData {
+  url: string | undefined;
+  h5p: {
+    title: string;
+    authors: {
+      name: string;
+      role: string;
+    }[];
+  };
 }
 
 export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
@@ -87,10 +97,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       </figure>,
     );
 
-  const getMetaData = async (
-    embed: H5PEmbedType,
-    locale: LocaleType,
-  ): Promise<EmbedMetaData | undefined> => {
+  const getMetaData = async (embed: H5PEmbedType, locale: LocaleType) => {
     const h5p = embed?.h5pLicenseInformation;
     if (h5p) {
       return {

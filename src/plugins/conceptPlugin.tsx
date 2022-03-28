@@ -12,7 +12,7 @@ import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { ConceptNotion } from '@ndla/ui';
-import { IConcept } from '@ndla/types-concept-api';
+import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
@@ -62,6 +62,12 @@ export interface TransformedConceptEmbedType extends ConceptEmbedType {
 
 export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType> {
   resource: 'concept';
+}
+
+export interface ConceptMetaData {
+  title: string | undefined;
+  copyright: ICopyright | undefined;
+  src: string;
 }
 
 const renderMarkdown = (text: string) => {

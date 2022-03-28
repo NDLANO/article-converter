@@ -15,7 +15,7 @@ import {
 import { EmbedType, LocaleType, Author } from '../interfaces';
 import { AudioEmbedType } from '../plugins/audioPlugin';
 
-interface AudioApiCopyright {
+export interface AudioApiCopyright {
   license: {
     license: string;
     description?: string;

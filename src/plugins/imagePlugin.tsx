@@ -30,7 +30,7 @@ import {
 import queryString from 'query-string';
 import { isNumber } from 'lodash';
 import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { fetchImageResources, ImageApiCopyright, ImageApiType } from '../api/imageApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import {
@@ -200,6 +200,14 @@ export interface ImageEmbedType extends EmbedType {
 
 export interface ImagePlugin extends Plugin<ImageEmbedType> {
   resource: 'image';
+}
+
+export interface ImageMetaData {
+  title: string;
+  altText: string;
+  copyright: ImageApiCopyright;
+  src: string;
+  copyText: string;
 }
 
 export const messages = (locale: LocaleType) => ({
