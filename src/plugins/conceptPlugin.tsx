@@ -10,22 +10,21 @@ import React from 'react';
 import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
-// @ts-ignore
-import Notion, {
-  NotionDialogContent,
-  NotionDialogText,
-  NotionDialogLicenses,
-  NotionHeaderWithoutExitButton,
-} from '@ndla/notion';
+import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
+import { ConceptNotion } from '@ndla/ui';
 import { IConcept } from '@ndla/types-concept-api';
-import { breakpoints, mq, spacing } from '@ndla/core';
+import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
+import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
 import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
+import { getEmbedsFromHtml } from '../parser';
+import { getEmbedsResources } from '../transformers';
+import { findPlugin } from '../utils/findPlugin';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -53,17 +52,15 @@ const customNotionStyle = css`
   }
 `;
 
-const StyledNotionHeaderWrapper = styled.div`
-  div {
-    margin: ${spacing.normal} 0 ${spacing.small};
-  }
-`;
-
 export interface ConceptEmbedType extends EmbedType {
   concept: IConcept;
 }
 
-export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
+export interface TransformedConceptEmbedType extends ConceptEmbedType {
+  transformedVisualElement?: any; // Kjeft på Henrik om denne ligger her fortsatt
+}
+
+export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType> {
   resource: 'concept';
 }
 
@@ -116,35 +113,72 @@ const renderInline = (
   );
 };
 
-const renderBlock = (
-  embed: ConceptEmbedType,
-  transformedHTML: string | null | undefined,
-  locale: LocaleType,
-) => {
+const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => {
   const { concept } = embed;
 
-  const copyright = concept.copyright;
-  const authors = (copyright?.creators ?? []).map((author) => author.name);
-  const license = copyright?.license?.license;
-  const source = concept.source ?? '';
+  const image = concept.metaImage && {
+    alt: concept.metaImage.alt,
+    src: concept.metaImage.url,
+  };
+  const visualElementEmbed = embed.transformedVisualElement && {};
   return render(
     <div>
-      <StyledNotionHeaderWrapper>
-        <NotionHeaderWithoutExitButton title={concept.title?.title ?? ''} />
-      </StyledNotionHeaderWrapper>
-      <NotionDialogContent>
-        {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
-        <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
-      </NotionDialogContent>
-      <NotionDialogLicenses license={license} source={renderMarkdown(source)} authors={authors} />
+      <ConceptNotion
+        concept={{
+          ...concept,
+          text: concept.content?.content ?? '',
+          title: concept.title?.title ?? '',
+          image,
+          visualElement: visualElementEmbed,
+        }}
+      />
     </div>,
     locale,
   );
 };
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchConcept(embed, accessToken, language, options);
+  const getAndResolveConcept = async (
+    embed: EmbedType,
+    accessToken: string,
+    language: LocaleType,
+    feideToken: string,
+  ): Promise<TransformedConceptEmbedType> => {
+    const concept = await fetchConcept(embed, accessToken, language, options);
+    if (concept.concept.visualElement) {
+      const plugins = createPlugins(options);
+      const embeds = await getEmbedsFromHtml(
+        cheerio.load(concept.concept.visualElement.visualElement),
+      );
+      const embedsWithResources = await getEmbedsResources(
+        embeds,
+        accessToken,
+        feideToken,
+        language,
+        plugins,
+      );
+      const embed = embedsWithResources[0];
+      const plugin = findPlugin(plugins, embed);
+      const metadata = plugin?.getMetaData && (await plugin.getMetaData(embed, language));
+      const transformedVisualElement = {
+        resource: embed.data.resource,
+        title: metadata?.title,
+        url: metadata?.src,
+        copyright: metadata?.copyright,
+      };
+      return { ...concept, transformedVisualElement };
+    }
+    return concept;
+  };
+
+  const fetchResource = (
+    embed: EmbedType,
+    accessToken: string,
+    language: LocaleType,
+    feideToken: string,
+  ): Promise<TransformedConceptEmbedType> => {
+    return getAndResolveConcept(embed, accessToken, language, feideToken);
+  };
 
   const getEmbedSrc = (concept: IConcept) =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
@@ -180,7 +214,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     );
   };
 
-  const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
+  const embedToHTML = async (embed: TransformedConceptEmbedType, locale: LocaleType) => {
     const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
     };
@@ -200,7 +234,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     if (embed.data.type === 'block') {
       return {
         responseHeaders,
-        html: renderBlock(embed, transformed?.html, locale),
+        html: renderBlock(embed, locale),
       };
     }
 
