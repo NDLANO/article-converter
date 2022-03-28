@@ -44,7 +44,6 @@ export type EmbedToHTMLReturnObj = {
   responseHeaders?: ResponseHeaders[];
 };
 
-// TODO: M burde fjernes
 export interface Plugin<E, M = EmbedMetaData> {
   resource: string;
   embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;

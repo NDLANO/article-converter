@@ -17,6 +17,6 @@ export async function getEmbedsFromHtml(html: CheerioAPI): Promise<EmbedUnion[]>
         ({
           embed: html(embed),
           data: html(embed).data(),
-        } as EmbedUnion), // TODO: Denne burde fikses.
+        } as EmbedUnion),
     );
 }
