@@ -9,25 +9,28 @@
 import { Cheerio, Element } from 'cheerio';
 import { IArticleV2 } from '@ndla/types-article-api';
 import { TransformFunction } from './transformers';
-import { AudioEmbedType, AudioPlugin } from './plugins/audioPlugin';
+import { AudioEmbedType, AudioMetaData, AudioPlugin } from './plugins/audioPlugin';
 import { ContentLinkEmbedType, ContentLinkPlugin } from './plugins/contentLinkPlugin';
-import { BrightcoveEmbedType, BrightcovePlugin } from './plugins/brightcovePlugin';
+import {
+  BrightcoveEmbedType,
+  BrightcoveMetaData,
+  BrightcovePlugin,
+} from './plugins/brightcovePlugin';
 import { OembedEmbedType, OembedPlugin } from './plugins/externalPlugin';
-import { H5PEmbedType, H5PPlugin } from './plugins/h5pPlugin';
-import { ImageEmbedType, ImagePlugin } from './plugins/imagePlugin';
+import { H5PEmbedType, H5PMetaData, H5PPlugin } from './plugins/h5pPlugin';
+import { ImageEmbedType, ImageMetaData, ImagePlugin } from './plugins/imagePlugin';
 import { RelatedContentEmbedType, RelatedContentPlugin } from './plugins/relatedContentPlugin';
-import { ConceptEmbedType, ConceptPlugin } from './plugins/conceptPlugin';
+import { ConceptEmbedType, ConceptMetaData, ConceptPlugin } from './plugins/conceptPlugin';
 
 export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
 
-export interface EmbedMetaData extends Record<string, unknown> {
-  ref?: number;
-  authors?: string[];
-  year?: string;
-  title?: string;
-  description?: string;
-}
+export type EmbedMetaData =
+  | AudioMetaData
+  | BrightcoveMetaData
+  | ConceptMetaData
+  | H5PMetaData
+  | ImageMetaData;
 
 export type ResponseHeaders = Record<string, string>;
 export type EmbedToHTMLReturnObj = {
