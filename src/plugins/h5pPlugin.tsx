@@ -88,7 +88,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
             url: url || data.url,
           },
           h5pLicenseInformation,
-          h5pUrl: data.url,
+          h5pUrl: url || data.url,
           oembed: oembedData.oembed,
         };
       }

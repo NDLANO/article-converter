@@ -14,7 +14,7 @@ import { render } from '../utils/render';
 import { Plugin, LocaleType, TransformOptions, Embed, PlainEmbed } from '../interfaces';
 
 export interface OembedEmbed extends Embed<OembedEmbedData> {
-  oembed?: OembedProxyResponse;
+  oembed: OembedProxyResponse;
 }
 
 export interface OembedEmbedData {

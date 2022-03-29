@@ -111,7 +111,7 @@ export interface Plugin<E extends AnyEmbed, D extends EmbedData, M = EmbedMetaDa
     accessToken: string,
     lang: LocaleType,
     feideToken: string,
-  ) => Promise<AnyEmbed>;
+  ) => Promise<E>;
   getMetaData?: (embed: E, lang: LocaleType) => Promise<M | undefined>;
   onError?: (embed: E, lang: LocaleType) => string;
 }
