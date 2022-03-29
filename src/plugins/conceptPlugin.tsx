@@ -132,7 +132,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
     alt: concept.metaImage.alt,
     src: concept.metaImage.url,
   };
-  const visualElementEmbed = embed.transformedVisualElement && {};
+
   return render(
     <div>
       <ConceptNotion
@@ -141,7 +141,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
           text: concept.content?.content ?? '',
           title: concept.title?.title ?? '',
           image,
-          visualElement: visualElementEmbed,
+          visualElement: embed.transformedVisualElement,
         }}
       />
     </div>,
