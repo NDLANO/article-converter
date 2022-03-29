@@ -24,26 +24,19 @@ import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpe
 import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 import { ImageActionButtons, messages } from './imagePlugin';
-import {
-  Plugin,
-  EmbedType,
-  LocaleType,
-  TransformOptions,
-  EmbedMetaData,
-  SimpleEmbedType,
-} from '../interfaces';
+import { Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
 import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
 
-export interface AudioEmbedType extends EmbedType<AudioEmbedData> {
+export interface AudioEmbed extends Embed<AudioEmbedData> {
   audio: AudioApiType;
   imageMeta?: ImageApiType;
 }
 
-export interface AudioPlugin extends Plugin<AudioEmbedType, AudioEmbedData, EmbedMetaData> {
+export interface AudioPlugin extends Plugin<AudioEmbed, AudioEmbedData, AudioMetaData> {
   resource: 'audio';
 }
 
@@ -63,7 +56,7 @@ export interface AudioMetaData {
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
   const fetchResource = async (
-    embed: SimpleEmbedType<AudioEmbedData>,
+    embed: PlainEmbed<AudioEmbedData>,
     accessToken: string,
     language: LocaleType,
   ) => {
@@ -85,7 +78,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return result;
   };
 
-  const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: AudioEmbed, locale: LocaleType) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -122,7 +115,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = (embed: AudioEmbedType, locale: LocaleType) => {
+  const onError = (embed: AudioEmbed, locale: LocaleType) => {
     const audio = embed.audio;
     return render(
       <Figure>
@@ -256,7 +249,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     );
   };
 
-  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbedType, locale: LocaleType) => {
+  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbed, locale: LocaleType) => {
     const {
       id,
       title: { title },

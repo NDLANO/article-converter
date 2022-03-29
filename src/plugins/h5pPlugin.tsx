@@ -21,20 +21,20 @@ import {
 import config from '../config';
 import {
   Plugin,
-  EmbedType,
+  Embed,
   LocaleType,
   TransformOptions,
   EmbedToHTMLReturnObj,
-  SimpleEmbedType,
+  PlainEmbed,
 } from '../interfaces';
 
-export interface H5PEmbedType extends EmbedType<H5pEmbedData> {
+export interface H5PEmbed extends Embed<H5pEmbedData> {
   oembed?: H5POembedResponse | OembedProxyResponse;
   h5pLicenseInformation?: H5PLicenseInformation;
   h5pUrl?: string;
 }
 
-export interface H5PPlugin extends Plugin<H5PEmbedType, H5pEmbedData> {
+export interface H5PPlugin extends Plugin<H5PEmbed, H5pEmbedData> {
   resource: 'h5p';
 }
 
@@ -58,17 +58,17 @@ export interface H5PMetaData {
 
 export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
   const fetchH5pOembed: (
-    embed: SimpleEmbedType<H5pEmbedData>,
+    embed: PlainEmbed<H5pEmbedData>,
     accessToken: string,
   ) => Promise<OembedProxyData | OembedPreviewData> = options.previewH5p
     ? fetchPreviewOembed
     : fetchOembed;
 
   const fetchResource = async (
-    embed: SimpleEmbedType<H5pEmbedData>,
+    embed: PlainEmbed<H5pEmbedData>,
     accessToken: string,
     locale: LocaleType,
-  ): Promise<H5PEmbedType> => {
+  ): Promise<H5PEmbed> => {
     const lang = locale === 'en' ? 'en-gb' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
@@ -97,7 +97,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     return embed;
   };
 
-  const embedToHTML = async (h5p: H5PEmbedType): Promise<EmbedToHTMLReturnObj> => {
+  const embedToHTML = async (h5p: H5PEmbed): Promise<EmbedToHTMLReturnObj> => {
     if (h5p.oembed) {
       return { html: wrapInFigure(h5p.oembed.html, true, options.concept) };
     }
@@ -110,7 +110,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     };
   };
 
-  const onError = (embed: H5PEmbedType, locale: LocaleType) =>
+  const onError = (embed: H5PEmbed, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
@@ -118,7 +118,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       </figure>,
     );
 
-  const getMetaData = async (embed: H5PEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: H5PEmbed, locale: LocaleType) => {
     const h5p = embed?.h5pLicenseInformation;
     if (h5p) {
       return {

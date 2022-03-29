@@ -22,7 +22,7 @@ import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { EmbedType, LocaleType, TransformOptions, Plugin, SimpleEmbedType } from '../interfaces';
+import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import { getEmbedsResources } from '../transformers';
 
@@ -52,7 +52,7 @@ const customNotionStyle = css`
   }
 `;
 
-export interface ConceptEmbedType extends EmbedType<ConceptEmbedData> {
+export interface ConceptEmbed extends Embed<ConceptEmbedData> {
   concept: IConcept;
 }
 
@@ -63,7 +63,7 @@ export type ConceptEmbedData = {
   linkText: string;
 };
 
-export interface TransformedConceptEmbedType extends ConceptEmbedType {
+export interface TransformedConceptEmbedType extends ConceptEmbed {
   transformedVisualElement?: NotionVisualElementType;
 }
 
@@ -85,7 +85,7 @@ const renderMarkdown = (text: string) => {
 };
 
 const renderInline = (
-  embed: ConceptEmbedType,
+  embed: ConceptEmbed,
   transformedHTML: string | null | undefined,
   locale: LocaleType,
 ) => {
@@ -152,7 +152,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const getAndResolveConcept = async (
-    embed: SimpleEmbedType<ConceptEmbedData>,
+    embed: PlainEmbed<ConceptEmbedData>,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
@@ -230,7 +230,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   };
 
   const fetchResource = (
-    embed: SimpleEmbedType<ConceptEmbedData>,
+    embed: PlainEmbed<ConceptEmbedData>,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
@@ -241,7 +241,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   const getEmbedSrc = (concept: IConcept) =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
-  const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ConceptEmbed, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
       return {
@@ -252,7 +252,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     }
   };
 
-  const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
+  const onError = (embed: ConceptEmbed, locale: LocaleType) => {
     const { contentId, linkText } = embed.data;
 
     const children = typeof linkText === 'string' ? linkText : undefined;

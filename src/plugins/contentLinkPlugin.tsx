@@ -9,9 +9,9 @@
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 import config from '../config';
-import { Plugin, EmbedType, LocaleType, TransformOptions, SimpleEmbedType } from '../interfaces';
+import { Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
 
-export interface ContentLinkEmbedType extends EmbedType<ContentLinkEmbedData> {
+export interface ContentLinkEmbed extends Embed<ContentLinkEmbedData> {
   path: string;
 }
 
@@ -23,16 +23,16 @@ export interface ContentLinkEmbedData {
   contentType?: string;
 }
 
-export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType, ContentLinkEmbedData> {
+export interface ContentLinkPlugin extends Plugin<ContentLinkEmbed, ContentLinkEmbedData> {
   resource: 'content-link';
 }
 
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
-    embed: SimpleEmbedType<ContentLinkEmbedData>,
+    embed: PlainEmbed<ContentLinkEmbedData>,
     accessToken: string,
     language: LocaleType,
-  ): Promise<ContentLinkEmbedType> {
+  ): Promise<ContentLinkEmbed> {
     const contentType = embed?.data?.contentType;
     const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
     let path = `${host}/${language}/${
@@ -66,7 +66,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
     }
   }
 
-  const embedToHTML = async (embed: ContentLinkEmbedType) => {
+  const embedToHTML = async (embed: ContentLinkEmbed) => {
     if (embed.data.openIn === 'new-context') {
       return {
         html: `<a href="${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,

@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { Plugin, EmbedType } from '../interfaces';
+import { Plugin, Embed } from '../interfaces';
 
-export interface NRKEmbedType extends EmbedType<NRKEmbedData> {}
+export interface NRKEmbed extends Embed<NRKEmbedData> {}
 
-export interface NRKPlugin extends Plugin<NRKEmbedType, NRKEmbedData> {
+export interface NRKPlugin extends Plugin<NRKEmbed, NRKEmbedData> {
   resource: 'nrk';
 }
 
@@ -20,7 +20,7 @@ export interface NRKEmbedData {
 }
 
 export default function createNRKPlugin(): NRKPlugin {
-  const embedToHTML = async (embed: NRKEmbedType) => ({
+  const embedToHTML = async (embed: NRKEmbed) => ({
     html: `<div class="nrk-video" data-nrk-id="${embed.data.nrkVideoId}"></div>`,
   });
 

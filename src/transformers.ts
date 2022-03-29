@@ -16,12 +16,12 @@ import createPlugins from './plugins';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
-  PluginUnion,
+  AnyPlugin,
   LocaleType,
   TransformOptions,
   ResponseHeaders,
-  EmbedUnion,
-  SimpleEmbedType,
+  AnyEmbed,
+  PlainEmbed,
   EmbedData,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
@@ -56,12 +56,12 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: SimpleEmbedType<EmbedData>[],
+  embeds: PlainEmbed<EmbedData>[],
   accessToken: string,
   feideToken: string,
   lang: LocaleType,
-  plugins: PluginUnion[],
-): Promise<EmbedUnion[]> {
+  plugins: AnyPlugin[],
+): Promise<AnyEmbed[]> {
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);

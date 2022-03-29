@@ -21,7 +21,7 @@ import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import config from '../config';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, Embed, LocaleType, TransformOptions } from '../interfaces';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
@@ -111,7 +111,7 @@ const getRelatedArticleProps = (
 
 type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
 
-export interface RelatedContentEmbedType extends EmbedType<RelatedContentEmbedData> {
+export interface RelatedContentEmbed extends Embed<RelatedContentEmbedData> {
   article?: RelatedArticleType;
 }
 
@@ -122,8 +122,7 @@ export interface RelatedContentEmbedData {
   title?: string;
 }
 
-export interface RelatedContentPlugin
-  extends Plugin<RelatedContentEmbedType, RelatedContentEmbedData> {
+export interface RelatedContentPlugin extends Plugin<RelatedContentEmbed, RelatedContentEmbedData> {
   resource: 'related-content';
 }
 
@@ -131,11 +130,11 @@ export default function createRelatedContentPlugin(
   options: TransformOptions = {},
 ): RelatedContentPlugin {
   async function fetchResource(
-    embed: RelatedContentEmbedType,
+    embed: RelatedContentEmbed,
     accessToken: string,
     language: LocaleType,
     feideToken: string,
-  ): Promise<RelatedContentEmbedType> {
+  ): Promise<RelatedContentEmbed> {
     const articleId = embed.data.articleId;
 
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
@@ -158,7 +157,7 @@ export default function createRelatedContentPlugin(
     return embed;
   }
 
-  const getEntryNumber = (embed: RelatedContentEmbedType) => {
+  const getEntryNumber = (embed: RelatedContentEmbed) => {
     const siblings = embed.embed?.parent()?.children()?.toArray() || [];
 
     const idx = siblings.findIndex((e) => {
@@ -167,7 +166,7 @@ export default function createRelatedContentPlugin(
     return idx + 1;
   };
 
-  const embedToHTML = async (embed: RelatedContentEmbedType, lang: LocaleType) => {
+  const embedToHTML = async (embed: RelatedContentEmbed, lang: LocaleType) => {
     if (!embed.article && !embed.data.url) {
       return { html: '' };
     }

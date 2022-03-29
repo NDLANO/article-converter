@@ -15,7 +15,7 @@ import {
 } from '../utils/apiHelpers';
 import { OembedEmbedData } from '../plugins/externalPlugin';
 import { H5pEmbedData } from '../plugins/h5pPlugin';
-import { SimpleEmbedType } from '../interfaces';
+import { PlainEmbed } from '../interfaces';
 
 export interface OembedProxyResponse {
   type: string;
@@ -41,7 +41,7 @@ export interface OembedProxyData {
 }
 
 export const fetchOembed = async (
-  embed: SimpleEmbedType<H5pEmbedData | OembedEmbedData>,
+  embed: PlainEmbed<H5pEmbedData | OembedEmbedData>,
   accessToken: string,
 ): Promise<OembedProxyData> => {
   const url = new URL(typeof embed.data.url === 'string' ? embed.data.url : '');

@@ -35,11 +35,11 @@ import t from '../locale/i18n';
 import { render } from '../utils/render';
 import {
   Plugin,
-  EmbedType,
+  Embed,
   LocaleType,
   TransformOptions,
   EmbedToHTMLReturnObj,
-  SimpleEmbedType,
+  PlainEmbed,
 } from '../interfaces';
 import config from '../config';
 
@@ -195,7 +195,7 @@ ImageActionButtons.propTypes = {
   src: PropTypes.string.isRequired,
 };
 
-export interface ImageEmbedType extends EmbedType<ImageEmbedData> {
+export interface ImageEmbed extends Embed<ImageEmbedData> {
   image: ImageApiType;
 }
 
@@ -216,7 +216,7 @@ export interface ImageEmbedData {
   metaData?: any;
 }
 
-export interface ImagePlugin extends Plugin<ImageEmbedType, ImageEmbedData> {
+export interface ImagePlugin extends Plugin<ImageEmbed, ImageEmbedData> {
   resource: 'image';
 }
 
@@ -241,7 +241,7 @@ export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
   const fetchResource = (
-    embed: SimpleEmbedType<ImageEmbedData>,
+    embed: PlainEmbed<ImageEmbedData>,
     accessToken: string,
     language: LocaleType,
   ) => {
@@ -255,7 +255,7 @@ export default function createImagePlugin(
     return resolve();
   };
 
-  const getMetaData = async (embed: ImageEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ImageEmbed, locale: LocaleType) => {
     const { image } = embed;
     if (image) {
       const {
@@ -285,7 +285,7 @@ export default function createImagePlugin(
     }
   };
 
-  const onError = (embed: ImageEmbedType, locale: LocaleType) => {
+  const onError = (embed: ImageEmbed, locale: LocaleType) => {
     const { image, data } = embed;
     const { align, size } = data;
     const figureType = getFigureType(size, align);
@@ -302,7 +302,7 @@ export default function createImagePlugin(
   };
 
   const embedToHTML = async (
-    embed: ImageEmbedType,
+    embed: ImageEmbed,
     locale: LocaleType,
   ): Promise<EmbedToHTMLReturnObj> => {
     const {

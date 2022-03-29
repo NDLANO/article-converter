@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { Plugin, EmbedType } from '../interfaces';
+import { Plugin, Embed } from '../interfaces';
 
-export interface ErrorEmbedType extends EmbedType<ErrorEmbedData> {}
+export interface ErrorEmbed extends Embed<ErrorEmbedData> {}
 
-export interface ErrorPlugin extends Plugin<ErrorEmbedType, ErrorEmbedData> {
+export interface ErrorPlugin extends Plugin<ErrorEmbed, ErrorEmbedData> {
   resource: 'error';
 }
 
@@ -19,7 +19,7 @@ export interface ErrorEmbedData {
 }
 
 export default function createErrorPlugin(): ErrorPlugin {
-  const embedToHTML = async (embed: ErrorEmbedType) => ({
+  const embedToHTML = async (embed: ErrorEmbed) => ({
     html: `<div><strong>${embed.data.message}</strong></div>`,
   });
 

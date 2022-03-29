@@ -12,7 +12,7 @@ import config from '../config';
 
 import { headerWithAccessToken, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import { H5pEmbedData } from '../plugins/h5pPlugin';
-import { SimpleEmbedType } from '../interfaces';
+import { PlainEmbed } from '../interfaces';
 
 const getHeaders = () => ({
   headers: {
@@ -54,7 +54,7 @@ export interface OembedPreviewData {
 }
 
 export const fetchPreviewOembed = async (
-  embed: SimpleEmbedType<H5pEmbedData>,
+  embed: PlainEmbed<H5pEmbedData>,
   accessToken: string,
 ): Promise<OembedPreviewData> => {
   const url = `${config.h5pHost}/oembed/preview?${queryString.stringify({

@@ -7,11 +7,11 @@
  */
 
 import { makeIframe } from './pluginHelpers';
-import { Plugin, EmbedType } from '../interfaces';
+import { Plugin, Embed } from '../interfaces';
 
-export interface IframeEmbedType extends EmbedType<IframeEmbedData> {}
+export interface IframeEmbed extends Embed<IframeEmbedData> {}
 
-export interface IframePlugin extends Plugin<IframeEmbedType, IframeEmbedData> {
+export interface IframePlugin extends Plugin<IframeEmbed, IframeEmbedData> {
   resource: 'iframe';
 }
 
@@ -27,7 +27,7 @@ export interface IframeEmbedData {
 }
 
 export default function createIframePlugin(): IframePlugin {
-  const embedToHTML = async (embed: IframeEmbedType) => {
+  const embedToHTML = async (embed: IframeEmbed) => {
     const { url, width, height } = embed.data;
     const resize = !url.includes('trinket.io');
     return { html: makeIframe(url, width ?? '', height ?? '', '', resize) };

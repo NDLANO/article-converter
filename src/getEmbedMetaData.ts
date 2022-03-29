@@ -6,13 +6,13 @@
  *
  */
 
-import { EmbedUnion, LocaleType, PluginUnion } from './interfaces';
+import { AnyEmbed, LocaleType, AnyPlugin } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 export default async function getEmbedMetaData(
-  embeds: EmbedUnion[],
+  embeds: AnyEmbed[],
   locale: LocaleType,
-  plugins: PluginUnion[],
+  plugins: AnyPlugin[],
 ) {
   return embeds.reduce(async (pctx: Promise<Record<string, unknown[]>>, embed) => {
     const ctx = await pctx;

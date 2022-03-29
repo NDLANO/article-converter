@@ -10,8 +10,8 @@ import fetch from 'isomorphic-fetch';
 import { contributorTypes, contributorGroups, getLicenseByAbbreviation } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import config from '../config';
-import { Author, LocaleType, SimpleEmbedType } from '../interfaces';
-import { BrightcoveEmbedData, BrightcoveEmbedType } from '../plugins/brightcovePlugin';
+import { Author, LocaleType, PlainEmbed } from '../interfaces';
+import { BrightcoveEmbedData, BrightcoveEmbed } from '../plugins/brightcovePlugin';
 
 export interface BrightcoveVideo {
   id: string;
@@ -195,9 +195,9 @@ export const getContributorGroups = (fields: Record<string, string>) => {
 };
 
 export const fetchVideoMeta = async (
-  embed: SimpleEmbedType<BrightcoveEmbedData>,
+  embed: PlainEmbed<BrightcoveEmbedData>,
   locale: LocaleType,
-): Promise<BrightcoveEmbedType> => {
+): Promise<BrightcoveEmbed> => {
   const { videoid, account } = embed.data;
   const accessToken = await getAccessToken();
   const [video, sources] = await Promise.all([

@@ -13,18 +13,18 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType, SimpleEmbedType } from '../interfaces';
-import { ConceptEmbedData, ConceptEmbedType } from '../plugins/conceptPlugin';
+import { LocaleType, PlainEmbed } from '../interfaces';
+import { ConceptEmbedData, ConceptEmbed } from '../plugins/conceptPlugin';
 
 export const fetchConcept = async (
-  embed: SimpleEmbedType<ConceptEmbedData>,
+  embed: PlainEmbed<ConceptEmbedData>,
   accessToken: string,
   language: LocaleType,
   options: {
     draftConcept?: boolean;
   } = {},
   method: string = 'GET',
-): Promise<ConceptEmbedType> => {
+): Promise<ConceptEmbed> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
     `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${language}&fallback=true`,

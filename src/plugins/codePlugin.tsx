@@ -10,11 +10,11 @@ import React from 'react';
 import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
-import { Plugin, EmbedType } from '../interfaces';
+import { Plugin, Embed } from '../interfaces';
 
-export interface CodeEmbedType extends EmbedType<CodeEmbedData> {}
+export interface CodeEmbed extends Embed<CodeEmbedData> {}
 
-export interface CodePlugin extends Plugin<CodeEmbedType, CodeEmbedData> {
+export interface CodePlugin extends Plugin<CodeEmbed, CodeEmbedData> {
   resource: 'code-block';
 }
 
@@ -26,7 +26,7 @@ export interface CodeEmbedData {
 }
 
 export default function createCodePlugin(): CodePlugin {
-  const embedToHTML = async (embed: CodeEmbedType) => {
+  const embedToHTML = async (embed: CodeEmbed) => {
     const { title, codeContent, codeFormat } = embed.data;
     return {
       html: renderString(

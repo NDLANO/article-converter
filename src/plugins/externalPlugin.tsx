@@ -11,9 +11,9 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, LocaleType, TransformOptions, EmbedType, SimpleEmbedType } from '../interfaces';
+import { Plugin, LocaleType, TransformOptions, Embed, PlainEmbed } from '../interfaces';
 
-export interface OembedEmbedType extends EmbedType<OembedEmbedData> {
+export interface OembedEmbed extends Embed<OembedEmbedData> {
   oembed?: OembedProxyResponse;
 }
 
@@ -27,7 +27,7 @@ export interface OembedEmbedData {
   height?: string;
 }
 
-export interface OembedPlugin extends Plugin<OembedEmbedType, OembedEmbedData> {
+export interface OembedPlugin extends Plugin<OembedEmbed, OembedEmbedData> {
   resource: 'external';
 }
 
@@ -35,9 +35,9 @@ export default function createExternalPlugin(
   options: TransformOptions = { concept: false },
 ): OembedPlugin {
   const fetchResource = async (
-    embed: SimpleEmbedType<OembedEmbedData>,
+    embed: PlainEmbed<OembedEmbedData>,
     accessToken: string,
-  ): Promise<OembedEmbedType> => {
+  ): Promise<OembedEmbed> => {
     const resolve = async () => {
       const oembedData = await fetchOembed(embed, accessToken);
       return {
@@ -53,7 +53,7 @@ export default function createExternalPlugin(
     return resolve();
   };
 
-  const onError = (embed: OembedEmbedType, locale: LocaleType) =>
+  const onError = (embed: OembedEmbed, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
@@ -61,7 +61,7 @@ export default function createExternalPlugin(
       </figure>,
     );
 
-  const embedToHTML = async (embed: OembedEmbedType) => ({
+  const embedToHTML = async (embed: OembedEmbed) => ({
     html: wrapInFigure(embed.oembed?.html, true, options.concept),
   });
 

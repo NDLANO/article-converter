@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { EmbedType, Plugin } from '../interfaces';
+import { Embed, Plugin } from '../interfaces';
 
 class FootNoteCounter {
   private count: number;
@@ -19,10 +19,9 @@ class FootNoteCounter {
   }
 }
 
-export interface FootnoteEmbedType extends EmbedType<FootnoteEmbedData> {}
+export interface FootnoteEmbed extends Embed<FootnoteEmbedData> {}
 
-export interface FootnotePlugin
-  extends Plugin<FootnoteEmbedType, FootnoteEmbedData, FootnoteMetaData> {
+export interface FootnotePlugin extends Plugin<FootnoteEmbed, FootnoteEmbedData, FootnoteMetaData> {
   resource: 'footnote';
 }
 
@@ -45,7 +44,7 @@ export default function createFootnotePlugin(): FootnotePlugin {
   const metaDataCounter = new FootNoteCounter();
   const embedToHTMLCounter = new FootNoteCounter();
 
-  const getMetaData = async (embed: FootnoteEmbedType) => {
+  const getMetaData = async (embed: FootnoteEmbed) => {
     const footNoteEntryNum = metaDataCounter.getNextCount();
 
     const authors = (embed.data.authors as string).split(';');
