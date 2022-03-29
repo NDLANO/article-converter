@@ -10,7 +10,7 @@ import fetch from 'isomorphic-fetch';
 import { contributorTypes, contributorGroups, getLicenseByAbbreviation } from '@ndla/licenses';
 import { resolveJsonOrRejectWithError } from '../utils/apiHelpers';
 import config from '../config';
-import { Author, LocaleType, PlainEmbed } from '../interfaces';
+import { Author, PlainEmbed, LocaleType } from '../interfaces';
 import { BrightcoveEmbedData, BrightcoveEmbed } from '../plugins/brightcovePlugin';
 
 export interface BrightcoveVideo {
