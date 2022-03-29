@@ -55,7 +55,7 @@ export type EmbedToHTMLReturnObj = {
   responseHeaders?: ResponseHeaders[];
 };
 
-export type EmbedMetaData =
+type EmbedMetaData =
   | AudioMetaData
   | BrightcoveMetaData
   | ConceptMetaData
@@ -78,7 +78,7 @@ export type EmbedData =
   | CodeEmbedData
   | FootnoteEmbedData;
 
-export interface PlainEmbed<T> {
+export interface PlainEmbed<T = EmbedData> {
   embed: Cheerio<Element>;
   status?: string;
   data: T;
@@ -90,7 +90,7 @@ export interface Embed<T> extends PlainEmbed<T> {
 }
 
 export type AnyEmbed =
-  | PlainEmbed<EmbedData>
+  | PlainEmbed
   | AudioEmbed
   | BrightcoveEmbed
   | ContentLinkEmbed

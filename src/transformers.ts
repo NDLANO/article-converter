@@ -22,7 +22,6 @@ import {
   ResponseHeaders,
   AnyEmbed,
   PlainEmbed,
-  EmbedData,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
@@ -56,7 +55,7 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: PlainEmbed<EmbedData>[],
+  embeds: PlainEmbed[],
   accessToken: string,
   feideToken: string,
   lang: LocaleType,
