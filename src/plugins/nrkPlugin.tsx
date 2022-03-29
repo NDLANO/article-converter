@@ -9,7 +9,9 @@ import { Plugin, EmbedType } from '../interfaces';
 
 export interface NRKEmbedType extends EmbedType<NRKEmbedData> {}
 
-export interface NRKPlugin extends Plugin<NRKEmbedType, NRKEmbedData> {}
+export interface NRKPlugin extends Plugin<NRKEmbedType, NRKEmbedData> {
+  resource: 'nrk';
+}
 
 export interface NRKEmbedData {
   resource: 'nrk';

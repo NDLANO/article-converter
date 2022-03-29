@@ -16,7 +16,7 @@ export interface ContentLinkEmbedType extends EmbedType<ContentLinkEmbedData> {
 }
 
 export interface ContentLinkEmbedData {
-  resource: string;
+  resource: 'content-link';
   contentId: string;
   linkText: string;
   openIn?: string;

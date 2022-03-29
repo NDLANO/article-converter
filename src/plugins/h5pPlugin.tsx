@@ -74,8 +74,8 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
     const oembedData = await fetchH5pOembed(embed, accessToken);
     if (embed?.data) {
-      const myData = embed.data;
-      const pathArr = myData.path?.split('/') || [];
+      const { data } = embed;
+      const pathArr = data.path?.split('/') || [];
       const h5pID = pathArr[pathArr.length - 1];
       const url = 'url' in oembedData && oembedData.url;
 
@@ -84,11 +84,11 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
         return {
           ...embed,
           data: {
-            ...embed.data,
-            url: url || embed.data.url,
+            ...data,
+            url: url || data.url,
           },
           h5pLicenseInformation,
-          h5pUrl: myData.url as string,
+          h5pUrl: data.url,
           oembed: oembedData.oembed,
         };
       }

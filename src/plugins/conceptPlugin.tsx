@@ -171,30 +171,51 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       );
       const embed = embedsWithResources[0];
       let transformedVisualElement;
-      const { data } = embed;
 
-      // if ('image' in embed) {
-      //   const { image } = embed;
-      //   transformedVisualElement = {
-      //     resource: 'image',
-      //     title: image.title.title,
-      //     url: image.metaUrl,
-      //     copyright: image.copyright,
-      //     image: {
-      //       src: image.imageUrl,
-      //       alt: image.alttext.alttext,
-      //     },
-      //   };
-      // }
-      // if ('brightcove' in embed) {
-      //   const { brightcove } = embed;
-      //   transformedVisualElement = {
-      //     resource: 'brightcove',
-      //     url: brightcove.link?.url,
-      //     title: brightcove.name,
-      //   };
-      // }
-      // return { ...concept, transformedVisualElement };
+      if ('image' in embed) {
+        const { image } = embed;
+        transformedVisualElement = {
+          resource: 'image',
+          title: image.title.title,
+          url: image.metaUrl,
+          copyright: image.copyright,
+          image: {
+            src: image.imageUrl,
+            alt: image.alttext.alttext,
+          },
+        };
+      }
+
+      if (embed.data.resource === 'external') {
+        const { data } = embed;
+        transformedVisualElement = {
+          resource: data.resource,
+          url: data.url,
+          title: data.url,
+        };
+      }
+
+      if ('brightcove' in embed) {
+        const { brightcove } = embed;
+
+        transformedVisualElement = {
+          resource: 'brightcove',
+          url: brightcove.link?.url,
+          title: brightcove.name,
+          copyright: brightcove.copyright,
+        };
+      }
+
+      if (embed.data.resource === 'h5p') {
+        const { data } = embed;
+        transformedVisualElement = {
+          resource: data.resource,
+          url: data.url,
+          title: data.title,
+          copyright: 'h5pLicenseInformation' in embed && embed.h5pLicenseInformation,
+        };
+      }
+      return { ...concept, transformedVisualElement };
     }
     return concept;
   };

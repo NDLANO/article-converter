@@ -11,7 +11,9 @@ import { Plugin, EmbedType } from '../interfaces';
 
 export interface IframeEmbedType extends EmbedType<IframeEmbedData> {}
 
-export interface IframePlugin extends Plugin<IframeEmbedType, IframeEmbedData> {}
+export interface IframePlugin extends Plugin<IframeEmbedType, IframeEmbedData> {
+  resource: 'iframe';
+}
 
 export interface IframeEmbedData {
   resource: 'iframe';

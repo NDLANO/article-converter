@@ -37,7 +37,12 @@ import {
 } from './plugins/conceptPlugin';
 import { NRKEmbedData, NRKEmbedType, NRKPlugin } from './plugins/nrkPlugin';
 import { IframeEmbedData, IframeEmbedType, IframePlugin } from './plugins/iframePlugin';
-import { FootnoteEmbedData, FootnoteMetaData, FootnotePlugin } from './plugins/footNotePlugin';
+import {
+  FootnoteEmbedData,
+  FootnoteEmbedType,
+  FootnoteMetaData,
+  FootnotePlugin,
+} from './plugins/footNotePlugin';
 import { ErrorEmbedData, ErrorEmbedType, ErrorPlugin } from './plugins/errorPlugin';
 import { CodeEmbedData, CodeEmbedType, CodePlugin } from './plugins/codePlugin';
 
@@ -111,7 +116,8 @@ export type EmbedUnion =
   | NRKEmbedType
   | IframeEmbedType
   | ErrorEmbedType
-  | CodeEmbedType;
+  | CodeEmbedType
+  | FootnoteEmbedType;
 
 export type PluginUnion =
   | AudioPlugin
