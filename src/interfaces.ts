@@ -84,9 +84,7 @@ export interface PlainEmbed<T = EmbedData> {
   data: T;
 }
 export interface Embed<T> extends PlainEmbed<T> {
-  embed: Cheerio<Element>;
   responseHeaders?: ResponseHeaders;
-  data: T;
 }
 
 export type AnyEmbed =
