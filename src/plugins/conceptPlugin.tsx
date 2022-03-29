@@ -12,6 +12,7 @@ import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { ConceptNotion } from '@ndla/ui';
+import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
@@ -63,7 +64,7 @@ export type ConceptEmbedData = {
 };
 
 export interface TransformedConceptEmbedType extends ConceptEmbedType {
-  transformedVisualElement?: any; // TODO: Any må bort
+  transformedVisualElement?: NotionVisualElementType;
 }
 
 export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType, ConceptEmbedData> {
@@ -170,7 +171,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         plugins,
       );
       const embed = embedsWithResources[0];
-      let transformedVisualElement;
+      let transformedVisualElement: NotionVisualElementType | undefined;
 
       if ('image' in embed) {
         const { image } = embed;
@@ -212,7 +213,15 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
           resource: data.resource,
           url: data.url,
           title: data.title,
-          copyright: 'h5pLicenseInformation' in embed && embed.h5pLicenseInformation,
+          copyright:
+            'h5pLicenseInformation' in embed
+              ? {
+                  creators: embed.h5pLicenseInformation?.h5p.authors.map((author) => ({
+                    type: author.role,
+                    name: author.name,
+                  })),
+                }
+              : undefined,
         };
       }
       return { ...concept, transformedVisualElement };

@@ -198,7 +198,7 @@ export const fetchVideoMeta = async (
   embed: SimpleEmbedType<BrightcoveEmbedData>,
   locale: LocaleType,
 ): Promise<BrightcoveEmbedType> => {
-  const { videoid, account } = embed.data as Record<string, string>;
+  const { videoid, account } = embed.data;
   const accessToken = await getAccessToken();
   const [video, sources] = await Promise.all([
     fetchVideo(videoid, account, accessToken),

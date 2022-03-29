@@ -82,7 +82,7 @@ export default function createBrightcovePlugin(
   ) => fetchVideoMeta(embed, language);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
-    const { account, videoid, player = 'default' } = data as Record<string, string | undefined>;
+    const { account, videoid, player = 'default' } = data;
 
     const source =
       sources
