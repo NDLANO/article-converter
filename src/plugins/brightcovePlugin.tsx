@@ -218,7 +218,7 @@ export default function createBrightcovePlugin(
             <Button
               outline
               data-copied-title={t(locale, 'license.hasCopiedTitle')}
-              data-copy-string={makeIframeString(src, height, width, brightcove.name)}>
+              data-copy-string={makeIframeString(src, width, height, brightcove.name)}>
               {t(locale, 'license.embed')}
             </Button>
           </FigureLicenseDialog>
