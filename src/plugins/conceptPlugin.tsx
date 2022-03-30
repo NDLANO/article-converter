@@ -144,6 +144,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
           image,
           visualElement: embed.transformedVisualElement,
         }}
+        disableScripts={true}
       />
     </div>,
     locale,
