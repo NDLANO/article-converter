@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { fetchOembed } from '../api/oembedProxyApi';
+import { fetchOembed, OembedProxyData, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -16,57 +16,88 @@ import {
   fetchPreviewOembed,
   H5PLicenseInformation,
   H5POembedResponse,
+  OembedPreviewData,
 } from '../api/h5pApi';
 import config from '../config';
 import {
-  EmbedMetaData,
   Plugin,
-  EmbedType,
+  Embed,
   LocaleType,
   TransformOptions,
   EmbedToHTMLReturnObj,
+  PlainEmbed,
 } from '../interfaces';
 
-export interface H5PEmbedType extends EmbedType {
-  oembed: H5POembedResponse;
+export interface H5PEmbed extends Embed<H5pEmbedData> {
+  oembed?: H5POembedResponse | OembedProxyResponse;
   h5pLicenseInformation?: H5PLicenseInformation;
   h5pUrl?: string;
 }
 
-export interface H5PPlugin extends Plugin<H5PEmbedType> {
+export interface H5PPlugin extends Plugin<H5PEmbed, H5pEmbedData> {
   resource: 'h5p';
 }
 
+export interface H5pEmbedData {
+  resource: 'h5p';
+  path: string;
+  url?: string;
+  title?: string;
+}
+
+export interface H5PMetaData {
+  url: string | undefined;
+  h5p: {
+    title: string;
+    authors: {
+      name: string;
+      role: string;
+    }[];
+  };
+}
+
 export default function createH5pPlugin(options: TransformOptions = { concept: false }): H5PPlugin {
-  const fetchH5pOembed = options.previewH5p ? fetchPreviewOembed : fetchOembed;
+  const fetchH5pOembed: (
+    embed: PlainEmbed<H5pEmbedData>,
+    accessToken: string,
+  ) => Promise<OembedProxyData | OembedPreviewData> = options.previewH5p
+    ? fetchPreviewOembed
+    : fetchOembed;
+
   const fetchResource = async (
-    embed: EmbedType,
+    embed: PlainEmbed<H5pEmbedData>,
     accessToken: string,
     locale: LocaleType,
-  ): Promise<H5PEmbedType> => {
+  ): Promise<H5PEmbed> => {
     const lang = locale === 'en' ? 'en-gb' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
-    const data = await fetchH5pOembed(embed, accessToken);
-    if (data?.embed?.data) {
-      const myData = data.embed.data();
-      const pathArr = (myData as Record<string, string>).path?.split('/') || [];
+    const oembedData = await fetchH5pOembed(embed, accessToken);
+    if (embed?.data) {
+      const { data } = embed;
+      const pathArr = data.path?.split('/') || [];
       const h5pID = pathArr[pathArr.length - 1];
+      const url = 'url' in oembedData && oembedData.url;
 
       if (h5pID) {
         const h5pLicenseInformation = await fetchH5pLicenseInformation(h5pID);
         return {
-          ...data,
+          ...embed,
+          data: {
+            ...data,
+            url: url || data.url,
+          },
           h5pLicenseInformation,
-          h5pUrl: myData.url as string,
+          h5pUrl: url || data.url,
+          oembed: oembedData.oembed,
         };
       }
     }
 
-    return data;
+    return embed;
   };
 
-  const embedToHTML = async (h5p: H5PEmbedType): Promise<EmbedToHTMLReturnObj> => {
+  const embedToHTML = async (h5p: H5PEmbed): Promise<EmbedToHTMLReturnObj> => {
     if (h5p.oembed) {
       return { html: wrapInFigure(h5p.oembed.html, true, options.concept) };
     }
@@ -79,7 +110,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     };
   };
 
-  const onError = (embed: H5PEmbedType, locale: LocaleType) =>
+  const onError = (embed: H5PEmbed, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'h5p.error')} src={errorSvgSrc} />
@@ -87,10 +118,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
       </figure>,
     );
 
-  const getMetaData = async (
-    embed: H5PEmbedType,
-    locale: LocaleType,
-  ): Promise<EmbedMetaData | undefined> => {
+  const getMetaData = async (embed: H5PEmbed, locale: LocaleType) => {
     const h5p = embed?.h5pLicenseInformation;
     if (h5p) {
       return {

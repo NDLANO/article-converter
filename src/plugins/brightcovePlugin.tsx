@@ -28,17 +28,43 @@ import {
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
-import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
+import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 
-export interface BrightcoveEmbedType extends EmbedType {
+export interface BrightcoveEmbed extends Embed<BrightcoveEmbedData> {
   brightcove: BrightcoveVideo & {
     copyright: BrightcoveCopyright;
     sources: BrightcoveVideoSource[];
   };
 }
 
-export interface BrightcovePlugin extends Plugin<BrightcoveEmbedType> {
+export type BrightcoveEmbedData = {
+  resource: 'brightcove' | 'video';
+  videoid: string;
+  caption: string;
+  url?: string;
+  account: string;
+  player: string;
+  title: string;
+  metaData?: any;
+};
+
+export interface BrightcovePlugin extends Plugin<BrightcoveEmbed, BrightcoveEmbedData> {
   resource: 'brightcove';
+}
+
+export interface BrightcoveMetaData {
+  title: string;
+  description: string;
+  copyright: BrightcoveCopyright;
+  cover: any;
+  download: string | undefined;
+  src: string;
+  iframe: {
+    src: string;
+    height: string | number;
+    width: string | number;
+  };
+  uploadDate: string;
 }
 
 // https://stackoverflow.com/a/1830844
@@ -49,11 +75,14 @@ const Anchor = StyledButton.withComponent('a');
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchVideoMeta(embed, language);
+  const fetchResource = (
+    embed: PlainEmbed<BrightcoveEmbedData>,
+    accessToken: string,
+    language: LocaleType,
+  ) => fetchVideoMeta(embed, language);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
-    const { account, videoid, player = 'default' } = data as Record<string, string | undefined>;
+    const { account, videoid, player = 'default' } = data;
 
     const source =
       sources
@@ -67,7 +96,7 @@ export default function createBrightcovePlugin(
     };
   };
 
-  const getMetaData = async (embed: BrightcoveEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: BrightcoveEmbed, locale: LocaleType) => {
     const { brightcove, data } = embed;
     if (brightcove) {
       const mp4s = brightcove.sources
@@ -90,7 +119,7 @@ export default function createBrightcovePlugin(
     }
   };
 
-  const onError = (embed: BrightcoveEmbedType, locale: LocaleType) => {
+  const onError = (embed: BrightcoveEmbed, locale: LocaleType) => {
     const { data } = embed;
     const videoid = typeof data.videoid === 'string' ? data.videoid : undefined;
 
@@ -108,7 +137,7 @@ export default function createBrightcovePlugin(
     );
   };
 
-  const embedToHTML = async (embed: BrightcoveEmbedType, locale: LocaleType) => {
+  const embedToHTML = async (embed: BrightcoveEmbed, locale: LocaleType) => {
     const { brightcove, data } = embed;
     const { caption } = data;
     const {
@@ -189,7 +218,7 @@ export default function createBrightcovePlugin(
             <Button
               outline
               data-copied-title={t(locale, 'license.hasCopiedTitle')}
-              data-copy-string={makeIframeString(src, height, width, brightcove.name)}>
+              data-copy-string={makeIframeString(src, width, height, brightcove.name)}>
               {t(locale, 'license.embed')}
             </Button>
           </FigureLicenseDialog>

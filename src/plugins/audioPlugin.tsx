@@ -21,37 +21,50 @@ import {
 } from '@ndla/licenses';
 import t from '../locale/i18n';
 import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
-import { AudioApiType, fetchAudio } from '../api/audioApi';
+import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
-import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { ImageActionButtons, messages } from './imagePlugin';
+import { Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
 import config from '../config';
 
 const Anchor = StyledButton.withComponent('a');
 
-export interface AudioEmbedType extends EmbedType {
+export interface AudioEmbed extends Embed<AudioEmbedData> {
   audio: AudioApiType;
-  imageMeta?: ImageEmbedType;
+  imageMeta?: ImageApiType;
 }
 
-export interface AudioPlugin extends Plugin<AudioEmbedType> {
+export interface AudioPlugin extends Plugin<AudioEmbed, AudioEmbedData, AudioMetaData> {
   resource: 'audio';
 }
 
+export type AudioEmbedData = {
+  resource: 'audio';
+  resource_id: string;
+  type: string;
+  url: string;
+};
+
+export interface AudioMetaData {
+  title: string;
+  copyright: AudioApiCopyright;
+  src: string;
+  copyText: string | undefined;
+}
+
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
+  const fetchResource = async (
+    embed: PlainEmbed<AudioEmbedData>,
+    accessToken: string,
+    language: LocaleType,
+  ) => {
     const result = await fetchAudio(embed, accessToken, language);
 
     if (result.audio.podcastMeta?.coverPhoto?.id) {
       const imageMeta = await fetchImageResources(
-        {
-          ...embed,
-          data: {
-            url: apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
-          },
-        },
+        apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
         accessToken,
         language,
       );
@@ -65,7 +78,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return result;
   };
 
-  const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: AudioEmbed, locale: LocaleType) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -102,7 +115,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = (embed: AudioEmbedType, locale: LocaleType) => {
+  const onError = (embed: AudioEmbed, locale: LocaleType) => {
     const audio = embed.audio;
     return render(
       <Figure>
@@ -236,7 +249,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     );
   };
 
-  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbedType, locale: LocaleType) => {
+  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbed, locale: LocaleType) => {
     const {
       id,
       title: { title },
@@ -250,7 +263,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       },
     } = audio;
 
-    const { image } = imageMeta || {};
+    const image = imageMeta;
 
     const { introduction, coverPhoto } = podcastMeta || {};
     const subtitle = series?.title;

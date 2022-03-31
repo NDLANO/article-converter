@@ -2302,7 +2302,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string='<iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
+                  data-copy-string='<iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:1\\" width=\\"1024\\" height=\\"768\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
                   class=\\"
                     css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                     e1ww3yc20
@@ -3064,7 +3064,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string='<iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
+                  data-copy-string='<iframe title=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" aria-label=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" src=\\"https://players.brightcove.net/1337/BkLm8fT_default/index.html?videoId=ref:2\\" width=\\"1024\\" height=\\"768\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
                   class=\\"
                     css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                     e1ww3yc20
@@ -6344,7 +6344,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                 ><button
                   type=\\"button\\"
                   data-copied-title=\\"Kopiert!\\"
-                  data-copy-string='<iframe title=\\"brightcove video\\" aria-label=\\"brightcove video\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012\\" width=\\"768\\" height=\\"1024\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
+                  data-copy-string='<iframe title=\\"brightcove video\\" aria-label=\\"brightcove video\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:46012\\" width=\\"1024\\" height=\\"768\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
                   class=\\"
                     css-1d2pibo-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
                     e1ww3yc20

@@ -7,7 +7,7 @@
  */
 import log from './utils/logger';
 import t from './locale/i18n';
-import { EmbedType, LocaleType, PluginUnion, ResponseHeaders } from './interfaces';
+import { AnyEmbed, LocaleType, AnyPlugin, ResponseHeaders } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 // Fetched from https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
@@ -19,9 +19,9 @@ async function asyncForEach<T, R>(array: T[], callback: (e: T, index: number, ar
 }
 
 export async function replaceEmbedsInHtml(
-  embeds: EmbedType[],
+  embeds: AnyEmbed[],
   lang: LocaleType,
-  plugins: PluginUnion[],
+  plugins: AnyPlugin[],
 ): Promise<ResponseHeaders[]> {
   let headers: ResponseHeaders[] = [];
 

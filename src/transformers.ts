@@ -16,11 +16,12 @@ import createPlugins from './plugins';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
-  PluginUnion,
-  EmbedType,
+  AnyPlugin,
   LocaleType,
   TransformOptions,
   ResponseHeaders,
+  AnyEmbed,
+  PlainEmbed,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
@@ -54,12 +55,12 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedType[],
+  embeds: PlainEmbed[],
   accessToken: string,
   feideToken: string,
   lang: LocaleType,
-  plugins: PluginUnion[],
-): Promise<EmbedType[]> {
+  plugins: AnyPlugin[],
+): Promise<AnyEmbed[]> {
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);
@@ -67,6 +68,7 @@ export async function getEmbedsResources(
         const startStamp = performance.now();
         try {
           const resource = await plugin.fetchResource(embed, accessToken, lang, feideToken);
+
           logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
@@ -119,9 +121,12 @@ export const transform: TransformFunction = async (
   );
 
   const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+
   const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
 
-  const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
+  const fetchedResourceHeaders = compact(
+    embedsWithResources.map((x) => 'responseHeaders' in x && x.responseHeaders),
+  );
 
   const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);
