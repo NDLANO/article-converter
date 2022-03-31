@@ -20,7 +20,9 @@
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "start:tsc": "tsc -b -w --preserveWatchOutput",
     "prebuild": "yarn run clean",
-    "format": "node prettier.js write"
+    "format": "node prettier.js write",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "engines": {
     "node": ">=14.16.0"
@@ -108,12 +110,14 @@
     "react-router-dom": "^5.2.0",
     "remarkable": "^2.0.1",
     "string-replace-async": "^1.2.1",
-    "swagger-jsdoc": "^6.1.0"
+    "swagger-jsdoc": "^6.1.0",
+    "@snyk/protect": "latest"
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"
   },
   "homepage": "https://github.com/NDLANO/article-converter",
   "author": "ndla@knowit.no",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "snyk": true
 }
