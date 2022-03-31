@@ -95,11 +95,11 @@ export async function fetchArticleResource(
 
   const topics = await queryTopics(contentId, accessToken, language, contentType);
 
-  const withPath = topics.filter((t) => t.path !== null);
+  const withPath = topics.find((t) => t.path);
 
-  if (withPath[0]) {
+  if (withPath) {
     // Add resourceType so that content type is correct
-    return { ...withPath[0], resourceTypes: [{ id: 'subject' }] };
+    return { ...withPath, resourceTypes: [{ id: 'subject' }] };
   }
 
   return undefined;
