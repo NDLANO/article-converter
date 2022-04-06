@@ -188,7 +188,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         };
       }
 
-      if (embed.data.resource === 'external') {
+      if (embed.data.resource === 'external' || embed.data.resource === 'iframe') {
         const { data } = embed;
         transformedVisualElement = {
           resource: data.resource,
@@ -199,10 +199,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
       if ('brightcove' in embed) {
         const { brightcove } = embed;
+        const { account, player, videoid } = embed.data;
 
         transformedVisualElement = {
           resource: 'brightcove',
-          url: brightcove.link?.url,
+          url: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
           title: brightcove.name,
           copyright: brightcove.copyright,
         };
