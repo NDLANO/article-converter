@@ -211,19 +211,21 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
       if (embed.data.resource === 'h5p') {
         const { data } = embed;
+        const licenseInfo =
+          'h5pLicenseInformation' in embed ? embed.h5pLicenseInformation?.h5p : undefined;
+
         transformedVisualElement = {
           resource: data.resource,
           url: data.url,
-          title: data.title,
-          copyright:
-            'h5pLicenseInformation' in embed
-              ? {
-                  creators: embed.h5pLicenseInformation?.h5p.authors.map((author) => ({
-                    type: author.role,
-                    name: author.name,
-                  })),
-                }
-              : undefined,
+          title: data.title || licenseInfo?.title,
+          copyright: licenseInfo
+            ? {
+                creators: licenseInfo?.authors.map((author) => ({
+                  type: author.role,
+                  name: author.name,
+                })),
+              }
+            : undefined,
         };
       }
       return { ...concept, transformedVisualElement };
