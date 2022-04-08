@@ -11,20 +11,17 @@ import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
-import { ConceptNotion } from '@ndla/ui';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
 import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
-import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
 import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
-import { getEmbedsFromHtml } from '../parser';
-import { getEmbedsResources } from '../transformers';
+import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -129,23 +126,9 @@ const renderInline = (
 const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => {
   const { concept } = embed;
 
-  const image = concept.metaImage && {
-    alt: concept.metaImage.alt,
-    src: concept.metaImage.url,
-  };
-
   return render(
     <div>
-      <ConceptNotion
-        concept={{
-          ...concept,
-          text: concept.content?.content ?? '',
-          title: concept.title?.title ?? '',
-          image,
-          visualElement: embed.transformedVisualElement,
-        }}
-        disableScripts={true}
-      />
+      <ConceptBlock concept={concept} visualElement={embed.transformedVisualElement} />
     </div>,
     locale,
   );
@@ -159,72 +142,20 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     feideToken: string,
   ): Promise<TransformedConceptEmbedType> => {
     const concept = await fetchConcept(embed, accessToken, language, options);
-    if (concept.concept.visualElement) {
-      const plugins = createPlugins(options);
-      const embeds = await getEmbedsFromHtml(
-        cheerio.load(concept.concept.visualElement.visualElement),
-      );
-      const embedsWithResources = await getEmbedsResources(
-        embeds,
+    const visualElement = concept.concept.visualElement?.visualElement;
+    if (visualElement) {
+      const transformedVisualElement = await transformVisualElement(
+        visualElement,
         accessToken,
-        feideToken,
         language,
-        plugins,
+        feideToken,
+        options,
       );
-      const embed = embedsWithResources[0];
-      let transformedVisualElement: NotionVisualElementType | undefined;
 
-      if ('image' in embed) {
-        const { image } = embed;
-        transformedVisualElement = {
-          resource: 'image',
-          title: image.title.title,
-          url: image.metaUrl,
-          copyright: image.copyright,
-          image: {
-            src: image.imageUrl,
-            alt: image.alttext.alttext,
-          },
-        };
+      if (!transformedVisualElement) {
+        return concept;
       }
 
-      if (embed.data.resource === 'external') {
-        const { data } = embed;
-        transformedVisualElement = {
-          resource: data.resource,
-          url: data.url,
-          title: data.url,
-        };
-      }
-
-      if ('brightcove' in embed) {
-        const { brightcove } = embed;
-
-        transformedVisualElement = {
-          resource: 'brightcove',
-          url: brightcove.link?.url,
-          title: brightcove.name,
-          copyright: brightcove.copyright,
-        };
-      }
-
-      if (embed.data.resource === 'h5p') {
-        const { data } = embed;
-        transformedVisualElement = {
-          resource: data.resource,
-          url: data.url,
-          title: data.title,
-          copyright:
-            'h5pLicenseInformation' in embed
-              ? {
-                  creators: embed.h5pLicenseInformation?.h5p.authors.map((author) => ({
-                    type: author.role,
-                    name: author.name,
-                  })),
-                }
-              : undefined,
-        };
-      }
       return { ...concept, transformedVisualElement };
     }
     return concept;

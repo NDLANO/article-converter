@@ -45,6 +45,11 @@ import {
 } from './plugins/footNotePlugin';
 import { ErrorEmbedData, ErrorEmbed, ErrorPlugin } from './plugins/errorPlugin';
 import { CodeEmbedData, CodeEmbed, CodePlugin } from './plugins/codePlugin';
+import {
+  ConceptListEmbed,
+  ConceptListEmbedData,
+  ConceptListPlugin,
+} from './plugins/conceptListPlugin';
 
 export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
@@ -76,7 +81,8 @@ export type EmbedData =
   | IframeEmbedData
   | ErrorEmbedData
   | CodeEmbedData
-  | FootnoteEmbedData;
+  | FootnoteEmbedData
+  | ConceptListEmbedData;
 
 export interface PlainEmbed<T = EmbedData> {
   embed: Cheerio<Element>;
@@ -101,7 +107,8 @@ export type AnyEmbed =
   | IframeEmbed
   | ErrorEmbed
   | CodeEmbed
-  | FootnoteEmbed;
+  | FootnoteEmbed
+  | ConceptListEmbed;
 
 export interface Plugin<E extends AnyEmbed, D extends EmbedData, M = EmbedMetaData> {
   resource: string;
@@ -129,7 +136,8 @@ export type AnyPlugin =
   | IframePlugin
   | FootnotePlugin
   | ErrorPlugin
-  | CodePlugin;
+  | CodePlugin
+  | ConceptListPlugin;
 
 export interface TransformOptions {
   absoluteUrl?: boolean;

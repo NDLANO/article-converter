@@ -7,7 +7,7 @@
  */
 
 import fetch from 'isomorphic-fetch';
-import { IConcept } from '@ndla/types-concept-api';
+import { IConcept, IConceptSearchResult } from '@ndla/types-concept-api';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
@@ -15,6 +15,7 @@ import {
 } from '../utils/apiHelpers';
 import { LocaleType, PlainEmbed } from '../interfaces';
 import { ConceptEmbedData, ConceptEmbed } from '../plugins/conceptPlugin';
+import { ConceptListEmbed, ConceptListEmbedData } from '../plugins/conceptListPlugin';
 
 export const fetchConcept = async (
   embed: PlainEmbed<ConceptEmbedData>,
@@ -41,4 +42,27 @@ export const fetchConcept = async (
 
   const concept = await resolveJsonOrRejectWithError<IConcept>(response);
   return { ...embed, concept, responseHeaders };
+};
+
+export const fetchConcepts = async (
+  embed: PlainEmbed<ConceptListEmbedData>,
+  accessToken: string,
+  language: LocaleType,
+  method: string = 'GET',
+): Promise<ConceptListEmbed> => {
+  const url = apiResourceUrl(
+    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${language}`,
+  );
+  const response = await fetch(url, {
+    method,
+    headers: headerWithAccessToken(accessToken),
+  });
+
+  const cacheControlResponse = response.headers.get('cache-control');
+  const responseHeaders: Record<string, string> = cacheControlResponse
+    ? { 'cache-control': cacheControlResponse }
+    : {};
+
+  const result = await resolveJsonOrRejectWithError<IConceptSearchResult>(response);
+  return { ...embed, concepts: result.results, responseHeaders };
 };
