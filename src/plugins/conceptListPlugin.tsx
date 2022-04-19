@@ -38,6 +38,9 @@ const ConceptList = styled.div`
   & > figure:first-of-type {
     margin-top: 32px;
   }
+  & li {
+    display: block;
+  }
 `;
 
 const renderConceptList = (embed: TransformedConceptListEmbedType, locale: LocaleType) => {
@@ -45,14 +48,18 @@ const renderConceptList = (embed: TransformedConceptListEmbedType, locale: Local
 
   return render(
     <ConceptList className="c-concept-list">
-      <h2>{embed.data.title}</h2>
-      {transformedConcepts.map((concept) => (
-        <ConceptBlock
-          key={concept.id}
-          concept={concept}
-          visualElement={concept.transformedVisualElement}
-        />
-      ))}
+      {embed.data.title && <h2>{embed.data.title}</h2>}
+      <ul>
+        {transformedConcepts.map((concept) => (
+          <li>
+            <ConceptBlock
+              key={concept.id}
+              concept={concept}
+              visualElement={concept.transformedVisualElement}
+            />
+          </li>
+        ))}
+      </ul>
     </ConceptList>,
     locale,
   );
