@@ -44,10 +44,14 @@ const renderConceptList = (embed: TransformedConceptListEmbedType, locale: Local
   const { transformedConcepts } = embed;
 
   return render(
-    <ConceptList>
+    <ConceptList className="c-concept-list">
       <h2>{embed.data.title}</h2>
       {transformedConcepts.map((concept) => (
-        <ConceptBlock concept={concept} visualElement={concept.transformedVisualElement} />
+        <ConceptBlock
+          key={concept.id}
+          concept={concept}
+          visualElement={concept.transformedVisualElement}
+        />
       ))}
     </ConceptList>,
     locale,

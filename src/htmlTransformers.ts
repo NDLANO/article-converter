@@ -147,7 +147,7 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
     .filter((i, el) => {
       return (
         cheerio(el).parents(
-          'figure, details, aside, div[class=c-bodybox], section[class=c-related-articles]',
+          'figure, details, aside, div.c-bodybox, section.c-related-articles, div.c-concept-list',
         ).length === 0
       );
     })
