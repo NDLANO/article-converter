@@ -271,9 +271,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
       {},
-      locale,
-      '',
-      '',
+      {
+        lang: locale,
+        accessToken: '',
+        feideToken: ''
+      },
       undefined,
       { concept: true },
     );
