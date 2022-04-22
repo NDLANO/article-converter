@@ -12,7 +12,7 @@ import {
   headerWithAccessToken,
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
-import { LocaleType, Author, PlainEmbed } from '../interfaces';
+import { ApiOptions, Author, PlainEmbed } from '../interfaces';
 import { AudioEmbedData, AudioEmbed } from '../plugins/audioPlugin';
 
 export interface AudioApiCopyright {
@@ -88,12 +88,11 @@ export interface AudioApiType {
 
 export const fetchAudio = (
   embed: PlainEmbed<AudioEmbedData>,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
 ): Promise<AudioEmbed> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
-  return fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
-    headers: headerWithAccessToken(accessToken),
+  return fetch(`${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`, {
+    headers: headerWithAccessToken(apiOptions.accessToken),
   })
     .then((res) => resolveJsonOrRejectWithError<AudioApiType>(res))
     .then((audio) => ({ ...embed, audio }));

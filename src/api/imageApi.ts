@@ -12,7 +12,7 @@ import {
   resolveJsonOrRejectWithError,
   convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
-import { Author, LocaleType } from '../interfaces';
+import { Author, ApiOptions } from '../interfaces';
 
 export interface ImageApiCopyright {
   license: {
@@ -65,12 +65,14 @@ export interface ImageApiType {
 
 export const fetchImageResources = async (
   url: string,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
 ): Promise<ImageApiType> => {
-  const response = await fetch(`${convertToInternalUrlIfPossible(url)}?language=${language}`, {
-    headers: headerWithAccessToken(accessToken),
-  });
+  const response = await fetch(
+    `${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`,
+    {
+      headers: headerWithAccessToken(apiOptions.accessToken),
+    },
+  );
   const image = await resolveJsonOrRejectWithError<ImageApiType>(response);
   return image;
 };

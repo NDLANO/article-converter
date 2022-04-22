@@ -24,7 +24,7 @@ import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpe
 import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
 import { render } from '../utils/render';
 import { ImageActionButtons, messages } from './imagePlugin';
-import { Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
+import { ApiOptions, Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
 import { fetchImageResources, ImageApiType } from '../api/imageApi';
 import { apiResourceUrl } from '../utils/apiHelpers';
 import config from '../config';
@@ -55,18 +55,13 @@ export interface AudioMetaData {
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (
-    embed: PlainEmbed<AudioEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-  ) => {
-    const result = await fetchAudio(embed, accessToken, language);
+  const fetchResource = async (embed: PlainEmbed<AudioEmbedData>, apiOptions: ApiOptions) => {
+    const result = await fetchAudio(embed, apiOptions);
 
     if (result.audio.podcastMeta?.coverPhoto?.id) {
       const imageMeta = await fetchImageResources(
         apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
-        accessToken,
-        language,
+        apiOptions,
       );
 
       return {

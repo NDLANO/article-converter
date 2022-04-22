@@ -52,8 +52,11 @@ test('fetchResource for two related articles', async () => {
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -61,8 +64,11 @@ test('fetchResource for two related articles', async () => {
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 });
@@ -79,8 +85,11 @@ test('fetchResource for an external article', async () => {
         url: 'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
       },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(externalResource).toMatchSnapshot();
 
@@ -110,8 +119,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -119,8 +131,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 
@@ -155,8 +170,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -164,8 +182,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 

@@ -21,7 +21,7 @@ import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import config from '../config';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, Embed, LocaleType, TransformOptions } from '../interfaces';
+import { ApiOptions, Plugin, Embed, LocaleType, TransformOptions } from '../interfaces';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
@@ -131,17 +131,15 @@ export default function createRelatedContentPlugin(
 ): RelatedContentPlugin {
   async function fetchResource(
     embed: RelatedContentEmbed,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<RelatedContentEmbed> {
     const articleId = embed.data.articleId;
 
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
         const [{ article, responseHeaders }, resource] = await Promise.all([
-          fetchArticle(articleId, accessToken, feideToken, language),
-          fetchArticleResource(articleId, accessToken, language),
+          fetchArticle(articleId, apiOptions),
+          fetchArticleResource(articleId, apiOptions),
         ]);
         return {
           ...embed,

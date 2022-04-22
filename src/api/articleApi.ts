@@ -13,18 +13,18 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType, ResponseHeaders } from '../interfaces';
+import { ApiOptions, ResponseHeaders } from '../interfaces';
 
 export async function fetchArticle(
   articleId: number | string,
-  accessToken: string,
-  feideToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
 ): Promise<{ article: IArticleV2; responseHeaders: ResponseHeaders }> {
-  const feideHeader = feideToken ? { FeideAuthorization: feideToken } : null;
-  const headers = { ...headerWithAccessToken(accessToken), ...feideHeader };
+  const feideHeader = apiOptions.feideToken ? { FeideAuthorization: apiOptions.feideToken } : null;
+  const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...feideHeader };
   const response = await fetch(
-    apiResourceUrl(`/article-api/v2/articles/${articleId}?language=${language}&fallback=true`),
+    apiResourceUrl(
+      `/article-api/v2/articles/${articleId}?language=${apiOptions.lang}&fallback=true`,
+    ),
     {
       method: 'GET',
       headers,
