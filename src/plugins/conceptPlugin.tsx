@@ -274,7 +274,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
       {
         lang: locale,
         accessToken: '',
-        feideToken: ''
+        feideToken: '',
       },
       undefined,
       { concept: true },
