@@ -16,6 +16,7 @@ import createPlugins from './plugins';
 import log from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
+  ApiOptions,
   AnyPlugin,
   LocaleType,
   TransformOptions,
@@ -56,9 +57,7 @@ async function executeHtmlTransforms(
 
 export async function getEmbedsResources(
   embeds: PlainEmbed[],
-  accessToken: string,
-  feideToken: string,
-  lang: LocaleType,
+  apiOptions: ApiOptions,
   plugins: AnyPlugin[],
 ): Promise<AnyEmbed[]> {
   return Promise.all(
@@ -67,7 +66,7 @@ export async function getEmbedsResources(
       if (plugin && plugin.fetchResource) {
         const startStamp = performance.now();
         try {
-          const resource = await plugin.fetchResource(embed, accessToken, lang, feideToken);
+          const resource = await plugin.fetchResource(embed, apiOptions);
 
           logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
           return resource;
@@ -89,9 +88,7 @@ export async function getEmbedsResources(
 export type TransformFunction = (
   content: CheerioAPI,
   headers: Record<string, string>,
-  lang: LocaleType,
-  accessToken: string,
-  feideToken: string,
+  apiOptions: ApiOptions,
   visualElement: { visualElement: string } | undefined,
   options: TransformOptions,
 ) => Promise<{ html: string | null; embedMetaData: any; responseHeaders?: ResponseHeaders }>;
@@ -99,9 +96,7 @@ export type TransformFunction = (
 export const transform: TransformFunction = async (
   content,
   headers,
-  lang,
-  accessToken,
-  feideToken,
+  apiOptions,
   visualElement,
   options,
 ) => {
@@ -112,17 +107,11 @@ export const transform: TransformFunction = async (
   const transformOptions = { transform, ...options };
   const plugins = createPlugins(transformOptions);
   const embeds = await getEmbedsFromHtml(content);
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    feideToken,
-    lang,
-    plugins,
-  );
+  const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
 
-  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
+  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, apiOptions.lang, plugins);
 
-  const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
+  const embedMetaData = await getEmbedMetaData(embedsWithResources, apiOptions.lang, plugins);
 
   const fetchedResourceHeaders = compact(
     embedsWithResources.map((x) => 'responseHeaders' in x && x.responseHeaders),
@@ -130,7 +119,7 @@ export const transform: TransformFunction = async (
 
   const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);
-  await executeHtmlTransforms(content, lang, options);
+  await executeHtmlTransforms(content, apiOptions.lang, options);
 
   return {
     html: content('body').html(),

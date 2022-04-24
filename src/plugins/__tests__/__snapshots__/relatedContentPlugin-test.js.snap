@@ -19,6 +19,36 @@ Object {
 }
 `;
 
+exports[`fetchResource for different taxonomy version 1`] = `
+Object {
+  "article": Object {
+    "introduction": Object {
+      "introduction": "introduction1}",
+    },
+    "resource": Object {
+      "path": "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+      "paths": Array [
+        "/subject:12/topic:1:183846/topic:1:183935/resource:1:110269",
+        "/subject:1/topic:1:183846/topic:1:183935/resource:1:110269",
+      ],
+      "resourceTypes": Array [
+        Object {
+          "id": "urn:resourcetype:tasksAndActivities",
+          "name": "Oppgaver og aktiviteter",
+        },
+      ],
+    },
+    "title": Object {
+      "title": "title1",
+    },
+  },
+  "data": Object {
+    "articleId": "1",
+  },
+  "responseHeaders": Object {},
+}
+`;
+
 exports[`fetchResource for two related articles 1`] = `
 Object {
   "article": Object {

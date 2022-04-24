@@ -28,7 +28,7 @@ import {
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
-import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
+import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 
 export interface BrightcoveEmbed extends Embed<BrightcoveEmbedData> {
   brightcove: BrightcoveVideo & {
@@ -75,11 +75,8 @@ const Anchor = StyledButton.withComponent('a');
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (
-    embed: PlainEmbed<BrightcoveEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-  ) => fetchVideoMeta(embed, language);
+  const fetchResource = (embed: PlainEmbed<BrightcoveEmbedData>, apiOptions: ApiOptions) =>
+    fetchVideoMeta(embed, apiOptions.lang);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
     const { account, videoid, player = 'default' } = data;

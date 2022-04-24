@@ -11,7 +11,7 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, LocaleType, TransformOptions, Embed, PlainEmbed } from '../interfaces';
+import { ApiOptions, Plugin, LocaleType, TransformOptions, Embed, PlainEmbed } from '../interfaces';
 
 export interface OembedEmbed extends Embed<OembedEmbedData> {
   oembed: OembedProxyResponse;
@@ -36,10 +36,10 @@ export default function createExternalPlugin(
 ): OembedPlugin {
   const fetchResource = async (
     embed: PlainEmbed<OembedEmbedData>,
-    accessToken: string,
+    apiOptions: ApiOptions,
   ): Promise<OembedEmbed> => {
     const resolve = async () => {
-      const oembedData = await fetchOembed(embed, accessToken);
+      const oembedData = await fetchOembed(embed, apiOptions.accessToken);
       return {
         ...embed,
         data: {
