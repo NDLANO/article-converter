@@ -38,7 +38,7 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
     "@emotion/jest": "^11.3.0",
-    "@ndla/types-article-api": "^0.0.5",
+    "@ndla/types-article-api": "^0.0.6",
     "@ndla/types-concept-api": "^0.0.10",
     "@types/bunyan": "^1.8.7",
     "@types/cheerio": "^0.22.30",
