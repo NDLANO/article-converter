@@ -50,7 +50,7 @@ Object {
           ],
         },
         "cover": "https://httpsak-a.akamaihd.net/4806596774001/4806596774001_5388720291001_5388709430001-vs.jpg?pubId=4806596774001&videoId=5388709430001",
-        "description": null,
+        "description": "Offentlige debatter",
         "download": "http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&videoId=5389107579001",
         "iframe": Object {
           "height": 1080,
