@@ -101,11 +101,11 @@ export default function createBrightcovePlugin(
         .sort((a, b) => (b.size ?? 0) - (a.size ?? 0));
       const iframeProps = getIframeProps(data, brightcove.sources);
 
-      const { name, description, copyright, published_at } = brightcove;
+      const { name, description, long_description, copyright, published_at } = brightcove;
 
       return {
         title: name,
-        description: description,
+        description: long_description || description || name,
         copyright: copyright,
         cover: get('images.poster.src', brightcove),
         download: mp4s[0] ? mp4s[0].src : undefined,

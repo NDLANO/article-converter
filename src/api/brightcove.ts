@@ -19,6 +19,7 @@ export interface BrightcoveVideo {
   name: string;
   published_at: string;
   description: string;
+  long_description: string;
   link?: {
     text: string;
     url: string;
