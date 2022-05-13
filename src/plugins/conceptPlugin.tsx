@@ -22,7 +22,7 @@ import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
+import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import { getEmbedsResources } from '../transformers';
 
@@ -154,23 +154,15 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const getAndResolveConcept = async (
     embed: PlainEmbed<ConceptEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptEmbedType> => {
-    const concept = await fetchConcept(embed, accessToken, language, options);
+    const concept = await fetchConcept(embed, apiOptions, options);
     if (concept.concept.visualElement) {
       const plugins = createPlugins(options);
       const embeds = await getEmbedsFromHtml(
         cheerio.load(concept.concept.visualElement.visualElement),
       );
-      const embedsWithResources = await getEmbedsResources(
-        embeds,
-        accessToken,
-        feideToken,
-        language,
-        plugins,
-      );
+      const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
       const embed = embedsWithResources[0];
       let transformedVisualElement: NotionVisualElementType | undefined;
 
@@ -235,11 +227,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
   const fetchResource = (
     embed: PlainEmbed<ConceptEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptEmbedType> => {
-    return getAndResolveConcept(embed, accessToken, language, feideToken);
+    return getAndResolveConcept(embed, apiOptions);
   };
 
   const getEmbedSrc = (concept: IConcept) =>
@@ -284,9 +274,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
       {},
-      locale,
-      '',
-      '',
+      {
+        lang: locale,
+        accessToken: '',
+        feideToken: '',
+      },
       undefined,
       { concept: true },
     );

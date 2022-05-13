@@ -8,8 +8,6 @@
 
 import config from '../config';
 
-const host = `${config.host}:${config.port}`;
-
 const swaggerDefinition = {
   info: {
     title: 'NDLA Article converter',
@@ -23,7 +21,6 @@ const swaggerDefinition = {
       url: 'http://www.gnu.org/licenses/gpl-3.0.en.html',
     },
   },
-  host,
   basePath: '/',
   securityDefinitions: {
     oauth2: {

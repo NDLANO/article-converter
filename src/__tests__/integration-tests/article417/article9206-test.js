@@ -36,12 +36,11 @@ test('app/fetchAndTransformArticle 9206', async () => {
 
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
-  const transformed = await fetchAndTransformArticle(
-    '9206',
-    'nb',
-    'some_token',
-    'some_other_token',
-  );
+  const transformed = await fetchAndTransformArticle('9206', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   log.level(bunyan.INFO);

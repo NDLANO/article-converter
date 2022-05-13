@@ -19,7 +19,11 @@ test('app/fetchAndTransformArticle 270', async () => {
   nock('http://ndla-api')
     .get((uri) => uri.includes('/oembed-proxy/v1/oembed'))
     .reply(404);
-  const transformed = await fetchAndTransformArticle('270', 'nb', 'some_token', 'some_other_token');
+  const transformed = await fetchAndTransformArticle('270', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();
@@ -35,9 +39,11 @@ test('app/fetchAndTransformArticle 270 with visualElement', async () => {
     .reply(404);
   const transformed = await fetchAndTransformArticle(
     '270',
-    'nb',
-    'some_token',
-    'some_other_token',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
     {
       showVisualElement: true,
     },

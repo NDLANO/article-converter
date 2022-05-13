@@ -28,7 +28,7 @@ import {
   makeIframeString,
 } from './pluginHelpers';
 import { render } from '../utils/render';
-import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
+import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 
 export interface BrightcoveEmbed extends Embed<BrightcoveEmbedData> {
   brightcove: BrightcoveVideo & {
@@ -75,11 +75,8 @@ const Anchor = StyledButton.withComponent('a');
 export default function createBrightcovePlugin(
   options: TransformOptions = { concept: false },
 ): BrightcovePlugin {
-  const fetchResource = (
-    embed: PlainEmbed<BrightcoveEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-  ) => fetchVideoMeta(embed, language);
+  const fetchResource = (embed: PlainEmbed<BrightcoveEmbedData>, apiOptions: ApiOptions) =>
+    fetchVideoMeta(embed, apiOptions.lang);
 
   const getIframeProps = (data: Record<string, unknown>, sources: BrightcoveVideoSource[]) => {
     const { account, videoid, player = 'default' } = data;
@@ -104,11 +101,11 @@ export default function createBrightcovePlugin(
         .sort((a, b) => (b.size ?? 0) - (a.size ?? 0));
       const iframeProps = getIframeProps(data, brightcove.sources);
 
-      const { name, description, copyright, published_at } = brightcove;
+      const { name, description, long_description, copyright, published_at } = brightcove;
 
       return {
         title: name,
-        description: description,
+        description: long_description || description || name,
         copyright: copyright,
         cover: get('images.poster.src', brightcove),
         download: mp4s[0] ? mp4s[0].src : undefined,

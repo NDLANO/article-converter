@@ -9,7 +9,7 @@
 import { fetchArticleResource } from '../api/taxonomyApi';
 import log from '../utils/logger';
 import config from '../config';
-import { Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
+import { Plugin, Embed, ApiOptions, TransformOptions, PlainEmbed } from '../interfaces';
 
 export interface ContentLinkEmbed extends Embed<ContentLinkEmbedData> {
   path: string;
@@ -30,22 +30,16 @@ export interface ContentLinkPlugin extends Plugin<ContentLinkEmbed, ContentLinkE
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
     embed: PlainEmbed<ContentLinkEmbedData>,
-    accessToken: string,
-    language: LocaleType,
+    apiOptions: ApiOptions,
   ): Promise<ContentLinkEmbed> {
     const contentType = embed?.data?.contentType;
     const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
-    let path = `${host}/${language}/${
+    let path = `${host}/${apiOptions.lang}/${
       contentType === 'learningpath' ? 'learningpaths' : 'article'
     }/${embed.data.contentId}`;
 
     try {
-      const resource = await fetchArticleResource(
-        embed.data.contentId,
-        accessToken,
-        language,
-        contentType,
-      );
+      const resource = await fetchArticleResource(embed.data.contentId, apiOptions);
       const resourcePath =
         (resource?.paths &&
           resource.paths.find(
@@ -54,7 +48,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
         resource?.path;
 
       if (resourcePath) {
-        path = `${host}/${language}${resourcePath}`;
+        path = `${host}/${apiOptions.lang}${resourcePath}`;
       }
       return { ...embed, path };
     } catch (error) {

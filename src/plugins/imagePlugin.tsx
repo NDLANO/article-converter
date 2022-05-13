@@ -34,6 +34,7 @@ import { fetchImageResources, ImageApiCopyright, ImageApiType } from '../api/ima
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import {
+  ApiOptions,
   Plugin,
   Embed,
   LocaleType,
@@ -240,13 +241,9 @@ export const messages = (locale: LocaleType) => ({
 export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
-  const fetchResource = (
-    embed: PlainEmbed<ImageEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-  ) => {
+  const fetchResource = (embed: PlainEmbed<ImageEmbedData>, apiOptions: ApiOptions) => {
     const resolve = async () => {
-      const image = await fetchImageResources(embed.data.url || '', accessToken, language);
+      const image = await fetchImageResources(embed.data.url || '', apiOptions);
       return {
         ...embed,
         image,

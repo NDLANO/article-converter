@@ -32,8 +32,9 @@ const setup = function routes(app: Express) {
     const embed = getAsString(req.query.embed);
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
+    const versionHash = getAsString(req.headers['versionhash']);
     const lang = getHtmlLang(req.params.lang ?? '');
-    fetchEmbedMetaData(embed, accessToken, lang, feideToken)
+    fetchEmbedMetaData(embed, { accessToken, lang, feideToken, versionHash })
       .then((data) => {
         res.json({
           metaData: data,
@@ -59,16 +60,21 @@ const setup = function routes(app: Express) {
     const articleId = req.params.id;
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
+    const versionHash = getAsString(req.headers['versionhash']);
     const subject = req.query.subject;
     const path = req.query.path;
     const shortPath = `/article/${articleId}`;
-    fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
-      isOembed: isOembed === 'true',
-      showVisualElement: showVisualElement === 'true',
-      subject,
-      path,
-      shortPath,
-    })
+    fetchAndTransformArticle(
+      articleId,
+      { lang, accessToken, feideToken, versionHash },
+      {
+        isOembed: isOembed === 'true',
+        showVisualElement: showVisualElement === 'true',
+        subject,
+        path,
+        shortPath,
+      },
+    )
       .then((article) => {
         setHeaders(res, article.headerData);
         res.json(article);
@@ -87,16 +93,21 @@ const setup = function routes(app: Express) {
     const showVisualElement = req.query.showVisualElement ?? 'false';
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
+    const versionHash = getAsString(req.headers['versionhash']);
     const subject = req.query.subject;
     const path = req.query.path;
     const shortPath = `/article/${articleId}`;
-    fetchAndTransformArticle(articleId, lang, accessToken, feideToken, {
-      isOembed: isOembed === 'true',
-      showVisualElement: showVisualElement === 'true',
-      subject,
-      path,
-      shortPath,
-    })
+    fetchAndTransformArticle(
+      articleId,
+      { lang, accessToken, feideToken, versionHash },
+      {
+        isOembed: isOembed === 'true',
+        showVisualElement: showVisualElement === 'true',
+        subject,
+        path,
+        shortPath,
+      },
+    )
       .then((article) => {
         setHeaders(res, article.headerData);
         res.send(htmlTemplate(lang, article.title, article));
@@ -121,14 +132,20 @@ const setup = function routes(app: Express) {
 
     const accessToken = getAsString(req.headers.authorization);
     const feideToken = getAsString(req.headers['feideauthorization']);
+    const versionHash = getAsString(req.headers['versionhash']);
     if (body && body.article) {
-      transformArticle(body.article, {}, lang, accessToken, feideToken, {
-        showVisualElement,
-        draftConcept,
-        previewH5p,
-        previewAlt,
-        absoluteUrl,
-      })
+      transformArticle(
+        body.article,
+        {},
+        { lang, accessToken, feideToken, versionHash },
+        {
+          showVisualElement,
+          draftConcept,
+          previewH5p,
+          previewAlt,
+          absoluteUrl,
+        },
+      )
         .then((article) => {
           setHeaders(res, article.headerData);
           res.json(article);
