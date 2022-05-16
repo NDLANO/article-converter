@@ -1883,10 +1883,10 @@
   resolved "https://registry.yarnpkg.com/@ndla/types-concept-api/-/types-concept-api-0.0.10.tgz#43bd9dcfede1c1680e52bdc0f1ffa31246fbca9c"
   integrity sha512-btJNLpUuSaQXH1RYAhF4867Ka8dYLFo1gAbwcXQj3uQdo6BWJfPKMHoRHGXJ9Qww+MuZArlLgWc+YEh2Hd0aJg==
 
-"@ndla/ui@^10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-10.1.0.tgz#a5cb5f1c9f03385a8c2a0eb069e539918f95b26e"
-  integrity sha512-LyP+06iFRc0rr+qs5pQatxE1nQm6kTqZQIHwU1XI2kNPBkTuYcvlWo8mChhBLwDYLPFMnlY4f4F5DsWCmvTZWA==
+"@ndla/ui@^10.1.1":
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-10.1.1.tgz#99f665a0072754e2507901a07b7c0217cb44a9e7"
+  integrity sha512-oeMbYrn/2/IrQnm0i58M1kKLMpTVVSTzKXEIfod1nKvGTt55nL61/H3BSep34FRIAXqzGAriFZPVRf+AZyYHbw==
   dependencies:
     "@ndla/button" "^2.2.0"
     "@ndla/carousel" "^1.2.6"

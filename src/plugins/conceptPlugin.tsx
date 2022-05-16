@@ -77,6 +77,22 @@ export interface ConceptMetaData {
   src: string;
 }
 
+const getType = (type: string | undefined) => {
+  if (type === 'brightcove') {
+    return 'video';
+  }
+  if (
+    type === 'image' ||
+    type === 'external' ||
+    type === 'iframe' ||
+    type === 'h5p' ||
+    type === 'video'
+  ) {
+    return type;
+  }
+  return undefined;
+};
+
 const renderMarkdown = (text: string) => {
   const md = new Remarkable();
   md.inline.ruler.enable(['sub', 'sup']);
@@ -144,6 +160,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
           image,
           visualElement: embed.transformedVisualElement,
         }}
+        type={getType(embed.transformedVisualElement?.resource)}
         disableScripts={true}
       />
     </div>,

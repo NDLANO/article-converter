@@ -17,6 +17,7 @@ export const wrapInFigure = (
 ) => {
   const embedClassnames = classnames(
     { 'c-figure': !concept },
+    { 'c-figure--full-column': !concept },
     {
       'c-figure--resize': resize,
     },
