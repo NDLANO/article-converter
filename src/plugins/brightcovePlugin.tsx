@@ -105,7 +105,7 @@ export default function createBrightcovePlugin(
 
       return {
         title: name,
-        description: long_description || description || name,
+        description: description || long_description || name,
         copyright: copyright,
         cover: get('images.poster.src', brightcove),
         download: mp4s[0] ? mp4s[0].src : undefined,
