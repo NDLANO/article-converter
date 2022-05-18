@@ -863,8 +863,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -874,7 +874,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -895,12 +895,12 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -959,7 +959,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -994,7 +994,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -1216,8 +1216,8 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                   }
                 </style>
                 <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-                  <style data-emotion-css=\\"daon50-StyledLicenseIconItem\\">
-                    .css-daon50-StyledLicenseIconItem {
+                  <style data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\">
+                    .css-fhcn38-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
                       display: -ms-flexbox;
@@ -1227,7 +1227,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       margin-right: 0.2em;
                       line-height: 1.3rem;
                     }
-                    .css-daon50-StyledLicenseIconItem span {
+                    .css-fhcn38-StyledLicenseIconItem span {
                       z-index: 1;
                       opacity: 0;
                       display: none;
@@ -1248,12 +1248,12 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       font-size: 0.7777777777777778rem;
                       line-height: 18px;
                     }
-                    .css-daon50-StyledLicenseIconItem svg {
+                    .css-fhcn38-StyledLicenseIconItem svg {
                       width: 24px;
                       height: 24px;
                     }
                   </style>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -1319,7 +1319,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       innholdet på visse vilkår.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -1356,7 +1356,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                       Du må alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -1615,8 +1615,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -1626,7 +1626,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -1647,12 +1647,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -1711,7 +1711,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -1746,7 +1746,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -1968,8 +1968,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }
                 </style>
                 <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-                  <style data-emotion-css=\\"daon50-StyledLicenseIconItem\\">
-                    .css-daon50-StyledLicenseIconItem {
+                  <style data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\">
+                    .css-fhcn38-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
                       display: -ms-flexbox;
@@ -1979,7 +1979,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       margin-right: 0.2em;
                       line-height: 1.3rem;
                     }
-                    .css-daon50-StyledLicenseIconItem span {
+                    .css-fhcn38-StyledLicenseIconItem span {
                       z-index: 1;
                       opacity: 0;
                       display: none;
@@ -2000,12 +2000,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       font-size: 0.7777777777777778rem;
                       line-height: 18px;
                     }
-                    .css-daon50-StyledLicenseIconItem svg {
+                    .css-fhcn38-StyledLicenseIconItem svg {
                       width: 24px;
                       height: 24px;
                     }
                   </style>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -2071,7 +2071,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       innholdet på visse vilkår.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -2108,7 +2108,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       Du må alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -2377,8 +2377,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -2388,7 +2388,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -2409,12 +2409,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -2473,7 +2473,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -2508,7 +2508,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -2730,8 +2730,8 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                   }
                 </style>
                 <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-                  <style data-emotion-css=\\"daon50-StyledLicenseIconItem\\">
-                    .css-daon50-StyledLicenseIconItem {
+                  <style data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\">
+                    .css-fhcn38-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
                       display: -ms-flexbox;
@@ -2741,7 +2741,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       margin-right: 0.2em;
                       line-height: 1.3rem;
                     }
-                    .css-daon50-StyledLicenseIconItem span {
+                    .css-fhcn38-StyledLicenseIconItem span {
                       z-index: 1;
                       opacity: 0;
                       display: none;
@@ -2762,12 +2762,12 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       font-size: 0.7777777777777778rem;
                       line-height: 18px;
                     }
-                    .css-daon50-StyledLicenseIconItem svg {
+                    .css-fhcn38-StyledLicenseIconItem svg {
                       width: 24px;
                       height: 24px;
                     }
                   </style>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -2833,7 +2833,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       innholdet på visse vilkår.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -2870,7 +2870,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                       Du må alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -3245,8 +3245,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -3256,7 +3256,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -3277,12 +3277,12 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -3341,7 +3341,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -3376,7 +3376,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -3587,9 +3587,9 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\"
                           >
                             <style
-                              data-emotion-css=\\"daon50-StyledLicenseIconItem\\"
+                              data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\"
                             >
-                              .css-daon50-StyledLicenseIconItem {
+                              .css-fhcn38-StyledLicenseIconItem {
                                 display: -webkit-box;
                                 display: -webkit-flex;
                                 display: -ms-flexbox;
@@ -3599,7 +3599,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 margin-right: 0.2em;
                                 line-height: 1.3rem;
                               }
-                              .css-daon50-StyledLicenseIconItem span {
+                              .css-fhcn38-StyledLicenseIconItem span {
                                 z-index: 1;
                                 opacity: 0;
                                 display: none;
@@ -3624,13 +3624,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 font-size: 0.7777777777777778rem;
                                 line-height: 18px;
                               }
-                              .css-daon50-StyledLicenseIconItem svg {
+                              .css-fhcn38-StyledLicenseIconItem svg {
                                 width: 24px;
                                 height: 24px;
                               }
                             </style>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -3680,7 +3680,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -3725,7 +3725,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -4037,8 +4037,8 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -4048,7 +4048,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -4069,12 +4069,12 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -4133,7 +4133,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -4168,7 +4168,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -4377,9 +4377,9 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                             class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\"
                           >
                             <style
-                              data-emotion-css=\\"daon50-StyledLicenseIconItem\\"
+                              data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\"
                             >
-                              .css-daon50-StyledLicenseIconItem {
+                              .css-fhcn38-StyledLicenseIconItem {
                                 display: -webkit-box;
                                 display: -webkit-flex;
                                 display: -ms-flexbox;
@@ -4389,7 +4389,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 margin-right: 0.2em;
                                 line-height: 1.3rem;
                               }
-                              .css-daon50-StyledLicenseIconItem span {
+                              .css-fhcn38-StyledLicenseIconItem span {
                                 z-index: 1;
                                 opacity: 0;
                                 display: none;
@@ -4414,13 +4414,13 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                 font-size: 0.7777777777777778rem;
                                 line-height: 18px;
                               }
-                              .css-daon50-StyledLicenseIconItem svg {
+                              .css-fhcn38-StyledLicenseIconItem svg {
                                 width: 24px;
                                 height: 24px;
                               }
                             </style>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -4470,7 +4470,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -4515,7 +4515,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -4884,8 +4884,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -4895,7 +4895,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -4916,12 +4916,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -4980,7 +4980,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -5015,7 +5015,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -5224,9 +5224,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                             class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\"
                           >
                             <style
-                              data-emotion-css=\\"daon50-StyledLicenseIconItem\\"
+                              data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\"
                             >
-                              .css-daon50-StyledLicenseIconItem {
+                              .css-fhcn38-StyledLicenseIconItem {
                                 display: -webkit-box;
                                 display: -webkit-flex;
                                 display: -ms-flexbox;
@@ -5236,7 +5236,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                 margin-right: 0.2em;
                                 line-height: 1.3rem;
                               }
-                              .css-daon50-StyledLicenseIconItem span {
+                              .css-fhcn38-StyledLicenseIconItem span {
                                 z-index: 1;
                                 opacity: 0;
                                 display: none;
@@ -5261,13 +5261,13 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                 font-size: 0.7777777777777778rem;
                                 line-height: 18px;
                               }
-                              .css-daon50-StyledLicenseIconItem svg {
+                              .css-fhcn38-StyledLicenseIconItem svg {
                                 width: 24px;
                                 height: 24px;
                               }
                             </style>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -5317,7 +5317,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -5362,7 +5362,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                               </div>
                             </li>
                             <li
-                              class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\"
+                              class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\"
                             >
                               <button
                                 class=\\"
@@ -5657,8 +5657,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"1hz7k7e-StyledLicenseIconItem\\">
-                .css-1hz7k7e-StyledLicenseIconItem {
+              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
+                .css-13lacom-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -5668,7 +5668,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   margin-right: 0.2em;
                   line-height: 1.3rem;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem span {
+                .css-13lacom-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -5689,12 +5689,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-1hz7k7e-StyledLicenseIconItem svg {
+                .css-13lacom-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -5753,7 +5753,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -5788,7 +5788,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-1hz7k7e-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -6009,8 +6009,8 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   }
                 </style>
                 <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-                  <style data-emotion-css=\\"daon50-StyledLicenseIconItem\\">
-                    .css-daon50-StyledLicenseIconItem {
+                  <style data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\">
+                    .css-fhcn38-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
                       display: -ms-flexbox;
@@ -6020,7 +6020,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       margin-right: 0.2em;
                       line-height: 1.3rem;
                     }
-                    .css-daon50-StyledLicenseIconItem span {
+                    .css-fhcn38-StyledLicenseIconItem span {
                       z-index: 1;
                       opacity: 0;
                       display: none;
@@ -6041,12 +6041,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       font-size: 0.7777777777777778rem;
                       line-height: 18px;
                     }
-                    .css-daon50-StyledLicenseIconItem svg {
+                    .css-fhcn38-StyledLicenseIconItem svg {
                       width: 24px;
                       height: 24px;
                     }
                   </style>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
@@ -6112,7 +6112,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       innholdet på visse vilkår.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >
@@ -6149,7 +6149,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                       Du må alltid oppgi hvem som har laget innholdet.
                     </div>
                   </li>
-                  <li class=\\"css-daon50-StyledLicenseIconItem e1vgl0rz0\\">
+                  <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
                     <button
                       class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
                     >

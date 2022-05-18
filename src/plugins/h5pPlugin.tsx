@@ -20,6 +20,7 @@ import {
 } from '../api/h5pApi';
 import config from '../config';
 import {
+  ApiOptions,
   Plugin,
   Embed,
   LocaleType,
@@ -66,13 +67,12 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
 
   const fetchResource = async (
     embed: PlainEmbed<H5pEmbedData>,
-    accessToken: string,
-    locale: LocaleType,
+    apiOptions: ApiOptions,
   ): Promise<H5PEmbed> => {
-    const lang = locale === 'en' ? 'en-gb' : 'nb-no';
+    const lang = apiOptions.lang === 'en' ? 'en-gb' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
-    const oembedData = await fetchH5pOembed(embed, accessToken);
+    const oembedData = await fetchH5pOembed(embed, apiOptions.accessToken);
     if (embed?.data) {
       const { data } = embed;
       const pathArr = data.path?.split('/') || [];

@@ -28,8 +28,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -45,8 +47,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 
@@ -62,8 +66,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '3' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource3).toMatchSnapshot();
 

@@ -20,8 +20,9 @@ import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
-import { Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
+import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
+
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -137,18 +138,14 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
   const getAndResolveConcept = async (
     embed: PlainEmbed<ConceptEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptEmbedType> => {
-    const concept = await fetchConcept(embed, accessToken, language, options);
+    const concept = await fetchConcept(embed, apiOptions, options);
     const visualElement = concept.concept.visualElement?.visualElement;
     if (visualElement) {
       const transformedVisualElement = await transformVisualElement(
         visualElement,
-        accessToken,
-        language,
-        feideToken,
+        apiOptions,
         options,
       );
 
@@ -163,11 +160,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
   const fetchResource = (
     embed: PlainEmbed<ConceptEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptEmbedType> => {
-    return getAndResolveConcept(embed, accessToken, language, feideToken);
+    return getAndResolveConcept(embed, apiOptions);
   };
 
   const getEmbedSrc = (concept: IConcept) =>
@@ -212,9 +207,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
       {},
-      locale,
-      '',
-      '',
+      {
+        lang: locale,
+        accessToken: '',
+        feideToken: '',
+      },
       undefined,
       { concept: true },
     );

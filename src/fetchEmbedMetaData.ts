@@ -10,24 +10,13 @@ import cheerio from 'cheerio';
 import { getEmbedsFromHtml } from './parser';
 import { getEmbedsResources } from './transformers';
 import getEmbedMetaData from './getEmbedMetaData';
-import { LocaleType } from './interfaces';
+import { ApiOptions } from './interfaces';
 import createPlugins from './plugins';
 
-export default async function fetchEmbedMetaData(
-  embedTag: string,
-  accessToken: string,
-  language: LocaleType,
-  feideToken: string,
-) {
+export default async function fetchEmbedMetaData(embedTag: string, apiOptions: ApiOptions) {
   const c = cheerio.load(embedTag);
   const plugins = createPlugins({});
   const embeds = await getEmbedsFromHtml(c);
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    feideToken,
-    language,
-    plugins,
-  );
-  return await getEmbedMetaData(embedsWithResources, language, plugins);
+  const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
+  return await getEmbedMetaData(embedsWithResources, apiOptions.lang, plugins);
 }

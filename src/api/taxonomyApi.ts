@@ -12,7 +12,7 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType } from '../interfaces';
+import { ApiOptions } from '../interfaces';
 
 const baseUrl = apiResourceUrl(`/taxonomy/v1/`);
 
@@ -49,14 +49,15 @@ interface TaxonomyTopicQuery {
 
 async function queryResources(
   contentId: string | number,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
   contentType: string,
 ): Promise<TaxonomyResourceQuery[]> {
+  const versionHeader = apiOptions.versionHash ? { VersionHash: apiOptions.versionHash } : null;
+  const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...versionHeader };
   const response = await fetch(
-    `${baseUrl}resources?contentURI=urn:${contentType}:${contentId}&language=${language}`,
+    `${baseUrl}resources?contentURI=urn:${contentType}:${contentId}&language=${apiOptions.lang}`,
     {
-      headers: headerWithAccessToken(accessToken),
+      headers,
     },
   );
   return resolveJsonOrRejectWithError<TaxonomyResourceQuery[]>(response);
@@ -64,14 +65,15 @@ async function queryResources(
 
 async function queryTopics(
   contentId: string | number,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
   contentType: string,
 ): Promise<TaxonomyTopicQuery[]> {
+  const versionHeader = apiOptions.versionHash ? { VersionHash: apiOptions.versionHash } : null;
+  const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...versionHeader };
   const response = await fetch(
-    `${baseUrl}topics?contentURI=urn:${contentType}:${contentId}&language=${language}`,
+    `${baseUrl}topics?contentURI=urn:${contentType}:${contentId}&language=${apiOptions.lang}`,
     {
-      headers: headerWithAccessToken(accessToken),
+      headers,
     },
   );
   return resolveJsonOrRejectWithError<TaxonomyTopicQuery[]>(response);
@@ -83,17 +85,16 @@ export type ArticleResource =
 
 export async function fetchArticleResource(
   contentId: string | number,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
   contentType: string = 'article',
 ): Promise<undefined | ArticleResource> {
-  const resources = await queryResources(contentId, accessToken, language, contentType);
+  const resources = await queryResources(contentId, apiOptions, contentType);
 
   if (resources[0]) {
     return resources[0];
   }
 
-  const topics = await queryTopics(contentId, accessToken, language, contentType);
+  const topics = await queryTopics(contentId, apiOptions, contentType);
 
   const withPath = topics.find((t) => t.path);
 

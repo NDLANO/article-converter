@@ -23,12 +23,11 @@ test('app/fetchAndTransformArticle 2139', async () => {
   nock('http://ndla-api').get('/image-api/v2/images/604?language=nb').reply(200, image2357);
   nock('http://ndla-api').get('/image-api/v2/images/3676?language=nb').reply(200, image347);
 
-  const transformed = await fetchAndTransformArticle(
-    '2139',
-    'nb',
-    'some_token',
-    'some_other_token',
-  );
+  const transformed = await fetchAndTransformArticle('2139', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

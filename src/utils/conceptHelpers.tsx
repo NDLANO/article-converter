@@ -1,9 +1,9 @@
+import React from 'react';
 import { IConcept, IConceptSummary } from '@ndla/types-concept-api';
 import { ConceptNotion } from '@ndla/ui';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import cheerio from 'cheerio';
-import React from 'react';
-import { LocaleType, TransformOptions } from '../interfaces';
+import { ApiOptions, TransformOptions } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import createPlugins from '../plugins';
 import { getEmbedsResources } from '../transformers';
@@ -35,9 +35,7 @@ export const ConceptBlock = ({ concept, visualElement }: ConceptBlockProps) => {
 
 export const transformVisualElement = async (
   visualElement: string | undefined,
-  accessToken: string,
-  language: LocaleType,
-  feideToken: string,
+  apiOptions: ApiOptions,
   options: TransformOptions,
 ): Promise<NotionVisualElementType | undefined> => {
   if (!visualElement) {
@@ -45,13 +43,7 @@ export const transformVisualElement = async (
   }
   const plugins = createPlugins(options);
   const embeds = await getEmbedsFromHtml(cheerio.load(visualElement));
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    feideToken,
-    language,
-    plugins,
-  );
+  const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
   const embed = embedsWithResources[0];
 
   if ('image' in embed) {

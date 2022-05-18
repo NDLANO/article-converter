@@ -19,12 +19,11 @@ test('app/fetchAndTransformArticle 13349', async () => {
     .reply(200, article13349);
   nock('http://ndla-api').head('/files/82255/Gant%20diagram.pdf').reply(200);
 
-  const transformed = await fetchAndTransformArticle(
-    '13349',
-    'nb',
-    'some_token',
-    'some_other_token',
-  );
+  const transformed = await fetchAndTransformArticle('13349', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

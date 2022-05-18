@@ -176,7 +176,6 @@ export const htmlTransforms: ((
     content('ul[data-type="two-column"]').removeAttr('data-type').addClass('o-list--two-columns'),
   (content: CheerioAPI) =>
     content('p[data-align="center"]').removeAttr('data-align').addClass('u-text-center'),
-  moveReactPortals,
   (content: CheerioAPI) =>
     content('span[data-size="large"]').removeAttr('data-size').addClass('u-large-body-text'),
   (content: CheerioAPI) => content('h3').attr('tabindex', '0'),
@@ -185,5 +184,6 @@ export const htmlTransforms: ((
   transformTables,
   transformFileList,
   transformLinksInOembed,
+  moveReactPortals,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];

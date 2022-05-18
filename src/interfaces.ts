@@ -113,12 +113,7 @@ export type AnyEmbed =
 export interface Plugin<E extends AnyEmbed, D extends EmbedData, M = EmbedMetaData> {
   resource: string;
   embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
-  fetchResource?: (
-    embed: PlainEmbed<D>,
-    accessToken: string,
-    lang: LocaleType,
-    feideToken: string,
-  ) => Promise<E>;
+  fetchResource?: (embed: PlainEmbed<D>, apiOptions: ApiOptions) => Promise<E>;
   getMetaData?: (embed: E, lang: LocaleType) => Promise<M | undefined>;
   onError?: (embed: E, lang: LocaleType) => string;
 }
@@ -151,6 +146,13 @@ export interface TransformOptions {
   showVisualElement?: boolean;
   subject?: string;
   transform?: TransformFunction;
+}
+
+export interface ApiOptions {
+  lang: LocaleType;
+  accessToken: string;
+  feideToken: string;
+  versionHash?: string;
 }
 
 type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';

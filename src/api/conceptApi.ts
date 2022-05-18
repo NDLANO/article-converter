@@ -13,14 +13,13 @@ import {
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { LocaleType, PlainEmbed } from '../interfaces';
+import { ApiOptions, PlainEmbed } from '../interfaces';
 import { ConceptEmbedData, ConceptEmbed } from '../plugins/conceptPlugin';
 import { ConceptListEmbed, ConceptListEmbedData } from '../plugins/conceptListPlugin';
 
 export const fetchConcept = async (
   embed: PlainEmbed<ConceptEmbedData>,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
   options: {
     draftConcept?: boolean;
   } = {},
@@ -28,11 +27,11 @@ export const fetchConcept = async (
 ): Promise<ConceptEmbed> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
-    `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${language}&fallback=true`,
+    `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${apiOptions.lang}&fallback=true`,
   );
   const response = await fetch(url, {
     method,
-    headers: headerWithAccessToken(accessToken),
+    headers: headerWithAccessToken(apiOptions.accessToken),
   });
 
   const cacheControlResponse = response.headers.get('cache-control');
