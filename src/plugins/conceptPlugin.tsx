@@ -134,6 +134,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
         image,
         visualElement: embed.transformedVisualElement,
       }}
+      figureType="full"
       type={getType(embed.transformedVisualElement?.resource)}
       disableScripts={true}
     />,
