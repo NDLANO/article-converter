@@ -27,6 +27,9 @@ export const moveReactPortals = (content: CheerioAPI) => {
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
   content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
+
+  // Clean up by removing all portals inside portals
+  content(`[data-react-universal-portal='true'] [data-react-universal-portal='true']`).remove();
 };
 
 export const transformAsides = (content: CheerioAPI) => {

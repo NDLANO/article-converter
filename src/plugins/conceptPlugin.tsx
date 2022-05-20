@@ -13,9 +13,7 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
-import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
-import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
@@ -23,31 +21,8 @@ import config from '../config';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
 
-
 const StyledDiv = styled.div`
   width: 100%;
-`;
-
-const customNotionStyle = css`
-  left: 0;
-  margin-left: 0;
-  width: 100%;
-
-  ${mq.range({ until: breakpoints.mobileWide })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.tablet })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.desktop })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
 `;
 
 export interface ConceptEmbed extends Embed<ConceptEmbedData> {
@@ -104,7 +79,6 @@ const renderInline = (
       id={`notion_id_${id}_${locale}`}
       ariaLabel={t(locale, 'concept.showDescription')}
       title={concept.title?.title ?? ''}
-      customCSS={customNotionStyle}
       content={
         <>
           <NotionDialogContent>

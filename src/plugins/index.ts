@@ -48,7 +48,7 @@ const plugins = (options: TransformOptions): AnyPlugin[] => [
   createExternalPlugin(options),
   createContentLinkPlugin(options),
   createErrorPlugin(),
-  createIframePlugin(),
+  createIframePlugin(options),
   createFootnotePlugin(),
   createConceptPlugin(options),
   createRelatedContent(options),

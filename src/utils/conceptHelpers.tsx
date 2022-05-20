@@ -13,6 +13,22 @@ interface ConceptBlockProps {
   visualElement: NotionVisualElementType | undefined;
 }
 
+const getType = (type: string | undefined) => {
+  if (type === 'brightcove') {
+    return 'video';
+  }
+  if (
+    type === 'image' ||
+    type === 'external' ||
+    type === 'iframe' ||
+    type === 'h5p' ||
+    type === 'video'
+  ) {
+    return type;
+  }
+  return undefined;
+};
+
 export const ConceptBlock = ({ concept, visualElement }: ConceptBlockProps) => {
   const image = concept.metaImage && {
     alt: concept.metaImage.alt,
@@ -28,6 +44,8 @@ export const ConceptBlock = ({ concept, visualElement }: ConceptBlockProps) => {
         image,
         visualElement,
       }}
+      figureType="full"
+      type={getType(embed.transformedVisualElement?.resource)}
       disableScripts={true}
     />
   );
@@ -60,7 +78,7 @@ export const transformVisualElement = async (
     };
   }
 
-  if (embed.data.resource === 'external') {
+  if (embed.data.resource === 'external' || embed.data.resource === 'iframe') {
     const { data } = embed;
     return {
       resource: data.resource,
@@ -71,10 +89,11 @@ export const transformVisualElement = async (
 
   if ('brightcove' in embed) {
     const { brightcove } = embed;
+    const { account, player, videoid } = embed.data;
 
     return {
       resource: 'brightcove',
-      url: brightcove.link?.url,
+      url: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
       title: brightcove.name,
       copyright: brightcove.copyright,
     };
@@ -82,19 +101,20 @@ export const transformVisualElement = async (
 
   if (embed.data.resource === 'h5p') {
     const { data } = embed;
+    const licenseInfo =
+      'h5pLicenseInformation' in embed ? embed.h5pLicenseInformation?.h5p : undefined;
     return {
       resource: data.resource,
       url: data.url,
       title: data.title,
-      copyright:
-        'h5pLicenseInformation' in embed
-          ? {
-              creators: embed.h5pLicenseInformation?.h5p.authors.map((author) => ({
-                type: author.role,
-                name: author.name,
-              })),
-            }
-          : undefined,
+      copyright: licenseInfo
+        ? {
+            creators: licenseInfo.authors.map((author) => ({
+              type: author.role,
+              name: author.name,
+            })),
+          }
+        : undefined,
     };
   }
   return;
