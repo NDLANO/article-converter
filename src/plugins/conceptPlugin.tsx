@@ -14,9 +14,7 @@ import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } f
 import { ConceptNotion } from '@ndla/ui';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
-import { breakpoints, mq } from '@ndla/core';
 import { uniqueId } from 'lodash';
-import { css } from '@emotion/core';
 import { fetchConcept } from '../api/conceptApi';
 import createPlugins from '.';
 import t from '../locale/i18n';
@@ -28,28 +26,6 @@ import { getEmbedsResources } from '../transformers';
 
 const StyledDiv = styled.div`
   width: 100%;
-`;
-
-const customNotionStyle = css`
-  left: 0;
-  margin-left: 0;
-  width: 100%;
-
-  ${mq.range({ until: breakpoints.mobileWide })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.tablet })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.desktop })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
 `;
 
 export interface ConceptEmbed extends Embed<ConceptEmbedData> {
@@ -76,6 +52,22 @@ export interface ConceptMetaData {
   copyright: ICopyright | undefined;
   src: string;
 }
+
+const getType = (type: string | undefined) => {
+  if (type === 'brightcove') {
+    return 'video';
+  }
+  if (
+    type === 'image' ||
+    type === 'external' ||
+    type === 'iframe' ||
+    type === 'h5p' ||
+    type === 'video'
+  ) {
+    return type;
+  }
+  return undefined;
+};
 
 const renderMarkdown = (text: string) => {
   const md = new Remarkable();
@@ -106,7 +98,6 @@ const renderInline = (
       id={`notion_id_${id}_${locale}`}
       ariaLabel={t(locale, 'concept.showDescription')}
       title={concept.title?.title ?? ''}
-      customCSS={customNotionStyle}
       content={
         <>
           <NotionDialogContent>
@@ -135,18 +126,18 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
   };
 
   return render(
-    <div>
-      <ConceptNotion
-        concept={{
-          ...concept,
-          text: concept.content?.content ?? '',
-          title: concept.title?.title ?? '',
-          image,
-          visualElement: embed.transformedVisualElement,
-        }}
-        disableScripts={true}
-      />
-    </div>,
+    <ConceptNotion
+      concept={{
+        ...concept,
+        text: concept.content?.content ?? '',
+        title: concept.title?.title ?? '',
+        image,
+        visualElement: embed.transformedVisualElement,
+      }}
+      figureType="full"
+      type={getType(embed.transformedVisualElement?.resource)}
+      disableScripts={true}
+    />,
     locale,
   );
 };
@@ -180,7 +171,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
         };
       }
 
-      if (embed.data.resource === 'external') {
+      if (embed.data.resource === 'external' || embed.data.resource === 'iframe') {
         const { data } = embed;
         transformedVisualElement = {
           resource: data.resource,
@@ -191,10 +182,11 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
       if ('brightcove' in embed) {
         const { brightcove } = embed;
+        const { account, player, videoid } = embed.data;
 
         transformedVisualElement = {
           resource: 'brightcove',
-          url: brightcove.link?.url,
+          url: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
           title: brightcove.name,
           copyright: brightcove.copyright,
         };
@@ -202,19 +194,21 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
 
       if (embed.data.resource === 'h5p') {
         const { data } = embed;
+        const licenseInfo =
+          'h5pLicenseInformation' in embed ? embed.h5pLicenseInformation?.h5p : undefined;
+
         transformedVisualElement = {
           resource: data.resource,
           url: data.url,
-          title: data.title,
-          copyright:
-            'h5pLicenseInformation' in embed
-              ? {
-                  creators: embed.h5pLicenseInformation?.h5p.authors.map((author) => ({
-                    type: author.role,
-                    name: author.name,
-                  })),
-                }
-              : undefined,
+          title: data.title || licenseInfo?.title,
+          copyright: licenseInfo
+            ? {
+                creators: licenseInfo?.authors.map((author) => ({
+                  type: author.role,
+                  name: author.name,
+                })),
+              }
+            : undefined,
         };
       }
       return { ...concept, transformedVisualElement };

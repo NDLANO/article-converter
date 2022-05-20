@@ -154,8 +154,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               }
             </style>
             <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"13lacom-StyledLicenseIconItem\\">
-                .css-13lacom-StyledLicenseIconItem {
+              <style data-emotion-css=\\"1ozdztk-StyledLicenseIconItem\\">
+                .css-1ozdztk-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -164,8 +164,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   margin-bottom: 0;
                   margin-right: 0.2em;
                   line-height: 1.3rem;
+                  color: #20588f;
                 }
-                .css-13lacom-StyledLicenseIconItem span {
+                .css-1ozdztk-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -186,12 +187,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-13lacom-StyledLicenseIconItem svg {
+                .css-1ozdztk-StyledLicenseIconItem svg {
                   width: 18px;
                   height: 18px;
                 }
               </style>
-              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ozdztk-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -250,7 +251,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ozdztk-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -285,7 +286,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   >
                 </button>
               </li>
-              <li class=\\"css-13lacom-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ozdztk-StyledLicenseIconItem e1vgl0rz0\\">
                 <button
                   type=\\"button\\"
                   class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
@@ -513,8 +514,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               }
             </style>
             <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"fhcn38-StyledLicenseIconItem\\">
-                .css-fhcn38-StyledLicenseIconItem {
+              <style data-emotion-css=\\"1ad7nq5-StyledLicenseIconItem\\">
+                .css-1ad7nq5-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -523,8 +524,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   margin-bottom: 0;
                   margin-right: 0.2em;
                   line-height: 1.3rem;
+                  color: #20588f;
                 }
-                .css-fhcn38-StyledLicenseIconItem span {
+                .css-1ad7nq5-StyledLicenseIconItem span {
                   z-index: 1;
                   opacity: 0;
                   display: none;
@@ -545,12 +547,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   font-size: 0.7777777777777778rem;
                   line-height: 18px;
                 }
-                .css-fhcn38-StyledLicenseIconItem svg {
+                .css-1ad7nq5-StyledLicenseIconItem svg {
                   width: 24px;
                   height: 24px;
                 }
               </style>
-              <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ad7nq5-StyledLicenseIconItem e1vgl0rz0\\">
                 <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
                   .css-1k8a5a1-StyledLicenseIconButton {
                     display: -webkit-box;
@@ -614,7 +616,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   innholdet på visse vilkår.
                 </div>
               </li>
-              <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ad7nq5-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
@@ -649,7 +651,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   Du må alltid oppgi hvem som har laget innholdet.
                 </div>
               </li>
-              <li class=\\"css-fhcn38-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-1ad7nq5-StyledLicenseIconItem e1vgl0rz0\\">
                 <button class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\">
                   <svg
                     fill=\\"currentColor\\"
