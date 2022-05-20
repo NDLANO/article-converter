@@ -11,6 +11,7 @@ import { getEmbedsResources } from '../transformers';
 interface ConceptBlockProps {
   concept: IConcept | IConceptSummary;
   visualElement: NotionVisualElementType | undefined;
+  fullWidth?: boolean;
 }
 
 const getType = (type: string | undefined) => {
@@ -29,7 +30,7 @@ const getType = (type: string | undefined) => {
   return undefined;
 };
 
-export const ConceptBlock = ({ concept, visualElement }: ConceptBlockProps) => {
+export const ConceptBlock = ({ concept, visualElement, fullWidth }: ConceptBlockProps) => {
   const image = concept.metaImage && {
     alt: concept.metaImage.alt,
     src: concept.metaImage.url,
@@ -44,8 +45,8 @@ export const ConceptBlock = ({ concept, visualElement }: ConceptBlockProps) => {
         image,
         visualElement,
       }}
-      figureType="full"
-      type={getType(embed.transformedVisualElement?.resource)}
+      figureType={fullWidth ? 'full' : undefined}
+      type={getType(visualElement?.resource)}
       disableScripts={true}
     />
   );

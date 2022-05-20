@@ -45,16 +45,15 @@ export const fetchConcept = async (
 
 export const fetchConcepts = async (
   embed: PlainEmbed<ConceptListEmbedData>,
-  accessToken: string,
-  language: LocaleType,
+  apiOptions: ApiOptions,
   method: string = 'GET',
 ): Promise<ConceptListEmbed> => {
   const url = apiResourceUrl(
-    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${language}`,
+    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${apiOptions.lang}`,
   );
   const response = await fetch(url, {
     method,
-    headers: headerWithAccessToken(accessToken),
+    headers: headerWithAccessToken(apiOptions.accessToken),
   });
 
   const cacheControlResponse = response.headers.get('cache-control');

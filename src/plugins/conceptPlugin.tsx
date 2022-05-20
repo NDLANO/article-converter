@@ -103,7 +103,7 @@ const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => 
 
   return render(
     <div>
-      <ConceptBlock concept={concept} visualElement={embed.transformedVisualElement} />
+      <ConceptBlock concept={concept} visualElement={embed.transformedVisualElement} fullWidth />
     </div>,
     locale,
   );

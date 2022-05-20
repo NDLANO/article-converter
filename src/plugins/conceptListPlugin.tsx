@@ -10,8 +10,9 @@ import React from 'react';
 import { IConceptSummary } from '@ndla/types-concept-api';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import styled from '@emotion/styled';
+import { Figure } from '@ndla/ui';
 import { fetchConcepts } from '../api/conceptApi';
-import { Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import { render } from '../utils/render';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 
@@ -47,20 +48,22 @@ const renderConceptList = (embed: TransformedConceptListEmbedType, locale: Local
   const { transformedConcepts } = embed;
 
   return render(
-    <ConceptList className="c-concept-list">
+    <Figure type="full" resizeIframe>
       {embed.data.title && <h2>{embed.data.title}</h2>}
-      <ul>
-        {transformedConcepts.map((concept) => (
-          <li>
-            <ConceptBlock
-              key={concept.id}
-              concept={concept}
-              visualElement={concept.transformedVisualElement}
-            />
-          </li>
-        ))}
-      </ul>
-    </ConceptList>,
+      <ConceptList className="c-concept-list">
+        <ul>
+          {transformedConcepts.map((concept) => (
+            <li>
+              <ConceptBlock
+                key={concept.id}
+                concept={concept}
+                visualElement={concept.transformedVisualElement}
+              />
+            </li>
+          ))}
+        </ul>
+      </ConceptList>
+    </Figure>,
     locale,
   );
 };
@@ -68,11 +71,9 @@ const renderConceptList = (embed: TransformedConceptListEmbedType, locale: Local
 export default function createConceptListPlugin(options: TransformOptions = {}): ConceptListPlugin {
   const getAndResolveConcepts = async (
     embed: PlainEmbed<ConceptListEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptListEmbedType> => {
-    const conceptListEmbed = await fetchConcepts(embed, accessToken, language);
+    const conceptListEmbed = await fetchConcepts(embed, apiOptions);
 
     const concepts = conceptListEmbed.concepts;
 
@@ -83,9 +84,7 @@ export default function createConceptListPlugin(options: TransformOptions = {}):
         if (visualElement) {
           const transformedVisualElement = await transformVisualElement(
             visualElement,
-            accessToken,
-            language,
-            feideToken,
+            apiOptions,
             options,
           );
 
@@ -102,11 +101,9 @@ export default function createConceptListPlugin(options: TransformOptions = {}):
 
   const fetchResource = (
     embed: PlainEmbed<ConceptListEmbedData>,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
+    apiOptions: ApiOptions,
   ): Promise<TransformedConceptListEmbedType> => {
-    return getAndResolveConcepts(embed, accessToken, language, feideToken);
+    return getAndResolveConcepts(embed, apiOptions);
   };
 
   const embedToHTML = async (embed: TransformedConceptListEmbedType, locale: LocaleType) => {
