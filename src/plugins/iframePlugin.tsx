@@ -6,8 +6,12 @@
  *
  */
 
+import React from 'react';
+import { uniqueId } from 'lodash';
+import { Figure, ResourceBox } from '@ndla/ui';
 import { makeIframe } from './pluginHelpers';
-import { Plugin, Embed, TransformOptions } from '../interfaces';
+import { Plugin, Embed, TransformOptions, LocaleType } from '../interfaces';
+import { render } from '../utils/render';
 
 export interface IframeEmbed extends Embed<IframeEmbedData> {}
 
@@ -29,8 +33,20 @@ export interface IframeEmbedData {
 export default function createIframePlugin(
   options: TransformOptions = { concept: false },
 ): IframePlugin {
-  const embedToHTML = async (embed: IframeEmbed) => {
-    const { url, width, height } = embed.data;
+  const embedToHTML = async (embed: IframeEmbed, locale: LocaleType) => {
+    const { url, width, height, type } = embed.data;
+    const unique = uniqueId();
+    const figureId = `figure-${unique}`;
+
+    if (type === 'fullscreen') {
+      return {
+        html: render(
+          <Figure>
+            <ResourceBox />
+          </Figure>,
+        ),
+      };
+    }
     const resize = !url.includes('trinket.io');
     return { html: makeIframe(url, width ?? '', height ?? '', '', resize, options.concept) };
   };
