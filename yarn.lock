@@ -1831,10 +1831,10 @@
     "@ndla/icons" "^1.7.0"
     "@reach/dialog" "^0.16.2"
 
-"@ndla/notion@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-3.1.1.tgz#50004806542b31b88911f36de24a93b9501c1433"
-  integrity sha512-oeQcVxRSR2riXtM7WRpp+y8cmO+nMBFVE2YqnY+6KEGm0DiPq0W1HQ8Ut98YOE9GqnycZzwmabypG6ZWi8TFkQ==
+"@ndla/notion@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@ndla/notion/-/notion-3.1.2.tgz#a0e9861d6089e8d70d4e18d6a72b7c4a42164055"
+  integrity sha512-8+vHBzw+674JsO1wreVSjvBwWQyrBKVuZHuLRPq0ckgeWQLa3LAbE8yuHK4oxUJDUw7GiEfAztqtZgdv8FkBiA==
   dependencies:
     "@ndla/core" "^2.1.1"
     "@ndla/icons" "^1.7.0"
@@ -1883,10 +1883,10 @@
   resolved "https://registry.yarnpkg.com/@ndla/types-concept-api/-/types-concept-api-0.0.10.tgz#43bd9dcfede1c1680e52bdc0f1ffa31246fbca9c"
   integrity sha512-btJNLpUuSaQXH1RYAhF4867Ka8dYLFo1gAbwcXQj3uQdo6BWJfPKMHoRHGXJ9Qww+MuZArlLgWc+YEh2Hd0aJg==
 
-"@ndla/ui@^11.1.0":
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-11.1.0.tgz#f352b2a6619224c0a14740ae5acb8c0921f77745"
-  integrity sha512-5iD80ut85A2NW+mI2bhw9Zeteyh2NVJG+ip2UZE5zIyFQmU2YLzTmIn8J+rEzLu1uUGAMSnBBk9TvaVFGl26Ow==
+"@ndla/ui@^11.1.3":
+  version "11.1.3"
+  resolved "https://registry.yarnpkg.com/@ndla/ui/-/ui-11.1.3.tgz#16c0db2ffb6dd60cece859a1cbc403c6d65fc0de"
+  integrity sha512-DmALDgjuq5K/fZ1wkGGGB5HO98h2KLtKc5DOdGALTJDTxEZ0ttHrdPN6/xti1ALjO8vTd4apTOYPfjBtJtIvMA==
   dependencies:
     "@ndla/button" "^2.2.0"
     "@ndla/carousel" "^1.2.6"
@@ -1895,7 +1895,7 @@
     "@ndla/icons" "^1.7.0"
     "@ndla/licenses" "^4.1.0"
     "@ndla/modal" "^1.2.6"
-    "@ndla/notion" "^3.1.1"
+    "@ndla/notion" "^3.1.2"
     "@ndla/safelink" "^1.1.7"
     "@ndla/switch" "^0.1.5"
     "@ndla/tabs" "^1.1.5"
