@@ -16,7 +16,8 @@ export const wrapInFigure = (
   concept: boolean = false,
 ) => {
   const embedClassnames = classnames(
-    { 'c-figure': !concept },
+    { 'c-figure': true },
+    { 'c-figure--full-column': concept },
     {
       'c-figure--resize': resize,
     },
@@ -36,8 +37,9 @@ export const makeIframe = (
   height: string,
   title: string = '',
   resize: boolean = true,
+  concept: boolean = false,
 ) => {
-  return wrapInFigure(makeIframeString(url, width, height, title), resize);
+  return wrapInFigure(makeIframeString(url, width, height, title), resize, concept);
 };
 
 export const makeIframeString = (
