@@ -7,13 +7,17 @@
  */
 
 import React from 'react';
-import { uniqueId } from 'lodash';
 import { Figure, ResourceBox } from '@ndla/ui';
+import { getLicenseByAbbreviation } from '@ndla/licenses';
 import { makeIframe } from './pluginHelpers';
-import { Plugin, Embed, TransformOptions, LocaleType } from '../interfaces';
+import { Plugin, Embed, TransformOptions, LocaleType, PlainEmbed, ApiOptions } from '../interfaces';
 import { render } from '../utils/render';
+import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { apiResourceUrl } from '../utils/apiHelpers';
 
-export interface IframeEmbed extends Embed<IframeEmbedData> {}
+export interface IframeEmbed extends Embed<IframeEmbedData> {
+  iframeImage?: ImageApiType;
+}
 
 export interface IframePlugin extends Plugin<IframeEmbed, IframeEmbedData> {
   resource: 'iframe';
@@ -27,22 +31,51 @@ export interface IframeEmbedData {
   height?: string;
   title?: string;
   caption?: string;
-  imageId?: string;
+  imageid?: string;
 }
 
 export default function createIframePlugin(
   options: TransformOptions = { concept: false },
 ): IframePlugin {
+  const fetchResource = (
+    embed: PlainEmbed<IframeEmbedData>,
+    apiOptions: ApiOptions,
+  ): Promise<IframeEmbed> => {
+    const resolve = async () => {
+      if (embed.data.imageid) {
+        const image = await fetchImageResources(
+          apiResourceUrl(`/image-api/v2/images/${embed.data.imageid}`),
+          apiOptions,
+        );
+        return {
+          ...embed,
+          image,
+        };
+      }
+      return embed;
+    };
+    return resolve();
+  };
+
   const embedToHTML = async (embed: IframeEmbed, locale: LocaleType) => {
-    const { url, width, height, type } = embed.data;
-    const unique = uniqueId();
-    const figureId = `figure-${unique}`;
+    const { url, width, height, type, title, caption } = embed.data;
+    const { iframeImage } = embed;
+
+    const license =
+      iframeImage?.copyright.license &&
+      getLicenseByAbbreviation(iframeImage.copyright.license.license, locale);
 
     if (type === 'fullscreen') {
       return {
         html: render(
-          <Figure>
-            <ResourceBox />
+          <Figure type="full">
+            <ResourceBox
+              image={iframeImage?.imageUrl || ''}
+              title={title || ''}
+              url={url}
+              caption={caption || ''}
+              licenseRights={license?.rights || []}
+            />
           </Figure>,
         ),
       };
@@ -54,5 +87,6 @@ export default function createIframePlugin(
   return {
     resource: 'iframe',
     embedToHTML,
+    fetchResource,
   };
 }
