@@ -28,6 +28,7 @@ export type ConceptListEmbedData = {
   resource: 'concept-list';
   tag: string;
   title: string;
+  subjectId: string;
 };
 
 export interface ConceptListPlugin

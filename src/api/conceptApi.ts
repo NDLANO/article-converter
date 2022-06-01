@@ -48,8 +48,11 @@ export const fetchConcepts = async (
   apiOptions: ApiOptions,
   method: string = 'GET',
 ): Promise<ConceptListEmbed> => {
+  const subjectId = embed.data.subjectId;
   const url = apiResourceUrl(
-    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${apiOptions.lang}&page-size=1000`,
+    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${apiOptions.lang}&page-size=1000${
+      subjectId && `&subjects=${subjectId}`
+    }`,
   );
   const response = await fetch(url, {
     method,
