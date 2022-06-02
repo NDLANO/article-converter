@@ -49,7 +49,7 @@ export default function createIframePlugin(
         );
         return {
           ...embed,
-          image,
+          iframeImage: image,
         };
       }
       return embed;
