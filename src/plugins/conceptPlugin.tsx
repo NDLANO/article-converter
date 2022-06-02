@@ -11,18 +11,15 @@ import cheerio from 'cheerio';
 import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
-import { ConceptNotion } from '@ndla/ui';
 import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import { uniqueId } from 'lodash';
 import { fetchConcept } from '../api/conceptApi';
-import createPlugins from '.';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
 import config from '../config';
+import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
-import { getEmbedsFromHtml } from '../parser';
-import { getEmbedsResources } from '../transformers';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -52,22 +49,6 @@ export interface ConceptMetaData {
   copyright: ICopyright | undefined;
   src: string;
 }
-
-const getType = (type: string | undefined) => {
-  if (type === 'brightcove') {
-    return 'video';
-  }
-  if (
-    type === 'image' ||
-    type === 'external' ||
-    type === 'iframe' ||
-    type === 'h5p' ||
-    type === 'video'
-  ) {
-    return type;
-  }
-  return undefined;
-};
 
 const renderMarkdown = (text: string) => {
   const md = new Remarkable();
@@ -120,24 +101,10 @@ const renderInline = (
 const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => {
   const { concept } = embed;
 
-  const image = concept.metaImage && {
-    alt: concept.metaImage.alt,
-    src: concept.metaImage.url,
-  };
-
   return render(
-    <ConceptNotion
-      concept={{
-        ...concept,
-        text: concept.content?.content ?? '',
-        title: concept.title?.title ?? '',
-        image,
-        visualElement: embed.transformedVisualElement,
-      }}
-      figureType="full"
-      type={getType(embed.transformedVisualElement?.resource)}
-      disableScripts={true}
-    />,
+    <div>
+      <ConceptBlock concept={concept} visualElement={embed.transformedVisualElement} fullWidth />
+    </div>,
     locale,
   );
 };
@@ -148,69 +115,18 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     apiOptions: ApiOptions,
   ): Promise<TransformedConceptEmbedType> => {
     const concept = await fetchConcept(embed, apiOptions, options);
-    if (concept.concept.visualElement) {
-      const plugins = createPlugins(options);
-      const embeds = await getEmbedsFromHtml(
-        cheerio.load(concept.concept.visualElement.visualElement),
+    const visualElement = concept.concept.visualElement?.visualElement;
+    if (visualElement) {
+      const transformedVisualElement = await transformVisualElement(
+        visualElement,
+        apiOptions,
+        options,
       );
-      const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
-      const embed = embedsWithResources[0];
-      let transformedVisualElement: NotionVisualElementType | undefined;
 
-      if ('image' in embed) {
-        const { image } = embed;
-        transformedVisualElement = {
-          resource: 'image',
-          title: image.title.title,
-          url: image.metaUrl,
-          copyright: image.copyright,
-          image: {
-            src: image.imageUrl,
-            alt: image.alttext.alttext,
-          },
-        };
+      if (!transformedVisualElement) {
+        return concept;
       }
 
-      if (embed.data.resource === 'external' || embed.data.resource === 'iframe') {
-        const { data } = embed;
-        transformedVisualElement = {
-          resource: data.resource,
-          url: data.url,
-          title: data.url,
-        };
-      }
-
-      if ('brightcove' in embed) {
-        const { brightcove } = embed;
-        const { account, player, videoid } = embed.data;
-
-        transformedVisualElement = {
-          resource: 'brightcove',
-          url: `https://players.brightcove.net/${account}/${player}_default/index.html?videoId=${videoid}`,
-          title: brightcove.name,
-          copyright: brightcove.copyright,
-        };
-      }
-
-      if (embed.data.resource === 'h5p') {
-        const { data } = embed;
-        const licenseInfo =
-          'h5pLicenseInformation' in embed ? embed.h5pLicenseInformation?.h5p : undefined;
-
-        transformedVisualElement = {
-          resource: data.resource,
-          url: data.url,
-          title: data.title || licenseInfo?.title,
-          copyright: licenseInfo
-            ? {
-                creators: licenseInfo?.authors.map((author) => ({
-                  type: author.role,
-                  name: author.name,
-                })),
-              }
-            : undefined,
-        };
-      }
       return { ...concept, transformedVisualElement };
     }
     return concept;

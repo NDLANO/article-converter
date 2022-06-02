@@ -19,6 +19,7 @@ import createFootnotePlugin from './footNotePlugin';
 import createConceptPlugin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
+import createConceptListPlugin from './conceptListPlugin';
 import { TransformOptions, AnyPlugin } from '../interfaces';
 
 export {
@@ -35,6 +36,7 @@ export {
   createConceptPlugin,
   createRelatedContent,
   createCodePlugin,
+  createConceptListPlugin,
 };
 
 const plugins = (options: TransformOptions): AnyPlugin[] => [
@@ -51,6 +53,7 @@ const plugins = (options: TransformOptions): AnyPlugin[] => [
   createConceptPlugin(options),
   createRelatedContent(options),
   createCodePlugin(),
+  createConceptListPlugin(options),
 ];
 
 export default plugins;
