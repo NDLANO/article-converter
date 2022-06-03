@@ -66,11 +66,15 @@ export default function createIframePlugin(
       getLicenseByAbbreviation(iframeImage.copyright.license.license, locale);
 
     if (type === 'fullscreen') {
+      const image = {
+        src: iframeImage?.imageUrl || '',
+        alt: iframeImage?.alttext.alttext || '',
+      };
       return {
         html: render(
           <Figure type="full">
             <ResourceBox
-              image={iframeImage?.imageUrl || ''}
+              image={image}
               title={title || ''}
               url={url}
               caption={caption || ''}
