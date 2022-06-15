@@ -45,6 +45,7 @@ export const ConceptBlock = ({ concept, visualElement, fullWidth }: ConceptBlock
         image,
         visualElement,
       }}
+      hideIconsAndAuthors
       figureType={fullWidth ? 'full' : undefined}
       type={getType(visualElement?.resource)}
       disableScripts={true}
