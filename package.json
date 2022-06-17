@@ -83,7 +83,7 @@
     "@ndla/licenses": "^4.1.2",
     "@ndla/notion": "^3.1.9",
     "@ndla/safelink": "^2.0.2",
-    "@ndla/ui": "^13.2.0",
+    "@ndla/ui": "^13.2.1",
     "@ndla/util": "^3.0.0",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.15",
