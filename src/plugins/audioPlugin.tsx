@@ -19,9 +19,10 @@ import {
   getLicenseByAbbreviation,
 } from '@ndla/licenses';
 import { IAudioMetaInformation, ICopyright } from '@ndla/types-audio-api';
+import { IImageMetaInformationV2 } from '@ndla/types-image-api';
 import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import { fetchAudio } from '../api/audioApi';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { fetchImageResources } from '../api/imageApi';
 import config from '../config';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import t from '../locale/i18n';
@@ -34,7 +35,7 @@ const Anchor = StyledButton.withComponent('a');
 
 export interface AudioEmbed extends Embed<AudioEmbedData> {
   audio: IAudioMetaInformation;
-  imageMeta?: ImageApiType;
+  imageMeta?: IImageMetaInformationV2;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbed, AudioEmbedData, AudioMetaData> {
@@ -182,7 +183,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     figureid,
   }: {
     locale: LocaleType;
-    image: ImageApiType;
+    image: IImageMetaInformationV2;
     figureid: string;
   }) => {
     const {

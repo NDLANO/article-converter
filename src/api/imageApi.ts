@@ -6,73 +6,25 @@
  *
  */
 
+import { IImageMetaInformationV2 } from '@ndla/types-image-api';
 import fetch from 'isomorphic-fetch';
+import { ApiOptions } from '../interfaces';
 import {
+  convertToInternalUrlIfPossible,
   headerWithAccessToken,
   resolveJsonOrRejectWithError,
-  convertToInternalUrlIfPossible,
 } from '../utils/apiHelpers';
-import { Author, ApiOptions } from '../interfaces';
-
-export interface ImageApiCopyright {
-  license: {
-    license: string;
-    description: string;
-    url?: string;
-  };
-  origin: string;
-  creators: Author[];
-  processors: Author[];
-  rightsholders: Author[];
-  agreementId?: number;
-  validFrom?: string;
-  validTo?: string;
-}
-
-export interface ImageApiType {
-  id: string;
-  metaUrl: string;
-  title: {
-    title: string;
-    language: string;
-  };
-  alttext: {
-    alttext: string;
-    language: string;
-  };
-  imageUrl: string;
-  size: number;
-  contentType: string;
-  copyright: ImageApiCopyright;
-  tags: {
-    tags: string[];
-    language: string;
-  };
-  caption: {
-    caption: string;
-    language: string;
-  };
-  supportedLanguages: string[];
-  created: string;
-  createdBy: string;
-  modelRelease: string;
-  editorNotes?: {
-    timestamp: string;
-    updatedBy: string;
-    note: string;
-  }[];
-}
 
 export const fetchImageResources = async (
   url: string,
   apiOptions: ApiOptions,
-): Promise<ImageApiType> => {
+): Promise<IImageMetaInformationV2> => {
   const response = await fetch(
     `${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`,
     {
       headers: headerWithAccessToken(apiOptions.accessToken),
     },
   );
-  const image = await resolveJsonOrRejectWithError<ImageApiType>(response);
+  const image = await resolveJsonOrRejectWithError<IImageMetaInformationV2>(response);
   return image;
 };

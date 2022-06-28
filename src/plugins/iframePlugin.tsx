@@ -6,17 +6,18 @@
  *
  */
 
-import React from 'react';
-import { Figure, ResourceBox } from '@ndla/ui';
 import { getLicenseByAbbreviation } from '@ndla/licenses';
-import { makeIframe } from './pluginHelpers';
-import { Plugin, Embed, TransformOptions, LocaleType, PlainEmbed, ApiOptions } from '../interfaces';
-import { render } from '../utils/render';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import { IImageMetaInformationV2 } from '@ndla/types-image-api';
+import { Figure, ResourceBox } from '@ndla/ui';
+import React from 'react';
+import { fetchImageResources } from '../api/imageApi';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import { apiResourceUrl } from '../utils/apiHelpers';
+import { render } from '../utils/render';
+import { makeIframe } from './pluginHelpers';
 
 export interface IframeEmbed extends Embed<IframeEmbedData> {
-  iframeImage?: ImageApiType;
+  iframeImage?: IImageMetaInformationV2;
 }
 
 export interface IframePlugin extends Plugin<IframeEmbed, IframeEmbedData> {
