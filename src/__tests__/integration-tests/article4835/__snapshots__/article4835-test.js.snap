@@ -78,18 +78,40 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
               <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-            </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til årsplan 1P (DOC)</span></span
-          ><span
-            class=\\"c-file-list__tooltip\\"
-            aria-hidden=\\"true\\"
-            role=\\"tooltip\\"
-            id=\\"testid_doc\\"
-            ><span class=\\"c-file-list__tooltip-text\\"
-              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.doc</span
-            ></span
-          ></a
+            </g>
+          </svg>
+          <div
+            data-tooltip=\\"true\\"
+            data-tooltip-label=\\"Last ned fil:  1p_arsplan_2013-2014_nynorsk.doc\\"
+            data-tooltip-from-article-converter=\\"true\\"
+          >
+            <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+              .css-qyvxt5-StyledTooltip {
+                color: #fff;
+                z-index: 99999;
+                border: 0;
+                background: #444;
+                border-radius: 4px;
+                padding: 6.5px 13px;
+                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                  SongTi, \\"宋体\\", sans-serif;
+                font-size: 14;
+                line-height: 1.2;
+                font-weight: 400;
+                text-align: center;
+                white-space: normal;
+                max-width: calc(100vw - #{26px});
+              }</style
+            ><span
+              data-tooltip-children=\\"true\\"
+              data-state=\\"tooltip-hidden\\"
+              data-reach-tooltip-trigger=\\"\\"
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Forslag til årsplan 1P (DOC)</span></span
+              ></span
+            >
+          </div></a
         >
       </li>
       <li class=\\"c-file-list__item\\">
@@ -113,18 +135,40 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             <g>
               <path d=\\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\\"></path>
               <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-            </g></svg
-          ><span class=\\"c-file-list__link-text\\"
-            ><span>Forslag til årsplan 1P (ODT)</span></span
-          ><span
-            class=\\"c-file-list__tooltip\\"
-            aria-hidden=\\"true\\"
-            role=\\"tooltip\\"
-            id=\\"testid_odt\\"
-            ><span class=\\"c-file-list__tooltip-text\\"
-              >Last ned fil: 1p_arsplan_2013-2014_nynorsk.odt</span
-            ></span
-          ></a
+            </g>
+          </svg>
+          <div
+            data-tooltip=\\"true\\"
+            data-tooltip-label=\\"Last ned fil:  1p_arsplan_2013-2014_nynorsk.odt\\"
+            data-tooltip-from-article-converter=\\"true\\"
+          >
+            <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+              .css-qyvxt5-StyledTooltip {
+                color: #fff;
+                z-index: 99999;
+                border: 0;
+                background: #444;
+                border-radius: 4px;
+                padding: 6.5px 13px;
+                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                  SongTi, \\"宋体\\", sans-serif;
+                font-size: 14;
+                line-height: 1.2;
+                font-weight: 400;
+                text-align: center;
+                white-space: normal;
+                max-width: calc(100vw - #{26px});
+              }</style
+            ><span
+              data-tooltip-children=\\"true\\"
+              data-state=\\"tooltip-hidden\\"
+              data-reach-tooltip-trigger=\\"\\"
+              ><span class=\\"c-file-list__link-text\\"
+                ><span>Forslag til årsplan 1P (ODT)</span></span
+              ></span
+            >
+          </div></a
         >
       </li>
     </ul>

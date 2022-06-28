@@ -164,6 +164,13 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
     });
 };
 
+export const addTooltipAttributes = (content: CheerioAPI) => {
+  content('div[data-tooltip]').each((idx, tooltip) => {
+    const tooltipElement = cheerio(tooltip);
+    tooltipElement.attr('data-tooltip-from-article-converter', 'true');
+  });
+};
+
 export const htmlTransforms: ((
   content: CheerioAPI,
   lang: LocaleType,
@@ -187,6 +194,7 @@ export const htmlTransforms: ((
   transformTables,
   transformFileList,
   transformLinksInOembed,
+  addTooltipAttributes,
   moveReactPortals,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];
