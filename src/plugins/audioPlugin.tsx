@@ -10,7 +10,7 @@ import React from 'react';
 import { Translation } from 'react-i18next';
 import { Remarkable } from 'remarkable';
 // @ts-ignore
-import { Figure, FigureCaption, FigureLicenseDialog } from '@ndla/ui/lib/Figure';
+import { Figure, FigureCaption, FigureLicenseDialog } from '@ndla/ui';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import {

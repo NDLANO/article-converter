@@ -10,7 +10,7 @@
 
 import React from 'react';
 // @ts-ignore
-import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
+import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import { getLicenseByAbbreviation, getGroupedContributorDescriptionList } from '@ndla/licenses';
