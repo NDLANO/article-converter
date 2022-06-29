@@ -6,20 +6,20 @@
  *
  */
 
-import React from 'react';
-import cheerio from 'cheerio';
-import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
-import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
-import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
+import Notion, { NotionDialogContent, NotionDialogLicenses, NotionDialogText } from '@ndla/notion';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
+import type { NotionVisualElementType } from '@ndla/ui';
+import cheerio from 'cheerio';
 import { uniqueId } from 'lodash';
+import React from 'react';
+import { Remarkable } from 'remarkable';
 import { fetchConcept } from '../api/conceptApi';
-import t from '../locale/i18n';
-import { render } from '../utils/render';
 import config from '../config';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
+import t from '../locale/i18n';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
-import { ApiOptions, Embed, LocaleType, TransformOptions, Plugin, PlainEmbed } from '../interfaces';
+import { render } from '../utils/render';
 
 const StyledDiv = styled.div`
   width: 100%;

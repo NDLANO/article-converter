@@ -7,14 +7,14 @@
  */
 
 import styled from '@emotion/styled';
+import type { FigureType } from '@ndla/ui';
 import {
   Figure,
   FigureBylineExpandButton,
   FigureCaption,
   FigureExpandButton,
   FigureLicenseDialog,
-  FigureType,
-} from '@ndla/ui/lib/Figure';
+} from '@ndla/ui';
 import { uniqueId } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,7 +27,7 @@ import {
   getLicenseByAbbreviation,
 } from '@ndla/licenses';
 import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
-import Image, { ImageLink } from '@ndla/ui/lib/Image';
+import { Image, ImageLink } from '@ndla/ui';
 import { isNumber } from 'lodash';
 import queryString from 'query-string';
 import { fetchImageResources } from '../api/imageApi';

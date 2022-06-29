@@ -8,11 +8,11 @@
 
 import React from 'react';
 // @ts-ignore
-import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
+import { RelatedArticle } from '@ndla/ui';
 import { isEqual } from 'lodash';
 import cheerio from 'cheerio';
-import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
-import constants from '@ndla/ui/lib/model';
+import { ContentTypeBadge } from '@ndla/ui';
+import { constants } from '@ndla/ui';
 import { isObject } from 'lodash/fp';
 import { IArticleV2 } from '@ndla/types-article-api';
 import log from '../utils/logger';
