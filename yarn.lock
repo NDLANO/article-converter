@@ -1882,10 +1882,20 @@
   resolved "https://registry.yarnpkg.com/@ndla/types-article-api/-/types-article-api-0.0.6.tgz#cde5ec7c268a7b6b2fa8f5c58fe155002fa28fb1"
   integrity sha512-kaY/cib+rdOlZN5ABFfgzikWXShVWDGcFyy/fAKbwiOLbXL1NnpqOWUcTLCq3Bpz8Aof0ftnjHYyAm7X3zeaKg==
 
+"@ndla/types-audio-api@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@ndla/types-audio-api/-/types-audio-api-0.0.10.tgz#008cbd2c420fb7993133b42489b24dc3b7b034c8"
+  integrity sha512-M40Za9h7L1FIFgw4LYU1CsLWRRJ2QWdnD+22xBAKyhDHrWmaRVg/Vqu5QWRHWjcSmZEtUnT/fs7g6HNKR26Yog==
+
 "@ndla/types-concept-api@^0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@ndla/types-concept-api/-/types-concept-api-0.0.10.tgz#43bd9dcfede1c1680e52bdc0f1ffa31246fbca9c"
   integrity sha512-btJNLpUuSaQXH1RYAhF4867Ka8dYLFo1gAbwcXQj3uQdo6BWJfPKMHoRHGXJ9Qww+MuZArlLgWc+YEh2Hd0aJg==
+
+"@ndla/types-image-api@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ndla/types-image-api/-/types-image-api-0.0.5.tgz#0579e4e14225bfffdeb4df6849d5a683f9fab52e"
+  integrity sha512-3S6wtAQkoiGUlUK00KI7Cx9rul0Xi+L5UZ56EdZaBtu/t1cbZ61LsHNcvGwd0QJDbOWXMezICLZbrZnMrgc0QA==
 
 "@ndla/ui@^16.0.0":
   version "16.0.0"

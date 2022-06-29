@@ -5,35 +5,37 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Remarkable } from 'remarkable';
+import React from 'react';
 import { Translation } from 'react-i18next';
+import { Remarkable } from 'remarkable';
 // @ts-ignore
-import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
+import { Figure, FigureCaption, FigureLicenseDialog } from '@ndla/ui';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
-import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
   figureApa7CopyString,
+  getGroupedContributorDescriptionList,
+  getLicenseByAbbreviation,
 } from '@ndla/licenses';
+import { IAudioMetaInformation, ICopyright } from '@ndla/types-audio-api';
+import { IImageMetaInformationV2 } from '@ndla/types-image-api';
+import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
+import { fetchAudio } from '../api/audioApi';
+import { fetchImageResources } from '../api/imageApi';
+import config from '../config';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import t from '../locale/i18n';
-import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
-import { AudioApiCopyright, AudioApiType, fetchAudio } from '../api/audioApi';
+import { apiResourceUrl } from '../utils/apiHelpers';
 import { render } from '../utils/render';
 import { ImageActionButtons, messages } from './imagePlugin';
-import { ApiOptions, Plugin, Embed, LocaleType, TransformOptions, PlainEmbed } from '../interfaces';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
-import { apiResourceUrl } from '../utils/apiHelpers';
-import config from '../config';
+import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
 export interface AudioEmbed extends Embed<AudioEmbedData> {
-  audio: AudioApiType;
-  imageMeta?: ImageApiType;
+  audio: IAudioMetaInformation;
+  imageMeta?: IImageMetaInformationV2;
 }
 
 export interface AudioPlugin extends Plugin<AudioEmbed, AudioEmbedData, AudioMetaData> {
@@ -49,7 +51,7 @@ export type AudioEmbedData = {
 
 export interface AudioMetaData {
   title: string;
-  copyright: AudioApiCopyright;
+  copyright: ICopyright;
   src: string;
   copyText: string | undefined;
 }
@@ -181,7 +183,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     figureid,
   }: {
     locale: LocaleType;
-    image: ImageApiType;
+    image: IImageMetaInformationV2;
     figureid: string;
   }) => {
     const {

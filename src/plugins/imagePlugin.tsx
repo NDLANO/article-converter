@@ -6,43 +6,44 @@
  *
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { uniqueId } from 'lodash';
 import styled from '@emotion/styled';
 import {
   Figure,
-  FigureLicenseDialog,
+  FigureBylineExpandButton,
   FigureCaption,
   FigureExpandButton,
-  FigureBylineExpandButton,
+  FigureLicenseDialog,
   FigureType,
 } from '@ndla/ui/lib/Figure';
+import { uniqueId } from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 // @ts-ignore
-import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
   figureApa7CopyString,
+  getGroupedContributorDescriptionList,
+  getLicenseByAbbreviation,
 } from '@ndla/licenses';
-import queryString from 'query-string';
+import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
+import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import { isNumber } from 'lodash';
-import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
-import { fetchImageResources, ImageApiCopyright, ImageApiType } from '../api/imageApi';
-import t from '../locale/i18n';
-import { render } from '../utils/render';
+import queryString from 'query-string';
+import { fetchImageResources } from '../api/imageApi';
+import config from '../config';
 import {
   ApiOptions,
-  Plugin,
   Embed,
-  LocaleType,
-  TransformOptions,
   EmbedToHTMLReturnObj,
+  LocaleType,
   PlainEmbed,
+  Plugin,
+  TransformOptions,
 } from '../interfaces';
-import config from '../config';
+import t from '../locale/i18n';
+import { render } from '../utils/render';
+import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
@@ -197,7 +198,7 @@ ImageActionButtons.propTypes = {
 };
 
 export interface ImageEmbed extends Embed<ImageEmbedData> {
-  image: ImageApiType;
+  image: IImageMetaInformationV2;
 }
 
 export interface ImageEmbedData {
@@ -224,7 +225,7 @@ export interface ImagePlugin extends Plugin<ImageEmbed, ImageEmbedData> {
 export interface ImageMetaData {
   title: string;
   altText: string;
-  copyright: ImageApiCopyright;
+  copyright: ICopyright;
   src: string;
   copyText: string;
 }
