@@ -1,8 +1,8 @@
-import React from 'react';
 import { IConcept, IConceptSummary } from '@ndla/types-concept-api';
+import type { NotionVisualElementType } from '@ndla/ui';
 import { ConceptNotion } from '@ndla/ui';
-import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
 import cheerio from 'cheerio';
+import React from 'react';
 import { ApiOptions, TransformOptions } from '../interfaces';
 import { getEmbedsFromHtml } from '../parser';
 import createPlugins from '../plugins';

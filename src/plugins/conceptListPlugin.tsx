@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { IConceptSummary } from '@ndla/types-concept-api';
-import { NotionVisualElementType } from '@ndla/ui/lib/Notion/NotionVisualElement';
+import type { NotionVisualElementType } from '@ndla/ui';
 import styled from '@emotion/styled';
 import { Figure } from '@ndla/ui';
 import { fetchConcepts } from '../api/conceptApi';

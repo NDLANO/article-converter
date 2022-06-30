@@ -7,7 +7,7 @@
  */
 import React from 'react';
 // @ts-ignore
-import RelatedArticleList from '@ndla/ui/lib/RelatedArticleList';
+import { RelatedArticleList } from '@ndla/ui';
 import { render } from './render';
 import t from '../locale/i18n';
 import { LocaleType } from '../interfaces';

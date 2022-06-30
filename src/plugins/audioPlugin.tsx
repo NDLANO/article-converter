@@ -20,7 +20,7 @@ import {
 } from '@ndla/licenses';
 import { IAudioMetaInformation, ICopyright } from '@ndla/types-audio-api';
 import { IImageMetaInformationV2 } from '@ndla/types-image-api';
-import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
+import { AudioPlayer } from '@ndla/ui';
 import { fetchAudio } from '../api/audioApi';
 import { fetchImageResources } from '../api/imageApi';
 import config from '../config';
