@@ -36,7 +36,7 @@ import {
   ConceptPlugin,
 } from './plugins/conceptPlugin';
 import { NRKEmbedData, NRKEmbed, NRKPlugin } from './plugins/nrkPlugin';
-import { IframeEmbedData, IframeEmbed, IframePlugin } from './plugins/iframePlugin';
+import { IframeEmbedData, IframeMetaData, IframeEmbed, IframePlugin } from './plugins/iframePlugin';
 import {
   FootnoteEmbedData,
   FootnoteEmbed,
@@ -66,7 +66,8 @@ type EmbedMetaData =
   | ConceptMetaData
   | H5PMetaData
   | ImageMetaData
-  | FootnoteMetaData;
+  | FootnoteMetaData
+  | IframeMetaData;
 
 export type EmbedData =
   | AudioEmbedData

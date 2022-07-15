@@ -18,12 +18,13 @@ export default async function getEmbedMetaData(
     const ctx = await pctx;
     const plugin = findPlugin(plugins, embed);
     const key = `${embed.data.resource}s`;
-    const resourceMetaData = ctx[key] ?? [];
     const metaData = await plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
+      const keyOverride = 'resourceOverride' in metaData && metaData.resourceOverride;
+      const resourceMetaData = ctx[keyOverride || key] ?? [];
       return {
         ...ctx,
-        [key]: [...resourceMetaData, metaData],
+        [keyOverride || key]: [...resourceMetaData, metaData],
       };
     } else {
       return ctx;
