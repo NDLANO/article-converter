@@ -6,15 +6,17 @@
  *
  */
 
-import { getLicenseByAbbreviation } from '@ndla/licenses';
-import { IImageMetaInformationV2 } from '@ndla/types-image-api';
+import { figureApa7CopyString, getLicenseByAbbreviation } from '@ndla/licenses';
+import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
 import { Figure, ResourceBox } from '@ndla/ui';
 import React from 'react';
+import config from '../config';
 import { fetchImageResources } from '../api/imageApi';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import { apiResourceUrl } from '../utils/apiHelpers';
 import { render } from '../utils/render';
 import { makeIframe } from './pluginHelpers';
+import t from '../locale/i18n';
 
 export interface IframeEmbed extends Embed<IframeEmbedData> {
   iframeImage?: IImageMetaInformationV2;
@@ -22,6 +24,15 @@ export interface IframeEmbed extends Embed<IframeEmbedData> {
 
 export interface IframePlugin extends Plugin<IframeEmbed, IframeEmbedData> {
   resource: 'iframe';
+}
+
+export interface IframeMetaData {
+  title: string;
+  altText: string;
+  copyright: ICopyright;
+  src: string;
+  copyText: string;
+  resourceOverride: string;
 }
 
 export interface IframeEmbedData {
@@ -58,6 +69,37 @@ export default function createIframePlugin(
     return resolve();
   };
 
+  const getMetaData = async (embed: IframeEmbed, locale: LocaleType) => {
+    const { iframeImage } = embed;
+    if (iframeImage) {
+      const {
+        title: { title },
+        alttext: { alttext },
+        copyright,
+        imageUrl,
+      } = iframeImage;
+      const copyString = figureApa7CopyString(
+        title,
+        undefined,
+        imageUrl,
+        options.shortPath || options.path,
+        copyright,
+        copyright.license.license,
+        config.ndlaFrontendDomain,
+        (id: string) => t(locale, id),
+        locale,
+      );
+      return {
+        title: title,
+        altText: alttext,
+        copyright: copyright,
+        src: imageUrl,
+        copyText: copyString,
+        resourceOverride: 'images',
+      };
+    }
+  };
+
   const embedToHTML = async (embed: IframeEmbed, locale: LocaleType) => {
     const { url, width, height, type, title, caption } = embed.data;
     const { iframeImage } = embed;
@@ -92,6 +134,7 @@ export default function createIframePlugin(
   return {
     resource: 'iframe',
     embedToHTML,
+    getMetaData,
     fetchResource,
   };
 }
