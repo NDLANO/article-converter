@@ -6,7 +6,7 @@
  *
  */
 
-import { figureApa7CopyString, getLicenseByAbbreviation } from '@ndla/licenses';
+import { figureApa7CopyString } from '@ndla/licenses';
 import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
 import { Figure, ResourceBox } from '@ndla/ui';
 import React from 'react';
@@ -104,10 +104,6 @@ export default function createIframePlugin(
     const { url, width, height, type, title, caption } = embed.data;
     const { iframeImage } = embed;
 
-    const license =
-      iframeImage?.copyright.license &&
-      getLicenseByAbbreviation(iframeImage.copyright.license.license, locale);
-
     if (type === 'fullscreen') {
       const image = {
         src: iframeImage?.imageUrl || '',
@@ -116,13 +112,7 @@ export default function createIframePlugin(
       return {
         html: render(
           <Figure type="full">
-            <ResourceBox
-              image={image}
-              title={title || ''}
-              url={url}
-              caption={caption || ''}
-              licenseRights={license?.rights || []}
-            />
+            <ResourceBox image={image} title={title || ''} url={url} caption={caption || ''} />
           </Figure>,
         ),
       };
