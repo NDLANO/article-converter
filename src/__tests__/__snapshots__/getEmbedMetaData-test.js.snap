@@ -21,7 +21,7 @@ Object {
         },
       },
       "description": undefined,
-      "resourceOverride": "audios",
+      "resourceOverride": undefined,
       "src": "http://audio.no/file/voof.mp3",
       "title": "Tittel",
     },
