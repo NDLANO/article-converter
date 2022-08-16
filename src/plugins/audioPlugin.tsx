@@ -105,7 +105,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         src: audio.audioFile.url,
         copyText: copyString,
         description: audio.podcastMeta?.introduction,
-        resourceOverride: audio.podcastMeta !== undefined ? 'podcasts' : 'audios',
+        resourceOverride: audio.podcastMeta && 'podcasts',
       };
     }
   };
