@@ -20,6 +20,8 @@ Object {
           "license": "CC-BY-SA-4.0",
         },
       },
+      "description": undefined,
+      "resourceOverride": undefined,
       "src": "http://audio.no/file/voof.mp3",
       "title": "Tittel",
     },

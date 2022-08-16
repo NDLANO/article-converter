@@ -54,6 +54,8 @@ export interface AudioMetaData {
   copyright: ICopyright;
   src: string;
   copyText: string | undefined;
+  description: string | undefined;
+  resourceOverride: string | undefined;
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
@@ -84,7 +86,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         audioFile: { url },
       } = audio;
       const copyString =
-        audio.audioType === 'podcast'
+        audio.podcastMeta !== undefined
           ? figureApa7CopyString(
               title,
               undefined,
@@ -102,6 +104,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         copyright: audio.copyright,
         src: audio.audioFile.url,
         copyText: copyString,
+        description: audio.podcastMeta?.introduction,
+        resourceOverride: audio.podcastMeta && 'podcasts',
       };
     }
   };
