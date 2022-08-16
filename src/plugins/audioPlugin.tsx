@@ -55,7 +55,7 @@ export interface AudioMetaData {
   src: string;
   copyText: string | undefined;
   description: string | undefined;
-  resourceOverride: string;
+  resourceOverride: string | undefined;
 }
 
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
