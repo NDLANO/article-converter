@@ -54,16 +54,108 @@ Object {
 exports[`app/fetchAndTransformArticle 4835 2`] = `
 "<section>
   <p>Forslag til årsplan 1P</p>
-  <section class=\\"c-file-list\\">
-    <h1 class=\\"c-file-list__heading\\">Filer</h1>
-    <ul class=\\"c-file-list__files\\">
-      <li class=\\"c-file-list__item\\">
-        <a
+  <style data-emotion-css=\\"1x6ir33-FileListSection\\">
+    .css-1x6ir33-FileListSection {
+      margin: 52px 0;
+      padding: 13px 0 26px 26px;
+      border-left: 2px solid #f8f8f8;
+      font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti, \\"华文楷体\\",
+        KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\", SongTi, \\"宋体\\",
+        sans-serif;
+    }
+    .css-1x6ir33-FileListSection .c-icon {
+      margin-top: 3px;
+      -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      margin-right: 13px;
+      height: 18px;
+      width: 18px;
+    }
+  </style>
+  <section class=\\"css-1x6ir33-FileListSection e1o67ylf0\\">
+    <style data-emotion-css=\\"t1hjdw-FileListHeading\\">
+      .css-t1hjdw-FileListHeading {
+        font-size: 16px;
+        font-size: 0.8888888888888888rem;
+        line-height: 18px;
+        -webkit-letter-spacing: 0.05em;
+        -moz-letter-spacing: 0.05em;
+        -ms-letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
+        margin: 0 0 6.5px 0;
+        padding-bottom: 6.5px;
+        border-bottom: 2px solid #e8e3e3;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    </style>
+    <h1 class=\\"css-t1hjdw-FileListHeading e1o67ylf1\\">Filer</h1>
+    <style data-emotion-css=\\"112nvuy-FilesList\\">
+      .css-112nvuy-FilesList {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <ul class=\\"css-112nvuy-FilesList e1o67ylf2\\">
+      <style data-emotion-css=\\"84h7ig-FileListItem\\">
+        .css-84h7ig-FileListItem {
+          font-size: 18px;
+          font-size: 1rem;
+          line-height: 26px;
+          font-weight: 600;
+          min-height: 60px;
+          background: #eff0f2;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          margin-bottom: 6.5px;
+          padding: 13px;
+        }
+        @media (min-width: 37.5625em) {
+          .css-84h7ig-FileListItem {
+            padding: 13px 26px;
+          }
+        }
+      </style>
+      <li class=\\"css-84h7ig-FileListItem ei1p2nz2\\">
+        <style data-emotion-css=\\"sy3tci-FileLink\\">
+          .css-sy3tci-FileLink {
+            box-shadow: none;
+            position: relative;
+            color: #20588f;
+            margin-right: 26px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+          }
+          .css-sy3tci-FileLink:last-child {
+            margin-right: 0;
+          }
+          .css-sy3tci-FileLink:hover .ei1p2nz0,
+          .css-sy3tci-FileLink:focus .ei1p2nz0,
+          .css-sy3tci-FileLink:active .ei1p2nz0 {
+            box-shadow: none;
+          }</style
+        ><a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc\\"
-          class=\\"c-file-list__link\\"
           target=\\"_blank\\"
           aria-label=\\"Forslag til årsplan 1P (DOC)\\"
           aria-describedby=\\"testid_doc\\"
+          class=\\"css-sy3tci-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
@@ -107,20 +199,24 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               data-tooltip-children=\\"true\\"
               data-state=\\"tooltip-hidden\\"
               data-reach-tooltip-trigger=\\"\\"
-              ><span class=\\"c-file-list__link-text\\"
+              ><style data-emotion-css=\\"s0hjrl-LinkText\\">
+                .css-s0hjrl-LinkText > span {
+                  box-shadow: inset 0 -1px;
+                }</style
+              ><span class=\\"css-s0hjrl-LinkText ei1p2nz0\\"
                 ><span>Forslag til årsplan 1P (DOC)</span></span
               ></span
             >
           </div></a
         >
       </li>
-      <li class=\\"c-file-list__item\\">
+      <li class=\\"css-84h7ig-FileListItem ei1p2nz2\\">
         <a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
-          class=\\"c-file-list__link\\"
           target=\\"_blank\\"
           aria-label=\\"Forslag til årsplan 1P (ODT)\\"
           aria-describedby=\\"testid_odt\\"
+          class=\\"css-sy3tci-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
@@ -142,29 +238,11 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             data-tooltip-label=\\"Last ned fil:  1p_arsplan_2013-2014_nynorsk.odt\\"
             data-tooltip-from-article-converter=\\"true\\"
           >
-            <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-              .css-qyvxt5-StyledTooltip {
-                color: #fff;
-                z-index: 99999;
-                border: 0;
-                background: #444;
-                border-radius: 4px;
-                padding: 6.5px 13px;
-                font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-                  \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-                  SongTi, \\"宋体\\", sans-serif;
-                font-size: 14;
-                line-height: 1.2;
-                font-weight: 400;
-                text-align: center;
-                white-space: normal;
-                max-width: calc(100vw - #{26px});
-              }</style
-            ><span
+            <span
               data-tooltip-children=\\"true\\"
               data-state=\\"tooltip-hidden\\"
               data-reach-tooltip-trigger=\\"\\"
-              ><span class=\\"c-file-list__link-text\\"
+              ><span class=\\"css-s0hjrl-LinkText ei1p2nz0\\"
                 ><span>Forslag til årsplan 1P (ODT)</span></span
               ></span
             >
