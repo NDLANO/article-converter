@@ -388,7 +388,33 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
 </section>
 <section>
   <section class=\\"c-related-articles\\">
-    <h2 class=\\"c-section-heading c-related-articles__component-title\\">
+    <style data-emotion-css=\\"1i9wngt-StyledWrapper\\">
+      .css-1i9wngt-StyledWrapper {
+        font-weight: 700;
+        text-transform: uppercase;
+        -webkit-letter-spacing: 0.05em;
+        -moz-letter-spacing: 0.05em;
+        -ms-letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
+        font-size: 18px;
+        font-size: 1rem;
+        line-height: 24px;
+      }
+      @media (min-width: 37.5625em) {
+        .css-1i9wngt-StyledWrapper {
+          font-size: 20px;
+          font-size: 1.1111111111111112rem;
+          line-height: 26px;
+        }
+      }
+    </style>
+    <h2
+      class=\\"
+        c-related-articles__component-title
+        css-1i9wngt-StyledWrapper
+        egsow3l0
+      \\"
+    >
       Relatert innhold
     </h2>
     <div class=\\"c-related-articles__articles\\">
