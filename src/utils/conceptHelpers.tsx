@@ -1,11 +1,15 @@
+import { figureApa7CopyString } from '@ndla/licenses';
 import { IConcept, IConceptSummary } from '@ndla/types-concept-api';
 import type { NotionVisualElementType } from '@ndla/ui';
 import { ConceptNotion } from '@ndla/ui';
 import cheerio from 'cheerio';
 import React from 'react';
+import config from '../config';
 import { ApiOptions, TransformOptions } from '../interfaces';
+import t from '../locale/i18n';
 import { getEmbedsFromHtml } from '../parser';
 import createPlugins from '../plugins';
+import { ImageActionButtons } from '../plugins/imagePlugin';
 import { getEmbedsResources } from '../transformers';
 
 interface ConceptBlockProps {
@@ -68,15 +72,37 @@ export const transformVisualElement = async (
 
   if ('image' in embed) {
     const { image } = embed;
+    const { title, imageUrl, copyright, metaUrl, alttext } = image;
+
+    const copyString = figureApa7CopyString(
+      title.title,
+      undefined,
+      imageUrl,
+      options.shortPath || options.path,
+      copyright,
+      copyright.license.license,
+      config.ndlaFrontendDomain,
+      (id: string) => t(apiOptions.lang, id),
+      apiOptions.lang,
+    );
+
     return {
       resource: 'image',
-      title: image.title.title,
-      url: image.metaUrl,
-      copyright: image.copyright,
+      title: title.title,
+      url: metaUrl,
+      copyright: copyright,
       image: {
-        src: image.imageUrl,
-        alt: image.alttext.alttext,
+        src: imageUrl,
+        alt: alttext.alttext,
       },
+      licenseButtons: (
+        <ImageActionButtons
+          copyString={copyString}
+          locale={apiOptions.lang}
+          src={imageUrl}
+          license={copyright.license}
+        />
+      ),
     };
   }
 
