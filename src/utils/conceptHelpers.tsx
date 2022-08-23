@@ -100,7 +100,7 @@ export const transformVisualElement = async (
           copyString={copyString}
           locale={apiOptions.lang}
           src={imageUrl}
-          license={copyright.license}
+          license={copyright.license.license}
         />
       ),
     };

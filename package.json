@@ -82,13 +82,14 @@
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@ndla/article-scripts": "^3.0.1",
-    "@ndla/button": "^3.3.4",
-    "@ndla/code": "^1.1.29",
-    "@ndla/licenses": "^5.0.11",
-    "@ndla/notion": "^3.1.35",
-    "@ndla/safelink": "^2.2.10",
-    "@ndla/ui": "^25.0.1",
+    "@ndla/button": "^3.3.5",
+    "@ndla/code": "^1.1.30",
+    "@ndla/licenses": "^5.0.12",
+    "@ndla/notion": "^3.1.36",
+    "@ndla/safelink": "^2.2.11",
+    "@ndla/ui": "^25.1.0",
     "@ndla/util": "^3.0.1",
+    "@snyk/protect": "latest",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.15",
     "cheerio": "^1.0.0-rc.10",
@@ -112,8 +113,7 @@
     "react-router-dom": "^5.2.0",
     "remarkable": "^2.0.1",
     "string-replace-async": "^1.2.1",
-    "swagger-jsdoc": "^6.1.0",
-    "@snyk/protect": "latest"
+    "swagger-jsdoc": "^6.1.0"
   },
   "bugs": {
     "url": "https://github.com/NDLANO/article-converter/issues"
