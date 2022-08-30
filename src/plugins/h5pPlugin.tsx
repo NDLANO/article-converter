@@ -69,12 +69,7 @@ export default function createH5pPlugin(options: TransformOptions = { concept: f
     embed: PlainEmbed<H5pEmbedData>,
     apiOptions: ApiOptions,
   ): Promise<H5PEmbed> => {
-    const lang =
-      apiOptions.lang === 'en'
-        ? 'en-gb'
-        : ['nb', 'nn'].includes(apiOptions.lang)
-        ? `${apiOptions.lang}-no`
-        : 'nb-no';
+    const lang = apiOptions.lang === 'en' ? 'en-gb' : apiOptions.lang === 'nn' ? 'nn-no' : 'nb-no';
     const cssUrl = `${config.ndlaFrontendDomain}/static/h5p-custom-css.css`;
     embed.data.url = `${embed.data.url}?locale=${lang}&cssUrl=${cssUrl}`;
     const oembedData = await fetchH5pOembed(embed, apiOptions.accessToken);
