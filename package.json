@@ -89,7 +89,7 @@
     "@ndla/safelink": "^2.2.11",
     "@ndla/ui": "^25.1.0",
     "@ndla/util": "^3.0.1",
-    "@snyk/protect": "latest",
+    "@snyk/protect": "^1.997.0",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.15",
     "cheerio": "^1.0.0-rc.10",
