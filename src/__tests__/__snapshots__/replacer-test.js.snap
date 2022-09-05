@@ -169,6 +169,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
           <span aria-hidden=\\"true\\"
             ><svg
               fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
               height=\\"1em\\"
               width=\\"1em\\"
@@ -938,6 +939,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -978,6 +980,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -1020,6 +1023,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -1325,6 +1329,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -1378,6 +1383,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -1428,6 +1434,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -1596,6 +1603,7 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
     ><button type=\\"button\\" class=\\"css-4a4sos-SpeechPlayButton em19mxr0\\">
       <svg
         fill=\\"currentColor\\"
+        aria-hidden=\\"true\\"
         preserveAspectRatio=\\"xMidYMid meet\\"
         height=\\"1em\\"
         width=\\"1em\\"
@@ -1756,6 +1764,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -1796,6 +1805,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -1838,6 +1848,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -2143,6 +2154,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -2196,6 +2208,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -2246,6 +2259,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -2584,6 +2598,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -2624,6 +2639,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -2666,6 +2682,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -2971,6 +2988,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -3024,6 +3042,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -3074,6 +3093,7 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -3518,6 +3538,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -3558,6 +3579,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -3600,6 +3622,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -3857,6 +3880,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -3921,6 +3945,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -3981,6 +4006,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -4361,6 +4387,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -4401,6 +4428,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -4443,6 +4471,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -4698,6 +4727,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -4762,6 +4792,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -4822,6 +4853,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -5259,6 +5291,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -5299,6 +5332,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -5341,6 +5375,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -5596,6 +5631,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -5660,6 +5696,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -5720,6 +5757,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                                     >
                                       <svg
                                         fill=\\"currentColor\\"
+                                        aria-hidden=\\"true\\"
                                         preserveAspectRatio=\\"xMidYMid meet\\"
                                         height=\\"1em\\"
                                         width=\\"1em\\"
@@ -6083,6 +6121,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -6123,6 +6162,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -6165,6 +6205,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                     >
                       <svg
                         fill=\\"currentColor\\"
+                        aria-hidden=\\"true\\"
                         preserveAspectRatio=\\"xMidYMid meet\\"
                         height=\\"1em\\"
                         width=\\"1em\\"
@@ -6470,6 +6511,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -6523,6 +6565,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"
@@ -6573,6 +6616,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                           >
                             <svg
                               fill=\\"currentColor\\"
+                              aria-hidden=\\"true\\"
                               preserveAspectRatio=\\"xMidYMid meet\\"
                               height=\\"1em\\"
                               width=\\"1em\\"

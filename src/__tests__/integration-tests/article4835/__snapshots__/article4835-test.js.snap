@@ -158,6 +158,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           class=\\"css-sy3tci-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
+            aria-hidden=\\"true\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"
@@ -219,6 +220,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           class=\\"css-sy3tci-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
+            aria-hidden=\\"true\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"

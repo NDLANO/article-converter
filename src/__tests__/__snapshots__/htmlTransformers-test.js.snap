@@ -71,6 +71,7 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
           data-reach-tooltip-trigger=\\"\\"
           ><svg
             fill=\\"currentColor\\"
+            aria-hidden=\\"true\\"
             preserveAspectRatio=\\"xMidYMid meet\\"
             height=\\"1em\\"
             width=\\"1em\\"
@@ -461,6 +462,7 @@ exports[`transformTables replaces table with <Table> 1`] = `
     >
       <svg
         fill=\\"currentColor\\"
+        aria-hidden=\\"true\\"
         preserveAspectRatio=\\"xMidYMid meet\\"
         height=\\"1em\\"
         width=\\"1em\\"
