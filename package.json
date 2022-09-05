@@ -20,9 +20,7 @@
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "start:tsc": "tsc -b -w --preserveWatchOutput",
     "prebuild": "yarn run clean",
-    "format": "node prettier.js write",
-    "prepare": "yarn run snyk-protect",
-    "snyk-protect": "snyk-protect"
+    "format": "node prettier.js write"
   },
   "engines": {
     "node": ">=14.16.0"
