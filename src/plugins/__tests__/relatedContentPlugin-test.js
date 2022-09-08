@@ -8,7 +8,7 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createRelatedContentPlugin from '../relatedContentPlugin';
 
 const articleResource = [
@@ -105,6 +105,7 @@ test('fetchResource for different taxonomy version', async () => {
 });
 
 test('fetchResource for an external article', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -128,6 +129,7 @@ test('fetchResource for an external article', async () => {
 });
 
 test('fetchResource for two related articles, where one could not be fetched from article-api', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -174,6 +176,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
 });
 
 test('fetchResource for two related articles, where one could not be fetched from taxonomy-api', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();

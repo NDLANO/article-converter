@@ -8,10 +8,11 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createConceptPlugin from '../conceptPlugin';
 
 test('fetch concept and draft concept', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   let conceptPlugin = createConceptPlugin();

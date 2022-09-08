@@ -13,10 +13,10 @@ import { htmlTemplate, htmlErrorTemplate } from './utils/htmlTemplates';
 import { getHtmlLang } from './locale/configureLocale';
 import { getAppropriateErrorResponse } from './utils/errorHelpers';
 import config from './config';
-import log from './utils/logger';
+import getLogger from './utils/logger';
 import { ResponseHeaders } from './interfaces';
 
-const getAsString = (value: any): string => {
+export const getAsString = (value: any): string => {
   return typeof value === 'string' ? value : '';
 };
 
@@ -41,7 +41,7 @@ const setup = function routes(app: Express) {
         });
       })
       .catch((error) => {
-        log.error(error);
+        getLogger().error(error);
         const response = getAppropriateErrorResponse(error, config.isProduction);
         res.status(response.status).json(response);
       });
@@ -80,7 +80,7 @@ const setup = function routes(app: Express) {
         res.json(article);
       })
       .catch((error) => {
-        log.error(error);
+        getLogger().error(error);
         const response = getAppropriateErrorResponse(error, config.isProduction);
         res.status(response.status).json(response);
       });
@@ -114,7 +114,7 @@ const setup = function routes(app: Express) {
         res.end();
       })
       .catch((error) => {
-        log.error(error);
+        getLogger().error(error);
         const response = getAppropriateErrorResponse(error, config.isProduction);
         const rp = htmlErrorTemplate(lang, response);
         res.status(response.status).send(rp);
@@ -122,6 +122,7 @@ const setup = function routes(app: Express) {
   });
 
   app.post('/article-converter/json/:lang/transform-article', (req, res) => {
+    const log = getLogger();
     const body = req.body;
     const lang = getHtmlLang(req.params.lang ?? '');
     const draftConcept = req.query.draftConcept === 'true';

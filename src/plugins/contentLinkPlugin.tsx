@@ -7,7 +7,7 @@
  */
 
 import { fetchArticleResource } from '../api/taxonomyApi';
-import log from '../utils/logger';
+import getLogger from '../utils/logger';
 import config from '../config';
 import { Plugin, Embed, ApiOptions, TransformOptions, PlainEmbed } from '../interfaces';
 
@@ -52,7 +52,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
       }
       return { ...embed, path };
     } catch (error) {
-      log.error(error);
+      getLogger().error(error);
       return {
         ...embed,
         path,

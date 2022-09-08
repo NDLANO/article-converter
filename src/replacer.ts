@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import log from './utils/logger';
+import getLogger from './utils/logger';
 import t from './locale/i18n';
 import { AnyEmbed, LocaleType, AnyPlugin, ResponseHeaders } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
@@ -40,7 +40,7 @@ export async function replaceEmbedsInHtml(
     } else if (embed.embed.attr('data-resource') === 'file') {
       // do nothing
     } else {
-      log.warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
+      getLogger().warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
     }
   });
 

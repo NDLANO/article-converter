@@ -7,6 +7,18 @@
  */
 
 import prettier from 'prettier';
+import bunyan from 'bunyan';
+import getLogger from '../utils/logger';
 
 // Use prettier to format html for better diffing. N.B. prettier html formating is currently experimental
 export const prettify = (content) => prettier.format(`${content}`, { parser: 'html' });
+
+export function withoutLog(callback) {
+  return async () => {
+    const log = getLogger();
+    log.level(bunyan.FATAL + 1);
+    const result = await callback();
+    log.level(bunyan.INFO);
+    return result;
+  };
+}

@@ -16,6 +16,7 @@ import cors from 'cors';
 import setup from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
 import swaggerRoutes from './swagger/swaggerRoutes';
+import loggerMiddleware from './loggerMiddleware';
 
 // Swagger settings
 const swaggerOptions = {
@@ -50,6 +51,8 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(loggerMiddleware);
 
 setup(app);
 

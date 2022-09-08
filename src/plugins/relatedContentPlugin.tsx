@@ -15,7 +15,7 @@ import { ContentTypeBadge } from '@ndla/ui';
 import { constants } from '@ndla/ui';
 import { isObject } from 'lodash/fp';
 import { IArticleV2 } from '@ndla/types-article-api';
-import log from '../utils/logger';
+import getLogger from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import config from '../config';
@@ -147,7 +147,7 @@ export default function createRelatedContentPlugin(
           article: article ? { ...article, resource } : undefined,
         };
       } catch (error) {
-        log.error(error);
+        getLogger().error(error);
         return embed;
       }
     }

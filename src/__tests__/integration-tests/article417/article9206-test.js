@@ -13,7 +13,7 @@ import article9206 from './article9206';
 import articleResource1128 from './articleResource1128';
 import articleResource9202 from './articleResource9202';
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
-import log from '../../../utils/logger';
+import getLogger from '../../../utils/logger';
 
 const resources = {
   1128: articleResource1128,
@@ -22,6 +22,7 @@ const resources = {
 };
 
 test('app/fetchAndTransformArticle 9206', async () => {
+  const log = getLogger();
   nock('http://ndla-api')
     .get('/article-api/v2/articles/9206?language=nb&fallback=true')
     .reply(200, article9206);
