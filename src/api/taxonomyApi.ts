@@ -6,13 +6,13 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 import { ApiOptions } from '../interfaces';
+import { ndlaFetch } from './ndlaFetch';
 
 const baseUrl = apiResourceUrl(`/taxonomy/v1/`);
 
@@ -54,7 +54,7 @@ async function queryResources(
 ): Promise<TaxonomyResourceQuery[]> {
   const versionHeader = apiOptions.versionHash ? { VersionHash: apiOptions.versionHash } : null;
   const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...versionHeader };
-  const response = await fetch(
+  const response = await ndlaFetch(
     `${baseUrl}resources?contentURI=urn:${contentType}:${contentId}&language=${apiOptions.lang}`,
     {
       headers,
@@ -70,7 +70,7 @@ async function queryTopics(
 ): Promise<TaxonomyTopicQuery[]> {
   const versionHeader = apiOptions.versionHash ? { VersionHash: apiOptions.versionHash } : null;
   const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...versionHeader };
-  const response = await fetch(
+  const response = await ndlaFetch(
     `${baseUrl}topics?contentURI=urn:${contentType}:${contentId}&language=${apiOptions.lang}`,
     {
       headers,

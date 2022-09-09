@@ -7,19 +7,19 @@
  */
 
 import { IImageMetaInformationV2 } from '@ndla/types-image-api';
-import fetch from 'isomorphic-fetch';
 import { ApiOptions } from '../interfaces';
 import {
   convertToInternalUrlIfPossible,
   headerWithAccessToken,
   resolveJsonOrRejectWithError,
 } from '../utils/apiHelpers';
+import { ndlaFetch } from './ndlaFetch';
 
 export const fetchImageResources = async (
   url: string,
   apiOptions: ApiOptions,
 ): Promise<IImageMetaInformationV2> => {
-  const response = await fetch(
+  const response = await ndlaFetch(
     `${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`,
     {
       headers: headerWithAccessToken(apiOptions.accessToken),

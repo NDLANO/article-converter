@@ -6,7 +6,6 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
 import {
   apiResourceUrl,
@@ -16,6 +15,7 @@ import {
 import { OembedEmbedData } from '../plugins/externalPlugin';
 import { H5pEmbedData } from '../plugins/h5pPlugin';
 import { PlainEmbed } from '../interfaces';
+import { ndlaFetch } from './ndlaFetch';
 
 export interface OembedProxyResponse {
   type: string;
@@ -50,7 +50,7 @@ export const fetchOembed = async (
     url.protocol = 'https:';
     newUrl = url.href;
   }
-  const response = await fetch(
+  const response = await ndlaFetch(
     apiResourceUrl(
       `/oembed-proxy/v1/oembed?${queryString.stringify({
         url: newUrl || embed.data.url,

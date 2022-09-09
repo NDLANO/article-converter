@@ -17,6 +17,7 @@ import setup from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
 import swaggerRoutes from './swagger/swaggerRoutes';
 import loggerMiddleware from './loggerMiddleware';
+import correlationIdMiddleware from './correlationIdMiddleware';
 
 // Swagger settings
 const swaggerOptions = {
@@ -52,6 +53,7 @@ app.use(
   }),
 );
 
+app.use(correlationIdMiddleware);
 app.use(loggerMiddleware);
 
 setup(app);

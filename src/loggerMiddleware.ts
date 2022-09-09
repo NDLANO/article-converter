@@ -6,10 +6,8 @@
  *
  */
 
-import { uuid } from '@ndla/util';
 import { NextFunction, Request, Response } from 'express';
 import bunyan from 'bunyan';
-import { getAsString } from './routes';
 import { loggerStorage } from './utils/logger';
 
 export function setupLogger(correlationId: string, next: NextFunction): void {
@@ -18,16 +16,12 @@ export function setupLogger(correlationId: string, next: NextFunction): void {
       name: 'article-converter',
       correlationId,
     }),
-    () => {
-      next();
-    },
+    next,
   );
 }
 
 const loggerMiddleware = (req: Request, res: Response, next: NextFunction): void => {
-  const fromReq = getAsString(req.headers['x-correlation-id']);
-  const cid = !!fromReq ? fromReq : uuid();
-
+  const cid = res.locals.correlationId as string;
   setupLogger(cid, next);
 };
 

@@ -6,10 +6,10 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
 import { convertToInternalUrlIfPossible } from '../utils/apiHelpers';
+import { ndlaFetch } from './ndlaFetch';
 
 export async function checkIfFileExists(fileUrl: string): Promise<boolean> {
-  const response = await fetch(convertToInternalUrlIfPossible(fileUrl), { method: 'HEAD' });
+  const response = await ndlaFetch(convertToInternalUrlIfPossible(fileUrl), { method: 'HEAD' });
   return response.status === 200;
 }
