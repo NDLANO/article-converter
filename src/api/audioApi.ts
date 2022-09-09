@@ -7,7 +7,6 @@
  */
 
 import { IAudioMetaInformation } from '@ndla/types-audio-api';
-import fetch from 'isomorphic-fetch';
 import { ApiOptions, PlainEmbed } from '../interfaces';
 import { AudioEmbed, AudioEmbedData } from '../plugins/audioPlugin';
 import {
@@ -15,13 +14,14 @@ import {
   headerWithAccessToken,
   resolveJsonOrRejectWithError,
 } from '../utils/apiHelpers';
+import { ndlaFetch } from './ndlaFetch';
 
 export const fetchAudio = (
   embed: PlainEmbed<AudioEmbedData>,
   apiOptions: ApiOptions,
 ): Promise<AudioEmbed> => {
   const url = typeof embed.data.url === 'string' ? embed.data.url : '';
-  return fetch(`${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`, {
+  return ndlaFetch(`${convertToInternalUrlIfPossible(url)}?language=${apiOptions.lang}`, {
     headers: headerWithAccessToken(apiOptions.accessToken),
   })
     .then((res) => resolveJsonOrRejectWithError<IAudioMetaInformation>(res))

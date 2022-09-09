@@ -1,9 +1,9 @@
-FROM node:14.16-alpine
+FROM node:14.20-alpine
 
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter
 
-RUN apk add py2-pip jq && pip install awscli
+RUN apk add py-pip jq && pip install awscli
 COPY run-article-converter.sh /
 RUN npm install pm2 -g
 

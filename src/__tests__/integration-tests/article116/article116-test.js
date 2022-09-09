@@ -7,14 +7,14 @@
  */
 
 import nock from 'nock';
-import { prettify } from '../../testHelpers';
+import { loglessTest, prettify } from '../../testHelpers';
 import article116 from './article116';
 import video125442 from './video125442';
 import videoSources125442 from './videoSources125442';
 
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
-test('app/fetchAndTransformArticle 116', async () => {
+loglessTest('app/fetchAndTransformArticle 116', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/116?language=nb&fallback=true')
     .reply(200, article116);

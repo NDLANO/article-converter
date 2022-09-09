@@ -7,12 +7,12 @@
  */
 
 import nock from 'nock';
-import { prettify } from '../../testHelpers';
+import { loglessTest, prettify } from '../../testHelpers';
 import article270 from './article270';
 
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
-test('app/fetchAndTransformArticle 270', async () => {
+loglessTest('app/fetchAndTransformArticle 270', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/270?language=nb&fallback=true')
     .reply(200, article270);
@@ -30,7 +30,7 @@ test('app/fetchAndTransformArticle 270', async () => {
   expect(prettify(content)).toMatchSnapshot();
 });
 
-test('app/fetchAndTransformArticle 270 with visualElement', async () => {
+loglessTest('app/fetchAndTransformArticle 270 with visualElement', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/270?language=nb&fallback=true')
     .reply(200, article270);

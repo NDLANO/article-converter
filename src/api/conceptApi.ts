@@ -6,7 +6,6 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
 import { IConcept, IConceptSearchResult } from '@ndla/types-concept-api';
 import {
   apiResourceUrl,
@@ -16,6 +15,7 @@ import {
 import { ApiOptions, PlainEmbed } from '../interfaces';
 import { ConceptEmbedData, ConceptEmbed } from '../plugins/conceptPlugin';
 import { ConceptListEmbed, ConceptListEmbedData } from '../plugins/conceptListPlugin';
+import { ndlaFetch } from './ndlaFetch';
 
 export const fetchConcept = async (
   embed: PlainEmbed<ConceptEmbedData>,
@@ -29,7 +29,7 @@ export const fetchConcept = async (
   const url = apiResourceUrl(
     `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${apiOptions.lang}&fallback=true`,
   );
-  const response = await fetch(url, {
+  const response = await ndlaFetch(url, {
     method,
     headers: headerWithAccessToken(apiOptions.accessToken),
   });
@@ -54,7 +54,7 @@ export const fetchConcepts = async (
       subjectId && `&subjects=${subjectId}`
     }`,
   );
-  const response = await fetch(url, {
+  const response = await ndlaFetch(url, {
     method,
     headers: headerWithAccessToken(apiOptions.accessToken),
   });

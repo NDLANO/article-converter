@@ -6,7 +6,6 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
 import { IArticleV2 } from '@ndla/types-article-api';
 import {
   apiResourceUrl,
@@ -14,6 +13,7 @@ import {
   headerWithAccessToken,
 } from '../utils/apiHelpers';
 import { ApiOptions, ResponseHeaders } from '../interfaces';
+import { ndlaFetch } from './ndlaFetch';
 
 export async function fetchArticle(
   articleId: number | string,
@@ -21,7 +21,7 @@ export async function fetchArticle(
 ): Promise<{ article: IArticleV2; responseHeaders: ResponseHeaders }> {
   const feideHeader = apiOptions.feideToken ? { FeideAuthorization: apiOptions.feideToken } : null;
   const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...feideHeader };
-  const response = await fetch(
+  const response = await ndlaFetch(
     apiResourceUrl(
       `/article-api/v2/articles/${articleId}?language=${apiOptions.lang}&fallback=true`,
     ),

@@ -8,7 +8,7 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createContentLinkPlugin from '../contentLinkPlugin';
 
 const articleResource = [
@@ -127,6 +127,7 @@ test('fetchResource with missing taxonomy data should fallback to path without t
 });
 
 test('fetchResource where taxonomy fails should fallback to path without taxonomy', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const contentLinkPlugin = createContentLinkPlugin();

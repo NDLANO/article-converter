@@ -9,11 +9,12 @@
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
 import { compact } from 'lodash';
+import Logger from 'bunyan';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import createPlugins from './plugins';
-import log from './utils/logger';
+import getLogger from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
   ApiOptions,
@@ -27,10 +28,10 @@ import {
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
 
-function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
+function logIfLongTime(log: Logger, start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;
   if (elapsedTime > timeout) {
-    console.warn(
+    log.warn(
       `Action '${action}' took ${elapsedTime.toFixed(
         2,
       )}ms, longer than time to warn of ${timeout}ms...`,
@@ -60,6 +61,7 @@ export async function getEmbedsResources(
   apiOptions: ApiOptions,
   plugins: AnyPlugin[],
 ): Promise<AnyEmbed[]> {
+  const log = getLogger();
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);
@@ -68,12 +70,12 @@ export async function getEmbedsResources(
         try {
           const resource = await plugin.fetchResource(embed, apiOptions);
 
-          logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
+          logIfLongTime(log, startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
-          logIfLongTime(startStamp, 500, `Failed fetching resource`, embed.data);
+          logIfLongTime(log, startStamp, 500, `Failed fetching resource`, embed.data);
           return {
             ...embed,
             status: 'error',
