@@ -11,9 +11,9 @@ import bunyan from 'bunyan';
 import getLogger from '../utils/logger';
 
 // Use prettier to format html for better diffing. N.B. prettier html formating is currently experimental
-export const prettify = (content) => prettier.format(`${content}`, { parser: 'html' });
+export const prettify = (content: any) => prettier.format(`${content}`, { parser: 'html' });
 
-export function withoutLog(callback) {
+export function withoutLog<T>(callback: () => Promise<T>): () => Promise<T> {
   return async () => {
     const log = getLogger();
     log.level(bunyan.FATAL + 1);
@@ -21,4 +21,9 @@ export function withoutLog(callback) {
     log.level(bunyan.INFO);
     return result;
   };
+}
+
+export function loglessTest<T>(name: string, callback: () => Promise<T>, timeout?: number): void {
+  const fn = withoutLog(callback);
+  return test(name, fn, timeout);
 }
