@@ -2216,10 +2216,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snyk/protect@latest":
-  version "1.988.0"
-  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.988.0.tgz#21401c9ca97e579deffbf562f99e421a4446d244"
-  integrity sha512-XoLDhcHc/tR97ep/wQW4+C1NZSSssXei5yks3NfxmzL9fDQ5wydk+yGBggzK8Rv2G1sOXgIniQ8DQJRsGkQqgQ==
+"@snyk/protect@^1.997.0":
+  version "1.997.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.997.0.tgz#5a6d6a6de0e7a840c76985313da4ff6204d2de5a"
+  integrity sha512-tsgn+fIakzHp1vy6WhSuiA+ovhXgH8HeOb4rsbH+TnOTp9lXHIRRxjEJMJN57Z4t1ALPo7taFH85l60Vca56Bw==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"

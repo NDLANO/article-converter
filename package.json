@@ -20,9 +20,7 @@
     "start-prod": "cross-env NODE_ENV=production node build/server.js",
     "start:tsc": "tsc -b -w --preserveWatchOutput",
     "prebuild": "yarn run clean",
-    "format": "node prettier.js write",
-    "prepare": "yarn run snyk-protect",
-    "snyk-protect": "snyk-protect"
+    "format": "node prettier.js write"
   },
   "engines": {
     "node": ">=14.20.0"
@@ -90,7 +88,7 @@
     "@ndla/safelink": "^2.2.12",
     "@ndla/ui": "^25.2.1",
     "@ndla/util": "^3.0.1",
-    "@snyk/protect": "latest",
+    "@snyk/protect": "^1.997.0",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.15",
     "cheerio": "^1.0.0-rc.10",
