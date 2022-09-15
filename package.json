@@ -23,7 +23,7 @@
     "format": "node prettier.js write"
   },
   "engines": {
-    "node": ">=14.20.0"
+    "node": ">=16.17.0"
   },
   "repository": {
     "type": "git",
