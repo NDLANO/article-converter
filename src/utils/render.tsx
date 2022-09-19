@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router';
+import { StaticRouter } from 'react-router-dom/server.js';
 import { MissingRouterContext } from '@ndla/safelink';
 import { i18nInstance } from '@ndla/ui';
 import { I18nextProvider, useTranslation } from 'react-i18next';
@@ -34,7 +34,7 @@ function renderInternal(
 ) {
   return renderFunc(
     <I18nextProvider i18n={i18nInstance}>
-      <StaticRouter>
+      <StaticRouter location="">
         <MissingRouterContext.Provider value={true}>
           <I18nWrapper locale={locale}>{component}</I18nWrapper>
         </MissingRouterContext.Provider>

@@ -1,4 +1,4 @@
-FROM node:14.20-alpine as builder
+FROM node:16.17-alpine as builder
 
 ENV HOME=/home/app
 ENV APP_PATH=$HOME/article-converter
@@ -16,7 +16,7 @@ COPY src $APP_PATH/src
 RUN yarn run build
 
 ### Run stage
-FROM node:14.20-alpine
+FROM node:16.17-alpine
 
 RUN apk add py-pip jq && pip install awscli
 COPY run-article-converter.sh /
