@@ -14,6 +14,7 @@ type LocaleObject = {
 export const NB: LocaleObject = { name: 'Bokmål', abbreviation: 'nb' };
 export const NN: LocaleObject = { name: 'Nynorsk', abbreviation: 'nn' };
 export const EN: LocaleObject = { name: 'English', abbreviation: 'en' };
+export const SE: LocaleObject = { name: 'Davvisámegiella', abbreviation: 'se' };
 
-export const availableLocales = [NB, NN, EN];
-export const preferredLocales = [NB, NN, EN];
+export const availableLocales = [NB, NN, EN, SE];
+export const preferredLocales = [NB, NN, EN, SE];

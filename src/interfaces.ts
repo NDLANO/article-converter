@@ -51,7 +51,7 @@ import {
   ConceptListPlugin,
 } from './plugins/conceptListPlugin';
 
-export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
+export const LOCALE_VALUES = ['nb', 'nn', 'en', 'se'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
 
 export type ResponseHeaders = Record<string, string>;
