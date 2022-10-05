@@ -140,8 +140,8 @@ Object {
 exports[`app/fetchAndTransformArticle 1036 2`] = `
 "<section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1-2357\\">
-    <style data-emotion-css=\\"c121an-StyledLink\\">
-      .css-c121an-StyledLink {
+    <style data-emotion=\\"css dsjxlq-StyledLink\\">
+      .css-dsjxlq-StyledLink {
         box-shadow: inset 0 0;
       }</style
     ><a
@@ -149,13 +149,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-c121an-StyledLink eo3pjlm0\\"
-      ><style data-emotion-css=\\"iraaey-StyledImageWrapper\\">
-        .css-iraaey-StyledImageWrapper {
+      class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
+      ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
+        .css-406e66-StyledImageWrapper {
           position: relative;
         }
       </style>
-      <div class=\\"css-iraaey-StyledImageWrapper ejtxxex0\\">
+      <div class=\\"css-406e66-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             type=\\"image/jpeg\\"
@@ -183,8 +183,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
-            .css-pdhd5n-StyledLicenseByline {
+          <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
+            .css-3yxr6g-StyledLicenseByline {
               display: -webkit-box;
               display: -webkit-flex;
               display: -ms-flexbox;
@@ -196,13 +196,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               -webkit-box-align: center;
               -ms-flex-align: center;
               align-items: center;
+              -webkit-box-flex-wrap: wrap;
               -webkit-flex-wrap: wrap;
               -ms-flex-wrap: wrap;
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
-            <style data-emotion-css=\\"mywyd3-StyledList\\">
+          <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
+            <style data-emotion=\\"css mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
                 padding: 0;
@@ -225,7 +226,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 data-tooltip-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                 data-tooltip-from-article-converter=\\"true\\"
               >
-                <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+                <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
                   .css-qyvxt5-StyledTooltip {
                     color: #fff;
                     z-index: 99999;
@@ -247,7 +248,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><style data-emotion-css=\\"u7cqnb-StyledLicenseIconItem\\">
+                  ><style data-emotion=\\"css u7cqnb-StyledLicenseIconItem\\">
                     .css-u7cqnb-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
@@ -264,8 +265,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       height: 18px;
                     }
                   </style>
-                  <li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
-                    <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
+                  <li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
+                    <style data-emotion=\\"css 1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
                         display: -webkit-flex;
@@ -292,7 +293,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       }</style
                     ><button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -331,10 +332,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
+                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
                     <button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -375,10 +376,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
+                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
                     <button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -419,10 +420,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
+                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
                     <button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -461,9 +462,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               >
               <div>
                 <style
-                  data-emotion-css=\\"xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
+                  data-emotion=\\"css 12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles\\"
                 >
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -499,8 +500,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     -ms-flex-align: center;
                     align-items: center;
                     -webkit-box-pack: center;
-                    -webkit-justify-content: center;
                     -ms-flex-pack: center;
+                    -webkit-justify-content: center;
                     justify-content: center;
                     padding-left: 6.5px;
                     padding-right: 6.5px;
@@ -521,48 +522,48 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     padding-left: 13px;
                     padding-right: 13px;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles[disabled] {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     border-width: 1px;
                   }</style
                 ><button
@@ -570,7 +571,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-dialog-trigger-id=\\"figure-1-2357\\"
                   data-dialog-source-id=\\"figure-1-2357\\"
                   class=\\"
-                    css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
+                    css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles
                     e1ww3yc20
                   \\"
                 >
@@ -583,7 +584,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       </footer>
     </figcaption>
   </figure>
-  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
     .css-8s0se0-ContainerDiv {
       position: relative;
     }
@@ -595,79 +596,81 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Verdens beste land å leve i?\\"
-    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
-    <style data-emotion-css=\\"kgto6a-IconButton\\">
-      .css-kgto6a-IconButton {
-        position: absolute;
-        left: -3em;
-        top: 0.1em;
-        background: none;
-        border: 0;
-        z-index: 1;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
-        opacity: 0;
-      }
-      .css-kgto6a-IconButton svg {
-        width: 30px;
-        height: 30px;
-      }</style
-    ><button
-      data-title=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\"
-      class=\\"css-kgto6a-IconButton e18czas70\\"
-    >
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
-        data-tooltip-from-article-converter=\\"true\\"
+    <div>
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button
+        data-title=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\"
+        class=\\"css-kgto6a-IconButton e18czas71\\"
       >
-        <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><svg
-            fill=\\"currentColor\\"
-            aria-hidden=\\"true\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align: middle\\"
-          >
-            <g>
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-              <path
-                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
-              ></path>
-            </g></svg
-        ></span>
-      </div>
-    </button>
-    <h2 id=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\" tabindex=\\"0\\">
-      Verdens beste land å leve i?
-    </h2>
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+          data-tooltip-from-article-converter=\\"true\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
+              border: 0;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
+            }</style
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
+              fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align: middle\\"
+            >
+              <g>
+                <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+                <path
+                  d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+                ></path>
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\" tabindex=\\"0\\">
+        Verdens beste land å leve i?
+      </h2>
+    </div>
   </div>
   <p>
     Vi hører ofte at Norge er et av verdens beste land å leve i. LIkevel hører
@@ -684,7 +687,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     på FNs utviklingsindeks (Human Development Index, HDI). På de neste plassene
     ligger Australia og Sveits.
   </p>
-  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
     .css-8s0se0-ContainerDiv {
       position: relative;
     }
@@ -696,77 +699,79 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Forventet levealder\\"
-    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
-    <style data-emotion-css=\\"kgto6a-IconButton\\">
-      .css-kgto6a-IconButton {
-        position: absolute;
-        left: -3em;
-        top: 0.1em;
-        background: none;
-        border: 0;
-        z-index: 1;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
-        opacity: 0;
-      }
-      .css-kgto6a-IconButton svg {
-        width: 30px;
-        height: 30px;
-      }</style
-    ><button
-      data-title=\\"Forventet-levealder\\"
-      class=\\"css-kgto6a-IconButton e18czas70\\"
-    >
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
-        data-tooltip-from-article-converter=\\"true\\"
+    <div>
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button
+        data-title=\\"Forventet-levealder\\"
+        class=\\"css-kgto6a-IconButton e18czas71\\"
       >
-        <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><svg
-            fill=\\"currentColor\\"
-            aria-hidden=\\"true\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align: middle\\"
-          >
-            <g>
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-              <path
-                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
-              ></path>
-            </g></svg
-        ></span>
-      </div>
-    </button>
-    <h2 id=\\"Forventet-levealder\\" tabindex=\\"0\\">Forventet levealder</h2>
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+          data-tooltip-from-article-converter=\\"true\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
+              border: 0;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
+            }</style
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
+              fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align: middle\\"
+            >
+              <g>
+                <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+                <path
+                  d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+                ></path>
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"Forventet-levealder\\" tabindex=\\"0\\">Forventet levealder</h2>
+    </div>
   </div>
   <p>
     Norge har høy forventet levealder, en viktig faktor i levekårsstatistikken,
@@ -784,7 +789,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     forventet levealder på 66 år for kvinner og 62,2 år for menn. (alle tall fra
     2014)
   </p>
-  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
     .css-8s0se0-ContainerDiv {
       position: relative;
     }
@@ -796,74 +801,76 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Utdanning\\"
-    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
-    <style data-emotion-css=\\"kgto6a-IconButton\\">
-      .css-kgto6a-IconButton {
-        position: absolute;
-        left: -3em;
-        top: 0.1em;
-        background: none;
-        border: 0;
-        z-index: 1;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
-        opacity: 0;
-      }
-      .css-kgto6a-IconButton svg {
-        width: 30px;
-        height: 30px;
-      }</style
-    ><button data-title=\\"Utdanning\\" class=\\"css-kgto6a-IconButton e18czas70\\">
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
-        data-tooltip-from-article-converter=\\"true\\"
-      >
-        <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><svg
-            fill=\\"currentColor\\"
-            aria-hidden=\\"true\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align: middle\\"
-          >
-            <g>
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-              <path
-                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
-              ></path>
-            </g></svg
-        ></span>
-      </div>
-    </button>
-    <h2 id=\\"Utdanning\\" tabindex=\\"0\\">Utdanning</h2>
+    <div>
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button data-title=\\"Utdanning\\" class=\\"css-kgto6a-IconButton e18czas71\\">
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+          data-tooltip-from-article-converter=\\"true\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
+              border: 0;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
+            }</style
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
+              fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align: middle\\"
+            >
+              <g>
+                <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+                <path
+                  d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+                ></path>
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"Utdanning\\" tabindex=\\"0\\">Utdanning</h2>
+    </div>
   </div>
   <p>
     Når det gjelder utdanning, ligger Norge på tredjeplass etter Australia og
@@ -883,7 +890,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
       ><sup><a href=\\"#note3\\" target=\\"_self\\">[3]</a></sup></span
     >
   </p>
-  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
     .css-8s0se0-ContainerDiv {
       position: relative;
     }
@@ -895,74 +902,76 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Inntekt\\"
-    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
-    <style data-emotion-css=\\"kgto6a-IconButton\\">
-      .css-kgto6a-IconButton {
-        position: absolute;
-        left: -3em;
-        top: 0.1em;
-        background: none;
-        border: 0;
-        z-index: 1;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
-        opacity: 0;
-      }
-      .css-kgto6a-IconButton svg {
-        width: 30px;
-        height: 30px;
-      }</style
-    ><button data-title=\\"Inntekt\\" class=\\"css-kgto6a-IconButton e18czas70\\">
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
-        data-tooltip-from-article-converter=\\"true\\"
-      >
-        <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><svg
-            fill=\\"currentColor\\"
-            aria-hidden=\\"true\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align: middle\\"
-          >
-            <g>
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-              <path
-                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
-              ></path>
-            </g></svg
-        ></span>
-      </div>
-    </button>
-    <h2 id=\\"Inntekt\\" tabindex=\\"0\\">Inntekt</h2>
+    <div>
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button data-title=\\"Inntekt\\" class=\\"css-kgto6a-IconButton e18czas71\\">
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+          data-tooltip-from-article-converter=\\"true\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
+              border: 0;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
+            }</style
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
+              fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align: middle\\"
+            >
+              <g>
+                <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+                <path
+                  d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+                ></path>
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"Inntekt\\" tabindex=\\"0\\">Inntekt</h2>
+    </div>
   </div>
   <p>
     Det er viktig å forstå at inntekt er et videre begrep enn lønn. Inntekt
@@ -986,7 +995,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     dette er lønn før skatt, og at prisene i Norge er forholdsvis høye
     sammenliknet med andre land.
   </p>
-  <style data-emotion-css=\\"8s0se0-ContainerDiv\\">
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
     .css-8s0se0-ContainerDiv {
       position: relative;
     }
@@ -998,74 +1007,79 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"Sysselsetting\\"
-    class=\\"css-8s0se0-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
-    <style data-emotion-css=\\"kgto6a-IconButton\\">
-      .css-kgto6a-IconButton {
-        position: absolute;
-        left: -3em;
-        top: 0.1em;
-        background: none;
-        border: 0;
-        z-index: 1;
-        -webkit-transition: 0.2s;
-        transition: 0.2s;
-        opacity: 0;
-      }
-      .css-kgto6a-IconButton svg {
-        width: 30px;
-        height: 30px;
-      }</style
-    ><button data-title=\\"Sysselsetting\\" class=\\"css-kgto6a-IconButton e18czas70\\">
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
-        data-tooltip-from-article-converter=\\"true\\"
+    <div>
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button
+        data-title=\\"Sysselsetting\\"
+        class=\\"css-kgto6a-IconButton e18czas71\\"
       >
-        <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><svg
-            fill=\\"currentColor\\"
-            aria-hidden=\\"true\\"
-            preserveAspectRatio=\\"xMidYMid meet\\"
-            height=\\"1em\\"
-            width=\\"1em\\"
-            class=\\"c-icon\\"
-            viewBox=\\"0 0 24 24\\"
-            data-license=\\"Apache License 2.0\\"
-            data-source=\\"Material Design\\"
-            style=\\"vertical-align: middle\\"
-          >
-            <g>
-              <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
-              <path
-                d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
-              ></path>
-            </g></svg
-        ></span>
-      </div>
-    </button>
-    <h2 id=\\"Sysselsetting\\" tabindex=\\"0\\">Sysselsetting</h2>
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+          data-tooltip-from-article-converter=\\"true\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
+              border: 0;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
+            }</style
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
+              fill=\\"currentColor\\"
+              aria-hidden=\\"true\\"
+              preserveAspectRatio=\\"xMidYMid meet\\"
+              height=\\"1em\\"
+              width=\\"1em\\"
+              class=\\"c-icon\\"
+              viewBox=\\"0 0 24 24\\"
+              data-license=\\"Apache License 2.0\\"
+              data-source=\\"Material Design\\"
+              style=\\"vertical-align: middle\\"
+            >
+              <g>
+                <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path>
+                <path
+                  d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
+                ></path>
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"Sysselsetting\\" tabindex=\\"0\\">Sysselsetting</h2>
+    </div>
   </div>
   <p>
     I Norge har vi nå liten arbeidsledighet. Ved utgangen av juni i 2017 var
@@ -1097,10 +1111,10 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         >
           Regler for bruk av bildet:
         </h3>
-        <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
+        <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"1uvheta-StyledList-StyledList\\">
-              .css-1uvheta-StyledList-StyledList {
+            <style data-emotion=\\"css ok1dvq-StyledList-StyledList-StyledList\\">
+              .css-ok1dvq-StyledList-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -1115,17 +1129,19 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-1uvheta-StyledList-StyledList li:first-of-type {
+              .css-ok1dvq-StyledList-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-1uvheta-StyledList-StyledList li:first-of-type svg {
+              .css-ok1dvq-StyledList-StyledList-StyledList
+                li:first-of-type
+                svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"8rqwto-StyledLicenseIconItem\\">
+            <ul class=\\"css-ok1dvq-StyledList-StyledList-StyledList e1vg7nmp0\\">
+              <style data-emotion=\\"css 8rqwto-StyledLicenseIconItem\\">
                 .css-8rqwto-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
@@ -1142,7 +1158,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   height: 24px;
                 }
               </style>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
@@ -1152,8 +1168,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><style data-emotion-css=\\"93k32m-IconLineWrapper\\">
-                      .css-93k32m-IconLineWrapper {
+                    ><style data-emotion=\\"css lsao9n-IconLineWrapper\\">
+                      .css-lsao9n-IconLineWrapper {
                         display: -webkit-box;
                         display: -webkit-flex;
                         display: -ms-flexbox;
@@ -1164,9 +1180,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                         align-items: center;
                       }
                     </style>
-                    <div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -1193,12 +1209,12 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                             ></path>
                           </g>
                         </svg></button
-                      ><style data-emotion-css=\\"yfqdly-StyledLicenseLabel\\">
+                      ><style data-emotion=\\"css yfqdly-StyledLicenseLabel\\">
                         .css-yfqdly-StyledLicenseLabel {
                           margin-left: 13px;
                         }
                       </style>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Denne lisensen gir deg rett til å dele og bruke dette
                         innholdet på visse vilkår.
                       </div>
@@ -1206,7 +1222,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   >
                 </div>
               </li>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
@@ -1216,9 +1232,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    ><div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -1248,14 +1264,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                           </g>
                         </svg>
                       </button>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Du må alltid oppgi hvem som har laget innholdet.
                       </div>
                     </div></span
                   >
                 </div>
               </li>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
@@ -1265,9 +1281,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    ><div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -1297,14 +1313,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                           </g>
                         </svg>
                       </button>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Du kan ikke tjene penger på bruk av dette innholdet.
                       </div>
                     </div></span
                   >
                 </div>
               </li>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
@@ -1314,9 +1330,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    ><div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -1346,7 +1362,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                           </g>
                         </svg>
                       </button>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Du kan bare dele innholdet med samme lisens som det
                         opprinnelige innholdet.
                       </div>
@@ -1390,9 +1406,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+              data-emotion=\\"css 5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles\\"
             >
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -1424,40 +1440,40 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -1468,15 +1484,15 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.\\"
               class=\\"
-                css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
+                css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles
                 e1ww3yc20
               \\"
             >
               Kildehenvisning</button
             ><style
-              data-emotion-css=\\"164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+              data-emotion=\\"css 7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles\\"
             >
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -1504,28 +1520,28 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -1535,8 +1551,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download=\\"\\"
               class=\\"
-                css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles
-                e1ww3yc20
+                css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles
+                efbnk9h1
               \\"
               >Last ned bildet</a
             >

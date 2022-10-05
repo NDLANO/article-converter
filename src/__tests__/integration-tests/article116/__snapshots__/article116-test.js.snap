@@ -117,8 +117,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     <figcaption class=\\"c-figure__caption\\">
       <footer class=\\"c-figure__byline\\">
         <div class=\\"c-figure__byline-licenselist\\">
-          <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
-            .css-pdhd5n-StyledLicenseByline {
+          <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
+            .css-3yxr6g-StyledLicenseByline {
               display: -webkit-box;
               display: -webkit-flex;
               display: -ms-flexbox;
@@ -130,13 +130,14 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               -webkit-box-align: center;
               -ms-flex-align: center;
               align-items: center;
+              -webkit-box-flex-wrap: wrap;
               -webkit-flex-wrap: wrap;
               -ms-flex-wrap: wrap;
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
-            <style data-emotion-css=\\"mywyd3-StyledList\\">
+          <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
+            <style data-emotion=\\"css mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
                 padding: 0;
@@ -159,7 +160,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 data-tooltip-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                 data-tooltip-from-article-converter=\\"true\\"
               >
-                <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+                <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
                   .css-qyvxt5-StyledTooltip {
                     color: #fff;
                     z-index: 99999;
@@ -181,7 +182,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><style data-emotion-css=\\"u7cqnb-StyledLicenseIconItem\\">
+                  ><style data-emotion=\\"css u7cqnb-StyledLicenseIconItem\\">
                     .css-u7cqnb-StyledLicenseIconItem {
                       display: -webkit-box;
                       display: -webkit-flex;
@@ -198,8 +199,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       height: 18px;
                     }
                   </style>
-                  <li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
-                    <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
+                  <li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
+                    <style data-emotion=\\"css 1k8a5a1-StyledLicenseIconButton\\">
                       .css-1k8a5a1-StyledLicenseIconButton {
                         display: -webkit-box;
                         display: -webkit-flex;
@@ -226,7 +227,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                       }</style
                     ><button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -265,10 +266,10 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
+                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
                     <button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -309,10 +310,10 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-tooltip-children=\\"true\\"
                   data-state=\\"tooltip-hidden\\"
                   data-reach-tooltip-trigger=\\"\\"
-                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz0\\">
+                  ><li class=\\"css-u7cqnb-StyledLicenseIconItem e1vgl0rz1\\">
                     <button
                       type=\\"button\\"
-                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                      class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -349,9 +350,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               <span class=\\"c-figure__byline-authors\\">Wes Anderson</span>
               <div>
                 <style
-                  data-emotion-css=\\"xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles\\"
+                  data-emotion=\\"css 12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles\\"
                 >
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -387,8 +388,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     -ms-flex-align: center;
                     align-items: center;
                     -webkit-box-pack: center;
-                    -webkit-justify-content: center;
                     -ms-flex-pack: center;
+                    -webkit-justify-content: center;
                     justify-content: center;
                     padding-left: 6.5px;
                     padding-right: 6.5px;
@@ -409,48 +410,48 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     padding-left: 13px;
                     padding-right: 13px;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles[disabled] {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:hover,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:focus,
-                  .css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles:disabled {
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus,
+                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
                     border-width: 1px;
                   }</style
                 ><button
@@ -458,7 +459,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   data-dialog-trigger-id=\\"5388709430001\\"
                   data-dialog-source-id=\\"figure-5388709430001\\"
                   class=\\"
-                    css-xdv6dq-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-ButtonStyles
+                    css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles
                     e1ww3yc20
                   \\"
                 >
@@ -490,8 +491,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
         >
           Regler for bruk av videoen:
         </h3>
-        <style data-emotion-css=\\"pdhd5n-StyledLicenseByline\\">
-          .css-pdhd5n-StyledLicenseByline {
+        <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
+          .css-3yxr6g-StyledLicenseByline {
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -503,15 +504,16 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
+            -webkit-box-flex-wrap: wrap;
             -webkit-flex-wrap: wrap;
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
           }
         </style>
-        <div class=\\"css-pdhd5n-StyledLicenseByline e1wma4210\\">
+        <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion-css=\\"1uvheta-StyledList-StyledList\\">
-              .css-1uvheta-StyledList-StyledList {
+            <style data-emotion=\\"css ok1dvq-StyledList-StyledList-StyledList\\">
+              .css-ok1dvq-StyledList-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -526,17 +528,19 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-1uvheta-StyledList-StyledList li:first-of-type {
+              .css-ok1dvq-StyledList-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-1uvheta-StyledList-StyledList li:first-of-type svg {
+              .css-ok1dvq-StyledList-StyledList-StyledList
+                li:first-of-type
+                svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-1uvheta-StyledList-StyledList e1vg7nmp0\\">
-              <style data-emotion-css=\\"8rqwto-StyledLicenseIconItem\\">
+            <ul class=\\"css-ok1dvq-StyledList-StyledList-StyledList e1vg7nmp0\\">
+              <style data-emotion=\\"css 8rqwto-StyledLicenseIconItem\\">
                 .css-8rqwto-StyledLicenseIconItem {
                   display: -webkit-box;
                   display: -webkit-flex;
@@ -553,13 +557,13 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   height: 24px;
                 }
               </style>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
                   data-tooltip-from-article-converter=\\"true\\"
                 >
-                  <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+                  <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
                     .css-qyvxt5-StyledTooltip {
                       color: #fff;
                       z-index: 99999;
@@ -581,8 +585,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><style data-emotion-css=\\"93k32m-IconLineWrapper\\">
-                      .css-93k32m-IconLineWrapper {
+                    ><style data-emotion=\\"css lsao9n-IconLineWrapper\\">
+                      .css-lsao9n-IconLineWrapper {
                         display: -webkit-box;
                         display: -webkit-flex;
                         display: -ms-flexbox;
@@ -593,8 +597,8 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                         align-items: center;
                       }
                     </style>
-                    <div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
-                      <style data-emotion-css=\\"1k8a5a1-StyledLicenseIconButton\\">
+                    <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
+                      <style data-emotion=\\"css 1k8a5a1-StyledLicenseIconButton\\">
                         .css-1k8a5a1-StyledLicenseIconButton {
                           display: -webkit-box;
                           display: -webkit-flex;
@@ -620,7 +624,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                           animation-duration: 200ms;
                         }</style
                       ><button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -647,12 +651,12 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                             ></path>
                           </g>
                         </svg></button
-                      ><style data-emotion-css=\\"yfqdly-StyledLicenseLabel\\">
+                      ><style data-emotion=\\"css yfqdly-StyledLicenseLabel\\">
                         .css-yfqdly-StyledLicenseLabel {
                           margin-left: 13px;
                         }
                       </style>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Denne lisensen gir deg rett til å dele og bruke dette
                         innholdet på visse vilkår.
                       </div>
@@ -660,7 +664,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                   >
                 </div>
               </li>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
@@ -670,9 +674,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    ><div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -702,14 +706,14 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                           </g>
                         </svg>
                       </button>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Du må alltid oppgi hvem som har laget innholdet.
                       </div>
                     </div></span
                   >
                 </div>
               </li>
-              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz0\\">
+              <li class=\\"css-8rqwto-StyledLicenseIconItem e1vgl0rz1\\">
                 <div
                   data-tooltip=\\"true\\"
                   data-tooltip-label=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
@@ -719,9 +723,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                     data-tooltip-children=\\"true\\"
                     data-state=\\"tooltip-hidden\\"
                     data-reach-tooltip-trigger=\\"\\"
-                    ><div class=\\"css-93k32m-IconLineWrapper euw6nt11\\">
+                    ><div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
                       <button
-                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz1\\"
+                        class=\\"css-1k8a5a1-StyledLicenseIconButton e1vgl0rz0\\"
                       >
                         <svg
                           fill=\\"currentColor\\"
@@ -751,7 +755,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                           </g>
                         </svg>
                       </button>
-                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt10\\">
+                      <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
                         Du kan bare dele innholdet med samme lisens som det
                         opprinnelige innholdet.
                       </div>
@@ -785,9 +789,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion-css=\\"164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
+              data-emotion=\\"css 7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles\\"
             >
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -815,28 +819,28 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
+              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -846,14 +850,14 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               href=\\"http://uds.ak.o.brightcove.com/4806596774001/4806596774001_5389132024001_5389107579001.mp4?pubId=4806596774001&amp;videoId=5389107579001\\"
               download=\\"\\"
               class=\\"
-                css-164ii7z-StyledButton-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles
-                e1ww3yc20
+                css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles
+                e68h79x0
               \\"
               >Last ned video</a
             ><style
-              data-emotion-css=\\"xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles\\"
+              data-emotion=\\"css 5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles\\"
             >
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -885,40 +889,40 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles[disabled] {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:hover,
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:focus {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles:disabled {
+              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -929,7 +933,7 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
               data-copied-title=\\"Kopiert!\\"
               data-copy-string='<iframe title=\\"Offentlige debatter\\" aria-label=\\"Offentlige debatter\\" src=\\"https://players.brightcove.net/4806596774001/BkLm8fT_default/index.html?videoId=ref:125442\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen scrolling=\\"no\\" frameborder=\\"0\\" loading=\\"lazy\\"></iframe>'
               class=\\"
-                css-xlko67-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-ButtonStyles
+                css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles
                 e1ww3yc20
               \\"
             >

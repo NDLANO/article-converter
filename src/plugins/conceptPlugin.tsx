@@ -77,7 +77,6 @@ const renderInline = (
   return render(
     <Notion
       id={`notion_id_${id}_${locale}`}
-      ariaLabel={t(locale, 'concept.showDescription')}
       title={concept.title?.title ?? ''}
       content={
         <>
@@ -160,7 +159,6 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     return render(
       <Notion
         id={`notion_id_${contentId}`}
-        ariaLabel={t(locale, 'concept.showDescription')}
         title={t(locale, 'concept.error.title')}
         content={
           <NotionDialogContent>
