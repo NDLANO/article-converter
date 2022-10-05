@@ -5,13 +5,14 @@
       {
         "targets": {
           "node": "current"
-        },
-      },
+        }
+      }
     ],
-    "@babel/preset-react",
+    ["@babel/preset-react", { "runtime": "automatic", "importSource": "@emotion/react" }],
     "@babel/preset-typescript"
   ],
   "plugins": [
+    "@emotion",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-optional-chaining"
   ]

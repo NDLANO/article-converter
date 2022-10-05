@@ -54,7 +54,7 @@ Object {
 exports[`app/fetchAndTransformArticle 4835 2`] = `
 "<section>
   <p>Forslag til årsplan 1P</p>
-  <style data-emotion-css=\\"1x6ir33-FileListSection\\">
+  <style data-emotion=\\"css 1x6ir33-FileListSection\\">
     .css-1x6ir33-FileListSection {
       margin: 52px 0;
       padding: 13px 0 26px 26px;
@@ -73,15 +73,12 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
       width: 18px;
     }
   </style>
-  <section class=\\"css-1x6ir33-FileListSection e1o67ylf0\\">
-    <style data-emotion-css=\\"t1hjdw-FileListHeading\\">
+  <section class=\\"css-1x6ir33-FileListSection e1o67ylf2\\">
+    <style data-emotion=\\"css t1hjdw-FileListHeading\\">
       .css-t1hjdw-FileListHeading {
         font-size: 16px;
         font-size: 0.8888888888888888rem;
         line-height: 18px;
-        -webkit-letter-spacing: 0.05em;
-        -moz-letter-spacing: 0.05em;
-        -ms-letter-spacing: 0.05em;
         letter-spacing: 0.05em;
         margin: 0 0 6.5px 0;
         padding-bottom: 6.5px;
@@ -91,14 +88,14 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
       }
     </style>
     <h1 class=\\"css-t1hjdw-FileListHeading e1o67ylf1\\">Filer</h1>
-    <style data-emotion-css=\\"112nvuy-FilesList\\">
-      .css-112nvuy-FilesList {
+    <style data-emotion=\\"css 1wlo79s-FilesList\\">
+      .css-1wlo79s-FilesList {
         margin: 0;
         padding: 0;
       }
     </style>
-    <ul class=\\"css-112nvuy-FilesList e1o67ylf2\\">
-      <style data-emotion-css=\\"84h7ig-FileListItem\\">
+    <ul class=\\"css-1wlo79s-FilesList e1o67ylf0\\">
+      <style data-emotion=\\"css 84h7ig-FileListItem\\">
         .css-84h7ig-FileListItem {
           font-size: 18px;
           font-size: 1rem;
@@ -114,6 +111,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           -webkit-box-align: center;
           -ms-flex-align: center;
           align-items: center;
+          -webkit-box-flex-wrap: wrap;
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap;
@@ -126,9 +124,9 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           }
         }
       </style>
-      <li class=\\"css-84h7ig-FileListItem ei1p2nz2\\">
-        <style data-emotion-css=\\"sy3tci-FileLink\\">
-          .css-sy3tci-FileLink {
+      <li class=\\"css-84h7ig-FileListItem ei1p2nz0\\">
+        <style data-emotion=\\"css 1gnmq79-FileLink\\">
+          .css-1gnmq79-FileLink {
             box-shadow: none;
             position: relative;
             color: #20588f;
@@ -142,12 +140,12 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             -ms-flex-align: center;
             align-items: center;
           }
-          .css-sy3tci-FileLink:last-child {
+          .css-1gnmq79-FileLink:last-child {
             margin-right: 0;
           }
-          .css-sy3tci-FileLink:hover .ei1p2nz0,
-          .css-sy3tci-FileLink:focus .ei1p2nz0,
-          .css-sy3tci-FileLink:active .ei1p2nz0 {
+          .css-1gnmq79-FileLink:hover .ei1p2nz2,
+          .css-1gnmq79-FileLink:focus .ei1p2nz2,
+          .css-1gnmq79-FileLink:active .ei1p2nz2 {
             box-shadow: none;
           }</style
         ><a
@@ -155,7 +153,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
           target=\\"_blank\\"
           aria-label=\\"Forslag til årsplan 1P (DOC)\\"
           aria-describedby=\\"testid_doc\\"
-          class=\\"css-sy3tci-FileLink ei1p2nz1\\"
+          class=\\"css-1gnmq79-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
             aria-hidden=\\"true\\"
@@ -178,7 +176,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
             data-tooltip-label=\\"Last ned fil:  1p_arsplan_2013-2014_nynorsk.doc\\"
             data-tooltip-from-article-converter=\\"true\\"
           >
-            <style data-emotion-css=\\"qyvxt5-StyledTooltip\\">
+            <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
               .css-qyvxt5-StyledTooltip {
                 color: #fff;
                 z-index: 99999;
@@ -200,24 +198,24 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               data-tooltip-children=\\"true\\"
               data-state=\\"tooltip-hidden\\"
               data-reach-tooltip-trigger=\\"\\"
-              ><style data-emotion-css=\\"s0hjrl-LinkText\\">
-                .css-s0hjrl-LinkText > span {
+              ><style data-emotion=\\"css 1cidfkq-LinkText\\">
+                .css-1cidfkq-LinkText > span {
                   box-shadow: inset 0 -1px;
                 }</style
-              ><span class=\\"css-s0hjrl-LinkText ei1p2nz0\\"
+              ><span class=\\"css-1cidfkq-LinkText ei1p2nz2\\"
                 ><span>Forslag til årsplan 1P (DOC)</span></span
               ></span
             >
           </div></a
         >
       </li>
-      <li class=\\"css-84h7ig-FileListItem ei1p2nz2\\">
+      <li class=\\"css-84h7ig-FileListItem ei1p2nz0\\">
         <a
           href=\\"https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt\\"
           target=\\"_blank\\"
           aria-label=\\"Forslag til årsplan 1P (ODT)\\"
           aria-describedby=\\"testid_odt\\"
-          class=\\"css-sy3tci-FileLink ei1p2nz1\\"
+          class=\\"css-1gnmq79-FileLink ei1p2nz1\\"
           ><svg
             fill=\\"currentColor\\"
             aria-hidden=\\"true\\"
@@ -244,7 +242,7 @@ exports[`app/fetchAndTransformArticle 4835 2`] = `
               data-tooltip-children=\\"true\\"
               data-state=\\"tooltip-hidden\\"
               data-reach-tooltip-trigger=\\"\\"
-              ><span class=\\"css-s0hjrl-LinkText ei1p2nz0\\"
+              ><span class=\\"css-1cidfkq-LinkText ei1p2nz2\\"
                 ><span>Forslag til årsplan 1P (ODT)</span></span
               ></span
             >
