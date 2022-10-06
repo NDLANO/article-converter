@@ -206,10 +206,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       <h2>Test1</h2>
       <div>Stuff</div>
     </div>
-    <style
-      data-emotion=\\"css 18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles\\"
-    >
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles {
+    <style data-emotion=\\"css uadqxs-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -232,34 +230,32 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:hover,
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
         border: 2px solid #184673;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles[disabled] {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
         cursor: not-allowed;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
       class=\\"
         c-factbox__button c-factbox__button--collapsed
-        css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles
+        css-uadqxs-StyledButton-buttonStyle-ButtonStyles
         e1ww3yc20
       \\"
       title=\\"Åpne faktaboks\\"
     ></button
-    ><style
-      data-emotion=\\"css 18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles\\"
-    >
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles {
+    ><style data-emotion=\\"css uadqxs-StyledButton-buttonStyle-ButtonStyles\\">
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles {
         display: inline-block;
         color: #ffffff;
         background-color: #20588f;
@@ -282,26 +278,26 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
         box-shadow: none;
         text-align: center;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:hover,
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:hover,
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
         color: white;
         background-color: #184673;
         border: 2px solid #184673;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles[disabled] {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles[disabled] {
         color: #777777;
         background-color: #e6e6e6;
         border-color: transparent;
         cursor: not-allowed;
       }
-      .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+      .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
         box-shadow: 0 0 2px #20588f;
       }</style
     ><button
       type=\\"button\\"
       class=\\"
         c-factbox__button c-factbox__button--open
-        css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles
+        css-uadqxs-StyledButton-buttonStyle-ButtonStyles
         e1ww3yc20
       \\"
       title=\\"Lukk faktaboks\\"
@@ -313,10 +309,8 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
     <h2>Test2</h2>
     <div>Other stuff</div>
   </div>
-  <style
-    data-emotion=\\"css 18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles\\"
-  >
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles {
+  <style data-emotion=\\"css uadqxs-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -339,34 +333,32 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:hover,
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
       border: 2px solid #184673;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles[disabled] {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
       cursor: not-allowed;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
     class=\\"
       c-factbox__button c-factbox__button--collapsed
-      css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles
+      css-uadqxs-StyledButton-buttonStyle-ButtonStyles
       e1ww3yc20
     \\"
     title=\\"Åpne faktaboks\\"
   ></button
-  ><style
-    data-emotion=\\"css 18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles\\"
-  >
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles {
+  ><style data-emotion=\\"css uadqxs-StyledButton-buttonStyle-ButtonStyles\\">
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles {
       display: inline-block;
       color: #ffffff;
       background-color: #20588f;
@@ -389,26 +381,26 @@ exports[`transformAsides replaces factAsides with factbox component 1`] = `
       box-shadow: none;
       text-align: center;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:hover,
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:hover,
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
       color: white;
       background-color: #184673;
       border: 2px solid #184673;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles[disabled] {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles[disabled] {
       color: #777777;
       background-color: #e6e6e6;
       border-color: transparent;
       cursor: not-allowed;
     }
-    .css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles:focus {
+    .css-uadqxs-StyledButton-buttonStyle-ButtonStyles:focus {
       box-shadow: 0 0 2px #20588f;
     }</style
   ><button
     type=\\"button\\"
     class=\\"
       c-factbox__button c-factbox__button--open
-      css-18pvnfn-StyledButton-buttonStyle-buttonStyle-ButtonStyles-ButtonStyles
+      css-uadqxs-StyledButton-buttonStyle-ButtonStyles
       e1ww3yc20
     \\"
     title=\\"Lukk faktaboks\\"
