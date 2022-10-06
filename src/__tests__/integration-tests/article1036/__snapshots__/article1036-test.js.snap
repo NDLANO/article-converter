@@ -462,9 +462,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               >
               <div>
                 <style
-                  data-emotion=\\"css 12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles\\"
+                  data-emotion=\\"css 17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles\\"
                 >
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles {
                     display: inline-block;
                     color: #ffffff;
                     background-color: #20588f;
@@ -522,48 +522,48 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     padding-left: 13px;
                     padding-right: 13px;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:hover,
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:focus {
                     color: white;
                     background-color: #184673;
                     border: 2px solid #184673;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles[disabled] {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles[disabled] {
                     color: #777777;
                     background-color: #e6e6e6;
                     border-color: transparent;
                     cursor: not-allowed;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:focus {
                     box-shadow: 0 0 2px #20588f;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:hover,
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:hover,
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:focus {
                     color: white;
                     background-color: #20588f;
                     border: 2px solid transparent;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:disabled {
                     color: #777777;
                     border: 2px solid transparent;
                     background-color: #e6e6e6;
                     cursor: not-allowed;
                   }
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:hover,
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:focus,
-                  .css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles:disabled {
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:hover,
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:focus,
+                  .css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles:disabled {
                     border-width: 1px;
                   }</style
                 ><button
@@ -571,7 +571,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   data-dialog-trigger-id=\\"figure-1-2357\\"
                   data-dialog-source-id=\\"figure-1-2357\\"
                   class=\\"
-                    css-12rgz1m-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-small-small-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-rounded-rounded-ButtonStyles-ButtonStyles
+                    css-17u10wf-StyledButton-buttonStyle-outlineStyle-outline-small-outlineStyle-outlineWithSize-rounded-ButtonStyles
                     e1ww3yc20
                   \\"
                 >
@@ -1113,8 +1113,8 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         </h3>
         <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
-            <style data-emotion=\\"css ok1dvq-StyledList-StyledList-StyledList\\">
-              .css-ok1dvq-StyledList-StyledList-StyledList {
+            <style data-emotion=\\"css 63d9qi-StyledList-StyledList\\">
+              .css-63d9qi-StyledList-StyledList {
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -1129,18 +1129,16 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 fill: black;
                 margin-right: 0;
               }
-              .css-ok1dvq-StyledList-StyledList-StyledList li:first-of-type {
+              .css-63d9qi-StyledList-StyledList li:first-of-type {
                 margin-bottom: 13px;
                 border-bottom: 1px solid #a5bcd3;
                 padding-bottom: 13px;
               }
-              .css-ok1dvq-StyledList-StyledList-StyledList
-                li:first-of-type
-                svg {
+              .css-63d9qi-StyledList-StyledList li:first-of-type svg {
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-ok1dvq-StyledList-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-63d9qi-StyledList-StyledList e1vg7nmp0\\">
               <style data-emotion=\\"css 8rqwto-StyledLicenseIconItem\\">
                 .css-8rqwto-StyledLicenseIconItem {
                   display: -webkit-box;
@@ -1406,9 +1404,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           </ul>
           <div class=\\"c-figure-license__cta-block\\">
             <style
-              data-emotion=\\"css 5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles\\"
+              data-emotion=\\"css lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles\\"
             >
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -1440,40 +1438,40 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:hover,
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles[disabled] {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:hover,
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
                 cursor: not-allowed;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:hover,
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:focus {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:hover,
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles:disabled {
+              .css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -1484,15 +1482,15 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               data-copied-title=\\"Kopiert!\\"
               data-copy-string=\\"Fottur på Kvamsfjellet, av Storfjell, I., Aftenposten, NTB scanpix. (https://test.api.ndla.no/image-api/raw/sxd08dab.jpg). CC BY-NC-SA 4.0.\\"
               class=\\"
-                css-5p2wgy-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-outlineStyle-outlineStyle-outlineWithSize-outlineWithSize-ButtonStyles-ButtonStyles
+                css-lebu2v-StyledButton-buttonStyle-outlineStyle-outline-outlineStyle-outlineWithSize-ButtonStyles
                 e1ww3yc20
               \\"
             >
               Kildehenvisning</button
             ><style
-              data-emotion=\\"css 7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles\\"
+              data-emotion=\\"css a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles\\"
             >
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles {
                 display: inline-block;
                 color: #ffffff;
                 background-color: #20588f;
@@ -1520,28 +1518,28 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 border: 2px solid #20588f;
                 box-shadow: none;
               }
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #184673;
                 border: 2px solid #184673;
               }
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles[disabled] {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles[disabled] {
                 color: #777777;
                 background-color: #e6e6e6;
                 border-color: transparent;
                 cursor: not-allowed;
               }
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 box-shadow: 0 0 2px #20588f;
               }
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:hover,
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:focus {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:hover,
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:focus {
                 color: white;
                 background-color: #20588f;
                 border: 2px solid transparent;
               }
-              .css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles:disabled {
+              .css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles:disabled {
                 color: #777777;
                 border: 2px solid transparent;
                 background-color: #e6e6e6;
@@ -1551,7 +1549,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               href=\\"https://test.api.ndla.no/image-api/raw/sxd08dab.jpg?download=true\\"
               download=\\"\\"
               class=\\"
-                css-7jnb38-Anchor-StyledButton-buttonStyle-buttonStyle-outlineStyle-outlineStyle-outline-outline-ButtonStyles-ButtonStyles
+                css-a712mp-Anchor-StyledButton-buttonStyle-outlineStyle-outline-ButtonStyles
                 efbnk9h1
               \\"
               >Last ned bildet</a
