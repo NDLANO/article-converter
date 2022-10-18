@@ -17,7 +17,6 @@ import { Remarkable } from 'remarkable';
 import { fetchConcept } from '../api/conceptApi';
 import config from '../config';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
-import t from '../locale/i18n';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 import { render } from '../utils/render';
 
