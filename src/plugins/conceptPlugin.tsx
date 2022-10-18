@@ -153,22 +153,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   };
 
   const onError = (embed: ConceptEmbed, locale: LocaleType) => {
-    const { contentId, linkText } = embed.data;
-
-    const children = typeof linkText === 'string' ? linkText : undefined;
-    return render(
-      <Notion
-        id={`notion_id_${contentId}`}
-        title={t(locale, 'concept.error.title')}
-        content={
-          <NotionDialogContent>
-            <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
-          </NotionDialogContent>
-        }>
-        {children}
-      </Notion>,
-      locale,
-    );
+    // Concept not found, just display the text
+    const { linkText } = embed.data;
+    return linkText;
   };
 
   const embedToHTML = async (embed: TransformedConceptEmbedType, locale: LocaleType) => {
