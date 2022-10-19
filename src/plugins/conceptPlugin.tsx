@@ -17,7 +17,6 @@ import { Remarkable } from 'remarkable';
 import { fetchConcept } from '../api/conceptApi';
 import config from '../config';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
-import t from '../locale/i18n';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 import { render } from '../utils/render';
 
@@ -153,22 +152,9 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
   };
 
   const onError = (embed: ConceptEmbed, locale: LocaleType) => {
-    const { contentId, linkText } = embed.data;
-
-    const children = typeof linkText === 'string' ? linkText : undefined;
-    return render(
-      <Notion
-        id={`notion_id_${contentId}`}
-        title={t(locale, 'concept.error.title')}
-        content={
-          <NotionDialogContent>
-            <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
-          </NotionDialogContent>
-        }>
-        {children}
-      </Notion>,
-      locale,
-    );
+    // Concept not found, just display the text
+    const { linkText } = embed.data;
+    return linkText;
   };
 
   const embedToHTML = async (embed: TransformedConceptEmbedType, locale: LocaleType) => {
