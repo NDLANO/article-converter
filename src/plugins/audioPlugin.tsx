@@ -267,7 +267,12 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     const image = imageMeta;
 
     const { introduction, coverPhoto } = podcastMeta || {};
-    const subtitle = series?.title;
+    const subtitle = series
+      ? {
+          title: series.title.title,
+          url: `${config.ndlaFrontendDomain}/podkast/${series.id}`,
+        }
+      : undefined;
 
     const textVersion = manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
     const description = renderMarkdown(introduction ?? '');
