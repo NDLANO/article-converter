@@ -199,6 +199,10 @@ export default function createBrightcovePlugin(
             licenseRights={license.rights}
             authors={captionAuthors}
             hasLinkedVideo={!!linkedVideoId}
+            linkedVideoMessages={{
+              original: t(locale, 'figure.button.original'),
+              alternative: t(locale, 'figure.button.alternative'),
+            }}
           />
           <FigureLicenseDialog
             id={brightcove.id}
