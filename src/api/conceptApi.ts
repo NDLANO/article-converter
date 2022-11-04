@@ -6,32 +6,32 @@
  *
  */
 
-import fetch from 'isomorphic-fetch';
-import { IConcept } from '@ndla/types-concept-api';
+import { IConcept, IConceptSearchResult } from '@ndla/types-concept-api';
 import {
   apiResourceUrl,
   resolveJsonOrRejectWithError,
   headerWithAccessToken,
 } from '../utils/apiHelpers';
-import { EmbedType, LocaleType } from '../interfaces';
-import { ConceptEmbedType } from '../plugins/conceptPlugin';
+import { ApiOptions, PlainEmbed } from '../interfaces';
+import { ConceptEmbedData, ConceptEmbed } from '../plugins/conceptPlugin';
+import { ConceptListEmbed, ConceptListEmbedData } from '../plugins/conceptListPlugin';
+import { ndlaFetch } from './ndlaFetch';
 
 export const fetchConcept = async (
-  embed: EmbedType,
-  accessToken: string,
-  language: LocaleType,
+  embed: PlainEmbed<ConceptEmbedData>,
+  apiOptions: ApiOptions,
   options: {
     draftConcept?: boolean;
   } = {},
   method: string = 'GET',
-): Promise<ConceptEmbedType> => {
+): Promise<ConceptEmbed> => {
   const endpoint = options.draftConcept ? 'drafts' : 'concepts';
   const url = apiResourceUrl(
-    `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${language}&fallback=true`,
+    `/concept-api/v1/${endpoint}/${embed.data.contentId}?language=${apiOptions.lang}&fallback=true`,
   );
-  const response = await fetch(url, {
+  const response = await ndlaFetch(url, {
     method,
-    headers: headerWithAccessToken(accessToken),
+    headers: headerWithAccessToken(apiOptions.accessToken),
   });
 
   const cacheControlResponse = response.headers.get('cache-control');
@@ -41,4 +41,29 @@ export const fetchConcept = async (
 
   const concept = await resolveJsonOrRejectWithError<IConcept>(response);
   return { ...embed, concept, responseHeaders };
+};
+
+export const fetchConcepts = async (
+  embed: PlainEmbed<ConceptListEmbedData>,
+  apiOptions: ApiOptions,
+  method: string = 'GET',
+): Promise<ConceptListEmbed> => {
+  const subjectId = embed.data.subjectId;
+  const url = apiResourceUrl(
+    `/concept-api/v1/concepts/?tags=${embed.data.tag}&language=${apiOptions.lang}&page-size=1000${
+      subjectId && `&subjects=${subjectId}`
+    }`,
+  );
+  const response = await ndlaFetch(url, {
+    method,
+    headers: headerWithAccessToken(apiOptions.accessToken),
+  });
+
+  const cacheControlResponse = response.headers.get('cache-control');
+  const responseHeaders: Record<string, string> = cacheControlResponse
+    ? { 'cache-control': cacheControlResponse }
+    : {};
+
+  const result = await resolveJsonOrRejectWithError<IConceptSearchResult>(response);
+  return { ...embed, concepts: result.results, responseHeaders };
 };

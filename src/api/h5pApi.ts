@@ -11,8 +11,8 @@ import queryString from 'query-string';
 import config from '../config';
 
 import { headerWithAccessToken, resolveJsonOrRejectWithError } from '../utils/apiHelpers';
-import { EmbedType } from '../interfaces';
-import { H5PEmbedType } from '../plugins/h5pPlugin';
+import { H5pEmbedData } from '../plugins/h5pPlugin';
+import { PlainEmbed } from '../interfaces';
 
 const getHeaders = () => ({
   headers: {
@@ -49,10 +49,14 @@ export const fetchH5pLicenseInformation = async (
   }
 };
 
+export interface OembedPreviewData {
+  oembed: H5POembedResponse;
+}
+
 export const fetchPreviewOembed = async (
-  embed: EmbedType,
+  embed: PlainEmbed<H5pEmbedData>,
   accessToken: string,
-): Promise<H5PEmbedType> => {
+): Promise<OembedPreviewData> => {
   const url = `${config.h5pHost}/oembed/preview?${queryString.stringify({
     url: embed.data.url,
   })}`;
@@ -62,8 +66,6 @@ export const fetchPreviewOembed = async (
     ...getHeaders(),
   });
   const oembed = await resolveJsonOrRejectWithError<H5POembedResponse>(response);
-  return {
-    ...embed,
-    oembed,
-  };
+
+  return { oembed };
 };

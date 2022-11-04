@@ -8,19 +8,20 @@
 
 import React from 'react';
 // @ts-ignore
-import { RelatedArticle } from '@ndla/ui/lib/RelatedArticleList';
+import { RelatedArticle } from '@ndla/ui';
+import { isEqual } from 'lodash';
 import cheerio from 'cheerio';
-import ContentTypeBadge from '@ndla/ui/lib/ContentTypeBadge';
-import constants from '@ndla/ui/lib/model';
+import { ContentTypeBadge } from '@ndla/ui';
+import { constants } from '@ndla/ui';
 import { isObject } from 'lodash/fp';
 import { IArticleV2 } from '@ndla/types-article-api';
-import log from '../utils/logger';
+import getLogger from '../utils/logger';
 import { fetchArticle } from '../api/articleApi';
 import { ArticleResource, fetchArticleResource } from '../api/taxonomyApi';
 import config from '../config';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { ApiOptions, Plugin, Embed, LocaleType, TransformOptions } from '../interfaces';
 
 const RESOURCE_TYPE_SUBJECT_MATERIAL = 'urn:resourcetype:subjectMaterial';
 const RESOURCE_TYPE_TASKS_AND_ACTIVITIES = 'urn:resourcetype:tasksAndActivities';
@@ -110,11 +111,18 @@ const getRelatedArticleProps = (
 
 type RelatedArticleType = IArticleV2 & { resource?: ArticleResource };
 
-export interface RelatedContentEmbedType extends EmbedType {
+export interface RelatedContentEmbed extends Embed<RelatedContentEmbedData> {
   article?: RelatedArticleType;
 }
 
-export interface RelatedContentPlugin extends Plugin<RelatedContentEmbedType> {
+export interface RelatedContentEmbedData {
+  resource: 'related-content';
+  articleId?: string;
+  url?: string;
+  title?: string;
+}
+
+export interface RelatedContentPlugin extends Plugin<RelatedContentEmbed, RelatedContentEmbedData> {
   resource: 'related-content';
 }
 
@@ -122,20 +130,16 @@ export default function createRelatedContentPlugin(
   options: TransformOptions = {},
 ): RelatedContentPlugin {
   async function fetchResource(
-    embed: EmbedType,
-    accessToken: string,
-    language: LocaleType,
-    feideToken: string,
-  ): Promise<RelatedContentEmbedType> {
-    if (!embed.data) return embed;
-
+    embed: RelatedContentEmbed,
+    apiOptions: ApiOptions,
+  ): Promise<RelatedContentEmbed> {
     const articleId = embed.data.articleId;
 
     if (articleId && (typeof articleId === 'string' || typeof articleId === 'number')) {
       try {
         const [{ article, responseHeaders }, resource] = await Promise.all([
-          fetchArticle(articleId, accessToken, feideToken, language),
-          fetchArticleResource(articleId, accessToken, language),
+          fetchArticle(articleId, apiOptions),
+          fetchArticleResource(articleId, apiOptions),
         ]);
         return {
           ...embed,
@@ -143,7 +147,7 @@ export default function createRelatedContentPlugin(
           article: article ? { ...article, resource } : undefined,
         };
       } catch (error) {
-        log.error(error);
+        getLogger().error(error);
         return embed;
       }
     }
@@ -151,16 +155,16 @@ export default function createRelatedContentPlugin(
     return embed;
   }
 
-  const getEntryNumber = (embed: EmbedType) => {
+  const getEntryNumber = (embed: RelatedContentEmbed) => {
     const siblings = embed.embed?.parent()?.children()?.toArray() || [];
 
     const idx = siblings.findIndex((e) => {
-      return cheerio(e).data() === embed.data;
+      return isEqual(cheerio(e).data(), embed.data);
     });
     return idx + 1;
   };
 
-  const embedToHTML = async (embed: RelatedContentEmbedType, lang: LocaleType) => {
+  const embedToHTML = async (embed: RelatedContentEmbed, lang: LocaleType) => {
     if (!embed.article && !embed.data.url) {
       return { html: '' };
     }
@@ -174,7 +178,7 @@ export default function createRelatedContentPlugin(
           <RelatedArticle
             key={`external-learning-resources-${relatedArticleEntryNum}`}
             title={embed.data.title as string}
-            introduction={(embed.data.metaDescription as string) || ''}
+            introduction=""
             linkInfo={`${t(lang, 'related.linkInfo')} ${
               // Get domain name only from url
               embed.data.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n]+)/im)?.[1] ||

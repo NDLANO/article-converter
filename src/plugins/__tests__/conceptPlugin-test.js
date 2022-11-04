@@ -8,10 +8,11 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createConceptPlugin from '../conceptPlugin';
 
 test('fetch concept and draft concept', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   let conceptPlugin = createConceptPlugin();
@@ -28,8 +29,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -45,8 +48,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 
@@ -62,8 +67,10 @@ test('fetch concept and draft concept', async () => {
     {
       data: { contentId: '3' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+    },
   );
   expect(resource3).toMatchSnapshot();
 

@@ -60,6 +60,7 @@ const article = {
   },
   created: '2016-05-31T12:16:33Z',
   updated: '2017-09-15T06:42:10Z',
+  published: '2017-09-15T06:42:10Z',
   updatedBy: 'content-import-client',
   articleType: 'topic-article',
   supportedLanguages: ['nb'],

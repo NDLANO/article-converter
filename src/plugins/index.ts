@@ -19,7 +19,8 @@ import createFootnotePlugin from './footNotePlugin';
 import createConceptPlugin from './conceptPlugin';
 import createRelatedContent from './relatedContentPlugin';
 import createCodePlugin from './codePlugin';
-import { TransformOptions, PluginUnion } from '../interfaces';
+import createConceptListPlugin from './conceptListPlugin';
+import { TransformOptions, AnyPlugin } from '../interfaces';
 
 export {
   createNRKPlugin,
@@ -35,9 +36,10 @@ export {
   createConceptPlugin,
   createRelatedContent,
   createCodePlugin,
+  createConceptListPlugin,
 };
 
-const plugins = (options: TransformOptions): PluginUnion[] => [
+const plugins = (options: TransformOptions): AnyPlugin[] => [
   createNRKPlugin(),
   createAudioPlugin(options),
   createImagePlugin(options),
@@ -46,11 +48,12 @@ const plugins = (options: TransformOptions): PluginUnion[] => [
   createExternalPlugin(options),
   createContentLinkPlugin(options),
   createErrorPlugin(),
-  createIframePlugin(),
+  createIframePlugin(options),
   createFootnotePlugin(),
   createConceptPlugin(options),
   createRelatedContent(options),
   createCodePlugin(),
+  createConceptListPlugin(options),
 ];
 
 export default plugins;

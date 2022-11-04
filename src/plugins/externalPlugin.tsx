@@ -11,24 +11,49 @@ import { fetchOembed, OembedProxyResponse } from '../api/oembedProxyApi';
 import { wrapInFigure, errorSvgSrc } from './pluginHelpers';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { ApiOptions, Plugin, LocaleType, TransformOptions, Embed, PlainEmbed } from '../interfaces';
 
-export interface OembedEmbedType extends EmbedType {
+export interface OembedEmbed extends Embed<OembedEmbedData> {
   oembed: OembedProxyResponse;
 }
 
-export interface OembedPlugin extends Plugin<OembedEmbedType> {
+export interface OembedEmbedData {
+  resource: 'external' | 'iframe';
+  url: string;
+  type?: string;
+  metaData?: any;
+  caption?: string;
+  title?: string;
+  height?: string;
+}
+
+export interface OembedPlugin extends Plugin<OembedEmbed, OembedEmbedData> {
   resource: 'external';
 }
 
 export default function createExternalPlugin(
   options: TransformOptions = { concept: false },
 ): OembedPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string): Promise<OembedEmbedType> => {
-    return fetchOembed(embed, accessToken);
+  const fetchResource = async (
+    embed: PlainEmbed<OembedEmbedData>,
+    apiOptions: ApiOptions,
+  ): Promise<OembedEmbed> => {
+    const resolve = async () => {
+      const oembedData = await fetchOembed(embed, apiOptions.accessToken);
+      return {
+        ...embed,
+        data: {
+          ...embed.data,
+          url: oembedData.url || embed.data.url,
+        },
+        oembed: oembedData.oembed,
+      };
+    };
+
+    return resolve();
   };
 
-  const onError = (embed: OembedEmbedType, locale: LocaleType) =>
+  const onError = (embed: OembedEmbed, locale: LocaleType) =>
     render(
       <figure className={options.concept ? '' : 'c-figure'}>
         <img alt={t(locale, 'external.error')} src={errorSvgSrc} />
@@ -36,8 +61,8 @@ export default function createExternalPlugin(
       </figure>,
     );
 
-  const embedToHTML = async (embed: OembedEmbedType) => ({
-    html: wrapInFigure(embed.oembed.html, true, options.concept),
+  const embedToHTML = async (embed: OembedEmbed) => ({
+    html: wrapInFigure(embed.oembed?.html, true, options.concept),
   });
 
   return {

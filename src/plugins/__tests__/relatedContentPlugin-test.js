@@ -8,7 +8,7 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createRelatedContentPlugin from '../relatedContentPlugin';
 
 const articleResource = [
@@ -52,8 +52,11 @@ test('fetchResource for two related articles', async () => {
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -61,13 +64,48 @@ test('fetchResource for two related articles', async () => {
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 });
 
+test('fetchResource for different taxonomy version', async () => {
+  const relatedContentPlugin = createRelatedContentPlugin();
+
+  nock('http://ndla-api')
+    .get(`/article-api/v2/articles/1?language=nb&fallback=true`)
+    .reply(200, {
+      title: { title: `title1` },
+      introduction: { introduction: `introduction1}` },
+    });
+  nock('http://ndla-api', {
+    reqheaders: {
+      versionhash: 'ndla',
+    },
+  })
+    .get(`/taxonomy/v1/resources?contentURI=urn:article:1&language=nb`)
+    .reply(200, articleResource);
+
+  const resource1 = await relatedContentPlugin.fetchResource(
+    {
+      data: { articleId: '1' },
+    },
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+      versionHash: 'ndla',
+    },
+  );
+  expect(resource1).toMatchSnapshot();
+});
+
 test('fetchResource for an external article', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -79,8 +117,11 @@ test('fetchResource for an external article', async () => {
         url: 'https://helsedirektoratet.no/folkehelse/alkohol/forbud-mot-alkoholreklame',
       },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(externalResource).toMatchSnapshot();
 
@@ -88,6 +129,7 @@ test('fetchResource for an external article', async () => {
 });
 
 test('fetchResource for two related articles, where one could not be fetched from article-api', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -110,8 +152,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -119,8 +164,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 
@@ -128,6 +176,7 @@ test('fetchResource for two related articles, where one could not be fetched fro
 });
 
 test('fetchResource for two related articles, where one could not be fetched from taxonomy-api', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const relatedContentPlugin = createRelatedContentPlugin();
@@ -155,8 +204,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource1).toMatchSnapshot();
 
@@ -164,8 +216,11 @@ test('fetchResource for two related articles, where one could not be fetched fro
     {
       data: { articleId: '2' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
   expect(resource2).toMatchSnapshot();
 

@@ -21,9 +21,15 @@ import { checkIfFileExists } from './api/filesApi';
 import { LocaleType, TransformOptions } from './interfaces';
 
 export const moveReactPortals = (content: CheerioAPI) => {
+  content(`[data-react-universal-portal='true']`).each((_, el) => {
+    content(el).attr('data-from-article-converter', 'true');
+  });
   const dialog = cheerio.html(content(`[data-react-universal-portal='true']`));
   content(`[data-react-universal-portal='true']`).remove();
   content('body').append(dialog);
+
+  // Clean up by removing all portals inside portals
+  content(`[data-react-universal-portal='true'] [data-react-universal-portal='true']`).remove();
 };
 
 export const transformAsides = (content: CheerioAPI) => {
@@ -142,7 +148,11 @@ export const transformLinksInOembed = (
 export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
   content('h2')
     .filter((i, el) => {
-      return cheerio(el).parents('figure, details, aside, div[class=c-bodybox]').length === 0;
+      return (
+        cheerio(el).parents(
+          'figure, details, aside, div.c-bodybox, section.c-related-articles, div.c-concept-list',
+        ).length === 0
+      );
     })
     .each((idx, h2) => {
       const headerElement = cheerio(h2);
@@ -152,6 +162,13 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
         if (container) headerElement.replaceWith(container);
       }
     });
+};
+
+export const addTooltipAttributes = (content: CheerioAPI) => {
+  content('div[data-tooltip]').each((idx, tooltip) => {
+    const tooltipElement = cheerio(tooltip);
+    tooltipElement.attr('data-tooltip-from-article-converter', 'true');
+  });
 };
 
 export const htmlTransforms: ((
@@ -169,7 +186,6 @@ export const htmlTransforms: ((
     content('ul[data-type="two-column"]').removeAttr('data-type').addClass('o-list--two-columns'),
   (content: CheerioAPI) =>
     content('p[data-align="center"]').removeAttr('data-align').addClass('u-text-center'),
-  moveReactPortals,
   (content: CheerioAPI) =>
     content('span[data-size="large"]').removeAttr('data-size').addClass('u-large-body-text'),
   (content: CheerioAPI) => content('h3').attr('tabindex', '0'),
@@ -178,5 +194,7 @@ export const htmlTransforms: ((
   transformTables,
   transformFileList,
   transformLinksInOembed,
+  addTooltipAttributes,
+  moveReactPortals,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];

@@ -16,17 +16,19 @@ import cors from 'cors';
 import setup from './routes';
 import swaggerDefinition from './swagger/swaggerDefinition';
 import swaggerRoutes from './swagger/swaggerRoutes';
+import loggerMiddleware from './loggerMiddleware';
+import correlationIdMiddleware from './correlationIdMiddleware';
 
 // Swagger settings
 const swaggerOptions = {
   swaggerDefinition: {
     ...swaggerDefinition,
     paths: {
-      '/article-converter/raw/{language}/{article_id}:': swaggerRoutes.getRawArticle,
-      '/article-converter/json/{language}/{article_id}:': swaggerRoutes.getJsonArticle,
-      '/article-converter/html/{language}/{article_id}:': swaggerRoutes.getHtmlArticle,
+      '/article-converter/raw/{language}/{article_id}': swaggerRoutes.getRawArticle,
+      '/article-converter/json/{language}/{article_id}': swaggerRoutes.getJsonArticle,
+      '/article-converter/html/{language}/{article_id}': swaggerRoutes.getHtmlArticle,
       '/article-converter/json/{language}/meta-data': swaggerRoutes.getMetaData,
-      '/article-converter/json/{language}/transform-article:':
+      '/article-converter/json/{language}/transform-article':
         swaggerRoutes.postJsonTransformArticle,
     },
   },
@@ -35,11 +37,12 @@ const swaggerOptions = {
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '2mb' }));
 app.use(
   bodyParser.urlencoded({
     // To support URL-encoded bodies
     extended: true,
+    limit: '2mb',
   }),
 );
 app.use(compression());
@@ -49,6 +52,9 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(correlationIdMiddleware);
+app.use(loggerMiddleware);
 
 setup(app);
 

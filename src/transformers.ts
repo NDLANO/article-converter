@@ -9,26 +9,29 @@
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
 import { compact } from 'lodash';
+import Logger from 'bunyan';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';
 import getEmbedMetaData from './getEmbedMetaData';
 import createPlugins from './plugins';
-import log from './utils/logger';
+import getLogger from './utils/logger';
 import { htmlTransforms } from './htmlTransformers';
 import {
-  PluginUnion,
-  EmbedType,
+  ApiOptions,
+  AnyPlugin,
   LocaleType,
   TransformOptions,
   ResponseHeaders,
+  AnyEmbed,
+  PlainEmbed,
 } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 import { mergeResponseHeaders } from './utils/mergeResponseHeaders';
 
-function logIfLongTime(start: number, timeout: number, action: string, obj: any) {
+function logIfLongTime(log: Logger, start: number, timeout: number, action: string, obj: any) {
   const elapsedTime = performance.now() - start;
   if (elapsedTime > timeout) {
-    console.warn(
+    log.warn(
       `Action '${action}' took ${elapsedTime.toFixed(
         2,
       )}ms, longer than time to warn of ${timeout}ms...`,
@@ -54,25 +57,25 @@ async function executeHtmlTransforms(
 }
 
 export async function getEmbedsResources(
-  embeds: EmbedType[],
-  accessToken: string,
-  feideToken: string,
-  lang: LocaleType,
-  plugins: PluginUnion[],
-): Promise<EmbedType[]> {
+  embeds: PlainEmbed[],
+  apiOptions: ApiOptions,
+  plugins: AnyPlugin[],
+): Promise<AnyEmbed[]> {
+  const log = getLogger();
   return Promise.all(
     embeds.map(async (embed) => {
       const plugin = findPlugin(plugins, embed);
       if (plugin && plugin.fetchResource) {
         const startStamp = performance.now();
         try {
-          const resource = await plugin.fetchResource(embed, accessToken, lang, feideToken);
-          logIfLongTime(startStamp, 500, `Fetching resource`, embed.data);
+          const resource = await plugin.fetchResource(embed, apiOptions);
+
+          logIfLongTime(log, startStamp, 500, `Fetching resource`, embed.data);
           return resource;
         } catch (e) {
           log.warn('Failed to fetch embed resource data for ', embed.data);
           log.warn(e);
-          logIfLongTime(startStamp, 500, `Failed fetching resource`, embed.data);
+          logIfLongTime(log, startStamp, 500, `Failed fetching resource`, embed.data);
           return {
             ...embed,
             status: 'error',
@@ -87,9 +90,7 @@ export async function getEmbedsResources(
 export type TransformFunction = (
   content: CheerioAPI,
   headers: Record<string, string>,
-  lang: LocaleType,
-  accessToken: string,
-  feideToken: string,
+  apiOptions: ApiOptions,
   visualElement: { visualElement: string } | undefined,
   options: TransformOptions,
 ) => Promise<{ html: string | null; embedMetaData: any; responseHeaders?: ResponseHeaders }>;
@@ -97,9 +98,7 @@ export type TransformFunction = (
 export const transform: TransformFunction = async (
   content,
   headers,
-  lang,
-  accessToken,
-  feideToken,
+  apiOptions,
   visualElement,
   options,
 ) => {
@@ -110,22 +109,19 @@ export const transform: TransformFunction = async (
   const transformOptions = { transform, ...options };
   const plugins = createPlugins(transformOptions);
   const embeds = await getEmbedsFromHtml(content);
-  const embedsWithResources = await getEmbedsResources(
-    embeds,
-    accessToken,
-    feideToken,
-    lang,
-    plugins,
+  const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
+
+  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, apiOptions.lang, plugins);
+
+  const embedMetaData = await getEmbedMetaData(embedsWithResources, apiOptions.lang, plugins);
+
+  const fetchedResourceHeaders = compact(
+    embedsWithResources.map((x) => 'responseHeaders' in x && x.responseHeaders),
   );
-
-  const htmlHeaders = await replaceEmbedsInHtml(embedsWithResources, lang, plugins);
-  const embedMetaData = await getEmbedMetaData(embedsWithResources, lang, plugins);
-
-  const fetchedResourceHeaders = compact(embedsWithResources.map((x) => x.responseHeaders));
 
   const allResponseHeaders = [...fetchedResourceHeaders, ...htmlHeaders, headers];
   const responseHeaders = mergeResponseHeaders(allResponseHeaders);
-  await executeHtmlTransforms(content, lang, options);
+  await executeHtmlTransforms(content, apiOptions.lang, options);
 
   return {
     html: content('body').html(),

@@ -7,37 +7,39 @@
  */
 
 import { fetchArticleResource } from '../api/taxonomyApi';
-import log from '../utils/logger';
+import getLogger from '../utils/logger';
 import config from '../config';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
+import { Plugin, Embed, ApiOptions, TransformOptions, PlainEmbed } from '../interfaces';
 
-export interface ContentLinkEmbedType extends EmbedType {
+export interface ContentLinkEmbed extends Embed<ContentLinkEmbedData> {
   path: string;
 }
 
-export interface ContentLinkPlugin extends Plugin<ContentLinkEmbedType> {
+export interface ContentLinkEmbedData {
+  resource: 'content-link';
+  contentId: string;
+  linkText: string;
+  openIn?: string;
+  contentType?: string;
+}
+
+export interface ContentLinkPlugin extends Plugin<ContentLinkEmbed, ContentLinkEmbedData> {
   resource: 'content-link';
 }
 
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
   async function fetchResource(
-    embed: EmbedType,
-    accessToken: string,
-    language: LocaleType,
-  ): Promise<ContentLinkEmbedType> {
-    const contentType = embed?.data?.contentType as string | undefined;
+    embed: PlainEmbed<ContentLinkEmbedData>,
+    apiOptions: ApiOptions,
+  ): Promise<ContentLinkEmbed> {
+    const contentType = embed?.data?.contentType;
     const host = options.absoluteUrl ? config.ndlaFrontendDomain : '';
-    let path = `${host}/${language}/${
+    let path = `${host}/${apiOptions.lang}/${
       contentType === 'learningpath' ? 'learningpaths' : 'article'
     }/${embed.data.contentId}`;
 
     try {
-      const resource = await fetchArticleResource(
-        embed.data.contentId as string,
-        accessToken,
-        language,
-        contentType,
-      );
+      const resource = await fetchArticleResource(embed.data.contentId, apiOptions);
       const resourcePath =
         (resource?.paths &&
           resource.paths.find(
@@ -46,11 +48,11 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
         resource?.path;
 
       if (resourcePath) {
-        path = `${host}/${language}${resourcePath}`;
+        path = `${host}/${apiOptions.lang}${resourcePath}`;
       }
       return { ...embed, path };
     } catch (error) {
-      log.error(error);
+      getLogger().error(error);
       return {
         ...embed,
         path,
@@ -58,7 +60,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
     }
   }
 
-  const embedToHTML = async (embed: ContentLinkEmbedType) => {
+  const embedToHTML = async (embed: ContentLinkEmbed) => {
     if (embed.data.openIn === 'new-context') {
       return {
         html: `<a href="${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,

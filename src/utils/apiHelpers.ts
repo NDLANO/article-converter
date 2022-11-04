@@ -6,9 +6,10 @@
  *
  */
 
+import Logger from 'bunyan';
 import config from '../config';
 import { createErrorPayload } from './errorHelpers';
-import log from './logger';
+import getLogger from './logger';
 
 const NDLA_API_URL = config.ndlaApiUrl;
 
@@ -29,8 +30,8 @@ export function apiResourceUrl(path: string) {
   return apiBaseUrl + path;
 }
 
-export function rejectWithError(json: any, res: Response) {
-  log.logAndReturnValue('warn', 'JSON response from failed api call: ', json);
+export function rejectWithError(log: Logger, json: any, res: Response) {
+  log.warn('JSON response from failed api call:', json);
   return createErrorPayload(res.status, json.message ?? res.statusText, json);
 }
 
@@ -41,9 +42,10 @@ export async function resolveJsonOrRejectWithError<T>(res: Response): Promise<T>
   if (res.status === 404) {
     throw createErrorPayload(res.status, res.statusText);
   }
+  const log = getLogger();
   log.warn(`Api call to ${res.url} failed with status ${res.status} ${res.statusText}`);
   const json = await res.json();
-  throw rejectWithError(json, res);
+  throw rejectWithError(log, json, res);
 }
 
 export function headerWithAccessToken(accessToken: string) {

@@ -8,7 +8,7 @@
 
 import nock from 'nock';
 import bunyan from 'bunyan';
-import log from '../../utils/logger';
+import getLogger from '../../utils/logger';
 import createContentLinkPlugin from '../contentLinkPlugin';
 
 const articleResource = [
@@ -38,8 +38,11 @@ test('fetchResource for content-link', async () => {
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
 
   expect(resource).toMatchSnapshot();
@@ -58,8 +61,11 @@ test('fetchResource for content-link with subject12 gives correct path', async (
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
 
   expect(resource).toMatchSnapshot();
@@ -78,8 +84,11 @@ test('fetchResource for content-link with subject1 gives correct path', async ()
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
 
   expect(resource).toMatchSnapshot();
@@ -107,14 +116,18 @@ test('fetchResource with missing taxonomy data should fallback to path without t
     {
       data: { contentId: '1' },
     },
-    'token',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
 
   expect(resource).toMatchSnapshot();
 });
 
 test('fetchResource where taxonomy fails should fallback to path without taxonomy', async () => {
+  const log = getLogger();
   log.level(bunyan.FATAL + 1); // temporarily disable logging
 
   const contentLinkPlugin = createContentLinkPlugin();
@@ -124,8 +137,11 @@ test('fetchResource where taxonomy fails should fallback to path without taxonom
     {
       data: { contentId: '1' },
     },
-    '',
-    'nb',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
   );
 
   expect(resource).toEqual({
@@ -146,7 +162,11 @@ test('embedToHtml should return anchor tag with path', async () => {
           data: { linkText: 'text', contentId: '1' },
           path: '/urn:test:1',
         },
-        'nb',
+        {
+          lang: 'nb',
+          accessToken: 'some_token',
+          feideToken: 'some_other_token',
+        },
       )
     ).html,
   ).toMatchSnapshot();
@@ -163,7 +183,11 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
           data: { linkText: 'text', contentId: '1' },
           path: '/urn:test:1',
         },
-        'nb',
+        {
+          lang: 'nb',
+          accessToken: 'some_token',
+          feideToken: 'some_other_token',
+        },
       )
     ).html,
   ).toMatchSnapshot();

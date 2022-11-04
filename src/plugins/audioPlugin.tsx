@@ -5,55 +5,67 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Remarkable } from 'remarkable';
+import React from 'react';
 import { Translation } from 'react-i18next';
+import { Remarkable } from 'remarkable';
 // @ts-ignore
-import { Figure, FigureLicenseDialog, FigureCaption } from '@ndla/ui/lib/Figure';
+import { Figure, FigureCaption, FigureLicenseDialog } from '@ndla/ui';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
-import AudioPlayer from '@ndla/ui/lib/AudioPlayer';
 import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
   figureApa7CopyString,
+  getGroupedContributorDescriptionList,
+  getLicenseByAbbreviation,
 } from '@ndla/licenses';
-import t from '../locale/i18n';
-import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
-import { AudioApiType, fetchAudio } from '../api/audioApi';
-import { render } from '../utils/render';
-import { ImageActionButtons, ImageEmbedType, messages } from './imagePlugin';
-import { Plugin, EmbedType, LocaleType, TransformOptions } from '../interfaces';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
-import { apiResourceUrl } from '../utils/apiHelpers';
+import { IAudioMetaInformation, ICopyright } from '@ndla/types-audio-api';
+import { IImageMetaInformationV2 } from '@ndla/types-image-api';
+import { AudioPlayer } from '@ndla/ui';
+import { fetchAudio } from '../api/audioApi';
+import { fetchImageResources } from '../api/imageApi';
 import config from '../config';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
+import t from '../locale/i18n';
+import { apiResourceUrl } from '../utils/apiHelpers';
+import { render } from '../utils/render';
+import { ImageActionButtons, messages } from './imagePlugin';
+import { getFirstNonEmptyLicenseCredits, getLicenseCredits } from './pluginHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
-export interface AudioEmbedType extends EmbedType {
-  audio: AudioApiType;
-  imageMeta?: ImageEmbedType;
+export interface AudioEmbed extends Embed<AudioEmbedData> {
+  audio: IAudioMetaInformation;
+  imageMeta?: IImageMetaInformationV2;
 }
 
-export interface AudioPlugin extends Plugin<AudioEmbedType> {
+export interface AudioPlugin extends Plugin<AudioEmbed, AudioEmbedData, AudioMetaData> {
   resource: 'audio';
 }
 
+export type AudioEmbedData = {
+  resource: 'audio';
+  resource_id: string;
+  type: string;
+  url: string;
+};
+
+export interface AudioMetaData {
+  title: string;
+  copyright: ICopyright;
+  src: string;
+  copyText: string | undefined;
+  description: string | undefined;
+  resourceOverride: string | undefined;
+}
+
 export default function createAudioPlugin(options: TransformOptions = {}): AudioPlugin {
-  const fetchResource = async (embed: EmbedType, accessToken: string, language: LocaleType) => {
-    const result = await fetchAudio(embed, accessToken, language);
+  const fetchResource = async (embed: PlainEmbed<AudioEmbedData>, apiOptions: ApiOptions) => {
+    const result = await fetchAudio(embed, apiOptions);
 
     if (result.audio.podcastMeta?.coverPhoto?.id) {
       const imageMeta = await fetchImageResources(
-        {
-          ...embed,
-          data: {
-            url: apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
-          },
-        },
-        accessToken,
-        language,
+        apiResourceUrl(`/image-api/v2/images/${result.audio.podcastMeta.coverPhoto.id}`),
+        apiOptions,
       );
 
       return {
@@ -65,7 +77,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return result;
   };
 
-  const getMetaData = async (embed: AudioEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: AudioEmbed, locale: LocaleType) => {
     const { audio } = embed;
     if (audio) {
       const {
@@ -74,7 +86,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         audioFile: { url },
       } = audio;
       const copyString =
-        audio.audioType === 'podcast'
+        audio.podcastMeta !== undefined
           ? figureApa7CopyString(
               title,
               undefined,
@@ -92,6 +104,8 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         copyright: audio.copyright,
         src: audio.audioFile.url,
         copyText: copyString,
+        description: audio.podcastMeta?.introduction,
+        resourceOverride: audio.podcastMeta && 'podcasts',
       };
     }
   };
@@ -102,7 +116,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
   };
 
-  const onError = (embed: AudioEmbedType, locale: LocaleType) => {
+  const onError = (embed: AudioEmbed, locale: LocaleType) => {
     const audio = embed.audio;
     return render(
       <Figure>
@@ -139,6 +153,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     license: string;
     src: string;
   }) => {
+    if (license === 'COPYRIGHTED') {
+      return null;
+    }
     return (
       <>
         {copyString && (
@@ -150,11 +167,9 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
             {t(locale, 'license.copyTitle')}
           </Button>
         )}
-        {license !== 'COPYRIGHTED' && (
-          <Anchor key="download" href={src} download appearance="outline">
-            {t(locale, 'audio.download')}
-          </Anchor>
-        )}
+        <Anchor key="download" href={src} download appearance="outline">
+          {t(locale, 'audio.download')}
+        </Anchor>
       </>
     );
   };
@@ -172,7 +187,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     figureid,
   }: {
     locale: LocaleType;
-    image: ImageApiType;
+    image: IImageMetaInformationV2;
     figureid: string;
   }) => {
     const {
@@ -235,7 +250,7 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
     );
   };
 
-  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbedType, locale: LocaleType) => {
+  const embedToHTML = async ({ audio, data, imageMeta }: AudioEmbed, locale: LocaleType) => {
     const {
       id,
       title: { title },
@@ -249,10 +264,15 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
       },
     } = audio;
 
-    const { image } = imageMeta || {};
+    const image = imageMeta;
 
     const { introduction, coverPhoto } = podcastMeta || {};
-    const subtitle = series?.title;
+    const subtitle = series
+      ? {
+          title: series.title.title,
+          url: `${config.ndlaFrontendDomain}/podkast/${series.id}`,
+        }
+      : undefined;
 
     const textVersion = manuscript?.manuscript && renderMarkdown(manuscript.manuscript);
     const description = renderMarkdown(introduction ?? '');

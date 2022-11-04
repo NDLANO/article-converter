@@ -1,14 +1,26 @@
+/**
+ * Copyright (c) 2022-present, NDLA.
+ *
+ * This source code is licensed under the GPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 import bunyan from 'bunyan';
+import Logger from 'bunyan';
+import { AsyncLocalStorage } from 'node:async_hooks';
 
-let log: any;
+export const loggerStorage = new AsyncLocalStorage<Logger>();
 
-if (!log) {
-  log = bunyan.createLogger({ name: 'article-converter' });
+const baseLogger = bunyan.createLogger({ name: 'article-converter' });
+
+export function getLogger(): Logger {
+  const storedLogger = loggerStorage.getStore();
+  if (!storedLogger) {
+    return baseLogger;
+  }
+
+  return storedLogger;
 }
 
-log.logAndReturnValue = (level: any, msg: any, value: any) => {
-  log[level](msg, value);
-  return value;
-};
-
-export default log;
+export default getLogger;

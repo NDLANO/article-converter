@@ -7,14 +7,14 @@
  */
 
 import nock from 'nock';
-import { prettify } from '../../testHelpers';
+import { loglessTest, prettify } from '../../testHelpers';
 import article2139 from './article2139';
 import image2357 from './image2357';
 import image347 from './image347';
 
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
-test('app/fetchAndTransformArticle 2139', async () => {
+loglessTest('app/fetchAndTransformArticle 2139', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/2139?language=nb&fallback=true')
     .reply(200, article2139);
@@ -23,12 +23,11 @@ test('app/fetchAndTransformArticle 2139', async () => {
   nock('http://ndla-api').get('/image-api/v2/images/604?language=nb').reply(200, image2357);
   nock('http://ndla-api').get('/image-api/v2/images/3676?language=nb').reply(200, image347);
 
-  const transformed = await fetchAndTransformArticle(
-    '2139',
-    'nb',
-    'some_token',
-    'some_other_token',
-  );
+  const transformed = await fetchAndTransformArticle('2139', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();

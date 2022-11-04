@@ -6,24 +6,25 @@
  *
  */
 
-import { EmbedType, LocaleType, PluginUnion } from './interfaces';
+import { AnyEmbed, LocaleType, AnyPlugin } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 export default async function getEmbedMetaData(
-  embeds: EmbedType[],
+  embeds: AnyEmbed[],
   locale: LocaleType,
-  plugins: PluginUnion[],
+  plugins: AnyPlugin[],
 ) {
   return embeds.reduce(async (pctx: Promise<Record<string, unknown[]>>, embed) => {
     const ctx = await pctx;
     const plugin = findPlugin(plugins, embed);
     const key = `${embed.data.resource}s`;
-    const resourceMetaData = ctx[key] ?? [];
     const metaData = await plugin?.getMetaData?.(embed, locale);
     if (embed.status !== 'error' && metaData) {
+      const keyOverride = 'resourceOverride' in metaData && metaData.resourceOverride;
+      const resourceMetaData = ctx[keyOverride || key] ?? [];
       return {
         ...ctx,
-        [key]: [...resourceMetaData, metaData],
+        [keyOverride || key]: [...resourceMetaData, metaData],
       };
     } else {
       return ctx;

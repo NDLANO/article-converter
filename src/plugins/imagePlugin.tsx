@@ -6,57 +6,66 @@
  *
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { uniqueId } from 'lodash';
+import styled from '@emotion/styled';
+import type { FigureType } from '@ndla/ui';
 import {
   Figure,
-  FigureLicenseDialog,
+  FigureBylineExpandButton,
   FigureCaption,
   FigureExpandButton,
-  FigureBylineExpandButton,
-  FigureType,
-} from '@ndla/ui/lib/Figure';
+  FigureLicenseDialog,
+} from '@ndla/ui';
+import { uniqueId } from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 // @ts-ignore
-import Image, { ImageLink } from '@ndla/ui/lib/Image';
 import {
-  getLicenseByAbbreviation,
-  getGroupedContributorDescriptionList,
   figureApa7CopyString,
+  getGroupedContributorDescriptionList,
+  getLicenseByAbbreviation,
 } from '@ndla/licenses';
-import queryString from 'query-string';
+import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
+import { Image, ImageLink } from '@ndla/ui';
 import { isNumber } from 'lodash';
-import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
-import { fetchImageResources, ImageApiType } from '../api/imageApi';
+import queryString from 'query-string';
+import { fetchImageResources } from '../api/imageApi';
+import config from '../config';
+import {
+  ApiOptions,
+  Embed,
+  EmbedToHTMLReturnObj,
+  LocaleType,
+  PlainEmbed,
+  Plugin,
+  TransformOptions,
+} from '../interfaces';
 import t from '../locale/i18n';
 import { render } from '../utils/render';
-import {
-  Plugin,
-  EmbedType,
-  LocaleType,
-  TransformOptions,
-  EmbedToHTMLReturnObj,
-} from '../interfaces';
-import config from '../config';
+import { errorSvgSrc, getLicenseCredits } from './pluginHelpers';
 
 const Anchor = StyledButton.withComponent('a');
 
-const getFigureType = (size: string, align: string): FigureType => {
-  if (isSmall(size) && isAlign(align)) {
+const StyledSpan = styled.span`
+  font-style: italic;
+  color: grey;
+`;
+
+const getFigureType = (size?: string, align?: string): FigureType => {
+  if (size && isSmall(size) && align && isAlign(align)) {
     return `${size}-${align}`;
   }
-  if (isSmall(size) && !align) {
+  if (size && isSmall(size) && !align) {
     return size as FigureType;
   }
-  if (isAlign(align)) {
+  if (align && isAlign(align)) {
     return align;
   }
   return 'full';
 };
 
-const getSizes = (size: string, align: string) => {
+const getSizes = (size?: string, align?: string) => {
   if (align && size === 'full') {
     return '(min-width: 1024px) 512px, (min-width: 768px) 350px, 100vw';
   }
@@ -69,14 +78,14 @@ const getSizes = (size: string, align: string) => {
   return '(min-width: 1024px) 1024px, 100vw';
 };
 
-const getFocalPoint = (data: Record<string, unknown>) => {
+const getFocalPoint = (data: ImageEmbedData) => {
   if (isNumber(data.focalX) && isNumber(data.focalY)) {
     return { x: data.focalX, y: data.focalY };
   }
   return undefined;
 };
 
-const getCrop = (data: Record<string, unknown>) => {
+const getCrop = (data: ImageEmbedData) => {
   if (
     isNumber(data.lowerRightX) &&
     isNumber(data.lowerRightY) &&
@@ -101,16 +110,16 @@ const downloadUrl = (imageSrc: string) => {
   })}`;
 };
 
-function isSmall(size: string): size is 'xsmall' | 'small' {
+function isSmall(size?: string): size is 'xsmall' | 'small' {
   return size === 'xsmall' || size === 'small';
 }
 
-function isAlign(align: string): align is 'left' | 'right' {
+function isAlign(align?: string): align is 'left' | 'right' {
   return align === 'left' || align === 'right';
 }
 
-function hideByline(size: string): boolean {
-  return size.endsWith('-hide-byline');
+function hideByline(size?: string): boolean {
+  return !!size && size.endsWith('-hide-byline');
 }
 
 interface ImageWrapperProps {
@@ -123,7 +132,7 @@ interface ImageWrapperProps {
     endX: number;
     endY: number;
   };
-  size: string;
+  size?: string;
 }
 
 function ImageWrapper({ src, crop, size, children, locale }: ImageWrapperProps) {
@@ -162,6 +171,9 @@ export const ImageActionButtons = ({
   license,
   src,
 }: ImageActionButtonsProps) => {
+  if (license === 'COPYRIGHTED') {
+    return null;
+  }
   return (
     <>
       <Button
@@ -171,11 +183,9 @@ export const ImageActionButtons = ({
         data-copy-string={copyString}>
         {t(locale, 'license.copyTitle')}
       </Button>
-      {license !== 'COPYRIGHTED' && (
-        <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
-          {t(locale, 'image.download')}
-        </Anchor>
-      )}
+      <Anchor key="download" href={downloadUrl(src)} appearance="outline" download>
+        {t(locale, 'image.download')}
+      </Anchor>
     </>
   );
 };
@@ -187,12 +197,37 @@ ImageActionButtons.propTypes = {
   src: PropTypes.string.isRequired,
 };
 
-export interface ImageEmbedType extends EmbedType {
-  image: ImageApiType;
+export interface ImageEmbed extends Embed<ImageEmbedData> {
+  image: IImageMetaInformationV2;
 }
 
-export interface ImagePlugin extends Plugin<ImageEmbedType> {
+export interface ImageEmbedData {
   resource: 'image';
+  resourceId: string;
+  size?: string;
+  align?: string;
+  alt: string;
+  caption?: string;
+  url?: string;
+  focalX?: string;
+  focalY?: string;
+  lowerRightY?: string;
+  lowerRightX?: string;
+  upperLeftY?: string;
+  upperLeftX?: string;
+  metaData?: any;
+}
+
+export interface ImagePlugin extends Plugin<ImageEmbed, ImageEmbedData> {
+  resource: 'image';
+}
+
+export interface ImageMetaData {
+  title: string;
+  altText: string;
+  copyright: ICopyright;
+  src: string;
+  copyText: string;
 }
 
 export const messages = (locale: LocaleType) => ({
@@ -207,10 +242,18 @@ export const messages = (locale: LocaleType) => ({
 export default function createImagePlugin(
   options: TransformOptions = { concept: false },
 ): ImagePlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchImageResources(embed, accessToken, language);
+  const fetchResource = (embed: PlainEmbed<ImageEmbedData>, apiOptions: ApiOptions) => {
+    const resolve = async () => {
+      const image = await fetchImageResources(embed.data.url || '', apiOptions);
+      return {
+        ...embed,
+        image,
+      };
+    };
+    return resolve();
+  };
 
-  const getMetaData = async (embed: ImageEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ImageEmbed, locale: LocaleType) => {
     const { image } = embed;
     if (image) {
       const {
@@ -240,9 +283,9 @@ export default function createImagePlugin(
     }
   };
 
-  const onError = (embed: ImageEmbedType, locale: LocaleType) => {
+  const onError = (embed: ImageEmbed, locale: LocaleType) => {
     const { image, data } = embed;
-    const { align, size } = data as Record<string, string>;
+    const { align, size } = data;
     const figureType = getFigureType(size, align);
     const src = image && image.imageUrl ? image.imageUrl : errorSvgSrc;
 
@@ -257,7 +300,7 @@ export default function createImagePlugin(
   };
 
   const embedToHTML = async (
-    embed: ImageEmbedType,
+    embed: ImageEmbed,
     locale: LocaleType,
   ): Promise<EmbedToHTMLReturnObj> => {
     const {
@@ -275,12 +318,7 @@ export default function createImagePlugin(
       origin,
     } = copyright;
 
-    const {
-      align,
-      size,
-      caption: embedCaption,
-      alt: embedAlttext,
-    } = data as Record<string, string>;
+    const { align, size, caption: embedCaption, alt: embedAlttext } = data;
 
     const authors = getLicenseCredits(copyright);
 
@@ -313,7 +351,7 @@ export default function createImagePlugin(
     const unique = uniqueId();
     const figureId = `figure-${unique}-${id}`;
 
-    const ExpandButton = ({ size, typeClass }: { size: string; typeClass: string }) => {
+    const ExpandButton = ({ size, typeClass }: { size?: string; typeClass: string }) => {
       if (isSmall(size)) {
         return (
           <FigureExpandButton
@@ -330,7 +368,7 @@ export default function createImagePlugin(
       } else if (hideByline(size)) {
         return (
           <FigureBylineExpandButton
-            typeClass={size}
+            typeClass={size ?? ''}
             messages={{
               expandBylineButtonLabel: t(locale, 'license.images.itemImage.expandByline'),
               minimizeBylineButtonLabel: t(locale, 'license.images.itemImage.minimizeByline'),
@@ -344,6 +382,10 @@ export default function createImagePlugin(
     const { creators, rightsholders, processors } = authors;
     const captionAuthors =
       creators.length || rightsholders.length ? [...creators, ...rightsholders] : processors;
+
+    const altTextSpan = options.previewAlt ? (
+      <StyledSpan>{`Alt: ${altText}`}</StyledSpan>
+    ) : undefined;
 
     return {
       html: render(
@@ -361,6 +403,7 @@ export default function createImagePlugin(
                   expandButton={<ExpandButton size={size} typeClass={typeClass} />}
                 />
               </ImageWrapper>
+              {altTextSpan}
               <FigureCaption
                 hideFigcaption={isSmall(size) || hideByline(size)}
                 figureId={figureId}

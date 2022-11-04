@@ -9,25 +9,50 @@
 import { Cheerio, Element } from 'cheerio';
 import { IArticleV2 } from '@ndla/types-article-api';
 import { TransformFunction } from './transformers';
-import { AudioPlugin } from './plugins/audioPlugin';
-import { ContentLinkPlugin } from './plugins/contentLinkPlugin';
-import { BrightcovePlugin } from './plugins/brightcovePlugin';
-import { OembedPlugin } from './plugins/externalPlugin';
-import { H5PPlugin } from './plugins/h5pPlugin';
-import { ImagePlugin } from './plugins/imagePlugin';
-import { RelatedContentPlugin } from './plugins/relatedContentPlugin';
-import { ConceptPlugin } from './plugins/conceptPlugin';
+import { AudioEmbedData, AudioEmbed, AudioMetaData, AudioPlugin } from './plugins/audioPlugin';
+import {
+  ContentLinkEmbedData,
+  ContentLinkEmbed,
+  ContentLinkPlugin,
+} from './plugins/contentLinkPlugin';
+import {
+  BrightcoveEmbedData,
+  BrightcoveEmbed,
+  BrightcoveMetaData,
+  BrightcovePlugin,
+} from './plugins/brightcovePlugin';
+import { OembedEmbedData, OembedEmbed, OembedPlugin } from './plugins/externalPlugin';
+import { H5pEmbedData, H5PEmbed, H5PMetaData, H5PPlugin } from './plugins/h5pPlugin';
+import { ImageEmbedData, ImageEmbed, ImageMetaData, ImagePlugin } from './plugins/imagePlugin';
+import {
+  RelatedContentEmbedData,
+  RelatedContentEmbed,
+  RelatedContentPlugin,
+} from './plugins/relatedContentPlugin';
+import {
+  ConceptEmbedData,
+  ConceptEmbed,
+  ConceptMetaData,
+  ConceptPlugin,
+} from './plugins/conceptPlugin';
+import { NRKEmbedData, NRKEmbed, NRKPlugin } from './plugins/nrkPlugin';
+import { IframeEmbedData, IframeMetaData, IframeEmbed, IframePlugin } from './plugins/iframePlugin';
+import {
+  FootnoteEmbedData,
+  FootnoteEmbed,
+  FootnoteMetaData,
+  FootnotePlugin,
+} from './plugins/footNotePlugin';
+import { ErrorEmbedData, ErrorEmbed, ErrorPlugin } from './plugins/errorPlugin';
+import { CodeEmbedData, CodeEmbed, CodePlugin } from './plugins/codePlugin';
+import {
+  ConceptListEmbed,
+  ConceptListEmbedData,
+  ConceptListPlugin,
+} from './plugins/conceptListPlugin';
 
-export const LOCALE_VALUES = ['nb', 'nn', 'en'] as const;
+export const LOCALE_VALUES = ['nb', 'nn', 'en', 'se'] as const;
 export type LocaleType = typeof LOCALE_VALUES[number];
-
-export interface EmbedMetaData extends Record<string, unknown> {
-  ref?: number;
-  authors?: string[];
-  year?: string;
-  title?: string;
-  description?: string;
-}
 
 export type ResponseHeaders = Record<string, string>;
 export type EmbedToHTMLReturnObj = {
@@ -35,28 +60,66 @@ export type EmbedToHTMLReturnObj = {
   responseHeaders?: ResponseHeaders[];
 };
 
-export interface Plugin<E extends EmbedType> {
-  resource: string;
-  embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
-  fetchResource?: (
-    embed: EmbedType,
-    accessToken: string,
-    lang: LocaleType,
-    feideToken: string,
-  ) => Promise<E>;
-  getMetaData?: (embed: E, lang: LocaleType) => Promise<EmbedMetaData | undefined>;
-  onError?: (embed: E, lang: LocaleType) => string;
-}
+type EmbedMetaData =
+  | AudioMetaData
+  | BrightcoveMetaData
+  | ConceptMetaData
+  | H5PMetaData
+  | ImageMetaData
+  | FootnoteMetaData
+  | IframeMetaData;
 
-export interface EmbedType {
+export type EmbedData =
+  | AudioEmbedData
+  | BrightcoveEmbedData
+  | ContentLinkEmbedData
+  | OembedEmbedData
+  | H5pEmbedData
+  | ImageEmbedData
+  | RelatedContentEmbedData
+  | ConceptEmbedData
+  | NRKEmbedData
+  | IframeEmbedData
+  | ErrorEmbedData
+  | CodeEmbedData
+  | FootnoteEmbedData
+  | ConceptListEmbedData;
+
+export interface PlainEmbed<T = EmbedData> {
   embed: Cheerio<Element>;
-  data: Record<string, unknown>;
   status?: string;
+  data: T;
+}
+export interface Embed<T> extends PlainEmbed<T> {
   responseHeaders?: ResponseHeaders;
 }
 
-export type PluginUnion =
-  | Plugin<EmbedType>
+export type AnyEmbed =
+  | PlainEmbed
+  | AudioEmbed
+  | BrightcoveEmbed
+  | ContentLinkEmbed
+  | OembedEmbed
+  | H5PEmbed
+  | ImageEmbed
+  | RelatedContentEmbed
+  | ConceptEmbed
+  | NRKEmbed
+  | IframeEmbed
+  | ErrorEmbed
+  | CodeEmbed
+  | FootnoteEmbed
+  | ConceptListEmbed;
+
+export interface Plugin<E extends AnyEmbed, D extends EmbedData, M = EmbedMetaData> {
+  resource: string;
+  embedToHTML: (embed: E, lang: LocaleType) => Promise<EmbedToHTMLReturnObj>;
+  fetchResource?: (embed: PlainEmbed<D>, apiOptions: ApiOptions) => Promise<E>;
+  getMetaData?: (embed: E, lang: LocaleType) => Promise<M | undefined>;
+  onError?: (embed: E, lang: LocaleType) => string;
+}
+
+export type AnyPlugin =
   | AudioPlugin
   | BrightcovePlugin
   | ContentLinkPlugin
@@ -64,7 +127,13 @@ export type PluginUnion =
   | H5PPlugin
   | ImagePlugin
   | RelatedContentPlugin
-  | ConceptPlugin;
+  | ConceptPlugin
+  | NRKPlugin
+  | IframePlugin
+  | FootnotePlugin
+  | ErrorPlugin
+  | CodePlugin
+  | ConceptListPlugin;
 
 export interface TransformOptions {
   absoluteUrl?: boolean;
@@ -74,9 +143,17 @@ export interface TransformOptions {
   path?: string;
   shortPath?: string;
   previewH5p?: boolean;
+  previewAlt?: boolean;
   showVisualElement?: boolean;
   subject?: string;
   transform?: TransformFunction;
+}
+
+export interface ApiOptions {
+  lang: LocaleType;
+  accessToken: string;
+  feideToken: string;
+  versionHash?: string;
 }
 
 type TransformedFields = 'title' | 'content' | 'tags' | 'introduction' | 'metaDescription';

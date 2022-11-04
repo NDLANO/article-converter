@@ -6,64 +6,141 @@
  *
  */
 
-import React from 'react';
-import cheerio from 'cheerio';
-import { Remarkable } from 'remarkable';
 import styled from '@emotion/styled';
-// @ts-ignore
-import Notion, { NotionDialogContent, NotionDialogText, NotionDialogLicenses } from '@ndla/notion';
-import { IConcept } from '@ndla/types-concept-api';
-import { breakpoints, mq } from '@ndla/core';
+import Notion, { NotionDialogContent, NotionDialogLicenses, NotionDialogText } from '@ndla/notion';
+import { IConcept, ICopyright } from '@ndla/types-concept-api';
+import type { NotionVisualElementType } from '@ndla/ui';
+import cheerio from 'cheerio';
 import { uniqueId } from 'lodash';
-import { css } from '@emotion/core';
+import React from 'react';
+import { Remarkable } from 'remarkable';
 import { fetchConcept } from '../api/conceptApi';
-import t from '../locale/i18n';
-import { render } from '../utils/render';
 import config from '../config';
-import { EmbedType, LocaleType, TransformOptions, Plugin } from '../interfaces';
+import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
+import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
+import { render } from '../utils/render';
 
 const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const customNotionStyle = css`
-  left: 0;
-  margin-left: 0;
-  width: 100%;
-
-  ${mq.range({ until: breakpoints.mobileWide })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.tablet })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-  ${mq.range({ from: breakpoints.desktop })} {
-    left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-`;
-
-export interface ConceptEmbedType extends EmbedType {
+export interface ConceptEmbed extends Embed<ConceptEmbedData> {
   concept: IConcept;
 }
 
-export interface ConceptPlugin extends Plugin<ConceptEmbedType> {
+export type ConceptEmbedData = {
+  resource: 'concept';
+  contentId: string;
+  type: 'block' | 'inline';
+  linkText: string;
+};
+
+export interface TransformedConceptEmbedType extends ConceptEmbed {
+  transformedVisualElement?: NotionVisualElementType;
+}
+
+export interface ConceptPlugin extends Plugin<TransformedConceptEmbedType, ConceptEmbedData> {
   resource: 'concept';
 }
 
+export interface ConceptMetaData {
+  title: string | undefined;
+  copyright: ICopyright | undefined;
+  src: string;
+}
+
+const renderMarkdown = (text: string) => {
+  const md = new Remarkable();
+  md.inline.ruler.enable(['sub', 'sup']);
+  const rendered = md.render(text);
+  return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
+};
+
+const renderInline = (
+  embed: ConceptEmbed,
+  transformedHTML: string | null | undefined,
+  locale: LocaleType,
+) => {
+  const {
+    data: { linkText },
+    concept,
+  } = embed;
+
+  const id = uniqueId();
+  const children = typeof linkText === 'string' ? linkText : undefined;
+
+  const copyright = concept.copyright;
+  const authors = (copyright?.creators ?? []).map((author) => author.name);
+  const license = copyright?.license?.license;
+  const source = concept.source ?? '';
+  return render(
+    <Notion
+      id={`notion_id_${id}_${locale}`}
+      title={concept.title?.title ?? ''}
+      content={
+        <>
+          <NotionDialogContent>
+            {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
+            <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
+          </NotionDialogContent>
+          <NotionDialogLicenses
+            license={license}
+            source={renderMarkdown(source)}
+            authors={authors}
+          />
+        </>
+      }>
+      {children}
+    </Notion>,
+    locale,
+  );
+};
+
+const renderBlock = (embed: TransformedConceptEmbedType, locale: LocaleType) => {
+  const { concept } = embed;
+
+  return render(
+    <div>
+      <ConceptBlock concept={concept} visualElement={embed.transformedVisualElement} fullWidth />
+    </div>,
+    locale,
+  );
+};
+
 export default function createConceptPlugin(options: TransformOptions = {}): ConceptPlugin {
-  const fetchResource = (embed: EmbedType, accessToken: string, language: LocaleType) =>
-    fetchConcept(embed, accessToken, language, options);
+  const getAndResolveConcept = async (
+    embed: PlainEmbed<ConceptEmbedData>,
+    apiOptions: ApiOptions,
+  ): Promise<TransformedConceptEmbedType> => {
+    const concept = await fetchConcept(embed, apiOptions, options);
+    const visualElement = concept.concept.visualElement?.visualElement;
+    if (visualElement) {
+      const transformedVisualElement = await transformVisualElement(
+        visualElement,
+        apiOptions,
+        options,
+      );
+
+      if (!transformedVisualElement) {
+        return concept;
+      }
+
+      return { ...concept, transformedVisualElement };
+    }
+    return concept;
+  };
+
+  const fetchResource = (
+    embed: PlainEmbed<ConceptEmbedData>,
+    apiOptions: ApiOptions,
+  ): Promise<TransformedConceptEmbedType> => {
+    return getAndResolveConcept(embed, apiOptions);
+  };
 
   const getEmbedSrc = (concept: IConcept) =>
     `${config.listingFrontendDomain}/concepts/${concept.id}`;
 
-  const getMetaData = async (embed: ConceptEmbedType, locale: LocaleType) => {
+  const getMetaData = async (embed: ConceptEmbed, locale: LocaleType) => {
     const { concept } = embed;
     if (concept) {
       return {
@@ -74,91 +151,41 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     }
   };
 
-  const renderMarkdown = (text: string) => {
-    const md = new Remarkable();
-    md.inline.ruler.enable(['sub', 'sup']);
-    const rendered = md.render(text);
-    return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
+  const onError = (embed: ConceptEmbed, locale: LocaleType) => {
+    // Concept not found, just display the text
+    const { linkText } = embed.data;
+    return linkText;
   };
 
-  const onError = (embed: ConceptEmbedType, locale: LocaleType) => {
-    const { contentId, linkText } = embed.data;
-
-    const children = typeof linkText === 'string' ? linkText : undefined;
-    return render(
-      <Notion
-        id={`notion_id_${contentId}`}
-        ariaLabel={t(locale, 'concept.showDescription')}
-        title={t(locale, 'concept.error.title')}
-        content={
-          <NotionDialogContent>
-            <NotionDialogText>{t(locale, 'concept.error.content')}</NotionDialogText>
-          </NotionDialogContent>
-        }>
-        {children}
-      </Notion>,
-      locale,
-    );
-  };
-
-  const embedToHTML = async (embed: ConceptEmbedType, locale: LocaleType) => {
-    const {
-      data: { linkText },
-      concept,
-    } = embed;
-
-    const id = uniqueId();
-    const children = typeof linkText === 'string' ? linkText : undefined;
-
+  const embedToHTML = async (embed: TransformedConceptEmbedType, locale: LocaleType) => {
     const visualElement = embed.concept.visualElement ?? {
       visualElement: '',
     };
-    const copyright = concept.copyright;
-    const authors = (copyright?.creators ?? []).map((author) => author.name);
-    const license = copyright?.license?.license;
-    const source = concept.source ?? '';
 
     const transformed = await options.transform?.(
       cheerio.load(visualElement.visualElement),
       {},
-      locale,
-      '',
-      '',
+      {
+        lang: locale,
+        accessToken: '',
+        feideToken: '',
+      },
       undefined,
       { concept: true },
     );
 
     const responseHeaders = transformed?.responseHeaders ? [transformed.responseHeaders] : [];
 
+    if (embed.data.type === 'block') {
+      return {
+        responseHeaders,
+        html: renderBlock(embed, locale),
+      };
+    }
+
     return {
       responseHeaders,
-      html: render(
-        <Notion
-          id={`notion_id_${id}_${locale}`}
-          ariaLabel={t(locale, 'concept.showDescription')}
-          title={concept.title?.title ?? ''}
-          customCSS={customNotionStyle}
-          content={
-            <>
-              <NotionDialogContent>
-                {transformed?.html && (
-                  <StyledDiv dangerouslySetInnerHTML={{ __html: transformed.html }} />
-                )}
-                <NotionDialogText>
-                  {renderMarkdown(concept.content?.content ?? '')}
-                </NotionDialogText>
-              </NotionDialogContent>
-              <NotionDialogLicenses
-                license={license}
-                source={renderMarkdown(source)}
-                authors={authors}
-              />
-            </>
-          }>
-          {children}
-        </Notion>,
-        locale,
-      ),
+      html: renderInline(embed, transformed?.html, locale),
     };
   };
 

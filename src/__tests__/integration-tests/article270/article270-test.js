@@ -7,26 +7,30 @@
  */
 
 import nock from 'nock';
-import { prettify } from '../../testHelpers';
+import { loglessTest, prettify } from '../../testHelpers';
 import article270 from './article270';
 
 import fetchAndTransformArticle from '../../../fetchAndTransformArticle';
 
-test('app/fetchAndTransformArticle 270', async () => {
+loglessTest('app/fetchAndTransformArticle 270', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/270?language=nb&fallback=true')
     .reply(200, article270);
   nock('http://ndla-api')
     .get((uri) => uri.includes('/oembed-proxy/v1/oembed'))
     .reply(404);
-  const transformed = await fetchAndTransformArticle('270', 'nb', 'some_token', 'some_other_token');
+  const transformed = await fetchAndTransformArticle('270', {
+    lang: 'nb',
+    accessToken: 'some_token',
+    feideToken: 'some_other_token',
+  });
   const { content, ...rest } = transformed;
 
   expect(rest).toMatchSnapshot();
   expect(prettify(content)).toMatchSnapshot();
 });
 
-test('app/fetchAndTransformArticle 270 with visualElement', async () => {
+loglessTest('app/fetchAndTransformArticle 270 with visualElement', async () => {
   nock('http://ndla-api')
     .get('/article-api/v2/articles/270?language=nb&fallback=true')
     .reply(200, article270);
@@ -35,9 +39,11 @@ test('app/fetchAndTransformArticle 270 with visualElement', async () => {
     .reply(404);
   const transformed = await fetchAndTransformArticle(
     '270',
-    'nb',
-    'some_token',
-    'some_other_token',
+    {
+      lang: 'nb',
+      accessToken: 'some_token',
+      feideToken: 'some_other_token',
+    },
     {
       showVisualElement: true,
     },

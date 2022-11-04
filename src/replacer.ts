@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import log from './utils/logger';
+import getLogger from './utils/logger';
 import t from './locale/i18n';
-import { EmbedType, LocaleType, PluginUnion, ResponseHeaders } from './interfaces';
+import { AnyEmbed, LocaleType, AnyPlugin, ResponseHeaders } from './interfaces';
 import { findPlugin } from './utils/findPlugin';
 
 // Fetched from https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
@@ -19,9 +19,9 @@ async function asyncForEach<T, R>(array: T[], callback: (e: T, index: number, ar
 }
 
 export async function replaceEmbedsInHtml(
-  embeds: EmbedType[],
+  embeds: AnyEmbed[],
   lang: LocaleType,
-  plugins: PluginUnion[],
+  plugins: AnyPlugin[],
 ): Promise<ResponseHeaders[]> {
   let headers: ResponseHeaders[] = [];
 
@@ -40,7 +40,7 @@ export async function replaceEmbedsInHtml(
     } else if (embed.embed.attr('data-resource') === 'file') {
       // do nothing
     } else {
-      log.warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
+      getLogger().warn(`Do not create markup for unknown embed '${embed.data.resource}'`);
     }
   });
 
