@@ -108,6 +108,10 @@ const config = Object.assign(
     brightcoveClientSecret: process.env.BRIGHTCOVE_API_CLIENT_SECRET || '',
     auth0Hostname: auth0Hostname(),
     h5pHost: h5pHostUrl(),
+    termsUrl: process.env.TERMS_URL || 'https://om.ndla.no/tos',
+    contactEmail: process.env.CONTACT_EMAIL || 'hjelp+api@ndla.no',
+    contactName: process.env.CONTACT_NAME || 'NDLA',
+    contactUrl: process.env.CONTACT_URL || 'https://ndla.no',
 
     app: {
       title: 'NDLA article converter',
