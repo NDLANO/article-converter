@@ -9,73 +9,68 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
     <h2>neither does this in an aside</h2>
     <div>Stuff</div>
   </aside>
-  <style data-emotion=\\"css 10rgnba-ContainerDiv\\">
-    .css-10rgnba-ContainerDiv {
+  <style data-emotion=\\"css 8s0se0-ContainerDiv\\">
+    .css-8s0se0-ContainerDiv {
       position: relative;
+    }
+    .css-8s0se0-ContainerDiv:hover button {
+      cursor: pointer;
+      opacity: 0.5;
     }
   </style>
   <div
     data-header-copy-container=\\"true\\"
     data-title=\\"this one is changed to copylinkbutton\\"
-    class=\\"css-10rgnba-ContainerDiv e18czas71\\"
+    class=\\"css-8s0se0-ContainerDiv e18czas70\\"
   >
     <div>
-      <div
-        data-tooltip=\\"true\\"
-        data-tooltip-label=\\"Kopier lenke til overskriften\\"
+      <style data-emotion=\\"css kgto6a-IconButton\\">
+        .css-kgto6a-IconButton {
+          position: absolute;
+          left: -3em;
+          top: 0.1em;
+          background: none;
+          border: 0;
+          z-index: 1;
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+        }
+        .css-kgto6a-IconButton svg {
+          width: 30px;
+          height: 30px;
+        }</style
+      ><button
+        data-title=\\"this-one-is-changed-to-copylinkbutton\\"
+        class=\\"css-kgto6a-IconButton e18czas71\\"
       >
-        <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
-          .css-qyvxt5-StyledTooltip {
-            color: #fff;
-            z-index: 99999;
-            border: 0;
-            background: #444;
-            border-radius: 4px;
-            padding: 6.5px 13px;
-            font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
-              \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
-              SongTi, \\"宋体\\", sans-serif;
-            font-size: 14;
-            line-height: 1.2;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            max-width: calc(100vw - #{26px});
-          }</style
-        ><span
-          data-tooltip-children=\\"true\\"
-          data-state=\\"tooltip-hidden\\"
-          data-reach-tooltip-trigger=\\"\\"
-          ><style data-emotion=\\"css nsj883-IconButton\\">
-            .css-nsj883-IconButton {
-              position: absolute;
-              left: -3em;
-              top: 0.1em;
-              background: none;
+        <div
+          data-tooltip=\\"true\\"
+          data-tooltip-label=\\"Kopier lenke til overskriften\\"
+        >
+          <style data-emotion=\\"css qyvxt5-StyledTooltip\\">
+            .css-qyvxt5-StyledTooltip {
+              color: #fff;
+              z-index: 99999;
               border: 0;
-              z-index: 1;
-              -webkit-transition: 0.2s;
-              transition: 0.2s;
-              opacity: 0;
-              color: #777777;
-            }
-            .css-nsj883-IconButton svg {
-              width: 30px;
-              height: 30px;
-            }
-            .e18czas71:hover .css-nsj883-IconButton,
-            .css-nsj883-IconButton:focus,
-            .css-nsj883-IconButton:focus-visible,
-            .css-nsj883-IconButton:active {
-              cursor: pointer;
-              opacity: 1;
+              background: #444;
+              border-radius: 4px;
+              padding: 6.5px 13px;
+              font-family: \\"Source Sans Pro\\", Helvetica, Arial, STKaiti,
+                \\"华文楷体\\", KaiTi, SimKai, \\"楷体\\", KaiU, DFKai-SB, \\"標楷體\\",
+                SongTi, \\"宋体\\", sans-serif;
+              font-size: 14;
+              line-height: 1.2;
+              font-weight: 400;
+              text-align: center;
+              white-space: normal;
+              max-width: calc(100vw - #{26px});
             }</style
-          ><button
-            data-title=\\"this-one-is-changed-to-copylinkbutton\\"
-            aria-label=\\"Kopier lenke til overskriften: this-one-is-changed-to-copylinkbutton\\"
-            class=\\"css-nsj883-IconButton e18czas70\\"
-          >
-            <svg
+          ><span
+            data-tooltip-children=\\"true\\"
+            data-state=\\"tooltip-hidden\\"
+            data-reach-tooltip-trigger=\\"\\"
+            ><svg
               fill=\\"currentColor\\"
               aria-hidden=\\"true\\"
               preserveAspectRatio=\\"xMidYMid meet\\"
@@ -92,11 +87,11 @@ exports[`addHeaderCopyLinkButtons only transforms h2 on root level 1`] = `
                 <path
                   d=\\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\\"
                 ></path>
-              </g>
-            </svg></button
-        ></span>
-      </div>
-      <h2 id=\\"this-one-is-changed-to-copylinkbutton\\" tabindex=\\"-1\\">
+              </g></svg
+          ></span>
+        </div>
+      </button>
+      <h2 id=\\"this-one-is-changed-to-copylinkbutton\\" tabindex=\\"0\\">
         this one is changed to copylinkbutton
       </h2>
     </div>
