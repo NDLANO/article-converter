@@ -2918,10 +2918,10 @@
   resolved "https://registry.yarnpkg.com/@ndla/types-concept-api/-/types-concept-api-0.0.10.tgz#43bd9dcfede1c1680e52bdc0f1ffa31246fbca9c"
   integrity sha512-btJNLpUuSaQXH1RYAhF4867Ka8dYLFo1gAbwcXQj3uQdo6BWJfPKMHoRHGXJ9Qww+MuZArlLgWc+YEh2Hd0aJg==
 
-"@ndla/types-image-api@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@ndla/types-image-api/-/types-image-api-0.0.6.tgz#04793395caff75fc82ca43dd15d3cffaff4fc7f0"
-  integrity sha512-GPCnDC63aF0VjyMggD4YYjNutFZyfOxmShLqfZuDAQ+7dC8zVkYFGbNnvw+UfcHL2iaXNRtJ1B93tXk6WJmEgQ==
+"@ndla/types-image-api@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@ndla/types-image-api/-/types-image-api-0.0.8.tgz#4d1c7d830bb90ede23ac311c8f860811f83a0c39"
+  integrity sha512-O8nVTzA8nLqawNArweLRcYgAyCRdhw/MK5T1pcOYJDnORllTgKCrbeaemWZH0Fu5jd4perFwCI1P+50FteNY6w==
 
 "@ndla/types-learningpath-api@^0.0.17":
   version "0.0.17"
