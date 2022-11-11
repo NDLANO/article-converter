@@ -6,38 +6,11 @@
  *
  */
 
-import IntlMessageFormat from 'intl-messageformat';
-import memoizeIntlConstructor from 'intl-format-cache';
-import {
-  messagesNB,
-  messagesEN,
-  messagesNN,
-  messagesSE,
-  formatNestedMessages,
-  formatMessage,
-} from '@ndla/ui';
+import { i18nInstance } from '@ndla/ui';
 import { LocaleType } from '../interfaces';
 
-let getMessageFormat: any;
-
-if (!getMessageFormat) {
-  getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
-}
-
-interface FormattedMessages {
-  [key: string]: string;
-}
-
-const messages: Record<LocaleType, FormattedMessages> = {
-  nb: formatNestedMessages(messagesNB),
-  nn: formatNestedMessages(messagesNN),
-  en: formatNestedMessages(messagesEN),
-  se: formatNestedMessages(messagesSE),
-};
-
-const t = (locale: LocaleType, id: string, value?: { [key: string]: any }) => {
-  const localeMessages = messages[locale] ?? messages.nb;
-  return formatMessage(locale, localeMessages, getMessageFormat, id, value);
+const t = (locale: LocaleType, id: string) => {
+  return i18nInstance.t(id, { lng: locale });
 };
 
 export default t;
