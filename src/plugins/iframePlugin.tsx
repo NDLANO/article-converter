@@ -112,7 +112,13 @@ export default function createIframePlugin(
       return {
         html: render(
           <Figure type="full">
-            <ResourceBox image={image} title={title || ''} url={url} caption={caption || ''} />
+            <ResourceBox
+              image={image}
+              title={title || ''}
+              url={url}
+              caption={caption || ''}
+              buttonText={t(locale, 'license.other.itemImage.ariaLabel')}
+            />
           </Figure>,
         ),
       };
