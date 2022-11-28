@@ -87,7 +87,7 @@ const renderInline = (
           </NotionDialogContent>
           <NotionDialogLicenses
             license={license}
-            source={renderMarkdown(source)}
+            source={parse(renderMarkdown(source))}
             authors={authors}
           />
         </>
