@@ -53,7 +53,7 @@ export interface ConceptMetaData {
 const renderMarkdown = (text: string) => {
   const md = new Remarkable();
   md.inline.ruler.enable(['sub', 'sup']);
-  return md.render(text);
+  return parse(md.render(text));
 };
 
 const renderInline = (
@@ -81,13 +81,11 @@ const renderInline = (
         <>
           <NotionDialogContent>
             {transformedHTML && <StyledDiv dangerouslySetInnerHTML={{ __html: transformedHTML }} />}
-            <NotionDialogText>
-              {parse(renderMarkdown(concept.content?.content ?? ''))}
-            </NotionDialogText>
+            <NotionDialogText>{renderMarkdown(concept.content?.content ?? '')}</NotionDialogText>
           </NotionDialogContent>
           <NotionDialogLicenses
             license={license}
-            source={parse(renderMarkdown(source))}
+            source={renderMarkdown(source)}
             authors={authors}
           />
         </>
