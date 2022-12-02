@@ -14,6 +14,7 @@ import cheerio from 'cheerio';
 import { uniqueId } from 'lodash';
 import React from 'react';
 import { Remarkable } from 'remarkable';
+import parse from 'html-react-parser';
 import { fetchConcept } from '../api/conceptApi';
 import config from '../config';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
@@ -52,8 +53,7 @@ export interface ConceptMetaData {
 const renderMarkdown = (text: string) => {
   const md = new Remarkable();
   md.inline.ruler.enable(['sub', 'sup']);
-  const rendered = md.render(text);
-  return <span dangerouslySetInnerHTML={{ __html: rendered }} />;
+  return parse(md.render(text));
 };
 
 const renderInline = (
