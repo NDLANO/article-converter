@@ -438,9 +438,12 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
         }
       }
     </style>
-    <h2 class=\\"c-related-articles__component-title css-a3z2t5-headingStyle\\">
+    <h3
+      class=\\"c-related-articles__component-title css-a3z2t5-headingStyle\\"
+      tabindex=\\"0\\"
+    >
       Relatert innhold
-    </h2>
+    </h3>
     <div class=\\"c-related-articles__articles\\">
       <article
         class=\\"

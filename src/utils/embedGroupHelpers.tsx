@@ -24,6 +24,7 @@ export function createRelatedArticleList(
     return render(
       <RelatedArticleList
         {...props}
+        headingLevel="h3"
         messages={{
           title: t(locale, 'related.title'),
           showMore: t(locale, 'related.showMore'),
