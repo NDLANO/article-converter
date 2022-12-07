@@ -421,8 +421,8 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
 </section>
 <section>
   <section class=\\"c-related-articles\\">
-    <style data-emotion=\\"css 1i9wngt-StyledWrapper\\">
-      .css-1i9wngt-StyledWrapper {
+    <style data-emotion=\\"css a3z2t5-headingStyle\\">
+      .css-a3z2t5-headingStyle {
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -431,20 +431,14 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
         line-height: 24px;
       }
       @media (min-width: 37.5625em) {
-        .css-1i9wngt-StyledWrapper {
+        .css-a3z2t5-headingStyle {
           font-size: 20px;
           font-size: 1.1111111111111112rem;
           line-height: 26px;
         }
       }
     </style>
-    <h2
-      class=\\"
-        c-related-articles__component-title
-        css-1i9wngt-StyledWrapper
-        egsow3l0
-      \\"
-    >
+    <h2 class=\\"c-related-articles__component-title css-a3z2t5-headingStyle\\">
       Relatert innhold
     </h2>
     <div class=\\"c-related-articles__articles\\">
