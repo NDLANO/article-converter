@@ -10,7 +10,6 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogLicenses, NotionDialogText } from '@ndla/notion';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import type { NotionVisualElementType } from '@ndla/ui';
-import cheerio from 'cheerio';
 import { uniqueId } from 'lodash';
 import React from 'react';
 import { Remarkable } from 'remarkable';
@@ -20,6 +19,7 @@ import config from '../config';
 import { ApiOptions, Embed, LocaleType, PlainEmbed, Plugin, TransformOptions } from '../interfaces';
 import { ConceptBlock, transformVisualElement } from '../utils/conceptHelpers';
 import { render } from '../utils/render';
+import { parseHtml } from '../utils/htmlParser';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -163,7 +163,7 @@ export default function createConceptPlugin(options: TransformOptions = {}): Con
     };
 
     const transformed = await options.transform?.(
-      cheerio.load(visualElement.visualElement),
+      parseHtml(visualElement.visualElement),
       {},
       {
         lang: locale,

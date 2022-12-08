@@ -6,7 +6,6 @@
  *
  */
 
-import cheerio from 'cheerio';
 import { prettify } from './testHelpers';
 import {
   htmlTransforms,
@@ -16,9 +15,10 @@ import {
   transformLinksInOembed,
   addHeaderCopyLinkButtons,
 } from '../htmlTransformers';
+import { parseHtml } from '../utils/htmlParser';
 
 test('htmlTransforms changes ol to accommodate frontend styling', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <ol data-type='letters'>
         <li>Lorem ipsum dolor sit amet...</li>
@@ -36,7 +36,7 @@ test('htmlTransforms changes ol to accommodate frontend styling', () => {
 });
 
 test('htmlTransforms changes ol to accommodate listing resets', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <ol data-type='letters' start='2'>
         <li>Lorem ipsum dolor sit amet...</li>
@@ -58,7 +58,7 @@ test('htmlTransforms changes ol to accommodate listing resets', () => {
 });
 
 test('htmlTransforms changes ul to accommodate frontend styling', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <ul data-type='two-column'>
         <li>Lorem ipsum dolor sit amet...</li>
@@ -80,7 +80,7 @@ test('htmlTransforms changes ul to accommodate frontend styling', () => {
 });
 
 test('htmlTransforms adds display block to math tags', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi><mo>'</mo>
@@ -100,7 +100,7 @@ test('htmlTransforms adds display block to math tags', () => {
 });
 
 test('htmlTransforms changes p to accommodate frontend styling', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
   <p data-align='center'>Lorem ipsum dolor sit amet...</p>
   </section>`);
@@ -112,7 +112,7 @@ test('htmlTransforms changes p to accommodate frontend styling', () => {
 });
 
 test('htmlTransforms changes span with data-size to a span with font size', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
   Lorem ipsum <span data-size="large">dolor</span> sit amet...
   </section>`);
@@ -124,7 +124,7 @@ test('htmlTransforms changes span with data-size to a span with font size', () =
 });
 
 test('move react portals to bottom', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <figure>
       <p>Lorem ipsum dolor sit amet...</p>
@@ -140,7 +140,7 @@ test('move react portals to bottom', () => {
 });
 
 test('transformAsides duplicates right column aside for better narrowscreen experience', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <figure>
       <p>Lorem ipsum dolor sit amet...</p>
@@ -161,7 +161,7 @@ test('transformAsides duplicates right column aside for better narrowscreen expe
 });
 
 test('transformAsides encloses aside duplication to sections', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <aside><h2>Test1</h2><div>Stuff</div></aside>
     <p>Lorem</p>
@@ -178,7 +178,7 @@ test('transformAsides encloses aside duplication to sections', () => {
 });
 
 test('transformAsides replaces factAsides with factbox component', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <p>Lorem ipsum dolor sit amet...</p>
     <aside data-type='factAside'><h2>Test1</h2><div>Stuff</div></aside>
@@ -194,7 +194,7 @@ test('transformAsides replaces factAsides with factbox component', () => {
 });
 
 test('transformTables replaces table with <Table>', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <table>
   <thead>
   <tr><th>test</th>
@@ -215,7 +215,7 @@ test('transformTables replaces table with <Table>', () => {
 });
 
 test('transformLinksInOembed adds target blank to a if oembed', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
   <a href='https://external.com'>Lorem ipsum dolor sit amet...</a>
   </section>`);
@@ -228,7 +228,7 @@ test('transformLinksInOembed adds target blank to a if oembed', () => {
 });
 
 test('addHeaderCopyLinkButtons only transforms h2 on root level', () => {
-  const content = cheerio.load(`
+  const content = parseHtml(`
   <section>
     <figure>
       <h2>this header is not changed since placed in figure</h2>

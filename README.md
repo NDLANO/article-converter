@@ -18,7 +18,7 @@ _Returns an extended and transformed json structure based on the one provided by
 
 _Returns the content attribute from [Article API](https://github.com/NDLANO/article-api) transformed to plain html and wrapped in a HTML document (useful for testing)_
 
-The service mainly converts `<embed>` tags in the content attribute to appropriate html tags. For some embed tags fetching additional data from other api's is required.
+The service mainly converts `<ndlaembed>` tags in the content attribute to appropriate html tags. For some embed tags fetching additional data from other api's is required.
 
 ### Developer notes
 

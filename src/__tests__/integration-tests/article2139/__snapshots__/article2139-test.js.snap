@@ -113,7 +113,7 @@ Object {
   "updatedBy": "xQ8mzUvTqBeT5xVXgrvhJ3WM.editorial.frontend",
   "visualElement": Object {
     "language": "nb",
-    "visualElement": "<embed data-resource=\\"image\\" data-resource_id=\\"859\\" data-size=\\"full\\" data-align=\\"\\" data-alt=\\"Vann\\" data-caption=\\"Vann\\" data-url=\\"https://test.api.ndla.no/image-api/v2/images/859\\">",
+    "visualElement": "<ndlaembed data-resource=\\"image\\" data-resource_id=\\"859\\" data-size=\\"full\\" data-align=\\"\\" data-alt=\\"Vann\\" data-caption=\\"Vann\\" data-url=\\"https://test.api.ndla.no/image-api/v2/images/859\\"></ndlaembed>",
   },
 }
 `;

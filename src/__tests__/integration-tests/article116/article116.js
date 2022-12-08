@@ -8,7 +8,7 @@ const article = {
   },
   content: {
     content:
-      '<section><embed data-account="4806596774001" data-caption="" data-player="BkLm8fT" data-resource="brightcove" data-videoid="ref:125442"></section>',
+      '<section><ndlaembed data-account="4806596774001" data-caption="" data-player="BkLm8fT" data-resource="brightcove" data-videoid="ref:125442"></ndlaembed></section>',
     language: 'unknown',
   },
   copyright: {

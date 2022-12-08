@@ -10,7 +10,7 @@ import { CheerioAPI } from 'cheerio';
 import { PlainEmbed } from './interfaces';
 
 export async function getEmbedsFromHtml(html: CheerioAPI): Promise<PlainEmbed[]> {
-  return html('embed')
+  return html('ndlaembed')
     .toArray()
     .map(
       (embed) =>
