@@ -3406,22 +3406,26 @@ exports[`replacer/replaceEmbedsInHtml replace iframe embeds 1`] = `
 exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
 "<section>
   <figure data-sizetype=\\"left\\" class=\\"c-figure u-float-left\\" id=\\"figure-2-1\\">
-    <style data-emotion=\\"css dsjxlq-StyledLink\\">
-      .css-dsjxlq-StyledLink {
+    <style data-emotion=\\"css 83iqko-StyledLink\\">
+      .css-83iqko-StyledLink {
         box-shadow: inset 0 0;
+        width: 100%;
+        height: 100%;
       }</style
     ><a
       target=\\"_blank\\"
       href=\\"http://ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
-      ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
-        .css-406e66-StyledImageWrapper {
+      class=\\"css-83iqko-StyledLink eo3pjlm0\\"
+      ><style data-emotion=\\"css obq02y-StyledImageWrapper\\">
+        .css-obq02y-StyledImageWrapper {
           position: relative;
+          width: 100%;
+          height: 100%;
         }
       </style>
-      <div class=\\"css-406e66-StyledImageWrapper ejtxxex0\\">
+      <div class=\\"css-obq02y-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
@@ -4255,22 +4259,26 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
     </figcaption>
   </figure>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-3-2\\">
-    <style data-emotion=\\"css dsjxlq-StyledLink\\">
-      .css-dsjxlq-StyledLink {
+    <style data-emotion=\\"css 83iqko-StyledLink\\">
+      .css-83iqko-StyledLink {
         box-shadow: inset 0 0;
+        width: 100%;
+        height: 100%;
       }</style
     ><a
       target=\\"_blank\\"
       href=\\"http://ndla.no/images/2.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
-      ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
-        .css-406e66-StyledImageWrapper {
+      class=\\"css-83iqko-StyledLink eo3pjlm0\\"
+      ><style data-emotion=\\"css obq02y-StyledImageWrapper\\">
+        .css-obq02y-StyledImageWrapper {
           position: relative;
+          width: 100%;
+          height: 100%;
         }
       </style>
-      <div class=\\"css-406e66-StyledImageWrapper ejtxxex0\\">
+      <div class=\\"css-obq02y-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
@@ -5159,22 +5167,26 @@ exports[`replacer/replaceEmbedsInHtml replace trinket embeds without resize 1`] 
 exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
 "<section>
   <figure data-sizetype=\\"full\\" class=\\"c-figure u-float-full\\" id=\\"figure-1-1326\\">
-    <style data-emotion=\\"css dsjxlq-StyledLink\\">
-      .css-dsjxlq-StyledLink {
+    <style data-emotion=\\"css 83iqko-StyledLink\\">
+      .css-83iqko-StyledLink {
         box-shadow: inset 0 0;
+        width: 100%;
+        height: 100%;
       }</style
     ><a
       target=\\"_blank\\"
       href=\\"http://api.test.ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
       aria-label=\\"Åpne bilde i et nytt vindu\\"
-      class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
-      ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
-        .css-406e66-StyledImageWrapper {
+      class=\\"css-83iqko-StyledLink eo3pjlm0\\"
+      ><style data-emotion=\\"css obq02y-StyledImageWrapper\\">
+        .css-obq02y-StyledImageWrapper {
           position: relative;
+          width: 100%;
+          height: 100%;
         }
       </style>
-      <div class=\\"css-406e66-StyledImageWrapper ejtxxex0\\">
+      <div class=\\"css-obq02y-StyledImageWrapper ejtxxex0\\">
         <picture
           ><source
             srcset=\\"
