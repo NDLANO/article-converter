@@ -8,7 +8,7 @@ const article = {
   },
   content: {
     content:
-      '<section><p>Forslag til årsplan 1P </p><div data-type="file"><embed data-resource="file" data-title="Forslag til årsplan 1P" data-type="doc" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc"><embed data-resource="file" data-title="Forslag til årsplan 1P" data-type="odt" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt"><embed data-display="block" data-resource="file" data-title="Forslag til årsplan 1P" data-type="pdf" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf"></div></section>',
+      '<section><p>Forslag til årsplan 1P </p><div data-type="file"><ndlaembed data-resource="file" data-title="Forslag til årsplan 1P" data-type="doc" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.doc"></ndlaembed><ndlaembed data-resource="file" data-title="Forslag til årsplan 1P" data-type="odt" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.odt"></ndlaembed><ndlaembed data-display="block" data-resource="file" data-title="Forslag til årsplan 1P" data-type="pdf" data-url="https://test.api.ndla.no/files/103066/1p_arsplan_2013-2014_nynorsk.pdf"></ndlaembed></div></section>',
     language: 'nn',
   },
   copyright: {

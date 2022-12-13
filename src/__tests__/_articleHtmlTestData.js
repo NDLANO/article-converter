@@ -11,7 +11,7 @@ export const articleWithMultipleResources = `
      <p><strong>Kommunikasjonsmodellen til Lasswell er eit nyttig verktøy både når du skal analysere mediekommunikasjon, og når du sjølv skal planleggje mediekommunikasjon.</strong></p>
      <h2>Kven seier kva til kven<strong>?<br /></strong></h2>
      <p></p>
-     <embed data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"></embed>
+     <ndlaembed data-resource="h5p" data-id="8" data-url="http://ndla.no/h5p/embed/163489"></ndlaembed>
      <p></p>
   </section>
   <section>
@@ -22,7 +22,7 @@ export const articleWithMultipleResources = `
   <section>
      <h2>Propaganda*</h2>
      <p></p>
-     <embed data-resource="image" data-id="7" data-caption="Stillbilde fra filmen Viljens Triumf" data-url="http://api.test.ndla.no/images/1327" data-size="hovedspalte"></embed>
+     <ndlaembed data-resource="image" data-id="7" data-caption="Stillbilde fra filmen Viljens Triumf" data-url="http://api.test.ndla.no/images/1327" data-size="hovedspalte"></ndlaembed>
      <p></p>
      <p style="padding-left: 60px;"><strong>Kven</strong> – Hitler</p>
      <p style="padding-left: 60px;"><strong>seier kva </strong>– germanarane er ein overlegen rase</p>
@@ -35,7 +35,7 @@ export const articleWithMultipleResources = `
   <section>
      <h2>Underhaldning</h2>
      <p></p>
-     <embed data-resource="image" data-caption="" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></embed>
+     <ndlaembed data-resource="image" data-caption="" data-id="6" data-url="http://api.test.ndla.no/images/1326" data-size="hovedspalte"></ndlaembed>
      <p></p>
      <p><a href="https://www.facebook.com/skimonster.bg/videos/1575584372708155/" title="Sjå filmen her: Skimonster">Sjå filmen her: Skimonster</a>  </p>
      <p style="padding-left: 60px;"><strong>Kven </strong>– Skimonster</p>
@@ -47,7 +47,7 @@ export const articleWithMultipleResources = `
   <section>
      <h2>Journalistikk</h2>
      <p></p>
-     <embed data-resource="image" data-align="right" data-caption="" data-id="4" data-url="http://api.test.ndla.no/images/1325" data-size="hovedspalte"></embed>
+     <ndlaembed data-resource="image" data-align="right" data-caption="" data-id="4" data-url="http://api.test.ndla.no/images/1325" data-size="hovedspalte"></ndlaembed>
      <p></p>
      <p>Les nyheita her: VG, 22.07.2011:</p>
      <p><a href="http://www.vg.no/nyheter/innenriks/terrorangrepet-22-juli-etterforskningen/flere-skutt-paa-utoeya-i-buskerud/a/10080590/" title="Flere skutt på Utøya i Buskerud">Flere skutt på Utøya i Buskerud</a> </p>
@@ -61,7 +61,7 @@ export const articleWithMultipleResources = `
   <section>
      <h2>Reklame</h2>
      <p></p>
-     <embed data-resource="brightcove" data-id="2" data-caption="Brightcove caption" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"></embed>
+     <ndlaembed data-resource="brightcove" data-id="2" data-caption="Brightcove caption" data-videoid="ref:46012" data-account="4806596774001" data-player="BkLm8fT"></ndlaembed>
      <p></p>
      <p style="padding-left: 60px;"><strong>Kven </strong>– Lerum </p>
      <p style="padding-left: 60px;"><strong>seier kva</strong> – produkta våre er laga av dei beste fruktene</p>
@@ -72,7 +72,7 @@ export const articleWithMultipleResources = `
   <section>
      <h2>Informasjon</h2>
      <p></p>
-     <embed data-resource="external" data-id="1" data-url="https://example.com/BAb8NZ3e4e4"></embed>
+     <ndlaembed data-resource="external" data-id="1" data-url="https://example.com/BAb8NZ3e4e4"></ndlaembed>
      <p></p>
      <p style="padding-left: 60px;"><strong>Kven –</strong> Statens Vegvesen</p>
      <p style="padding-left: 60px;"><strong>seier kva</strong> – råkjøring er barnsleg</p>
@@ -89,8 +89,8 @@ export const articleWithContentLink = `
   <article>
     <section>
       <ul>
-        <li><embed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"></embed></li>
-        <li><embed data-resource="content-link" data-id="2" data-content-id="424" data-link-text="Bearbeiding av datamaterialet" data-open-in="new-context"></embed></li>
+        <li><ndlaembed data-resource="content-link" data-id="1" data-content-id="425" data-link-text="Valg av informanter"></ndlaembed></li>
+        <li><ndlaembed data-resource="content-link" data-id="2" data-content-id="424" data-link-text="Bearbeiding av datamaterialet" data-open-in="new-context"></ndlaembed></li>
       </ul>
     </section>
   </article> `;
@@ -100,8 +100,8 @@ export const articleWithNRKEmbed = `
     <section>
       <ul>
 
-        <li><embed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745" /></li>
-        <li><embed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746" /></li>
+        <li><ndlaembed data-id="1" data-nrk-video-id="94605" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18745"></ndlaembed></li>
+        <li><ndlaembed data-id="2" data-nrk-video-id="94606" data-resource="nrk" data-url="http://nrk.no/skole/klippdetalj?topic=urn%3Ax-mediadb%3A18746"></ndlaembed></li>
       </ul>
     </section>
   </article> `;
@@ -110,8 +110,8 @@ export const articleWithAudioEmbed = `
   <article>
     <section>
       <ul>
-        <li><embed data-id="1" data-resource="audio" data-url="http://api.test.ndla.no/audio/1" /></li>
-        <li><embed data-id="2" data-resource="audio" data-url="http://api.test.ndla.no/audio/2" /></li>
+        <li><ndlaembed data-id="1" data-resource="audio" data-url="http://api.test.ndla.no/audio/1"></ndlaembed></li>
+        <li><ndlaembed data-id="2" data-resource="audio" data-url="http://api.test.ndla.no/audio/2"></ndlaembed></li>
       </ul>
     </section>
   </article> `;
@@ -120,8 +120,8 @@ export const articleWithBrightcoveEmbed = `
   <article>
     <section>
       <ul>
-        <li><embed data-resource="brightcove" data-id="1" data-caption="Brightcove caption" data-videoid="ref:1" data-account="1337" data-player="BkLm8fT"></embed></li>
-        <li><embed data-resource="brightcove" data-id="2" data-caption="" data-videoid="ref:2" data-account="1337" data-player="BkLm8fT"></embed></li>
+        <li><ndlaembed data-resource="brightcove" data-id="1" data-caption="Brightcove caption" data-videoid="ref:1" data-account="1337" data-player="BkLm8fT"></ndlaembed></li>
+        <li><ndlaembed data-resource="brightcove" data-id="2" data-caption="" data-videoid="ref:2" data-account="1337" data-player="BkLm8fT"></ndlaembed></li>
       </ul>
     </section>
   </article> `;
@@ -130,8 +130,8 @@ export const articleWithExternalEmbed = `
   <article>
     <section>
       <ul>
-        <li><embed data-resource="external" data-id="1" data-url="https://youtu.be/BAb8NZ3e4e4"></embed></li>
-        <li><embed data-resource="external" data-id="2" data-url="https://vimeo.com/BAb8NZ3e4e4"></embed></li>
+        <li><ndlaembed data-resource="external" data-id="1" data-url="https://youtu.be/BAb8NZ3e4e4"></ndlaembed></li>
+        <li><ndlaembed data-resource="external" data-id="2" data-url="https://vimeo.com/BAb8NZ3e4e4"></ndlaembed></li>
       </ul>
     </section>
   </article> `;

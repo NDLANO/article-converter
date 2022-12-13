@@ -2,7 +2,6 @@ import { figureApa7CopyString } from '@ndla/licenses';
 import { IConcept, IConceptSummary } from '@ndla/types-concept-api';
 import type { NotionVisualElementType } from '@ndla/ui';
 import { ConceptNotion } from '@ndla/ui';
-import cheerio from 'cheerio';
 import React from 'react';
 import config from '../config';
 import { ApiOptions, TransformOptions } from '../interfaces';
@@ -11,6 +10,7 @@ import { getEmbedsFromHtml } from '../parser';
 import createPlugins from '../plugins';
 import { ImageActionButtons } from '../plugins/imagePlugin';
 import { getEmbedsResources } from '../transformers';
+import { parseHtml } from './htmlParser';
 
 interface ConceptBlockProps {
   concept: IConcept | IConceptSummary;
@@ -66,7 +66,7 @@ export const transformVisualElement = async (
     return;
   }
   const plugins = createPlugins(options);
-  const embeds = await getEmbedsFromHtml(cheerio.load(visualElement));
+  const embeds = await getEmbedsFromHtml(parseHtml(visualElement));
   const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
   const embed = embedsWithResources[0];
 

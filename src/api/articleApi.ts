@@ -21,15 +21,13 @@ export async function fetchArticle(
 ): Promise<{ article: IArticleV2; responseHeaders: ResponseHeaders }> {
   const feideHeader = apiOptions.feideToken ? { FeideAuthorization: apiOptions.feideToken } : null;
   const headers = { ...headerWithAccessToken(apiOptions.accessToken), ...feideHeader };
-  const response = await ndlaFetch(
-    apiResourceUrl(
-      `/article-api/v2/articles/${articleId}?language=${apiOptions.lang}&fallback=true`,
-    ),
-    {
-      method: 'GET',
-      headers,
-    },
+  const url = apiResourceUrl(
+    `/article-api/v2/articles/${articleId}?language=${apiOptions.lang}&fallback=true`,
   );
+  const response = await ndlaFetch(url, {
+    method: 'GET',
+    headers,
+  });
 
   const cacheControlResponse = response.headers.get('cache-control');
   const responseHeaders: Record<string, string> = cacheControlResponse

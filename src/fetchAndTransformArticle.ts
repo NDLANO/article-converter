@@ -1,4 +1,3 @@
-import cheerio from 'cheerio';
 import { IArticleV2 } from '@ndla/types-article-api';
 import { webpageReferenceApa7CopyString } from '@ndla/licenses';
 import { fetchArticle } from './api/articleApi';
@@ -6,6 +5,7 @@ import { transform } from './transformers';
 import config from './config';
 import t from './locale/i18n';
 import { ApiOptions, ResponseHeaders, TransformedArticle, TransformOptions } from './interfaces';
+import { parseHtml } from './utils/htmlParser';
 
 export async function transformArticle(
   article: IArticleV2,
@@ -13,11 +13,7 @@ export async function transformArticle(
   apiOptions: ApiOptions,
   options: TransformOptions = {},
 ): Promise<TransformedArticle> {
-  const articleContent = article.content.content
-    ? cheerio.load(article.content.content, {
-        recognizeSelfClosing: true,
-      })
-    : undefined;
+  const articleContent = article.content.content ? parseHtml(article.content.content) : undefined;
 
   const { html, embedMetaData, responseHeaders } = articleContent
     ? await transform(articleContent, headers, apiOptions, article.visualElement, options)
@@ -36,7 +32,7 @@ export async function transformArticle(
     (id: string) => t(apiOptions.lang, id),
   );
 
-  const hasContent = article.articleType === 'standard' || cheerio.load(htmlString).text() !== '';
+  const hasContent = article.articleType === 'standard' || parseHtml(htmlString).text() !== '';
 
   return {
     ...article,
