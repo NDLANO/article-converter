@@ -171,6 +171,13 @@ export const addTooltipAttributes = (content: CheerioAPI) => {
   });
 };
 
+export const addPopoverAttributes = (content: CheerioAPI) => {
+  content('div[data-popover]').each((idx, tooltip) => {
+    const popoverElement = cheerio(tooltip);
+    popoverElement.attr('data-popover-from-article-converter', 'true');
+  });
+};
+
 export const htmlTransforms: ((
   content: CheerioAPI,
   lang: LocaleType,
@@ -195,6 +202,7 @@ export const htmlTransforms: ((
   transformFileList,
   transformLinksInOembed,
   addTooltipAttributes,
+  addPopoverAttributes,
   moveReactPortals,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];
