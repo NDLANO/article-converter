@@ -10,6 +10,7 @@ import nock from 'nock';
 import bunyan from 'bunyan';
 import getLogger from '../../utils/logger';
 import createContentLinkPlugin from '../contentLinkPlugin';
+import { parseHtml } from '../../utils/htmlParser';
 
 const articleResource = [
   {
@@ -158,8 +159,10 @@ test('embedToHtml should return anchor tag with path', async () => {
     (
       await contentLinkPlugin.embedToHTML(
         {
-          embed: {},
-          data: { linkText: 'text', contentId: '1' },
+          embed: parseHtml(
+            '<ndlaembed data-resource="content-link" data-content-id="1">text</ndlaembed>',
+          )('ndlaembed'),
+          data: { contentId: '1' },
           path: '/urn:test:1',
         },
         {
@@ -179,8 +182,10 @@ test('embedToHtml should return anchor tag with path in target _blank if isOembe
     (
       await contentLinkPlugin.embedToHTML(
         {
-          embed: {},
-          data: { linkText: 'text', contentId: '1' },
+          embed: parseHtml(
+            '<ndlaembed data-resource="content-link" data-content-id="1">text</ndlaembed>',
+          )('ndlaembed'),
+          data: { contentId: '1' },
           path: '/urn:test:1',
         },
         {
