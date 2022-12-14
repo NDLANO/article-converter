@@ -165,14 +165,14 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
 };
 
 export const addTooltipAttributes = (content: CheerioAPI) => {
-  content('div[data-tooltip]').each((idx, tooltip) => {
+  content('div[data-tooltip-container]').each((idx, tooltip) => {
     const tooltipElement = cheerio(tooltip);
     tooltipElement.attr('data-tooltip-from-article-converter', 'true');
   });
 };
 
 export const addPopoverAttributes = (content: CheerioAPI) => {
-  content('div[data-popover]').each((idx, tooltip) => {
+  content('div[data-popover-container]').each((idx, tooltip) => {
     const popoverElement = cheerio(tooltip);
     popoverElement.attr('data-popover-from-article-converter', 'true');
   });
