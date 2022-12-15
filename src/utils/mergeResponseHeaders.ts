@@ -20,17 +20,19 @@ export function mergeResponseHeaders(respHeaders: ResponseHeaders[]): ResponseHe
     'no-store',
   ];
 
-  let headers: Record<string, string> = {};
+  const headers: Record<string, string> = {};
 
   respHeaders.forEach((embed) => {
     Object.entries(embed ?? {}).forEach(([key, value]) => {
       switch (key.toLowerCase()) {
         case 'cache-control':
-          const storedHeader: string | undefined = headers['cache-control'];
-          const storedIdx = cacheControlStrictness.findIndex((x) => storedHeader?.includes(x));
-          const newIdx = cacheControlStrictness.findIndex((x) => value.includes(x));
-          if (newIdx > storedIdx) {
-            headers['cache-control'] = value;
+          {
+            const storedHeader: string | undefined = headers['cache-control'];
+            const storedIdx = cacheControlStrictness.findIndex((x) => storedHeader?.includes(x));
+            const newIdx = cacheControlStrictness.findIndex((x) => value.includes(x));
+            if (newIdx > storedIdx) {
+              headers['cache-control'] = value;
+            }
           }
           break;
         default:

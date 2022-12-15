@@ -23,7 +23,7 @@ export async function replaceEmbedsInHtml(
   lang: LocaleType,
   plugins: AnyPlugin[],
 ): Promise<ResponseHeaders[]> {
-  let headers: ResponseHeaders[] = [];
+  const headers: ResponseHeaders[] = [];
 
   await asyncForEach(embeds, async (embed) => {
     const plugin = findPlugin(plugins, embed);

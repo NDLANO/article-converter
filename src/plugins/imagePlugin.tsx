@@ -14,8 +14,10 @@ import {
   FigureCaption,
   FigureExpandButton,
   FigureLicenseDialog,
+  Image,
+  ImageLink,
 } from '@ndla/ui';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import PropTypes from 'prop-types';
 import React from 'react';
 // @ts-ignore
@@ -27,8 +29,7 @@ import {
   getLicenseByAbbreviation,
 } from '@ndla/licenses';
 import { ICopyright, IImageMetaInformationV2 } from '@ndla/types-image-api';
-import { Image, ImageLink } from '@ndla/ui';
-import { isNumber } from 'lodash';
+import isNumber from 'lodash/isNumber';
 import queryString from 'query-string';
 import { fetchImageResources } from '../api/imageApi';
 import config from '../config';

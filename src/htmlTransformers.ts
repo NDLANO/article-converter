@@ -7,7 +7,7 @@
  */
 
 import cheerio, { CheerioAPI, Element } from 'cheerio';
-import { partition } from 'lodash';
+import partition from 'lodash/partition';
 import {
   createAside,
   createFactbox,

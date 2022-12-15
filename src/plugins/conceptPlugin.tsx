@@ -10,7 +10,7 @@ import styled from '@emotion/styled';
 import Notion, { NotionDialogContent, NotionDialogLicenses, NotionDialogText } from '@ndla/notion';
 import { IConcept, ICopyright } from '@ndla/types-concept-api';
 import type { NotionVisualElementType } from '@ndla/ui';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import React from 'react';
 import { Remarkable } from 'remarkable';
 import parse from 'html-react-parser';

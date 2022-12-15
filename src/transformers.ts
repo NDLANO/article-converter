@@ -8,7 +8,7 @@
 
 import { performance } from 'perf_hooks';
 import { CheerioAPI } from 'cheerio';
-import { compact } from 'lodash';
+import compact from 'lodash/compact';
 import Logger from 'bunyan';
 import { replaceEmbedsInHtml } from './replacer';
 import { getEmbedsFromHtml } from './parser';

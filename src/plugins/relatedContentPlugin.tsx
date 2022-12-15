@@ -7,12 +7,9 @@
  */
 
 import React from 'react';
-// @ts-ignore
-import { RelatedArticle } from '@ndla/ui';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
 import cheerio from 'cheerio';
-import { ContentTypeBadge } from '@ndla/ui';
-import { constants } from '@ndla/ui';
+import { ContentTypeBadge, constants, RelatedArticle } from '@ndla/ui';
 import { isObject } from 'lodash/fp';
 import { IArticleV2 } from '@ndla/types-article-api';
 import getLogger from '../utils/logger';
