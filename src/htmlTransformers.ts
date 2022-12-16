@@ -7,7 +7,7 @@
  */
 
 import cheerio, { CheerioAPI, Element } from 'cheerio';
-import { partition } from 'lodash';
+import partition from 'lodash/partition';
 import {
   createAside,
   createFactbox,
@@ -165,9 +165,16 @@ export const addHeaderCopyLinkButtons = (content: CheerioAPI) => {
 };
 
 export const addTooltipAttributes = (content: CheerioAPI) => {
-  content('div[data-tooltip]').each((idx, tooltip) => {
+  content('div[data-tooltip-container]').each((idx, tooltip) => {
     const tooltipElement = cheerio(tooltip);
     tooltipElement.attr('data-tooltip-from-article-converter', 'true');
+  });
+};
+
+export const addPopoverAttributes = (content: CheerioAPI) => {
+  content('div[data-popover-container]').each((idx, tooltip) => {
+    const popoverElement = cheerio(tooltip);
+    popoverElement.attr('data-popover-from-article-converter', 'true');
   });
 };
 
@@ -195,6 +202,7 @@ export const htmlTransforms: ((
   transformFileList,
   transformLinksInOembed,
   addTooltipAttributes,
+  addPopoverAttributes,
   moveReactPortals,
   transformAsides, // since transformAsides duplicates content all other transforms should be run first
 ];

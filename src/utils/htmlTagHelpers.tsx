@@ -8,8 +8,7 @@
 import React from 'react';
 import { uuid } from '@ndla/util';
 // @ts-ignore
-import { Figure, Table, FactBox, FileList } from '@ndla/ui';
-import { CopyParagraphButton, Aside } from '@ndla/ui';
+import { Figure, Table, FactBox, FileList, CopyParagraphButton, Aside } from '@ndla/ui';
 import t from '../locale/i18n';
 import { render } from './render';
 import { LocaleType } from '../interfaces';

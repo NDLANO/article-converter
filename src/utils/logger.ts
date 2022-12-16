@@ -6,13 +6,12 @@
  *
  */
 
-import bunyan from 'bunyan';
 import Logger from 'bunyan';
 import { AsyncLocalStorage } from 'node:async_hooks';
 
 export const loggerStorage = new AsyncLocalStorage<Logger>();
 
-const baseLogger = bunyan.createLogger({ name: 'article-converter' });
+const baseLogger = Logger.createLogger({ name: 'article-converter' });
 
 export function getLogger(): Logger {
   const storedLogger = loggerStorage.getStore();

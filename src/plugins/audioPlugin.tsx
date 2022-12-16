@@ -10,7 +10,7 @@ import React from 'react';
 import { Translation } from 'react-i18next';
 import { Remarkable } from 'remarkable';
 // @ts-ignore
-import { Figure, FigureCaption, FigureLicenseDialog } from '@ndla/ui';
+import { Figure, FigureCaption, FigureLicenseDialog, AudioPlayer } from '@ndla/ui';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
 import {
@@ -20,7 +20,6 @@ import {
 } from '@ndla/licenses';
 import { IAudioMetaInformation, ICopyright } from '@ndla/types-audio-api';
 import { IImageMetaInformationV2 } from '@ndla/types-image-api';
-import { AudioPlayer } from '@ndla/ui';
 import { fetchAudio } from '../api/audioApi';
 import { fetchImageResources } from '../api/imageApi';
 import config from '../config';
