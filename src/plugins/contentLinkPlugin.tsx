@@ -18,13 +18,22 @@ export interface ContentLinkEmbed extends Embed<ContentLinkEmbedData> {
 export interface ContentLinkEmbedData {
   resource: 'content-link';
   contentId: string;
-  linkText: string;
+  linkText?: string;
   openIn?: string;
   contentType?: string;
 }
 
 export interface ContentLinkPlugin extends Plugin<ContentLinkEmbed, ContentLinkEmbedData> {
   resource: 'content-link';
+}
+
+function getLinkText(embed: PlainEmbed<ContentLinkEmbedData>): string {
+  const child = embed.embed.html();
+  if (child) return child;
+  const attrText = embed.data.linkText;
+  if (attrText) return attrText;
+
+  return 'link';
 }
 
 export default function createContentLinkPlugin(options: TransformOptions = {}): ContentLinkPlugin {
@@ -61,15 +70,14 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
   }
 
   const embedToHTML = async (embed: ContentLinkEmbed) => {
+    const linkText = getLinkText(embed);
     if (embed.data.openIn === 'new-context') {
       return {
-        html: `<a href="${embed.path}" target="_blank" rel="noopener noreferrer">${embed.data.linkText}</a>`,
+        html: `<a href="${embed.path}" target="_blank" rel="noopener noreferrer">${linkText}</a>`,
       };
     }
     return {
-      html: `<a href="${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${
-        embed.data.linkText
-      }</a>`,
+      html: `<a href="${embed.path}" ${options.isOembed ? 'target="_blank"' : ''}>${linkText}</a>`,
     };
   };
 
