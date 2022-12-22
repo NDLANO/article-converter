@@ -48,7 +48,7 @@ export default function createContentLinkPlugin(options: TransformOptions = {}):
     }/${embed.data.contentId}`;
 
     try {
-      const resource = await fetchArticleResource(embed.data.contentId, apiOptions);
+      const resource = await fetchArticleResource(embed.data.contentId, apiOptions, contentType);
       const resourcePath =
         (resource?.paths &&
           resource.paths.find(
