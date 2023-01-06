@@ -489,13 +489,9 @@ exports[`app/fetchAndTransformArticle 116 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3
-          id=\\"heading-5388709430001\\"
-          class=\\"c-figure-license__title\\"
-          tabindex=\\"0\\"
-        >
+        <h1 id=\\"heading-5388709430001\\" class=\\"c-figure-license__title\\">
           Regler for bruk av videoen:
-        </h3>
+        </h1>
         <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
           .css-3yxr6g-StyledLicenseByline {
             display: -webkit-box;

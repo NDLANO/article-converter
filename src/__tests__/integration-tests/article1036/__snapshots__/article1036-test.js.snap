@@ -632,7 +632,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           }</style
         ><button
           data-title=\\"Verdens-beste-land-%C3%A5-leve-i%3F\\"
-          aria-label=\\"Kopier lenke til overskriften: Verdens-beste-land-%C3%A5-leve-i%3F\\"
+          aria-label=\\"Kopier lenke til overskriften: Verdens beste land å leve i?\\"
           data-state=\\"closed\\"
           data-trigger=\\"true\\"
           class=\\"css-nsj883-IconButton e18czas70\\"
@@ -740,7 +740,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
           }</style
         ><button
           data-title=\\"Forventet-levealder\\"
-          aria-label=\\"Kopier lenke til overskriften: Forventet-levealder\\"
+          aria-label=\\"Kopier lenke til overskriften: Forventet levealder\\"
           data-state=\\"closed\\"
           data-trigger=\\"true\\"
           class=\\"css-nsj883-IconButton e18czas70\\"
@@ -1141,13 +1141,9 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3
-          id=\\"heading-figure-1-2357\\"
-          class=\\"c-figure-license__title\\"
-          tabindex=\\"0\\"
-        >
+        <h1 id=\\"heading-figure-1-2357\\" class=\\"c-figure-license__title\\">
           Regler for bruk av bildet:
-        </h3>
+        </h1>
         <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
             <style data-emotion=\\"css 63d9qi-StyledList-StyledList\\">
