@@ -1206,9 +1206,9 @@ exports[`replacer/replaceEmbedsInHtml replace audio embeds 1`] = `
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-audio-1\\" class=\\"c-figure-license__title\\">
+            <h1 id=\\"heading-audio-1\\" class=\\"c-figure-license__title\\">
               Regler for bruk av lydfilen:
-            </h3>
+            </h1>
             <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
               .css-3yxr6g-StyledLicenseByline {
                 display: -webkit-box;
@@ -2035,9 +2035,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
+            <h1 id=\\"heading-1\\" class=\\"c-figure-license__title\\">
               Regler for bruk av videoen:
-            </h3>
+            </h1>
             <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
               .css-3yxr6g-StyledLicenseByline {
                 display: -webkit-box;
@@ -2871,9 +2871,9 @@ exports[`replacer/replaceEmbedsInHtml replace brightcove embeds 1`] = `
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
+            <h1 id=\\"heading-2\\" class=\\"c-figure-license__title\\">
               Regler for bruk av videoen:
-            </h3>
+            </h1>
             <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
               .css-3yxr6g-StyledLicenseByline {
                 display: -webkit-box;
@@ -3810,12 +3810,12 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3
+                      <h1
                         id=\\"heading-figure-2-1\\"
                         class=\\"c-figure-license__title\\"
                       >
                         Regler for bruk av bildet:
-                      </h3>
+                      </h1>
                       <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
                         <div>
                           <style
@@ -4668,12 +4668,12 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3
+                      <h1
                         id=\\"heading-figure-3-2\\"
                         class=\\"c-figure-license__title\\"
                       >
                         Regler for bruk av bildet:
-                      </h3>
+                      </h1>
                       <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
                         <div>
                           <style
@@ -5583,12 +5583,12 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
                   <div class=\\"c-dialog__content\\">
                     <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
                     <div class=\\"c-figure-license\\">
-                      <h3
+                      <h1
                         id=\\"heading-figure-1-1326\\"
                         class=\\"c-figure-license__title\\"
                       >
                         Regler for bruk av bildet:
-                      </h3>
+                      </h1>
                       <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
                         <div>
                           <style
@@ -6429,9 +6429,9 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
         <div class=\\"c-dialog__content\\">
           <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
           <div class=\\"c-figure-license\\">
-            <h3 id=\\"heading-46012\\" class=\\"c-figure-license__title\\">
+            <h1 id=\\"heading-46012\\" class=\\"c-figure-license__title\\">
               Regler for bruk av videoen:
-            </h3>
+            </h1>
             <style data-emotion=\\"css 3yxr6g-StyledLicenseByline\\">
               .css-3yxr6g-StyledLicenseByline {
                 display: -webkit-box;

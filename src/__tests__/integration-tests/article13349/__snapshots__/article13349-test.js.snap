@@ -266,7 +266,7 @@ exports[`app/fetchAndTransformArticle 13349 2`] = `
           }</style
         ><button
           data-title=\\"I-planleggingsdelen-m%C3%A5-du%3A\\"
-          aria-label=\\"Kopier lenke til overskriften: I-planleggingsdelen-m%C3%A5-du%3A\\"
+          aria-label=\\"Kopier lenke til overskriften: I planleggingsdelen må du:\\"
           data-state=\\"closed\\"
           data-trigger=\\"true\\"
           class=\\"css-nsj883-IconButton e18czas70\\"

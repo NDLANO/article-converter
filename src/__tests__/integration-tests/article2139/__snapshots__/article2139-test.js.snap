@@ -990,13 +990,9 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3
-          id=\\"heading-figure-1-2357\\"
-          class=\\"c-figure-license__title\\"
-          tabindex=\\"0\\"
-        >
+        <h1 id=\\"heading-figure-1-2357\\" class=\\"c-figure-license__title\\">
           Regler for bruk av bildet:
-        </h3>
+        </h1>
         <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
             <style data-emotion=\\"css 63d9qi-StyledList-StyledList\\">
@@ -1488,13 +1484,9 @@ exports[`app/fetchAndTransformArticle 2139 2`] = `
     <div class=\\"c-dialog__content\\">
       <button class=\\"c-dialog__close\\" type=\\"button\\">Lukk</button>
       <div class=\\"c-figure-license\\">
-        <h3
-          id=\\"heading-figure-2-347\\"
-          class=\\"c-figure-license__title\\"
-          tabindex=\\"0\\"
-        >
+        <h1 id=\\"heading-figure-2-347\\" class=\\"c-figure-license__title\\">
           Regler for bruk av bildet:
-        </h3>
+        </h1>
         <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
           <div>
             <style data-emotion=\\"css 63d9qi-StyledList-StyledList\\">

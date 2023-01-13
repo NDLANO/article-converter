@@ -131,7 +131,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
           }</style
         ><button
           data-title=\\"Endre-innhold\\"
-          aria-label=\\"Kopier lenke til overskriften: Endre-innhold\\"
+          aria-label=\\"Kopier lenke til overskriften: Endre innhold\\"
           data-state=\\"closed\\"
           data-trigger=\\"true\\"
           class=\\"css-nsj883-IconButton e18czas70\\"
@@ -246,7 +246,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
           }</style
         ><button
           data-title=\\"Endre-stiler\\"
-          aria-label=\\"Kopier lenke til overskriften: Endre-stiler\\"
+          aria-label=\\"Kopier lenke til overskriften: Endre stiler\\"
           data-state=\\"closed\\"
           data-trigger=\\"true\\"
           class=\\"css-nsj883-IconButton e18czas70\\"

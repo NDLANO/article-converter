@@ -67,10 +67,6 @@ export function createTable(props: {}, children: string, lang: LocaleType) {
   return render(
     <Table
       id={id}
-      messages={{
-        dialogCloseButton: t(lang, 'close'),
-        expandButtonLabel: t(lang, 'expandButton'),
-      }}
       {...props}
       dangerouslySetInnerHTML={{
         __html: children,
