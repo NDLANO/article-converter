@@ -129,7 +129,7 @@ const resetOrderedLists = (content: CheerioAPI) =>
 
 export const transformTables = (content: CheerioAPI, lang: LocaleType) =>
   content('table').each((_, table) => {
-    const newTable = createTable({}, content(table).children().toString(), lang);
+    const newTable = createTable(content(table).children().toString());
     content(table).before(newTable);
     content(table).remove();
   });

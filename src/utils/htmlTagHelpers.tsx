@@ -62,12 +62,11 @@ export function createFileSection(
   );
 }
 
-export function createTable(props: {}, children: string, lang: LocaleType) {
+export function createTable(children: string) {
   const id = process.env.NODE_ENV === 'unittest' ? 'testid' : uuid();
   return render(
     <Table
       id={id}
-      {...props}
       dangerouslySetInnerHTML={{
         __html: children,
       }}
