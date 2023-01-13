@@ -3414,7 +3414,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       target=\\"_blank\\"
       href=\\"http://ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
-      aria-label=\\"Åpne bilde i et nytt vindu\\"
+      aria-label=\\" - Åpne bilde i et nytt vindu\\"
       class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
       ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
         .css-406e66-StyledImageWrapper {
@@ -4274,7 +4274,7 @@ exports[`replacer/replaceEmbedsInHtml replace image embeds 1`] = `
       target=\\"_blank\\"
       href=\\"http://ndla.no/images/2.jpg?\\"
       rel=\\"noopener noreferrer\\"
-      aria-label=\\"Åpne bilde i et nytt vindu\\"
+      aria-label=\\" - Åpne bilde i et nytt vindu\\"
       class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
       ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
         .css-406e66-StyledImageWrapper {
@@ -5189,7 +5189,7 @@ exports[`replacer/replaceEmbedsInHtml replace various emdeds in html 1`] = `
       target=\\"_blank\\"
       href=\\"http://api.test.ndla.no/images/1.jpg?\\"
       rel=\\"noopener noreferrer\\"
-      aria-label=\\"Åpne bilde i et nytt vindu\\"
+      aria-label=\\" - Åpne bilde i et nytt vindu\\"
       class=\\"css-dsjxlq-StyledLink eo3pjlm0\\"
       ><style data-emotion=\\"css 406e66-StyledImageWrapper\\">
         .css-406e66-StyledImageWrapper {

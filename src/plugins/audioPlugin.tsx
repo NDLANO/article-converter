@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Translation } from 'react-i18next';
 import { Remarkable } from 'remarkable';
@@ -171,13 +170,6 @@ export default function createAudioPlugin(options: TransformOptions = {}): Audio
         </Anchor>
       </>
     );
-  };
-
-  AudioActionButtons.propTypes = {
-    copyString: PropTypes.string.isRequired,
-    locale: PropTypes.string.isRequired,
-    license: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
   };
 
   const ImageLicense = ({
