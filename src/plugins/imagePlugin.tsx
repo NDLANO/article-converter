@@ -140,12 +140,12 @@ function ImageWrapper({ src, altText, crop, size, children, locale }: ImageWrapp
   if (isSmall(size) || hideByline(size)) {
     return <>{children}</>;
   }
+  const ariaLabel = altText
+    ? `${altText} - ${t(locale, 'license.images.itemImage.ariaLabel')}`
+    : t(locale, 'license.images.itemImage.ariaLabel');
 
   return (
-    <ImageLink
-      src={src}
-      crop={crop}
-      aria-label={`${altText} - ${t(locale, 'license.images.itemImage.ariaLabel')}`}>
+    <ImageLink src={src} crop={crop} aria-label={ariaLabel}>
       {children}
     </ImageLink>
   );
