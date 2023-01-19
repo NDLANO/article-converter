@@ -146,6 +146,7 @@ export interface TransformOptions {
   previewAlt?: boolean;
   showVisualElement?: boolean;
   subject?: string;
+  lang?: LocaleType;
   transform?: TransformFunction;
 }
 
