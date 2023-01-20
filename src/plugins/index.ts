@@ -52,7 +52,7 @@ const plugins = (options: TransformOptions): AnyPlugin[] => [
   createFootnotePlugin(),
   createConceptPlugin(options),
   createRelatedContent(options),
-  createCodePlugin(),
+  createCodePlugin(options),
   createConceptListPlugin(options),
 ];
 

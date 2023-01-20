@@ -106,7 +106,7 @@ export const transform: TransformFunction = async (
     content('body').prepend(`<section>${visualElement.visualElement}</section>`);
   }
 
-  const transformOptions = { transform, ...options };
+  const transformOptions = { transform, ...options, lang: apiOptions.lang };
   const plugins = createPlugins(transformOptions);
   const embeds = await getEmbedsFromHtml(content);
   const embedsWithResources = await getEmbedsResources(embeds, apiOptions, plugins);
