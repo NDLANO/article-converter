@@ -14,30 +14,18 @@ import { i18nInstance } from '@ndla/ui';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import { LocaleType } from '../interfaces';
 
-const I18nWrapper = ({
-  locale,
-  children,
-}: {
-  locale: LocaleType;
-  children: React.ReactElement;
-}) => {
-  const { i18n } = useTranslation();
-  i18n.language = locale;
-  i18n.options.lng = locale;
-  return children;
-};
-
 function renderInternal(
   renderFunc: (n: React.ReactElement) => string,
   component: React.ReactElement,
   locale: LocaleType,
 ) {
+  const i18n = i18nInstance.cloneInstance({
+    lng: locale,
+  });
   return renderFunc(
-    <I18nextProvider i18n={i18nInstance}>
+    <I18nextProvider i18n={i18n}>
       <StaticRouter location="">
-        <MissingRouterContext.Provider value={true}>
-          <I18nWrapper locale={locale}>{component}</I18nWrapper>
-        </MissingRouterContext.Provider>
+        <MissingRouterContext.Provider value={true}>{component}</MissingRouterContext.Provider>
       </StaticRouter>
     </I18nextProvider>,
   );

@@ -10,7 +10,7 @@ import React from 'react';
 import he from 'he';
 import { Codeblock } from '@ndla/code';
 import { renderString } from '../utils/render';
-import { Plugin, Embed } from '../interfaces';
+import { Plugin, Embed, TransformOptions } from '../interfaces';
 
 export interface CodeEmbed extends Embed<CodeEmbedData> {}
 
@@ -25,7 +25,7 @@ export interface CodeEmbedData {
   title?: string;
 }
 
-export default function createCodePlugin(): CodePlugin {
+export default function createCodePlugin({ lang }: TransformOptions): CodePlugin {
   const embedToHTML = async (embed: CodeEmbed) => {
     const { title, codeContent, codeFormat } = embed.data;
     return {
@@ -33,6 +33,7 @@ export default function createCodePlugin(): CodePlugin {
         <figure className="c-figure">
           <Codeblock title={title} code={he.decode(codeContent)} format={codeFormat} showCopy />
         </figure>,
+        lang,
       ),
     };
   };
