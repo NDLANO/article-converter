@@ -202,7 +202,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
               flex-wrap: wrap;
             }
           </style>
-          <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
+          <div class=\\"css-3yxr6g-StyledLicenseByline e11vcrdk0\\">
             <style data-emotion=\\"css mywyd3-StyledList\\">
               .css-mywyd3-StyledList {
                 list-style: none;
@@ -220,7 +220,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 margin-right: 13px;
               }
             </style>
-            <ul class=\\"css-mywyd3-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-mywyd3-StyledList e1psngir0\\">
               <style data-emotion=\\"css 1jhwa3k-StyledListItem\\">
                 .css-1jhwa3k-StyledListItem {
                   display: -webkit-box;
@@ -234,7 +234,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   color: #20588f;
                 }
               </style>
-              <li class=\\"css-1jhwa3k-StyledListItem e1vgl0rz1\\">
+              <li class=\\"css-1jhwa3k-StyledListItem e1e3bvuy1\\">
                 <div
                   data-popover-container=\\"true\\"
                   data-popover=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
@@ -276,7 +276,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     aria-controls=\\"\\"
                     data-state=\\"closed\\"
                     data-trigger=\\"true\\"
-                    class=\\"css-v2wg9h-StyledLicenseIcon e1vgl0rz0\\"
+                    class=\\"css-v2wg9h-StyledLicenseIcon e1e3bvuy0\\"
                   >
                     <svg
                       fill=\\"currentColor\\"
@@ -326,7 +326,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   </style>
                 </div>
               </li>
-              <li class=\\"css-1jhwa3k-StyledListItem e1vgl0rz1\\">
+              <li class=\\"css-1jhwa3k-StyledListItem e1e3bvuy1\\">
                 <div
                   data-popover-container=\\"true\\"
                   data-popover=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
@@ -339,7 +339,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     aria-controls=\\"\\"
                     data-state=\\"closed\\"
                     data-trigger=\\"true\\"
-                    class=\\"css-v2wg9h-StyledLicenseIcon e1vgl0rz0\\"
+                    class=\\"css-v2wg9h-StyledLicenseIcon e1e3bvuy0\\"
                   >
                     <svg
                       fill=\\"currentColor\\"
@@ -371,7 +371,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   </button>
                 </div>
               </li>
-              <li class=\\"css-1jhwa3k-StyledListItem e1vgl0rz1\\">
+              <li class=\\"css-1jhwa3k-StyledListItem e1e3bvuy1\\">
                 <div
                   data-popover-container=\\"true\\"
                   data-popover=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
@@ -384,7 +384,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     aria-controls=\\"\\"
                     data-state=\\"closed\\"
                     data-trigger=\\"true\\"
-                    class=\\"css-v2wg9h-StyledLicenseIcon e1vgl0rz0\\"
+                    class=\\"css-v2wg9h-StyledLicenseIcon e1e3bvuy0\\"
                   >
                     <svg
                       fill=\\"currentColor\\"
@@ -416,7 +416,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   </button>
                 </div>
               </li>
-              <li class=\\"css-1jhwa3k-StyledListItem e1vgl0rz1\\">
+              <li class=\\"css-1jhwa3k-StyledListItem e1e3bvuy1\\">
                 <div
                   data-popover-container=\\"true\\"
                   data-popover=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
@@ -429,7 +429,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     aria-controls=\\"\\"
                     data-state=\\"closed\\"
                     data-trigger=\\"true\\"
-                    class=\\"css-v2wg9h-StyledLicenseIcon e1vgl0rz0\\"
+                    class=\\"css-v2wg9h-StyledLicenseIcon e1e3bvuy0\\"
                   >
                     <svg
                       fill=\\"currentColor\\"
@@ -1044,7 +1044,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
         <h1 id=\\"heading-figure-1-2357\\" class=\\"c-figure-license__title\\">
           Regler for bruk av bildet:
         </h1>
-        <div class=\\"css-3yxr6g-StyledLicenseByline e1wma4210\\">
+        <div class=\\"css-3yxr6g-StyledLicenseByline e11vcrdk0\\">
           <div>
             <style data-emotion=\\"css 63d9qi-StyledList-StyledList\\">
               .css-63d9qi-StyledList-StyledList {
@@ -1071,7 +1071,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                 fill: #20588f;
               }
             </style>
-            <ul class=\\"css-63d9qi-StyledList-StyledList e1vg7nmp0\\">
+            <ul class=\\"css-63d9qi-StyledList-StyledList e1psngir0\\">
               <style data-emotion=\\"css 148j3a8-StyledListItem\\">
                 .css-148j3a8-StyledListItem {
                   display: -webkit-box;
@@ -1085,7 +1085,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                   color: #20588f;
                 }
               </style>
-              <li class=\\"css-148j3a8-StyledListItem e1vgl0rz1\\">
+              <li class=\\"css-148j3a8-StyledListItem e1e3bvuy1\\">
                 <style data-emotion=\\"css lsao9n-IconLineWrapper\\">
                   .css-lsao9n-IconLineWrapper {
                     display: -webkit-box;
@@ -1098,7 +1098,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                     align-items: center;
                   }
                 </style>
-                <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
+                <div class=\\"css-lsao9n-IconLineWrapper ez25ox70\\">
                   <div
                     data-popover-container=\\"true\\"
                     data-popover=\\"Denne lisensen gir deg rett til å dele og bruke dette innholdet på visse vilkår.\\"
@@ -1140,7 +1140,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       aria-controls=\\"\\"
                       data-state=\\"closed\\"
                       data-trigger=\\"true\\"
-                      class=\\"css-gitkzo-StyledLicenseIcon e1vgl0rz0\\"
+                      class=\\"css-gitkzo-StyledLicenseIcon e1e3bvuy0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1174,14 +1174,14 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       margin-left: 13px;
                     }
                   </style>
-                  <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
+                  <div class=\\"css-yfqdly-StyledLicenseLabel ez25ox71\\">
                     Denne lisensen gir deg rett til å dele og bruke dette
                     innholdet på visse vilkår.
                   </div>
                 </div>
               </li>
-              <li class=\\"css-148j3a8-StyledListItem e1vgl0rz1\\">
-                <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
+              <li class=\\"css-148j3a8-StyledListItem e1e3bvuy1\\">
+                <div class=\\"css-lsao9n-IconLineWrapper ez25ox70\\">
                   <div
                     data-popover-container=\\"true\\"
                     data-popover=\\"Du må alltid oppgi hvem som har laget innholdet.\\"
@@ -1194,7 +1194,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       aria-controls=\\"\\"
                       data-state=\\"closed\\"
                       data-trigger=\\"true\\"
-                      class=\\"css-gitkzo-StyledLicenseIcon e1vgl0rz0\\"
+                      class=\\"css-gitkzo-StyledLicenseIcon e1e3bvuy0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1225,13 +1225,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       </svg>
                     </button>
                   </div>
-                  <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
+                  <div class=\\"css-yfqdly-StyledLicenseLabel ez25ox71\\">
                     Du må alltid oppgi hvem som har laget innholdet.
                   </div>
                 </div>
               </li>
-              <li class=\\"css-148j3a8-StyledListItem e1vgl0rz1\\">
-                <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
+              <li class=\\"css-148j3a8-StyledListItem e1e3bvuy1\\">
+                <div class=\\"css-lsao9n-IconLineWrapper ez25ox70\\">
                   <div
                     data-popover-container=\\"true\\"
                     data-popover=\\"Du kan ikke tjene penger på bruk av dette innholdet.\\"
@@ -1244,7 +1244,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       aria-controls=\\"\\"
                       data-state=\\"closed\\"
                       data-trigger=\\"true\\"
-                      class=\\"css-gitkzo-StyledLicenseIcon e1vgl0rz0\\"
+                      class=\\"css-gitkzo-StyledLicenseIcon e1e3bvuy0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1275,13 +1275,13 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       </svg>
                     </button>
                   </div>
-                  <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
+                  <div class=\\"css-yfqdly-StyledLicenseLabel ez25ox71\\">
                     Du kan ikke tjene penger på bruk av dette innholdet.
                   </div>
                 </div>
               </li>
-              <li class=\\"css-148j3a8-StyledListItem e1vgl0rz1\\">
-                <div class=\\"css-lsao9n-IconLineWrapper euw6nt10\\">
+              <li class=\\"css-148j3a8-StyledListItem e1e3bvuy1\\">
+                <div class=\\"css-lsao9n-IconLineWrapper ez25ox70\\">
                   <div
                     data-popover-container=\\"true\\"
                     data-popover=\\"Du kan bare dele innholdet med samme lisens som det opprinnelige innholdet.\\"
@@ -1294,7 +1294,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       aria-controls=\\"\\"
                       data-state=\\"closed\\"
                       data-trigger=\\"true\\"
-                      class=\\"css-gitkzo-StyledLicenseIcon e1vgl0rz0\\"
+                      class=\\"css-gitkzo-StyledLicenseIcon e1e3bvuy0\\"
                     >
                       <svg
                         fill=\\"currentColor\\"
@@ -1325,7 +1325,7 @@ exports[`app/fetchAndTransformArticle 1036 2`] = `
                       </svg>
                     </button>
                   </div>
-                  <div class=\\"css-yfqdly-StyledLicenseLabel euw6nt11\\">
+                  <div class=\\"css-yfqdly-StyledLicenseLabel ez25ox71\\">
                     Du kan bare dele innholdet med samme lisens som det
                     opprinnelige innholdet.
                   </div>
