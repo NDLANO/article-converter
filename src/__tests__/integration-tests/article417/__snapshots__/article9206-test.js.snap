@@ -399,6 +399,7 @@ exports[`app/fetchAndTransformArticle 9206 2`] = `
               c-content-type-badge--small
               c-content-type-badge--background
               c-content-type-badge--border
+              c-icon--medium
             \\"
           >
             <svg
