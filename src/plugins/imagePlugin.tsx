@@ -18,7 +18,6 @@ import {
   ImageLink,
 } from '@ndla/ui';
 import uniqueId from 'lodash/uniqueId';
-import PropTypes from 'prop-types';
 import React from 'react';
 // @ts-ignore
 import Button, { StyledButton } from '@ndla/button';
@@ -125,6 +124,7 @@ function hideByline(size?: string): boolean {
 
 interface ImageWrapperProps {
   src: string;
+  altText: string;
   children: React.ReactNode;
   locale: LocaleType;
   crop?: {
@@ -136,28 +136,20 @@ interface ImageWrapperProps {
   size?: string;
 }
 
-function ImageWrapper({ src, crop, size, children, locale }: ImageWrapperProps) {
+function ImageWrapper({ src, altText, crop, size, children, locale }: ImageWrapperProps) {
   if (isSmall(size) || hideByline(size)) {
     return <>{children}</>;
   }
+  const ariaLabel = altText
+    ? `${altText} - ${t(locale, 'license.images.itemImage.ariaLabel')}`
+    : t(locale, 'license.images.itemImage.ariaLabel');
 
   return (
-    <ImageLink src={src} crop={crop} aria-label={t(locale, 'license.images.itemImage.ariaLabel')}>
+    <ImageLink src={src} crop={crop} aria-label={ariaLabel}>
       {children}
     </ImageLink>
   );
 }
-
-ImageWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-  src: PropTypes.string.isRequired,
-  crop: PropTypes.shape({
-    startX: PropTypes.number.isRequired,
-    startY: PropTypes.number.isRequired,
-    endX: PropTypes.number.isRequired,
-    endY: PropTypes.number.isRequired,
-  }),
-};
 
 interface ImageActionButtonsProps {
   copyString: string;
@@ -189,13 +181,6 @@ export const ImageActionButtons = ({
       </Anchor>
     </>
   );
-};
-
-ImageActionButtons.propTypes = {
-  copyString: PropTypes.string.isRequired,
-  locale: PropTypes.string.isRequired,
-  license: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
 };
 
 export interface ImageEmbed extends Embed<ImageEmbedData> {
@@ -393,7 +378,12 @@ export default function createImagePlugin(
         <Figure id={figureId} type={options.concept ? 'full-column' : figureType}>
           {({ typeClass }: { typeClass: string }) => (
             <>
-              <ImageWrapper src={imageUrl} crop={crop} size={size} locale={locale}>
+              <ImageWrapper
+                src={imageUrl}
+                altText={altText}
+                crop={crop}
+                size={size}
+                locale={locale}>
                 <Image
                   focalPoint={focalPoint}
                   contentType={contentType}
